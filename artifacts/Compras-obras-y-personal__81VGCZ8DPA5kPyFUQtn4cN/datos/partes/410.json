@@ -1,0 +1,27 @@
+{
+  "albs": [],
+  "cliente": "CHICHO DOS TUMBOS",
+  "desc": "Prensar terminales para bomba nueva\nConectar bomba\nConectar regulador de presión\nComprobar sentido de giro\nComprobar funcionamiento ok",
+  "devol": [],
+  "estado": "TERMINADO",
+  "fecha": "2026-09-03",
+  "horas": 2,
+  "obra": "CASA CHICHO 2 TUMBOS",
+  "ops": [
+    {
+      "h": 1,
+      "n": "Aythami"
+    },
+    {
+      "h": 1,
+      "n": "Joel"
+    }
+  ],
+  "stock": [
+    {
+      "d": "terminales cerrados hueco 8mm para cable 2,5",
+      "q": 4,
+      "u": ""
+    }
+  ]
+}

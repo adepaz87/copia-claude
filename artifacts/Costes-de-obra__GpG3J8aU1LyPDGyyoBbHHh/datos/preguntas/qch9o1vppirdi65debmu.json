@@ -1,0 +1,11 @@
+{
+  "aplicado": true,
+  "creada": "2026-10-28T18:59:10.725Z",
+  "docId": "ep0f3agv2h3ypwhicp6t",
+  "estado": "respondida",
+  "registro": "",
+  "respondida": "2026-10-28T19:00:39.362Z",
+  "respuesta": "REGISTRA EL DETALLE SOLO INDEPENDIENTE DE QUIEN VENGA. SOLO UNA VEZ",
+  "resultado": "No cambio nada: el responsable pide registrar el detalle una sola vez sin importar quién lo emita, y los registros existentes ya son únicamente de mano de obra (horas × 23 €/h), sin ningún registro de material que pueda duplicarlos, así que se mantiene ese detalle y no se añade el coste de material de 11.018,15 €.",
+  "texto": "Si Instapalma es una subcontrata, ¿quieres que registre este documento como un coste de material con base 11.018,15 €? Sería sin IGIC (771,27 €), y tendría que quitar las horas para no duplicar la mano de obra."
+}

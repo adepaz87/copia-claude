@@ -1,0 +1,19 @@
+{
+  "actualizada": "2026-08-21T09:00:00Z",
+  "aviso": "25870",
+  "centro": "Central Logística y Oficinas (Breña Baja)",
+  "creada": "2026-08-21T09:00:00Z",
+  "descripcion": "Revisión general de la instalación eléctrica tras apagones.",
+  "estado": "terminada",
+  "fechaAviso": "2026-08-21",
+  "historial": [
+    "21/08/2026 · Importada del correo de Alberto"
+  ],
+  "informado": true,
+  "notas": "Resuelta el 21/08/2026.",
+  "operario": "",
+  "ot": 40,
+  "prioridad": "Sin especificar",
+  "solicitante": "",
+  "tipo": "MANTENIMIENTO"
+}

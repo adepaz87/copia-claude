@@ -1,0 +1,34 @@
+{
+  "empresa": "Instapalma",
+  "fecha": "2026-02-19",
+  "lineas": [
+    {
+      "a": "VCTF-003207-2026",
+      "d": "CABLE BARRYFLEX RV-K 0,6 1KV 1X50MM2",
+      "dto": "Neto",
+      "f": "2026-02-19",
+      "i": 75.66,
+      "o": "CT. PARQUE ISLAS CAN",
+      "pn": 7.566,
+      "pt": 7.566,
+      "q": 10,
+      "r": "MIG-86210"
+    },
+    {
+      "a": "VCTF-003207-2026",
+      "d": "TERMINAL CU T-50/10",
+      "dto": "Neto",
+      "f": "2026-02-19",
+      "i": 10.13,
+      "o": "CT. PARQUE ISLAS CAN",
+      "pn": 1.013,
+      "pt": 1.013,
+      "q": 10,
+      "r": "SOF-010520"
+    }
+  ],
+  "numero": "FT-001197-2026",
+  "origen": "Gmail",
+  "proveedor": "Diexfe",
+  "tipo": "factura"
+}

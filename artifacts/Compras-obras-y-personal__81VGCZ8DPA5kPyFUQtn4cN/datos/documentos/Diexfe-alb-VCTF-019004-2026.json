@@ -1,0 +1,23 @@
+{
+  "empresa": "Instapalma",
+  "fecha": "2026-10-08",
+  "lineas": [
+    {
+      "a": "VCTF-019004-2026",
+      "d": "CAJA CONEX./DERIV.PVC 72/73 BL.NIEVE",
+      "dto": "45,00",
+      "f": "2026-10-08",
+      "i": 19.16,
+      "o": "LA PALMA",
+      "pn": 19.16,
+      "pt": 34.84,
+      "q": 1,
+      "r": "UNE-73471-2"
+    }
+  ],
+  "numero": "VCTF-019004-2026",
+  "obra": "LA PALMA",
+  "origen": "Gmail",
+  "proveedor": "Diexfe",
+  "tipo": "albaran"
+}

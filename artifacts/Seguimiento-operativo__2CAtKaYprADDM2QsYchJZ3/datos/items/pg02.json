@@ -1,0 +1,13 @@
+{
+  "actualizado": "2026-11-03T18:00:00Z",
+  "alta": "2026-11-03",
+  "cat": "pagos",
+  "estado": "pendiente",
+  "grupo": "Pagos pendientes",
+  "grupoOrden": 1,
+  "n": 2,
+  "nota": "Aparece dos veces en el informe.",
+  "origen": "informe 2026-11-03",
+  "prioridad": false,
+  "texto": "Cheche"
+}

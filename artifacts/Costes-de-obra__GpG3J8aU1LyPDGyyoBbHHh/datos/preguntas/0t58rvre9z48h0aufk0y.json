@@ -1,0 +1,11 @@
+{
+  "aplicado": true,
+  "creada": "2026-10-27T22:48:18.818Z",
+  "docId": "h55w3fmywqcd41xvkpay",
+  "estado": "respondida",
+  "registro": "material/g2lvpz7srarb8m0iyu8b",
+  "respondida": "2026-10-27T23:09:10.215Z",
+  "respuesta": "Ok. En sucesivas es lo mismo COVALLE que COOVALLE",
+  "resultado": "No cambio nada: el responsable confirma que el albarán corresponde a la obra (COVALLE y COOVALLE son lo mismo) y no hay datos que corregir en fecha, proveedor, número, concepto ni importe (129,19 €).",
+  "texto": "El albarán está a nombre de DELEDCAN, S.L. (cliente 4369) y no hay referencia a la obra COOVALLE: ¿es de esta obra? Además, las líneas suman 119,00 + 4,50 + 5,69 = 129,19 €, que cuadra con la base imponible, pero la fecha (27/05/2026) es anterior a otros albaranes de Coelca ya registrados, así que confirma que no es un duplicado de otro documento."
+}

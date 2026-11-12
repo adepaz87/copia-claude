@@ -1,0 +1,23 @@
+{
+  "empresa": "Instapalma",
+  "fecha": "2026-10-30",
+  "lineas": [
+    {
+      "a": "",
+      "d": "BANDEJA REJILLA BFR 150X65 MONTADA (110 m)",
+      "dto": "",
+      "f": "2026-10-30",
+      "i": 1870,
+      "igic": 7,
+      "o": "HOSPITAL DOLORES LA DEHESA TELECOMUNICACIONES",
+      "pn": 17,
+      "pt": 17,
+      "q": 110,
+      "r": ""
+    }
+  ],
+  "numero": "112600461",
+  "origen": "Gmail",
+  "proveedor": "José Carlos (Inst. Eléctricas)",
+  "tipo": "factura"
+}

@@ -1,0 +1,60 @@
+{
+  "albs": [
+    "Diexfe 016506",
+    "Diexfe 016495"
+  ],
+  "cliente": "TRAGSA",
+  "desc": "Entubando y colocación  de registros",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-09-02",
+  "horas": 16,
+  "obra": "HOSPITAL (MOD G)",
+  "ops": [
+    {
+      "h": 8,
+      "n": "Manuel"
+    },
+    {
+      "h": 8,
+      "n": "Juan"
+    }
+  ],
+  "stock": [
+    {
+      "d": "tubo coarrugado  de 20",
+      "q": 200,
+      "u": "m"
+    },
+    {
+      "d": "tubo corrugado  de 25",
+      "q": 150,
+      "u": "m"
+    },
+    {
+      "d": "bridas  de 300x4,8",
+      "q": 2,
+      "u": "paquetes"
+    },
+    {
+      "d": "pt 9",
+      "q": 2,
+      "u": ""
+    },
+    {
+      "d": "bolsas de bases bridas unex",
+      "q": 4,
+      "u": ""
+    },
+    {
+      "d": "tubo  coarrugado  de 40",
+      "q": 25,
+      "u": "m"
+    },
+    {
+      "d": "tubo corrugado de 32",
+      "q": 50,
+      "u": "m"
+    }
+  ]
+}

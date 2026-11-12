@@ -1,0 +1,23 @@
+{
+  "empresa": "Instapalma",
+  "fecha": "2026-07-01",
+  "lineas": [
+    {
+      "a": "01-26000355",
+      "d": "DOWNLIGHT ARCADIA 30W 4000K IP54 BLANCO (+ecoraee)",
+      "dto": "",
+      "f": "2026-06-19",
+      "i": 1534.83,
+      "igic": 7,
+      "o": "PLAZA GAZMIRA",
+      "pn": 46.51,
+      "pt": 46.51,
+      "q": 33,
+      "r": "190701251728"
+    }
+  ],
+  "numero": "F20260222",
+  "origen": "Gmail",
+  "proveedor": "Lightcan",
+  "tipo": "factura"
+}

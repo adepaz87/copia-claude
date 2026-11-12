@@ -1,0 +1,35 @@
+{
+  "abono": true,
+  "empresa": "Instapalma",
+  "fecha": "2026-10-15",
+  "lineas": [
+    {
+      "a": "VCTF-018914-2026",
+      "d": "ABONO CL-PULS IL 1P 10A 1M BLAN",
+      "dto": "53,00",
+      "f": "2026-10-07",
+      "i": -5.02,
+      "o": "EDIFICIO SABINO",
+      "pn": 5.02,
+      "pt": 10.68,
+      "q": -1,
+      "r": "BTI-RW4005L"
+    },
+    {
+      "a": "VCTF-018914-2026",
+      "d": "ABONO GENERAL                                      5,02",
+      "dto": "0,00",
+      "f": "2026-10-07",
+      "i": 0,
+      "o": "EDIFICIO SABINO",
+      "pn": 0,
+      "pt": 0.35,
+      "q": -7,
+      "r": "IGIC"
+    }
+  ],
+  "numero": "BT-001184-2026",
+  "origen": "Gmail",
+  "proveedor": "Diexfe",
+  "tipo": "factura"
+}

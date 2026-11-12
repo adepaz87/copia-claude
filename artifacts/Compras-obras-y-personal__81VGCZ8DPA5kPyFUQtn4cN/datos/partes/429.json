@@ -1,0 +1,57 @@
+{
+  "albs": [],
+  "cliente": "TRAGSA",
+  "desc": "Colocación de registros\nEntubar",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-09-08",
+  "horas": 16,
+  "obra": "HOSPITAL ( MOD G)",
+  "ops": [
+    {
+      "h": 8,
+      "n": "Manuel"
+    },
+    {
+      "h": 8,
+      "n": "Juan"
+    }
+  ],
+  "stock": [
+    {
+      "d": "tubo coarrugado  de 20",
+      "q": 200,
+      "u": "m"
+    },
+    {
+      "d": "tubo coarrugado  de 25",
+      "q": 75,
+      "u": "m"
+    },
+    {
+      "d": "tubo coarrugado  de 32",
+      "q": 50,
+      "u": "m"
+    },
+    {
+      "d": "tubo coarrugado  de 40",
+      "q": 25,
+      "u": "m"
+    },
+    {
+      "d": "bridas  de 300x4,8",
+      "q": 2,
+      "u": "paquetes"
+    },
+    {
+      "d": "clavos  Wurth",
+      "q": 1,
+      "u": "caja"
+    },
+    {
+      "d": "bolsa bases bridas  unex",
+      "q": 1,
+      "u": ""
+    }
+  ]
+}

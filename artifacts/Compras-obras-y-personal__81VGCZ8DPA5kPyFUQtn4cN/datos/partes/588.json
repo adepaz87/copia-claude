@@ -1,0 +1,24 @@
+{
+  "albs": [],
+  "cliente": "TRAGSA",
+  "desc": "Cargar cable en ayumar y llevarlo a la obra.\n\nDesconectar puentes existentes entre el CBT y el trafo, y desmontarlos.",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-09-29",
+  "horas": 4,
+  "obra": "CT. PLAZA GAZMIRA",
+  "ops": [
+    {
+      "h": 4,
+      "n": "Jorge"
+    }
+  ],
+  "stock": [
+    {
+      "d": "Cable (66m) y 21 terminales  de 240mm Aluminio. Cogido en ayumar",
+      "q": 1,
+      "u": "",
+      "x": 1
+    }
+  ]
+}

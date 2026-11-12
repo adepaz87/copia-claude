@@ -1,0 +1,34 @@
+{
+  "empresa": "Kairos Supply",
+  "fecha": "2026-03-23",
+  "lineas": [
+    {
+      "a": "VCTF-005490-2026",
+      "d": "PROY.LED ASIM.MHL XV2 ASYM 150W 21000LM",
+      "dto": "0,00",
+      "f": "2026-03-23",
+      "i": 1211.76,
+      "o": "CANCHA VELHOCO",
+      "pn": 151.47,
+      "pt": 151.47,
+      "q": 8,
+      "r": "ROB-MHLXV2150FA"
+    },
+    {
+      "a": "VCTF-005488-2026",
+      "d": "PROY.LED ASIM.MHL XV2 ASYM 100W 14000LM",
+      "dto": "0,00",
+      "f": "2026-03-23",
+      "i": 1484.67,
+      "o": "CANCHA VELHOCO",
+      "pn": 148.467,
+      "pt": 148.467,
+      "q": 10,
+      "r": "ROB-MHLXV2100FA"
+    }
+  ],
+  "numero": "FT-001678-2026",
+  "origen": "Gmail",
+  "proveedor": "Diexfe",
+  "tipo": "factura"
+}

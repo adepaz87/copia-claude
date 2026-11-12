@@ -1,0 +1,21 @@
+{
+  "albs": [],
+  "cliente": "TRAGSA",
+  "desc": "Instalar bandeja en cuarto de cuadro general.\nInstalar cuadro S/P en cuarto de cuadro general.\nEnhebrar y enbridar líneas por bandeja.\nRecuento de iluminación y materiales que faltan.",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-10-14",
+  "horas": 15,
+  "obra": "FV RIACHUELO",
+  "ops": [
+    {
+      "h": 8,
+      "n": "Toño"
+    },
+    {
+      "h": 7,
+      "n": "Jonathan Glez"
+    }
+  ],
+  "stock": []
+}

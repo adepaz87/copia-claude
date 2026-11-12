@@ -1,0 +1,45 @@
+{
+  "albs": [
+    "Diexfe 013697",
+    "Diexfe 014095",
+    "Sastre 26/-3131"
+  ],
+  "cliente": "TOMÁS BARRETO",
+  "desc": "Colocación y conexionado lámparas en terraza exterior y habitación principal apartamento izquierdo \nBuscar tubos sobre falso techo y enhebrar línea para tira led RGB W\nColocación y conexionado tira led RGB W en apartamento derecho (transformadores ,controladores, etc…)\nColocar caja mecanismo pladur en terrazas más placas (jacuzzi)\nLimpiar zonas de trabajo",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-09-10",
+  "horas": 24,
+  "obra": "APARTAMENTOS SPAR TRIANA",
+  "ops": [
+    {
+      "h": 8,
+      "n": "Rafael"
+    },
+    {
+      "h": 8,
+      "n": "Petter"
+    },
+    {
+      "h": 8,
+      "n": "Jonathan Rodríguez"
+    }
+  ],
+  "stock": [
+    {
+      "d": "Tornillos 4,5x40",
+      "q": 10,
+      "u": "ud"
+    },
+    {
+      "d": "Tacos 6x30",
+      "q": 10,
+      "u": "ud"
+    },
+    {
+      "d": "Cable seguridad 04x0,2+2x0,7",
+      "q": 10,
+      "u": "m"
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "albs": [],
+  "cliente": "CHICHO 2 TUMBOS",
+  "desc": "Enebrar tierras centralización\nColocar seccionadores tierra \nConectar derivaciones centralización\nEnebrar alumbrado y fuerza cuarto contadores",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-10-07",
+  "horas": 37,
+  "obra": "EDIFICIO SABINO",
+  "ops": [
+    {
+      "h": 9,
+      "n": "Riki"
+    },
+    {
+      "h": 10,
+      "n": "Joel"
+    },
+    {
+      "h": 10,
+      "n": "Aythami"
+    },
+    {
+      "h": 8,
+      "n": "Junior"
+    }
+  ],
+  "stock": [
+    {
+      "d": "seccionamiento",
+      "q": 4,
+      "u": "cajas"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "actualizada": "2026-08-28T09:00:00Z",
+  "aviso": "26489",
+  "centro": "SPAR San Antonio",
+  "creada": "2026-08-28T09:00:00Z",
+  "descripcion": "La UPS no funcionaba; se pasó a corriente normal.",
+  "estado": "terminada",
+  "fechaAviso": "2026-08-28",
+  "historial": [
+    "28/08/2026 · Importada del correo de Alberto"
+  ],
+  "informado": true,
+  "notas": "Resuelta el 28/08/2026.",
+  "operario": "Toño Guardia",
+  "ot": 71,
+  "prioridad": "Sin especificar",
+  "solicitante": "",
+  "tipo": "MANTENIMIENTO"
+}

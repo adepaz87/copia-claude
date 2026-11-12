@@ -1,0 +1,37 @@
+{
+  "empresa": "Instapalma",
+  "fecha": "2026-11-04",
+  "lineas": [
+    {
+      "a": "VCTF-020761-2026",
+      "d": "CABLE AFIRENAX-X RZ1-K 0,6/1KV 3G16MM2",
+      "dto": "Neto",
+      "f": "2026-11-04",
+      "i": 1012.19,
+      "o": "HOSPITAL MODULO G",
+      "pn": 7.97,
+      "pt": 7.97,
+      "q": 127,
+      "r": "MIG-84070"
+    },
+    {
+      "a": "VCTF-020761-2026",
+      "d": "CABLE AFIRENAX-X RZ1-K 0,6/1KV 3G10MM2",
+      "dto": "Neto",
+      "f": "2026-11-04",
+      "i": 968.06,
+      "o": "HOSPITAL MODULO G",
+      "pn": 4.99,
+      "pt": 4.99,
+      "q": 194,
+      "r": "MIG-84025"
+    }
+  ],
+  "msg": "1a1a6d5e7925858d",
+  "numero": "VCTF-020761-2026",
+  "obra": "HOSPITAL MODULO G",
+  "origen": "Gmail",
+  "proveedor": "Diexfe",
+  "tipo": "albaran",
+  "total": 1980.25
+}

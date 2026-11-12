@@ -1,0 +1,56 @@
+{
+  "base": 351,
+  "cliente": "TOMÁS BARRETO SA",
+  "creado": "2026-11-09T20:06:52.754Z",
+  "cuota": 24.57,
+  "desde": "2026-10-01",
+  "envios": [
+    {
+      "adj": [
+        "Partes del mes",
+        "Relación valorada",
+        "Factura"
+      ],
+      "asunto": "FACTURA · Central TBSA · TOMÁS BARRETO SA",
+      "cc": [],
+      "t": "2026-11-09T20:08:25.109Z",
+      "to": [
+        "rbarrera@tomasbarretosa.com",
+        "fconcepcion@tomasbarretosa.com"
+      ]
+    }
+  ],
+  "fecha": "2026-10-01",
+  "hasta": "2026-10-31",
+  "holded": {
+    "id": "de03b51f898a3f7cc739aaaf1d26e065",
+    "nombre": "2026-0195 Tomás Barreto SA.pdf",
+    "t": "2026-11-09T20:08:08.677Z",
+    "url": "/_blob/de03b51f898a3f7cc739aaaf1d26e065"
+  },
+  "igic": 7,
+  "lineas": [
+    {
+      "d": "Mano de obra",
+      "imp": 351,
+      "ks": [
+        "h|672|TONO|0",
+        "h|714|TONO|0",
+        "h|722|TONO|0",
+        "h|784|GOYO|0"
+      ],
+      "pu": 27,
+      "q": 13,
+      "tipo": "horas",
+      "u": "h"
+    }
+  ],
+  "manoObra": 351,
+  "material": 0,
+  "mg": 35,
+  "numero": "ADM-2026-007",
+  "obra": "central-tbsa",
+  "obraNombre": "Central TBSA",
+  "ph": 27,
+  "total": 375.57
+}

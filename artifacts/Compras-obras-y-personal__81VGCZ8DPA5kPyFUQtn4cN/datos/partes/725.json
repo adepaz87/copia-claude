@@ -1,0 +1,21 @@
+{
+  "albs": [],
+  "cliente": "DRAGADOS",
+  "desc": "Desmontar cuadro luz de obra y retirar cable.",
+  "devol": [],
+  "estado": "TERMINADO",
+  "fecha": "2026-10-19",
+  "horas": 2,
+  "obra": "HOTEL MONTERREY",
+  "ops": [
+    {
+      "h": 1,
+      "n": "Antonio"
+    },
+    {
+      "h": 1,
+      "n": "Iker"
+    }
+  ],
+  "stock": []
+}

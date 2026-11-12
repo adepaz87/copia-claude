@@ -1,0 +1,23 @@
+{
+  "empresa": "Instapalma",
+  "fecha": "2026-09-07",
+  "lineas": [
+    {
+      "a": "8166799630",
+      "d": "CLAVO 3X27 MM CARGA GAS",
+      "dto": "",
+      "f": "2026-09-07",
+      "i": 222.08,
+      "igic": 7,
+      "o": "HOSPITAL",
+      "pn": 0.2776,
+      "pt": 0.2776,
+      "q": 800,
+      "r": "0864953327961"
+    }
+  ],
+  "numero": "4088348122",
+  "origen": "Gmail",
+  "proveedor": "Würth",
+  "tipo": "factura"
+}

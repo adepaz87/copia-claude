@@ -1,0 +1,41 @@
+{
+  "albs": [],
+  "cliente": "TRAGSA",
+  "desc": "Instalar bandeja en cuarto del Inversor.\nCortar carril perforado e instalarlo.\nElaboración de cuadro eléctricos.\nInstalar cuadro y aparamenta de CC.\nPreparar latiguillos e instalar conectores MC4 para puentes del inversor al cuadro de CC.",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-09-09",
+  "horas": 21.5,
+  "obra": "FV CENTRO DE VISITANTES",
+  "ops": [
+    {
+      "h": 8,
+      "n": "Toño"
+    },
+    {
+      "h": 8,
+      "n": "Adán"
+    },
+    {
+      "h": 5.5,
+      "n": "Jonathan Glez"
+    }
+  ],
+  "stock": [
+    {
+      "d": "bandeja + tapa de 200x60mm",
+      "q": 6,
+      "u": "m"
+    },
+    {
+      "d": "carril perforado",
+      "q": 2,
+      "u": "m"
+    },
+    {
+      "d": "uniones de bandeja",
+      "q": 10,
+      "u": ""
+    }
+  ]
+}

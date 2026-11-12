@@ -1,0 +1,19 @@
+{
+  "actualizada": "2026-10-15T09:00:00Z",
+  "aviso": "",
+  "centro": "Grupos electrógenos TBSA",
+  "creada": "2026-10-15T09:00:00Z",
+  "descripcion": "Mantenimiento de los grupos electrógenos de TBSA (centros y equipos por confirmar). Plazo objetivo 31/12/2026.",
+  "estado": "terminada",
+  "fechaAviso": "2026-10-15",
+  "historial": [
+    "15/10/2026 · Importada del correo de Alberto"
+  ],
+  "informado": true,
+  "notas": "Resuelta según Toño por WhatsApp el 19/10/2026.",
+  "operario": "Toño Guardia",
+  "ot": 87,
+  "prioridad": "Sin especificar",
+  "solicitante": "",
+  "tipo": "MANTENIMIENTO"
+}

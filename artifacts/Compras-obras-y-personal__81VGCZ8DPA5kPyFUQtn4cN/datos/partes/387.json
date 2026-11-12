@@ -1,0 +1,41 @@
+{
+  "albs": [
+    "Ayumar 2-812",
+    "Coelca 184.239/018",
+    "Coelca 184.241/018"
+  ],
+  "cliente": "CLÍNICA DENTAL MANSILLA",
+  "desc": "Cambiar línea de lavavajillas( mordida x ratones y saltaba diferencial)\nCambiar chasis sobre pollo rotos\nColocar portalámparas y bombillo provisional en habitación (aplique roto)\nCambiar fuente alimentación vídeo portero y regular volumen portero\nEntubar balizas entrada\nEnebrar balizas entrada\nFijar balizas y conectarlas\nEntubar cueva zona garaje",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-09-01",
+  "horas": 14,
+  "obra": "CASA ADRIANA MARTÍN",
+  "ops": [
+    {
+      "h": 7,
+      "n": "Aythami"
+    },
+    {
+      "h": 7,
+      "n": "Joel"
+    }
+  ],
+  "stock": [
+    {
+      "d": "cable 2,5",
+      "q": 30,
+      "u": "m"
+    },
+    {
+      "d": "tubo cuarrugado de 25",
+      "q": 100,
+      "u": "m"
+    },
+    {
+      "d": "tubo cuarrugado de 20",
+      "q": 100,
+      "u": "m"
+    }
+  ]
+}

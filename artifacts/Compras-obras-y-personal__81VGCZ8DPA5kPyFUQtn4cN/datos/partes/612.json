@@ -1,0 +1,24 @@
+{
+  "albs": [],
+  "cliente": "INSTAPALMA",
+  "desc": "Elaborar arquetas",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-10-01",
+  "horas": 8,
+  "obra": "ZANJA COVALLE",
+  "ops": [
+    {
+      "h": 8,
+      "n": "Luigi"
+    }
+  ],
+  "stock": [
+    {
+      "d": "Min",
+      "q": 1,
+      "u": "",
+      "x": 1
+    }
+  ]
+}

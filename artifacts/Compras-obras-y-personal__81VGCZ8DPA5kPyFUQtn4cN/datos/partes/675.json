@@ -1,0 +1,37 @@
+{
+  "albs": [],
+  "cliente": "RAICO",
+  "desc": "Picar\nDesmontaje  de instalación\nDesmontaje  de cuadros",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-10-13",
+  "horas": 16,
+  "obra": "CAFÉ DONDE MANUEL",
+  "ops": [
+    {
+      "h": 8,
+      "n": "Manuel"
+    },
+    {
+      "h": 8,
+      "n": "Juan"
+    }
+  ],
+  "stock": [
+    {
+      "d": "bases bridas",
+      "q": 1,
+      "u": "caja"
+    },
+    {
+      "d": "bridas  de 4,8x300",
+      "q": 2,
+      "u": "paquetes"
+    },
+    {
+      "d": "tacos y tornillos  de 6mm",
+      "q": 1,
+      "u": "caja"
+    }
+  ]
+}

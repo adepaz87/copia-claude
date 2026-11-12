@@ -1,0 +1,21 @@
+{
+  "albs": [],
+  "cliente": "COVALLE",
+  "desc": "Colocación y conexionado línea tierra a la bandeja rejiband 400x100 y 200x100\nEnhebrar línea alumbrado,alumbrado emergencia,fuerza,etc…por bandeja rejiband pasillos planta baja ,conexionado caja registro. \nEnhebrar maniobra encendido nave hasta interruptores \nRealizar entubado en planta baja (pasillos,comedor,baño…)\nLimpiar zona de trabajo",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-09-28",
+  "horas": 21,
+  "obra": "NAVE COOPERATIVA COVALLE",
+  "ops": [
+    {
+      "h": 11,
+      "n": "Petter"
+    },
+    {
+      "h": 10,
+      "n": "Jonathan Rodríguez"
+    }
+  ],
+  "stock": []
+}

@@ -1,0 +1,19 @@
+{
+  "actualizada": "2026-09-01T09:00:00Z",
+  "aviso": "",
+  "centro": "SPAR San Pedro",
+  "creada": "2026-09-01T09:00:00Z",
+  "descripcion": "Fallo de alumbrado en cámaras y vitrinas / máquinas de frío.",
+  "estado": "terminada",
+  "fechaAviso": "2026-09-01",
+  "historial": [
+    "01/09/2026 · Importada del correo de Alberto"
+  ],
+  "informado": true,
+  "notas": "Resuelta el 01/09/2026.",
+  "operario": "Toño Guardia",
+  "ot": 69,
+  "prioridad": "Sin especificar",
+  "solicitante": "",
+  "tipo": "MANTENIMIENTO"
+}

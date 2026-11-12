@@ -1,0 +1,151 @@
+{
+  "actualizado": "2026-10-19",
+  "adjudicacion": "Decreto del Presidente nº 2026/22, de 07/01/2026",
+  "certificaciones": [
+    {
+      "fecha": "2026-02-05",
+      "importe": 66947.1,
+      "n": "1",
+      "periodo": "Enero 2026"
+    },
+    {
+      "fecha": "2026-03-12",
+      "importe": 152829.17,
+      "n": "2",
+      "periodo": "Febrero 2026"
+    },
+    {
+      "fecha": "2026-04-16",
+      "importe": 101038.81,
+      "n": "3",
+      "periodo": "Marzo 2026"
+    },
+    {
+      "fecha": "2026-05-12",
+      "importe": 28926.83,
+      "n": "4",
+      "periodo": "Abril 2026"
+    },
+    {
+      "fecha": "2026-06-01",
+      "importe": 285479.4,
+      "n": "5",
+      "periodo": "Mayo 2026"
+    },
+    {
+      "fecha": "2026-07-13",
+      "importe": 195832.65,
+      "n": "6",
+      "periodo": "Junio 2026"
+    },
+    {
+      "fecha": "2026-09-02",
+      "importe": 126023.58,
+      "n": "7",
+      "periodo": "Julio 2026"
+    }
+  ],
+  "cliente": "Cabildo Insular de La Palma (Servicio de Residuos)",
+  "codigo": "22/2025/PREV-CONT",
+  "contratista": "Domingo Jesús Martín García",
+  "creado": "2026-10-19",
+  "documentos": [
+    {
+      "fecha": "2026-01-15",
+      "nombre": "Comunicación de apertura de centro de trabajo",
+      "nota": "Presentada por el contratista; actividad 4102, mutua MAC"
+    },
+    {
+      "fecha": "2026-01-20",
+      "nombre": "Habilitación del Libro de Subcontratación",
+      "nota": "Solicitada por el contratista (REA 05/38/0000343); promotor Cabildo Insular de La Palma"
+    },
+    {
+      "fecha": "2026-01-22",
+      "nombre": "Acta de precios unitarios (nº 1)",
+      "nota": "Cuadro de precios de ejecución material del contrato de emergencia"
+    },
+    {
+      "fecha": "2026-01-23",
+      "nombre": "Acta de comprobación de replanteo",
+      "nota": "Firmada por contratista, DF y responsable del contrato"
+    },
+    {
+      "fecha": "2026-01-26",
+      "nombre": "Informe técnico nº 1",
+      "nota": "Redefinición de muros y accesos por la geometría real de la parcela; firmado el 28/01/2026"
+    },
+    {
+      "fecha": "2026-01-27",
+      "nombre": "Acta de precios unitarios nº 2",
+      "nota": "Precios nuevos derivados del replanteo y precios de Seguridad y salud"
+    },
+    {
+      "fecha": "",
+      "nombre": "Planos compilados Planta RSU",
+      "nota": "37 páginas"
+    },
+    {
+      "fecha": "2026-09-02",
+      "nombre": "Certificaciones nº 1 a 7 (carátulas y detalle)",
+      "nota": "Última: nº 7, julio 2026. Carátula nº 1 con 66.947,10 €; su relación valorada da 66.497,10 €"
+    },
+    {
+      "fecha": "2026-10-19",
+      "nombre": "Informe DF para la prórroga del plazo (con cronograma, Anexo I)",
+      "nota": "Propone prórroga de 251 días y nuevo fin el 31/03/2027"
+    }
+  ],
+  "estado": "En ejecución",
+  "expediente": "22/2025/PREV-CONT",
+  "fechaFinContractual": "2026-07-23",
+  "fechaFinPrevista": "2027-03-31",
+  "fechaInicio": "2026-01-23",
+  "hitos": [
+    {
+      "fecha": "2026-01-07",
+      "texto": "Adjudicación por emergencia (Decreto 2026/22)"
+    },
+    {
+      "fecha": "2026-01-15",
+      "texto": "Comunicación de apertura del centro de trabajo"
+    },
+    {
+      "fecha": "2026-01-20",
+      "texto": "Habilitación del Libro de Subcontratación"
+    },
+    {
+      "fecha": "2026-01-22",
+      "texto": "Acta de precios unitarios nº 1"
+    },
+    {
+      "fecha": "2026-01-23",
+      "texto": "Comprobación de replanteo e inicio de obra"
+    },
+    {
+      "fecha": "2026-01-26",
+      "texto": "Informe técnico nº 1: redefinición de muros y accesos"
+    },
+    {
+      "fecha": "2026-01-27",
+      "texto": "Acta de precios unitarios nº 2"
+    },
+    {
+      "fecha": "2026-07-23",
+      "texto": "Vence el plazo contractual"
+    },
+    {
+      "fecha": "2026-10-19",
+      "texto": "Informe DF de prórroga: 251 días, fin previsto 31/03/2027"
+    }
+  ],
+  "importeAdjudicacion": 1979492.85,
+  "importeNota": "IGIC 7 % incluido; responsable del contrato: D. Domingo Alberto Hernández Barrios",
+  "municipio": "Los Llanos de Aridane",
+  "nombre": "Reconstrucción de la Planta de Transferencia de Residuos en el Callejón de la Gata",
+  "notas": "Fabricantes de equipos: SECOM (planta de transferencia reversible, con sistema anti-volados pedido por la Administración) y GRANALU (semirremolques de piso móvil, ya fabricados y en tránsito).\nPendiente: parte del desmonte del Informe técnico nº 1, plataforma, instalaciones y montaje de la planta (llegada prevista enero 2027).\nBarandillas ejecutadas, a certificar en la próxima certificación.",
+  "plazo": "6 meses; prórroga propuesta de 251 días",
+  "procedimiento": "Emergencia (art. 120 LCSP)",
+  "rol": "Autor del proyecto, Director de obra y Coordinador de Seguridad y Salud",
+  "situacion": "Polígono Industrial de Callejón de La Gata, T.M. Los Llanos de Aridane"
+}

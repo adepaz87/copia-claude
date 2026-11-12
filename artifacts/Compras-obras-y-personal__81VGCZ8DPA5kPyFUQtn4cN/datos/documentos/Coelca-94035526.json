@@ -1,0 +1,93 @@
+{
+  "empresa": "Instapalma",
+  "fecha": "2026-09-29",
+  "lineas": [
+    {
+      "a": "184.495/018",
+      "d": "TUBO LED 8W 60C 4K 800LM",
+      "f": "2026-09-18",
+      "fab": "PHI-54113600",
+      "i": 14.2,
+      "o": "matadero",
+      "pn": 3.55,
+      "pt": 3.25,
+      "q": 4,
+      "r": "59245500"
+    },
+    {
+      "a": "184.521/018",
+      "d": "CAJA DERIV.100x100x50 IP55",
+      "f": "2026-09-21",
+      "fab": "GEW-GW44024",
+      "i": 28.91,
+      "o": "VIVIENDAS EL TANQUE",
+      "pn": 1.9273,
+      "pt": 1.927,
+      "q": 15,
+      "r": "944024"
+    },
+    {
+      "a": "184.577/018",
+      "d": "LUBRI LIMP/0 AEROSOL 335ml",
+      "f": "2026-09-23",
+      "fab": "LAP-LUBRI LIMP/0",
+      "i": 8.23,
+      "o": "OBRA SABINO",
+      "pn": 8.23,
+      "pt": 8.227,
+      "q": 1,
+      "r": "30040"
+    },
+    {
+      "a": "35.155/003",
+      "d": "PU-2/66 PERTIGA MANIO.2M 66KV",
+      "f": "2026-09-24",
+      "fab": "SOF-605110",
+      "i": 65.14,
+      "o": "CT TRAGSA EL PASO",
+      "pn": 65.14,
+      "pt": 65.14,
+      "q": 1,
+      "r": "16528"
+    },
+    {
+      "a": "35.155/003",
+      "d": "GUANTE DIELECT. T10 CL3 30KV",
+      "f": "2026-09-24",
+      "fab": "SOF-530280",
+      "i": 64.83,
+      "o": "CT TRAGSA EL PASO",
+      "pn": 64.83,
+      "pt": 64.83,
+      "q": 1,
+      "r": "16537"
+    },
+    {
+      "a": "35.155/003",
+      "d": "BANQUETA AISLANTE 45KV STM-45",
+      "f": "2026-09-24",
+      "fab": "SOF-580155",
+      "i": 59.7,
+      "o": "CT TRAGSA EL PASO",
+      "pn": 59.7,
+      "pt": 59.702,
+      "q": 1,
+      "r": "16570"
+    },
+    {
+      "a": "35.242/003",
+      "d": "INT.ASTRONOMIC ASTRO NOVA CITY OB178012",
+      "f": "2026-09-29",
+      "i": 220,
+      "o": "LOCAL SASTRE EL PUENTE",
+      "pn": 220,
+      "pt": 220,
+      "q": 1,
+      "r": "11331"
+    }
+  ],
+  "numero": "94035526",
+  "origen": "Gmail",
+  "proveedor": "Coelca",
+  "tipo": "factura"
+}

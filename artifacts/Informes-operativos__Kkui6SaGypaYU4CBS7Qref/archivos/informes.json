@@ -1,0 +1,58 @@
+{
+ "informes": [
+  {
+   "fecha": "2026-11-12",
+   "archivo": "informes/20261112.pdf",
+   "urgentes": 27,
+   "paginas": 5
+  },
+  {
+   "fecha": "2026-11-11",
+   "archivo": "informes/20261111.pdf",
+   "urgentes": 27,
+   "paginas": 5
+  },
+  {
+   "fecha": "2026-11-10",
+   "archivo": "informes/20261110.pdf",
+   "urgentes": 27,
+   "paginas": 5
+  },
+  {
+   "fecha": "2026-11-09",
+   "archivo": "informes/20261109.pdf",
+   "urgentes": 27,
+   "paginas": 5
+  },
+  {
+   "fecha": "2026-11-08",
+   "archivo": "informes/20261108.pdf",
+   "urgentes": 27,
+   "paginas": 5
+  },
+  {
+   "fecha": "2026-11-07",
+   "archivo": "informes/20261107.pdf",
+   "urgentes": 27,
+   "paginas": 5
+  },
+  {
+   "fecha": "2026-11-06",
+   "archivo": "informes/20261106.pdf",
+   "urgentes": 27,
+   "paginas": 5
+  },
+  {
+   "fecha": "2026-11-05",
+   "archivo": "informes/20261105.pdf",
+   "urgentes": 27,
+   "paginas": 5
+  },
+  {
+   "fecha": "2026-11-04",
+   "archivo": "informes/20261104.pdf",
+   "urgentes": 27,
+   "paginas": 5
+  }
+ ]
+}

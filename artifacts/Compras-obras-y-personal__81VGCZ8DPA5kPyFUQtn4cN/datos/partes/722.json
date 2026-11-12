@@ -1,0 +1,17 @@
+{
+  "albs": [],
+  "cliente": "TOMÁS BARRETO SA",
+  "desc": "Avería alumbrado pasillos cámaras.Mediciones comprobados saneamiento conexiones luminarias pasillos humedades.Funcionando.",
+  "devol": [],
+  "estado": "TERMINADO",
+  "fecha": "2026-10-19",
+  "horas": 1.5,
+  "obra": "CENTRAL TBSA.",
+  "ops": [
+    {
+      "h": 1.5,
+      "n": "Toño"
+    }
+  ],
+  "stock": []
+}

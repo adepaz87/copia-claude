@@ -1,0 +1,26 @@
+{
+  "actualizada": "2026-11-04T11:15:00Z",
+  "asignadaEn": "2026-11-03T19:39:49.626Z",
+  "avisadoWa": "2026-11-03T19:39:53.673Z",
+  "aviso": "27272",
+  "centro": "SPAR Fuencaliente",
+  "creada": "2026-11-03T10:00:00Z",
+  "descripcion": "Regulación de relojes horarios por cambio de hora.",
+  "estado": "terminada",
+  "fechaAviso": "2026-10-30",
+  "historial": [
+    "03/11/2026 · Importada de la captura GIM de Raquel",
+    "3/11/2026 19:39 · Asignada a Toño Guardia",
+    "3/11/2026 19:39 · Asignación: Correo enviado a TBSA · WhatsApp a Toño Guardia programado",
+    "4/11/2026 11:03 · Toño Guardia por WhatsApp: «OT GIM 27272 resuelto»",
+    "4/11/2026 11:15 · Cierre: correo a TBSA y WhatsApp a Fernando"
+  ],
+  "informado": true,
+  "notas": "Nº OT provisional: confirmar o cambiar.",
+  "operario": "Toño Guardia",
+  "ot": 104,
+  "prioridad": "Sin especificar",
+  "solicitante": "Raquel",
+  "terminadaEn": "2026-11-04T11:03:00Z",
+  "tipo": "MANTENIMIENTO"
+}

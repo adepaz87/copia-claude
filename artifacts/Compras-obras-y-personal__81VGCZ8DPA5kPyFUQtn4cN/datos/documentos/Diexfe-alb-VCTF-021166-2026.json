@@ -1,0 +1,61 @@
+{
+  "empresa": "Instapalma",
+  "fecha": "2026-11-10",
+  "lineas": [
+    {
+      "a": "VCTF-021166-2026",
+      "d": "TUBO AISCAN-B BLIND.D.25 ENCHUFABLE GR",
+      "dto": "Neto",
+      "f": "2026-11-10",
+      "i": 103.06,
+      "o": "NAVA COVALLE(PCI)",
+      "pn": 0.904,
+      "pt": 0.904,
+      "q": 114,
+      "r": "AIS-BGE25"
+    },
+    {
+      "a": "VCTF-021166-2026",
+      "d": "MANGUERA ELECTROFLEX-IT PVC M25 GRIS CLARO ROLLO 25M",
+      "dto": "0,00",
+      "f": "2026-11-10",
+      "i": 43.58,
+      "o": "NAVA COVALLE(PCI)",
+      "pn": 1.7432,
+      "pt": 1.743,
+      "q": 25,
+      "r": "GAE-925.2500.0-R25"
+    },
+    {
+      "a": "VCTF-021166-2026",
+      "d": "MANGUITO UNION MIXTO LH D.25 GR.",
+      "dto": "Neto",
+      "f": "2026-11-10",
+      "i": 19.74,
+      "o": "NAVA COVALLE(PCI)",
+      "pn": 0.987,
+      "pt": 0.987,
+      "q": 20,
+      "r": "GAE-246.2500.0"
+    },
+    {
+      "a": "VCTF-021166-2026",
+      "d": "ML CABLE DETECTOR INCENDIOS APANT. 2X1,5 LH (DCA) TRAPF-215AL LH",
+      "dto": "0,00",
+      "f": "2026-11-10",
+      "i": 368.5,
+      "o": "NAVA COVALLE(PCI)",
+      "pn": 0.737,
+      "pt": 0.737,
+      "q": 500,
+      "r": "GES-38CPTFP0175B96"
+    }
+  ],
+  "msg": "1a1c573d0ba20857",
+  "numero": "VCTF-021166-2026",
+  "obra": "NAVA COVALLE(PCI)",
+  "origen": "Gmail",
+  "proveedor": "Diexfe",
+  "tipo": "albaran",
+  "total": 534.88
+}

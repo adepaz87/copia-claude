@@ -1,0 +1,17 @@
+{
+  "albs": [],
+  "cliente": "TOMÁS BARRETO SA",
+  "desc": "Mediciones listado materiales para FV. Lineas de enlace a cuadros General.",
+  "devol": [],
+  "estado": "TERMINADO",
+  "fecha": "2026-09-02",
+  "horas": 1.5,
+  "obra": "SPAR TRIANA",
+  "ops": [
+    {
+      "h": 1.5,
+      "n": "Toño"
+    }
+  ],
+  "stock": []
+}

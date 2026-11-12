@@ -1,0 +1,23 @@
+{
+  "empresa": "Instapalma",
+  "fecha": "2026-09-30",
+  "lineas": [
+    {
+      "a": "",
+      "d": "SERVICIO DE GRUA EN LA LAGUNA DESCARGA PLATAFORMA DE FAROLAS",
+      "dto": "",
+      "f": "2026-09-30",
+      "i": 200,
+      "igic": 7,
+      "o": "",
+      "pn": 200,
+      "pt": 200,
+      "q": 1,
+      "r": ""
+    }
+  ],
+  "numero": "1840",
+  "origen": "Gmail",
+  "proveedor": "Grúas David García",
+  "tipo": "factura"
+}

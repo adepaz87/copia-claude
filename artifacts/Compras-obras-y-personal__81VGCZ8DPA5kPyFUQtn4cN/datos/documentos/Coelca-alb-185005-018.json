@@ -1,0 +1,59 @@
+{
+  "empresa": "Instapalma",
+  "fecha": "2026-10-19",
+  "lineas": [
+    {
+      "a": "185.005/018",
+      "d": "PILOTO ROJO",
+      "f": "2026-10-19",
+      "fab": "216772",
+      "i": 4.95,
+      "o": "MATADERO INSULAR",
+      "pn": 4.95,
+      "pt": 4.95,
+      "q": 1,
+      "r": "76302"
+    },
+    {
+      "a": "185.005/018",
+      "d": "BASE 16A PVC FACIL NEGRO",
+      "f": "2026-10-19",
+      "fab": "SOL-707C",
+      "i": 7.93,
+      "o": "MATADERO INSULAR",
+      "pn": 3.965,
+      "pt": 3.963,
+      "q": 2,
+      "r": "867074"
+    },
+    {
+      "a": "185.005/018",
+      "d": "CLAVIJA 16A PVC FACIL NEGRO",
+      "f": "2026-10-19",
+      "fab": "SOL-706C",
+      "i": 7.18,
+      "o": "MATADERO INSULAR",
+      "pn": 3.59,
+      "pt": 3.589,
+      "q": 2,
+      "r": "867064"
+    },
+    {
+      "a": "185.005/018",
+      "d": "SOPORTE DE FIJACION",
+      "f": "2026-10-19",
+      "fab": "216374",
+      "i": 2.49,
+      "o": "MATADERO INSULAR",
+      "pn": 2.49,
+      "pt": 2.49,
+      "q": 1,
+      "r": "76308"
+    }
+  ],
+  "numero": "185.005/018",
+  "obra": "MATADERO INSULAR",
+  "origen": "Gmail",
+  "proveedor": "Coelca",
+  "tipo": "albaran"
+}

@@ -1,0 +1,23 @@
+{
+  "empresa": "Instapalma",
+  "fecha": "2026-10-15",
+  "lineas": [
+    {
+      "a": "",
+      "d": "CONTROL DE AGUA Y LLENADO DE COMBUSTIBLE (14/09 al 18/10)",
+      "dto": "",
+      "f": "2026-10-15",
+      "i": 1400,
+      "igic": 7,
+      "o": "JUEGO DE BOLAS PUNTAGORDA - ELEVACION CANAL LP2 A BALSA MONTAÑA DEL ARCO",
+      "pn": 1400,
+      "pt": 1400,
+      "q": 1,
+      "r": ""
+    }
+  ],
+  "numero": "37",
+  "origen": "Gmail",
+  "proveedor": "Óscar Hernández Pérez",
+  "tipo": "factura"
+}

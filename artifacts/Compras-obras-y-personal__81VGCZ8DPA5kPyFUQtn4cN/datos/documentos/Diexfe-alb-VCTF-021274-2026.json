@@ -1,0 +1,25 @@
+{
+  "empresa": "Instapalma",
+  "fecha": "2026-11-11",
+  "lineas": [
+    {
+      "a": "VCTF-021274-2026",
+      "d": "CJ.EMP.PRACTIBOX S PTA.LISA 3X12 F.TABIQUE PREFABRICADO",
+      "dto": "0,00",
+      "f": "2026-11-11",
+      "i": 259.49,
+      "o": "HOSPITAL",
+      "pn": 37.07,
+      "pt": 37.07,
+      "q": 7,
+      "r": "LEG-135063"
+    }
+  ],
+  "msg": "1a1ca85d00a3a04a",
+  "numero": "VCTF-021274-2026",
+  "obra": "HOSPITAL",
+  "origen": "Gmail",
+  "proveedor": "Diexfe",
+  "tipo": "albaran",
+  "total": 259.49
+}

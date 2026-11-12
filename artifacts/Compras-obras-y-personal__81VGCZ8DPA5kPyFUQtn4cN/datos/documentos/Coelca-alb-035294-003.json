@@ -1,0 +1,71 @@
+{
+  "empresa": "Instapalma",
+  "fecha": "2026-10-01",
+  "lineas": [
+    {
+      "a": "035.294/003",
+      "d": "CINTA AISLANTE N10 33x25 NEGR",
+      "f": "2026-10-01",
+      "fab": "5261",
+      "i": 11.53,
+      "o": "HIPERDINO EL PUENTE",
+      "pn": 2.8825,
+      "pt": 2.883,
+      "q": 4,
+      "r": "2995"
+    },
+    {
+      "a": "035.294/003",
+      "d": "CINTA AISLANTE N10 33x25 BLANC",
+      "f": "2026-10-01",
+      "fab": "5538",
+      "i": 11.53,
+      "o": "HIPERDINO EL PUENTE",
+      "pn": 2.8825,
+      "pt": 2.883,
+      "q": 4,
+      "r": "3088"
+    },
+    {
+      "a": "035.294/003",
+      "d": "BORNA CONEXION BLANCO 12P 10mm",
+      "f": "2026-10-01",
+      "fab": "OBO-76 CE WS",
+      "i": 7.38,
+      "o": "HIPERDINO EL PUENTE",
+      "pn": 1.476,
+      "pt": 1.475,
+      "q": 5,
+      "r": "74002"
+    },
+    {
+      "a": "035.294/003",
+      "d": "BORNA CONEXION BLANCO 12P 16mm",
+      "f": "2026-10-01",
+      "fab": "2056724",
+      "i": 5.17,
+      "o": "HIPERDINO EL PUENTE",
+      "pn": 2.585,
+      "pt": 2.586,
+      "q": 2,
+      "r": "74003"
+    },
+    {
+      "a": "035.294/003",
+      "d": "GEL INTRODUCIR CABLES 500cc",
+      "f": "2026-10-01",
+      "fab": "EST-46015000",
+      "i": 15.84,
+      "o": "HIPERDINO EL PUENTE",
+      "pn": 7.92,
+      "pt": 7.922,
+      "q": 2,
+      "r": "7402"
+    }
+  ],
+  "numero": "035.294/003",
+  "obra": "HIPERDINO EL PUENTE",
+  "origen": "Gmail",
+  "proveedor": "Coelca",
+  "tipo": "albaran"
+}

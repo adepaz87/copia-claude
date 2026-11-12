@@ -1,0 +1,21 @@
+{
+  "albs": [],
+  "cliente": "AYUNTAMIENTO EL PASO",
+  "desc": "Cortar y buscar tubos de electricidad y telecomunicaciones en salones chimenea y baños PMR de planta baja.",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-10-08",
+  "horas": 8,
+  "obra": "HOTEL MONTERREY",
+  "ops": [
+    {
+      "h": 4,
+      "n": "Antonio"
+    },
+    {
+      "h": 4,
+      "n": "Iker"
+    }
+  ],
+  "stock": []
+}

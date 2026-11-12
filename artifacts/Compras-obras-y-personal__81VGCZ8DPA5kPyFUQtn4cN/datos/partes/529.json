@@ -1,0 +1,17 @@
+{
+  "albs": [],
+  "cliente": "INSTAPALMA",
+  "desc": "Pintar , paredes y techo , recortar ventanas y puertas, recoger basura y llevarla al punto limpio",
+  "devol": [],
+  "estado": "TERMINADO",
+  "fecha": "2026-09-22",
+  "horas": 8,
+  "obra": "TALLER BELLIDO",
+  "ops": [
+    {
+      "h": 8,
+      "n": "Luigi"
+    }
+  ],
+  "stock": []
+}

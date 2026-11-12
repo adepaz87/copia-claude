@@ -1,0 +1,82 @@
+{
+  "empresa": "Instapalma",
+  "fecha": "2026-09-30",
+  "lineas": [
+    {
+      "a": "VCTF-017977-2026",
+      "d": "CABLE AFIREFACIL TRENZADO 07Z1-K 3G16+1,5",
+      "dto": "Neto",
+      "f": "2026-09-23",
+      "i": 801.37,
+      "o": "EDF SABINO",
+      "pn": 7.352,
+      "pt": 7.352,
+      "q": 109,
+      "r": "MIG-84123"
+    },
+    {
+      "a": "VCTF-017977-2026",
+      "d": "CABLE AFIREFACIL TRENZADO 07Z1-K 3G25+1,5",
+      "dto": "Neto",
+      "f": "2026-09-23",
+      "i": 480.65,
+      "o": "EDF SABINO",
+      "pn": 11.1779,
+      "pt": 11.178,
+      "q": 43,
+      "r": "MIG-84124"
+    },
+    {
+      "a": "VCTF-017977-2026",
+      "d": "CABLE AFIREFACIL TRENZADO 07Z1-K 3G25+1,5",
+      "dto": "Neto",
+      "f": "2026-09-23",
+      "i": 447.12,
+      "o": "EDF SABINO",
+      "pn": 11.178,
+      "pt": 11.178,
+      "q": 40,
+      "r": "MIG-84124"
+    },
+    {
+      "a": "VCTF-017977-2026",
+      "d": "CABLE AFIREFACIL TRENZADO 07Z1-K 3G16+1,5",
+      "dto": "Neto",
+      "f": "2026-09-23",
+      "i": 2139.43,
+      "o": "EDF SABINO",
+      "pn": 7.352,
+      "pt": 7.352,
+      "q": 291,
+      "r": "MIG-84123"
+    },
+    {
+      "a": "VCTF-018326-2026",
+      "d": "CABLE AFIREFACIL TRENZADO 07Z1-K 3G25+1,5",
+      "dto": "Neto",
+      "f": "2026-09-29",
+      "i": 10708.52,
+      "o": "EDF SABINO",
+      "pn": 11.178,
+      "pt": 11.178,
+      "q": 958,
+      "r": "MIG-84124"
+    },
+    {
+      "a": "VCTF-018446-2026",
+      "d": "CABLE AFIREFACIL TRENZADO 07Z1-K 3G25+1,5",
+      "dto": "Neto",
+      "f": "2026-09-30",
+      "i": 4135.86,
+      "o": "EDF SABINO",
+      "pn": 11.178,
+      "pt": 11.178,
+      "q": 370,
+      "r": "MIG-84124"
+    }
+  ],
+  "numero": "FT-005689-2026",
+  "origen": "Gmail",
+  "proveedor": "Diexfe",
+  "tipo": "factura"
+}

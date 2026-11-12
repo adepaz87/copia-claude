@@ -1,0 +1,19 @@
+{
+  "albs": [],
+  "cliente": "SUPERMERCADOS EN CADENA",
+  "desc": "Reglaje ajustes relojes horarios",
+  "devol": [],
+  "estado": "TERMINADO",
+  "fecha": "2026-11-04",
+  "horas": 0.5,
+  "id": "868",
+  "obra": "SPAR SAN FRANCISCO",
+  "ops": [
+    {
+      "h": 0.5,
+      "n": "Toño"
+    }
+  ],
+  "origen": "dashboard",
+  "stock": []
+}

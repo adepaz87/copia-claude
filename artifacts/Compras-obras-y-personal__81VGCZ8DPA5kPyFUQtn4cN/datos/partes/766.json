@@ -1,0 +1,21 @@
+{
+  "albs": [],
+  "cliente": "DRAGADOS",
+  "desc": "Buscar puntos de luz, sensores, teleco, de 2 planta y cooocarlos en nueva ubicacion. \nBuscar sensores y emergencias que faltaban en 1 planta.\nMarcar y cortar ordenado por la jefa de obra.",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-10-22",
+  "horas": 16,
+  "obra": "HOTEL MONTERREY",
+  "ops": [
+    {
+      "h": 8,
+      "n": "Antonio"
+    },
+    {
+      "h": 8,
+      "n": "Iker"
+    }
+  ],
+  "stock": []
+}

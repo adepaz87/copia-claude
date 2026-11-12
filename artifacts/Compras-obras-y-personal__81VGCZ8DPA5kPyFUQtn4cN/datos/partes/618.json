@@ -1,0 +1,33 @@
+{
+  "albs": [],
+  "cliente": "CHICHO DOS TUMBOS",
+  "desc": "Mecanizando \nEnfichando \nColocación de iluminación \nColocaciones he  instalación de antena\nLimpieza de obra",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-10-02",
+  "horas": 16,
+  "obra": "VIVIENDAS EL TANQUE",
+  "ops": [
+    {
+      "h": 8,
+      "n": "Manuel"
+    },
+    {
+      "h": 8,
+      "n": "Juan"
+    }
+  ],
+  "stock": [
+    {
+      "d": "Un cuadro de 36 elementos",
+      "q": 1,
+      "u": "",
+      "x": 1
+    },
+    {
+      "d": "cable de antena fagor",
+      "q": 10,
+      "u": "m"
+    }
+  ]
+}

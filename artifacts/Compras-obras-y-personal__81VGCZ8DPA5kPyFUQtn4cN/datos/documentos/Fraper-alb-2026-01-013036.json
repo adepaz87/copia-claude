@@ -1,0 +1,35 @@
+{
+  "empresa": "Instapalma",
+  "fecha": "2026-10-19",
+  "lineas": [
+    {
+      "a": "2026/01/013036",
+      "d": "BOLSA BASURA NEG 90X120 XX",
+      "dto": "20",
+      "f": "2026-10-19",
+      "i": 3.94,
+      "o": "FV JTI",
+      "pn": 1.97,
+      "pt": 2.46,
+      "q": 2,
+      "r": "210171"
+    },
+    {
+      "a": "2026/01/013036",
+      "d": "GUANTE NYLON NARANJA GALGA T9",
+      "dto": "10",
+      "f": "2026-10-19",
+      "i": 2.55,
+      "o": "FV JTI",
+      "pn": 2.55,
+      "pt": 2.83,
+      "q": 1,
+      "r": "200401"
+    }
+  ],
+  "numero": "2026/01/013036",
+  "obra": "FV JTI",
+  "origen": "Gmail",
+  "proveedor": "Fraper",
+  "tipo": "albaran"
+}

@@ -1,0 +1,19 @@
+{
+  "albs": [],
+  "cliente": "TOMÁS BARRETO SA",
+  "desc": "Averías . Problemas arranque grupo. Mediciones comprobaciones. Puesta en marcha manual y automático. Funcionando correcto.(Día Festivo).",
+  "devol": [],
+  "estado": "TERMINADO",
+  "fecha": "2026-11-02",
+  "horas": 2,
+  "id": "851",
+  "obra": "SPAR EL PASO",
+  "ops": [
+    {
+      "h": 2,
+      "n": "Toño"
+    }
+  ],
+  "origen": "dashboard",
+  "stock": []
+}

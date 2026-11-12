@@ -1,0 +1,31 @@
+{
+  "albs": [
+    "Diexfe 018326"
+  ],
+  "cliente": "CHICHO 2 TUMBOS",
+  "desc": "Enebrar derivaciones individuales (19)",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-09-30",
+  "horas": 39,
+  "obra": "EDIFICIO SABINO",
+  "ops": [
+    {
+      "h": 9,
+      "n": "Riki"
+    },
+    {
+      "h": 11,
+      "n": "Joel"
+    },
+    {
+      "h": 11,
+      "n": "Aythami"
+    },
+    {
+      "h": 8,
+      "n": "Junior"
+    }
+  ],
+  "stock": []
+}

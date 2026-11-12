@@ -1,0 +1,27 @@
+{
+  "albs": [],
+  "cliente": "EXTINPALMA S.L.",
+  "desc": "Desconexión y desmontaje de bases, detectores y pulsadores\n del sistema de detección de incendios. Sustitución de los elementos retirados por nuevos \nequipos y realización del  conexionado correspondiente.\nRetirada del tramo de tubo visto en techo que se encontraba defectuoso y sustitución por uno nuevo.\n Enhebrado de cable precableado del sistema de incendios a través de la canalización instalada",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-10-06",
+  "horas": 16,
+  "obra": "HIPERDINO EL PUENTE (CONTRAINCENDIO)",
+  "ops": [
+    {
+      "h": 8,
+      "n": "Eloy"
+    },
+    {
+      "h": 8,
+      "n": "Rafa"
+    }
+  ],
+  "stock": [
+    {
+      "d": "os cable precableado rojo de incendio",
+      "q": 30,
+      "u": "m"
+    }
+  ]
+}

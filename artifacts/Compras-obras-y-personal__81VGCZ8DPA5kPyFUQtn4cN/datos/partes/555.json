@@ -1,0 +1,21 @@
+{
+  "albs": [],
+  "cliente": "COVALLE",
+  "desc": "Colocación soportes para bandeja rejiband\nColocación bandeja rejiband 400x100 y 200x100\nColocación de registros y entubar en planta baja …despachos y pasillos \nLimpiar zonas de trabajo",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-09-25",
+  "horas": 16,
+  "obra": "NAVE COOPERATIVA COVALLE",
+  "ops": [
+    {
+      "h": 8,
+      "n": "Petter"
+    },
+    {
+      "h": 8,
+      "n": "Jonathan Rodríguez"
+    }
+  ],
+  "stock": []
+}

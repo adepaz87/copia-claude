@@ -1,0 +1,19 @@
+{
+  "alias": [
+    "MATADERO",
+    "MATADERO INSULAR",
+    "OBRA MATADERO INSULAR"
+  ],
+  "archivada": true,
+  "archivada_t": "2026-11-09",
+  "cliente": "CABILDO INSULAR",
+  "creado": "2026-10-29",
+  "estado": "aprobada",
+  "fact": {
+    "igic": 7,
+    "mg": 35,
+    "ph": 29,
+    "tr": 30
+  },
+  "nombre": "Matadero Insular"
+}

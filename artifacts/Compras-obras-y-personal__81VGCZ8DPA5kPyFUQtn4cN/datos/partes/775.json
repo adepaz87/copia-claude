@@ -1,0 +1,19 @@
+{
+  "albs": [
+    "Diexfe VCTF-019880-2026"
+  ],
+  "cliente": "AYTO. EL PASO",
+  "desc": "Abrir zanja para clavar picas de tierra. \n\nClavar picas de tierra, extender cobre desnudo y conectar picas entre sí con perrillos.\n\nHacer pase en muro para llegar hasta la arqueta de tierra.\n\nEnebrar cobre aislado para tierra de neutro al interior del CT.\n\nColocar arquetas de tierra de herrajes y de neutro.\n\nHacer medicion de tierras: \n•herrajes 8,25 ohmios\n•neutro 10,45 ohmios",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-10-23",
+  "horas": 8,
+  "obra": "CT. PINO DE LA VIRGEN",
+  "ops": [
+    {
+      "h": 8,
+      "n": "Jorge"
+    }
+  ],
+  "stock": []
+}

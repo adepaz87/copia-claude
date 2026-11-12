@@ -1,0 +1,19 @@
+{
+  "albs": [
+    "Sastre 26/1-3225"
+  ],
+  "cliente": "CONSTRUCCIONES DOS TUMBOS",
+  "desc": "Colocación y conexionado mecanismos apartamentos 3 y 2 planta \nRotular cuadros en apartamentos 3y2 planta",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-09-21",
+  "horas": 3,
+  "obra": "APARTAMENTOS TAZACORTE",
+  "ops": [
+    {
+      "h": 3,
+      "n": "Jonathan Rodríguez"
+    }
+  ],
+  "stock": []
+}

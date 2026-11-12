@@ -1,0 +1,29 @@
+{
+  "albs": [
+    "Eaton 202608781"
+  ],
+  "cliente": "TOMÁS BARRETO",
+  "desc": "Colocación y conexionado de Downlight 5w en apartamento izquierdo,comprobación funcionamiento y encendido.\nAbrir hueco en placa falso techo,colocar y conexionar Downlight 5w en cuarto limpieza.\nSustituir Diferenciales 2x40A 30mA en cuadro general supermercado y colocar Diferenciales 2x40A 300mA (Alimentación viviendas) \nSustituir Magnetotermico 2x16A y colocar Magnetotermico 2x40A (alimentación vi",
+  "devol": [],
+  "estado": "TERMINADO",
+  "fecha": "2026-10-22",
+  "horas": 6,
+  "obra": "APARTAMENTOS SPAR TRIANA",
+  "ops": [
+    {
+      "h": 3,
+      "n": "Petter"
+    },
+    {
+      "h": 3,
+      "n": "Jonathan Rodríguez"
+    }
+  ],
+  "stock": [
+    {
+      "d": "Bornas 10mm",
+      "q": 30,
+      "u": "ud"
+    }
+  ]
+}

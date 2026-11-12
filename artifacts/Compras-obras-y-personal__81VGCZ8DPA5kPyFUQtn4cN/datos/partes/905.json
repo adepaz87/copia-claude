@@ -1,0 +1,19 @@
+{
+  "albs": [],
+  "cliente": "ÁRIDOS RIACHUELO SAU",
+  "desc": "Avería en planta de áridos de cónica, pruebas de arranque limpieza, mediciones comprobaciones, funcionando.",
+  "devol": [],
+  "estado": "TERMINADO",
+  "fecha": "2026-11-06",
+  "horas": 3.5,
+  "id": "905",
+  "obra": "PLANTA ÁRIDOS CÓNICA",
+  "ops": [
+    {
+      "h": 3.5,
+      "n": "Toño"
+    }
+  ],
+  "origen": "dashboard",
+  "stock": []
+}

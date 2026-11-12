@@ -1,0 +1,17 @@
+{
+  "alias": [
+    "CENTRAL TBSA",
+    "TBSA CENTRAL",
+    "CENTRAL TBSA LOS GUICHOS"
+  ],
+  "cliente": "TOMÁS BARRETO SA",
+  "creado": "2026-10-29",
+  "estado": "aprobada",
+  "fact": {
+    "igic": 7,
+    "mg": 35,
+    "ph": 27,
+    "tr": 0
+  },
+  "nombre": "Central TBSA"
+}

@@ -1,0 +1,23 @@
+{
+  "albs": [],
+  "cliente": "CONSEJO INSULAR DE AGUAS",
+  "desc": "Desconectar grupo. Rodar tubo con cables para que no moleste al retirar el grupo.",
+  "devol": [],
+  "estado": "TERMINADO",
+  "fecha": "2026-11-06",
+  "horas": 3,
+  "id": "909",
+  "obra": "ELEVACIÓN JUEGO DE BOLAS",
+  "ops": [
+    {
+      "h": 1.5,
+      "n": "Aythami"
+    },
+    {
+      "h": 1.5,
+      "n": "Riki"
+    }
+  ],
+  "origen": "dashboard",
+  "stock": []
+}

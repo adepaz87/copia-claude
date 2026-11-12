@@ -1,0 +1,23 @@
+{
+  "albs": [],
+  "cliente": "HERBAMACA DISTRIBUCIONES",
+  "desc": "Instalación cableado de líneas TC. Oficinas y linea y toma para botellero, canaletas pases de muro y bridaje, colocación zócalos, conexionado en cuadro y funcionando. Ajuste en hora nueva de relojes horario en cuadro.",
+  "devol": [],
+  "estado": "TERMINADO",
+  "fecha": "2026-11-03",
+  "horas": 13,
+  "id": "856",
+  "obra": "SPAR TIJARAFE",
+  "ops": [
+    {
+      "h": 6.5,
+      "n": "Toño"
+    },
+    {
+      "h": 6.5,
+      "n": "Junior"
+    }
+  ],
+  "origen": "dashboard",
+  "stock": []
+}

@@ -1,0 +1,41 @@
+{
+  "albs": [],
+  "cliente": "CONSTRUCCIONES DOS TUMBOS",
+  "desc": "Colocación caja  preistalacion ,tubo cobre y cable maniobra aire acondicionado (2planta)\nEntubar contra-incendio sensores en 1planta \nEntubar en 1planta \nColocación cajas mecanismo en pared pladur 1 y 2 planta \nLimpiar zonas de trabajo",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-10-15",
+  "horas": 26,
+  "obra": "RESIDENCIA TERCERA EDAD EL PASO",
+  "ops": [
+    {
+      "h": 8,
+      "n": "Petter"
+    },
+    {
+      "h": 7,
+      "n": "Ricky"
+    },
+    {
+      "h": 11,
+      "n": "Jonathan Rodríguez"
+    }
+  ],
+  "stock": [
+    {
+      "d": "Caja Mecanismo pladur 2",
+      "q": 9,
+      "u": "ud"
+    },
+    {
+      "d": "Caja Mecanismo pladur 2+2",
+      "q": 20,
+      "u": "ud"
+    },
+    {
+      "d": "Caja Mecanismo pladur 2+2+2",
+      "q": 24,
+      "u": "ud"
+    }
+  ]
+}

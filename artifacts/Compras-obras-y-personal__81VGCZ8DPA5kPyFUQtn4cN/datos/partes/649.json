@@ -1,0 +1,21 @@
+{
+  "albs": [],
+  "cliente": "AYUNTAMIENTO EL PASO",
+  "desc": "Cortar iluminacion, teleco etc, de techos planta baja. Buscar tubos y receptores.\nMarcar y cortar registros.\nColocar sensores.",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-10-07",
+  "horas": 14.5,
+  "obra": "HOTEL MONTERREY",
+  "ops": [
+    {
+      "h": 6.5,
+      "n": "Antonio"
+    },
+    {
+      "h": 8,
+      "n": "Iker"
+    }
+  ],
+  "stock": []
+}

@@ -1,0 +1,120 @@
+{
+  "albs": [
+    "Sonepar309005836",
+    "Sonepar309005837"
+  ],
+  "cliente": "CHICHO DOS TUMBOS",
+  "desc": "Abrir  huecos para pasar tubos\nColocación  de registros \nColocación  de zócalos \nEntubando",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-09-23",
+  "horas": 16,
+  "obra": "VIVIENDAS EL TANQUE",
+  "ops": [
+    {
+      "h": 8,
+      "n": "Manuel"
+    },
+    {
+      "h": 8,
+      "n": "Juan"
+    }
+  ],
+  "stock": [
+    {
+      "d": "cable 1x1,5 marrón",
+      "q": 400,
+      "u": "m"
+    },
+    {
+      "d": "cable 1x1,5 negro",
+      "q": 400,
+      "u": "m"
+    },
+    {
+      "d": "cable 1x1,5 gris",
+      "q": 400,
+      "u": "m"
+    },
+    {
+      "d": "cable 1x1,5 tierra",
+      "q": 400,
+      "u": "m"
+    },
+    {
+      "d": "cable 4x2,5mm 1kv",
+      "q": 100,
+      "u": "m"
+    },
+    {
+      "d": "cable 1x6mm marrón",
+      "q": 100,
+      "u": "m"
+    },
+    {
+      "d": "cable 1x6mm azul",
+      "q": 100,
+      "u": "m"
+    },
+    {
+      "d": "cable 1x6mm tierra",
+      "q": 100,
+      "u": "m"
+    },
+    {
+      "d": "regletas de fichas de25",
+      "q": 5,
+      "u": ""
+    },
+    {
+      "d": "fichas  de 16mm",
+      "q": 1,
+      "u": "paquete"
+    },
+    {
+      "d": "diferenciales",
+      "q": 3,
+      "u": ""
+    },
+    {
+      "d": "automáticos  de 10A",
+      "q": 1,
+      "u": ""
+    },
+    {
+      "d": "automáticos  de 16A",
+      "q": 9,
+      "u": ""
+    },
+    {
+      "d": "sobretensiones de 2x25 E T N",
+      "q": 1,
+      "u": ""
+    },
+    {
+      "d": "automáticos  de 2x25",
+      "q": 1,
+      "u": ""
+    },
+    {
+      "d": "registros  de 10x15 s/p",
+      "q": 2,
+      "u": ""
+    },
+    {
+      "d": "pantalla Normalit",
+      "q": 1,
+      "u": ""
+    },
+    {
+      "d": "zócalos s/p de 2 elementos",
+      "q": 5,
+      "u": ""
+    },
+    {
+      "d": "zócalos  s/p de 4 elementos",
+      "q": 1,
+      "u": ""
+    }
+  ]
+}

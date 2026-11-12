@@ -1,0 +1,23 @@
+{
+  "empresa": "Instapalma",
+  "fecha": "2026-09-11",
+  "lineas": [
+    {
+      "a": "",
+      "d": "GASOIL GRUPO ELECTROGENO (solo esta línea; el resto de la factura es combustible de vehículos)",
+      "dto": "",
+      "f": "2026-09-11",
+      "i": 770.11,
+      "igic": 7,
+      "o": "GRUPO FUEN",
+      "pn": 770.11,
+      "pt": 770.11,
+      "q": 1,
+      "r": ""
+    }
+  ],
+  "numero": "846",
+  "origen": "Gmail",
+  "proveedor": "Multiservicios Yanes",
+  "tipo": "factura"
+}

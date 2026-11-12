@@ -1,0 +1,23 @@
+{
+  "empresa": "Kairos Supply",
+  "fecha": "2026-08-31",
+  "lineas": [
+    {
+      "a": "80815537",
+      "d": "COLUMNA TRONCOCONICA 8M Ø60X3",
+      "dto": "",
+      "f": "2026-08-31",
+      "i": 5290,
+      "igic": 7,
+      "o": "",
+      "pn": 230,
+      "pt": 230,
+      "q": 23,
+      "r": ""
+    }
+  ],
+  "numero": "310023306",
+  "origen": "Gmail",
+  "proveedor": "Benito Urban",
+  "tipo": "factura"
+}

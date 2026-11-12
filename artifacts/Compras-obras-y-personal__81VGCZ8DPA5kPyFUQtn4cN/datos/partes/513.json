@@ -1,0 +1,17 @@
+{
+  "albs": [],
+  "cliente": "DRAGADOS",
+  "desc": "Limpiar registros y fichar lineas. Colocar cables en cuadro principal y marcar circuitos. \nLlevar UPS a sotano y conectar entrada, salida y tomas de tierra.\nEmpezar a conectar circuitos en cuadro principal.",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-09-21",
+  "horas": 8,
+  "obra": "TEATRO MONTERREY",
+  "ops": [
+    {
+      "h": 8,
+      "n": "Antonio"
+    }
+  ],
+  "stock": []
+}

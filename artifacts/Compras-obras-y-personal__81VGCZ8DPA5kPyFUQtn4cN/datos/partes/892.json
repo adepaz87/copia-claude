@@ -1,0 +1,19 @@
+{
+  "albs": [],
+  "cliente": "TOMÁS BARRETO",
+  "desc": "Se resetea ups al estar saltada en corto-circuito. Comprobación de tensiones entrada y salida",
+  "devol": [],
+  "estado": "TERMINADO",
+  "fecha": "2026-11-05",
+  "horas": 1,
+  "id": "892",
+  "obra": "SPAR TRIANA (OT 133)",
+  "ops": [
+    {
+      "h": 1,
+      "n": "Jonathan Rodríguez"
+    }
+  ],
+  "origen": "dashboard",
+  "stock": []
+}

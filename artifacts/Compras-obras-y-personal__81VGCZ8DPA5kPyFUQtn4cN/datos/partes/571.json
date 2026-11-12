@@ -1,0 +1,21 @@
+{
+  "albs": [],
+  "cliente": "EXTINPALMA S.L.",
+  "desc": "Se realizó la desconexión y retirada del cableado existente del sistema \nde detección de incendios, así como el desmontaje de bases de detectores de \nincendio y pulsadores manuales. Los trabajos se llevaron a cabo para preparar \nla sustitución de los cableados y dispositivos por otros nuevos. (Zona trabajo planta parking. -1)",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-09-28",
+  "horas": 16,
+  "obra": "HIPERDINO EL PUENTE (CONTRAINCENDIO)",
+  "ops": [
+    {
+      "h": 8,
+      "n": "Eloy"
+    },
+    {
+      "h": 8,
+      "n": "Rafa"
+    }
+  ],
+  "stock": []
+}

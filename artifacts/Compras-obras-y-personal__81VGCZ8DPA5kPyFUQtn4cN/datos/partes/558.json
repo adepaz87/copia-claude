@@ -1,0 +1,17 @@
+{
+  "albs": [],
+  "cliente": "TRAGSA",
+  "desc": "Abrir pasamuros e instalar tubo corrugado en rellano, para que puedan instalar falso techo.",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-09-25",
+  "horas": 1,
+  "obra": "PCI PLAZA GAZMIRA",
+  "ops": [
+    {
+      "h": 1,
+      "n": "Jonathan Glez"
+    }
+  ],
+  "stock": []
+}

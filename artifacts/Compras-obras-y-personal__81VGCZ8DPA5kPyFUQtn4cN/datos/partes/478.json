@@ -1,0 +1,21 @@
+{
+  "albs": [],
+  "cliente": "ALBERTO MEDINA",
+  "desc": "Quitar carcasas y desmontar Inversor y baterías y moverlas a nueva ubicación.\nInstalar baterías, inversor y carcasas.\nRetranquear cableado.\nFijar baterías entre sí.\nRegistrar baterías nuevas en la aplicación.",
+  "devol": [],
+  "estado": "TERMINADO",
+  "fecha": "2026-09-15",
+  "horas": 7,
+  "obra": "FV ALBERTO MEDINA",
+  "ops": [
+    {
+      "h": 3.5,
+      "n": "Adán"
+    },
+    {
+      "h": 3.5,
+      "n": "Jonathan Glez"
+    }
+  ],
+  "stock": []
+}

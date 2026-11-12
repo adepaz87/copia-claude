@@ -1,0 +1,27 @@
+{
+  "actualizada": "2026-11-04T08:12:00Z",
+  "asignadaEn": "2026-11-03T16:08:59.907Z",
+  "avisadoWa": "2026-11-03T16:09:04.294Z",
+  "aviso": "",
+  "centro": "SPAR El Puente",
+  "creada": "2026-11-03T16:15:00Z",
+  "descripcion": "Desde ayer, con el apagón, no hay luz en la zona de los ascensores.",
+  "estado": "terminada",
+  "fechaAviso": "2026-11-03",
+  "historial": [
+    "03/11/2026 · Importada de la captura GIM de Raquel",
+    "3/11/2026 16:08 · Asignada a Toño Guardia",
+    "3/11/2026 16:09 · WhatsApp programado a Toño Guardia",
+    "3/11/2026 16:46 · Asignación: correo enviado a TBSA",
+    "4/11/2026 07:53 · Toño Guardia por WhatsApp: «OT 124 resuelto»",
+    "4/11/2026 08:12 · Cierre: correo a TBSA y WhatsApp a Fernando"
+  ],
+  "informado": true,
+  "notas": "Pedido por el jefe de tienda. GIM: «OT no generada». Nº OT provisional: confirmar o cambiar.",
+  "operario": "Toño Guardia",
+  "ot": 124,
+  "prioridad": "Alta",
+  "solicitante": "Raquel",
+  "terminadaEn": "2026-11-04T07:53:00Z",
+  "tipo": "MANTENIMIENTO"
+}

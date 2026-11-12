@@ -1,0 +1,21 @@
+{
+  "albs": [],
+  "cliente": "CHICHO 2 TUMBOS",
+  "desc": "Terminar de conectar tierras en cuarto centralizacion \nInstalar y conexionado  de luminarias en cuarto centralizacion.\nMecanizar zonas comunes 5° planta y pasillo de entrada.\nElaborar y fijar  cuadro  en cuarto rits.\nFijar caja sobre pared y conectar sucos + instalar luminarias y emergencia y conectarlas.\nEnebrar cables TV desde cabecera hasta 4°planta.\nFijar madera y comenzar a instalar cabecera ",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-10-13",
+  "horas": 17,
+  "obra": "EDIFICIO SABINO",
+  "ops": [
+    {
+      "h": 8,
+      "n": "Junior"
+    },
+    {
+      "h": 9,
+      "n": "Ricky"
+    }
+  ],
+  "stock": []
+}

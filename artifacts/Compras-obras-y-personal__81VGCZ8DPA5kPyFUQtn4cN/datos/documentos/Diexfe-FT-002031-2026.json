@@ -1,0 +1,130 @@
+{
+  "empresa": "Kairos Supply",
+  "fecha": "2026-04-13",
+  "lineas": [
+    {
+      "a": "VCTF-006337-2026",
+      "d": "REGL.CX.PRO CBTA.PTRA.REMOVIBLE 12P",
+      "dto": "45,00+20,00",
+      "f": "2026-04-07",
+      "i": 256.54,
+      "o": "HOSPITAL",
+      "pn": 6.2571,
+      "pt": 14.22,
+      "q": 41,
+      "r": "TEK-PRO35MAX"
+    },
+    {
+      "a": "VCTF-006529-2026",
+      "d": "CABLE AFIRENAX-L 05Z1-K/07Z1-K 1,5MM2 AZ",
+      "dto": "Neto",
+      "f": "2026-04-09",
+      "i": 659.6,
+      "o": "HOSPITAL",
+      "pn": 0.194,
+      "pt": 0.194,
+      "q": 3400,
+      "r": "MIG-84100082"
+    },
+    {
+      "a": "VCTF-006529-2026",
+      "d": "CABLE AFIRENAX-L 05Z1-K/07Z1-K 1,5MM2 MR",
+      "dto": "Neto",
+      "f": "2026-04-09",
+      "i": 659.6,
+      "o": "HOSPITAL",
+      "pn": 0.194,
+      "pt": 0.194,
+      "q": 3400,
+      "r": "MIG-84100091"
+    },
+    {
+      "a": "VCTF-006529-2026",
+      "d": "CABLE AFIRENAX-L 05Z1-K/07Z1-K 1,5MM2 AM.VD",
+      "dto": "Neto",
+      "f": "2026-04-09",
+      "i": 659.6,
+      "o": "HOSPITAL",
+      "pn": 0.194,
+      "pt": 0.194,
+      "q": 3400,
+      "r": "MIG-84100086"
+    },
+    {
+      "a": "VCTF-006529-2026",
+      "d": "CABLE AFIRENAX-L 05Z1-K/07Z1-K 1,5MM2 GR",
+      "dto": "Neto",
+      "f": "2026-04-09",
+      "i": 465.6,
+      "o": "HOSPITAL",
+      "pn": 0.194,
+      "pt": 0.194,
+      "q": 2400,
+      "r": "MIG-84100089"
+    },
+    {
+      "a": "VCTF-006529-2026",
+      "d": "CABLE AFIRENAX-L 05Z1-K/07Z1-K 1,5MM2 NG",
+      "dto": "Neto",
+      "f": "2026-04-09",
+      "i": 465.6,
+      "o": "HOSPITAL",
+      "pn": 0.194,
+      "pt": 0.194,
+      "q": 2400,
+      "r": "MIG-84100092"
+    },
+    {
+      "a": "VCTF-006529-2026",
+      "d": "CABLE AFIRENAX-L 05Z1-K/07Z1-K 2,5MM2 NG",
+      "dto": "Neto",
+      "f": "2026-04-09",
+      "i": 1108.4,
+      "o": "HOSPITAL",
+      "pn": 0.326,
+      "pt": 0.326,
+      "q": 3400,
+      "r": "MIG-84101092"
+    },
+    {
+      "a": "VCTF-006529-2026",
+      "d": "CABLE AFIRENAX-L 05Z1-K/07Z1-K 2,5MM2 AZ",
+      "dto": "Neto",
+      "f": "2026-04-09",
+      "i": 1108.4,
+      "o": "HOSPITAL",
+      "pn": 0.326,
+      "pt": 0.326,
+      "q": 3400,
+      "r": "MIG-84101082"
+    },
+    {
+      "a": "VCTF-006529-2026",
+      "d": "CABLE AFIRENAX-L 05Z1-K/07Z1-K 2,5MM2A/V",
+      "dto": "Neto",
+      "f": "2026-04-09",
+      "i": 1108.4,
+      "o": "HOSPITAL",
+      "pn": 0.326,
+      "pt": 0.326,
+      "q": 3400,
+      "r": "MIG-84101086"
+    },
+    {
+      "a": "VCTF-006735-2026",
+      "d": "BASE P/CLAVO U63X NG.",
+      "dto": "45,00",
+      "f": "2026-04-13",
+      "i": 1580.8,
+      "o": "HOSPITAL",
+      "pn": 0.104,
+      "pt": 0.19,
+      "q": 15200,
+      "r": "UNE-25501"
+    }
+  ],
+  "numero": "FT-002031-2026",
+  "origen": "Gmail",
+  "proveedor": "Diexfe",
+  "tipo": "factura"
+}

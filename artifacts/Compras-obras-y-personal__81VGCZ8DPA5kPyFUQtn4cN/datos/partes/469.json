@@ -1,0 +1,33 @@
+{
+  "albs": [],
+  "cliente": "TRAGSA",
+  "desc": "Instalación montaje bandejas plásticas fijación.cableado conexionado entre cuadros.",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-09-15",
+  "horas": 8,
+  "obra": "CENTRO VISITANTES FV",
+  "ops": [
+    {
+      "h": 8,
+      "n": "Toño"
+    }
+  ],
+  "stock": [
+    {
+      "d": "carril perforado 200x300mm",
+      "q": 2,
+      "u": "m"
+    },
+    {
+      "d": "bridas plásticas 4,5x300mm",
+      "q": 200,
+      "u": ""
+    },
+    {
+      "d": "bornas carril din. 95mm",
+      "q": 4,
+      "u": ""
+    }
+  ]
+}

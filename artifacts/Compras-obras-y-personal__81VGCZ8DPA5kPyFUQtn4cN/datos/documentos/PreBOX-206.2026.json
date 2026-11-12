@@ -1,0 +1,23 @@
+{
+  "empresa": "Kairos Supply",
+  "fecha": "2026-07-25",
+  "lineas": [
+    {
+      "a": "032",
+      "d": "BORDILLO DE ACERA 50CM REBAJADO",
+      "dto": "",
+      "f": "2026-07-22",
+      "i": 406,
+      "igic": 3,
+      "o": "EL PASO",
+      "pn": 5.8,
+      "pt": 5.8,
+      "q": 70,
+      "r": ""
+    }
+  ],
+  "numero": "206.2026",
+  "origen": "Gmail",
+  "proveedor": "PreBOX (Adonis Pérez)",
+  "tipo": "factura"
+}

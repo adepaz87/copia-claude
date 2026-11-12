@@ -1,0 +1,19 @@
+{
+  "actualizada": "2026-07-20T09:00:00Z",
+  "aviso": "",
+  "centro": "SPAR Mederos",
+  "creada": "2026-07-20T09:00:00Z",
+  "descripcion": "Revisión periódica del grupo electrógeno.",
+  "estado": "terminada",
+  "fechaAviso": "2026-07-20",
+  "historial": [
+    "20/07/2026 · Importada del correo de Alberto"
+  ],
+  "informado": true,
+  "notas": "Resuelta el 20/07/2026.",
+  "operario": "",
+  "ot": 46,
+  "prioridad": "Sin especificar",
+  "solicitante": "",
+  "tipo": "MANTENIMIENTO"
+}

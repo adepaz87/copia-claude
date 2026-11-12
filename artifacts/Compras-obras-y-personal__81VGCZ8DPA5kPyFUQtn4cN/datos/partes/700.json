@@ -1,0 +1,32 @@
+{
+  "albs": [],
+  "cliente": "RAICO",
+  "desc": "Picar y limpiar\nEntubar",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-10-15",
+  "horas": 10,
+  "obra": "CAFÉ DON MANUEL",
+  "ops": [
+    {
+      "h": 5,
+      "n": "Manuel"
+    },
+    {
+      "h": 5,
+      "n": "Juan"
+    }
+  ],
+  "stock": [
+    {
+      "d": "clavos Wurth",
+      "q": 200,
+      "u": ""
+    },
+    {
+      "d": "cinta aislante blanca",
+      "q": 1,
+      "u": "rollo"
+    }
+  ]
+}

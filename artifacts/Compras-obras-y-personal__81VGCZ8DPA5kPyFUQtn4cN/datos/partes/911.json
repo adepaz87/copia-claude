@@ -1,0 +1,32 @@
+{
+  "albs": [],
+  "cliente": "CONSTRUCCIONES DOMINGO",
+  "desc": "Enhebrado de fuerza y alumbrado en viviendas 3, 4, 5 y 6 de planta 1.",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-11-06",
+  "horas": 24,
+  "id": "911",
+  "obra": "EDIFICIO DOMINGO EL PASO",
+  "ops": [
+    {
+      "h": 8,
+      "n": "Joel"
+    },
+    {
+      "h": 8,
+      "n": "Junior"
+    },
+    {
+      "h": 6.5,
+      "n": "Riki"
+    },
+    {
+      "h": 1.5,
+      "n": "Aythami"
+    }
+  ],
+  "origen": "dashboard",
+  "restante": "Indefinido",
+  "stock": []
+}

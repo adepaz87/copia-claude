@@ -1,0 +1,26 @@
+{
+  "albs": [],
+  "cliente": "TRAGSA",
+  "desc": "Terminar de instalar tubo visto, diflex y accesorios en cuarto de grupo de presión y depósitos. Terminar de enhebrar hasta central de incendios cable para el grupo de presión. Enhebrar líneas para PCI Enhebrar líneas para central de CO",
+  "devol": [],
+  "duplicado": "850",
+  "editado": "2026-11-03",
+  "estado": "EN CURSO",
+  "fecha": "2026-10-30",
+  "horas": 8,
+  "id": "863",
+  "nota": "Registrado de nuevo el 03/11 con fecha 30/10: mismo trabajo, operarios y horas que el 850 (que Alberto ya corrigió). Marcado como duplicado automáticamente en la carga diaria.",
+  "obra": "PCI PLAZA GAZMIRA",
+  "ops": [
+    {
+      "h": 4,
+      "n": "Eloy"
+    },
+    {
+      "h": 4,
+      "n": "Jonathan Glez"
+    }
+  ],
+  "origen": "dashboard",
+  "stock": []
+}

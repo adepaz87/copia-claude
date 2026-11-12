@@ -1,0 +1,21 @@
+{
+  "albs": [],
+  "cliente": "TRAGSA",
+  "desc": "Instalar, enhebrar y conectar gestor de medida.\nDejar líneas de toroidales enhebradas y conectadas.",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-09-30",
+  "horas": 4,
+  "obra": "FV JTI",
+  "ops": [
+    {
+      "h": 2,
+      "n": "Toño"
+    },
+    {
+      "h": 2,
+      "n": "Jonathan Glez"
+    }
+  ],
+  "stock": []
+}

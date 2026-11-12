@@ -1,0 +1,69 @@
+{
+  "empresa": "Instapalma",
+  "fecha": "2026-06-23",
+  "lineas": [
+    {
+      "a": "33.262/003",
+      "d": "CINTA AISLANTE N10 33x25 BLANC",
+      "f": "2026-06-16",
+      "fab": "PLY-5538",
+      "i": 10.66,
+      "o": "ALMACEN INVENTARIO",
+      "pn": 2.665,
+      "pt": 2.664,
+      "q": 4,
+      "r": "3088"
+    },
+    {
+      "a": "33.262/003",
+      "d": "ROTULADOR PERMANENTE NEGRO",
+      "f": "2026-06-16",
+      "fab": "FRX-WINNER 23N",
+      "i": 2.17,
+      "o": "ALMACEN INVENTARIO",
+      "pn": 2.17,
+      "pt": 2.168,
+      "q": 1,
+      "r": "19800023"
+    },
+    {
+      "a": "33.315/003",
+      "d": "CABLE UTP CAT6 Dca UC400 AZUL",
+      "f": "2026-06-18",
+      "fab": "60115173",
+      "i": 167.45,
+      "o": "CASA BORJA",
+      "pn": 0.549,
+      "pt": 0.549,
+      "q": 305,
+      "r": "29822"
+    },
+    {
+      "a": "33.398/003",
+      "d": "DOWNL LED 12W 4K BLANCO 900LM",
+      "f": "2026-06-23",
+      "fab": "RBL-DPANEL12F",
+      "i": 7.83,
+      "o": "LOCAL JORGE SASTRE",
+      "pn": 7.83,
+      "pt": 7.75,
+      "q": 1,
+      "r": "592408"
+    },
+    {
+      "a": "33.398/003",
+      "d": "DOWNL EMPOT 5W 4K D90/72 BLANC RBL-LEDPANEL5F",
+      "f": "2026-06-23",
+      "i": 9.42,
+      "o": "LOCAL JORGE SASTRE",
+      "pn": 4.71,
+      "pt": 4.63,
+      "q": 2,
+      "r": "59266612"
+    }
+  ],
+  "numero": "92631526",
+  "origen": "Gmail",
+  "proveedor": "Coelca",
+  "tipo": "factura"
+}

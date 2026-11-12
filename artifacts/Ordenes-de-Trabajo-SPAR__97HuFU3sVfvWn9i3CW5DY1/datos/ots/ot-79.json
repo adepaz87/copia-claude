@@ -1,0 +1,19 @@
+{
+  "actualizada": "2026-09-28T09:00:00Z",
+  "aviso": "",
+  "centro": "SPAR Triana",
+  "creada": "2026-09-28T09:00:00Z",
+  "descripcion": "La carga de coches eléctricos no funcionaba.",
+  "estado": "terminada",
+  "fechaAviso": "2026-09-28",
+  "historial": [
+    "28/09/2026 · Importada del correo de Alberto"
+  ],
+  "informado": true,
+  "notas": "Resuelta el 28/09/2026.",
+  "operario": "Jonathan Rodríguez",
+  "ot": 79,
+  "prioridad": "Sin especificar",
+  "solicitante": "",
+  "tipo": "MANTENIMIENTO"
+}

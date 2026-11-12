@@ -1,0 +1,32 @@
+{
+  "albs": [],
+  "cliente": "CHICHO DOS TUMBOS",
+  "desc": "Enebrar líneas de alumbrado, fuerza \nEntubar aires acondicionado \nEnebrar alimentación  de aires \nPicar para acometida",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-09-28",
+  "horas": 16,
+  "obra": "VIVIENDAS EL TANQUE",
+  "ops": [
+    {
+      "h": 8,
+      "n": "Manuel"
+    },
+    {
+      "h": 8,
+      "n": "Juan"
+    }
+  ],
+  "stock": [
+    {
+      "d": "cable de 1x2,5 rz1 azul",
+      "q": 200,
+      "u": "m"
+    },
+    {
+      "d": "diflex  de 25mm",
+      "q": 2,
+      "u": "m"
+    }
+  ]
+}

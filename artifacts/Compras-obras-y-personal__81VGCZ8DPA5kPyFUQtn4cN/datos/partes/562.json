@@ -1,0 +1,28 @@
+{
+  "albs": [],
+  "cliente": "EXTINPALMA S.L.",
+  "desc": "- Trabajos en zona garaje/parking planta -2\n- sustitución y adecuación de elementos de la  instalación de contraincendio,\ndesmontaje de bases, detectores y pulsadores existentes.\n-  Conexionado de los dispositivos y adaptación de las conexiones existentes a la nueva distribución.\n- enhebrado de cable por modificación del circuito de bucle de contraincendio.\n- Instalación de nuevas bases de detecto",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-09-25",
+  "horas": 8,
+  "obra": "HIPERDINO EL PUENTE (CONTRAINCENDIO)",
+  "ops": [
+    {
+      "h": 8,
+      "n": "Rafa"
+    }
+  ],
+  "stock": [
+    {
+      "d": "os cable unipolar gris 1.5 mm",
+      "q": 15,
+      "u": "m"
+    },
+    {
+      "d": "os cable unipolar negro 1.5 mm",
+      "q": 15,
+      "u": "m"
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "adj": {
+    "fact": true,
+    "partes": true,
+    "rel": true
+  },
+  "cc": [],
+  "cliente": "TOMÁS BARRETO SA",
+  "obra": "",
+  "t": "2026-11-09T20:08:25.494Z",
+  "to": [
+    "rbarrera@tomasbarretosa.com",
+    "fconcepcion@tomasbarretosa.com"
+  ]
+}

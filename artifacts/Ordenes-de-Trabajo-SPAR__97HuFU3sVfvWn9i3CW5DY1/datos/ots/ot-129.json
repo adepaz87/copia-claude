@@ -1,0 +1,26 @@
+{
+  "actualizada": "2026-11-11T16:14:00Z",
+  "asignadaEn": "2026-11-11T14:11:00.997Z",
+  "avisadoWa": "2026-11-11T14:11:05.585Z",
+  "aviso": "",
+  "centro": "SPAR El Paso",
+  "creada": "2026-11-03T16:48:29.177Z",
+  "descripcion": "Grupo Electrógeno Revisión",
+  "estado": "terminada",
+  "fechaAviso": "2026-11-03",
+  "historial": [
+    "3/11/2026 16:48 · Registrada (aviso de )",
+    "11/11/2026 14:11 · Asignada a Toño Guardia",
+    "11/11/2026 14:11 · Asignación: Correo enviado a TBSA · WhatsApp a Toño Guardia programado · WhatsApp a Fernando programado",
+    "11/11/2026 15:37 · Toño avisa por WhatsApp: «OT 129 resuelto» · Estado: Terminada",
+    "11/11/2026 16:14 · Cierre: correo enviado a TBSA · WhatsApp a Fernando programado"
+  ],
+  "informado": true,
+  "notas": "Revisión del grupo electrógeno de SPAR El Paso hecha por Toño Guardia (11/11 15:37).",
+  "operario": "Toño Guardia",
+  "ot": 129,
+  "prioridad": "Sin especificar",
+  "solicitante": "",
+  "terminadaEn": "2026-11-11T15:37:00Z",
+  "tipo": "MANTENIMIENTO"
+}

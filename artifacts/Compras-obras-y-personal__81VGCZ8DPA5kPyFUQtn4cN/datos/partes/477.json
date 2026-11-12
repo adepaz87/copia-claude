@@ -1,0 +1,21 @@
+{
+  "albs": [],
+  "cliente": "TRAGSA",
+  "desc": "Desmontar, cableado, inversores, cargadores, bandejas, cuadros… \nCortar carriles perforados para soportes de bandeja.\nInstalar bandeja en cuarto del inversor.\nCambiar ubicación de encendido manual del grupo.",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-09-15",
+  "horas": 16,
+  "obra": "FV RIACHUELO",
+  "ops": [
+    {
+      "h": 8,
+      "n": "Adán"
+    },
+    {
+      "h": 8,
+      "n": "Jonathan Glez"
+    }
+  ],
+  "stock": []
+}

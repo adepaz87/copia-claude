@@ -1,0 +1,21 @@
+{
+  "albs": [],
+  "cliente": "MERCADONA",
+  "desc": "Desmontaje luminarias 60x60,detectores incendio y lamaparas emergencia en zona hornos .\nColocación y conexionado de luminarias 60x60 (nuevas) .\nColocación y conexionado detectores incendio .\nColocación y conexionado de lamaparas emergencia .",
+  "devol": [],
+  "estado": "TERMINADO",
+  "fecha": "2026-10-16",
+  "horas": 12,
+  "obra": "MERCADONA BREÑA ALTA (4383)",
+  "ops": [
+    {
+      "h": 6,
+      "n": "Juan"
+    },
+    {
+      "h": 6,
+      "n": "Jonathan Rodríguez"
+    }
+  ],
+  "stock": []
+}

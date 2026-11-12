@@ -1,0 +1,19 @@
+{
+  "albs": [],
+  "cliente": "HERBAMACA",
+  "desc": "Reglaje ajuste relojes, comprobaciones",
+  "devol": [],
+  "estado": "TERMINADO",
+  "fecha": "2026-11-04",
+  "horas": 1,
+  "id": "871",
+  "obra": "SPAR FUENCALIENTE",
+  "ops": [
+    {
+      "h": 1,
+      "n": "Toño"
+    }
+  ],
+  "origen": "dashboard",
+  "stock": []
+}

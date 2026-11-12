@@ -1,0 +1,5257 @@
+{
+  "empresa": "Instapalma",
+  "fecha": "2026-10-28",
+  "lineas": [
+    {
+      "d": "COBRE DESNUDO 35 (KG)",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Tierras",
+      "pn": 16.86,
+      "pt": 16.86,
+      "r": "MIG-CU35"
+    },
+    {
+      "d": "COBRE DESNUDO 50 (KG)",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Tierras",
+      "pn": 16.919,
+      "pt": 16.919,
+      "r": "MIG-CU50"
+    },
+    {
+      "d": "GRAPA TIERRA TGT142",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Tierras",
+      "pn": 1.389,
+      "pt": 1.389,
+      "r": "SOF-TGT142"
+    },
+    {
+      "d": "PICA TIERRA 100 14MM 1,5M",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Tierras",
+      "pn": 7.693,
+      "pt": 7.693,
+      "r": "SOF-T101415"
+    },
+    {
+      "d": "PICA TIERRA 100 14MM 2,0M",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Tierras",
+      "pn": 10.223,
+      "pt": 10.223,
+      "r": "SOF-T101420"
+    },
+    {
+      "d": "CAJA DE TIERRA (601119)",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Tierras",
+      "pn": 8.824,
+      "pt": 8.824,
+      "r": "PIN-41976E00000302"
+    },
+    {
+      "d": "ARQUETA TIERRA ALUMINIO (2ARQUET)",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Tierras",
+      "pn": 10.685,
+      "pt": 10.685,
+      "r": "MOR-360100"
+    },
+    {
+      "d": "ARQUETA TOMA TIERRA PNZ 200MM POLIESTER (680180)",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Tierras",
+      "pn": 10.824,
+      "pt": 10.824,
+      "r": "PIN-479712020P0000"
+    },
+    {
+      "d": "LIQUIDO INSTALACIONES PUESTA TIERRA",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Tierras",
+      "pn": 90.355,
+      "pt": 90.355,
+      "r": "CMX-TERRAL"
+    },
+    {
+      "d": "KIT COMEX 1 ELECTRODO DE GRAFITO ACTIVADO CON 1 ION-FORTE (2X 25KG). + MASSA",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Bandeja y rejilla",
+      "pn": 310.675,
+      "pt": 310.675,
+      "r": "CMX-TT1030"
+    },
+    {
+      "d": "PLACA DE TIERRA 500X500 (580982)",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Tierras",
+      "pn": 140,
+      "pt": 140,
+      "r": "PIN-46R75T552CB450"
+    },
+    {
+      "d": "PLACA DE TIERRA 1000X500X2MM",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Tierras",
+      "pn": 347.5,
+      "pt": 347.5,
+      "r": "PIN-46R75TA52C0000"
+    },
+    {
+      "d": "UNIDAD DE CONTROL CABLE 1,8M ERICO CADWELD PLUS",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cable",
+      "pn": 274.774,
+      "pt": 274.774,
+      "r": "ERI-PLUSCU2L6"
+    },
+    {
+      "d": "MOLDE EN T TAC-Y2-Y2 PARA CABLE 35MM",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Tierras",
+      "pn": 141.09,
+      "pt": 141.09,
+      "r": "ERI-TACY2Y2"
+    },
+    {
+      "d": "MOLDE EN CRUZ X PASANTE CABLE COBRE CU35/CU35",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Tierras",
+      "pn": 141.09,
+      "pt": 141.09,
+      "r": "ERI-XBCY2Y2"
+    },
+    {
+      "d": "MOLDE PARA PICA DIAMETRO 14 CABLE COBRE 35",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Tierras",
+      "pn": 141.09,
+      "pt": 141.09,
+      "r": "ERI-GTC16Y2"
+    },
+    {
+      "d": "MOLDE CABLE CU 50MM - VARILLA (234582) RCPY3M",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Tierras",
+      "pn": 148.852,
+      "pt": 148.852,
+      "r": "ERI-RCP-Y3"
+    },
+    {
+      "d": "MANGO PARA SUJETAR MOLDES L160",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Tierras",
+      "pn": 98.708,
+      "pt": 98.708,
+      "r": "ERI-161000"
+    },
+    {
+      "d": "MANGO PARA SUJETAR MOLDE ESTRUCTURA L161A",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Tierras",
+      "pn": 215.611,
+      "pt": 215.611,
+      "r": "ERI-161090"
+    },
+    {
+      "d": "CARTUCHO CADWELL PLUS 45PLUSF20 COLOR AZUL CLARO",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Tierras",
+      "pn": 5.555,
+      "pt": 5.555,
+      "r": "ERI-165703"
+    },
+    {
+      "d": "CARTUCHO CADWELL PLUS 65PLUSF20 COLOR VERDE OSCURO",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Tierras",
+      "pn": 6.71,
+      "pt": 6.71,
+      "r": "ERI-165704"
+    },
+    {
+      "d": "CARTUCHO CADWELL PLUS 90PLUSF20 COLOR GRIS",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Tierras",
+      "pn": 9.1,
+      "pt": 9.1,
+      "r": "ERI-165705"
+    },
+    {
+      "d": "EMPAQUETADURA PARA MOLDE Z S2904B",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Tierras",
+      "pn": 2.034,
+      "pt": 2.034,
+      "r": "ERI-185020"
+    },
+    {
+      "d": "DIFERENCIAL TX3 2/40/30AC",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Protección (automáticos y sobretensiones)",
+      "pn": 9.639,
+      "pt": 9.639,
+      "r": "LEG-403033"
+    },
+    {
+      "d": "DIFERENCIAL DX3 2/40/300AC",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Protección (automáticos y sobretensiones)",
+      "pn": 31.494,
+      "pt": 31.494,
+      "r": "LEG-411525"
+    },
+    {
+      "d": "DIFERENCIAL DX3 2/63/30AC",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Protección (automáticos y sobretensiones)",
+      "pn": 148.447,
+      "pt": 148.447,
+      "r": "LEG-411506"
+    },
+    {
+      "d": "DIFERENCIAL DX3 4/40/30AC",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Protección (automáticos y sobretensiones)",
+      "pn": 44.06,
+      "pt": 44.06,
+      "r": "LEG-411661"
+    },
+    {
+      "d": "DIFERENCIAL DX3 4/40/300AC",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Protección (automáticos y sobretensiones)",
+      "pn": 38.193,
+      "pt": 38.193,
+      "r": "LEG-411665"
+    },
+    {
+      "d": "DIFERENCIAL DX3 4/63/30AC",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Protección (automáticos y sobretensiones)",
+      "pn": 94.795,
+      "pt": 94.795,
+      "r": "LEG-411662"
+    },
+    {
+      "d": "DIFERENCIAL DX3 4/63/300AC",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Protección (automáticos y sobretensiones)",
+      "pn": 53.663,
+      "pt": 53.663,
+      "r": "LEG-411666"
+    },
+    {
+      "d": "DIFERENCIAL DX3 4/80/30AC",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Protección (automáticos y sobretensiones)",
+      "pn": 247.409,
+      "pt": 247.409,
+      "r": "LEG-411663"
+    },
+    {
+      "d": "DIFERENCIAL DX3 4/80/300AC",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Protección (automáticos y sobretensiones)",
+      "pn": 195.012,
+      "pt": 195.012,
+      "r": "LEG-411667"
+    },
+    {
+      "d": "DIFERENCIAL DX3 2/40/30HPI SUPERHINMUNIZADO",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Protección (automáticos y sobretensiones)",
+      "pn": 48.819,
+      "pt": 48.819,
+      "r": "LEG-411591"
+    },
+    {
+      "d": "DIFERENCIAL DX3 4/40/30HPI SUPERHINMUNIZADO",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Protección (automáticos y sobretensiones)",
+      "pn": 167.139,
+      "pt": 167.139,
+      "r": "LEG-411695"
+    },
+    {
+      "d": "MAGNETOT.TX3 6KA-C P+N 6A",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Protección (automáticos y sobretensiones)",
+      "pn": 5.723,
+      "pt": 5.723,
+      "r": "LEG-403584"
+    },
+    {
+      "d": "MAGNETOT.TX3 6KA-C P+N 10A",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Protección (automáticos y sobretensiones)",
+      "pn": 2.807,
+      "pt": 2.807,
+      "r": "LEG-403585"
+    },
+    {
+      "d": "MAGNETOT.TX3 6KA-C P+N 16A",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Protección (automáticos y sobretensiones)",
+      "pn": 2.807,
+      "pt": 2.807,
+      "r": "LEG-403586"
+    },
+    {
+      "d": "MAGNETOT.TX3 6KA-C P+N 20A",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Protección (automáticos y sobretensiones)",
+      "pn": 2.952,
+      "pt": 2.952,
+      "r": "LEG-403587"
+    },
+    {
+      "d": "MAGNETOT.TX3 6KA-C P+N 25A",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Protección (automáticos y sobretensiones)",
+      "pn": 3.096,
+      "pt": 3.096,
+      "r": "LEG-403588"
+    },
+    {
+      "d": "MAGNETOT.TX3 6KA-C P+N 32A",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Protección (automáticos y sobretensiones)",
+      "pn": 5.723,
+      "pt": 5.723,
+      "r": "LEG-403589"
+    },
+    {
+      "d": "MAGNETOT.TX3 6KA-C P+N 40A",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Protección (automáticos y sobretensiones)",
+      "pn": 20.611,
+      "pt": 20.611,
+      "r": "LEG-403590"
+    },
+    {
+      "d": "MAGNETOT.TX3 6KA-C 4P 10A",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Protección (automáticos y sobretensiones)",
+      "pn": 12.048,
+      "pt": 12.048,
+      "r": "LEG-403625"
+    },
+    {
+      "d": "MAGNETOT.TX3 6KA-C 4P 16A",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Protección (automáticos y sobretensiones)",
+      "pn": 12.048,
+      "pt": 12.048,
+      "r": "LEG-403626"
+    },
+    {
+      "d": "MAGNETOT.TX3 6KA-C 4P 20A",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Protección (automáticos y sobretensiones)",
+      "pn": 12.048,
+      "pt": 12.048,
+      "r": "LEG-403627"
+    },
+    {
+      "d": "MAGNETOT.TX3 6KA-C 4P 25A",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Protección (automáticos y sobretensiones)",
+      "pn": 12.048,
+      "pt": 12.048,
+      "r": "LEG-403628"
+    },
+    {
+      "d": "MAGNETOT.TX3 6KA-C 4P 32A",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Protección (automáticos y sobretensiones)",
+      "pn": 13.253,
+      "pt": 13.253,
+      "r": "LEG-403629"
+    },
+    {
+      "d": "MAGNETOT.TX3 6KA-C 4P 40A",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Protección (automáticos y sobretensiones)",
+      "pn": 15.663,
+      "pt": 15.663,
+      "r": "LEG-403630"
+    },
+    {
+      "d": "MAGNET TX3 6KA C 4P 50A",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Protección (automáticos y sobretensiones)",
+      "pn": 63.06,
+      "pt": 63.06,
+      "r": "LEG-403631"
+    },
+    {
+      "d": "PROTECCIÓN COMBINADA P+T 2P 25A C VIV. PERMANENTE Y TRANSITORIO",
+      "dto": "0,0",
+      "f": "2026-10-28",
+      "fam": "Bandeja y rejilla",
+      "pn": 46.125,
+      "pt": 46.125,
+      "r": "HAG-SP225N"
+    },
+    {
+      "d": "PROTECCIÓN COMBINADA P+T 2P 32A C VIV. PERMANENTE Y TRANSITORIO",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Bandeja y rejilla",
+      "pn": 48.375,
+      "pt": 48.375,
+      "r": "HAG-SP232N"
+    },
+    {
+      "d": "PROTECCIÓN COMBINADA P+T 2P 40A C PERMANENTE Y TRANSITORIO",
+      "dto": "0,0",
+      "f": "2026-10-28",
+      "fam": "Bandeja y rejilla",
+      "pn": 49.5,
+      "pt": 49.5,
+      "r": "HAG-SP240N"
+    },
+    {
+      "d": "PROTECCIÓN COMBINADA P+T 4P 25A C PERMANENTE Y TRANSITORIO",
+      "dto": "69,2",
+      "f": "2026-10-28",
+      "fam": "Bandeja y rejilla",
+      "pn": 155.3768,
+      "pt": 504.47,
+      "r": "HAG-SP425G"
+    },
+    {
+      "d": "PROT.COMBINADA P+T 4P 6KA CURVA-C 40A PERMANENTE Y TRANSITORIO",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Bandeja y rejilla",
+      "pn": 190.738,
+      "pt": 190.738,
+      "r": "HAG-SP440G"
+    },
+    {
+      "d": "PROT.COMBINADA P+T 4P 6KA CURVA-C 63A",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Bandeja y rejilla",
+      "pn": 225.752,
+      "pt": 225.752,
+      "r": "HAG-SP463G"
+    },
+    {
+      "d": "PROTECTOR PERMANENTE Y TRANSITORIA MONOFÁSICO 25A SPT-M 25 1+NPE PERMANENTE + TRANSITORIA",
+      "dto": "0,0",
+      "f": "2026-10-28",
+      "fam": "Bandeja y rejilla",
+      "pn": 48.138,
+      "pt": 48.138,
+      "r": "OBO-5092789"
+    },
+    {
+      "d": "PROTECTOR PERMANENTE Y TRANSITORIA MONOFÁSICO 32A SPT-M 32 1+NPE PERMANENTE + TRANSITORIA",
+      "dto": "0,0",
+      "f": "2026-10-28",
+      "fam": "Bandeja y rejilla",
+      "pn": 48.45,
+      "pt": 48.45,
+      "r": "OBO-5092791"
+    },
+    {
+      "d": "PROTECTOR PERMANENTE Y TRANSITORIA MONOFÁSICO 40A SPT-M 40 1+NPE PERMANENTE + TRANSITORIA",
+      "dto": "0,0",
+      "f": "2026-10-28",
+      "fam": "Bandeja y rejilla",
+      "pn": 48.45,
+      "pt": 48.45,
+      "r": "OBO-5092793"
+    },
+    {
+      "d": "PROTECTOR PERMANENTE Y TRANSITORIA TRIFÁSICO 25A SPT-TR 25 3+NPE PERMANENTE + TRANSITORIA",
+      "dto": "0,0",
+      "f": "2026-10-28",
+      "fam": "Bandeja y rejilla",
+      "pn": 128.888,
+      "pt": 128.888,
+      "r": "OBO-5092795"
+    },
+    {
+      "d": "PROTECTOR PERMANENTE Y TRANSITORIA TRIFÁSICO 40A SPT-TR 40 3+NPE PERMANENTE + TRANSITORIA",
+      "dto": "0,0",
+      "f": "2026-10-28",
+      "fam": "Bandeja y rejilla",
+      "pn": 135.088,
+      "pt": 135.088,
+      "r": "OBO-5092799"
+    },
+    {
+      "d": "PROTECTOR PERMANENTE Y TRANSITORIA TRIFÁSICO 63A SPT-TR 63 3+NPE PERMANENTE + TRANSITORIA",
+      "dto": "0,0",
+      "f": "2026-10-28",
+      "fam": "Bandeja y rejilla",
+      "pn": 168.05,
+      "pt": 168.05,
+      "r": "OBO-5092798"
+    },
+    {
+      "d": "ANCLAJE TP.IK10 U23X PVC 50 GR RAL7030",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Bandeja y rejilla",
+      "pn": 2.667,
+      "pt": 2.667,
+      "r": "UNE-66845"
+    },
+    {
+      "d": "BANDEJA 66 LISA PVC-M1 60X150 GRIS",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Bandeja y rejilla",
+      "pn": 9.762,
+      "pt": 9.762,
+      "r": "UNE-66151"
+    },
+    {
+      "d": "BANDEJA 66 LISA PVC-M1 U23X 100X300 GR.",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Bandeja y rejilla",
+      "pn": 24.475,
+      "pt": 24.475,
+      "r": "UNE-66321"
+    },
+    {
+      "d": "BANDEJA 66 LISA PVC-M1 U23X 100X400 GRIS",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Bandeja y rejilla",
+      "pn": 32.169,
+      "pt": 32.169,
+      "r": "UNE-66421"
+    },
+    {
+      "d": "BANDEJA 66 LISA PVC-M1 U23X 60X100 GRIS",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Bandeja y rejilla",
+      "pn": 7.584,
+      "pt": 7.584,
+      "r": "UNE-66101"
+    },
+    {
+      "d": "BANDEJA 66 LISA PVC-M1 U23X 60X200 GRIS",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Bandeja y rejilla",
+      "pn": 11.649,
+      "pt": 11.649,
+      "r": "UNE-66201"
+    },
+    {
+      "d": "BANDEJA 66 LISA PVC-M1 U23X 60X300 GRIS",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Bandeja y rejilla",
+      "pn": 17.693,
+      "pt": 17.693,
+      "r": "UNE-66301"
+    },
+    {
+      "d": "BANDEJA 66 PERF.PVC-M1 U23X 100X500 GR",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Bandeja y rejilla",
+      "pn": 41.233,
+      "pt": 41.233,
+      "r": "UNE-66520"
+    },
+    {
+      "d": "BANDEJA 66 PERF.PVC-M1 U23X 60X400 GR",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Bandeja y rejilla",
+      "pn": 25.492,
+      "pt": 25.492,
+      "r": "UNE-66400"
+    },
+    {
+      "d": "BANDEJA 66 PERFORADA PVC-M1 100X300 GRIS",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Bandeja y rejilla",
+      "pn": 24.475,
+      "pt": 24.475,
+      "r": "UNE-66320"
+    },
+    {
+      "d": "BANDEJA 66 PERFORADA PVC-M1 100X400 GRIS",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Bandeja y rejilla",
+      "pn": 32.169,
+      "pt": 32.169,
+      "r": "UNE-66420"
+    },
+    {
+      "d": "BANDEJA 66 PERFORADA PVC-M1 100X600 GRIS",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Bandeja y rejilla",
+      "pn": 45.925,
+      "pt": 45.925,
+      "r": "UNE-66620"
+    },
+    {
+      "d": "BANDEJA 66 PERFORADA PVC-M1 60X100 GRIS",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Bandeja y rejilla",
+      "pn": 7.584,
+      "pt": 7.584,
+      "r": "UNE-66100"
+    },
+    {
+      "d": "BANDEJA 66 PERFORADA PVC-M1 60X150 GRIS",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Bandeja y rejilla",
+      "pn": 9.762,
+      "pt": 9.762,
+      "r": "UNE-66150"
+    },
+    {
+      "d": "BANDEJA 66 PERFORADA PVC-M1 60X200 GRIS",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Bandeja y rejilla",
+      "pn": 11.649,
+      "pt": 11.649,
+      "r": "UNE-66200"
+    },
+    {
+      "d": "BANDEJA 66 PERFORADA PVC-M1 60X300 GRIS",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Bandeja y rejilla",
+      "pn": 17.693,
+      "pt": 17.693,
+      "r": "UNE-66300"
+    },
+    {
+      "d": "BANDEJA 66 PERFORADA U23X 100X200 GRIS",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Bandeja y rejilla",
+      "pn": 17.303,
+      "pt": 17.303,
+      "r": "UNE-66220"
+    },
+    {
+      "d": "BANDEJA 66 PERFORADA U23X 60X75 GRIS",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Bandeja y rejilla",
+      "pn": 6.902,
+      "pt": 6.902,
+      "r": "UNE-66090"
+    },
+    {
+      "d": "BISAGRA HORIZONTAL GRIS RAL7035 60 U23X",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Bandeja y rejilla",
+      "pn": 2.893,
+      "pt": 2.893,
+      "r": "UNE-66844"
+    },
+    {
+      "d": "BISAGRA PVC-M1 U23X ALTURA 60 GRIS",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Bandeja y rejilla",
+      "pn": 2.574,
+      "pt": 2.574,
+      "r": "UNE-66813"
+    },
+    {
+      "d": "CONECTOR OMEGA PERFORADA EPOXI GRIS",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Bandeja y rejilla",
+      "pn": 11.764,
+      "pt": 11.764,
+      "r": "UNE-66990"
+    },
+    {
+      "d": "CUBIERTA PVC-M1 150MM P/66150/1 GRIS",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Bandeja y rejilla",
+      "pn": 6.556,
+      "pt": 6.556,
+      "r": "UNE-66152"
+    },
+    {
+      "d": "CUBIERTA PVC-M1 200MM P/66200/1 GRIS",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Bandeja y rejilla",
+      "pn": 7.991,
+      "pt": 7.991,
+      "r": "UNE-66202"
+    },
+    {
+      "d": "CUBIERTA PVC-M1 P/66070/1 U23X GRIS",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Bandeja y rejilla",
+      "pn": 3.393,
+      "pt": 3.393,
+      "r": "UNE-66072"
+    },
+    {
+      "d": "CUBIERTA PVC-M1 P/66100/1 GRIS",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Bandeja y rejilla",
+      "pn": 4.636,
+      "pt": 4.636,
+      "r": "UNE-66102"
+    },
+    {
+      "d": "CUBIERTA PVC-M1 P/66300/1 66320/1 GRIS",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Bandeja y rejilla",
+      "pn": 10.89,
+      "pt": 10.89,
+      "r": "UNE-66302"
+    },
+    {
+      "d": "CUBIERTA PVC-M1 P/66400/1 66420/1 GRIS",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Bandeja y rejilla",
+      "pn": 17.55,
+      "pt": 17.55,
+      "r": "UNE-66402"
+    },
+    {
+      "d": "CUBIERTA PVC-M1 P/66520/1 U23X GRIS",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Bandeja y rejilla",
+      "pn": 24.002,
+      "pt": 24.002,
+      "r": "UNE-66502"
+    },
+    {
+      "d": "CUBIERTA PVC-M1 P/66620/1 GRIS",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Bandeja y rejilla",
+      "pn": 30.503,
+      "pt": 30.503,
+      "r": "UNE-66602"
+    },
+    {
+      "d": "CURVA PLANA 90+ 60X100 U23X GRIS RAL7035",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Bandeja y rejilla",
+      "pn": 31.823,
+      "pt": 31.823,
+      "r": "UNE-66110"
+    },
+    {
+      "d": "CURVA PLANA 90º 60X150 U23X GRIS RAL7035",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Bandeja y rejilla",
+      "pn": 37.565,
+      "pt": 37.565,
+      "r": "UNE-66160"
+    },
+    {
+      "d": "CURVA PLANA 90º 60X200 U23X GRIS RAL7035",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Bandeja y rejilla",
+      "pn": 42.091,
+      "pt": 42.091,
+      "r": "UNE-66210"
+    },
+    {
+      "d": "CURVA PLANA 90º 60X300 U23X GRIS RAL7035",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Bandeja y rejilla",
+      "pn": 64.894,
+      "pt": 64.894,
+      "r": "UNE-66310"
+    },
+    {
+      "d": "CURVA PNA.90º 100X300 U23X GR RAL7035",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Bandeja y rejilla",
+      "pn": 86.592,
+      "pt": 86.592,
+      "r": "UNE-66330"
+    },
+    {
+      "d": "DERIVACIÓN EN T 60X150 U23X GRIS RAL7035",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Bandeja y rejilla",
+      "pn": 25.096,
+      "pt": 25.096,
+      "r": "UNE-66178"
+    },
+    {
+      "d": "DERIVACIÓN EN T 60X200 U23X GRIS RAL7035",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Bandeja y rejilla",
+      "pn": 26.345,
+      "pt": 26.345,
+      "r": "UNE-66228"
+    },
+    {
+      "d": "DERIVACION EN T 60X300 U23X GRIS RAL7035",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Bandeja y rejilla",
+      "pn": 33.792,
+      "pt": 33.792,
+      "r": "UNE-66328"
+    },
+    {
+      "d": "DERIVACION T 60X100 U23X GR.RAL7035",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Bandeja y rejilla",
+      "pn": 23.782,
+      "pt": 23.782,
+      "r": "UNE-66128"
+    },
+    {
+      "d": "OMEGA PERF.EPOXI LONG.0.50M GR",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Bandeja y rejilla",
+      "pn": 27.687,
+      "pt": 27.687,
+      "r": "UNE-66937"
+    },
+    {
+      "d": "PERNO UNION PVC M1 U23X GRIS",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Bandeja y rejilla",
+      "pn": 0.296,
+      "pt": 0.296,
+      "r": "UNE-66832"
+    },
+    {
+      "d": "PROTECTOR PFL.OMEGA PVC PLTFD.AM.",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Bandeja y rejilla",
+      "pn": 4.031,
+      "pt": 4.031,
+      "r": "UNE-66903"
+    },
+    {
+      "d": "SOP.HORIZ.AISL.66 100X600 U23X GR.7035",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Bandeja y rejilla",
+      "pn": 35.783,
+      "pt": 35.783,
+      "r": "UNE-66603"
+    },
+    {
+      "d": "SOP.HORIZ.PVC-M1 P/66070/1 66100/1 GRIS",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Bandeja y rejilla",
+      "pn": 4.559,
+      "pt": 4.559,
+      "r": "UNE-66103"
+    },
+    {
+      "d": "SOP.HORIZ.PVC-M1 P/66300/1 GRIS",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Bandeja y rejilla",
+      "pn": 8.266,
+      "pt": 8.266,
+      "r": "UNE-66303"
+    },
+    {
+      "d": "SOP.VERT.PVC-M1 66100/1 66150/1 U23X GR.",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Bandeja y rejilla",
+      "pn": 7.15,
+      "pt": 7.15,
+      "r": "UNE-66155"
+    },
+    {
+      "d": "SOP.VT.PVC-M1 66300/1 66320/1 U23X GR",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Bandeja y rejilla",
+      "pn": 10.45,
+      "pt": 10.45,
+      "r": "UNE-66305"
+    },
+    {
+      "d": "SOP.VT.PVC-M1 66400/1 66420/1 U23X GR",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Bandeja y rejilla",
+      "pn": 18.936,
+      "pt": 18.936,
+      "r": "UNE-66405"
+    },
+    {
+      "d": "SOPORTE HORIZ.PVC-M1 P/66150/1 GRIS",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Bandeja y rejilla",
+      "pn": 5.208,
+      "pt": 5.208,
+      "r": "UNE-66153"
+    },
+    {
+      "d": "SOPORTE HORIZ.PVC-M1 P/66200/1 GRIS",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Bandeja y rejilla",
+      "pn": 6.336,
+      "pt": 6.336,
+      "r": "UNE-66203"
+    },
+    {
+      "d": "SOPORTE HORIZ.PVC-M1 P/66400/1 U23X GRIS",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Bandeja y rejilla",
+      "pn": 18.073,
+      "pt": 18.073,
+      "r": "UNE-66403"
+    },
+    {
+      "d": "SOPORTE HZ.AISL.66 100X500 U23X GR 7035",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Bandeja y rejilla",
+      "pn": 33.792,
+      "pt": 33.792,
+      "r": "UNE-66503"
+    },
+    {
+      "d": "SOPORTE HZ.PVC-M1 P/66320/1 U23X GR",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Bandeja y rejilla",
+      "pn": 16.615,
+      "pt": 16.615,
+      "r": "UNE-66323"
+    },
+    {
+      "d": "SOPORTE L A-352MM EPOXI GRIS",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Bandeja y rejilla",
+      "pn": 14.778,
+      "pt": 14.778,
+      "r": "UNE-66306"
+    },
+    {
+      "d": "SOPORTE VT.PVC-M1 P/66200/1 U23X GR",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Bandeja y rejilla",
+      "pn": 8.277,
+      "pt": 8.277,
+      "r": "UNE-66205"
+    },
+    {
+      "d": "SOPORTE VT.PVC-M1 P/66620/1 U23X GR",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Bandeja y rejilla",
+      "pn": 28.242,
+      "pt": 28.242,
+      "r": "UNE-66605"
+    },
+    {
+      "d": "TABIQUE SEP.100 PVC-M1 U23X GR RAL7030",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Bandeja y rejilla",
+      "pn": 7.947,
+      "pt": 7.947,
+      "r": "UNE-66831"
+    },
+    {
+      "d": "TABIQUE SEP.60 PVC-M1 U23X GR RAL7030",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Bandeja y rejilla",
+      "pn": 4.499,
+      "pt": 4.499,
+      "r": "UNE-66821"
+    },
+    {
+      "d": "TAPA CV.PNA.90+ 100 U23X GR RAL7035",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Bandeja y rejilla",
+      "pn": 14.591,
+      "pt": 14.591,
+      "r": "UNE-66111"
+    },
+    {
+      "d": "TAPA CV.PNA.90º 150 U23X GR RAL7035",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Bandeja y rejilla",
+      "pn": 19.701,
+      "pt": 19.701,
+      "r": "UNE-66161"
+    },
+    {
+      "d": "TAPA CV.PNA.90º 200 U23X GR RAL7035",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Bandeja y rejilla",
+      "pn": 24.134,
+      "pt": 24.134,
+      "r": "UNE-66211"
+    },
+    {
+      "d": "TAPA CV.PNA.90º 300 U23X GR RAL7035",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Bandeja y rejilla",
+      "pn": 30.492,
+      "pt": 30.492,
+      "r": "UNE-66311"
+    },
+    {
+      "d": "TAPA DERIVACION T 100 U23X GR.RAL7035",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Bandeja y rejilla",
+      "pn": 21.186,
+      "pt": 21.186,
+      "r": "UNE-66129"
+    },
+    {
+      "d": "TAPA DERIVACIÓN T 150 U23X GRIS RAL7035",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Bandeja y rejilla",
+      "pn": 22.049,
+      "pt": 22.049,
+      "r": "UNE-66179"
+    },
+    {
+      "d": "TAPA DERIVACIÓN T 200 U23X GRIS RAL7035",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Bandeja y rejilla",
+      "pn": 24.508,
+      "pt": 24.508,
+      "r": "UNE-66229"
+    },
+    {
+      "d": "TAPA FINAL REDUC.PVC-M1 P/66100/1 GRIS",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Bandeja y rejilla",
+      "pn": 6.473,
+      "pt": 6.473,
+      "r": "UNE-66113"
+    },
+    {
+      "d": "TAPA FINAL REDUC.PVC-M1 P/66420/1 GRIS",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Bandeja y rejilla",
+      "pn": 24.09,
+      "pt": 24.09,
+      "r": "UNE-66433"
+    },
+    {
+      "d": "TAPA FINAL-REDUCCIÓN 100X200 U23X GRIS",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Bandeja y rejilla",
+      "pn": 9.993,
+      "pt": 9.993,
+      "r": "UNE-66233"
+    },
+    {
+      "d": "TAPA FNL.-REDUC.PVC-M1 P/66200/1 U23X GR",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Bandeja y rejilla",
+      "pn": 8.987,
+      "pt": 8.987,
+      "r": "UNE-66213"
+    },
+    {
+      "d": "TAPA FNL.REDUC.PVC-M1 P/66150/1 U23X GR",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Bandeja y rejilla",
+      "pn": 7.232,
+      "pt": 7.232,
+      "r": "UNE-66163"
+    },
+    {
+      "d": "TAPA FNL.REDUC.PVC-M1 P/66320/1 U23X GR",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Bandeja y rejilla",
+      "pn": 14.888,
+      "pt": 14.888,
+      "r": "UNE-66333"
+    },
+    {
+      "d": "UNION ESQUINA PLANA 60 GRIS",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Bandeja y rejilla",
+      "pn": 4.554,
+      "pt": 4.554,
+      "r": "UNE-66841"
+    },
+    {
+      "d": "UNION TRAMOS PVC-M1 ALTURA 100 GR.",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Bandeja y rejilla",
+      "pn": 7.282,
+      "pt": 7.282,
+      "r": "UNE-66834"
+    },
+    {
+      "d": "UNION TRAMOS PVC-M1 ALTURA 60 GRIS",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Bandeja y rejilla",
+      "pn": 2.332,
+      "pt": 2.332,
+      "r": "UNE-66824"
+    },
+    {
+      "d": "UNION TRAMOS S/PERNO ALTURA 60 GR.",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Bandeja y rejilla",
+      "pn": 1.98,
+      "pt": 1.98,
+      "r": "UNE-66825"
+    },
+    {
+      "d": "CABLE BARRYFLEX RV-K 0,6 1/KV 5G1,5MM2",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cable",
+      "pn": 1.453,
+      "pt": 1.453,
+      "r": "MIG-81764"
+    },
+    {
+      "d": "CABLE BARRYFLEX RV-K 0,6 1/KV 5G10mm2",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cable",
+      "pn": 9.131,
+      "pt": 9.131,
+      "r": "MIG-81765"
+    },
+    {
+      "d": "CABLE BARRYFLEX RV-K 0,6 1/KV 5G2,5MM2 BOBINA",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cable",
+      "pn": 2.288,
+      "pt": 2.288,
+      "r": "MIG-81766"
+    },
+    {
+      "d": "CABLE BARRYFLEX RV-K 0,6 1/KV 5G4MM2",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cable",
+      "pn": 3.604,
+      "pt": 3.604,
+      "r": "MIG-81767"
+    },
+    {
+      "d": "CABLE BARRYFLEX RV-K 0,6 1/KV 5G6MM2",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cable",
+      "pn": 5.312,
+      "pt": 5.312,
+      "r": "MIG-81768"
+    },
+    {
+      "d": "CABLE AFIRENAS-X RZ1-K 0,6/1KV 6G1,5MM2",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cable",
+      "pn": 2.447,
+      "pt": 2.447,
+      "r": "MIG-83167"
+    },
+    {
+      "d": "CABLE AFIRENAS-X RZ1-K 0,6/1KV 7G1,5MM2",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cable",
+      "pn": 2.765,
+      "pt": 2.765,
+      "r": "MIG-83169"
+    },
+    {
+      "d": "CABLE AFIRENAS-X RZ1-K 0,6/1KV 8G1,5MM2",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cable",
+      "pn": 3.137,
+      "pt": 3.137,
+      "r": "MIG-83171"
+    },
+    {
+      "d": "CABLE AFIRENAX-X RZ1-K 0,6/1KV 1x1,5mm2",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cable",
+      "pn": 0.58,
+      "pt": 0.58,
+      "r": "MIG-84001"
+    },
+    {
+      "d": "CABLE AFIRENAX-X RZ1-K 0,6/1KV 1x2,5mm2",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cable",
+      "pn": 0.673,
+      "pt": 0.673,
+      "r": "MIG-84002"
+    },
+    {
+      "d": "CABLE AFIRENAX-X RZ1-K 0,6/1KV 1x4mm2",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cable",
+      "pn": 0.941,
+      "pt": 0.941,
+      "r": "MIG-84003"
+    },
+    {
+      "d": "CABLE AFIRENAX-X RZ1-K 0,6/1KV 1X6MM2",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cable",
+      "pn": 1.245,
+      "pt": 1.245,
+      "r": "MIG-84004"
+    },
+    {
+      "d": "CABLE AFIRENAX-X RZ1-K 0,6/1KV 1X10MM2 BOB",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cable",
+      "pn": 1.959,
+      "pt": 1.959,
+      "r": "MIG-84005"
+    },
+    {
+      "d": "CABLE AFIRENAX-X RZ1-K 0,6/1KV 1X16MM2",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cable",
+      "pn": 2.939,
+      "pt": 2.939,
+      "r": "MIG-84006"
+    },
+    {
+      "d": "CABLE AFIRENAX-X RZ1-K 0,6/1KV 1X25MM2",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cable",
+      "pn": 4.469,
+      "pt": 4.469,
+      "r": "MIG-84007"
+    },
+    {
+      "d": "CABLE AFIRENAX-X RZ1-K 0,6/1KV 1X35MM2",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cable",
+      "pn": 6.171,
+      "pt": 6.171,
+      "r": "MIG-84008"
+    },
+    {
+      "d": "CABLE AFIRENAX-X RZ1-K 0,6/1KV 1X50MM2",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cable",
+      "pn": 8.584,
+      "pt": 8.584,
+      "r": "MIG-84009"
+    },
+    {
+      "d": "CABLE AFIRENAX-X RZ1-K 0,6/1KV 1X70MM2",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cable",
+      "pn": 12.145,
+      "pt": 12.145,
+      "r": "MIG-84010"
+    },
+    {
+      "d": "CABLE AFIRENAX-X RZ1-K 0,6/1KV 1X95MM2",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cable",
+      "pn": 16.007,
+      "pt": 16.007,
+      "r": "MIG-84011"
+    },
+    {
+      "d": "CABLE AFIRENAX-X RZ1-K 0,6/1KV 1X120MM2",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cable",
+      "pn": 20.104,
+      "pt": 20.104,
+      "r": "MIG-84012"
+    },
+    {
+      "d": "CABLE AFIRENAX-X RZ1-K 0,6/1KV 1X150MM2",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cable",
+      "pn": 25.317,
+      "pt": 25.317,
+      "r": "MIG-84013"
+    },
+    {
+      "d": "CABLE AFIRENAX-X RZ1-K 0,6/1KV 1X185MM2",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cable",
+      "pn": 30.831,
+      "pt": 30.831,
+      "r": "MIG-84014"
+    },
+    {
+      "d": "CABLE AFIRENAX-X RZ1-K 0,6/1KV 1X240MM2",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cable",
+      "pn": 39.795,
+      "pt": 39.795,
+      "r": "MIG-84015"
+    },
+    {
+      "d": "CABLE AFIRENAX-X RZ1-K 0,6/1KV 2X1,5MM2 BOBINA",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cable",
+      "pn": 0.811,
+      "pt": 0.811,
+      "r": "MIG-84016"
+    },
+    {
+      "d": "CABLE AFIRENAX-X RZ1-K 0,6/1KV 2x2,5mm2",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cable",
+      "pn": 1.205,
+      "pt": 1.205,
+      "r": "MIG-84017"
+    },
+    {
+      "d": "CABLE AFIRENAX-X RZ1-K 0,6/1KV 2x4mm2",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cable",
+      "pn": 1.871,
+      "pt": 1.871,
+      "r": "MIG-84018"
+    },
+    {
+      "d": "CABLE AFIRENAX-X RZ1-K 0,6/1KV 2X6MM2",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cable",
+      "pn": 2.494,
+      "pt": 2.494,
+      "r": "MIG-84019"
+    },
+    {
+      "d": "CABLE AFIRENAX-X RZ1-K 0,6/1KV 2X10MM2",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cable",
+      "pn": 4.023,
+      "pt": 4.023,
+      "r": "MIG-84020"
+    },
+    {
+      "d": "CABLE AFIRENAX-X RZ1-K 0,6/1KV 3G1,5MM2 BOBINA",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cable",
+      "pn": 1.064,
+      "pt": 1.064,
+      "r": "MIG-84021"
+    },
+    {
+      "d": "CABLE AFIRENAX-X RZ1-K 0,6/1KV 3G2,5MM2 BOBINA",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cable",
+      "pn": 1.576,
+      "pt": 1.576,
+      "r": "MIG-84022"
+    },
+    {
+      "d": "CABLE AFIRENAX-X RZ1-K 0,6/1KV 3G4MM2",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cable",
+      "pn": 2.429,
+      "pt": 2.429,
+      "r": "MIG-84023"
+    },
+    {
+      "d": "CABLE AFIRENAX-X RZ1-K 0,6/1KV 3G6MM2 BOBINA",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cable",
+      "pn": 3.484,
+      "pt": 3.484,
+      "r": "MIG-84024"
+    },
+    {
+      "d": "CABLE AFIRENAX-X RZ1-K 0,6/1KV 3G10MM2",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cable",
+      "pn": 5.712,
+      "pt": 5.712,
+      "r": "MIG-84025"
+    },
+    {
+      "d": "CABLE AFIRENAX-X RZ1-K 0,6/1KV 4G1,5MM2",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cable",
+      "pn": 1.394,
+      "pt": 1.394,
+      "r": "MIG-84030"
+    },
+    {
+      "d": "CABLE AFIRENAX-X RZ1-K 0,6/1KV 4G2,5MM2",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cable",
+      "pn": 2.064,
+      "pt": 2.064,
+      "r": "MIG-84031"
+    },
+    {
+      "d": "CABLE AFIRENAX-X RZ1-K 0,6/1KV 4G4MM2",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cable",
+      "pn": 3.173,
+      "pt": 3.173,
+      "r": "MIG-84032"
+    },
+    {
+      "d": "CABLE AFIRENAX-X RZ1-K 0,6/1KV 4G6MM2",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cable",
+      "pn": 4.575,
+      "pt": 4.575,
+      "r": "MIG-84033"
+    },
+    {
+      "d": "CABLE AFIRENAX-X RZ1-K 0,6/1KV 4G10MM2",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cable",
+      "pn": 7.599,
+      "pt": 7.599,
+      "r": "MIG-84034"
+    },
+    {
+      "d": "CABLE AFIRENAX-X RZ1-K 0,6/1KV 4X16MM2",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cable",
+      "pn": 11.74,
+      "pt": 11.74,
+      "r": "MIG-84035"
+    },
+    {
+      "d": "CABLE AFIRENAX-X RZ1-K 0,6/1KV 5G1,5MM2 BOBINA",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cable",
+      "pn": 1.687,
+      "pt": 1.687,
+      "r": "MIG-84036"
+    },
+    {
+      "d": "CABLE AFIRENAX-X RZ1-K 0,6/1KV 5G2,5MM2",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cable",
+      "pn": 2.537,
+      "pt": 2.537,
+      "r": "MIG-84037"
+    },
+    {
+      "d": "CABLE AFIRENAX-X RZ1-K 0,6/1KV 5G4MM2",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cable",
+      "pn": 3.924,
+      "pt": 3.924,
+      "r": "MIG-84038"
+    },
+    {
+      "d": "CABLE AFIRENAX-X RZ1-K 0,6/1KV 5G6MM2",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cable",
+      "pn": 5.678,
+      "pt": 5.678,
+      "r": "MIG-84039"
+    },
+    {
+      "d": "CABLE AFIRENAX-X RZ1-K 0,6/1KV 5G10MM2",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cable",
+      "pn": 9.414,
+      "pt": 9.414,
+      "r": "MIG-84040"
+    },
+    {
+      "d": "CABLE AFIRENAX-X RZ1-K 0,6/1KV 5G16MM2",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cable",
+      "pn": 14.496,
+      "pt": 14.496,
+      "r": "MIG-84041"
+    },
+    {
+      "d": "CABLE AFIRENAX-X RZ1-K 0,6/1KV 2X16MM2",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cable",
+      "pn": 6.214,
+      "pt": 6.214,
+      "r": "MIG-84048"
+    },
+    {
+      "d": "CABLE AFIRENAX-X RZ1-K 0,6/1KV 5G25mm2",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cable",
+      "pn": 22.553,
+      "pt": 22.553,
+      "r": "MIG-84071"
+    },
+    {
+      "d": "CABLE AFIRENAX-X RZ1-K 0,6/1KV 5G35mm2",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cable",
+      "pn": 32.339,
+      "pt": 32.339,
+      "r": "MIG-84072"
+    },
+    {
+      "d": "CABLE AFIRENAX-X RZ1-K 0,6/1KV 4X25MM2",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cable",
+      "pn": 18.18,
+      "pt": 18.18,
+      "r": "MIG-84082"
+    },
+    {
+      "d": "CABLE AFIRENAX-X RZ1-K 0,6/1KV 4x35mm2",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cable",
+      "pn": 25.637,
+      "pt": 25.637,
+      "r": "MIG-84083"
+    },
+    {
+      "d": "CABLE AFIRENAX-L 05Z1-K/07Z1-K 1MM2 AZ",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cable",
+      "pn": 0.212,
+      "pt": 0.212,
+      "r": "MIG-84099082"
+    },
+    {
+      "d": "CABLE AFIRENAX-L 05Z1-K/07Z1-K 1,5MM2 AZ",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cable",
+      "pn": 0.245,
+      "pt": 0.245,
+      "r": "MIG-84100082"
+    },
+    {
+      "d": "CABLE AFIRENAX-L 05Z1-K/07Z1-K 2,5MM2 AZ",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cable",
+      "pn": 0.402,
+      "pt": 0.402,
+      "r": "MIG-84101082"
+    },
+    {
+      "d": "CABLE AFIRENAX-L 05Z1-K/07Z1-K 4MM2 AZ",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cable",
+      "pn": 0.638,
+      "pt": 0.638,
+      "r": "MIG-84102082"
+    },
+    {
+      "d": "CABLE AFIRENAX-L 05Z1-K/07Z1-K 6MM2 AZ",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cable",
+      "pn": 0.931,
+      "pt": 0.931,
+      "r": "MIG-84103082"
+    },
+    {
+      "d": "CABLE AFIRENAX-L 05Z1-K/07Z1-K 10MM2 AZ",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cable",
+      "pn": 1.614,
+      "pt": 1.614,
+      "r": "MIG-84104082"
+    },
+    {
+      "d": "CABLE AFIRENAX-L 05Z1-K/07Z1-K 16MM2 AZ",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cable",
+      "pn": 2.51,
+      "pt": 2.51,
+      "r": "MIG-84105082"
+    },
+    {
+      "d": "CABLE AFIRENAX-L 05Z1-K/07Z1-K 25MM2 AZ",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cable",
+      "pn": 3.939,
+      "pt": 3.939,
+      "r": "MIG-84106082"
+    },
+    {
+      "d": "CABLE AFIREFACIL TRENZADO 07Z1-K 3G10+1,5",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cable",
+      "pn": 5.622,
+      "pt": 5.622,
+      "r": "MIG-84122"
+    },
+    {
+      "d": "CABLE AFIREFACIL TRENZADO 07Z1-K 3G16+1,5",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cable",
+      "pn": 8.494,
+      "pt": 8.494,
+      "r": "MIG-84123"
+    },
+    {
+      "d": "CABLE AFIREFACIL TRENZADO 07Z1-K 3G25+1,5",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cable",
+      "pn": 12.912,
+      "pt": 12.912,
+      "r": "MIG-84124"
+    },
+    {
+      "d": "CABLE AFIREFACIL TRENZADO 07Z1-K 3G35+1,5",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cable",
+      "pn": 18.555,
+      "pt": 18.555,
+      "r": "MIG-84125"
+    },
+    {
+      "d": "CABLE AFIREFACIL TRENZADO 07Z1-K 5G10+1,5",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cable",
+      "pn": 9.951,
+      "pt": 9.951,
+      "r": "MIG-84140"
+    },
+    {
+      "d": "CABLE AFIREFACIL TRENZADO 07Z1-K 5G16+1,5",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cable",
+      "pn": 14.895,
+      "pt": 14.895,
+      "r": "MIG-84141"
+    },
+    {
+      "d": "CABLE AFIREFENIX MICA RZ1-K AS+ 1X16 MM2",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cable",
+      "pn": 3.578,
+      "pt": 3.578,
+      "r": "MIG-85405"
+    },
+    {
+      "d": "CABLE AFIREFENIX MICA RZ1-K AS+ 1X25 MM2",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cable",
+      "pn": 5.588,
+      "pt": 5.588,
+      "r": "MIG-85406"
+    },
+    {
+      "d": "CABLE AFIREFENIX MICA RZ1-K AS+ 1X35 MM2",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cable",
+      "pn": 7.188,
+      "pt": 7.188,
+      "r": "MIG-85407"
+    },
+    {
+      "d": "CABLE AFIREFENIX MICA RZ1-K AS+ 1X50 MM2",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cable",
+      "pn": 9.612,
+      "pt": 9.612,
+      "r": "MIG-85408"
+    },
+    {
+      "d": "CABLE AFIREFENIX MICA RZ1-K AS+ 1X70 MM2",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cable",
+      "pn": 13.379,
+      "pt": 13.379,
+      "r": "MIG-85409"
+    },
+    {
+      "d": "CABLE AFIREFENIX MICA RZ1-K AS+ 1X95 MM2",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cable",
+      "pn": 17.51,
+      "pt": 17.51,
+      "r": "MIG-85410"
+    },
+    {
+      "d": "CABLE AFIREFENIX MICA RZ1-K AS+ 1X120 MM2",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cable",
+      "pn": 22.11,
+      "pt": 22.11,
+      "r": "MIG-85411"
+    },
+    {
+      "d": "CABLE AFIREFENIX MICA RZ1-K AS+ 1X150 MM2",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cable",
+      "pn": 27.602,
+      "pt": 27.602,
+      "r": "MIG-85412"
+    },
+    {
+      "d": "CABLE AFIREFENIX MICA RZ1-K AS+ 1X185 MM2",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cable",
+      "pn": 33.365,
+      "pt": 33.365,
+      "r": "MIG-85413"
+    },
+    {
+      "d": "CABLE AFIREFENIX MICA RZ1-K AS+ 1X240 MM2",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cable",
+      "pn": 43.705,
+      "pt": 43.705,
+      "r": "MIG-85414"
+    },
+    {
+      "d": "CABLE AFIREFENIX MICA RZ1-K AS+ 5G16 MM2",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cable",
+      "pn": 17.21,
+      "pt": 17.21,
+      "r": "MIG-85469"
+    },
+    {
+      "d": "CABLE AFIREFENIX SZ1-K 0.6/1KV 1x2.5mm",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cable",
+      "pn": 0.931,
+      "pt": 0.931,
+      "r": "MIG-85501"
+    },
+    {
+      "d": "CABLE AFIREFENIX SZ1-K 0.6/1KV 1x4mm",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cable",
+      "pn": 1.266,
+      "pt": 1.266,
+      "r": "MIG-85502"
+    },
+    {
+      "d": "CABLE AFIREFENIX SZ1-K 0.6/1KV 1x6mm",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cable",
+      "pn": 1.676,
+      "pt": 1.676,
+      "r": "MIG-85503"
+    },
+    {
+      "d": "CABLE AFIREFENIX SZ1-K 0.6/1KV 1X10MM",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cable",
+      "pn": 2.548,
+      "pt": 2.548,
+      "r": "MIG-85504"
+    },
+    {
+      "d": "CABLE AFIREFENIX SZ1-K 0.6/1KV 2x1.5mm",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cable",
+      "pn": 1.239,
+      "pt": 1.239,
+      "r": "MIG-85516"
+    },
+    {
+      "d": "CABLE AFIREFENIX SZ1-K 0.6/1KV 2X2.5MM",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cable",
+      "pn": 1.829,
+      "pt": 1.829,
+      "r": "MIG-85517"
+    },
+    {
+      "d": "CABLE AFIREFENIX SZ1-K 0.6/1KV 3G1.5mm",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cable",
+      "pn": 1.784,
+      "pt": 1.784,
+      "r": "MIG-85523"
+    },
+    {
+      "d": "CABLE AFIREFENIX SZ1-K 0.6/1KV 3G2.5mm",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cable",
+      "pn": 2.364,
+      "pt": 2.364,
+      "r": "MIG-85524"
+    },
+    {
+      "d": "CABLE AFIREFENIX SZ1-K 0.6/1KV 3G4MM",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cable",
+      "pn": 3.381,
+      "pt": 3.381,
+      "r": "MIG-85525"
+    },
+    {
+      "d": "CABLE AFIREFENIX SZ1-K 0.6/1KV 3G6MM",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cable",
+      "pn": 4.586,
+      "pt": 4.586,
+      "r": "MIG-85526"
+    },
+    {
+      "d": "CABLE AFIREFENIX SZ1-K 0.6/1KV 4G1,5MM",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cable",
+      "pn": 2.48,
+      "pt": 2.48,
+      "r": "MIG-85531"
+    },
+    {
+      "d": "CABLE AFIREFENIX SZ1-K 0.6/1KV 4G2.5MM",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cable",
+      "pn": 3.142,
+      "pt": 3.142,
+      "r": "MIG-85532"
+    },
+    {
+      "d": "CABLE AFIREFENIX SZ1-K 0.6/1KV 4G4MM",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cable",
+      "pn": 4.489,
+      "pt": 4.489,
+      "r": "MIG-85533"
+    },
+    {
+      "d": "CABLE AFIREFENIX SZ1-K 0.6/1KV 4G6MM",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cable",
+      "pn": 5.92,
+      "pt": 5.92,
+      "r": "MIG-85534"
+    },
+    {
+      "d": "CABLE AFIREFENIX SZ1-K 0.6/1KV 4G10MM",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cable",
+      "pn": 9.322,
+      "pt": 9.322,
+      "r": "MIG-85535"
+    },
+    {
+      "d": "CABLE AFIREFENIX SZ1-K 0.6/1KV 5G1.5MM",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cable",
+      "pn": 2.746,
+      "pt": 2.746,
+      "r": "MIG-85540"
+    },
+    {
+      "d": "CABLE AFIREFENIX SZ1-K 0.6/1KV 5G2.5MM",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cable",
+      "pn": 3.679,
+      "pt": 3.679,
+      "r": "MIG-85541"
+    },
+    {
+      "d": "CABLE AFIREFENIX SZ1-K 0.6/1KV 5G4MM",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cable",
+      "pn": 5.222,
+      "pt": 5.222,
+      "r": "MIG-85542"
+    },
+    {
+      "d": "CABLE AFIREFENIX SZ1-K 0.6/1KV 5G6MM",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cable",
+      "pn": 7.165,
+      "pt": 7.165,
+      "r": "MIG-85543"
+    },
+    {
+      "d": "CABLE AFIREFENIX SZ1-K 0.6/1KV 5G10MM",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cable",
+      "pn": 11.126,
+      "pt": 11.126,
+      "r": "MIG-85544"
+    },
+    {
+      "d": "CABLE AFIREFENIX SZ1-K 0.6/1KV 5G16MM",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cable",
+      "pn": 17.21,
+      "pt": 17.21,
+      "r": "MIG-85545"
+    },
+    {
+      "d": "CABLE BARRYFLEX RV-K 0,6 1KV 1x2,5mm2",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cable",
+      "pn": 0.61,
+      "pt": 0.61,
+      "r": "MIG-86203"
+    },
+    {
+      "d": "CABLE BARRYFLEX RV-K 0,6 1KV 1X4MM2",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cable",
+      "pn": 0.761,
+      "pt": 0.761,
+      "r": "MIG-86204"
+    },
+    {
+      "d": "CABLE BARRYFLEX RV-K 0,6 1KV 1x6mm2",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cable",
+      "pn": 1.069,
+      "pt": 1.069,
+      "r": "MIG-86205"
+    },
+    {
+      "d": "CABLE BARRYFLEX RV-K 0,6 1KV 1X10MM2",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cable",
+      "pn": 1.78,
+      "pt": 1.78,
+      "r": "MIG-86206"
+    },
+    {
+      "d": "CABLE BARRYFLEX RV-K 0,6 1KV 1X16MM2",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cable",
+      "pn": 2.741,
+      "pt": 2.741,
+      "r": "MIG-86207"
+    },
+    {
+      "d": "CABLE BARRYFLEX RV-K 0,6 1KV 1x25mm2",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cable",
+      "pn": 4.223,
+      "pt": 4.223,
+      "r": "MIG-86208"
+    },
+    {
+      "d": "CABLE BARRYFLEX RV-K 0,6 1KV 3G1,5MM2 BOBINA",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cable",
+      "pn": 0.881,
+      "pt": 0.881,
+      "r": "MIG-86232"
+    },
+    {
+      "d": "CABLE BARRYFLEX RV-K 0,6 1KV 3G2,5MM2 BOBINA",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cable",
+      "pn": 1.381,
+      "pt": 1.381,
+      "r": "MIG-86233"
+    },
+    {
+      "d": "CABLE BARRYFLEX RV-K 0,6 1KV 3G4MM2 BOBINA",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cable",
+      "pn": 2.195,
+      "pt": 2.195,
+      "r": "MIG-86234"
+    },
+    {
+      "d": "CABLE BARRYFLEX RV-K 0,6 1KV 3G6MM2 BOBINA",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cable",
+      "pn": 3.231,
+      "pt": 3.231,
+      "r": "MIG-86235"
+    },
+    {
+      "d": "CABLE BARRYFLEX RV-K 0,6 1/KV 4G1,5MM2",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cable",
+      "pn": 1.16,
+      "pt": 1.16,
+      "r": "MIG-86247"
+    },
+    {
+      "d": "CABLE BARRYFLEX RV-K 0,6 1/KV 4G2,5MM2",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cable",
+      "pn": 1.822,
+      "pt": 1.822,
+      "r": "MIG-86248"
+    },
+    {
+      "d": "CABLE BARRYFLEX RV-K 0,6 1/KV 4G4MM2 BOBINA",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cable",
+      "pn": 2.894,
+      "pt": 2.894,
+      "r": "MIG-86249"
+    },
+    {
+      "d": "CABLE BARRYFLEX RV-K 0,6 1/KV 4G6MM2",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cable",
+      "pn": 4.184,
+      "pt": 4.184,
+      "r": "MIG-86250"
+    },
+    {
+      "d": "CBL.AL VOLTALENE FLAMEX(S)AL XZ1(S)1X16 CPRO",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cable",
+      "pn": 0.711,
+      "pt": 0.711,
+      "r": "PRY-20217478"
+    },
+    {
+      "d": "CBL.1X25 AL VOLTALENE FLAMEX CPRO XZ1",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cable",
+      "pn": 0.903,
+      "pt": 0.903,
+      "r": "PRY-20217479"
+    },
+    {
+      "d": "CBL.AL VOLTALENE FLAMEX CPRO XZ1 1X35 1KV",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cable",
+      "pn": 1.407,
+      "pt": 1.407,
+      "r": "PRY-20217480"
+    },
+    {
+      "d": "CBL.1X50 AL VOLTALENE FLAMEX CPRO XZ1",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cable",
+      "pn": 1.309,
+      "pt": 1.309,
+      "r": "PRY-20217481"
+    },
+    {
+      "d": "CBL.AL VOLTALENE FLAMEX XZ1 CPR 1X70MM 1KV",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cable",
+      "pn": 1.821,
+      "pt": 1.821,
+      "r": "PRY-20217482"
+    },
+    {
+      "d": "CBL.AL VOLTALENE FLAMEX(S)AL XZ1(S)1X95 CPR",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cable",
+      "pn": 2.389,
+      "pt": 2.389,
+      "r": "PRY-20217483"
+    },
+    {
+      "d": "CBL.AL VOLTALENE FLAMEX CPRO XZ1 120MM2 1KV",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cable",
+      "pn": 3.003,
+      "pt": 3.003,
+      "r": "PRY-20217484"
+    },
+    {
+      "d": "CBL.AL VOLTALENE FLAMEX(S)AL XZ1(S)1X150 CPR",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cable",
+      "pn": 3.684,
+      "pt": 3.684,
+      "r": "PRY-20217485"
+    },
+    {
+      "d": "CBL.AL VOLTALENE FLAMEX(S)AL XZ1(S)1X185",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cable",
+      "pn": 4.865,
+      "pt": 4.865,
+      "r": "PRY-20046735"
+    },
+    {
+      "d": "CBL.AL VOLTALENE FLAMEX(S)AL XZ1(S)1X240 CPR",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cable",
+      "pn": 6.145,
+      "pt": 6.145,
+      "r": "PRY-20217487"
+    },
+    {
+      "d": "CABLE AL POLIRRET CPRO RZ 1KV 2X25 FCA",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cable",
+      "pn": 1.576,
+      "pt": 1.576,
+      "r": "PRY-20216906"
+    },
+    {
+      "d": "CABLE RZ 3X25+54,6 CPRO",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cable",
+      "pn": 4.817,
+      "pt": 4.817,
+      "r": "PRY-20216908"
+    },
+    {
+      "d": "CABLE AL POLIRRET CPRO RZ 1KV 4X25 FCA",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cable",
+      "pn": 3.039,
+      "pt": 3.039,
+      "r": "PRY-20216904"
+    },
+    {
+      "d": "CABLE AL-POLIRRET (N FIADOR) 4X25+54,6 1000V FCA",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cable",
+      "pn": 5.388,
+      "pt": 5.388,
+      "r": "PRY-20198550"
+    },
+    {
+      "d": "CABLE RZ 3X50+54,6 CPRO",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cable",
+      "pn": 5.385,
+      "pt": 5.385,
+      "r": "PRY-20216909"
+    },
+    {
+      "d": "CBL.AL POLIRRET CPRO RZ 1KV 3X95+546 FCA",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cable",
+      "pn": 8.68,
+      "pt": 8.68,
+      "r": "PRY-20216910"
+    },
+    {
+      "d": "CABLE FLEXTREME H07RN-F 450/750V 3G1,5",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cable",
+      "pn": 1.231,
+      "pt": 1.231,
+      "r": "PRY-20031877"
+    },
+    {
+      "d": "CBL.FLEXTREME H07RN-F 450/750V 3G2,5 ECA",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cable",
+      "pn": 1.84,
+      "pt": 1.84,
+      "r": "PRY-20031886"
+    },
+    {
+      "d": "CBL.FLEXTREME H07RN-F 450/750V 3G6 T NG",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cable",
+      "pn": 3.762,
+      "pt": 3.762,
+      "r": "PRY-20031914"
+    },
+    {
+      "d": "FLEXTREME MAX H07RN-F 5G2.5 0,750 KV",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cable",
+      "pn": 2.791,
+      "pt": 2.791,
+      "r": "PRY-20031905"
+    },
+    {
+      "d": "CBL.FLEXTREME 450/750V 5G6 H07RN-F NG.",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cable",
+      "pn": 6.208,
+      "pt": 6.208,
+      "r": "PRY-20031907"
+    },
+    {
+      "d": "CABLE FLEXTREME H07RN-F 450/750V 5G10",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cable",
+      "pn": 11.825,
+      "pt": 11.825,
+      "r": "PRY-20031908"
+    },
+    {
+      "d": "CABLE.FLEXTREME 450/750V 5G16 H07RN-F NG. 750V",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cable",
+      "pn": 16.85,
+      "pt": 16.85,
+      "r": "PRY-20031782"
+    },
+    {
+      "d": "CBL.XTREM H07RN-F 750V 5G25MM2 BOB.",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cable",
+      "pn": 26.246,
+      "pt": 26.246,
+      "r": "PRY-20031896"
+    },
+    {
+      "d": "FLEXTREME H07RN-F 1X16",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cable",
+      "pn": 3.375,
+      "pt": 3.375,
+      "r": "PRY-20031858"
+    },
+    {
+      "d": "CABLE SOLFLEX H1Z2Z2-K 1X6 NEGRO BOB",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cable",
+      "pn": 1.068,
+      "pt": 1.068,
+      "r": "MIG-84633923"
+    },
+    {
+      "d": "CABLE SOLFLEX H1Z2Z2-K 1X6 ROJO BOB",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cable",
+      "pn": 1.068,
+      "pt": 1.068,
+      "r": "MIG-84633943"
+    },
+    {
+      "d": "C.SOLFLEX H1Z2Z2-K 1X10 NEGRO BOB",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cable",
+      "pn": 1.823,
+      "pt": 1.823,
+      "r": "MIG-821101001009203"
+    },
+    {
+      "d": "C.SOLFLEX H1Z2Z2-K 1X10 ROJO BOB",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cable",
+      "pn": 1.823,
+      "pt": 1.823,
+      "r": "MIG-821101001009403"
+    },
+    {
+      "d": "C.SOLFLEX H1Z2Z2-K 1X16 NEGRO BOB",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cable",
+      "pn": 2.774,
+      "pt": 2.774,
+      "r": "MIG-821101001609203"
+    },
+    {
+      "d": "C.SOLFLEX H1Z2Z2-K 1X16 ROJO BOB",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cable",
+      "pn": 2.774,
+      "pt": 2.774,
+      "r": "MIG-821101001609403"
+    },
+    {
+      "d": "C.SOLFLEX H1Z2Z2-K 1X25 NEGRO BOB *",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cable",
+      "pn": 2.33,
+      "pt": 2.33,
+      "r": "MIG-821101002509203"
+    },
+    {
+      "d": "CAJA DERIV.EMP.TORN.223X318X60",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cuadros y envolventes",
+      "pn": 4.419,
+      "pt": 4.419,
+      "r": "IDE-CT2232"
+    },
+    {
+      "d": "CAJA DISTRIBUCION ICT RTR EMP.450X250X60",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cuadros y envolventes",
+      "pn": 8.712,
+      "pt": 8.712,
+      "r": "IDE-CT436"
+    },
+    {
+      "d": "CAJA DERIV.EMP.TORN.326X518X60",
+      "dto": "0,0",
+      "f": "2026-10-28",
+      "fam": "Cuadros y envolventes",
+      "pn": 8.411,
+      "pt": 8.411,
+      "r": "IDE-CT3252"
+    },
+    {
+      "d": "CAJA DERIV.EMP.TORN.404X404X123",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cuadros y envolventes",
+      "pn": 11.406,
+      "pt": 11.406,
+      "r": "IDE-CT4040"
+    },
+    {
+      "d": "CAJA EMP DOS REGISTROS CON PUERTA+MARCO ICT 60X50X8CM",
+      "dto": "0,0",
+      "f": "2026-10-28",
+      "fam": "Arquetas y tapas",
+      "pn": 32.61,
+      "pt": 32.61,
+      "r": "SOL-5504/2"
+    },
+    {
+      "d": "REGISTRO SO.ICT RSE 4545 45X45X16 EMP.",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cuadros y envolventes",
+      "pn": 39.094,
+      "pt": 39.094,
+      "r": "IDE-AE4545"
+    },
+    {
+      "d": "RGTRO.SO.SUP.IP33 450X450 C/PL.HIDROFUGA",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cuadros y envolventes",
+      "pn": 49.416,
+      "pt": 49.416,
+      "r": "IDE-AB4545"
+    },
+    {
+      "d": "RGTRO.SO.SUP.IP33 500X700 C/PL.HIDROFUGA",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cuadros y envolventes",
+      "pn": 71.764,
+      "pt": 71.764,
+      "r": "IDE-AB5070"
+    },
+    {
+      "d": "RGTRO.SO.SUP.IP33 700X500 C/PL.HIDROFUGA",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cuadros y envolventes",
+      "pn": 71.201,
+      "pt": 71.201,
+      "r": "IDE-AB7050"
+    },
+    {
+      "d": "RGTRO.SO.SUP.IP33 550X1000 /PL.HIDROFUGA",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cuadros y envolventes",
+      "pn": 99.871,
+      "pt": 99.871,
+      "r": "IDE-AB55100"
+    },
+    {
+      "d": "RGTRO.SO.SUP.IP55 1000X550 /PL.HIDROFUGA",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cuadros y envolventes",
+      "pn": 97.196,
+      "pt": 97.196,
+      "r": "IDE-AB10055"
+    },
+    {
+      "d": "CAJA RTV-TLCA-TB+RDSI 360X540X85 SUPERFICIE",
+      "dto": "53,5",
+      "f": "2026-10-28",
+      "fam": "Cuadros y envolventes",
+      "pn": 30.7039,
+      "pt": 66.03,
+      "r": "SOL-5508"
+    },
+    {
+      "d": "REGISTRO TCION.RED 2P+TT 16A 250V SUPERFICIE",
+      "dto": "53,5",
+      "f": "2026-10-28",
+      "fam": "Cuadros y envolventes",
+      "pn": 133.362,
+      "pt": 286.8,
+      "r": "SOL-5508/2BL"
+    },
+    {
+      "d": "TUBO AISCAN DRL CURVO DIÁMETRO 40 ROJO",
+      "dto": "55,0",
+      "f": "2026-10-28",
+      "fam": "Tubo y canalización",
+      "pn": 0.8145,
+      "pt": 1.81,
+      "r": "AIS-DRL40-C"
+    },
+    {
+      "d": "TUBO AISCAN DRL CURVO DIÁMETRO 50 ROJO",
+      "dto": "55,0",
+      "f": "2026-10-28",
+      "fam": "Tubo y canalización",
+      "pn": 0.9855,
+      "pt": 2.19,
+      "r": "AIS-DRL50-C"
+    },
+    {
+      "d": "CANALIZACION 250NW D=63MM ROLLO COLOR ROJA",
+      "dto": "55,0",
+      "f": "2026-10-28",
+      "fam": "Tubo y canalización",
+      "pn": 1.35,
+      "pt": 3,
+      "r": "AIS-DRL63-C"
+    },
+    {
+      "d": "TUBO AISCAN DRL CURVO DIÁMETRO 75 ROJO",
+      "dto": "55,0",
+      "f": "2026-10-28",
+      "fam": "Tubo y canalización",
+      "pn": 1.8135,
+      "pt": 4.03,
+      "r": "AIS-DRL75-C"
+    },
+    {
+      "d": "TUBO AISCAN DRL CURVO DIÁMETRO 90 ROJO",
+      "dto": "55,0",
+      "f": "2026-10-28",
+      "fam": "Tubo y canalización",
+      "pn": 2.2365,
+      "pt": 4.97,
+      "r": "AIS-DRL90-C"
+    },
+    {
+      "d": "TUBO AISCAN DRL CURVO DIÁMETRO 110 ROJO",
+      "dto": "55,0",
+      "f": "2026-10-28",
+      "fam": "Tubo y canalización",
+      "pn": 2.844,
+      "pt": 6.32,
+      "r": "AIS-DRL110-C"
+    },
+    {
+      "d": "TUBO AISCAN DRL CURVO DIÁMETRO 160, ROJO",
+      "dto": "55,0",
+      "f": "2026-10-28",
+      "fam": "Tubo y canalización",
+      "pn": 5.4585,
+      "pt": 12.13,
+      "r": "AIS-DRL160-C"
+    },
+    {
+      "d": "TAPA HIDRAÚLICA B-125 430X430",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Bandeja y rejilla",
+      "pn": 15,
+      "pt": 15,
+      "r": "BEN-TH40"
+    },
+    {
+      "d": "TAPA MARCO ENDESA A1 712/X812 D400 MODELO ENA1",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Arquetas y tapas",
+      "pn": 165.571,
+      "pt": 165.571,
+      "r": "BEN-ENA1"
+    },
+    {
+      "d": "TAPA + MARCO ENDESA A2 1365X825 D400 MODELO ENA2",
+      "dto": "0,0",
+      "f": "2026-10-28",
+      "fam": "Arquetas y tapas",
+      "pn": 346.429,
+      "pt": 346.429,
+      "r": "BEN-ENA2"
+    },
+    {
+      "d": "ARQUETA 200X200X200 4SAL.TAPA CIEGA GR.",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Arquetas y tapas",
+      "pn": 7.727,
+      "pt": 7.727,
+      "r": "GAE-GG202020"
+    },
+    {
+      "d": "ARQ.300X300X300 4SAL.C/TAPA CIEGA GR.",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Bandeja y rejilla",
+      "pn": 17.387,
+      "pt": 17.387,
+      "r": "GAE-GG303030"
+    },
+    {
+      "d": "ARQ.400X400X400 4SAL.C/TAPA CIEGA GR.",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Bandeja y rejilla",
+      "pn": 32.806,
+      "pt": 32.806,
+      "r": "GAE-GG404040"
+    },
+    {
+      "d": "ARQUETA 480X480X480MM C/TAPA CIEGA GRIS-4 SALIDAS",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Arquetas y tapas",
+      "pn": 62.044,
+      "pt": 62.044,
+      "r": "GAE-GG505050"
+    },
+    {
+      "d": "MARCO+TP.RGTRO.POL.250X250X60",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Arquetas y tapas",
+      "pn": 32.602,
+      "pt": 32.602,
+      "r": "GAE-GG250TRP"
+    },
+    {
+      "d": "MARCO + TAPA REGISTRO NEUTRA 400X400X28",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Arquetas y tapas",
+      "pn": 123.875,
+      "pt": 123.875,
+      "r": "GAE-GG400TRM"
+    },
+    {
+      "d": "TUBO AISCAN DBL RÍGIDO DIÁMETRO 90, ROJO",
+      "dto": "55,0",
+      "f": "2026-10-28",
+      "fam": "Tubo y canalización",
+      "pn": 2.2365,
+      "pt": 4.97,
+      "r": "AIS-DBL90-C"
+    },
+    {
+      "d": "TUBO AISCAN DBL RÍGIDO DIÁMETRO 110, ROJO",
+      "dto": "55,0",
+      "f": "2026-10-28",
+      "fam": "Tubo y canalización",
+      "pn": 3.9915,
+      "pt": 8.87,
+      "r": "AIS-DBL100-C"
+    },
+    {
+      "d": "TUBO AISCAN DBL RÍGIDO DIÁMETRO 160, ROJO",
+      "dto": "55,0",
+      "f": "2026-10-28",
+      "fam": "Tubo y canalización",
+      "pn": 5.4585,
+      "pt": 12.13,
+      "r": "AIS-DBL160-C"
+    },
+    {
+      "d": "TUBO AISCAN DBL RÍGIDO DIÁMETRO 200, ROJO",
+      "dto": "55,0",
+      "f": "2026-10-28",
+      "fam": "Tubo y canalización",
+      "pn": 6.678,
+      "pt": 14.84,
+      "r": "AIS-DBL200-C"
+    },
+    {
+      "d": "CAJA SUPF.PRACTIBOX S PTA.LISA 1X12 F.",
+      "dto": "60,0",
+      "f": "2026-10-28",
+      "fam": "Cuadros y envolventes",
+      "pn": 15.808,
+      "pt": 39.52,
+      "r": "LEG-135121"
+    },
+    {
+      "d": "CAJA SUPF.PRACTIBOX S PTA.LISA 1X18 F.",
+      "dto": "60,0",
+      "f": "2026-10-28",
+      "fam": "Cuadros y envolventes",
+      "pn": 20.888,
+      "pt": 52.22,
+      "r": "LEG-137126"
+    },
+    {
+      "d": "CAJA SUPF.PRACTIBOX S PTA.LISA 1X4 F.",
+      "dto": "60,0",
+      "f": "2026-10-28",
+      "fam": "Cuadros y envolventes",
+      "pn": 9.048,
+      "pt": 22.62,
+      "r": "LEG-134124"
+    },
+    {
+      "d": "CAJA SUPF.PRACTIBOX S PTA.LISA 1X8 F.",
+      "dto": "60,0",
+      "f": "2026-10-28",
+      "fam": "Cuadros y envolventes",
+      "pn": 13.988,
+      "pt": 34.97,
+      "r": "LEG-134128"
+    },
+    {
+      "d": "CAJA SUPF.PRACTIBOX S PTA.LISA 2X12 F.",
+      "dto": "60,0",
+      "f": "2026-10-28",
+      "fam": "Cuadros y envolventes",
+      "pn": 28.324,
+      "pt": 70.81,
+      "r": "LEG-135122"
+    },
+    {
+      "d": "CAJA SUPF.PRACTIBOX S PTA.LISA 2X18 F.",
+      "dto": "60,0",
+      "f": "2026-10-28",
+      "fam": "Cuadros y envolventes",
+      "pn": 43.732,
+      "pt": 109.33,
+      "r": "LEG-137127"
+    },
+    {
+      "d": "CAJA SUPF.PRACTIBOX S PTA.LISA 3X12 F.",
+      "dto": "60,0",
+      "f": "2026-10-28",
+      "fam": "Cuadros y envolventes",
+      "pn": 44.304,
+      "pt": 110.76,
+      "r": "LEG-135123"
+    },
+    {
+      "d": "CAJA SUPF.PRACTIBOX S PTA.LISA 3X18 F.",
+      "dto": "60,0",
+      "f": "2026-10-28",
+      "fam": "Cuadros y envolventes",
+      "pn": 69.912,
+      "pt": 174.78,
+      "r": "LEG-137128"
+    },
+    {
+      "d": "CAJA SUPF.PRACTIBOX S PTA.LISA 4X12 F.",
+      "dto": "60,0",
+      "f": "2026-10-28",
+      "fam": "Cuadros y envolventes",
+      "pn": 63.448,
+      "pt": 158.62,
+      "r": "LEG-135124"
+    },
+    {
+      "d": "CAJA SUPF.PRACTIBOX S PTA.LISA 4X18 F.",
+      "dto": "60,0",
+      "f": "2026-10-28",
+      "fam": "Cuadros y envolventes",
+      "pn": 126.116,
+      "pt": 315.29,
+      "r": "LEG-137129"
+    },
+    {
+      "d": "CERRADURA PRACTIBOX S",
+      "dto": "60,0",
+      "f": "2026-10-28",
+      "fam": "Cuadros y envolventes",
+      "pn": 8.66,
+      "pt": 21.65,
+      "r": "LEG-134100"
+    },
+    {
+      "d": "CJ.EMP.PRACTIBOX S PTA.LISA 1X8 F.TAB",
+      "dto": "60,0",
+      "f": "2026-10-28",
+      "fam": "Cuadros y envolventes",
+      "pn": 12.404,
+      "pt": 31.01,
+      "r": "LEG-134048"
+    },
+    {
+      "d": "CJ.EMP.PRACTIBOX S PTA.LISA 1X12 F.TABIQUE CONVENCIONAL",
+      "dto": "60,0",
+      "f": "2026-10-28",
+      "fam": "Bandeja y rejilla",
+      "pn": 13.988,
+      "pt": 34.97,
+      "r": "LEG-135041"
+    },
+    {
+      "d": "CJ.EMP.PRACTIBOX S PTA.LISA 1X18 F.TAB",
+      "dto": "60,0",
+      "f": "2026-10-28",
+      "fam": "Cuadros y envolventes",
+      "pn": 18.872,
+      "pt": 47.18,
+      "r": "LEG-137046"
+    },
+    {
+      "d": "CJ.EMP.PRACTIBOX S PTA.LISA 2X12 TABIQUE CONVENCIONAL",
+      "dto": "60,0",
+      "f": "2026-10-28",
+      "fam": "Bandeja y rejilla",
+      "pn": 25.124,
+      "pt": 62.81,
+      "r": "LEG-135042"
+    },
+    {
+      "d": "CJ.EMP.PRACTIBOX S PTA.LISA 2X18 F.TAB",
+      "dto": "60,0",
+      "f": "2026-10-28",
+      "fam": "Cuadros y envolventes",
+      "pn": 39.404,
+      "pt": 98.51,
+      "r": "LEG-137047"
+    },
+    {
+      "d": "CJ.EMP.PRACTIBOX S PTA.LISA 3X12 F.TABIQUE PREFABRICADO",
+      "dto": "60,0",
+      "f": "2026-10-28",
+      "fam": "Bandeja y rejilla",
+      "pn": 50.636,
+      "pt": 126.59,
+      "r": "LEG-135063"
+    },
+    {
+      "d": "CJ.EMP.PRACTIBOX S PTA.LISA 3X12 FILAS TABIQUE CONVENCIONAL",
+      "dto": "60,0",
+      "f": "2026-10-28",
+      "fam": "Bandeja y rejilla",
+      "pn": 39.104,
+      "pt": 97.76,
+      "r": "LEG-135043"
+    },
+    {
+      "d": "CJ.EMP.PRACTIBOX S PTA.LISA 3X18 F.TAB",
+      "dto": "60,0",
+      "f": "2026-10-28",
+      "fam": "Cuadros y envolventes",
+      "pn": 62.976,
+      "pt": 157.44,
+      "r": "LEG-137048"
+    },
+    {
+      "d": "CJ.EMP.PRACTIBOX S PTA.LISA 4X12 F.TABIQUE CONVENCIONAL",
+      "dto": "60,0",
+      "f": "2026-10-28",
+      "fam": "Bandeja y rejilla",
+      "pn": 60.212,
+      "pt": 150.53,
+      "r": "LEG-135044"
+    },
+    {
+      "d": "CJ.EMP.PRACTIBOX S PTA.LISA 4X18 F.TAB",
+      "dto": "60,0",
+      "f": "2026-10-28",
+      "fam": "Cuadros y envolventes",
+      "pn": 124.496,
+      "pt": 311.24,
+      "r": "LEG-137049"
+    },
+    {
+      "d": "CAJA MOD.ESTANCA IP65 4 MOD.",
+      "dto": "60,0",
+      "f": "2026-10-28",
+      "fam": "Cuadros y envolventes",
+      "pn": 13.468,
+      "pt": 33.67,
+      "r": "LEG-601994"
+    },
+    {
+      "d": "CAJA MOD.ESTANCA IP65 6 MOD.",
+      "dto": "60,0",
+      "f": "2026-10-28",
+      "fam": "Cuadros y envolventes",
+      "pn": 17.048,
+      "pt": 42.62,
+      "r": "LEG-601996"
+    },
+    {
+      "d": "CAJA MOD.ESTANCA IP65 8 MOD.",
+      "dto": "60,0",
+      "f": "2026-10-28",
+      "fam": "Cuadros y envolventes",
+      "pn": 26.668,
+      "pt": 66.67,
+      "r": "LEG-601998"
+    },
+    {
+      "d": "CAJA MOD.ESTANCA IP65 1X12 MOD.",
+      "dto": "60,0",
+      "f": "2026-10-28",
+      "fam": "Cuadros y envolventes",
+      "pn": 37.32,
+      "pt": 93.3,
+      "r": "LEG-601831"
+    },
+    {
+      "d": "CAJA MOD.ESTANCA IP65 1X18 MOD.",
+      "dto": "60,0",
+      "f": "2026-10-28",
+      "fam": "Cuadros y envolventes",
+      "pn": 63.92,
+      "pt": 159.8,
+      "r": "LEG-601835"
+    },
+    {
+      "d": "CAJA MOD.ESTANCA IP65 2X12 MOD.",
+      "dto": "60,0",
+      "f": "2026-10-28",
+      "fam": "Cuadros y envolventes",
+      "pn": 76.392,
+      "pt": 190.98,
+      "r": "LEG-601832"
+    },
+    {
+      "d": "CAJA MOD.ESTANCA IP65 2X18 MOD.",
+      "dto": "60,0",
+      "f": "2026-10-28",
+      "fam": "Cuadros y envolventes",
+      "pn": 106.252,
+      "pt": 265.63,
+      "r": "LEG-601836"
+    },
+    {
+      "d": "CAJA MOD.ESTANCA IP65 3X12 MOD.",
+      "dto": "60,0",
+      "f": "2026-10-28",
+      "fam": "Cuadros y envolventes",
+      "pn": 95.128,
+      "pt": 237.82,
+      "r": "LEG-601833"
+    },
+    {
+      "d": "CAJA MOD.ESTANCA IP65 3X18 MOD.",
+      "dto": "60,0",
+      "f": "2026-10-28",
+      "fam": "Cuadros y envolventes",
+      "pn": 133.812,
+      "pt": 334.53,
+      "r": "LEG-601837"
+    },
+    {
+      "d": "CJ.DISTR.MET.XL3S 160 EMP.3 F.X 24 MOD.",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cuadros y envolventes",
+      "pn": 272.317,
+      "pt": 272.317,
+      "r": "LEG-337223"
+    },
+    {
+      "d": "CJ.DISTR.MET.XL3S 160 EMP.4 F.X 24 MOD.",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cuadros y envolventes",
+      "pn": 329.651,
+      "pt": 329.651,
+      "r": "LEG-337224"
+    },
+    {
+      "d": "CJ.DISTR.MET.XL3S 160 EMP.5 F.X 24 MOD.",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cuadros y envolventes",
+      "pn": 390.876,
+      "pt": 390.876,
+      "r": "LEG-337225"
+    },
+    {
+      "d": "CJ.DISTR.MET.XL3S 160 EMP.6 F.X 24 MOD.",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cuadros y envolventes",
+      "pn": 429.397,
+      "pt": 429.397,
+      "r": "LEG-337226"
+    },
+    {
+      "d": "CJ.DISTR.MET.XL3S 160 EMP.6 F.X 36 MOD.",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cuadros y envolventes",
+      "pn": 495.855,
+      "pt": 495.855,
+      "r": "LEG-337236"
+    },
+    {
+      "d": "CJ.DISTR.MET.XL3S 160 EMP.7 F.X 24 MOD.",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cuadros y envolventes",
+      "pn": 547.704,
+      "pt": 547.704,
+      "r": "LEG-337227"
+    },
+    {
+      "d": "CJ.DISTR.MET.XL3S 160 EMP.8 F.X 24 MOD.",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cuadros y envolventes",
+      "pn": 605.36,
+      "pt": 605.36,
+      "r": "LEG-337228"
+    },
+    {
+      "d": "PUERTA METÁLICA XL3S 160 2 X 24 MÓDULOS",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cuadros y envolventes",
+      "pn": 57.918,
+      "pt": 57.918,
+      "r": "LEG-337252"
+    },
+    {
+      "d": "PUERTA METALICA XL3S 160 3 X 24 MODULOS",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cuadros y envolventes",
+      "pn": 76.072,
+      "pt": 76.072,
+      "r": "LEG-337253"
+    },
+    {
+      "d": "PUERTA METALICA XL3S 160 4 X 24 MODULOS",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cuadros y envolventes",
+      "pn": 82.078,
+      "pt": 82.078,
+      "r": "LEG-337254"
+    },
+    {
+      "d": "PUERTA METALICA XL3S 160 5 X 24 MODULOS",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cuadros y envolventes",
+      "pn": 91.553,
+      "pt": 91.553,
+      "r": "LEG-337255"
+    },
+    {
+      "d": "PUERTA METALICA XL3S 160 6 X 24 MODULOS",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cuadros y envolventes",
+      "pn": 105.301,
+      "pt": 105.301,
+      "r": "LEG-337256"
+    },
+    {
+      "d": "PUERTA METALICA XL3S 160 6 X 36 MODULOS",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cuadros y envolventes",
+      "pn": 110.747,
+      "pt": 110.747,
+      "r": "LEG-337266"
+    },
+    {
+      "d": "PUERTA METALICA XL3S 160 8 X 36 MODULOS",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cuadros y envolventes",
+      "pn": 154.525,
+      "pt": 154.525,
+      "r": "LEG-337268"
+    },
+    {
+      "d": "CJ.DISTR.MET.XL3S 160 SUPF.2 F.X 24 MOD.",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cuadros y envolventes",
+      "pn": 177.303,
+      "pt": 177.303,
+      "r": "LEG-337202"
+    },
+    {
+      "d": "CJ.DISTR.MET.XL3S 160 SUPF.3 F.X 24 MOD.",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cuadros y envolventes",
+      "pn": 233.254,
+      "pt": 233.254,
+      "r": "LEG-337203"
+    },
+    {
+      "d": "CJ.DISTR.MET.XL3S 160 SUPF.4 F.X 24 MOD.",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cuadros y envolventes",
+      "pn": 267.687,
+      "pt": 267.687,
+      "r": "LEG-337204"
+    },
+    {
+      "d": "CJ.DISTR.MET.XL3S 160 SUPF.5 F.X 24 MOD.",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cuadros y envolventes",
+      "pn": 298.571,
+      "pt": 298.571,
+      "r": "LEG-337205"
+    },
+    {
+      "d": "CJ.DISTR.MET.XL3S 160 SUPF.6 F.X 24 MOD.",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cuadros y envolventes",
+      "pn": 350.045,
+      "pt": 350.045,
+      "r": "LEG-337206"
+    },
+    {
+      "d": "CJ.DISTR.MET.XL3S 160 SUPF.6 F.X 36 MOD.",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cuadros y envolventes",
+      "pn": 354.182,
+      "pt": 354.182,
+      "r": "LEG-337216"
+    },
+    {
+      "d": "CJ.DISTR.MET.XL3S 160 SUPF.7 F.X 24 MOD.",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cuadros y envolventes",
+      "pn": 391.23,
+      "pt": 391.23,
+      "r": "LEG-337207"
+    },
+    {
+      "d": "CJ.DISTR.MET.XL3S 160 SUPF.7 F.X 36 MOD.",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cuadros y envolventes",
+      "pn": 453.005,
+      "pt": 453.005,
+      "r": "LEG-337217"
+    },
+    {
+      "d": "CJ.DISTR.MET.XL3S 160 SUPF.8 F.X 24 MOD.",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cuadros y envolventes",
+      "pn": 432.397,
+      "pt": 432.397,
+      "r": "LEG-337208"
+    },
+    {
+      "d": "CJ.DISTR.MET.XL3S 160 SUPF.8 F.X 36 MOD.",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cuadros y envolventes",
+      "pn": 272.317,
+      "pt": 272.317,
+      "r": "LEG-337218"
+    },
+    {
+      "d": "PUERTA METALICA XL3S 160 7 X 24 MODULOS",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cuadros y envolventes",
+      "pn": 122.335,
+      "pt": 122.335,
+      "r": "LEG-337257"
+    },
+    {
+      "d": "PUERTA METALICA XL3S 160 7 X 36 MODULOS",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cuadros y envolventes",
+      "pn": 141.641,
+      "pt": 141.641,
+      "r": "LEG-337267"
+    },
+    {
+      "d": "OBTURADOR 5 MODULOS BL.",
+      "dto": "60,0",
+      "f": "2026-10-28",
+      "fam": "Centralización y acometida",
+      "pn": 0.972,
+      "pt": 2.43,
+      "r": "LEG-001660"
+    },
+    {
+      "d": "OBTURADOR 13 MODULOS BL.",
+      "dto": "60,0",
+      "f": "2026-10-28",
+      "fam": "Centralización y acometida",
+      "pn": 1.812,
+      "pt": 4.53,
+      "r": "LEG-001662"
+    },
+    {
+      "d": "OBTURADOR 24 MOD.XL3",
+      "dto": "65,0",
+      "f": "2026-10-28",
+      "fam": "Cuadros y envolventes",
+      "pn": 4.8755,
+      "pt": 13.93,
+      "r": "LEG-020051"
+    },
+    {
+      "d": "ARMARIO 30X40 1 CONTADOR MONOFASICO 1BASE BUC PNZ34 (710113)",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cuadros y envolventes",
+      "pn": 63.529,
+      "pt": 63.529,
+      "r": "PIN-41U542M1F20000"
+    },
+    {
+      "d": "ARMARIO 30X40 1 CONTADOR MONOFOFASICO 3 BASE BUC PNZ34",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cuadros y envolventes",
+      "pn": 81.429,
+      "pt": 81.429,
+      "r": "PIN-41U542M1F4000E"
+    },
+    {
+      "d": "ARMARIO 30X40 CIEGO PNZ34",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cuadros y envolventes",
+      "pn": 38.512,
+      "pt": 38.512,
+      "r": "PIN-41965E014B0000"
+    },
+    {
+      "d": "ARMARIO 50X50 1 CONTADOR TRIFASICO 3 BASE BUC PNZ55 710114",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cuadros y envolventes",
+      "pn": 116.471,
+      "pt": 116.471,
+      "r": "PIN-41U542M1F40000"
+    },
+    {
+      "d": "ARMARIO 50X50 CIEGO PNZ55",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cuadros y envolventes",
+      "pn": 55.658,
+      "pt": 55.658,
+      "r": "PIN-41965E024B0000"
+    },
+    {
+      "d": "ARMARIO 50X50 CIEGO PNZ55 +PNZ – CHASIS ALS -2 PNZ 55",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cuadros y envolventes",
+      "pn": 271.429,
+      "pt": 271.429,
+      "r": "PIN-41976E00002732"
+    },
+    {
+      "d": "ARMARIO 70X50 2 CONTADORES MONOFÁSICOS 2 BASES BUC PNZ57",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cuadros y envolventes",
+      "pn": 132.471,
+      "pt": 132.471,
+      "r": "PIN-41U542M1F22300"
+    },
+    {
+      "d": "ARMARIO 70X50 2 CONTADORES TRIFÁSICO 6 BASES BUC PNZ57",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cuadros y envolventes",
+      "pn": 203.529,
+      "pt": 203.529,
+      "r": "PIN-41U542M1F44000"
+    },
+    {
+      "d": "ARMARIO 70X50 CIEGO PNZ57",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cuadros y envolventes",
+      "pn": 72.941,
+      "pt": 72.941,
+      "r": "PIN-41965E034T0000"
+    },
+    {
+      "d": "ARMARIO FIBRA 1000X800 PNZ-A/MINI PNZ 108 D B",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cuadros y envolventes",
+      "pn": 439.727,
+      "pt": 439.727,
+      "r": "PIN-41966MA8R00000"
+    },
+    {
+      "d": "ARMARIO MINI-PNZ325 IP65 30X25X16",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cuadros y envolventes",
+      "pn": 54.068,
+      "pt": 54.068,
+      "r": "PIN-41966M32R00000"
+    },
+    {
+      "d": "ARMARIO MINI-PNZ43 IP65 40X30X20",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cuadros y envolventes",
+      "pn": 71.995,
+      "pt": 71.995,
+      "r": "PIN-41966M43RB0000"
+    },
+    {
+      "d": "ARMARIO MINI-PNZ54 IP65 50X40X20",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cuadros y envolventes",
+      "pn": 98.444,
+      "pt": 98.444,
+      "r": "PIN-41966M54R00000"
+    },
+    {
+      "d": "ARMARIO MINI-PNZ65 IP65 60X50X25 630332",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cuadros y envolventes",
+      "pn": 130.079,
+      "pt": 130.079,
+      "r": "PIN-41966M65R00000"
+    },
+    {
+      "d": "ARMARIO MINI-PNZ86 IP65 80X60X30",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cuadros y envolventes",
+      "pn": 187.501,
+      "pt": 187.501,
+      "r": "PIN-41966M86R00000"
+    },
+    {
+      "d": "ARMARIO PARA PNZ107+ARD EQUIPO DE MEDIDA DIRECTA 15-44KW DE EXTERIOR *",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cuadros y envolventes",
+      "pn": 585.882,
+      "pt": 585.882,
+      "r": "PIN-41U500010B1070"
+    },
+    {
+      "d": "ARMARIO PNZ-105 1MT.ALTOX0,50 ANCHO CON EMBARRADO SIN BASES",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cuadros y envolventes",
+      "pn": 585.882,
+      "pt": 585.882,
+      "r": "PIN-41976E00000420"
+    },
+    {
+      "d": "ARMARIO PNZ-107 1MT.ALTOX0,75ANCHO CON EMBARRADO SIN BASES 710341",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cuadros y envolventes",
+      "pn": 594.118,
+      "pt": 594.118,
+      "r": "PIN-41U5300736SB0U"
+    },
+    {
+      "d": "ARMARIO PNZ-A/107 TAC T1B 3-BTVC-250A UNELCO",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cuadros y envolventes",
+      "pn": 694.286,
+      "pt": 694.286,
+      "r": "PIN-41U5300123000U"
+    },
+    {
+      "d": "CAJA ACOMETIDA PNZ-CGP 7 - 100 BUC UNELCO (8BB1-50+PLET RET) T1B (370X220X125) REF.: 710481",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cuadros y envolventes",
+      "pn": 89.412,
+      "pt": 89.412,
+      "r": "PIN-41U5300710001B"
+    },
+    {
+      "d": "CAJA ACOMETIDA PNZ-CGP 7 400 T1B BUC UNELCO (595X318X179) REF 481197",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cuadros y envolventes",
+      "pn": 156.471,
+      "pt": 156.471,
+      "r": "PIN-4115807400631B"
+    },
+    {
+      "d": "CAJA ACOMETIDA PNZ-CGP 7-160 BUC UNELCO T1B (530X289X153) REF 481192",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cuadros y envolventes",
+      "pn": 77.647,
+      "pt": 77.647,
+      "r": "PIN-4115807160372B"
+    },
+    {
+      "d": "CAJA ACOMETIDA PNZ-CGP-7 250 BUC UNELCO T1B (595X318X179) REF 481196",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cuadros y envolventes",
+      "pn": 147.059,
+      "pt": 147.059,
+      "r": "PIN-4115807250631B"
+    },
+    {
+      "d": "CAJA ACOMETIDA SUBTERRÁNEA 250A BUC",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cuadros y envolventes",
+      "pn": 325.882,
+      "pt": 325.882,
+      "r": "PIN-41U530014252C0"
+    },
+    {
+      "d": "CAJA ACOMETIDA SUBTERRÁNEA 400A BUC",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cuadros y envolventes",
+      "pn": 332.941,
+      "pt": 332.941,
+      "r": "PIN-41U530014250C0"
+    },
+    {
+      "d": "CHASIS DISTRIBUCIÓN CH-43 24 MÓDULOS",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Centralización y acometida",
+      "pn": 23.506,
+      "pt": 23.506,
+      "r": "PIN-41976P42000000"
+    },
+    {
+      "d": "CHASIS DISTRIBUCIÓN CH-54 54 MÓDULOS",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Centralización y acometida",
+      "pn": 44.032,
+      "pt": 44.032,
+      "r": "PIN-41976P39000000"
+    },
+    {
+      "d": "CHASIS DISTRIBUCIÓN CH-65 69 MÓDULOS",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Centralización y acometida",
+      "pn": 51.69,
+      "pt": 51.69,
+      "r": "PIN-41976P40000000"
+    },
+    {
+      "d": "CHASIS DISTRIBUCIÓN CH-86 116 MÓDULOS",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Centralización y acometida",
+      "pn": 92.867,
+      "pt": 92.867,
+      "r": "PIN-41976P41000000"
+    },
+    {
+      "d": "CHASIS PNZ55 50X50 ALS1 SIN PROTECCION (710083)",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Protección (automáticos y sobretensiones)",
+      "pn": 101.429,
+      "pt": 101.429,
+      "r": "PIN-41U53001200000"
+    },
+    {
+      "d": "CHASIS PNZ55 50X50 ALS2 1 ENTRADA 1 SALIDA 3 BASES BUC (710320)",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Centralización y acometida",
+      "pn": 180,
+      "pt": 180,
+      "r": "PIN-41U5300255014B"
+    },
+    {
+      "d": "CHASIS PNZ57 75X50 ALS2 1 ENTRADA 1 SALIDA 3 BASES BUC (710321)",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Centralización y acometida",
+      "pn": 185.882,
+      "pt": 185.882,
+      "r": "PIN-41U53002570140"
+    },
+    {
+      "d": "CHASIS PNZ57 75X50 ALS3 1 ENTRADA 2 SALIDAS 6 BASES BUC 250 (710282)",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Centralización y acometida",
+      "pn": 272.941,
+      "pt": 272.941,
+      "r": "PIN-41U5300357000B"
+    },
+    {
+      "d": "COFRE ALUMBRADO PÚBLICO 1465 4B 2F",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cuadros y envolventes",
+      "pn": 13.224,
+      "pt": 13.224,
+      "r": "PIN-41976E00000440"
+    },
+    {
+      "d": "COFRE ALUMBRADO PÚBLICO 1465 6B 4F",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cuadros y envolventes",
+      "pn": 31.673,
+      "pt": 31.673,
+      "r": "PIN-41976E00000454"
+    },
+    {
+      "d": "COFRE ALUMBRADO PÚBLICO 1468 (PNZ 2-13-4B-2F)",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cuadros y envolventes",
+      "pn": 12,
+      "pt": 12,
+      "r": "PIN-41976E00000497"
+    },
+    {
+      "d": "COFRE ALUMBRADO PÚBLICO 1469",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cuadros y envolventes",
+      "pn": 7.176,
+      "pt": 7.176,
+      "r": "PIN-41976E00000435"
+    },
+    {
+      "d": "CONJUNTO MIRILLA PRACTICABLE 584X209",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cable",
+      "pn": 26,
+      "pt": 26,
+      "r": "PIN-41976E00002228"
+    },
+    {
+      "d": "FONDO PARA ARMARIO PNZ34 CPM-MF 2 (1 MON BUC)",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cuadros y envolventes",
+      "pn": 31.765,
+      "pt": 31.765,
+      "r": "PIN-341UU542M1F2000"
+    },
+    {
+      "d": "PLACA DE MONTAJE CIEGA PARA PNZ34",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cuadros y envolventes",
+      "pn": 16.694,
+      "pt": 16.694,
+      "r": "PIN-31600PMP105900"
+    },
+    {
+      "d": "PLACA DE MONTAJE CIEGA PARA PNZ55",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cuadros y envolventes",
+      "pn": 8.824,
+      "pt": 8.824,
+      "r": "PIN-31600PMP103800"
+    },
+    {
+      "d": "PLACA DE MONTAJE CIEGA PARA PNZ57",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cuadros y envolventes",
+      "pn": 10.588,
+      "pt": 10.588,
+      "r": "PIN-31600PMP103900"
+    },
+    {
+      "d": "PLACA FIBRA P/ARMARIO PNZ 1000X800",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cuadros y envolventes",
+      "pn": 41.176,
+      "pt": 41.176,
+      "r": "PIN-31600PMP356800"
+    },
+    {
+      "d": "PLACA FONDO PNZ325",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cuadros y envolventes",
+      "pn": 3.801,
+      "pt": 3.801,
+      "r": "PIN-31600PMP056000"
+    },
+    {
+      "d": "PLACA FONDO PNZ43",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cuadros y envolventes",
+      "pn": 6.033,
+      "pt": 6.033,
+      "r": "PIN-31600PMP100400"
+    },
+    {
+      "d": "PLACA FONDO PNZ54",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cuadros y envolventes",
+      "pn": 10.685,
+      "pt": 10.685,
+      "r": "PIN-31600PMP100200"
+    },
+    {
+      "d": "PLACA FONDO PNZ65",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cuadros y envolventes",
+      "pn": 15.338,
+      "pt": 15.338,
+      "r": "PIN-31600PMP100600"
+    },
+    {
+      "d": "PLACA FONDO PNZ86",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cuadros y envolventes",
+      "pn": 29.197,
+      "pt": 29.197,
+      "r": "PIN-31600PMP100700"
+    },
+    {
+      "d": "PNZ CS - 400 BUC PNZ-2 SUP. (ANCHA-PNZ-2) ENDESA CNL003 336053,",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Centralización y acometida",
+      "pn": 349.412,
+      "pt": 349.412,
+      "r": "PIN-4135810402PBUC"
+    },
+    {
+      "d": "PNZ CS - 400 BUC PNZ-2 SALIDA A CGP INFERIOR ENDESA CNL006 (160131) 336052",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Centralización y acometida",
+      "pn": 380,
+      "pt": 380,
+      "r": "PIN-4135810402SBUC"
+    },
+    {
+      "d": "PNZ-A/1210 TAC T1B/T1B 2P P/USAS",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Centralización y acometida",
+      "pn": 614.286,
+      "pt": 614.286,
+      "r": "PIN-41966CA6T1B2P0"
+    },
+    {
+      "d": "PNZ-A/57 TAC T1B+INT.400A+3.NHC-00 160A CORTE BOMBEROS UNELCO",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Bandeja y rejilla",
+      "pn": 792.857,
+      "pt": 792.857,
+      "r": "PIN-41U530003160TU"
+    },
+    {
+      "d": "PNZ-A/ADI 400A END S/ANCLAJE 481169",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Centralización y acometida",
+      "pn": 676.471,
+      "pt": 676.471,
+      "r": "PIN-41E564400000SA"
+    },
+    {
+      "d": "PNZ-A/CDU 400A END 480016",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Centralización y acometida",
+      "pn": 225.882,
+      "pt": 225.882,
+      "r": "PIN-41E58CDU400000"
+    },
+    {
+      "d": "PNZ-A/CO 127 TAC G. 4X250 A, 2 SHUKO 16+ 3P+N+T 16 A. + 3P+N+T 32 A. + 7 S.UF. 4X32 + 1 S. UF. 4X63",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Centralización y acometida",
+      "pn": 2261.429,
+      "pt": 2261.429,
+      "r": "PIN-47366652280B5S"
+    },
+    {
+      "d": "PNZ-A/CO-54/4X32A/1TC.4X16A +1TC.2X16A +4TC.2X16A SCHUKO ST",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Centralización y acometida",
+      "pn": 614.286,
+      "pt": 614.286,
+      "r": "PIN-47366541232C0S"
+    },
+    {
+      "d": "PNZ-CANALERA CGP 630A/DSPD/CS/CDU",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Bandeja y rejilla",
+      "pn": 45.882,
+      "pt": 45.882,
+      "r": "PIN-41976E00002100"
+    },
+    {
+      "d": "PNZ-CGP 9 160 A. BUC T1B 530X289X153 481193",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Centralización y acometida",
+      "pn": 62.353,
+      "pt": 62.353,
+      "r": "PIN-4115809160372B"
+    },
+    {
+      "d": "PNZ-CGP 9 250 A. BUC T1B 595X318X179 481194",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Centralización y acometida",
+      "pn": 110.588,
+      "pt": 110.588,
+      "r": "PIN-4115809250631B"
+    },
+    {
+      "d": "PNZ-CHASIS ALS-3 BUC PNZ-57/3 UNELCO 400",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Centralización y acometida",
+      "pn": 300,
+      "pt": 300,
+      "r": "PIN-41U5300357400B"
+    },
+    {
+      "d": "PNZ-CHASIS ALS-3 BUC-160A PNZ-55/2 UNELCO 710396",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Centralización y acometida",
+      "pn": 163.529,
+      "pt": 163.529,
+      "r": "PIN-41U5300255001B"
+    },
+    {
+      "d": "PNZ-CHASIS ALS-3 BUC-160A PNZ-57/3 UNELCO (710395)",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Centralización y acometida",
+      "pn": 222.857,
+      "pt": 222.857,
+      "r": "PIN-41U5300357001B"
+    },
+    {
+      "d": "PNZ-CHASIS DISTRIBUCION CH-325 16 MODULOS",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Centralización y acometida",
+      "pn": 9.988,
+      "pt": 9.988,
+      "r": "PIN-41976P60000000"
+    },
+    {
+      "d": "PNZ-CS 400 BUC END 335310 (CAJA DE SECCIONAMIENTO)",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cuadros y envolventes",
+      "pn": 175.294,
+      "pt": 175.294,
+      "r": "PIN-4135810402SEB2"
+    },
+    {
+      "d": "PNZ-CS BUC END+PNZ-A/CPM MF 4 UNELCO (601485)",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Centralización y acometida",
+      "pn": 349.412,
+      "pt": 349.412,
+      "r": "PIN-41976E00000620"
+    },
+    {
+      "d": "PNZ-CST-50 (CJ. SECC. TIERRA 160X110 TAPA TRANSP (2 SALIDAS CABLE HASTA 50MM2)",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Tierras",
+      "pn": 8.824,
+      "pt": 8.824,
+      "r": "PIN-41976E00000115"
+    },
+    {
+      "d": "PNZ-INTERIOR A/CDU 400A END EN PNZ-3 (482013)",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Centralización y acometida",
+      "pn": 386,
+      "pt": 386,
+      "r": "PIN-341E58CDU40003"
+    },
+    {
+      "d": "PNZ-M-1T LI/NHC-250 VERTICAL+CAJA MODEM ENDESA (INT C/C 4X250)+TRAFOS 200/5 (482072)",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cuadros y envolventes",
+      "pn": 928.235,
+      "pt": 928.235,
+      "r": "PIN-41D53250TMFS05"
+    },
+    {
+      "d": "PNZ-MODULO 1T 0-44 KW UNELCO (NHC00)(1 CAJA 5454)",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cuadros y envolventes",
+      "pn": 161.176,
+      "pt": 161.176,
+      "r": "PIN-41U500010Z0000"
+    },
+    {
+      "d": "PNZ-MODULO 4ME UNELCO",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Centralización y acometida",
+      "pn": 270,
+      "pt": 270,
+      "r": "PIN-41U5040000000E"
+    },
+    {
+      "d": "PNZ-PUERTA MET 1200X1400 (335489)",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cuadros y envolventes",
+      "pn": 328.75,
+      "pt": 328.75,
+      "r": "PIN-41375121200T14"
+    },
+    {
+      "d": "PNZ-PUERTA MET 1900X900 (335326)",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cuadros y envolventes",
+      "pn": 204.706,
+      "pt": 204.706,
+      "r": "PIN-41375091900T1B"
+    },
+    {
+      "d": "PNZ-PUERTA MET. 1500X700 335517 (PARA CS 400+CGP ESQUEMA 9)",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cuadros y envolventes",
+      "pn": 158.824,
+      "pt": 158.824,
+      "r": "PIN-413751500700T1"
+    },
+    {
+      "d": "PNZ-PUERTA MET. 1650X700 (335436)",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cuadros y envolventes",
+      "pn": 202.353,
+      "pt": 202.353,
+      "r": "PIN-41375F50700STB"
+    },
+    {
+      "d": "PNZ-PUERTA MET. 570 (ALTO) X 600 (ANCHO) ENDESA (336055)",
+      "dto": "0,0",
+      "f": "2026-10-28",
+      "fam": "Cuadros y envolventes",
+      "pn": 58.75,
+      "pt": 58.75,
+      "r": "PIN-41375670600END"
+    },
+    {
+      "d": "PNZ-PUERTA MET. 400X540 SUP 335467",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cuadros y envolventes",
+      "pn": 67.059,
+      "pt": 67.059,
+      "r": "PIN-41375400540S00"
+    },
+    {
+      "d": "PNZ-PUERTA MET. 780 (ALTO) X 680 (ANCHO) ENDESA (336056)",
+      "dto": "0,0",
+      "f": "2026-10-28",
+      "fam": "Cuadros y envolventes",
+      "pn": 81.25,
+      "pt": 81.25,
+      "r": "PIN-41375880680END"
+    },
+    {
+      "d": "PNZ-PUERTA MET. 600X600 SUP 335468",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cuadros y envolventes",
+      "pn": 96.471,
+      "pt": 96.471,
+      "r": "PIN-41375600600S00"
+    },
+    {
+      "d": "PNZ-PUERTA MET. 700X420 335244 (PARA CS 400 BUC, CGP ESQUEMA 9)",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cuadros y envolventes",
+      "pn": 58.824,
+      "pt": 58.824,
+      "r": "PIN-41375700420T10"
+    },
+    {
+      "d": "PNZ-PUERTA MET. 780 (ALTO) X 850 (ANCHO) ENDESA (336057)",
+      "dto": "0,0",
+      "f": "2026-10-28",
+      "fam": "Cuadros y envolventes",
+      "pn": 96.25,
+      "pt": 96.25,
+      "r": "PIN-41375880850END"
+    },
+    {
+      "d": "PNZ-PUERTA MET. 700X780 SUP 335958",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cuadros y envolventes",
+      "pn": 109.412,
+      "pt": 109.412,
+      "r": "PIN-41375700780ST0"
+    },
+    {
+      "d": "PNZ-PUERTA MET. 800 (ALTO) X1350 (ANCHO) 2H (335518)",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cuadros y envolventes",
+      "pn": 189.412,
+      "pt": 189.412,
+      "r": "PIN-412758001350T1"
+    },
+    {
+      "d": "PNZ-PUERTA METALICA C/MARCO 1900(ALTO)X700(ANCHO) RAL 7035 (335971)",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Arquetas y tapas",
+      "pn": 187.059,
+      "pt": 187.059,
+      "r": "PIN-41375071900000"
+    },
+    {
+      "d": "PNZ-PUERTA PNZ-2 T1B 1P",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cuadros y envolventes",
+      "pn": 25.164,
+      "pt": 25.164,
+      "r": "PIN-41975PS2B10000"
+    },
+    {
+      "d": "PNZ-PUERTA PNZ-3 T1B 1P",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cuadros y envolventes",
+      "pn": 32.376,
+      "pt": 32.376,
+      "r": "PIN-41975PS1B00000"
+    },
+    {
+      "d": "PNZ57 70X50 1 CONT. MONOF.Y 1 CONT. TRIFÁSICO 4 BUC",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Centralización y acometida",
+      "pn": 167.765,
+      "pt": 167.765,
+      "r": "PIN-41U542M1F42000"
+    },
+    {
+      "d": "CONJUNTO CS + CGP-9 -250 END +CANALERA (601452)",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Bandeja y rejilla",
+      "pn": 412.941,
+      "pt": 412.941,
+      "r": "PIN-41976E00000594"
+    },
+    {
+      "d": "CONJUNTO CS + CGP-9 -400 END +CANALERA (601453)",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Bandeja y rejilla",
+      "pn": 438.824,
+      "pt": 438.824,
+      "r": "PIN-41976E00000595"
+    },
+    {
+      "d": "PNZ-CS BUC END+PNZ-A/CPM MF 4 END (601479)",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Centralización y acometida",
+      "pn": 390.588,
+      "pt": 390.588,
+      "r": "PIN-41976E00000618"
+    },
+    {
+      "d": "CANALERA CTC-F (EN) INFERIOR S/EMB 680177",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Bandeja y rejilla",
+      "pn": 42,
+      "pt": 42,
+      "r": "PIN-1ABFNC1400M120"
+    },
+    {
+      "d": "CANALERA CTC-F (EN) SUPERIOR S/EMB 680178",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Bandeja y rejilla",
+      "pn": 15.714,
+      "pt": 15.714,
+      "r": "PIN-1ABFNC1400M122"
+    },
+    {
+      "d": "PNZ CAJA DIST. URB. CDU-BUC ENDESA CNL004(COD. ENDESA 160134)",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cuadros y envolventes",
+      "pn": 494.118,
+      "pt": 494.118,
+      "r": "PIN-4135810CDUPBUC"
+    },
+    {
+      "d": "PNZ-A/EMI 107 T 160 A. +TRAFOS 100/5 (603106)",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Centralización y acometida",
+      "pn": 761.176,
+      "pt": 761.176,
+      "r": "PIN-41976E00003066"
+    },
+    {
+      "d": "PNZ-M-1T LI/NHC-160 VERTICAL+CAJA MODEM ENDESA (INT C/C 4X160)+TRAFOS 100/5 482071",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Cuadros y envolventes",
+      "pn": 937.647,
+      "pt": 937.647,
+      "r": "PIN-41D53160TMFA05"
+    },
+    {
+      "d": "REJILLA MET.PTCBL.100X60 ELECTROZC.",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Bandeja y rejilla",
+      "pn": 5.45,
+      "pt": 5.45,
+      "r": "AIS-BMPZ610"
+    },
+    {
+      "d": "REJILLA MET.PTCBL.150X60 ELECTROZC.",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Bandeja y rejilla",
+      "pn": 6.625,
+      "pt": 6.625,
+      "r": "AIS-BMPZ615"
+    },
+    {
+      "d": "REJILLA MET.PTCBL.200X60 ELECTROZC.",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Bandeja y rejilla",
+      "pn": 8.172,
+      "pt": 8.172,
+      "r": "AIS-BMPZ620"
+    },
+    {
+      "d": "REJILLA MET.PTCBL.300X60 ELECTROZC.",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Bandeja y rejilla",
+      "pn": 12,
+      "pt": 12,
+      "r": "AIS-BMPZ630"
+    },
+    {
+      "d": "REJILLA MET.PTCBL.400X60 ELECTROZC.",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Bandeja y rejilla",
+      "pn": 15.412,
+      "pt": 15.412,
+      "r": "AIS-BMPZ640"
+    },
+    {
+      "d": "REIJILLA MET.PTCBL.500X60 ELECTROZC.",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Bandeja y rejilla",
+      "pn": 18.927,
+      "pt": 18.927,
+      "r": "AIS-BMPZ650"
+    },
+    {
+      "d": "REIJILLA MET.PTCBL.600X60 ELECTROZC.",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Bandeja y rejilla",
+      "pn": 22.082,
+      "pt": 22.082,
+      "r": "AIS-BMPZ660"
+    },
+    {
+      "d": "BAND.MET.PTCBL.TIPO REJ.ELECTROSOLDADA 100X60",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Bandeja y rejilla",
+      "pn": 5.975,
+      "pt": 5.975,
+      "r": "AIS-BMPR610"
+    },
+    {
+      "d": "BAND.MET.PTCBL.TIPO REJ.ELECTROSOLDADA 200X60",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Bandeja y rejilla",
+      "pn": 8.47,
+      "pt": 8.47,
+      "r": "AIS-BMPR620"
+    },
+    {
+      "d": "BAND.MET.PTCBL.TIPO REJ.ELECTROSOLDADA 300X60",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Bandeja y rejilla",
+      "pn": 12.595,
+      "pt": 12.595,
+      "r": "AIS-BMPR630"
+    },
+    {
+      "d": "BAND.MET.PTCBL.TIPO REJ.ELECTROSOLDADA 400X60",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Bandeja y rejilla",
+      "pn": 15.657,
+      "pt": 15.657,
+      "r": "AIS-BMPR640"
+    },
+    {
+      "d": "CANAL METALICA PERF.100X60 GALV.SENZ.",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Bandeja y rejilla",
+      "pn": 7.132,
+      "pt": 7.132,
+      "r": "AIS-CMPS610"
+    },
+    {
+      "d": "CANAL METALICA PERF.150X60 GALV.SENZ.",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Bandeja y rejilla",
+      "pn": 8.755,
+      "pt": 8.755,
+      "r": "AIS-CMPS615"
+    },
+    {
+      "d": "CANAL METALICA PERF.200X60 GALV.SENZ.",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Bandeja y rejilla",
+      "pn": 10.877,
+      "pt": 10.877,
+      "r": "AIS-CMPS620"
+    },
+    {
+      "d": "CANAL METALICA PERF.300X60 GALV.SENZ.",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Bandeja y rejilla",
+      "pn": 15.94,
+      "pt": 15.94,
+      "r": "AIS-CMPS630"
+    },
+    {
+      "d": "CANAL METALICA PERF.400X60 GALV.SENZ.",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Bandeja y rejilla",
+      "pn": 21.695,
+      "pt": 21.695,
+      "r": "AIS-CMPS640"
+    },
+    {
+      "d": "CANAL METALICA PERF.500X60 GALV.SENZ.",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Bandeja y rejilla",
+      "pn": 26.647,
+      "pt": 26.647,
+      "r": "AIS-CMPS650"
+    },
+    {
+      "d": "CANAL METALICA PERF.600X60 GALV.SENZ.",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Bandeja y rejilla",
+      "pn": 30.695,
+      "pt": 30.695,
+      "r": "AIS-CMPS660"
+    },
+    {
+      "d": "TAPA UNIVERSAL BAND./CAN.100 GALV.SENZ.",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Bandeja y rejilla",
+      "pn": 3.772,
+      "pt": 3.772,
+      "r": "AIS-TUBCS10"
+    },
+    {
+      "d": "TAPA UNIVERSAL BAND./CAN.150 GALV.SENZ.",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Bandeja y rejilla",
+      "pn": 4.95,
+      "pt": 4.95,
+      "r": "AIS-TUBCS15"
+    },
+    {
+      "d": "TAPA UNIVERSAL BAND./CAN.200 GALV.SENZ.",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Bandeja y rejilla",
+      "pn": 6.352,
+      "pt": 6.352,
+      "r": "AIS-TUBCS20"
+    },
+    {
+      "d": "TAPA UNIVERSAL BAND./CAN.300 GALV.SENZ.",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Bandeja y rejilla",
+      "pn": 9.742,
+      "pt": 9.742,
+      "r": "AIS-TUBCS30"
+    },
+    {
+      "d": "TAPA UNIVERSAL BAND./CAN.400 GALV.SENZ.",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Bandeja y rejilla",
+      "pn": 13.95,
+      "pt": 13.95,
+      "r": "AIS-TUBCS40"
+    },
+    {
+      "d": "TAPA UNIVERSAL BAND./CAN.500 GALV.SENZ.",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Bandeja y rejilla",
+      "pn": 19.73,
+      "pt": 19.73,
+      "r": "AIS-TUBCS50"
+    },
+    {
+      "d": "TAPA UNIVERSAL BAND./CAN.600 GALV.SENZ.",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Bandeja y rejilla",
+      "pn": 22.472,
+      "pt": 22.472,
+      "r": "AIS-TUBCS60"
+    },
+    {
+      "d": "CANAL METALICA PERF.100x60 GALV.CLTE.",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Bandeja y rejilla",
+      "pn": 14.595,
+      "pt": 14.595,
+      "r": "AIS-CMPG610"
+    },
+    {
+      "d": "CANAL MET.PERF.60x150 GALV.",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Bandeja y rejilla",
+      "pn": 18.12,
+      "pt": 18.12,
+      "r": "AIS-CMPG615"
+    },
+    {
+      "d": "CANAL METALICA PERF.200X60 GALV.CLTE.",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Bandeja y rejilla",
+      "pn": 21.215,
+      "pt": 21.215,
+      "r": "AIS-CMPG620"
+    },
+    {
+      "d": "CANAL METALICA PERF.300X60 GALV.CLTE.",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Bandeja y rejilla",
+      "pn": 27.857,
+      "pt": 27.857,
+      "r": "AIS-CMPG630"
+    },
+    {
+      "d": "CANAL METALICA PERF.400X60 GALV.CLTE.",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Bandeja y rejilla",
+      "pn": 37.222,
+      "pt": 37.222,
+      "r": "AIS-CMPG640"
+    },
+    {
+      "d": "TAPA UNIVERSAL BAND./CAN.100 GALV.CLTE.",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Bandeja y rejilla",
+      "pn": 8.28,
+      "pt": 8.28,
+      "r": "AIS-TUBCG10"
+    },
+    {
+      "d": "TAPA UNIV.BAND.CAN.150 GALV.",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Bandeja y rejilla",
+      "pn": 11.775,
+      "pt": 11.775,
+      "r": "AIS-TUBCG15"
+    },
+    {
+      "d": "TAPA UNIVERSAL BAND./CAN.200 GALV.CLTE.",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Bandeja y rejilla",
+      "pn": 14.052,
+      "pt": 14.052,
+      "r": "AIS-TUBCG20"
+    },
+    {
+      "d": "TAPA UNIVERSAL BAND./CAN.300 GALV.CLTE.",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Bandeja y rejilla",
+      "pn": 20.705,
+      "pt": 20.705,
+      "r": "AIS-TUBCG30"
+    },
+    {
+      "d": "TAPA UNIVERSAL BAND./CAN.400 GALV.CLTE.",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Bandeja y rejilla",
+      "pn": 30.55,
+      "pt": 30.55,
+      "r": "AIS-TUBCG40"
+    },
+    {
+      "d": "TABIQUE SEPARADOR COLISO 50 GALV.SENZ.",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Bandeja y rejilla",
+      "pn": 3.875,
+      "pt": 3.875,
+      "r": "AIS-TSCS50"
+    },
+    {
+      "d": "SOP.OMEGA U MULTIF.SOUMS10 GALV.SENZ.",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Bandeja y rejilla",
+      "pn": 4.882,
+      "pt": 4.882,
+      "r": "AIS-SOUMS10"
+    },
+    {
+      "d": "SOP.OMEGA U MULTIF.SOUMS15 GALV.SENZ.",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Bandeja y rejilla",
+      "pn": 5.885,
+      "pt": 5.885,
+      "r": "AIS-SOUMS15"
+    },
+    {
+      "d": "SOP.OMEGA U MULTIF.SOUMS20 GALV.SENZ.",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Bandeja y rejilla",
+      "pn": 6.202,
+      "pt": 6.202,
+      "r": "AIS-SOUMS20"
+    },
+    {
+      "d": "SOP.OMEGA U MULTIF.SOUMS30 GALV.SENZ.",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Bandeja y rejilla",
+      "pn": 7.27,
+      "pt": 7.27,
+      "r": "AIS-SOUMS30"
+    },
+    {
+      "d": "SOPORTE OMEGA TECHO MULT.S.4",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Bandeja y rejilla",
+      "pn": 8.297,
+      "pt": 8.297,
+      "r": "AIS-SOUMS40"
+    },
+    {
+      "d": "SOP.PARED/SUELO COLISO 100 GALV.SENZ.",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Bandeja y rejilla",
+      "pn": 3.677,
+      "pt": 3.677,
+      "r": "AIS-SPSCS10"
+    },
+    {
+      "d": "SOP.PARED/SUELO COLISO 150 GALV.SENZ.",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Bandeja y rejilla",
+      "pn": 4.02,
+      "pt": 4.02,
+      "r": "AIS-SPSCS15"
+    },
+    {
+      "d": "SOP.PARED/SUELO COLISO 200 GALV.SENZ.",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Bandeja y rejilla",
+      "pn": 4.275,
+      "pt": 4.275,
+      "r": "AIS-SPSCS20"
+    },
+    {
+      "d": "SOP.PARED/SUELO COLISO 300 GALV.SENZ.",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Bandeja y rejilla",
+      "pn": 5.172,
+      "pt": 5.172,
+      "r": "AIS-SPSCS30"
+    },
+    {
+      "d": "SOP.PARED/SUELO COLISO 400 GALV.SENZ.",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Bandeja y rejilla",
+      "pn": 8.392,
+      "pt": 8.392,
+      "r": "AIS-SPSCS40"
+    },
+    {
+      "d": "ESCUADRA SOP.REFORZ.COLISO 100 GALV.SENZ",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Bandeja y rejilla",
+      "pn": 3.335,
+      "pt": 3.335,
+      "r": "AIS-ESCRS10"
+    },
+    {
+      "d": "ESCUADRA SOP.REFORZ.COLISO 150 GALV.SENZ",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Bandeja y rejilla",
+      "pn": 3.74,
+      "pt": 3.74,
+      "r": "AIS-ESCRS15"
+    },
+    {
+      "d": "ESCUADRA SOP.REFORZ.COLISO 200 GALV.SENZ",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Bandeja y rejilla",
+      "pn": 4.192,
+      "pt": 4.192,
+      "r": "AIS-ESCRS20"
+    },
+    {
+      "d": "ESCUADRA SOP.REFORZ.COLISO 300 GALV.SENZ",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Bandeja y rejilla",
+      "pn": 5.132,
+      "pt": 5.132,
+      "r": "AIS-ESCRS30"
+    },
+    {
+      "d": "ESCUADRA SOP.REFORZ.COLISO 400 GALV.SENZ",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Bandeja y rejilla",
+      "pn": 7.417,
+      "pt": 7.417,
+      "r": "AIS-ESCRS40"
+    },
+    {
+      "d": "ESCUADRA SOP.REFORZ.COLISO 500 GALV.SENZ",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Bandeja y rejilla",
+      "pn": 9.367,
+      "pt": 9.367,
+      "r": "AIS-ESCRS50"
+    },
+    {
+      "d": "ESCUADRA SOP.REFORZ.COLISO 600 GALV.SENZ",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Bandeja y rejilla",
+      "pn": 11.252,
+      "pt": 11.252,
+      "r": "AIS-ESCRS60"
+    },
+    {
+      "d": "SOPORTE OMEGA MULTIF.SOMS10 GALV.SENZ. SOPORTE PARED",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Bandeja y rejilla",
+      "pn": 2.82,
+      "pt": 2.82,
+      "r": "AIS-SOMS10"
+    },
+    {
+      "d": "SOPORTE OMEGA MULTIF.SOMS15 GALV.SENZ.SOPORTE PARED",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Bandeja y rejilla",
+      "pn": 3.502,
+      "pt": 3.502,
+      "r": "AIS-SOMS15"
+    },
+    {
+      "d": "SOPORTE OMEGA MULTIF.SOMS20 GALV.SENZ.SOPORTE PARED",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Bandeja y rejilla",
+      "pn": 4.152,
+      "pt": 4.152,
+      "r": "AIS-SOMS20"
+    },
+    {
+      "d": "SOPORTE OMEGA MULTIF.SOMS30 GALV.SENZ.SOPORTE PARED",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Bandeja y rejilla",
+      "pn": 4.495,
+      "pt": 4.495,
+      "r": "AIS-SOMS30"
+    },
+    {
+      "d": "SOPORTE OMEGA MULTIF.SOMS40 GALV.SENZ.SOPORTE PARED",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Bandeja y rejilla",
+      "pn": 6.135,
+      "pt": 6.135,
+      "r": "AIS-SOMS40"
+    },
+    {
+      "d": "TUBO AISCAN-B BLIND.D.16 ENCHUFABLE GR",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Tubo y canalización",
+      "pn": 0.498,
+      "pt": 0.498,
+      "r": "AIS-BGE16"
+    },
+    {
+      "d": "TUBO AISCAN-B BLIND.D.20 ENCHUFABLE GR",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Tubo y canalización",
+      "pn": 0.667,
+      "pt": 0.667,
+      "r": "AIS-BGE20"
+    },
+    {
+      "d": "TUBO AISCAN-B BLIND.D.25 ENCHUFABLE GR",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Tubo y canalización",
+      "pn": 0.904,
+      "pt": 0.904,
+      "r": "AIS-BGE25"
+    },
+    {
+      "d": "TUBO AISCAN-B BLIND.D.32 ENCHUFABLE GR",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Tubo y canalización",
+      "pn": 1.27,
+      "pt": 1.27,
+      "r": "AIS-BGE32"
+    },
+    {
+      "d": "TUBO AISCAN-B BLIND.D.40 ENCHUFABLE GR",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Tubo y canalización",
+      "pn": 1.894,
+      "pt": 1.894,
+      "r": "AIS-BGE40"
+    },
+    {
+      "d": "TUBO AISCAN-B BLIND.D.50 ENCHUFABLE GR",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Tubo y canalización",
+      "pn": 2.6,
+      "pt": 2.6,
+      "r": "AIS-BGE50"
+    },
+    {
+      "d": "TUBO AISCAN-B BLIND.D.63 ENCHUFABLE GR",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Tubo y canalización",
+      "pn": 3.498,
+      "pt": 3.498,
+      "r": "AIS-BGE63"
+    },
+    {
+      "d": "TUBO AISCAN-CR CORRUG.DOBLE CAPA D.16 NG",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Tubo y canalización",
+      "pn": 0.228,
+      "pt": 0.228,
+      "r": "AIS-CR16"
+    },
+    {
+      "d": "TUBO AISCAN-CR CORRUG.DOBLE CAPA D.20 NG",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Tubo y canalización",
+      "pn": 0.247,
+      "pt": 0.247,
+      "r": "AIS-CR20"
+    },
+    {
+      "d": "TUBO AISCAN-CR CORRUG.DOBLE CAPA D.25 NG",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Tubo y canalización",
+      "pn": 0.32,
+      "pt": 0.32,
+      "r": "AIS-CR25"
+    },
+    {
+      "d": "TUBO AISCAN-CR CORRUG,DOBLE CAPA D.32 NG",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Tubo y canalización",
+      "pn": 0.498,
+      "pt": 0.498,
+      "r": "AIS-CR32"
+    },
+    {
+      "d": "TUBO AISCAN-CR CORRUG.DOBLE CAPA D.40 NG",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Tubo y canalización",
+      "pn": 0.696,
+      "pt": 0.696,
+      "r": "AIS-CR40"
+    },
+    {
+      "d": "TUBO AISCAN-CR CORRUG.DOBLE CAPA D.50 NG",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Tubo y canalización",
+      "pn": 1.046,
+      "pt": 1.046,
+      "r": "AIS-CR50"
+    },
+    {
+      "d": "TUBO AISCAN-EHF D.16 RIG.LIBRE HALOGS.",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Tubo y canalización",
+      "pn": 1.396,
+      "pt": 1.396,
+      "r": "AIS-EHF16"
+    },
+    {
+      "d": "TUBO AISCAN-EHF D.20 RIG.LIBRE HALOGS.",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Tubo y canalización",
+      "pn": 1.709,
+      "pt": 1.709,
+      "r": "AIS-EHF20"
+    },
+    {
+      "d": "TUBO AISCAN-EHF D.25 RIG.LIBRE HALOGS.",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Tubo y canalización",
+      "pn": 2.353,
+      "pt": 2.353,
+      "r": "AIS-EHF25"
+    },
+    {
+      "d": "TUBO AISCAN-EHF D.32 RIG.LIBRE HALOGS.",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Tubo y canalización",
+      "pn": 3.254,
+      "pt": 3.254,
+      "r": "AIS-EHF32"
+    },
+    {
+      "d": "TUBO AISCAN-EHF D.40 RIG.LIBRE HALOGS.",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Tubo y canalización",
+      "pn": 4.726,
+      "pt": 4.726,
+      "r": "AIS-EHF40"
+    },
+    {
+      "d": "TUBO AISCAN-EHF D.50 RIG.LIBRE HALOGS.",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Tubo y canalización",
+      "pn": 6.346,
+      "pt": 6.346,
+      "r": "AIS-EHF50"
+    },
+    {
+      "d": "TUBO AISCAN-EHF D.63 RIG.LIBRE HALOGS.",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Tubo y canalización",
+      "pn": 8.497,
+      "pt": 8.497,
+      "r": "AIS-EHF63"
+    },
+    {
+      "d": "MANGUITO TUBO METALICO ENCHUFABLE d.16mm",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Tubo y canalización",
+      "pn": 1.068,
+      "pt": 1.068,
+      "r": "AIS-MTME16"
+    },
+    {
+      "d": "MANGUITO TUBO METALICO ENCHUFABLE d.20mm",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Tubo y canalización",
+      "pn": 1.116,
+      "pt": 1.116,
+      "r": "AIS-MTME20"
+    },
+    {
+      "d": "MANGUITO TUBO METALICO ENCHUFABLE d.25mm",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Tubo y canalización",
+      "pn": 1.308,
+      "pt": 1.308,
+      "r": "AIS-MTME25"
+    },
+    {
+      "d": "MANGUITO TUBO METALICO ENCHUFABLE d.32mm",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Tubo y canalización",
+      "pn": 1.722,
+      "pt": 1.722,
+      "r": "AIS-MTME32"
+    },
+    {
+      "d": "MANGUITO TUBO METALICO ENCHUFABLE d.40mm",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Tubo y canalización",
+      "pn": 2.562,
+      "pt": 2.562,
+      "r": "AIS-MTME40"
+    },
+    {
+      "d": "MANGUITO TUBO METALICO ENCHUFABLE d.50mm",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Tubo y canalización",
+      "pn": 3.606,
+      "pt": 3.606,
+      "r": "AIS-MTME50"
+    },
+    {
+      "d": "MANGUITO TUBO METALICO ENCHUFABLE d.63mm",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Tubo y canalización",
+      "pn": 6.516,
+      "pt": 6.516,
+      "r": "AIS-MTME63"
+    },
+    {
+      "d": "TUBO METALICO ENCHUFABLE D.16MM",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Tubo y canalización",
+      "pn": 1.795,
+      "pt": 1.795,
+      "r": "AIS-TME16"
+    },
+    {
+      "d": "TUBO METALICO ENCHUFABLE D.20MM",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Tubo y canalización",
+      "pn": 2.145,
+      "pt": 2.145,
+      "r": "AIS-TME20"
+    },
+    {
+      "d": "TUBO METALICO ENCHUFABLE D.25MM",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Tubo y canalización",
+      "pn": 2.666,
+      "pt": 2.666,
+      "r": "AIS-TME25"
+    },
+    {
+      "d": "TUBO METALICO ENCHUFABLE D.32MM",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Tubo y canalización",
+      "pn": 4.124,
+      "pt": 4.124,
+      "r": "AIS-TME32"
+    },
+    {
+      "d": "TUBO METALICO ENCHUFABLE D.40MM",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Tubo y canalización",
+      "pn": 5.413,
+      "pt": 5.413,
+      "r": "AIS-TME40"
+    },
+    {
+      "d": "TUBO METALICO ENCHUFABLE D.50MM",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Tubo y canalización",
+      "pn": 6.936,
+      "pt": 6.936,
+      "r": "AIS-TME50"
+    },
+    {
+      "d": "TUBO METALICO ENCHUFABLE D.63MM",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Tubo y canalización",
+      "pn": 8.932,
+      "pt": 8.932,
+      "r": "AIS-TME63"
+    },
+    {
+      "d": "TUBO CORRUG.HALOFLEX LH M20",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Tubo y canalización",
+      "pn": 0.272,
+      "pt": 0.272,
+      "r": "GAE-900.2000.0"
+    },
+    {
+      "d": "TUBO CORRUG.HALOFLEX LH M25",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Tubo y canalización",
+      "pn": 0.392,
+      "pt": 0.392,
+      "r": "GAE-900.2500.0"
+    },
+    {
+      "d": "TUBO CORRUG.HALOFLEX LH M32",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Tubo y canalización",
+      "pn": 0.612,
+      "pt": 0.612,
+      "r": "GAE-900.3200.0"
+    },
+    {
+      "d": "TUBO CORRUG.HALOFLEX LH M40",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Tubo y canalización",
+      "pn": 0.883,
+      "pt": 0.883,
+      "r": "GAE-900.4000.0"
+    },
+    {
+      "d": "TUBO HALOFLEX M50 LIBRE DE HALÓGENOS",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Tubo y canalización",
+      "pn": 1.039,
+      "pt": 1.039,
+      "r": "GAE-900.5000.0"
+    },
+    {
+      "d": "MANGUERA ELECTROFLEX PVC PG.13,5 GRIS",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Tubo y canalización",
+      "pn": 0.968,
+      "pt": 0.968,
+      "r": "GAE-920.1300.0"
+    },
+    {
+      "d": "MANGUERA ELECTROFLEX PVC PG.16 GRIS",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Tubo y canalización",
+      "pn": 1.029,
+      "pt": 1.029,
+      "r": "GAE-920.1600.0"
+    },
+    {
+      "d": "MANGUERA ELECTROFLEX PVC PG.21 GRIS",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Tubo y canalización",
+      "pn": 1.335,
+      "pt": 1.335,
+      "r": "GAE-920.2100.0"
+    },
+    {
+      "d": "MANGUERA ELECTROFLEX PVC PG.29 GRIS",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Tubo y canalización",
+      "pn": 1.74,
+      "pt": 1.74,
+      "r": "GAE-920.2900.0"
+    },
+    {
+      "d": "MANGUERA ELECTROFLEX PVC PG.36 GRIS",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Tubo y canalización",
+      "pn": 2.533,
+      "pt": 2.533,
+      "r": "GAE-920.3600.0"
+    },
+    {
+      "d": "MANGUERA ELECTROFLEX PVC PG.48 GRIS",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Tubo y canalización",
+      "pn": 3.335,
+      "pt": 3.335,
+      "r": "GAE-920.4800.0"
+    },
+    {
+      "d": "MANGUERA ELECTROFLEX-IT PVC M20 GRIS ROLLO 25M",
+      "dto": "0,0",
+      "f": "2026-10-28",
+      "fam": "Tubo y canalización",
+      "pn": 1.52,
+      "pt": 1.52,
+      "r": "GAE-925.2000.0-R25"
+    },
+    {
+      "d": "MANGUERA ELECTROFLEX-IT PVC M25 GRIS CLARO ROLLO 25M++",
+      "dto": "0,0",
+      "f": "2026-10-28",
+      "fam": "Tubo y canalización",
+      "pn": 1.743,
+      "pt": 1.743,
+      "r": "GAE-925.2500.0-R25"
+    },
+    {
+      "d": "MANGUERA ELECTROFLEX-IT PVC M32 GRIS CLARO ROLLO 25M",
+      "dto": "0,0",
+      "f": "2026-10-28",
+      "fam": "Tubo y canalización",
+      "pn": 2.233,
+      "pt": 2.233,
+      "r": "GAE-925.3200.0-R25"
+    },
+    {
+      "d": "MANGUERA ELECTROFLEX-IT PVC M40 GRIS ROLLO 25M",
+      "dto": "0,0",
+      "f": "2026-10-28",
+      "fam": "Tubo y canalización",
+      "pn": 3.237,
+      "pt": 3.237,
+      "r": "GAE-925.4000.0-R25"
+    },
+    {
+      "d": "MANGUERA ELECTROFLEX-IT PVC M50 GRIS ROLLO 25M",
+      "dto": "0,0",
+      "f": "2026-10-28",
+      "fam": "Tubo y canalización",
+      "pn": 4.092,
+      "pt": 4.092,
+      "r": "GAE-925.5000.0-R25"
+    },
+    {
+      "d": "MANGUERA ECOMILFLEX CAMISA PVC GR.PG.13",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Tubo y canalización",
+      "pn": 1.253,
+      "pt": 1.253,
+      "r": "GAE-960.1300.0"
+    },
+    {
+      "d": "MANGUERA ECOMILFLEX CAMISA PVC GR.PG.16",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Tubo y canalización",
+      "pn": 1.435,
+      "pt": 1.435,
+      "r": "GAE-960.1600.0"
+    },
+    {
+      "d": "MANGUERA ECOMILFLEX CAMISA PVC GR.PG.21",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Tubo y canalización",
+      "pn": 1.953,
+      "pt": 1.953,
+      "r": "GAE-960.2100.0"
+    },
+    {
+      "d": "MANGUERA ECOMILFLEX CAMISA PVC GR.PG.29",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Tubo y canalización",
+      "pn": 2.543,
+      "pt": 2.543,
+      "r": "GAE-960.2900.0"
+    },
+    {
+      "d": "MANGUERA ECOMILFLEX CAMISA PVC GR.PG.36",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Tubo y canalización",
+      "pn": 3.635,
+      "pt": 3.635,
+      "r": "GAE-960.3600.0"
+    },
+    {
+      "d": "MANGUERA ECOMILFLEX CAMISA PVC GR.PG.48",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Tubo y canalización",
+      "pn": 4.497,
+      "pt": 4.497,
+      "r": "GAE-960.4800.0"
+    },
+    {
+      "d": "TUBO\"ROHRFLEX PA.6L\"PG-16 GRIS AD21,2 (DN17)",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Tubo y canalización",
+      "pn": 1.428,
+      "pt": 1.428,
+      "r": "GAE-0261.234.016"
+    },
+    {
+      "d": "TUBO\"ROHRFLEX PA.6L\"PG-21 GRIS AD28,5 (DN23)",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Tubo y canalización",
+      "pn": 2.098,
+      "pt": 2.098,
+      "r": "GAE-0261.234.023"
+    },
+    {
+      "d": "TUBO\"ROHRFLEX PA.6L\"PG-29 GRIS AD34,5 (DN29)",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Tubo y canalización",
+      "pn": 2.628,
+      "pt": 2.628,
+      "r": "GAE-0261.234.029"
+    },
+    {
+      "d": "TUBO\"ROHRFLEX PA.6L\"PG-36 GRIS AD42,5 (DN37)",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Tubo y canalización",
+      "pn": 3.264,
+      "pt": 3.264,
+      "r": "GAE-0261.234.036"
+    },
+    {
+      "d": "TUBO ROHRFLEX-PA 6 L PG-16 NEGRO DN 17",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Tubo y canalización",
+      "pn": 1.428,
+      "pt": 1.428,
+      "r": "GAE-0261.232.016"
+    },
+    {
+      "d": "TUBO ROHRFLEX-PA 6 L PG-21 NEGRO DN 23",
+      "dto": "0",
+      "f": "2026-10-28",
+      "fam": "Tubo y canalización",
+      "pn": 2.098,
+      "pt": 2.098,
+      "r": "GAE-0261.232.023"
+    },
+    {
+      "d": "TUBO ROHRFLEX-PA 6 L PG-29 NEGRO DN 29",
+      "dto": "35,0",
+      "f": "2026-10-28",
+      "fam": "Tubo y canalización",
+      "pn": 2.628,
+      "pt": 4.043,
+      "r": "GAE-0261.232.029"
+    }
+  ],
+  "numero": "Oferta medición de obra",
+  "origen": "Gmail",
+  "proveedor": "Diexfe",
+  "tipo": "tarifa"
+}

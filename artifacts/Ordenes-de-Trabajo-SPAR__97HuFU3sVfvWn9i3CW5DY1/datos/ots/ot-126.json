@@ -1,0 +1,19 @@
+{
+  "actualizada": "2026-11-03T16:34:00.764Z",
+  "aviso": "",
+  "centro": "SPAR Santo Domingo (Garafía)",
+  "creada": "2026-11-03T16:34:00.764Z",
+  "descripcion": "UPS averiada; la TPV/caja se apagó dos veces sin corte eléctrico. En visita, Alberto confirmó\nque la UPS está muerta; requiere sustitución. Raquel solicita presupuesto. Prioridad sin\nespecificar",
+  "estado": "pendiente",
+  "fechaAviso": "2026-11-03",
+  "historial": [
+    "3/11/2026 16:34 · Registrada (aviso de )"
+  ],
+  "informado": false,
+  "notas": "",
+  "operario": "",
+  "ot": 126,
+  "prioridad": "Sin especificar",
+  "solicitante": "",
+  "tipo": "MANTENIMIENTO"
+}

@@ -1,0 +1,18 @@
+{
+  "albs": [],
+  "cliente": "INSTAPALMA",
+  "desc": "Cokertapas de arqueta con arena , cortar tubos sobrantes dentro de arquetas. Agujerar arquetas para tubos , cavar zanja con guataca",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-10-29",
+  "horas": 8,
+  "obra": "ZANJA COVALLE",
+  "ops": [
+    {
+      "h": 8,
+      "n": "Luigi"
+    }
+  ],
+  "origen": "dashboard",
+  "stock": []
+}

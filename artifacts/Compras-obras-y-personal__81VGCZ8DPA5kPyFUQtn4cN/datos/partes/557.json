@@ -1,0 +1,27 @@
+{
+  "albs": [
+    "Bap 112.609.255"
+  ],
+  "cliente": "TRAGSA",
+  "desc": "Instalar bandeja en cuarto de cuadro general.\nCortar e instalar carril perforado para bases de bandeja.\nInstalar caja de registro y  bornero.\nEnhebrar y enbridar por bandeja acometida de 240 y conectarla en el bornero.",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-09-25",
+  "horas": 23,
+  "obra": "FV JTI",
+  "ops": [
+    {
+      "h": 8,
+      "n": "Adán"
+    },
+    {
+      "h": 8,
+      "n": "Toño"
+    },
+    {
+      "h": 7,
+      "n": "Jonathan Glez"
+    }
+  ],
+  "stock": []
+}

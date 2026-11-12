@@ -1,0 +1,27 @@
+{
+  "albs": [],
+  "cliente": "CARLOS ACOSTA",
+  "desc": "Sanear tubos rotos Retranquear líneas para que den hasta ubicación nueva Empatar tubos",
+  "devol": [],
+  "estado": "TERMINADO",
+  "fecha": "2026-10-28",
+  "horas": 2,
+  "obra": "ASCENSOR CARLOS FRANCISCO LORENZO NAVARRO",
+  "ops": [
+    {
+      "h": 1,
+      "n": "Aythami"
+    },
+    {
+      "h": 1,
+      "n": "Joel"
+    }
+  ],
+  "stock": [
+    {
+      "d": "tubo cuarrugado de 32",
+      "q": 5,
+      "u": "m"
+    }
+  ]
+}

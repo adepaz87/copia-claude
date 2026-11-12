@@ -1,0 +1,22 @@
+{
+  "albs": [],
+  "cliente": "TRAGSA",
+  "desc": "Enhebrar y enbridar por bandeja tubo precableado de incendios para bomba jockey.",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-10-29",
+  "horas": 4,
+  "obra": "PCI PLAZA GAZMIRA",
+  "ops": [
+    {
+      "h": 2,
+      "n": "Eloy"
+    },
+    {
+      "h": 2,
+      "n": "Jonathan Glez"
+    }
+  ],
+  "origen": "dashboard",
+  "stock": []
+}

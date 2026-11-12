@@ -1,0 +1,17 @@
+{
+  "albs": [],
+  "cliente": "TOMÁS BARRETO SA",
+  "desc": "Revisado de UPS. Tienda mediciones. Comprobado falta carga y display no responde. Sustituir por nueva",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-10-16",
+  "horas": 4,
+  "obra": "SPAR SANTO DOMINGO GARAFIA",
+  "ops": [
+    {
+      "h": 4,
+      "n": "Toño"
+    }
+  ],
+  "stock": []
+}

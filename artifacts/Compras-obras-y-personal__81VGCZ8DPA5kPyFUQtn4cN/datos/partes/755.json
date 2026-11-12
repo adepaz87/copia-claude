@@ -1,0 +1,58 @@
+{
+  "albs": [
+    "Bolsa Aguas 112.610.086"
+  ],
+  "cliente": "SONIA DRAGADOS",
+  "desc": "Reparar puentes de baterias. Reparar conector roto de paneles. \nLimpiar baterias. Medir tensiones de placas y comprobar funcionamiento.\nComprobar tensiones de baterias y medir  acide de las mismas. \nReconectar todo.\nConfigurar inversor para baterias de plomo acido ya que estaban para gel. \nProbar y tomar notas.",
+  "devol": [],
+  "estado": "TERMINADO",
+  "fecha": "2026-10-21",
+  "horas": 13,
+  "obra": "VIVIENDA HACIENDA EL CURA",
+  "ops": [
+    {
+      "h": 6,
+      "n": "Antonio"
+    },
+    {
+      "h": 6,
+      "n": "Iker"
+    },
+    {
+      "h": 1,
+      "n": "Transporte"
+    }
+  ],
+  "stock": [
+    {
+      "d": "cable 1x50mm RZ1-K",
+      "q": 1,
+      "u": "m"
+    },
+    {
+      "d": "terminales 50/8",
+      "q": 6,
+      "u": ""
+    },
+    {
+      "d": "terminales de 35/8",
+      "q": 2,
+      "u": ""
+    },
+    {
+      "d": "bridas ratio negras 4,8x300",
+      "q": 20,
+      "u": ""
+    },
+    {
+      "d": "cinta aislante blanca",
+      "q": 1,
+      "u": ""
+    },
+    {
+      "d": "anguitos amarillos de 6mm",
+      "q": 2,
+      "u": "m"
+    }
+  ]
+}

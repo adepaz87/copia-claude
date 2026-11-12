@@ -1,0 +1,26 @@
+{
+  "actualizada": "2026-11-04T16:13:00Z",
+  "asignadaEn": "2026-11-04T11:31:42.616Z",
+  "avisadoWa": "2026-11-04T11:50:02.235Z",
+  "aviso": "",
+  "centro": "SPAR El Paso",
+  "creada": "2026-11-04T11:15:00Z",
+  "descripcion": "La luz de la zona del pasillo de proveedores no funciona desde los fallos de luz; están sin luz.",
+  "estado": "terminada",
+  "fechaAviso": "2026-11-04",
+  "historial": [
+    "04/11/2026 · Importada de la captura GIM de Raquel (correo «EL PASO»)",
+    "4/11/2026 11:31 · Asignada a Toño Guardia",
+    "4/11/2026 11:50 · Asignación: Correo enviado a TBSA · WhatsApp a Toño Guardia programado · WhatsApp a Fernando NO enviado: no reply from shell",
+    "4/11/2026 15:39 · Toño Guardia por WhatsApp: «OT 130 resuelto»",
+    "4/11/2026 16:13 · Cierre: correo a TBSA y WhatsApp a Fernando"
+  ],
+  "informado": true,
+  "notas": "Pedido por el jefe de tienda (GIM 04/11 11:19). Nº OT provisional: confirmar o cambiar.",
+  "operario": "Toño Guardia",
+  "ot": 130,
+  "prioridad": "Alta",
+  "solicitante": "Raquel",
+  "terminadaEn": "2026-11-04T15:39:00Z",
+  "tipo": "MANTENIMIENTO"
+}

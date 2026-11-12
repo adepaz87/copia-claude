@@ -1,0 +1,26 @@
+{
+  "albs": [],
+  "cliente": "TRAGSA",
+  "desc": "Enhebrado de acometidas del subcuadro de habitaciones al subcuadro de módulo. Embridado. Realización de cuadro.",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-11-06",
+  "horas": 8,
+  "id": "913",
+  "obra": "HOSPITAL (MOD G)",
+  "ops": [
+    {
+      "h": 8,
+      "n": "Juan"
+    }
+  ],
+  "origen": "dashboard",
+  "restante": "Indefinido",
+  "stock": [
+    {
+      "d": "bolsas de bridas de 300x4,8",
+      "q": 2,
+      "u": ""
+    }
+  ]
+}

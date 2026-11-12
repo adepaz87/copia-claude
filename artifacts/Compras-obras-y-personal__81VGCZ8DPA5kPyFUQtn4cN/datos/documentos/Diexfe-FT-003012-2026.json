@@ -1,0 +1,106 @@
+{
+  "empresa": "Kairos Supply",
+  "fecha": "2026-05-27",
+  "lineas": [
+    {
+      "a": "VCTF-009718-2026",
+      "d": "RL.DIF.RGU-10A TRAFO WGC TIPO 3 MOD.DPLY",
+      "dto": "25,00",
+      "f": "2026-05-25",
+      "i": 368.77,
+      "o": "",
+      "pn": 184.385,
+      "pt": 245.85,
+      "q": 2,
+      "r": "CIR-P11A70."
+    },
+    {
+      "a": "VCTF-009848-2026",
+      "d": "CABLE AFIRENAX-X RZ1-K 0,6/1KV 1X35MM2",
+      "dto": "Neto",
+      "f": "2026-05-27",
+      "i": 32.78,
+      "o": "CARGADOR TAZACORTE",
+      "pn": 5.4633,
+      "pt": 5.463,
+      "q": 6,
+      "r": "MIG-84008"
+    },
+    {
+      "a": "VCTF-009848-2026",
+      "d": "CABLE AFIRENAX-X RZ1-K 0,6/1KV 1X25MM2",
+      "dto": "Neto",
+      "f": "2026-05-27",
+      "i": 36.54,
+      "o": "CARGADOR TAZACORTE",
+      "pn": 4.06,
+      "pt": 4.06,
+      "q": 9,
+      "r": "MIG-84007"
+    },
+    {
+      "a": "VCTF-009848-2026",
+      "d": "CABLE AFIRENAX-X RZ1-K 0,6/1KV 1X16MM2",
+      "dto": "Neto",
+      "f": "2026-05-27",
+      "i": 23.79,
+      "o": "CARGADOR TAZACORTE",
+      "pn": 2.6433,
+      "pt": 2.643,
+      "q": 9,
+      "r": "MIG-84006"
+    },
+    {
+      "a": "VCTF-009848-2026",
+      "d": "CABLE AFIRENAX-X RZ1-K 0,6/1KV 1X35MM2",
+      "dto": "Neto",
+      "f": "2026-05-27",
+      "i": 98.33,
+      "o": "CARGADOR TAZACORTE",
+      "pn": 5.4628,
+      "pt": 5.463,
+      "q": 18,
+      "r": "MIG-84008"
+    },
+    {
+      "a": "VCTF-009848-2026",
+      "d": "CABLE AFIRENAX-X RZ1-K 0,6/1KV 1X25MM2",
+      "dto": "Neto",
+      "f": "2026-05-27",
+      "i": 36.54,
+      "o": "CARGADOR TAZACORTE",
+      "pn": 4.06,
+      "pt": 4.06,
+      "q": 9,
+      "r": "MIG-84007"
+    },
+    {
+      "a": "VCTF-009848-2026",
+      "d": "CABLE AFIRENAX-X RZ1-K 0,6/1KV 1X25MM2",
+      "dto": "Neto",
+      "f": "2026-05-27",
+      "i": 36.54,
+      "o": "CARGADOR TAZACORTE",
+      "pn": 4.06,
+      "pt": 4.06,
+      "q": 9,
+      "r": "MIG-84007"
+    },
+    {
+      "a": "VCTF-009848-2026",
+      "d": "CABLE AFIRENAX-X RZ1-K 0,6/1KV 1X25MM2",
+      "dto": "Neto",
+      "f": "2026-05-27",
+      "i": 36.54,
+      "o": "CARGADOR TAZACORTE",
+      "pn": 4.06,
+      "pt": 4.06,
+      "q": 9,
+      "r": "MIG-84007"
+    }
+  ],
+  "numero": "FT-003012-2026",
+  "origen": "Gmail",
+  "proveedor": "Diexfe",
+  "tipo": "factura"
+}

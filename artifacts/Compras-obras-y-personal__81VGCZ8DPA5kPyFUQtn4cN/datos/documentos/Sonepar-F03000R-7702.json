@@ -1,0 +1,106 @@
+{
+  "empresa": "Kairos Supply",
+  "fecha": "2026-06-08",
+  "lineas": [
+    {
+      "a": "309003433",
+      "d": "INTERRUPTOR-SECCIONADOR MODULAR PV 1000V - 40A",
+      "f": "2026-06-08",
+      "fab": "024MPV514100",
+      "i": 2027.87,
+      "m": "GAVE",
+      "o": "SUMINISTROS APARAMENTA FV",
+      "pn": 67.5957,
+      "pt": 67.595506,
+      "q": 30,
+      "r": "291535"
+    },
+    {
+      "a": "309003433",
+      "d": "BASE PORTAF EFH 10DC 1000V 1P",
+      "f": "2026-06-08",
+      "fab": "E2540201",
+      "i": 135.69,
+      "m": "PRONUTEC",
+      "o": "SUMINISTROS APARAMENTA FV",
+      "pn": 1.5077,
+      "pt": 1.507656,
+      "q": 90,
+      "r": "218343"
+    },
+    {
+      "a": "309003433",
+      "d": "FUS URZ 20A GPV DC 1000V 10X38MM",
+      "f": "2026-06-08",
+      "fab": "502152620",
+      "i": 171.73,
+      "m": "PRONUTEC",
+      "o": "SUMINISTROS APARAMENTA FV",
+      "pn": 1.9081,
+      "pt": 1.908127,
+      "q": 90,
+      "r": "218344"
+    },
+    {
+      "a": "309003433",
+      "d": "PTR.SBT.TTA.FV-1000/3 SISTEMAS FOTOVOLTAICOS,1000V",
+      "f": "2026-06-08",
+      "fab": "10003476",
+      "i": 816.25,
+      "m": "TOSCANO",
+      "o": "SUMINISTROS APARAMENTA FV",
+      "pn": 27.2083,
+      "pt": 27.208481,
+      "q": 30,
+      "r": "783283"
+    },
+    {
+      "a": "309003477",
+      "d": "MAGNETOT.BKJ63N 1P+N C25A",
+      "f": "2026-06-08",
+      "i": 139.2,
+      "o": "HOSPITAL DOLORES",
+      "pn": 2.32,
+      "pt": 2.32,
+      "q": 60,
+      "r": "1167604"
+    },
+    {
+      "a": "309003477",
+      "d": "DIFERENCIAL RKN 2P 40A CLASE AC 30MA",
+      "f": "2026-06-08",
+      "i": 1953,
+      "o": "HOSPITAL DOLORES",
+      "pn": 10.85,
+      "pt": 10.85,
+      "q": 180,
+      "r": "730433"
+    },
+    {
+      "a": "309003477",
+      "d": "MAGNETOT.BKJ63N 1P+N C10A",
+      "f": "2026-06-08",
+      "i": 278.4,
+      "o": "HOSPITAL DOLORES",
+      "pn": 2.32,
+      "pt": 2.32,
+      "q": 120,
+      "r": "1167602"
+    },
+    {
+      "a": "309003477",
+      "d": "MAGNETOT.BKJ63N 1P+N C16A",
+      "f": "2026-06-08",
+      "i": 696,
+      "o": "HOSPITAL DOLORES",
+      "pn": 2.32,
+      "pt": 2.32,
+      "q": 300,
+      "r": "1167603"
+    }
+  ],
+  "numero": "F03000R-7702",
+  "origen": "Gmail",
+  "proveedor": "Sonepar",
+  "tipo": "factura"
+}

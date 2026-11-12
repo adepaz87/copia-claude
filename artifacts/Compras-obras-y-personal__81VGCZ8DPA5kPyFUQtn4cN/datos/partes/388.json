@@ -1,0 +1,45 @@
+{
+  "albs": [],
+  "cliente": "CONSTRUCCIONES DOMINGO",
+  "desc": "Entubar trasteros \nHacer pasamuros para puntos de luz terrazas",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-09-01",
+  "horas": 21,
+  "obra": "EDIFICIO DOMINGO EL PASO",
+  "ops": [
+    {
+      "h": 9,
+      "n": "Riki"
+    },
+    {
+      "h": 8,
+      "n": "Junior"
+    },
+    {
+      "h": 2,
+      "n": "Aythami"
+    },
+    {
+      "h": 2,
+      "n": "Joel"
+    }
+  ],
+  "stock": [
+    {
+      "d": "tacos brida celo",
+      "q": 1000,
+      "u": ""
+    },
+    {
+      "d": "bridas 4,8x300",
+      "q": 1000,
+      "u": ""
+    },
+    {
+      "d": "clavos celo",
+      "q": 1,
+      "u": "caja"
+    }
+  ]
+}

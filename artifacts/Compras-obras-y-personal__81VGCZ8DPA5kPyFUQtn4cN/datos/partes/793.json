@@ -1,0 +1,19 @@
+{
+  "albs": [
+    "Ayumar 8-1070"
+  ],
+  "cliente": "VIVIENDA LA VERADA",
+  "desc": "Entubar",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-10-26",
+  "horas": 6,
+  "obra": "VIVIENDA",
+  "ops": [
+    {
+      "h": 6,
+      "n": "Goyo"
+    }
+  ],
+  "stock": []
+}

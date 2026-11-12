@@ -1,0 +1,35 @@
+{
+  "empresa": "Instapalma",
+  "fecha": "2026-10-14",
+  "lineas": [
+    {
+      "a": "035.523/003",
+      "d": "TUBO REFLEX M25",
+      "f": "2026-10-14",
+      "fab": "CAN-80100025**",
+      "i": 38.9,
+      "o": "CAFE DON MANUEL",
+      "pn": 0.389,
+      "pt": 0.389,
+      "q": 100,
+      "r": "89836603"
+    },
+    {
+      "a": "035.523/003",
+      "d": "CAJA ENLAZABLE UNIV.CUADRADA",
+      "f": "2026-10-14",
+      "fab": "SOL-6625",
+      "i": 7.41,
+      "o": "CAFE DON MANUEL",
+      "pn": 0.247,
+      "pt": 0.247,
+      "q": 30,
+      "r": "866250"
+    }
+  ],
+  "numero": "035.523/003",
+  "obra": "CAFE DON MANUEL",
+  "origen": "Gmail",
+  "proveedor": "Coelca",
+  "tipo": "albaran"
+}

@@ -1,0 +1,36 @@
+{
+  "albs": [],
+  "cliente": "CABILDO INSULAR",
+  "desc": "Desconectar cable sierra por rotura de cables en la entrada de la caja de proteccion de la misma. Repar cables rotos.",
+  "devol": [],
+  "estado": "TERMINADO",
+  "fecha": "2026-10-05",
+  "horas": 4,
+  "obra": "MATADERO INSULAR",
+  "ops": [
+    {
+      "h": 1.5,
+      "n": "Antonio"
+    },
+    {
+      "h": 1.5,
+      "n": "Iker"
+    },
+    {
+      "h": 1,
+      "n": "Transporte"
+    }
+  ],
+  "stock": [
+    {
+      "d": "anguitos rojo 1,5 mm",
+      "q": 8,
+      "u": "m"
+    },
+    {
+      "d": "cinta aislante negra",
+      "q": 1,
+      "u": ""
+    }
+  ]
+}

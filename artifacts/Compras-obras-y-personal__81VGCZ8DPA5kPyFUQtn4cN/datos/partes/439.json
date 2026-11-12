@@ -1,0 +1,43 @@
+{
+  "albs": [
+    "Agroisleña A26/20831"
+  ],
+  "cliente": "TOMÁS BARRETO",
+  "desc": "Preparar y colocación perfil para tira led en apartamento derecho \nColocación y conexionado lámparas en terraza apartamento derecho \nConexionar líneas para persianas ambos apartamentos \nLimpiar zonas de trabajo",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-09-09",
+  "horas": 22,
+  "obra": "APARTAMENTOS SPAR TRIANA",
+  "ops": [
+    {
+      "h": 8,
+      "n": "Rafael"
+    },
+    {
+      "h": 8,
+      "n": "Junior"
+    },
+    {
+      "h": 6,
+      "n": "Jonathan Rodríguez"
+    }
+  ],
+  "stock": [
+    {
+      "d": "Tacos 6x30",
+      "q": 12,
+      "u": "ud"
+    },
+    {
+      "d": "Tornillos 4,5x40",
+      "q": 12,
+      "u": "ud"
+    },
+    {
+      "d": "Bornas 10mm",
+      "q": 24,
+      "u": "ud"
+    }
+  ]
+}

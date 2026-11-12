@@ -1,0 +1,29 @@
+{
+  "albs": [],
+  "cliente": "CHICHO 2 TUMBOS",
+  "desc": "Conectar derivaciones en cuadros principales y tierras\nCerrar registros principales y cuadros viviendas",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-10-05",
+  "horas": 41,
+  "obra": "EDIFICIO SABINO",
+  "ops": [
+    {
+      "h": 11,
+      "n": "Riki"
+    },
+    {
+      "h": 11,
+      "n": "Aythami"
+    },
+    {
+      "h": 11,
+      "n": "Joel"
+    },
+    {
+      "h": 8,
+      "n": "Junior"
+    }
+  ],
+  "stock": []
+}

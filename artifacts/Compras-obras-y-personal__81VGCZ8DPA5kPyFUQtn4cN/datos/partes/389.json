@@ -1,0 +1,17 @@
+{
+  "albs": [],
+  "cliente": "INSTAPALMA",
+  "desc": "Cavar agujero para señalización, instalar cargador , encalar techo de caseta , desyerbar árbol",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-09-01",
+  "horas": 8,
+  "obra": "CARGADOR EL PASO",
+  "ops": [
+    {
+      "h": 8,
+      "n": "Luigi"
+    }
+  ],
+  "stock": []
+}

@@ -1,0 +1,20 @@
+{
+  "albs": [],
+  "cliente": "TRAGSA",
+  "desc": "Habrir huecos en pladur y colocar cajas en el mod C",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-11-09",
+  "horas": 1,
+  "id": "926",
+  "obra": "HOSPITAL",
+  "ops": [
+    {
+      "h": 1,
+      "n": "Juan"
+    }
+  ],
+  "origen": "dashboard",
+  "restante": "Indefinido",
+  "stock": []
+}

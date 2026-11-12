@@ -1,0 +1,94 @@
+{
+  "albs": [
+    "Coelca43763"
+  ],
+  "cliente": "DARWIN",
+  "desc": "Entubar\nColocación registros\nPoner canaleta\nMontaje  de puesto trabajo\nMecanizar\nEnebrar Registrar \nLimpiar",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-09-03",
+  "horas": 16,
+  "obra": "GIMNASIO",
+  "ops": [
+    {
+      "h": 8,
+      "n": "Manuel"
+    },
+    {
+      "h": 8,
+      "n": "Juan"
+    }
+  ],
+  "stock": [
+    {
+      "d": "tubo rígido de 20",
+      "q": 12,
+      "u": "m"
+    },
+    {
+      "d": "anguitos  de 20",
+      "q": 2,
+      "u": "m"
+    },
+    {
+      "d": "curvas flexibles de 20",
+      "q": 4,
+      "u": ""
+    },
+    {
+      "d": "curvas  rígidas de 20",
+      "q": 2,
+      "u": ""
+    },
+    {
+      "d": "zukos ticino classia",
+      "q": 3,
+      "u": ""
+    },
+    {
+      "d": "zocalo de 4 elementos",
+      "q": 1,
+      "u": ""
+    },
+    {
+      "d": "zocalo de 2 elementos",
+      "q": 1,
+      "u": ""
+    },
+    {
+      "d": "registro sin terones ref 817",
+      "q": 1,
+      "u": ""
+    },
+    {
+      "d": "cable de 4x6 de 1kv",
+      "q": 75,
+      "u": "m"
+    },
+    {
+      "d": "triángulo  de señalizacion  de10x10x10",
+      "q": 1,
+      "u": ""
+    },
+    {
+      "d": "cable  de 1x2,5 rz1",
+      "q": 82,
+      "u": "m"
+    },
+    {
+      "d": "fichas de 16mm",
+      "q": 9,
+      "u": ""
+    },
+    {
+      "d": "bases bridas",
+      "q": 25,
+      "u": ""
+    },
+    {
+      "d": "bridas de 300x4,8",
+      "q": 25,
+      "u": ""
+    }
+  ]
+}

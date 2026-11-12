@@ -1,0 +1,23 @@
+{
+  "albs": [
+    "M.P.LIGHTCAN 01 26000582"
+  ],
+  "cliente": "COVALLE",
+  "desc": "Entubar,Enhebrar,Colocación de proyectores emergencia y conexionado en Nave Covalle",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-10-16",
+  "horas": 16,
+  "obra": "NAVE COOPERATIVA COVALLE",
+  "ops": [
+    {
+      "h": 8,
+      "n": "Petter"
+    },
+    {
+      "h": 8,
+      "n": "Jonathan Rodríguez"
+    }
+  ],
+  "stock": []
+}

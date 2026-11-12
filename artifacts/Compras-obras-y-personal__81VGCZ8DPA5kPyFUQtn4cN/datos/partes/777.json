@@ -1,0 +1,25 @@
+{
+  "albs": [],
+  "cliente": "CONSTRUCCIONES DOMINGO",
+  "desc": "Fijar cuadro y registros en vivienda.\nEntubar vivienda planta 3",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-10-23",
+  "horas": 24,
+  "obra": "EDIFICIO DOMINGO EL PASO",
+  "ops": [
+    {
+      "h": 8,
+      "n": "Joel"
+    },
+    {
+      "h": 8,
+      "n": "Júnior"
+    },
+    {
+      "h": 8,
+      "n": "Ricky"
+    }
+  ],
+  "stock": []
+}

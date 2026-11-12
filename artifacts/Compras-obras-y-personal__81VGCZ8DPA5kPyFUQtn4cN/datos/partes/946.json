@@ -1,0 +1,23 @@
+{
+  "albs": [
+    "Sonepar 309006860"
+  ],
+  "cliente": "AYUNTAMIENTO EL PASO",
+  "desc": "Revisar cuadros de obra. Tapar cuadros de climatizacion en electrocanales. Comprobar y limpiar agua de grupo generador. Tapar material de almacen. Colocar lamparas en 2 planta suite 21 habitaciones hasta 28 y probar encendidos.",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-11-11",
+  "horas": 8,
+  "id": "946",
+  "msg": "1a1ccbe3dc68805f",
+  "obra": "HOTEL MONTERREY",
+  "ops": [
+    {
+      "h": 8,
+      "n": "Antonio"
+    }
+  ],
+  "origen": "dashboard",
+  "restante": "Indefinido",
+  "stock": []
+}

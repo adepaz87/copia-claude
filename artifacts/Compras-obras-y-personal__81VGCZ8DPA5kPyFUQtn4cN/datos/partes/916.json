@@ -1,0 +1,19 @@
+{
+  "albs": [],
+  "cliente": "CASA LA VERADA",
+  "desc": "Picar buscar en tubado",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-11-06",
+  "horas": 6,
+  "id": "916",
+  "obra": "CASA",
+  "ops": [
+    {
+      "h": 6,
+      "n": "Goyo"
+    }
+  ],
+  "origen": "dashboard",
+  "stock": []
+}

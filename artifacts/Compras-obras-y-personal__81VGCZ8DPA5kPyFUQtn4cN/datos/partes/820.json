@@ -1,0 +1,29 @@
+{
+  "albs": [],
+  "cliente": "CONSTRUCCIONES DOMINGO",
+  "desc": "Entubar vivienda planta 3",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-10-28",
+  "horas": 14,
+  "obra": "EDIFICIO DOMINGO",
+  "ops": [
+    {
+      "h": 5,
+      "n": "Aythami"
+    },
+    {
+      "h": 5,
+      "n": "Joel"
+    },
+    {
+      "h": 2,
+      "n": "Riki"
+    },
+    {
+      "h": 2,
+      "n": "Junior"
+    }
+  ],
+  "stock": []
+}

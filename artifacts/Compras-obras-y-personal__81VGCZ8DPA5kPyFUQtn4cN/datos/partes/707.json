@@ -1,0 +1,21 @@
+{
+  "albs": [],
+  "cliente": "EXTINPALMA S.L.",
+  "desc": "Parking 1\n- Modificación de entubados de tubo visto PVC por cambios en el recorrido del cableado de contraincendio. \n- Tendido y enhebrado de cableado a través de las canalizaciones instaladas.\n- Colocación bases de pulsadores \n\nParking 2\n- instalación de bases  conexionado y colocación detectores",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-10-15",
+  "horas": 19,
+  "obra": "HIPERDINO EL PUENTE (CONTRAINCENDIO)",
+  "ops": [
+    {
+      "h": 8,
+      "n": "Eloy"
+    },
+    {
+      "h": 11,
+      "n": "Rafa"
+    }
+  ],
+  "stock": []
+}

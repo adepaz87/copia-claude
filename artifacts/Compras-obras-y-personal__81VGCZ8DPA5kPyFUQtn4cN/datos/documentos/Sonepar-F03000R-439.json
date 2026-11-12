@@ -1,0 +1,43 @@
+{
+  "empresa": "Kairos Supply",
+  "fecha": "2026-01-14",
+  "lineas": [
+    {
+      "a": "309000251",
+      "d": "UNION TERMINAL DE 30 MM MONTADA",
+      "f": "2026-01-14",
+      "i": 164.03,
+      "o": "",
+      "pn": 0.6075,
+      "pt": 0.6075,
+      "q": 270,
+      "r": "1130295"
+    },
+    {
+      "a": "309000251",
+      "d": "UNION INTERMEDIA MONTADA",
+      "f": "2026-01-14",
+      "i": 243,
+      "o": "",
+      "pn": 0.6075,
+      "pt": 0.6075,
+      "q": 400,
+      "r": "1133068"
+    },
+    {
+      "a": "309000251",
+      "d": "PERFIL SOLAR DE ALUMINIO 40X28ML",
+      "f": "2026-01-14",
+      "i": 4152.96,
+      "o": "",
+      "pn": 6.2696,
+      "pt": 6.269562,
+      "q": 662.4,
+      "r": "1202821"
+    }
+  ],
+  "numero": "F03000R-439",
+  "origen": "Gmail",
+  "proveedor": "Sonepar",
+  "tipo": "factura"
+}

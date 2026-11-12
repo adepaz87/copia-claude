@@ -1,0 +1,19 @@
+{
+  "albs": [],
+  "cliente": "SUPERMERCADOS EN CADENA",
+  "desc": "Reglaje ajuste relojes horarios",
+  "devol": [],
+  "estado": "TERMINADO",
+  "fecha": "2026-11-04",
+  "horas": 1,
+  "id": "872",
+  "obra": "SPAR PUERTO NAOS",
+  "ops": [
+    {
+      "h": 1,
+      "n": "Toño"
+    }
+  ],
+  "origen": "dashboard",
+  "stock": []
+}

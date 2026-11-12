@@ -1,0 +1,21 @@
+{
+  "albs": [],
+  "cliente": "CONSTRUCCIONES DOMINGO",
+  "desc": "Picar y hacer pasamuros en techos de terrazas.\nEntubar puntos de luz en terrazas.\nFijar cuadro y registros en viviendas planta 3.\nComenzá a entubar en vivienda de la planta 3",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-10-20",
+  "horas": 17,
+  "obra": "EDIFICIO DOMINGO EL PASO",
+  "ops": [
+    {
+      "h": 8,
+      "n": "Júnior"
+    },
+    {
+      "h": 9,
+      "n": "Ricky"
+    }
+  ],
+  "stock": []
+}

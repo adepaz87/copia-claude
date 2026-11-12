@@ -1,0 +1,19 @@
+{
+  "albs": [],
+  "cliente": "CASA LA VERADA",
+  "desc": "No",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-11-09",
+  "horas": 4,
+  "id": "930",
+  "obra": "CASA",
+  "ops": [
+    {
+      "h": 4,
+      "n": "Goyo"
+    }
+  ],
+  "origen": "dashboard",
+  "stock": []
+}

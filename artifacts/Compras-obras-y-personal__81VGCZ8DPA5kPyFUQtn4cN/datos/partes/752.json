@@ -1,0 +1,17 @@
+{
+  "albs": [],
+  "cliente": "AYTO. EL PASO",
+  "desc": "Centrar cabina  de MT y fijar a los carriles.\nColocar y organizar cableado de MT en foso bajo las cabinas.\nSacar cables por cada cabina correspondiente.\nConectar bornas de MT a la cabina del trafo .",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-10-21",
+  "horas": 8,
+  "obra": "CT. PINO DE LA VIRGEN",
+  "ops": [
+    {
+      "h": 8,
+      "n": "Jorge"
+    }
+  ],
+  "stock": []
+}

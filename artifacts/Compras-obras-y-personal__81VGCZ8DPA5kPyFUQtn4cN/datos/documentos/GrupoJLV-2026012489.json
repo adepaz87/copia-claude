@@ -1,0 +1,62 @@
+{
+  "empresa": "Kairos Supply",
+  "fecha": "2026-08-26",
+  "lineas": [
+    {
+      "a": "",
+      "d": "PUERTA CORTAFUEGOS EI2-60 0900X2000",
+      "dto": "",
+      "f": "2026-08-26",
+      "i": 212.88,
+      "igic": 7,
+      "o": "ALMACEN (material que salió a El Hierro)",
+      "pn": 212.88,
+      "pt": 212.88,
+      "q": 1,
+      "r": ""
+    },
+    {
+      "a": "",
+      "d": "CIERRAPUERTAS BRAZO TS-68",
+      "dto": "",
+      "f": "2026-08-26",
+      "i": 28,
+      "igic": 7,
+      "o": "ALMACEN (material que salió a El Hierro)",
+      "pn": 28,
+      "pt": 28,
+      "q": 1,
+      "r": ""
+    },
+    {
+      "a": "",
+      "d": "BARRA ANTIPANICO 1 HOJA",
+      "dto": "",
+      "f": "2026-08-26",
+      "i": 72.58,
+      "igic": 7,
+      "o": "ALMACEN (material que salió a El Hierro)",
+      "pn": 72.58,
+      "pt": 72.58,
+      "q": 1,
+      "r": ""
+    },
+    {
+      "a": "",
+      "d": "PORTES A EL HIERRO",
+      "dto": "",
+      "f": "2026-08-26",
+      "i": 84.06,
+      "igic": 7,
+      "o": "ALMACEN (material que salió a El Hierro)",
+      "pn": 84.06,
+      "pt": 84.06,
+      "q": 1,
+      "r": ""
+    }
+  ],
+  "numero": "2026012489",
+  "origen": "Gmail",
+  "proveedor": "Grupo JLV",
+  "tipo": "factura"
+}

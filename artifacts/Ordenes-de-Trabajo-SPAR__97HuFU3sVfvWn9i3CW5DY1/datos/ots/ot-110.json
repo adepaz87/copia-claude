@@ -1,0 +1,25 @@
+{
+  "actualizada": "2026-11-11T14:14:00Z",
+  "asignadaEn": "2026-11-03T22:45:08.401Z",
+  "avisadoWa": "2026-11-03T22:45:10.552Z",
+  "aviso": "",
+  "centro": "SPAR Salinas",
+  "creada": "2026-11-03T10:00:00Z",
+  "descripcion": "Regulación de relojes horarios por cambio de hora.",
+  "estado": "terminada",
+  "fechaAviso": "2026-10-30",
+  "historial": [
+    "03/11/2026 · Importada de la captura GIM de Raquel",
+    "3/11/2026 22:45 · Asignada a Toño Guardia",
+    "3/11/2026 22:45 · Asignación: Correo enviado a TBSA · WhatsApp a Toño Guardia programado",
+    "11/11/2026 14:13 · Alberto confirma que está hecha · Estado: Terminada · Cierre: correo a TBSA y WhatsApp a Fernando"
+  ],
+  "informado": true,
+  "notas": "Relojes horarios regulados por el cambio de hora (Toño Guardia). Cerrada por indicación de Alberto el 11/11/2026.",
+  "operario": "Toño Guardia",
+  "ot": 110,
+  "prioridad": "Sin especificar",
+  "solicitante": "Raquel",
+  "terminadaEn": "2026-11-11T14:13:00Z",
+  "tipo": "MANTENIMIENTO"
+}

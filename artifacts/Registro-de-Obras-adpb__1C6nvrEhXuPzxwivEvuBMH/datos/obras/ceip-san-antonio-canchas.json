@@ -1,0 +1,332 @@
+{
+  "actualizado": "2026-10-24",
+  "adjudicacion": "Presupuesto de Instapalma aceptado y sellado por APIMET (02/09/2026)",
+  "carpeta": "/PROYECPAL/TRABAJO OK/855.-INSTALACIONES CANCHA CEIP SAN ANTONIO",
+  "certificaciones": [],
+  "cliente": "Ayuntamiento de Breña Baja",
+  "codigo": "855",
+  "contratista": "APIMET Construcciones Autoportantes SL · CIF B06624464 · Ctra. de Valverde s/n, 2ª planta, 06170 La Albuera (Badajoz) — contratista principal. Instalaciones eléctricas: Instapalma Obras y Servicios SL · CIF B76668300 (subcontrata)",
+  "creado": "2026-10-19",
+  "documentos": [
+    {
+      "fecha": "2024-12-01",
+      "nombre": "Presupuesto y mediciones del proyecto",
+      "nota": "PEM 48.368,23 € (Cap. 1 alumbrado exterior deportivo y accesos 42.700,81 €; Cap. 2 instalaciones interiores vestuarios 5.667,42 €). GG 13 %, BI 6 %, IGIC 7 %: PEC 61.587,26 €"
+    },
+    {
+      "fecha": "2024-12-01",
+      "nombre": "Planos de instalaciones (nº 1, 2, 4, 5, 6, 7 y 8)",
+      "nota": "Situación, vestuarios, cotas interiores, alumbrado exterior, unifilar, luminarias y arquetas. Proyecto de VMCA Estudio de Ingeniería, Víctor Manuel Cabrera Alonso (ITI col. 1.567 COITI TF)"
+    },
+    {
+      "fecha": "2026-09-02",
+      "nombre": "Presupuesto de Instapalma a APIMET (sellado por APIMET)",
+      "nota": "PEM 32.831,60 €, sin IGIC. Partidas 1.6 a 1.16 y 2.1 a 2.19; no incluye 1.1 a 1.5 (desmontaje, arquetas, cimentaciones y canalizaciones). Fecha según el escaneo"
+    },
+    {
+      "fecha": "2026-10-19",
+      "nombre": "Certificación nº 1 · Anticipo 20 % (borrador)",
+      "nota": "Word Certificacion_1_CEIP_San_Antonio.docx y documento editable en Claude. 20 % de cada partida: 6.566,32 € + IGIC 7 % 459,64 € = 7.025,96 €. Pendiente: fecha (al inicio de obra) y firmas"
+    }
+  ],
+  "estado": "En proyecto",
+  "expediente": "",
+  "fechaFinContractual": "",
+  "fechaFinPrevista": "",
+  "fechaInicio": "",
+  "hitos": [
+    {
+      "fecha": "2024-12-01",
+      "texto": "Redacción del proyecto (VMCA, diciembre 2024)"
+    },
+    {
+      "fecha": "2026-09-02",
+      "texto": "Presupuesto de Instapalma aceptado por APIMET"
+    },
+    {
+      "fecha": "2026-10-19",
+      "texto": "Alta en el registro; certificación nº 1 (anticipo 20 %) preparada"
+    }
+  ],
+  "importeAdjudicacion": 32831.6,
+  "importeNota": "PEM del presupuesto de Instapalma aceptado por APIMET, sin IGIC (Cap. 1: 28.627,30 €; Cap. 2: 4.204,30 €; 30 partidas). PEC del proyecto municipal: 61.587,26 € IGIC incl.",
+  "municipio": "Breña Baja",
+  "nombre": "Instalaciones en baja tensión y alumbrado exterior para canchas del CEIP San Antonio",
+  "notas": "Carpeta del proyecto en Dropbox: /PROYECPAL/TRABAJO OK/855.-INSTALACIONES CANCHA CEIP SAN ANTONIO (memoria BT AP, planos PDF, proyecto PDF, medición y presupuesto, estudio luminotécnico, fichas técnicas).\nAlcance de Instapalma (30 partidas): 14 proyectores Gewiss Elia FL (8 de 150 W y 6 de 100 W) sobre viga perimetral a 6 m; 10 columnas Salvi Flit S de 4,5 m (8 simples y 2 dobles) y 3 balizas Simes; circuitos RZ1-K; derivación individual 5G16; nuevo subcuadro de canchas y vestuarios con reloj astronómico; picas de tierra; instalación interior de los nuevos vestuarios (canalizaciones, circuitos, tomas, puntos de luz, 8 pantallas estancas Prilux, 6 emergencias, equipotencialidad y toma de tierra).\nFuera del alcance de Instapalma (partidas 1.1 a 1.5 del proyecto): desmontaje de 24 puntos de luz, arquetas, cimentaciones de columnas y canalizaciones.\nCertificación nº 1 (anticipo del 20 % al inicio): 6.566,32 € + IGIC 7 % = 7.025,96 €. Preparada, sin emitir. Se descontará de las certificaciones siguientes según lo pactado con APIMET. Pendiente confirmar si aplica inversión del sujeto pasivo del IGIC.\nPendiente: fecha de inicio y plazo.",
+  "partidas": [
+    {
+      "capitulo": 1,
+      "descripcion": "Conjunto luminaria-columna Salvi Flit S, punto simple, 4,5 m",
+      "importe": 11200,
+      "medicion": 8,
+      "n": "1.6",
+      "precio": 1400,
+      "ud": "Ud"
+    },
+    {
+      "capitulo": 1,
+      "descripcion": "Conjunto luminaria-columna Salvi Flit S, doble punto de luz, 4,5 m",
+      "importe": 4200,
+      "medicion": 2,
+      "n": "1.7",
+      "precio": 2100,
+      "ud": "Ud"
+    },
+    {
+      "capitulo": 1,
+      "descripcion": "Baliza rectangular Simes C.8022H, LED 2700K 8 W",
+      "importe": 750,
+      "medicion": 3,
+      "n": "1.8",
+      "precio": 250,
+      "ud": "Ud"
+    },
+    {
+      "capitulo": 1,
+      "descripcion": "Proyector deportivo Gewiss Elia FL 150 W, sobre viga a 6 m",
+      "importe": 3040,
+      "medicion": 8,
+      "n": "1.9",
+      "precio": 380,
+      "ud": "Ud"
+    },
+    {
+      "capitulo": 1,
+      "descripcion": "Proyector deportivo Gewiss Elia FL 100 W, sobre viga a 6 m",
+      "importe": 1770,
+      "medicion": 6,
+      "n": "1.10",
+      "precio": 295,
+      "ud": "Ud"
+    },
+    {
+      "capitulo": 1,
+      "descripcion": "Circuito alimentación luminarias RZ1-K 3x2,5 mm²",
+      "importe": 604.8,
+      "medicion": 180,
+      "n": "1.11",
+      "precio": 3.36,
+      "ud": "ml"
+    },
+    {
+      "capitulo": 1,
+      "descripcion": "Circuito alumbrado exterior RZ1-K (AS) 4x10 mm² + T 16 mm²",
+      "importe": 2375,
+      "medicion": 190,
+      "n": "1.12",
+      "precio": 12.5,
+      "ud": "ml"
+    },
+    {
+      "capitulo": 1,
+      "descripcion": "Circuito alumbrado exterior RZ1-K (AS) 4x6 mm² + TT 16 mm²",
+      "importe": 1567.5,
+      "medicion": 165,
+      "n": "1.13",
+      "precio": 9.5,
+      "ud": "ml"
+    },
+    {
+      "capitulo": 1,
+      "descripcion": "Derivación individual trifásica RZ1-K (AS) 5G16 mm²",
+      "importe": 990,
+      "medicion": 55,
+      "n": "1.14",
+      "precio": 18,
+      "ud": "m"
+    },
+    {
+      "capitulo": 1,
+      "descripcion": "Sub-cuadro general de mando y protección canchas y vestuarios",
+      "importe": 1750,
+      "medicion": 1,
+      "n": "1.15",
+      "precio": 1750,
+      "ud": "Ud"
+    },
+    {
+      "capitulo": 1,
+      "descripcion": "Pica de acero cobreado 1,5 m con seccionador, en arqueta existente",
+      "importe": 380,
+      "medicion": 4,
+      "n": "1.16",
+      "precio": 95,
+      "ud": "Ud"
+    },
+    {
+      "capitulo": 2,
+      "descripcion": "Tubo rígido policarbonato en superficie Ø20 mm",
+      "importe": 202.5,
+      "medicion": 45,
+      "n": "2.1",
+      "precio": 4.5,
+      "ud": "m"
+    },
+    {
+      "capitulo": 2,
+      "descripcion": "Tubo rígido policarbonato en superficie Ø25 mm",
+      "importe": 110,
+      "medicion": 20,
+      "n": "2.2",
+      "precio": 5.5,
+      "ud": "m"
+    },
+    {
+      "capitulo": 2,
+      "descripcion": "Tubo curvable poliamida empotrado Ø20 mm",
+      "importe": 161.1,
+      "medicion": 90,
+      "n": "2.3",
+      "precio": 1.79,
+      "ud": "m"
+    },
+    {
+      "capitulo": 2,
+      "descripcion": "Tubo curvable poliamida empotrado Ø25 mm",
+      "importe": 135,
+      "medicion": 60,
+      "n": "2.4",
+      "precio": 2.25,
+      "ud": "m"
+    },
+    {
+      "capitulo": 2,
+      "descripcion": "Tubo curvable poliamida empotrado Ø32 mm",
+      "importe": 70.5,
+      "medicion": 25,
+      "n": "2.5",
+      "precio": 2.82,
+      "ud": "m"
+    },
+    {
+      "capitulo": 2,
+      "descripcion": "Línea circuito alumbrado H07Z-K 1,5 mm²",
+      "importe": 480,
+      "medicion": 120,
+      "n": "2.6",
+      "precio": 4,
+      "ud": "m"
+    },
+    {
+      "capitulo": 2,
+      "descripcion": "Línea circuito fuerza H07Z-K 2,5 mm²",
+      "importe": 427.5,
+      "medicion": 95,
+      "n": "2.7",
+      "precio": 4.5,
+      "ud": "m"
+    },
+    {
+      "capitulo": 2,
+      "descripcion": "Línea circuito fuerza RZ1-K 3x6 mm²",
+      "importe": 325,
+      "medicion": 50,
+      "n": "2.8",
+      "precio": 6.5,
+      "ud": "m"
+    },
+    {
+      "capitulo": 2,
+      "descripcion": "Toma de corriente estándar 10/16 A",
+      "importe": 340,
+      "medicion": 10,
+      "n": "2.9",
+      "precio": 34,
+      "ud": "Ud"
+    },
+    {
+      "capitulo": 2,
+      "descripcion": "Toma de corriente estanca de superficie 10/16 A",
+      "importe": 68,
+      "medicion": 2,
+      "n": "2.10",
+      "precio": 34,
+      "ud": "Ud"
+    },
+    {
+      "capitulo": 2,
+      "descripcion": "Punto de luz sencillo",
+      "importe": 175,
+      "medicion": 5,
+      "n": "2.11",
+      "precio": 35,
+      "ud": "Ud"
+    },
+    {
+      "capitulo": 2,
+      "descripcion": "Ampliación de punto de luz",
+      "importe": 125,
+      "medicion": 5,
+      "n": "2.12",
+      "precio": 25,
+      "ud": "Ud"
+    },
+    {
+      "capitulo": 2,
+      "descripcion": "Punto de luz con sensor",
+      "importe": 160,
+      "medicion": 4,
+      "n": "2.13",
+      "precio": 40,
+      "ud": "Ud"
+    },
+    {
+      "capitulo": 2,
+      "descripcion": "Punto de luz de emergencia",
+      "importe": 150,
+      "medicion": 5,
+      "n": "2.14",
+      "precio": 30,
+      "ud": "Ud"
+    },
+    {
+      "capitulo": 2,
+      "descripcion": "Pantalla estanca Prilux Dacil L1200 20,5 W IP65",
+      "importe": 520,
+      "medicion": 8,
+      "n": "2.15",
+      "precio": 65,
+      "ud": "Ud"
+    },
+    {
+      "capitulo": 2,
+      "descripcion": "Luminaria de emergencia 200 lm",
+      "importe": 330,
+      "medicion": 6,
+      "n": "2.16",
+      "precio": 55,
+      "ud": "Ud"
+    },
+    {
+      "capitulo": 2,
+      "descripcion": "Red de equipotencialidad en cuarto húmedo",
+      "importe": 120,
+      "medicion": 4,
+      "n": "2.17",
+      "precio": 30,
+      "ud": "Ud"
+    },
+    {
+      "capitulo": 2,
+      "descripcion": "Toma de tierra con tres picas de 2 m",
+      "importe": 95,
+      "medicion": 1,
+      "n": "2.18",
+      "precio": 95,
+      "ud": "Ud"
+    },
+    {
+      "capitulo": 2,
+      "descripcion": "Conductor de tierra desnudo Cu 35 mm²",
+      "importe": 209.7,
+      "medicion": 30,
+      "n": "2.19",
+      "precio": 6.99,
+      "ud": "m"
+    }
+  ],
+  "plazo": "Obra sin iniciar (a 19/10/2026)",
+  "procedimiento": "Subcontrata de APIMET por presupuesto aceptado",
+  "rol": "Contratista de las instalaciones eléctricas (Instapalma), subcontratado por APIMET",
+  "situacion": "C/ San Antonio, 49, 38711 Breña Baja (La Palma)"
+}

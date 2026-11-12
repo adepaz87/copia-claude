@@ -1,0 +1,21 @@
+{
+  "albs": [
+    "Estación Moeve 446472",
+    "Estación Moeve 446473"
+  ],
+  "cliente": "INSTAPALMA",
+  "desc": "Estirar tritubo y cortar a medida , rellenar zanja con escombro",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-10-30",
+  "horas": 8,
+  "obra": "ZANJA COVALLE",
+  "ops": [
+    {
+      "h": 8,
+      "n": "Luigi"
+    }
+  ],
+  "origen": "dashboard",
+  "stock": []
+}

@@ -1,0 +1,21 @@
+{
+  "albs": [],
+  "cliente": "COVALLE",
+  "desc": "Relalizar entubado visto en almacén (puertas,proyectores exteriores,proyectores emergencia,etc…)\nRealizar entubado cuarto fitosanitario.\nRealizará entubado alimentación ascensor (tubo rojo 63)\nSe empieza entubado oficinas planta alta",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-10-21",
+  "horas": 22,
+  "obra": "NAVE COOPERATIVA COVALLE",
+  "ops": [
+    {
+      "h": 11,
+      "n": "Petter"
+    },
+    {
+      "h": 11,
+      "n": "Jonathan Rodríguez"
+    }
+  ],
+  "stock": []
+}

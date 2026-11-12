@@ -1,0 +1,46 @@
+{
+  "albs": [
+    "Sonepar 309006552",
+    "Instapalma 202610-0205"
+  ],
+  "cliente": "CONSTRUCCIONES DOS TUMBOS",
+  "desc": "Colocación tubos aire acondicionado más cable de maniobra 5x1,5 desde la azotea hasta 1planta (habitaciones y pasillo),Colocación caja prestación aire acondicionado Colocación cajas mecanismo,cajas registro en 1 y 2 planta Entubar llamada enfermería habitaciones Se empieza enhebrar habitaciones 1 planta Limpiar zonas de trabajo",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-10-28",
+  "horas": 39,
+  "obra": "RESIDENCIA TERCERA EDAD EL PASO",
+  "ops": [
+    {
+      "h": 5,
+      "n": "Aythami"
+    },
+    {
+      "h": 5,
+      "n": "Joel"
+    },
+    {
+      "h": 6,
+      "n": "Junior"
+    },
+    {
+      "h": 6,
+      "n": "Riki"
+    },
+    {
+      "h": 11,
+      "n": "Petter"
+    },
+    {
+      "h": 6,
+      "n": "Jonathan Rodríguez"
+    }
+  ],
+  "stock": [
+    {
+      "d": "Cable 1x2,5mm gris",
+      "q": 200,
+      "u": "m"
+    }
+  ]
+}

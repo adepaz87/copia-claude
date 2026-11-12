@@ -1,0 +1,17 @@
+{
+  "albs": [],
+  "cliente": "COVALLE",
+  "desc": "Conectar  cuadro",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-10-06",
+  "horas": 3,
+  "obra": "CUADRO",
+  "ops": [
+    {
+      "h": 3,
+      "n": "Goyo"
+    }
+  ],
+  "stock": []
+}

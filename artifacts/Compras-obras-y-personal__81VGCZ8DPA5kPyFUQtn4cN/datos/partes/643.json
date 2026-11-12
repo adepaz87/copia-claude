@@ -1,0 +1,19 @@
+{
+  "albs": [
+    "Coelca 813"
+  ],
+  "cliente": "MANSILLA",
+  "desc": "Desmontar carcasa motor compresor\nCambiar condensador \nComprobar funcionamiento compresor ok",
+  "devol": [],
+  "estado": "TERMINADO",
+  "fecha": "2026-10-06",
+  "horas": 1,
+  "obra": "CLÍNICA DENTAL MANSILLA",
+  "ops": [
+    {
+      "h": 1,
+      "n": "Aythami"
+    }
+  ],
+  "stock": []
+}

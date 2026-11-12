@@ -1,0 +1,37 @@
+{
+  "albs": [],
+  "cliente": "TRAGSA",
+  "desc": "Enebrar líneas  de alumbrado, fuerza  y dali\nOrganizar  cables en registros",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-09-16",
+  "horas": 16,
+  "obra": "HOSPITAL (MOD G)",
+  "ops": [
+    {
+      "h": 8,
+      "n": "Manuel"
+    },
+    {
+      "h": 8,
+      "n": "Juan"
+    }
+  ],
+  "stock": [
+    {
+      "d": "cable de 1x2,5 rz1",
+      "q": 600,
+      "u": "m"
+    },
+    {
+      "d": "cable  de 1x1,5  rz1",
+      "q": 1000,
+      "u": "m"
+    },
+    {
+      "d": "cinta aislante",
+      "q": 2,
+      "u": "rollos"
+    }
+  ]
+}

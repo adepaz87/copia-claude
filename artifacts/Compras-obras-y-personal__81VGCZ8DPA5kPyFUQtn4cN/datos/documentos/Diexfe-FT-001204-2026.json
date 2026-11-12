@@ -1,0 +1,46 @@
+{
+  "empresa": "Instapalma",
+  "fecha": "2026-02-19",
+  "lineas": [
+    {
+      "a": "VCTF-003221-2026",
+      "d": "CABLE AFIRENAX-L 05Z1-K/07Z1-K 1X50 AV BOBINA AF50AV",
+      "dto": "Neto",
+      "f": "2026-02-19",
+      "i": 397.9,
+      "o": "HOTEL MONTERREY",
+      "pn": 7.958,
+      "pt": 7.958,
+      "q": 50,
+      "r": "MIG-84108863"
+    },
+    {
+      "a": "VCTF-003221-2026",
+      "d": "PICA TIERRA 100 14MM 2,0M",
+      "dto": "Neto",
+      "f": "2026-02-19",
+      "i": 204.46,
+      "o": "HOTEL MONTERREY",
+      "pn": 10.223,
+      "pt": 10.223,
+      "q": 20,
+      "r": "SOF-T101420"
+    },
+    {
+      "a": "VCTF-003221-2026",
+      "d": "GRAPA TIERRA TGT142",
+      "dto": "Neto",
+      "f": "2026-02-19",
+      "i": 32.28,
+      "o": "HOTEL MONTERREY",
+      "pn": 1.2912,
+      "pt": 1.291,
+      "q": 25,
+      "r": "SOF-TGT142"
+    }
+  ],
+  "numero": "FT-001204-2026",
+  "origen": "Gmail",
+  "proveedor": "Diexfe",
+  "tipo": "factura"
+}

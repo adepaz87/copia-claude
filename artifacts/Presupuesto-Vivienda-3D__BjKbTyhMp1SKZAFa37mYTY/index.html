@@ -1,0 +1,261 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Presupuesto Vivienda 3D</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: hoja técnica de una columna; partidas como filas que se apilan en móvil; totales fijos al final */
+:root{
+  --bg:#f5f7f9; --paper:#ffffff; --ink:#16202b; --muted:#5b6876; --line:#dbe1e7;
+  --accent:#1d5fa8; --accent-soft:#e6eef8; --chapter:#eef2f6; --warn:#8a5a00;
+  --ph:#7a4a24; --neu:#2c6fb7; --pe1:#3c8a3c; --pe2:#d8c21c;
+  --f-sans:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,"SFMono-Regular",Menlo,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0f141a; --paper:#161d25; --ink:#e4e9ef; --muted:#97a3b0; --line:#2a3440;
+  --accent:#6aa7ea; --accent-soft:#1c2c3f; --chapter:#1b232d; --warn:#e0b04a; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0f141a; --paper:#161d25; --ink:#e4e9ef; --muted:#97a3b0; --line:#2a3440;
+  --accent:#6aa7ea; --accent-soft:#1c2c3f; --chapter:#1b232d; --warn:#e0b04a; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-sans);font-size:15px;line-height:1.45}
+.wrap{max-width:980px;margin:0 auto;padding-block:20px 48px;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.sheet{background:var(--paper);border:1px solid var(--line);border-radius:6px;overflow:hidden}
+.cable{display:grid;grid-template-columns:1fr 1fr 1fr;height:5px}
+.cable i:nth-child(1){background:var(--ph)} .cable i:nth-child(2){background:var(--neu)}
+.cable i:nth-child(3){background:repeating-linear-gradient(90deg,var(--pe1) 0 10px,var(--pe2) 10px 20px)}
+header.top{padding:20px 20px 16px;display:grid;gap:6px;border-bottom:1px solid var(--line)}
+.eyebrow{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:600}
+h1{margin:0;font-size:24px;line-height:1.2;text-wrap:balance;font-weight:700}
+.sub{color:var(--muted);margin:0;max-width:65ch}
+.meta{display:flex;flex-wrap:wrap;gap:6px 20px;font-size:13px;color:var(--muted);margin-top:4px}
+.meta b{color:var(--ink);font-weight:600}
+.bar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;padding:12px 20px;border-bottom:1px solid var(--line);background:var(--chapter)}
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:6px;overflow:hidden;background:var(--paper)}
+.seg button{border:0;background:transparent;color:var(--ink);font:500 13px var(--f-sans);padding:7px 12px;cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--accent);color:#fff}
+.params{display:flex;flex-wrap:wrap;gap:12px;align-items:center;font-size:13px}
+.params label{display:flex;gap:6px;align-items:center;color:var(--muted)}
+input.num{font:500 14px var(--f-mono);font-variant-numeric:tabular-nums;color:var(--accent);background:var(--paper);
+  border:1px solid var(--line);border-radius:4px;padding:5px 6px;text-align:right;width:84px}
+input.num.pct{width:60px}
+input.num:focus,button:focus-visible{outline:2px solid var(--accent);outline-offset:1px}
+.btn{border:1px solid var(--line);background:var(--paper);color:var(--ink);font:500 13px var(--f-sans);padding:7px 12px;border-radius:6px;cursor:pointer}
+.btn:hover{border-color:var(--accent)}
+.thead,.row{display:grid;grid-template-columns:64px minmax(0,1fr) 44px 92px 104px 112px;gap:10px;align-items:start;padding:10px 20px}
+.thead{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:600;border-bottom:1px solid var(--line)}
+.thead .r,.row .r{text-align:right}
+.chap{display:flex;justify-content:space-between;gap:12px;padding:10px 20px;background:var(--chapter);border-bottom:1px solid var(--line);font-weight:600;font-size:13px;letter-spacing:.02em}
+.chap .code{font-family:var(--f-mono);color:var(--accent);margin-right:8px}
+.row{border-bottom:1px solid var(--line)}
+.row .code{font-family:var(--f-mono);font-size:13px;color:var(--muted);padding-top:2px}
+.row .desc{min-width:0;font-size:14px}
+.row .ud{font-family:var(--f-mono);font-size:13px;color:var(--muted);padding-top:2px}
+.mono{font-family:var(--f-mono);font-variant-numeric:tabular-nums;font-size:14px;padding-top:2px}
+.costline{font-size:12px;color:var(--muted);font-family:var(--f-mono);margin-top:2px}
+.chapsum{display:flex;justify-content:flex-end;gap:16px;padding:8px 20px 14px;font-size:13px;color:var(--muted);border-bottom:1px solid var(--line)}
+.chapsum b{font-family:var(--f-mono);color:var(--ink);font-weight:500}
+.totals{display:grid;grid-template-columns:minmax(0,1fr) minmax(260px,340px);gap:20px;padding:20px}
+.notes h2,.sum h2{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin:0 0 8px;font-weight:600}
+.notes ul{margin:0;padding-left:18px;color:var(--muted);font-size:13px;display:grid;gap:4px;max-width:65ch}
+.sum dl{margin:0;display:grid;grid-template-columns:1fr auto;gap:6px 16px;font-size:14px}
+.sum dt{color:var(--muted)} .sum dd{margin:0;text-align:right;font-family:var(--f-mono);font-variant-numeric:tabular-nums}
+.sum .grand{border-top:2px solid var(--ink);padding-top:8px;margin-top:4px;font-weight:700;font-size:17px;color:var(--ink)}
+.internal{border:1px dashed var(--warn);border-radius:6px;padding:10px 12px;margin-top:14px}
+.internal h3{margin:0 0 6px;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--warn)}
+.foot{font-size:12px;color:var(--muted);padding:0 20px 16px}
+#toast{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(16px + env(safe-area-inset-bottom,0px));background:var(--ink);color:var(--paper);padding:8px 14px;border-radius:6px;font-size:13px}
+body:not(.interno) .only-int{display:none!important}
+@media (max-width:720px){
+  .thead{display:none}
+  .row{grid-template-columns:1fr 1fr 1fr;gap:6px 10px;padding:12px 16px}
+  .row .code{grid-column:1/2} .row .ud{grid-column:2/4;text-align:right}
+  .row .desc{grid-column:1/-1;order:-1}
+  .row .code{order:-2}
+  .row .q,.row .p,.row .t{font-size:13px}
+  .row .q::before{content:"Cant. "} .row .p::before{content:"Precio "}
+  .row .q::before,.row .p::before{color:var(--muted);font-family:var(--f-sans);font-size:11px;display:block}
+  .row .t::before{content:"Importe";color:var(--muted);font-family:var(--f-sans);font-size:11px;display:block}
+  .chap,.chapsum,.bar,header.top,.totals,.foot{padding-left:16px;padding-right:16px}
+  .totals{grid-template-columns:1fr}
+  input.num{width:100%}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+
+<div class="wrap">
+<article class="sheet" aria-label="Presupuesto">
+  <div class="cable" aria-hidden="true"><i></i><i></i><i></i></div>
+  <header class="top">
+    <div class="eyebrow">Presupuesto · Instalación eléctrica y telecomunicaciones</div>
+    <h1>Vivienda de 3 dormitorios, ≈70 m² útiles</h1>
+    <p class="sub">Electrificación elevada 9.200 W (IGA 40 A), 10 circuitos y 3 diferenciales tipo A, según REBT ITC-BT-25. Mecanismos de gama económica.</p>
+    <div class="meta"><span>Fecha <b>26/10/2026</b></span><span>Validez <b>30 días</b></span><span>Medición <b>sobre plano</b></span></div>
+  </header>
+
+  <div class="bar">
+    <div class="seg" role="group" aria-label="Vista">
+      <button id="v-int" type="button" aria-pressed="true">Vista interna</button>
+      <button id="v-cli" type="button" aria-pressed="false">Vista cliente</button>
+    </div>
+    <div class="params only-int">
+      <label for="p-ben">Beneficio <input id="p-ben" class="num pct" type="number" step="1" min="0"> %</label>
+      <label for="p-igic">IGIC <input id="p-igic" class="num pct" type="number" step="0.5" min="0"> %</label>
+      <button id="b-reset" class="btn" type="button">Restablecer</button>
+    </div>
+    <button id="b-copy" class="btn" type="button">Copiar partidas</button>
+  </div>
+
+  <div class="thead" aria-hidden="true">
+    <span>Código</span><span>Descripción</span><span>Ud</span><span class="r">Cantidad</span>
+    <span class="r"><span class="only-int">Coste ud. (€)</span><span class="cli-lbl">Precio (€)</span></span><span class="r">Importe (€)</span>
+  </div>
+  <div id="lines"></div>
+
+  <section class="totals">
+    <div class="notes">
+      <h2>Condiciones</h2>
+      <ul>
+        <li>No incluye apertura ni cierre de rozas, remates ni pintura.</li>
+        <li>Los downlights requieren falso techo, no incluido.</li>
+        <li>Aire acondicionado: solo circuito C9 y 4 salidas eléctricas. Sin equipos, línea frigorífica ni desagües.</li>
+        <li>No incluye electrodomésticos, termo ni derechos de acometida o enganche de la distribuidora.</li>
+        <li>Se liquidará según medición real de obra.</li>
+      </ul>
+    </div>
+    <div class="sum">
+      <h2>Resumen</h2>
+      <dl>
+        <dt>Base imponible</dt><dd id="s-base"></dd>
+        <dt>IGIC <span id="s-igic-p"></span></dt><dd id="s-igic"></dd>
+        <dt class="grand">Total</dt><dd class="grand" id="s-total"></dd>
+      </dl>
+      <div class="internal only-int">
+        <h3>Solo uso interno</h3>
+        <dl>
+          <dt>Coste total</dt><dd id="i-cost"></dd>
+          <dt>Margen bruto</dt><dd id="i-margin"></dd>
+          <dt>€/m² útil (sin IGIC)</dt><dd id="i-m2"></dd>
+        </dl>
+      </div>
+    </div>
+  </section>
+  <p class="foot only-int">Cantidades y costes en azul son editables. Costes unitarios orientativos (material + mano de obra, sin beneficio): ajústalos a tu tarifa. Los cambios se guardan solo en este navegador.</p>
+</article>
+</div>
+<div id="toast" hidden></div>
+
+<script>
+const DATA=[
+ ["01","Derivación individual, cuadro y tierra",[
+  ["01.01","Derivación individual 2×10 mm² + TT 10 mm² Cu H07Z1-K (AS) bajo tubo Ø32 mm, con hilo de mando 1,5 mm², desde contador hasta cuadro.","m",15,14],
+  ["01.02","Cuadro general empotrable 2 filas/24 módulos: IGA 2P 40 A, protector de sobretensiones transitorias y permanentes, 3 diferenciales 2P 40 A 30 mA tipo A y 10 PIAs. Montado, conexionado y rotulado.","ud",1,630],
+  ["01.03","Conexión a la red de tierra del edificio con conductor de protección de 10 mm² y medición.","ud",1,60]]],
+ ["02","Circuitos y puntos de utilización",[
+  ["02.01","Punto de luz sencillo, 1,5 mm² bajo tubo Ø16, con interruptor, caja y p.p. de circuito C1.","ud",9,32],
+  ["02.02","Punto de luz conmutado con dos conmutadores, 1,5 mm², con p.p. de circuito C1 (entrada).","ud",1,48],
+  ["02.03","Derivación a luminaria adicional desde punto de luz existente.","ud",20,20],
+  ["02.04","Toma de corriente 16 A 2P+T de uso general (C2/C7), 2,5 mm² bajo tubo Ø20, con p.p. de circuito.","ud",18,30],
+  ["02.05","Toma de corriente 16 A 2P+T en baño, aseo y encimera de cocina (C5), 2,5 mm², con p.p. de circuito.","ud",6,32],
+  ["02.06","Toma de corriente 25 A 2P+T para cocina y horno (C3), 6 mm² bajo tubo Ø25, con p.p. de circuito.","ud",2,70],
+  ["02.07","Toma 16 A 2P+T en circuito independiente desde cuadro (C4.1 lavadora, C4.2 lavavajillas, C4.3 termo, C10 secadora), 2,5 mm².","ud",4,55],
+  ["02.08","Salida para aire acondicionado (C9), 6 mm² bajo tubo Ø25, con caja de conexión y p.p. de circuito. Sin equipos.","ud",4,60],
+  ["02.10","Punto de luz de cruce (dos conmutadores y un cruzamiento: puerta y ambos lados del cabecero), 1,5 mm², con p.p. de circuito C1.","ud",3,68],
+  ["02.11","Toma de corriente doble 16 A 2P+T junto a punto de TV/datos (C2 salón, C7 dormitorios), 2,5 mm², con p.p. de circuito.","ud",4,38],
+  ["02.12","Toma de corriente 16 A 2P+T adicional por dormitorio (C7), a 0,30 m del suelo, 2,5 mm² bajo tubo Ø20, con p.p. de circuito.","ud",3,30]]],
+ ["03","Iluminación",[
+  ["03.01","Downlight LED empotrable 12 W 4000 K, IP44 en zonas húmedas. Suministro y montaje.","ud",31,18],
+  ["03.02","Regleta LED bajo mueble de cocina, 60 cm, con driver. Suministro y montaje.","ud",1,35],
+  ["03.03","Aplique LED de espejo para baño, IP44 clase II. Suministro y montaje.","ud",1,40]]],
+ ["04","Telecomunicaciones",[
+  ["04.01","Registro de terminación de red (RTR) con base de enchufe, montado y conexionado.","ud",1,120],
+  ["04.02","Canalización de enlace interior desde registro de planta hasta RTR, hasta 10 m.","ud",1,80],
+  ["04.03","Toma de datos RJ45 Cat 6 con cable U/UTP Cat 6 bajo tubo Ø20 desde RTR (salón y 3 dormitorios).","ud",4,45],
+  ["04.04","Toma de TV/FM con cable coaxial bajo tubo Ø20 desde RTR (salón y 3 dormitorios).","ud",4,40],
+  ["04.05","Switch Ethernet gigabit no gestionable de 8 puertos, instalado en el RTR, con latiguillos Cat 6, conexionado y probado.","ud",1,45]]],
+ ["05","Legalización",[
+  ["05.01","Memoria Técnica de Diseño, mediciones de aislamiento, tierra y diferenciales, Certificado de Instalación (CIE) y tramitación ante Industria del Gobierno de Canarias, tasas incluidas.","ud",1,250]]]
+];
+const KEY="presu-viv3d-v1";
+const DEF={ben:35,igic:7,q:{},c:{}};
+let st=JSON.parse(JSON.stringify(DEF));
+try{const s=JSON.parse(localStorage.getItem(KEY)||"null"); if(s) st=Object.assign(st,s);}catch(e){}
+const save=()=>{try{localStorage.setItem(KEY,JSON.stringify(st))}catch(e){}};
+const fmt=n=>n.toLocaleString("es-ES",{minimumFractionDigits:2,maximumFractionDigits:2})+" €";
+const qOf=it=>st.q[it[0]]??it[3], cOf=it=>st.c[it[0]]??it[4];
+const pvp=it=>Math.round(cOf(it)*(1+st.ben/100)*100)/100;
+let interno=true;
+
+function render(){
+  const box=document.getElementById("lines"); box.innerHTML="";
+  DATA.forEach(([cc,name,items])=>{
+    const h=document.createElement("div"); h.className="chap";
+    h.innerHTML=`<span><span class="code">${cc}</span>${name}</span>`; box.appendChild(h);
+    items.forEach(it=>{
+      const r=document.createElement("div"); r.className="row";
+      const qCell=interno?`<input class="num" id="q-${it[0]}" type="number" step="any" min="0" value="${qOf(it)}" aria-label="Cantidad ${it[0]}">`:`<span class="mono">${qOf(it).toLocaleString("es-ES")}</span>`;
+      const pCell=interno?`<input class="num" id="c-${it[0]}" type="number" step="0.5" min="0" value="${cOf(it)}" aria-label="Coste unitario ${it[0]}"><div class="costline" data-pv="${it[0]}"></div>`:`<span class="mono" data-pv="${it[0]}"></span>`;
+      r.innerHTML=`<span class="code">${it[0]}</span><span class="desc">${it[1]}</span><span class="ud">${it[2]}</span>
+        <span class="r q">${qCell}</span><span class="r p">${pCell}</span><span class="r t mono" data-t="${it[0]}"></span>`;
+      box.appendChild(r);
+    });
+    const s=document.createElement("div"); s.className="chapsum"; s.dataset.ch=cc;
+    s.innerHTML=`<span class="only-int">Coste <b data-cc="${cc}"></b></span><span>Total capítulo ${cc} <b data-ct="${cc}"></b></span>`;
+    box.appendChild(s);
+  });
+  box.querySelectorAll("input.num").forEach(inp=>inp.addEventListener("input",e=>{
+    const [k,code]=[e.target.id[0],e.target.id.slice(2)]; const v=parseFloat(e.target.value);
+    if(!isNaN(v)&&v>=0){(k==="q"?st.q:st.c)[code]=v; save(); calc();}
+  }));
+  calc();
+}
+function calc(){
+  let base=0,cost=0;
+  DATA.forEach(([cc,,items])=>{
+    let ct=0,cco=0;
+    items.forEach(it=>{
+      const pu=pvp(it), imp=qOf(it)*pu; ct+=imp; cco+=qOf(it)*cOf(it);
+      const pv=document.querySelector(`[data-pv="${it[0]}"]`); if(pv) pv.textContent=interno?("PVP "+fmt(pu)):fmt(pu);
+      document.querySelector(`[data-t="${it[0]}"]`).textContent=fmt(imp);
+    });
+    document.querySelector(`[data-ct="${cc}"]`).textContent=fmt(ct);
+    document.querySelector(`[data-cc="${cc}"]`).textContent=fmt(cco);
+    base+=ct; cost+=cco;
+  });
+  const ig=base*st.igic/100;
+  document.getElementById("s-base").textContent=fmt(base);
+  document.getElementById("s-igic-p").textContent=`(${st.igic.toLocaleString("es-ES")} %)`;
+  document.getElementById("s-igic").textContent=fmt(ig);
+  document.getElementById("s-total").textContent=fmt(base+ig);
+  document.getElementById("i-cost").textContent=fmt(cost);
+  document.getElementById("i-margin").textContent=fmt(base-cost);
+  document.getElementById("i-m2").textContent=fmt(base/70.6);
+}
+function setView(i){
+  interno=i; document.body.classList.toggle("interno",i);
+  document.getElementById("v-int").setAttribute("aria-pressed",i);
+  document.getElementById("v-cli").setAttribute("aria-pressed",!i);
+  document.querySelectorAll(".cli-lbl").forEach(e=>e.hidden=i);
+  render();
+}
+function toast(t){const el=document.getElementById("toast"); el.textContent=t; el.hidden=false; clearTimeout(toast.h); toast.h=setTimeout(()=>el.hidden=true,1800);}
+const ben=document.getElementById("p-ben"), igic=document.getElementById("p-igic");
+ben.value=st.ben; igic.value=st.igic;
+ben.addEventListener("input",()=>{const v=parseFloat(ben.value); if(!isNaN(v)){st.ben=v; save(); calc();}});
+igic.addEventListener("input",()=>{const v=parseFloat(igic.value); if(!isNaN(v)){st.igic=v; save(); calc();}});
+document.getElementById("b-reset").addEventListener("click",()=>{st=JSON.parse(JSON.stringify(DEF)); save(); ben.value=st.ben; igic.value=st.igic; render(); toast("Valores restablecidos");});
+document.getElementById("v-int").addEventListener("click",()=>setView(true));
+document.getElementById("v-cli").addEventListener("click",()=>setView(false));
+document.getElementById("b-copy").addEventListener("click",async()=>{
+  const rows=[["Código","Descripción","Ud","Cantidad","Precio","Importe"].join("\t")];
+  DATA.forEach(([cc,name,items])=>{rows.push([cc,name.toUpperCase()].join("\t"));
+    items.forEach(it=>{const pu=pvp(it); rows.push([it[0],it[1],it[2],String(qOf(it)).replace(".",","),pu.toFixed(2).replace(".",","),(qOf(it)*pu).toFixed(2).replace(".",",")].join("\t"));});});
+  const txt=rows.join("\n");
+  try{await navigator.clipboard.writeText(txt); toast("Partidas copiadas: pega en Excel o Holded");}
+  catch(e){const ta=document.createElement("textarea"); ta.value=txt; document.body.appendChild(ta); ta.select(); try{document.execCommand("copy"); toast("Partidas copiadas");}catch(_){toast("No se pudo copiar");} ta.remove();}
+});
+setView(true);
+</script>
+
+</body></html>

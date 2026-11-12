@@ -1,0 +1,39 @@
+{
+  "albs": [
+    "Fraper 212601010961"
+  ],
+  "cliente": "TRAGSA",
+  "desc": "Conectar paneles solares entre sí\nProbar canalizaciones para la acometida. (No pasa en varios puntos mañana llevamos la culebrina amarilla)\nPreparar en instalar soportes para bandeja\nInstalar bandeja de 200x60 y 300x60 en cuarto del inversor",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-09-01",
+  "horas": 16,
+  "obra": "FV CENTRO DE VISITANTES",
+  "ops": [
+    {
+      "h": 8,
+      "n": "Adán"
+    },
+    {
+      "h": 8,
+      "n": "Jonathan Glez"
+    }
+  ],
+  "stock": [
+    {
+      "d": "bandeja de 300x60 + tapa",
+      "q": 2,
+      "u": "m"
+    },
+    {
+      "d": "carril perforado",
+      "q": 2,
+      "u": "m"
+    },
+    {
+      "d": "tacos+tornillos de 6mm",
+      "q": 1,
+      "u": "caja"
+    }
+  ]
+}

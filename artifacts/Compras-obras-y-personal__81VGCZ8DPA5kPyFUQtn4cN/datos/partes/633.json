@@ -1,0 +1,21 @@
+{
+  "albs": [],
+  "cliente": "EXTINPALMA S.L.",
+  "desc": "Ejecución de pasamuros para el paso de las líneas de la instalación de detección de incendios. \n\nParking 1 - Tendido y enhebrado del cableado de incendios por canalización de tubo de PVC visto.\n\n\nParking 2 - Preparación y pelado de los extremos del cableado, colocación de bases, conexionado a las bases de los\n detectores y colocación de los detectores de incendios correspondientes.",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-10-05",
+  "horas": 19,
+  "obra": "HIPERDINO EL PUENTE (CONTRAINCENDIO)",
+  "ops": [
+    {
+      "h": 8,
+      "n": "Eloy"
+    },
+    {
+      "h": 11,
+      "n": "Rafa"
+    }
+  ],
+  "stock": []
+}

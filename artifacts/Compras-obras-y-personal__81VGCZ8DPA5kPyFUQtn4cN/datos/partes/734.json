@@ -1,0 +1,18 @@
+{
+  "albs": [],
+  "cliente": "INSTAPALMA",
+  "desc": "Rellenar con escombro laterales de tubo para hormigonar",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-10-16",
+  "horas": 8,
+  "obra": "ZANJA COVALLE",
+  "ops": [
+    {
+      "h": 8,
+      "n": "Luigi"
+    }
+  ],
+  "origen": "dashboard",
+  "stock": []
+}

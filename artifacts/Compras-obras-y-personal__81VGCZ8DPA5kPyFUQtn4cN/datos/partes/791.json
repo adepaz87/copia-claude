@@ -1,0 +1,21 @@
+{
+  "albs": [],
+  "cliente": "TRAGSA",
+  "desc": "Mecanizando Tc y puestos de trabajo",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-10-26",
+  "horas": 10,
+  "obra": "HOSPITAL",
+  "ops": [
+    {
+      "h": 5,
+      "n": "Manuel"
+    },
+    {
+      "h": 5,
+      "n": "Juan"
+    }
+  ],
+  "stock": []
+}

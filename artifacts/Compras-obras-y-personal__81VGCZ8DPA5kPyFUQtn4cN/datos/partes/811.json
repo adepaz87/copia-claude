@@ -1,0 +1,17 @@
+{
+  "albs": [],
+  "cliente": "CONSTRUCCIONES DOMINGO",
+  "desc": "Recuento de material en viviendas para hacer pedido",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-10-27",
+  "horas": 1,
+  "obra": "CASAS BENEDICTO",
+  "ops": [
+    {
+      "h": 1,
+      "n": "Aythami"
+    }
+  ],
+  "stock": []
+}

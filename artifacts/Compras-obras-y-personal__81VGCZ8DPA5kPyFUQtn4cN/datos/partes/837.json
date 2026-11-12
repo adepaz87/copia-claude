@@ -1,0 +1,21 @@
+{
+  "albs": [],
+  "cliente": "AYTO. BREÑA BAJA",
+  "desc": "Perforar báculos nuevos en su parte superior (zona reformada del paseo de Los Cancajos); tender línea independiente para iluminación navideña de arriba abajo del báculo; instalar y conectar cajas de conexión; conectar adornos navideños en farolas de la avenida principal de Los Cancajos.",
+  "devol": [],
+  "editado": "2026-10-30",
+  "estado": "EN CURSO",
+  "fecha": "2026-10-29",
+  "horas": 8,
+  "obra": "ALUMBRADO NAVIDAD",
+  "obraId": "alumbrado-navidad",
+  "ops": [
+    {
+      "h": 8,
+      "n": "Jorge Corujo",
+      "pid": "jorge-corujo"
+    }
+  ],
+  "origen": "dashboard",
+  "stock": []
+}

@@ -1,0 +1,24 @@
+{
+  "actualizada": "2026-11-03T16:25:00Z",
+  "asignadaEn": "2026-11-03T16:16:18.305Z",
+  "avisadoWa": "2026-11-03T16:16:25.898Z",
+  "aviso": "",
+  "centro": "SPAR Tijarafe",
+  "creada": "2026-11-03T16:15:00Z",
+  "descripcion": "La UPS quedó conectada a un alargador extensible y la mural de refrescos se quedó sin funcionar; lo demás funciona por ahora.",
+  "estado": "terminada",
+  "fechaAviso": "2026-11-02",
+  "historial": [
+    "03/11/2026 · Importada de la captura GIM de Raquel",
+    "3/11/2026 16:16 · Asignada a Toño Guardia",
+    "3/11/2026 16:16 · Asignación: Correo enviado a TBSA · WhatsApp a Toño Guardia programado",
+    "3/11/2026 16:25 · Estado: Terminada (Toño: «OT 123 resuelto» por WhatsApp) · Cierre: correo enviado a TBSA"
+  ],
+  "informado": true,
+  "notas": "OT GIM 563. Toño confirmó por WhatsApp «OT 123 resuelto» (03/11 16:19).",
+  "operario": "Toño Guardia",
+  "ot": 123,
+  "prioridad": "Sin especificar",
+  "solicitante": "Raquel",
+  "tipo": "MANTENIMIENTO"
+}

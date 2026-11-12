@@ -1,0 +1,51 @@
+{
+  "albs": [
+    "Coelca 35635"
+  ],
+  "cliente": "JOSE BARRETO",
+  "desc": "Entubar desde azotea a caja de registro\nEnebrar cable de datos",
+  "devol": [],
+  "duplicado": "750",
+  "editado": "2026-11-02T23:15:00Z",
+  "estado": "TERMINADO",
+  "fecha": "2026-10-21",
+  "horas": 13,
+  "obra": "GARAJES BELLIDO",
+  "ops": [
+    {
+      "h": 6.5,
+      "n": "Manuel"
+    },
+    {
+      "h": 6.5,
+      "n": "Juan"
+    }
+  ],
+  "stock": [
+    {
+      "d": "tubo rígido  de 20",
+      "q": 2,
+      "u": "m"
+    },
+    {
+      "d": "curvas flexible de 20",
+      "q": 1,
+      "u": ""
+    },
+    {
+      "d": "bases bridas",
+      "q": 125,
+      "u": ""
+    },
+    {
+      "d": "bridas de 4,5x300",
+      "q": 1,
+      "u": "paquete"
+    },
+    {
+      "d": "cinta aislante",
+      "q": 1,
+      "u": "rollo"
+    }
+  ]
+}

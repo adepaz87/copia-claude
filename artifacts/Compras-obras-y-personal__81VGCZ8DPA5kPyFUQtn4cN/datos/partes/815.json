@@ -1,0 +1,32 @@
+{
+  "albs": [],
+  "cliente": "TRAGSA",
+  "desc": "Enbridar cables de fuerza por bandeja Enebrar líneas de alumbrado y dali por bandeja",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-10-28",
+  "horas": 16,
+  "obra": "HOSPITAL (MOD G)",
+  "ops": [
+    {
+      "h": 8,
+      "n": "Manuel"
+    },
+    {
+      "h": 8,
+      "n": "Juan"
+    }
+  ],
+  "stock": [
+    {
+      "d": "bridas de 4,8x300",
+      "q": 5,
+      "u": "paquetes"
+    },
+    {
+      "d": "cable 2x1,5mm rojo",
+      "q": 620,
+      "u": "m"
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "albs": [],
+  "cliente": "TRAGSA",
+  "desc": "Crear tierra de neutro desde el trafo hasta punto de seccionamiento. Colocar grapas , hacer latiguillos, fijar cable y caja seccionadora. Conectar en trafo y en punto de medición) .\n\nMedir tierra de neutro (11ohmios)\n\nHacer entubado para cableado de disparo de cabina por apertura de puertas. Tirar cable manguera hasta cabina y conectar final de carrera.\n\nDar forma a los ouentes de BT del trafo.\n\nQ",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-09-28",
+  "horas": 8,
+  "obra": "CT. PLAZA GAZMIRA",
+  "ops": [
+    {
+      "h": 8,
+      "n": "Jorge"
+    }
+  ],
+  "stock": [
+    {
+      "d": "cable 3x1,5mm rz1k",
+      "q": 10,
+      "u": "m"
+    }
+  ]
+}

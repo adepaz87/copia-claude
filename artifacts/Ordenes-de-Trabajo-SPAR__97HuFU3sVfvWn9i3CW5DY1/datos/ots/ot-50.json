@@ -1,0 +1,19 @@
+{
+  "actualizada": "2026-08-13T09:00:00Z",
+  "aviso": "",
+  "centro": "SPAR Triana",
+  "creada": "2026-08-13T09:00:00Z",
+  "descripcion": "Colocación de exterminadores en las zonas de queso, carnicería y cafetería (coordinado con Fernando).",
+  "estado": "terminada",
+  "fechaAviso": "2026-08-13",
+  "historial": [
+    "13/08/2026 · Importada del correo de Alberto"
+  ],
+  "informado": true,
+  "notas": "Resuelta el 13/08/2026.",
+  "operario": "Jonathan Rodríguez",
+  "ot": 50,
+  "prioridad": "Sin especificar",
+  "solicitante": "",
+  "tipo": "MANTENIMIENTO"
+}

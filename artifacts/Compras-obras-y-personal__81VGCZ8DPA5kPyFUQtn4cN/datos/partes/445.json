@@ -1,0 +1,23 @@
+{
+  "albs": [],
+  "cliente": "ÁRIDOS EL RIACHUELO SAU",
+  "desc": "Conexionado cinta hidráulica y prueba funcionamiento.",
+  "devol": [],
+  "estado": "TERMINADO",
+  "fecha": "2026-09-10",
+  "horas": 1,
+  "obra": "PLANTA ÁRIDOS AVERÍAS",
+  "ops": [
+    {
+      "h": 1,
+      "n": "Toño"
+    }
+  ],
+  "stock": [
+    {
+      "d": "100x100mm.SP.tetones",
+      "q": 1,
+      "u": "caja"
+    }
+  ]
+}

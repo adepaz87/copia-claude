@@ -1,0 +1,19 @@
+{
+  "albs": [],
+  "cliente": "SPAR",
+  "desc": "Ok",
+  "devol": [],
+  "editado": "2026-11-09",
+  "estado": "TERMINADO",
+  "fecha": "2026-10-17",
+  "horas": 8,
+  "noImputar": true,
+  "obra": "SPAR",
+  "ops": [
+    {
+      "h": 8,
+      "n": "Alberto"
+    }
+  ],
+  "stock": []
+}

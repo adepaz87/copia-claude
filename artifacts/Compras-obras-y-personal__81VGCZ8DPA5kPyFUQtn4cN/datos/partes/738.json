@@ -1,0 +1,19 @@
+{
+  "albs": [
+    "Ayumar 4-1184"
+  ],
+  "cliente": "?",
+  "desc": "Revizados estado cuadro mediciones tierras",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-10-20",
+  "horas": 3,
+  "obra": "CARGADOR EL PASO",
+  "ops": [
+    {
+      "h": 3,
+      "n": "Toño"
+    }
+  ],
+  "stock": []
+}

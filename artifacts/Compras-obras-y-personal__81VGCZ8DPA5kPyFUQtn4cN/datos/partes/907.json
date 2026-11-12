@@ -1,0 +1,24 @@
+{
+  "albs": [],
+  "cliente": "CONSTRUCCIONES DOS TUMBOS",
+  "desc": "Enhebrado de alumbrado, fuerza, emergencias, datos y TV en habitaciones de 2ª planta. Enhebrado de líneas UTP desde rack de planta baja a caja de telecomunicaciones de 2ª y 3ª planta. Colocación de cajas de mecanismo. Inicio del conexionado de cajas de registro. Limpieza de zonas de trabajo.",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-11-06",
+  "horas": 16,
+  "id": "907",
+  "obra": "RESIDENCIA TERCERA EDAD EL PASO",
+  "ops": [
+    {
+      "h": 8,
+      "n": "Petter"
+    },
+    {
+      "h": 8,
+      "n": "Jonathan Rodríguez"
+    }
+  ],
+  "origen": "dashboard",
+  "restante": "Indefinido",
+  "stock": []
+}

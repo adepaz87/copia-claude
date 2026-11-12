@@ -1,0 +1,23 @@
+{
+  "empresa": "Instapalma",
+  "fecha": "2026-10-08",
+  "lineas": [
+    {
+      "a": "VCTF-019007-2026",
+      "d": "PLAFON TECHO LED RED.FULL 18W 4000K BL",
+      "dto": "Neto",
+      "f": "2026-10-08",
+      "i": 242.83,
+      "o": "EDF SABINO",
+      "pn": 24.283,
+      "pt": 24.283,
+      "q": 10,
+      "r": "ROB-ICEIP44FRW18F"
+    }
+  ],
+  "numero": "VCTF-019007-2026",
+  "obra": "EDF SABINO",
+  "origen": "Gmail",
+  "proveedor": "Diexfe",
+  "tipo": "albaran"
+}

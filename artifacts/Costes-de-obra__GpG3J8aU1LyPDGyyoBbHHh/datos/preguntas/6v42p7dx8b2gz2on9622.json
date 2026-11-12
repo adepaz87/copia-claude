@@ -1,0 +1,11 @@
+{
+  "aplicado": true,
+  "creada": "2026-10-28T18:33:12.327Z",
+  "docId": "drddqpd5qot0vkpspq9a",
+  "estado": "respondida",
+  "registro": "material/c7oufn9pgfp6wwu1iwqk",
+  "respondida": "2026-10-28T18:34:49.797Z",
+  "respuesta": "SI",
+  "resultado": "No cambio nada: el responsable confirma con un SI genérico, sin aclarar si la obra se imputa a DELEDCAN S.L. o a COOVALLE, y el registro (importe = base sin IGIC de 14.029,34 €) ya es correcto; la diferencia de 0,02 € en el IGIC no afecta al campo importe.",
+  "texto": "La suma de las líneas cuadra con la base de 14.029,34 €. El IGIC del documento (982,07 €) es 0,02 € mayor que el 7 % de la base (982,05 €), aunque el total sí suma. La factura va a nombre de DELEDCAN S.L.: ¿es la empresa que contrata esta obra, o hay que imputarla a COOVALLE? No es un duplicado de los albaranes ya registrados."
+}

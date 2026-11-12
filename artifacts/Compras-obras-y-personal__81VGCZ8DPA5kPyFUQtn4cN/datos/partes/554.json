@@ -1,0 +1,23 @@
+{
+  "albs": [
+    "Diexfe VCTF-017875-2026"
+  ],
+  "cliente": "DRAGADOS",
+  "desc": "Pasar acometida desde cuadro general hasta subcuadro de cafeteria. \nConectar acometida. \nConectar acometida de ascensor.\nSeparar circuitos de alumbrados de escaleras para nuevo esquema de encendidos.\nPasar cable maniobra a cuadro de cafeteria y fichar en registro. \nMarcar curcuitos en cuadros",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-09-25",
+  "horas": 10,
+  "obra": "TEATRO MONTERREY",
+  "ops": [
+    {
+      "h": 5,
+      "n": "Antonio"
+    },
+    {
+      "h": 5,
+      "n": "Iker"
+    }
+  ],
+  "stock": []
+}

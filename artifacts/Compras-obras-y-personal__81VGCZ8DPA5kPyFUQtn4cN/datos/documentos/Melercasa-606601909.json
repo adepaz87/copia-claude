@@ -1,0 +1,23 @@
+{
+  "empresa": "Instapalma",
+  "fecha": "2026-08-25",
+  "lineas": [
+    {
+      "a": "R-600605799",
+      "d": "CENTRALIZACION 8 MONOFASICOS 2 TRIFASICOS",
+      "dto": "",
+      "f": "2026-08-25",
+      "i": 1187.12,
+      "igic": 7,
+      "o": "",
+      "pn": 1187.12,
+      "pt": 1187.12,
+      "q": 1,
+      "r": ""
+    }
+  ],
+  "numero": "606601909",
+  "origen": "Gmail",
+  "proveedor": "Melercasa",
+  "tipo": "factura"
+}

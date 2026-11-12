@@ -1,0 +1,29 @@
+{
+  "albs": [],
+  "cliente": "CONSTRUCCIONES DOMINGO",
+  "desc": "Entubar zonas comunes planta baja\nEntubar derivaciones planta baja hasta patinillo\nEntubar trasteros desde viviviendas planta baja hasta patinillos",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-09-02",
+  "horas": 21,
+  "obra": "EDIFICIO DOMINGO EL PASO",
+  "ops": [
+    {
+      "h": 9,
+      "n": "Riki"
+    },
+    {
+      "h": 8,
+      "n": "Junior"
+    },
+    {
+      "h": 2,
+      "n": "Aythami"
+    },
+    {
+      "h": 2,
+      "n": "Joel"
+    }
+  ],
+  "stock": []
+}

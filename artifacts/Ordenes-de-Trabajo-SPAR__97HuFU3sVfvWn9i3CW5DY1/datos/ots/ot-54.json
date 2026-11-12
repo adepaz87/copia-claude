@@ -1,0 +1,19 @@
+{
+  "actualizada": "2026-08-04T09:00:00Z",
+  "aviso": "",
+  "centro": "SPAR La Luz",
+  "creada": "2026-08-04T09:00:00Z",
+  "descripcion": "Detalle en el correo de cierre (no se pudo leer el texto).",
+  "estado": "terminada",
+  "fechaAviso": "2026-08-04",
+  "historial": [
+    "04/08/2026 · Importada del correo de Alberto"
+  ],
+  "informado": true,
+  "notas": "Resuelta según el asunto del correo (agosto 2026).",
+  "operario": "",
+  "ot": 54,
+  "prioridad": "Sin especificar",
+  "solicitante": "",
+  "tipo": "MANTENIMIENTO"
+}

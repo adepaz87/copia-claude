@@ -1,0 +1,32 @@
+{
+  "albs": [],
+  "cliente": "DRAGADOS",
+  "desc": "Perforar jardineras para pasar cables, fijar balizas y conectarlas.\nColocar cajas de registro en arquetas principales y fichar líneas.",
+  "devol": [],
+  "estado": "TERMINADO",
+  "fecha": "2026-10-05",
+  "horas": 10,
+  "obra": "ESCALERAS CALLE ANTONIO PINO PEREZ",
+  "ops": [
+    {
+      "h": 5,
+      "n": "Antonio"
+    },
+    {
+      "h": 5,
+      "n": "Iker"
+    }
+  ],
+  "stock": [
+    {
+      "d": "caja sobre pared 10x10",
+      "q": 2,
+      "u": "ud"
+    },
+    {
+      "d": "regleta empalme de 25mm",
+      "q": 1,
+      "u": "ud"
+    }
+  ]
+}

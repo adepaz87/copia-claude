@@ -1,0 +1,26 @@
+{
+  "empresa": "Instapalma",
+  "fecha": "2026-11-05",
+  "lineas": [
+    {
+      "a": "309006759",
+      "d": "INT.DIF Legrand DX3 2P 40A 300mA AC Inst Acc LEGR 411525",
+      "dto": "NETO",
+      "f": "2026-11-05",
+      "i": 41.12,
+      "o": "BALCÓN TABURIENTE",
+      "pn": 41.119,
+      "pt": 41.119,
+      "q": 1,
+      "r": "96666"
+    }
+  ],
+  "msg": "1a1ac52d64a1e973",
+  "nota": "Según el correo de Sonepar: material usado en el parte del 28/10",
+  "numero": "309006759",
+  "obra": "BALCÓN TABURIENTE",
+  "origen": "Gmail (escaneo)",
+  "proveedor": "Sonepar",
+  "tipo": "albaran",
+  "total": 41.12
+}

@@ -1,0 +1,23 @@
+{
+  "albs": [],
+  "cliente": "TRAGSA",
+  "desc": "Instalar bases de detectores en tapas de registro. Conectar bases de detectores. Enfichar y tapar registros. Colocar detectores. Instalar y conectar sirenas y pulsadores en parking. Instalar registro en falso techo para PCI. Instalar tubo visto para cableado de las centrales. Instalar central de incendios y de monóxido.",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-11-05",
+  "horas": 16,
+  "id": "900",
+  "obra": "PCI PLAZA GAZMIRA",
+  "ops": [
+    {
+      "h": 8,
+      "n": "Eloy"
+    },
+    {
+      "h": 8,
+      "n": "Jonathan Glez"
+    }
+  ],
+  "origen": "dashboard",
+  "stock": []
+}

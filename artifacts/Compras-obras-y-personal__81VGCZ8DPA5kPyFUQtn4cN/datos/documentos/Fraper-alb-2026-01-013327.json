@@ -1,0 +1,47 @@
+{
+  "empresa": "Instapalma",
+  "fecha": "2026-10-26",
+  "lineas": [
+    {
+      "a": "2026/01/013327",
+      "d": "GUANTE PROYTAC TALLA L (9) NARANJA/NEGRO",
+      "dto": "10",
+      "f": "2026-10-26",
+      "i": 2.14,
+      "o": "CT. PINO DE LA VIRGEN",
+      "pn": 2.14,
+      "pt": 2.38,
+      "q": 1,
+      "r": "225805"
+    },
+    {
+      "a": "2026/01/013327",
+      "d": "GUANTE PROYTAC TALLA L (9) NARANJA/NEGRO",
+      "dto": "10",
+      "f": "2026-10-26",
+      "i": 2.14,
+      "o": "CT. PINO DE LA VIRGEN",
+      "pn": 2.14,
+      "pt": 2.38,
+      "q": 1,
+      "r": "225805"
+    },
+    {
+      "a": "2026/01/013327",
+      "d": "CP ABRAZADERA AB-6I 22(M6) 100UD",
+      "dto": "10",
+      "f": "2026-10-26",
+      "i": 2.27,
+      "o": "CT. PINO DE LA VIRGEN",
+      "pn": 0.227,
+      "pt": 0.2524,
+      "q": 10,
+      "r": "45894"
+    }
+  ],
+  "numero": "2026/01/013327",
+  "obra": "CT. PINO DE LA VIRGEN",
+  "origen": "Gmail",
+  "proveedor": "Fraper",
+  "tipo": "albaran"
+}

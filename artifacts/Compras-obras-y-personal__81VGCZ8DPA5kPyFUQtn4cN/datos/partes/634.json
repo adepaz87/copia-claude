@@ -1,0 +1,27 @@
+{
+  "albs": [],
+  "cliente": "DRAGADOS",
+  "desc": "Añadir 2 balizas al alumbrado existente, conectar y probar.",
+  "devol": [],
+  "estado": "TERMINADO",
+  "fecha": "2026-10-06",
+  "horas": 2,
+  "obra": "ESCALERAS CALLE ANTONIO PINO PEREZ",
+  "ops": [
+    {
+      "h": 1,
+      "n": "Antonio"
+    },
+    {
+      "h": 1,
+      "n": "Iker"
+    }
+  ],
+  "stock": [
+    {
+      "d": "caja registro sobre pared 10x10",
+      "q": 1,
+      "u": "ud"
+    }
+  ]
+}

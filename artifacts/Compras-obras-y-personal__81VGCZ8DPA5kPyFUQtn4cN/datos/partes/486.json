@@ -1,0 +1,31 @@
+{
+  "albs": [
+    "Diexfe 017378"
+  ],
+  "cliente": "CHICHO 2 TUMBOS",
+  "desc": "Colocar bandejas centralización\nHacer pases de centralización 1\nPasar tubos derivaciones centralización 1",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-09-16",
+  "horas": 29,
+  "obra": "EDIFICIO SABINO",
+  "ops": [
+    {
+      "h": 8,
+      "n": "Riki"
+    },
+    {
+      "h": 8,
+      "n": "Joel"
+    },
+    {
+      "h": 7,
+      "n": "Aythami"
+    },
+    {
+      "h": 6,
+      "n": "Junior"
+    }
+  ],
+  "stock": []
+}

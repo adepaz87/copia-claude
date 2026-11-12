@@ -1,0 +1,23 @@
+{
+  "albs": [],
+  "cliente": "TRAGSA",
+  "desc": "Enhebrar líneas para PCI en el parking y cuarto de depósitos. Enhebrar línea hasta bomba jockey. Instalar tubo diflex y tubo corrugado para entrar por bandeja a cuarto de depósitos y bomba jockey. Enhebrar línea de retorno a central.",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-11-03",
+  "horas": 16,
+  "id": "860",
+  "obra": "PCI PLAZA GAZMIRA",
+  "ops": [
+    {
+      "h": 8,
+      "n": "Eloy"
+    },
+    {
+      "h": 8,
+      "n": "Jonathan Glez"
+    }
+  ],
+  "origen": "dashboard",
+  "stock": []
+}

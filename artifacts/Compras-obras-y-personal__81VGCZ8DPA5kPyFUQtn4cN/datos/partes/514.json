@@ -1,0 +1,39 @@
+{
+  "albs": [
+    "Coelca 184521"
+  ],
+  "cliente": "CHICHO DOS TUMBOS",
+  "desc": "Entubar\nColocación de registros",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-09-21",
+  "horas": 16,
+  "obra": "VIVIENDAS  EL TANQUE",
+  "ops": [
+    {
+      "h": 8,
+      "n": "Manuel"
+    },
+    {
+      "h": 8,
+      "n": "Juan"
+    }
+  ],
+  "stock": [
+    {
+      "d": "tacos y tornillos  de 6mm",
+      "q": 2,
+      "u": "cajas"
+    },
+    {
+      "d": "atado tubos de 20",
+      "q": 1,
+      "u": ""
+    },
+    {
+      "d": "bridas  de 300x4,8",
+      "q": 1,
+      "u": "paquete"
+    }
+  ]
+}

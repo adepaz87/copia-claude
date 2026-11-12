@@ -1,0 +1,9 @@
+{
+  "accion": "Exportar el presupuesto con la columna de código",
+  "actualizado": "2026-11-06",
+  "estado": "Resuelto",
+  "fecha": "2026-10-19",
+  "origen": "Presupuesto Arquímedes",
+  "prioridad": "Baja",
+  "texto": "Códigos de partida de Arquímedes no incluidos en el presupuesto exportado; solo se conocen los de las partidas certificadas."
+}

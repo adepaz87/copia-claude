@@ -1,0 +1,26 @@
+{
+  "actualizada": "2026-11-04T14:16:00Z",
+  "asignadaEn": "2026-11-04T12:18:03.943Z",
+  "avisadoWa": "2026-11-04T12:18:07.607Z",
+  "aviso": "",
+  "centro": "CPF Los Llanos (almacén fruta y cocina)",
+  "creada": "2026-11-04T12:20:00Z",
+  "descripcion": "Luces del muelle y exteriores encendidas 24 horas: hay que regular el reloj después del cambio de hora.",
+  "estado": "terminada",
+  "fechaAviso": "2026-11-04",
+  "historial": [
+    "04/11/2026 · Importada de la captura GIM de Raquel (correo «CPF»)",
+    "4/11/2026 12:18 · Asignada a Toño Guardia",
+    "4/11/2026 12:18 · Asignación: Correo enviado a TBSA · WhatsApp a Toño Guardia programado · WhatsApp a Fernando programado",
+    "4/11/2026 13:32 · Toño Guardia por WhatsApp: «OT 132 resuelto»",
+    "4/11/2026 14:16 · Cierre: correo a TBSA y WhatsApp a Fernando"
+  ],
+  "informado": true,
+  "notas": "Pedido por CPF (GIM 04/11 12:38). Nº OT provisional: confirmar o cambiar.",
+  "operario": "Toño Guardia",
+  "ot": 132,
+  "prioridad": "Alta",
+  "solicitante": "Raquel",
+  "terminadaEn": "2026-11-04T13:32:00Z",
+  "tipo": "MANTENIMIENTO"
+}

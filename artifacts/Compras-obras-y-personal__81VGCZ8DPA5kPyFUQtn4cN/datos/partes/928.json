@@ -1,0 +1,20 @@
+{
+  "albs": [],
+  "cliente": "JOSE BARRETO",
+  "desc": "Habrir registros Habrir zócalos Meter culebras Averiguar como hacer trabajo",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-11-09",
+  "horas": 1.5,
+  "id": "928",
+  "obra": "TIENDA ROPA LOS SAUCES",
+  "ops": [
+    {
+      "h": 1.5,
+      "n": "Juan"
+    }
+  ],
+  "origen": "dashboard",
+  "restante": "1 dia",
+  "stock": []
+}

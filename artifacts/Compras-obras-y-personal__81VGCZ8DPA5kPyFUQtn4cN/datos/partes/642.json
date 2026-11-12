@@ -1,0 +1,21 @@
+{
+  "albs": [],
+  "cliente": "CONSTRUCCIONES DOS TUMBOS",
+  "desc": "Entubar alimentación sub-cuadros de plantas nuevas(Tubo 50)\nColocación cajas registro,cuadro habitación,cajas mecanismo en segunda planta \nEnhebrar  habitación en segunda planta (alumbrado,fuerza,al.emg…)\nLimpiar zonas de trabajo",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-10-06",
+  "horas": 15,
+  "obra": "RESIDENCIA TERCERA EDAD EL PASO",
+  "ops": [
+    {
+      "h": 6,
+      "n": "Petter"
+    },
+    {
+      "h": 9,
+      "n": "Jonathan Rodríguez"
+    }
+  ],
+  "stock": []
+}

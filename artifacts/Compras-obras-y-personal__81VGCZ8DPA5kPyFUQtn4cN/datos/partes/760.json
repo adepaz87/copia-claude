@@ -1,0 +1,17 @@
+{
+  "albs": [],
+  "cliente": "ÁRIDOS EL RIACHUELO SAU",
+  "desc": "Avería por caída rayo en zona , comprobación generador mediciones comprobación cuadros cambio correa fallo en generador batería, puesta en funcionamiento plantas. Funcionando",
+  "devol": [],
+  "estado": "TERMINADO",
+  "fecha": "2026-10-22",
+  "horas": 4,
+  "obra": "AVERÍAS GENERADOR PLANTAS",
+  "ops": [
+    {
+      "h": 4,
+      "n": "Toño"
+    }
+  ],
+  "stock": []
+}

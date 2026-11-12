@@ -1,0 +1,24 @@
+{
+  "empresa": "Instapalma",
+  "fecha": "2026-10-07",
+  "lineas": [
+    {
+      "a": "412.620.540",
+      "d": "TUBO CORRUGADO PE. D.PARED D.200 BARRAS",
+      "dto": "Neto",
+      "f": "2026-10-07",
+      "i": 1688.4,
+      "igic": 3,
+      "o": "BAP SIN OBRA - CORRUGADO D200",
+      "pn": 4.2,
+      "pt": 4.2,
+      "q": 402,
+      "r": "18603"
+    }
+  ],
+  "numero": "412.620.540",
+  "obra": "BAP SIN OBRA - CORRUGADO D200",
+  "origen": "Gmail",
+  "proveedor": "BAP",
+  "tipo": "albaran"
+}

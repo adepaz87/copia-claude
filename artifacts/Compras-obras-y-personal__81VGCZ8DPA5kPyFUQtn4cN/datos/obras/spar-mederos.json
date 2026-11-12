@@ -1,0 +1,16 @@
+{
+  "alias": [
+    "SPAR MEDEROS"
+  ],
+  "archivada": true,
+  "archivada_t": "2026-11-09",
+  "cliente": "",
+  "creado": "2026-11-09",
+  "estado": "aprobada",
+  "fact": {
+    "igic": 7,
+    "mg": 35,
+    "ph": 27
+  },
+  "nombre": "Spar Mederos"
+}

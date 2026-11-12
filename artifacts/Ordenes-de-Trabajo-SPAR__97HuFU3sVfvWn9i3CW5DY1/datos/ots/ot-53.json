@@ -1,0 +1,19 @@
+{
+  "actualizada": "2026-08-03T09:00:00Z",
+  "aviso": "",
+  "centro": "SPAR Mazo",
+  "creada": "2026-08-03T09:00:00Z",
+  "descripcion": "Diferencial del estabilizador disparado y UPS pitando.",
+  "estado": "terminada",
+  "fechaAviso": "2026-08-03",
+  "historial": [
+    "03/08/2026 · Importada del correo de Alberto"
+  ],
+  "informado": true,
+  "notas": "Resuelta el 03/08/2026.",
+  "operario": "Toño Guardia",
+  "ot": 53,
+  "prioridad": "Sin especificar",
+  "solicitante": "",
+  "tipo": "MANTENIMIENTO"
+}

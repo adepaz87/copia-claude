@@ -1,0 +1,27 @@
+{
+  "actualizada": "2026-11-11T13:16:00Z",
+  "asignadaEn": "2026-11-11T10:45:09.432Z",
+  "avisadoWa": "2026-11-11T10:45:14.532Z",
+  "aviso": "",
+  "centro": "SPAR Puntallana",
+  "creada": "2026-11-11T10:12:00Z",
+  "descripcion": "Caja 2: se mojaron las claves (teclado) y salta el automático.",
+  "empresa": "Tomás Barreto",
+  "estado": "terminada",
+  "fechaAviso": "2026-11-11",
+  "historial": [
+    "11/11/2026 · Registrada desde la foto GIM de Fernando (SPAR Puntallana)",
+    "11/11/2026 10:45 · Asignada a Toño Guardia",
+    "11/11/2026 10:45 · Asignación: Correo enviado a TBSA · WhatsApp a Toño Guardia programado · WhatsApp a Fernando programado",
+    "11/11/2026 12:49 · Toño avisa por WhatsApp: «OT 146 resuelto» · Estado: Terminada",
+    "11/11/2026 13:16 · Cierre: correo enviado a TBSA · WhatsApp a Fernando programado"
+  ],
+  "informado": true,
+  "notas": "Foto de pantalla GIM enviada por Fernando (correo sin asunto, 11/11 10:59). Solicitud del jefe de tienda SPAR Puntallana, 11/11 10:06, DPTO INFORMÁTICA, incidencia INFORMÁTICA, «OT no generada» (sin nº de aviso visible). Resuelta por Toño Guardia el 11/11 a las 12:49.",
+  "operario": "Toño Guardia",
+  "ot": 146,
+  "prioridad": "Alta",
+  "solicitante": "Fernando",
+  "terminadaEn": "2026-11-11T12:49:00Z",
+  "tipo": "MANTENIMIENTO"
+}

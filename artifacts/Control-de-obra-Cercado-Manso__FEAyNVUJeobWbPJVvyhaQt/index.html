@@ -1,0 +1,1176 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Control de obra Cercado Manso</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Barlow:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: cuaderno de control (mismo sistema azul que la página de certificaciones) — cabecera fija con avance y pestañas; vistas Resumen, Checklist, Partidas, Pendientes y diario, Informes, Ficha */
+:root{
+  --bg:#f3f5f9; --panel:#ffffff; --ink:#1b2330; --muted:#5a6578; --line:#d5dbe5; --soft:#ecf0f6;
+  --accent:#1f4f8f; --accent-soft:#e2ebf7; --on-accent:#ffffff;
+  --ok:#2e7d4f; --ok-soft:#dff1e5; --nc:#b3362b; --nc-soft:#f8e1de; --na:#6b7280; --na-soft:#eceef0; --warn:#9a6a00; --warn-soft:#fbf0d4;
+  --real:#1f4f8f; --plan:#c2621a;
+  --f-display:"Barlow Condensed","Arial Narrow",Arial,sans-serif;
+  --f-body:"Barlow",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#10141a; --panel:#18202a; --ink:#e3e9f2; --muted:#98a3b4; --line:#2b3544; --soft:#1f2834;
+  --accent:#7eaaea; --accent-soft:#1c2b40; --on-accent:#0b1626;
+  --ok:#6cc893; --ok-soft:#1d3327; --nc:#f08a7e; --nc-soft:#3a2220; --na:#a3aab3; --na-soft:#2a2f33; --warn:#e5b84a; --warn-soft:#352c17;
+  --real:#7eaaea; --plan:#e89a5c; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#10141a; --panel:#18202a; --ink:#e3e9f2; --muted:#98a3b4; --line:#2b3544; --soft:#1f2834;
+  --accent:#7eaaea; --accent-soft:#1c2b40; --on-accent:#0b1626;
+  --ok:#6cc893; --ok-soft:#1d3327; --nc:#f08a7e; --nc-soft:#3a2220; --na:#a3aab3; --na-soft:#2a2f33; --warn:#e5b84a; --warn-soft:#352c17;
+  --real:#7eaaea; --plan:#e89a5c; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:15px;line-height:1.45}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--panel)}
+.wrap{padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));max-width:1240px;margin:0 auto}
+header.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--panel);border-bottom:1px solid var(--line)}
+header.top .wrap{padding-block:12px 0;display:grid;gap:8px}
+.titlerow{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 16px;justify-content:space-between}
+h1{font-family:var(--f-display);font-weight:700;font-size:1.55rem;margin:0;letter-spacing:.01em;text-wrap:balance}
+h2{font-family:var(--f-display);font-weight:600;font-size:1.3rem;margin:0;text-wrap:balance}
+h3{font-family:var(--f-display);font-weight:600;font-size:1rem;color:var(--accent);margin:0;text-transform:uppercase;letter-spacing:.05em}
+.meta{color:var(--muted);font-size:.85rem}
+.meta b{color:var(--ink);font-weight:600}
+.stats{display:flex;flex-wrap:wrap;gap:6px 14px;align-items:center;font-size:.85rem;font-variant-numeric:tabular-nums}
+.bar{flex:1 1 200px;height:8px;border-radius:4px;background:var(--line);overflow:hidden;display:flex;min-width:120px;max-width:100%}
+.bar i{display:block;height:100%}
+.k{display:inline-flex;align-items:center;gap:5px}
+.dot{width:9px;height:9px;border-radius:50%;display:inline-block}
+nav.tabs{display:flex;gap:2px;overflow-x:auto;scrollbar-width:none;margin-inline:-4px}
+nav.tabs::-webkit-scrollbar{display:none}
+nav.tabs a{flex:0 0 auto;padding:8px 12px;font:600 .9rem var(--f-body);color:var(--muted);text-decoration:none;border-bottom:3px solid transparent;white-space:nowrap}
+nav.tabs a[aria-current="page"]{color:var(--accent);border-bottom-color:var(--accent)}
+nav.tabs a .c{font:500 .72rem var(--f-mono);margin-left:4px}
+nav.tabs a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+[hidden]{display:none!important}
+main.wrap{padding-block:20px 60px;display:grid;grid-template-columns:minmax(0,1fr);gap:22px}
+section.view{display:grid;grid-template-columns:minmax(0,1fr);gap:18px;min-width:0}
+.links{display:flex;flex-wrap:wrap;gap:4px 14px;font-size:.85rem}
+a{color:var(--accent);font-weight:600}
+.hint{font-size:.86rem;color:var(--muted);margin:0}
+.foot{font-size:.78rem;color:var(--muted);font-family:var(--f-mono);margin:0}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
+.kpi{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:12px 14px;display:grid;gap:4px;align-content:start;min-width:0}
+.kpi .kk{font:600 .72rem var(--f-body);letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.kpi .v{font:700 1.75rem/1.1 var(--f-display);font-variant-numeric:tabular-nums}
+.kpi .n{font-size:.84rem;color:var(--muted)}
+.kpi.alert{border-color:var(--warn);background:var(--warn-soft)} .kpi.alert .v{color:var(--warn)}
+.meter{height:6px;background:var(--soft);border-radius:3px;overflow:hidden;margin:3px 0}
+.meter i{display:block;height:100%;background:var(--accent)}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:14px;min-width:0;display:grid;gap:10px}
+.cols{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:18px;align-items:start}
+.cols.eq{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+@media (max-width:900px){.cols,.cols.eq{grid-template-columns:minmax(0,1fr)}}
+.shead{display:flex;flex-wrap:wrap;gap:6px 14px;align-items:baseline;justify-content:space-between;border-bottom:2px solid var(--ink);padding-bottom:6px}
+.legend{display:flex;flex-wrap:wrap;gap:4px 14px;font-size:.8rem;color:var(--muted)}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.sw{width:20px;height:0;border-top:2px solid}
+.sw.plan{border-color:var(--plan);border-top-style:dashed}
+.sw.real{border-color:var(--real);border-top-width:3px}
+.chart{position:relative}
+.chart svg{display:block;width:100%;height:auto;overflow:visible}
+.chart text{font:500 11px var(--f-mono);fill:var(--muted)}
+.chart .lbl{font:600 12.5px var(--f-display);fill:var(--ink)}
+.chart .grid line{stroke:var(--soft)}
+.chart .axis{stroke:var(--line)}
+.tip{position:absolute;pointer-events:none;background:var(--ink);color:var(--panel);font-size:.82rem;padding:7px 9px;border-radius:6px;white-space:nowrap;font-variant-numeric:tabular-nums;transform:translate(-50%,-110%);z-index:3}
+.tbl{overflow-x:auto;-webkit-overflow-scrolling:touch}
+table{border-collapse:collapse;width:100%;font-size:.9rem;font-variant-numeric:tabular-nums}
+th{font-size:.72rem;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);font-weight:600;text-align:left;padding:6px 8px;border-bottom:1px solid var(--ink);white-space:nowrap;vertical-align:bottom}
+td{padding:6px 8px;border-bottom:1px solid var(--line);vertical-align:top}
+td.n,th.n{text-align:right;white-space:nowrap}
+td.m{font:400 .84rem var(--f-mono)}
+tr.real td:first-child{font-weight:600}
+tr.tot td{font-weight:700;border-top:2px solid var(--ink);border-bottom:0}
+.pbar{display:inline-block;width:70px;height:6px;background:var(--soft);border-radius:3px;overflow:hidden;vertical-align:middle;margin-left:6px}
+.pbar i{display:block;height:100%;background:var(--accent)}
+.seg{max-width:100%;min-width:0;display:inline-flex;border:1px solid var(--line);border-radius:6px;overflow-x:auto;scrollbar-width:none}
+.seg button{border:0;background:transparent;color:var(--muted);font:600 .82rem var(--f-body);padding:6px 10px;cursor:pointer;white-space:nowrap}
+.seg button+button{border-left:1px solid var(--line)}
+.seg button[aria-pressed="true"]{background:var(--accent-soft);color:var(--accent)}
+.tools{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+input[type=search]{flex:1 1 200px;min-width:0;border:1px solid var(--line);background:var(--bg);color:var(--ink);border-radius:6px;padding:7px 10px;font:inherit;font-size:.9rem}
+.btn{border:1px solid var(--line);background:var(--panel);color:var(--ink);font:600 .84rem var(--f-body);padding:7px 12px;border-radius:6px;cursor:pointer}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:var(--on-accent)}
+.btn.small{font-size:.76rem;padding:4px 9px}
+.btn:disabled{opacity:.5;cursor:not-allowed}
+.btn.danger{background:var(--nc);border-color:var(--nc);color:var(--panel)}
+.save{font-size:.78rem;color:var(--muted)}
+.save.local{color:var(--warn)}
+/* Partidas */
+.part .grp td{background:var(--soft);font-family:var(--f-display);font-weight:600;font-size:1rem}
+.part td.desc{min-width:240px;max-width:480px;font-size:.88rem}
+.part td.desc .c{font:500 .72rem var(--f-mono);color:var(--muted)}
+/* Checklist */
+.cl{display:grid;grid-template-columns:230px minmax(0,1fr);gap:24px}
+.cl>*{min-width:0}
+.tools>*{min-width:0}
+nav.toc{position:sticky;top:calc(var(--hh,170px) + 12px);align-self:start;max-height:calc(100vh - var(--hh,170px) - 24px);overflow:auto;display:grid;gap:2px}
+nav.toc a{display:grid;grid-template-columns:2.4em 1fr auto;gap:6px;align-items:center;padding:6px 8px;border-radius:6px;color:var(--ink);text-decoration:none;font-size:.86rem;font-weight:400}
+nav.toc a:hover{background:var(--accent-soft)}
+nav.toc .nn{font-family:var(--f-mono);font-size:.74rem;color:var(--muted)}
+nav.toc .c{font-family:var(--f-mono);font-size:.72rem;color:var(--muted)}
+nav.toc .c.done{color:var(--ok)} nav.toc .c.bad{color:var(--nc)}
+section.cap{scroll-margin-top:calc(var(--hh,170px) + 16px)}
+.caphead{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 12px;border-bottom:2px solid var(--ink);padding-bottom:6px;margin-bottom:4px}
+.caphead .nn{font-family:var(--f-mono);font-size:.85rem;color:var(--muted)}
+.caphead h2{flex:1 1 auto}
+.caphead .pem{font-family:var(--f-mono);font-size:.8rem;color:var(--muted)}
+.capnote{font-size:.86rem;margin:6px 0 8px;max-width:75ch;color:var(--warn);background:var(--warn-soft);padding:6px 10px;border-radius:6px}
+.item{display:grid;grid-template-columns:auto minmax(0,1fr);gap:4px 12px;padding:10px 0;border-bottom:1px solid var(--line)}
+.item[data-s="ok"] .txt{color:var(--muted)}
+.item[data-s="nc"]{background:linear-gradient(90deg,var(--nc-soft),transparent 60%)}
+.st{display:inline-flex;gap:4px;align-self:start}
+.st button{width:36px;height:32px;border:1px solid var(--line);background:var(--panel);color:var(--muted);border-radius:6px;font:700 .72rem var(--f-mono);cursor:pointer}
+.st button[data-v="ok"][aria-pressed="true"]{background:var(--ok);border-color:var(--ok);color:var(--panel)}
+.st button[data-v="nc"][aria-pressed="true"]{background:var(--nc);border-color:var(--nc);color:var(--panel)}
+.st button[data-v="na"][aria-pressed="true"]{background:var(--na);border-color:var(--na);color:var(--panel)}
+.st button:disabled{cursor:default}
+.ibody{min-width:0;display:grid;gap:4px}
+.txt{margin:0}
+.tags{display:flex;flex-wrap:wrap;gap:6px;align-items:center;font-size:.74rem}
+.tag{font:600 .68rem var(--f-body);text-transform:uppercase;letter-spacing:.06em;padding:1px 6px;border-radius:4px;background:var(--accent-soft);color:var(--accent)}
+.tag.E{background:var(--warn-soft);color:var(--warn)} .tag.S{background:var(--nc-soft);color:var(--nc)} .tag.T{background:var(--na-soft);color:var(--ink)}
+.ref{font-family:var(--f-mono);color:var(--muted);font-size:.72rem}
+.when{color:var(--muted);font-size:.74rem}
+.notebtn{border:0;background:none;color:var(--accent);font:600 .76rem var(--f-body);cursor:pointer;padding:0}
+.note textarea{width:100%;min-height:54px;border:1px solid var(--line);border-radius:6px;background:var(--bg);color:var(--ink);font:inherit;font-size:.9rem;padding:6px 8px;resize:vertical}
+.notetext{font-size:.85rem;background:var(--bg);border-left:3px solid var(--line);padding:4px 8px;white-space:pre-wrap}
+.item[data-s="nc"] .notetext{border-left-color:var(--nc)}
+.clegend{font-size:.78rem;color:var(--muted);display:flex;flex-wrap:wrap;gap:4px 12px;margin:0}
+/* Pendientes y diario */
+form.add{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;align-items:end}
+form.add label{display:grid;gap:3px;font-size:.75rem;color:var(--muted);font-weight:600}
+form.add .full{grid-column:1/-1}
+form.add input,form.add select,form.add textarea{border:1px solid var(--line);background:var(--panel);color:var(--ink);border-radius:6px;padding:6px 8px;font:400 .9rem var(--f-body);min-width:0;width:100%}
+.plist{display:grid;gap:8px}
+.pend{display:grid;grid-template-columns:4px minmax(0,1fr);gap:0 12px;background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:10px 12px 10px 0}
+.pend .stripe{border-radius:8px 0 0 8px}
+.pend.alta .stripe{background:var(--nc)} .pend.media .stripe{background:var(--warn)} .pend.baja .stripe{background:var(--na)}
+.pend.res{opacity:.75} .pend.res .stripe{background:var(--ok)}
+.pend .pb{display:grid;gap:4px;min-width:0}
+.pend .pm{display:flex;flex-wrap:wrap;gap:4px 10px;font-size:.75rem;color:var(--muted);align-items:center}
+.pend p{margin:0;font-size:.94rem}
+.pend .acc{font-size:.84rem;color:var(--muted)}
+.pill{font:700 .68rem var(--f-mono);padding:1px 6px;border-radius:4px;background:var(--soft);color:var(--muted);text-transform:uppercase}
+.pill.alta{background:var(--nc-soft);color:var(--nc)} .pill.media{background:var(--warn-soft);color:var(--warn)} .pill.ok{background:var(--ok-soft);color:var(--ok)}
+.diary{display:grid;border-left:2px solid var(--line);margin-left:6px}
+.entry{position:relative;padding:4px 0 14px 18px;display:grid;gap:2px}
+.entry::before{content:"";position:absolute;left:-7px;top:9px;width:12px;height:12px;border-radius:50%;background:var(--panel);border:2px solid var(--accent)}
+.entry.Incidencia::before{border-color:var(--nc)} .entry.Certificación::before{background:var(--accent)}
+.entry .d{font:500 .74rem var(--f-mono);color:var(--muted);display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.entry p{margin:0;font-size:.94rem}
+dl.kv{display:grid;grid-template-columns:minmax(0,190px) minmax(0,1fr);gap:5px 14px;margin:0;font-size:.9rem}
+dl.kv dt{color:var(--muted)} dl.kv dd{margin:0;overflow-wrap:anywhere}
+.empty{color:var(--muted);padding:12px 0}
+.toast{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(16px + env(safe-area-inset-bottom,0px));background:var(--ink);color:var(--panel);padding:10px 16px;border-radius:8px;font:600 .9rem var(--f-body);z-index:20;max-width:calc(100% - 32px)}
+@media (max-width:820px){
+  header.top{position:static}
+  .titlerow .meta{display:none}
+  .cl{grid-template-columns:minmax(0,1fr)}
+  nav.toc{position:static;max-height:none;display:flex;overflow-x:auto;gap:6px;padding-bottom:4px}
+  nav.toc a{grid-template-columns:auto auto;white-space:nowrap;border:1px solid var(--line)}
+  nav.toc a .t{display:none}
+  .part table{min-width:0}
+  .part thead{display:none}
+  .part tr.it{display:grid;grid-template-columns:1fr 1fr;gap:4px 12px;padding:10px 4px;border-bottom:1px solid var(--line)}
+  .part tr.it td{border:none;padding:0;display:flex;justify-content:space-between;gap:8px;text-align:right;font-size:.85rem;min-width:0}
+  .part tr.it td[data-l]::before{content:attr(data-l);color:var(--muted);font-size:.76rem;text-align:left}
+  .part tr.it td.desc{grid-column:1/-1;display:block;text-align:left;max-width:none;min-width:0}
+  .part tr.grp,.part tr.tot{display:flex;flex-wrap:wrap;justify-content:space-between}
+  .part tr.grp td,.part tr.tot td{border:0}
+  .part tr.grp td:empty{display:none}
+  .months th:nth-child(5),.months td:nth-child(5){display:none}
+  form.add{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+  form.add input,form.add select,form.add textarea,input[type=search],.note textarea{font-size:16px}
+  dl.kv{grid-template-columns:minmax(0,1fr)} dl.kv dd{margin-bottom:6px}
+  .st button{width:42px;height:36px}
+}
+/* Mediciones editables */
+.medbar{grid-template-columns:repeat(4,minmax(0,1fr))}
+.medbar .bar2{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.mtot{display:flex;flex-wrap:wrap;gap:4px 18px;font-size:.88rem;font-variant-numeric:tabular-nums}
+.mtot b{font-weight:700}
+.part input.mq{width:110px;text-align:right;border:1px solid var(--accent);background:var(--accent-soft);color:var(--ink);border-radius:6px;padding:5px 7px;font:600 .9rem var(--f-body);font-variant-numeric:tabular-nums}
+.part input.mq.over{border-color:var(--nc);background:var(--nc-soft)}
+@media (max-width:820px){.medbar{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}.part input.mq{width:92px;font-size:16px}}
+/* Cronograma */
+.cr-cmp{display:grid;grid-template-columns:62px 1fr 48px;gap:6px;align-items:center;font-size:.75rem;color:var(--muted)}
+.cr-cmp .tr{height:6px;background:var(--soft);border-radius:3px;overflow:hidden}.cr-cmp .tr i{display:block;height:100%}
+.cr-cmp span:last-child{text-align:right;font-family:var(--f-mono);color:var(--ink)}
+.cr-scroll{overflow-x:auto;border:1px solid var(--line);border-radius:6px}
+.cr-gantt{position:relative;font-size:.8rem}
+.cr-row{display:grid;grid-template-columns:var(--lab) var(--tl);border-bottom:1px solid var(--soft);min-height:42px}
+.cr-lab{position:sticky;left:0;z-index:3;background:var(--panel);border-right:1px solid var(--line);padding:5px 9px;display:grid;gap:1px;align-content:center}
+.cr-lab small{font:400 .68rem var(--f-mono);color:var(--muted)}
+.cr-tl{position:relative}
+.cr-head{min-height:0}.cr-head .cr-lab{font:500 .68rem var(--f-mono);text-transform:uppercase;color:var(--muted)}
+.cr-months{position:relative;height:24px}
+.cr-months div{position:absolute;top:0;height:100%;border-left:1px solid var(--line);padding-left:5px;white-space:nowrap;font:600 .85rem var(--f-display);line-height:24px}
+.cr-grp,.cr-grp .cr-lab{background:var(--soft);min-height:28px}
+.cr-grp b{font-family:var(--f-display);font-weight:600;text-transform:uppercase;letter-spacing:.04em}
+.cr-bar{position:absolute;top:8px;height:12px;border-radius:3px;border:1px solid}
+.cr-bar.civil{background:#efe1c9;border-color:#a8742c}.cr-bar.mt{background:var(--accent-soft);border-color:var(--accent)}.cr-bar.sys{background:#e1e6ec;border-color:#6b7a8a}
+.cr-bar.nopay{background:repeating-linear-gradient(135deg,var(--accent-soft) 0 5px,transparent 5px 9px);border-style:dashed}
+.cr-prog{position:absolute;top:24px;height:7px;border-radius:2px;background:var(--soft);overflow:hidden}
+.cr-prog i{position:absolute;left:0;top:0;bottom:0;background:var(--ink)}
+.cr-prog b{position:absolute;left:0;top:0;bottom:0;border-right:2px solid var(--nc)}
+.cr-blab{position:absolute;top:20px;font:400 .66rem var(--f-mono);color:var(--muted);white-space:nowrap;padding-left:5px}
+.cr-v{position:absolute;top:0;bottom:0;width:0;pointer-events:none;z-index:2}
+.cr-v b{position:absolute;top:3px;font:500 .62rem var(--f-mono);white-space:nowrap;background:var(--panel);padding:0 3px}
+.cr-v.hoy{border-left:2px solid var(--nc)}.cr-v.hoy b{left:4px;color:var(--nc)}
+.cr-v.cut{border-left:1px dashed var(--muted)}.cr-v.cut b{right:4px;color:var(--muted)}
+.cr-v.end{border-left:2px solid var(--ink)}
+.chip{display:inline-block;font:600 .7rem var(--f-body);padding:1px 7px;border-radius:9px;white-space:nowrap}
+.chip.ok{background:var(--ok-soft);color:var(--ok)}.chip.bad{background:var(--nc-soft);color:var(--nc)}.chip.warn{background:var(--warn-soft);color:var(--warn)}.chip.idle{background:var(--soft);color:var(--muted)}.chip.done{background:var(--ink);color:var(--panel)}
+td.pos{color:var(--ok)} td.neg{color:var(--nc)}
+ul.cr-notes{margin:0;padding-left:18px;display:grid;gap:8px;font-size:.9rem}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .cr-bar.civil{background:#43341f;border-color:#d9a65a}:root:not([data-theme="light"]) .cr-bar.sys{background:#27322d;border-color:#9db2a7}}
+:root[data-theme="dark"] .cr-bar.civil{background:#43341f;border-color:#d9a65a}:root[data-theme="dark"] .cr-bar.sys{background:#27322d;border-color:#9db2a7}
+/* Informes */
+.ilist{display:grid;gap:8px}
+.irow{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:4px 12px;align-items:center;background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:10px 12px;cursor:pointer;text-align:left;font:inherit;color:inherit;width:100%}
+.irow:hover{border-color:var(--accent)}
+.irow .no{font:700 .95rem var(--f-mono);color:var(--accent)}
+.irow .it{display:grid;gap:1px;min-width:0}
+.irow .it b{font-weight:600;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.irow .it span{font-size:.78rem;color:var(--muted)}
+.irow .ph{font:500 .78rem var(--f-mono);color:var(--muted);white-space:nowrap}
+.ied{display:grid;gap:12px}
+.ied .bar2{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.ied .bar2 .sp{flex:1}
+.ied textarea{min-height:180px;resize:vertical;line-height:1.45}
+.ied .chk{display:flex;gap:6px;align-items:center;font-size:.85rem;color:var(--ink);font-weight:400}
+.ied .chk input{width:auto}
+.ckrow{display:flex;flex-wrap:wrap;gap:6px 12px;align-items:center}
+.ckrow select{width:auto!important}
+.phgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:10px}
+.phc{display:grid;gap:6px;background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:6px;min-width:0}
+.phc img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:5px;background:var(--soft);display:block}
+.phc input{border:1px solid var(--line);background:var(--panel);color:var(--ink);border-radius:6px;padding:5px 7px;font:400 .85rem var(--f-body);width:100%;min-width:0}
+.phc .pa{display:flex;gap:4px;justify-content:space-between}
+.addph{display:grid;place-items:center;gap:4px;border:2px dashed var(--line);border-radius:8px;min-height:150px;color:var(--accent);font:600 .9rem var(--f-body);cursor:pointer;text-align:center;padding:10px}
+.addph:hover{border-color:var(--accent)}
+.addph input{position:absolute;width:1px;height:1px;opacity:0}
+.addph small{color:var(--muted);font-weight:400}
+.pill.emitido{background:var(--ok-soft);color:var(--ok)}
+@media (max-width:760px){.phgrid{grid-template-columns:repeat(2,minmax(0,1fr))}.ied input,.ied select,.ied textarea,.phc input{font-size:16px}}
+@media (prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}
+</style>
+
+<header class="top" id="hdr">
+  <div class="wrap">
+    <div class="titlerow">
+      <h1>Control de Obra · Instalaciones MT ZOI Cercado Manso</h1>
+      <div class="meta" id="meta">Cargando ficha…</div>
+    </div>
+    <div class="stats" id="stats"></div>
+    <nav class="tabs" aria-label="Secciones">
+      <a href="#resumen" data-v="resumen">Resumen</a>
+      <a href="#checklist" data-v="checklist">Checklist<span class="c" id="tc-check"></span></a>
+      <a href="#partidas" data-v="partidas">Partidas</a>
+      <a href="#cronograma" data-v="cronograma">Cronograma</a>
+      <a href="#pendientes" data-v="pendientes">Pendientes y diario<span class="c" id="tc-pend"></span></a>
+      <a href="#informes" data-v="informes">Informes<span class="c" id="tc-inf"></span></a>
+      <a href="#ficha" data-v="ficha">Ficha</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="view" id="v-resumen">
+    <div class="kpis" id="kpis"><div class="kpi"><span class="kk">Plazo consumido</span><span class="v">–</span></div></div>
+    <div class="cols">
+      <div class="card">
+        <div class="shead"><h2>Curva de certificación</h2><div class="legend"><span><i class="sw plan"></i>Previsto (cronograma)</span><span><i class="sw real"></i>Certificado</span></div></div>
+        <div class="chart" id="chart"><p class="hint">Cargando…</p></div>
+        <p class="hint">PEM acumulado a fin de cada mes. Previsto según el cronograma de la dirección de obra.</p>
+      </div>
+      <div class="card">
+        <div class="shead"><h2>Por meses</h2></div>
+        <div class="tbl"><table class="months" id="months"><tbody><tr><td class="hint">Cargando…</td></tr></tbody></table></div>
+        <p class="foot">Líquido = PEM × 1,19 × coef. adjudicación × 1,07 (IGIC).</p>
+      </div>
+    </div>
+    <div class="links" id="links"></div>
+  </section>
+
+  <section class="view" id="v-checklist" hidden>
+    <div class="tools">
+      <div class="seg" role="group" aria-label="Filtrar por estado" id="fstate">
+        <button type="button" data-f="all" aria-pressed="true">Todo</button><button type="button" data-f="pend" aria-pressed="false">Pendiente</button><button type="button" data-f="nc" aria-pressed="false">No conforme</button><button type="button" data-f="ok" aria-pressed="false">Conforme</button>
+      </div>
+      <div class="seg" role="group" aria-label="Filtrar por tipo" id="ftype">
+        <button type="button" data-t="all" aria-pressed="true">Todos</button><button type="button" data-t="D" aria-pressed="false">Documento</button><button type="button" data-t="I" aria-pressed="false">Inspección</button><button type="button" data-t="E" aria-pressed="false">Ensayo</button><button type="button" data-t="T" aria-pressed="false">Tolerancia</button><button type="button" data-t="S" aria-pressed="false">Seguridad</button>
+      </div>
+      <input type="search" id="q" placeholder="Buscar partida, norma o texto…" aria-label="Buscar en la checklist">
+      <span class="save" id="save">Conectando…</span>
+    </div>
+    <p class="clegend"><span><b>OK</b> conforme</span><span><b>NC</b> no conforme (anota causa y medida correctora)</span><span><b>NA</b> no aplica</span><span>Pulsa de nuevo para volver a pendiente.</span></p>
+    <div class="cl"><nav class="toc" id="toc" aria-label="Capítulos de la checklist"></nav><div id="clist"></div></div>
+  </section>
+
+  <section class="view" id="v-partidas" hidden>
+    <div class="shead"><h2>Avance por partidas</h2><div class="seg" role="group" aria-label="Filtro de partidas" id="pf"><button type="button" data-f="avance" aria-pressed="true">Con avance</button><button type="button" data-f="todas" aria-pressed="false">Todas</button><button type="button" data-f="pend" aria-pressed="false">Sin empezar</button></div><button type="button" class="btn primary" id="m-edit" hidden>Actualizar mediciones</button></div>
+    <form class="add card medbar" id="medbar" hidden onsubmit="return false">
+      <label for="m-cert">Certificación<select id="m-cert"></select></label>
+      <label for="m-mes">Mes<input id="m-mes" type="month" required></label>
+      <label for="m-fecha">Fecha<input id="m-fecha" type="date"></label>
+      <label for="m-estado">Estado<select id="m-estado"><option>Borrador</option><option>Firmada</option></select></label>
+      <div class="full mtot" id="m-tot"></div>
+      <div class="full bar2"><button type="button" class="btn primary" id="m-save">Guardar mediciones</button><button type="button" class="btn" id="m-cancel">Cancelar</button><span class="hint">Escribe la medición <b>a origen</b> de cada partida. Admite «1500», «1.500» o «1.500,5».</span></div>
+    </form>
+    <p class="hint" id="stale"></p>
+    <div class="tbl part"><table id="avance"><tbody><tr><td class="hint">Cargando partidas…</td></tr></tbody></table></div>
+  </section>
+
+  <section class="view" id="v-cronograma" hidden>
+    <div class="shead"><h2>Previsto, ejecutado y pendiente</h2><span class="hint">Cronograma de la dirección de obra (19/10/2026)</span></div>
+    <p class="hint" id="cr-note"></p>
+    <div class="kpis" id="cr-kpis"></div>
+    <div class="card">
+      <div class="shead"><h2>Actividades: plazo previsto y avance real</h2><div class="legend"><span><i class="sw" style="border-color:#a8742c;border-top-width:6px"></i>Obra civil</span><span><i class="sw real" style="border-top-width:6px"></i>Instalación MT</span><span><i class="sw" style="border-color:#6b7a8a;border-top-width:6px"></i>Seguridad y salud</span><span><i class="sw" style="border-color:var(--ink);border-top-width:5px"></i>Ejecutado</span><span><i class="sw" style="border-color:var(--nc)"></i>Previsto al corte</span></div></div>
+      <div class="cr-scroll"><div class="cr-gantt" id="cr-gantt"></div></div>
+      <p class="foot">Barra superior: fechas del cronograma. Barra inferior: avance en importe de la actividad; marca roja, lo previsto a la fecha de corte.</p>
+    </div>
+    <div class="card"><div class="shead"><h2>Detalle por actividad (PEM)</h2></div><div class="tbl part"><table id="cr-det"></table></div>
+      <p class="foot">Previsto: importe de la actividad repartido por días laborables entre sus fechas (festivos 12/10, 8/12, 25/12, 1/1 y 6/1). Desfase = desviación ÷ ritmo diario previsto; positivo, adelantada.</p></div>
+    <div class="cols eq">
+      <div class="card"><div class="shead"><h2>Certificación por meses</h2></div><div class="tbl"><table class="months" id="cr-mes"></table></div><p class="foot">Pendiente: lo que queda de cada actividad repartido por días laborables desde el corte (o su inicio) hasta su fin previsto.</p></div>
+      <div class="card"><div class="shead"><h2>Lectura de los datos</h2></div><ul class="cr-notes" id="cr-notes"></ul></div>
+    </div>
+  </section>
+
+  <section class="view" id="v-pendientes" hidden>
+    <div class="cols eq">
+      <div style="display:grid;gap:10px;min-width:0">
+        <div class="shead"><h2>Pendientes</h2><span class="hint" id="pcount"></span></div>
+        <div class="seg" role="group" aria-label="Filtro de pendientes" id="pendf"><button type="button" data-f="Abierto" aria-pressed="true">Abiertos</button><button type="button" data-f="Resuelto" aria-pressed="false">Resueltos</button><button type="button" data-f="" aria-pressed="false">Todos</button></div>
+        <div class="plist" id="plist"><div class="empty">Cargando pendientes…</div></div>
+        <form class="add card" id="padd" hidden>
+          <label class="full" for="pa-t">Nuevo pendiente<input id="pa-t" required placeholder="Qué falta o qué hay que resolver"></label>
+          <label for="pa-o">Origen<input id="pa-o" placeholder="Documento, visita…"></label>
+          <label for="pa-p">Prioridad<select id="pa-p"><option>Alta</option><option selected>Media</option><option>Baja</option></select></label>
+          <button class="btn primary" type="submit">Añadir</button>
+        </form>
+      </div>
+      <div style="display:grid;gap:10px;min-width:0;align-content:start">
+        <div class="shead"><h2>Diario de obra</h2><span class="hint">Visitas, órdenes, incidencias e hitos</span></div>
+        <form class="add card" id="dadd" hidden>
+          <label for="da-f">Fecha<input id="da-f" type="date" required></label>
+          <label for="da-t">Tipo<select id="da-t"><option>Visita</option><option>Orden</option><option>Incidencia</option><option>Acta</option><option>Hito</option><option>Nota</option></select></label>
+          <button class="btn primary" type="submit">Anotar</button>
+          <label class="full" for="da-x">Anotación<textarea id="da-x" rows="2" required placeholder="Qué se ha visto, ordenado o acordado"></textarea></label>
+        </form>
+        <div class="diary" id="diary"><div class="empty">Cargando diario…</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="view" id="v-informes" hidden>
+    <div id="i-list-v" style="display:grid;gap:10px;min-width:0">
+      <div class="shead"><h2>Informes de obra</h2><button type="button" class="btn primary" id="i-new" hidden>Nuevo informe</button></div>
+      <p class="hint">Informes de visita, mensuales o de incidencia, con fotos. Cada informe se descarga en PDF con la carátula de la obra.</p>
+      <div class="ilist" id="ilist"><div class="empty">Cargando informes…</div></div>
+    </div>
+    <div id="i-ed-v" class="ied" hidden>
+      <div class="bar2"><button type="button" class="btn" id="i-back">← Informes</button><span class="sp"></span><span class="save" id="i-save"></span></div>
+      <form class="add card" id="ied" onsubmit="return false">
+        <label for="i-num">Nº<input id="i-num" type="number" min="1" step="1" required></label>
+        <label for="i-fecha">Fecha<input id="i-fecha" type="date" required></label>
+        <label for="i-tipo">Tipo<select id="i-tipo"><option>Informe de visita</option><option>Informe mensual</option><option>Informe de incidencia</option><option>Informe de seguridad y salud</option><option>Informe técnico</option></select></label>
+        <label class="full" for="i-asunto">Asunto<input id="i-asunto" required placeholder="Visita de obra: canalización en vía de tierra, tramo CT 1"></label>
+        <label for="i-autor">Redacta<input id="i-autor"></label>
+        <label for="i-asis">Asistentes<input id="i-asis" placeholder="Jefe de obra, coordinador SyS…"></label>
+        <label for="i-estado">Estado<select id="i-estado"><option value="borrador">Borrador</option><option value="emitido">Emitido</option></select></label>
+        <label class="full" for="i-texto">Contenido<textarea id="i-texto" placeholder="Trabajos en curso, comprobaciones realizadas, órdenes dadas, observaciones…"></textarea></label>
+        <div class="full" style="display:flex;flex-wrap:wrap;gap:6px 18px">
+          <label class="chk"><input type="checkbox" id="i-incav"> Incluir estado de la obra (plazo y certificado)</label>
+          <label class="chk"><input type="checkbox" id="i-incpe"> Incluir pendientes abiertos</label>
+          <label class="chk"><input type="checkbox" id="i-incnc"> Incluir no conformidades abiertas de la checklist</label>
+          <label class="chk"><input type="checkbox" id="i-inccr"> Incluir comparativo con el cronograma</label>
+        </div>
+        <div class="full ckrow">
+          <label class="chk"><input type="checkbox" id="i-inccert"> Incluir explicación de la certificación</label>
+          <select id="i-cert" aria-label="Certificación que se explica"></select>
+        </div>
+        <div class="full ckrow">
+          <label class="chk"><input type="checkbox" id="i-incck"> Incluir puntos de la checklist comprobados</label>
+          <select id="i-ckscope" aria-label="Qué puntos de la checklist incluir"><option value="desde">desde el informe anterior</option><option value="dia">en la fecha del informe</option><option value="todos">todos los comprobados</option></select>
+          <span class="hint" id="i-ckn"></span>
+        </div>
+      </form>
+      <div class="card">
+        <div class="shead"><h2>Fotos</h2><span class="hint" id="i-phn"></span></div>
+        <div class="phgrid" id="phgrid"></div>
+        <p class="hint" id="i-phhint"></p>
+      </div>
+      <div class="bar2">
+        <button type="button" class="btn primary" id="i-guardar">Guardar</button>
+        <button type="button" class="btn" id="i-pdf">Descargar PDF</button>
+        <span class="sp"></span>
+        <button type="button" class="btn" id="i-del">Eliminar informe</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="view" id="v-ficha" hidden>
+    <div class="cols eq" id="ficha"><div class="empty">Cargando ficha…</div></div>
+    <p class="foot" id="foot"></p>
+  </section>
+</main>
+<div class="toast" id="toast" hidden></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.8.2/jspdf.plugin.autotable.min.js"></script>
+<script>
+(function(){
+/* Checklist. Tipos: D documento · R recepción de material · I inspección · T tolerancia · E ensayo/prueba · S seguridad */
+const TYPES={D:"Documento",R:"Recepción",I:"Inspección",T:"Tolerancia",E:"Ensayo",S:"Seguridad"};
+const CAPS=[
+{id:"c00",n:"0",t:"Inicio de obra y tramitación",items:[
+ ["D","Acta de comprobación de replanteo firmada y Libro de Órdenes abierto","LCSP art. 237"],
+ ["D","Plan de Seguridad y Salud aprobado (Res. 2026/9445) y comunicación de apertura del centro de trabajo","RD 1627/1997"],
+ ["D","Plan de gestión de residuos del contratista aprobado","RD 105/2008"],
+ ["D","Programa de trabajo del contratista entregado y coherente con el fin el 18/02/2027","PCAP"],
+ ["D","Subcontrata de obra civil (Carlos Candelario SLU) anotada en el Libro de Subcontratación","Ley 32/2006"],
+ ["D","Condicionado de e-distribución (ref. 0000491807) en obra; códigos CT nº1 4296 y CT nº2 4297","Exp. MT202200234"],
+ ["D","Subsanado el requerimiento de la DG Energía de 27/01/2023 y autorización administrativa AT","RD 1955/2000"],
+ ["D","Permisos y servidumbres del Ayuntamiento de Puntallana","Requerimiento DG Energía"],
+ ["D","Autorización del Consejo Insular de Aguas para el cruce del Barranco Los Rodeos-Oropesa","Ley 12/1990"],
+ ["I","Cartel de obra FDCAN colocado y visible","Financiación FDCAN"],
+ ["I","Replanteo del trazado e identificación de canalizaciones existentes antes de excavar","1.1.30"]
+]},
+{id:"c01",n:"1.1",t:"Obra civil · canalización",pem:"215.439,58",items:[
+ ["I","Corte de pavimento recto y limpio en asfalto (1.252 m) y rodadera de hormigón (940 m)","1.1.1 / 1.1.2"],
+ ["I","Demolición y fresado de pavimentos con carga a camión; sin daños fuera del ancho de zanja","1.1.3 a 1.1.5"],
+ ["T","Zanja de 0,50 m de ancho; profundidad 1,20 m en tierra, 1,15 m en asfalto y 1,05 m en rodadera","1.1.8 mediciones"],
+ ["I","Fondo de zanja refinado y compactado al 90 % PM con pisón vibrante","1.1.13"],
+ ["R","Tubos de PE doble pared Ø200 mm, resistencia > 450 N, y tetratubo 4×40 mm verde con marcado","1.2.1 / UNE-EN 61386-24"],
+ ["I","Solera HNE-15 de 5 cm bajo tubos; dos tubos Ø200 + tetratubo; hilo guía en cada tubo","1.2.1"],
+ ["I","Hormigonado HM-20 hasta 10 cm sobre la generatriz superior del tubo","1.1.14"],
+ ["E","Consistencia y probetas del hormigón por lote","1.1.33 / Código Estructural"],
+ ["I","Relleno con tierra seleccionada en tongadas ≤ 25 cm al 90 % PM y cinta de señalización","1.1.12"],
+ ["E","Densidad y humedad in situ del relleno de zanja","1.1.12"],
+ ["I","Cruzamientos y paralelismos con agua, saneamiento y telecomunicaciones a las distancias reglamentarias","ITC-LAT 06 §5"],
+ ["I","Arquetas AR-1 (10) y AR-2 (14) y pozos de registro Ø1,50 m (7) con tapa y marco D-400","1.1.27 a 1.1.29 / UNE-EN 124"],
+ ["I","Canalización mandrilada y limpia antes del tendido","1.2.1"],
+ ["I","Reposición de rodaderas HM-15 de 15 cm y de aglomerado AC22 surf de 6 cm con riego de adherencia","1.1.23 a 1.1.25"],
+ ["E","Ensayos de calidad del aglomerado","1.1.32"],
+ ["I","Reposición de servidumbres y servicios afectados documentada","1.1.31"],
+ ["D","Albaranes de tierras y RCD a gestor autorizado","1.1.18 / 1.1.19"]
+]},
+{id:"c02",n:"1.1",t:"Obra civil · centros de transformación",items:[
+ ["I","Desmonte y terraplenado de la parcela del CT PFU-4; explanación a cota","1.1.9 / 1.1.10"],
+ ["I","Base de arena nivelada de 10 cm para PFU-4 y PFU-7","1.1.16"],
+ ["I","Losa HA-30 de 15 cm con malla ME 20×20 Ø8 doble","1.1.20 / 1.1.21"],
+ ["T","Nivelación de la losa para el asiento del prefabricado según fabricante","1.1.20"],
+ ["I","Muro ciclópeo, base de acera y solado de losetas perimetral; huecos de entrada de cables sellados","1.1.22 / 1.1.26"],
+ ["I","Relleno de trasdós de pozos, arquetas y CT compactado al 95 % PM","1.1.17"]
+]},
+{id:"c03",n:"1.2",t:"Línea subterránea de 20 kV",pem:"177.565,26",items:[
+ ["R","Cable RH5Z1 12/20 kV 1×150 mm² Al con marcado, bobinas y certificado del fabricante","1.2.1 / normas e-distribución"],
+ ["I","Tendido con rodillos y tracción controlada; radio de curvatura y cubierta sin daños","ITC-LAT 06"],
+ ["I","Identificación de fases y de cada circuito en arquetas y pozos","1.2.1"],
+ ["I","Empalmes contráctiles en frío (4 juegos) por personal acreditado","1.2.10"],
+ ["I","Bornas atornillables K-400 (18) y terminaciones enchufables","1.2.9 / 1.2.6"],
+ ["E","Megado del cable y ensayo de cubierta tras el tendido","1.2.15"],
+ ["E","Ensayo de tensión del cable con informe","1.2.15 / ITC-LAT 05"],
+ ["D","Planos de trazado real georreferenciado con profundidades","Cesión a e-distribución"]
+]},
+{id:"c04",n:"1.2",t:"Centros de transformación",pem:"339.375,87",note:"CT y aparamenta suman el 37 % del PEM. El pedido debería estar cerrado en octubre para recibirlos en diciembre.",items:[
+ ["D","Pedido de CT prefabricados y aparamenta confirmado, con plazo de fabricación","Cronograma DO"],
+ ["R","CT prefabricados PFU-4 y PFU-7 con certificado de ensayos y homologación de e-distribución","1.2.2 / 1.2.3"],
+ ["I","Transporte, descarga y asentamiento del prefabricado; nivelado y sin daños","1.2.2 / 1.2.3"],
+ ["R","Celdas Ormazabal normalizadas por Endesa con protocolos de ensayo de fábrica","1.2.4 / 1.2.5"],
+ ["I","Puentes MT 1×95 mm² Al y puentes BT 1×240 mm² Al; protección mecánica del transformador","1.2.6 a 1.2.8"],
+ ["I","Tierras de protección y de servicio separadas según proyecto","1.2.11 / ITC-RAT 13"],
+ ["E","Resistencia de tierras y tensiones de paso y contacto medidas","ITC-RAT 13"],
+ ["I","Cuadro de servicios auxiliares, alumbrado interior y de emergencia","1.2.13 / 1.2.14"],
+ ["I","Equipo de seguridad y maniobra: banqueta, guantes, pértiga y extintor 89B","1.2.12"],
+ ["I","Señalización de riesgo eléctrico, primeros auxilios y cinco reglas de oro","ITC-RAT 14"]
+]},
+{id:"c05",n:"1.2",t:"Puesta en servicio",items:[
+ ["E","Inspección inicial por organismo de control con acta favorable","1.2.15 / RD 337/2014"],
+ ["D","Certificados de instalación y documentación para la cesión a e-distribución","RD 223/2008 / RD 337/2014"],
+ ["D","Trabajos y supervisión de e-distribución (solicitud 0001016057) justificados","1.2.16 P.A."],
+ ["D","Autorización de puesta en servicio de la DG Energía","RD 1955/2000"],
+ ["D","Planos as built, manuales y garantías entregados","PCAP"],
+ ["D","Acta de recepción e inicio del plazo de garantía","LCSP art. 243"]
+]},
+{id:"c06",n:"3",t:"Seguridad y salud",items:[
+ ["S","Coordinador de SyS (Proyecpal) en obra y Libro de Incidencias disponible","RD 1627/1997"],
+ ["S","Zanjas delimitadas con vallas peatonales y vallado de 3,50×2,00 m en acopios","3.1.2.1 / 3.1.4.1"],
+ ["S","Balizamiento y señalización provisional de obra en la LP-102 y caminos","3.5.1.1"],
+ ["S","Entibación o talud en zanjas de más de 1,30 m; tierras a distancia del borde","ESS"],
+ ["S","Botiquín en caseta y reconocimientos médicos del personal","3.3.1.1 / 3.3.2.1"],
+ ["S","Trabajos en proximidad de tensión con las cinco reglas de oro y personal cualificado","RD 614/2001"],
+ ["S","Maquinaria con marcado CE, revisiones y operadores formados","RD 1215/1997"]
+]}
+];
+const ALL=[];CAPS.forEach(c=>c.items.forEach((it,k)=>ALL.push({id:c.id+"-"+(k+1),cap:c.id,ty:it[0],tx:it[1],ref:it[2]||""})));
+const BYID={};ALL.forEach(i=>BYID[i.id]=i);
+
+const $=s=>document.querySelector(s);
+const R2=x=>Math.round((Number(x)+Number.EPSILON)*100)/100;
+const eur=(n,d=2)=>(n==null||isNaN(n))?'—':Number(n).toLocaleString('es-ES',{minimumFractionDigits:d,maximumFractionDigits:d})+' €';
+const num=(n,d=3)=>(n==null||n===''||isNaN(n))?'—':Number(n).toLocaleString('es-ES',{maximumFractionDigits:d});
+const pct=(n,d=1)=>(n==null||!isFinite(n))?'—':(n*100).toLocaleString('es-ES',{minimumFractionDigits:d,maximumFractionDigits:d})+' %';
+const fd=s=>{const m=/^(\d{4})-(\d{2})-(\d{2})$/.exec(s||'');return m?`${m[3]}/${m[2]}/${m[1]}`:(s||'—')};
+const fdt=t=>{if(!t)return'';const d=new Date(t);return d.toLocaleDateString('es-ES',{day:'2-digit',month:'2-digit',year:'2-digit'})+' '+d.toLocaleTimeString('es-ES',{hour:'2-digit',minute:'2-digit'})};
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const MES=['ene','feb','mar','abr','may','jun','jul','ago','sep','oct','nov','dic'];
+const MESL=['enero','febrero','marzo','abril','mayo','junio','julio','agosto','septiembre','octubre','noviembre','diciembre'];
+const ml=m=>{const [y,mm]=m.split('-').map(Number);return MES[mm-1]+' '+String(y).slice(2)};
+const SUBS={'1.1':'1.1 Obra civil','1.2':'1.2 Instalación de media tensión','3':'3 Seguridad y Salud'};
+const cmpN=(a,b)=>{const x=String(a).split('.').map(Number),y=String(b).split('.').map(Number);for(let i=0;i<Math.max(x.length,y.length);i++){const d=(x[i]||0)-(y[i]||0);if(d)return d}return 0};
+/* Confirmación en dos toques: confirm() no se muestra dentro del visor */
+function twoTap(btn,label,fn){if(btn.dataset.armed){clearTimeout(btn._t);delete btn.dataset.armed;btn.textContent=btn.dataset.lbl;btn.classList.remove('danger');fn();return}
+  btn.dataset.lbl=btn.textContent;btn.dataset.armed='1';btn.textContent=label;btn.classList.add('danger');btn._t=setTimeout(()=>{delete btn.dataset.armed;btn.textContent=btn.dataset.lbl;btn.classList.remove('danger')},4000)}
+function toast(t){const el=$('#toast');el.textContent=t;el.hidden=false;clearTimeout(toast._t);toast._t=setTimeout(()=>el.hidden=true,2600)}
+
+let db=null, canWrite=false;
+let ficha=null, partidas=[], plan=null, certs=[], pend=[], diario=[], checks={};
+let pf='avance', pendF='Abierto'; const F={state:'all',type:'all',q:''}; const openNote=new Set();
+const K=()=>1.19*(ficha?.coef||0.888856534)*1.07;
+const lastCert=()=>certs.length?certs[certs.length-1]:null;
+const today=()=>{const d=new Date();return Date.UTC(d.getFullYear(),d.getMonth(),d.getDate())};
+const D=s=>{const [y,m,d]=s.split('-').map(Number);return Date.UTC(y,m-1,d)};
+
+/* Vistas por pestaña */
+const VIEWS=['resumen','checklist','partidas','cronograma','pendientes','informes','ficha'];
+function route(){
+  const v=VIEWS.includes(location.hash.slice(1))?location.hash.slice(1):'resumen';
+  VIEWS.forEach(x=>{$('#v-'+x).hidden=x!==v});
+  document.querySelectorAll('nav.tabs a').forEach(a=>a.setAttribute('aria-current',a.dataset.v===v?'page':'false'));
+  if(v==='resumen') renderChart();
+  if(v==='cronograma') renderCrono();
+}
+window.addEventListener('hashchange',()=>{route();window.scrollTo(0,0)});
+function setHH(){try{document.documentElement.style.setProperty('--hh',$('#hdr').offsetHeight+'px')}catch(e){}}
+window.addEventListener('resize',()=>{setHH();if(!$('#v-resumen').hidden)renderChart()});
+
+function renderHeader(){
+  if(!ficha)return;
+  $('#meta').innerHTML=`Adjudicación <b>${eur(ficha.adjudicacion)}</b> · PEM <b>${eur(ficha.pemCap1)}</b> · Plazo <b>${fd(ficha.inicio)} – ${fd(ficha.fin)}</b> · ${esc(ficha.contratista||'')}`;
+  $('#links').innerHTML=(ficha.enlaces||[]).map(x=>`<a href="${esc(x.url)}" target="_blank" rel="noopener">${esc(x.texto)}</a>`).join('');
+}
+function renderStats(){
+  const {ok,nc,na,p,tot}=counts(), w=v=>(v/tot*100).toFixed(1)+'%';
+  const origen=certs.reduce((s,c)=>s+(Number(c.total)||0),0), adj=ficha?.adjudicacion||852739.2;
+  let plazo='';
+  if(ficha){const ini=D(ficha.inicio),fin=D(ficha.fin),t=today(),T=Math.round((fin-ini)/864e5),el=Math.max(0,Math.min(T,Math.round((t-ini)/864e5)));plazo=`<span class="k">Plazo <b>&nbsp;${pct(el/T,0)}</b></span>`}
+  $('#stats').innerHTML=`${plazo}<span class="k">Certificado <b>&nbsp;${pct(origen/adj,1)}</b></span><span class="k">Checklist <b>&nbsp;${Math.round((ok+na)/tot*100)} %</b></span>
+  <div class="bar" aria-hidden="true"><i style="width:${w(ok)};background:var(--ok)"></i><i style="width:${w(na)};background:var(--na)"></i><i style="width:${w(nc)};background:var(--nc)"></i></div>
+  <span class="k"><span class="dot" style="background:var(--ok)"></span>${ok} OK</span><span class="k"><span class="dot" style="background:var(--nc)"></span>${nc} NC</span><span class="k"><span class="dot" style="background:var(--line)"></span>${p} pendientes de ${tot}</span>`;
+  $('#tc-check').textContent=nc?`${nc} NC`:'';
+  const ab=pend.filter(x=>x.estado!=='Resuelto').length; $('#tc-pend').textContent=ab?String(ab):'';
+  setHH();
+}
+function renderKpis(){
+  if(!ficha)return;
+  const ini=D(ficha.inicio), fin=D(ficha.fin), t=today();
+  const tot=Math.round((fin-ini)/864e5), el=Math.max(0,Math.min(tot,Math.round((t-ini)/864e5)));
+  const lc=lastCert(); const origen=certs.reduce((s,c)=>s+(Number(c.total)||0),0);
+  const adj=ficha.adjudicacion||852739.2;
+  let h=`<div class="kpi"><span class="kk">Plazo consumido</span><span class="v">${pct(el/tot,0)}</span><div class="meter"><i style="width:${el/tot*100}%"></i></div><span class="n">${el} de ${tot} días · quedan ${tot-el} hasta el ${fd(ficha.fin)}</span></div>`;
+  h+=`<div class="kpi"><span class="kk">Certificado a origen</span><span class="v">${pct(origen/adj,1)}</span><div class="meter"><i style="width:${Math.max(origen/adj*100,0.8)}%"></i></div><span class="n">${eur(origen)} de ${eur(adj)} · ${certs.length} certificación${certs.length===1?'':'es'}</span></div>`;
+  if(plan&&lc){
+    let acc=0,pAcc=null; for(const m of plan.meses){acc+=m.pem;if(m.mes===lc.mes){pAcc=acc;break}}
+    const real=Number(lc.pemOrigen)||0;
+    let pHoy=0; for(const m of plan.meses){const [yy,mm]=m.mes.split('-').map(Number);const a=Date.UTC(yy,mm-1,1),b=Date.UTC(yy,mm,1);if(t>=b)pHoy+=m.pem;else if(t>=a)pHoy+=m.pem*(t-a)/(b-a)}
+    const ratio=pHoy?real/pHoy:null;
+    h+=`<div class="kpi ${ratio!=null&&ratio<0.8?'alert':''}"><span class="kk">Previsto a origen a hoy</span><span class="v">${eur(pHoy,0)}</span><span class="n">PEM según el cronograma. Certificado: ${eur(real,0)} (hasta ${esc((lc.periodo||'').toLowerCase())}), el ${pct(ratio,0)} de lo previsto.</span></div>`;
+    const i=plan.meses.findIndex(m=>m.mes===lc.mes); const nx=plan.meses[i+1];
+    h+= nx?`<div class="kpi"><span class="kk">Próxima certificación prevista</span><span class="v">${eur(nx.pem*K(),0)}</span><span class="n">Nº ${Number(lc.n)+1}, ${MESL[Number(nx.mes.slice(5))-1]} ${nx.mes.slice(0,4)}: ${eur(nx.pem,0)} PEM. A origen debería llegar a ${eur(pAcc+nx.pem,0)}.</span></div>`:'';
+  }
+  $('#kpis').innerHTML=h;
+}
+function renderChart(){
+  if(!plan||$('#v-resumen').hidden)return;
+  const el=$('#chart'); const cw=el.clientWidth||640; const narrow=cw<520;
+  const M=plan.meses; const W=narrow?380:640,H=narrow?280:300,L=narrow?52:70,Rt=14,T=18,B=32;
+  const total=M.reduce((s,m)=>s+m.pem,0); const top=Math.ceil(total/100000)*100000;
+  const x=i=>L+(W-L-Rt)*(i+1)/M.length, x0=L, y=v=>T+(H-T-B)*(1-v/top);
+  let acc=0; const pp=[[x0,y(0)]]; const pv=[];
+  M.forEach((m,i)=>{acc+=m.pem;pp.push([x(i),y(acc)]);pv.push(acc)});
+  const rp=[[x0,y(0)]]; const rv={};
+  for(const c of certs){const i=M.findIndex(m=>m.mes===c.mes);if(i>=0){rp.push([x(i),y(Number(c.pemOrigen)||0)]);rv[i]=Number(c.pemOrigen)||0}}
+  let g='<g class="grid">'; for(let v=0;v<=top;v+=top/4){g+=`<line x1="${L}" x2="${W-Rt}" y1="${y(v)}" y2="${y(v)}"/><text x="${L-6}" y="${y(v)+4}" text-anchor="end">${(v/1000).toLocaleString('es-ES')} k€</text>`} g+='</g>';
+  const xa=M.map((m,i)=>`<text x="${x(i)}" y="${H-10}" text-anchor="middle">${narrow?MES[Number(m.mes.slice(5))-1]:ml(m.mes)}</text>`).join('');
+  const t=today(); let todayX=null;
+  for(let i=0;i<M.length;i++){const [yy,mm]=M[i].mes.split('-').map(Number);const a=Date.UTC(yy,mm-1,1),b=Date.UTC(yy,mm,1);if(t>=a&&t<b){const s0=i===0?x0:x(i-1);todayX=s0+(t-a)/(b-a)*(x(i)-s0)}}
+  const path=a=>a.map((p,i)=>(i?'L':'M')+p[0].toFixed(1)+' '+p[1].toFixed(1)).join(' ');
+  const lastR=rp[rp.length-1];
+  let s=`<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="PEM acumulado previsto frente a certificado">${g}<line class="axis" x1="${L}" x2="${W-Rt}" y1="${y(0)}" y2="${y(0)}"/>${xa}`;
+  if(todayX!=null) s+=`<line x1="${todayX}" x2="${todayX}" y1="${T}" y2="${y(0)}" stroke="var(--nc)" stroke-width="1.5" stroke-dasharray="2 3"/><text x="${todayX+4}" y="${T+8}" style="fill:var(--nc)">hoy</text>`;
+  s+=`<path d="${path(pp)}" fill="none" stroke="var(--plan)" stroke-width="2" stroke-dasharray="6 4"/>`;
+  s+=pp.slice(1).map(p=>`<circle cx="${p[0]}" cy="${p[1]}" r="3.5" fill="var(--panel)" stroke="var(--plan)" stroke-width="2"/>`).join('');
+  s+=`<path d="${path(rp)}" fill="none" stroke="var(--real)" stroke-width="3"/>`;
+  s+=rp.slice(1).map(p=>`<circle cx="${p[0]}" cy="${p[1]}" r="5" fill="var(--real)" stroke="var(--panel)" stroke-width="2"/>`).join('');
+  const lp=pp[pp.length-1]; s+=`<text class="lbl" x="${lp[0]-4}" y="${lp[1]-10}" text-anchor="end">Previsto ${eur(total,0)}</text>`;
+  if(rp.length>1){const k=Object.keys(rv).pop();s+=`<text class="lbl" x="${lastR[0]+8}" y="${lastR[1]-24}">Certificado ${eur(rv[k],0)}</text>`}
+  s+=M.map((m,i)=>{const s0=i===0?x0:x(i-1);return `<rect data-i="${i}" x="${s0+(x(i)-s0)/2}" y="${T}" width="${(W-L-Rt)/M.length}" height="${H-T-B}" fill="transparent"/>`}).join('');
+  s+='</svg><div class="tip" id="tip" hidden></div>';
+  el.innerHTML=s;
+  const tip=$('#tip'), svg=el.querySelector('svg');
+  el.querySelectorAll('rect[data-i]').forEach(r=>{
+    const show=()=>{const i=+r.dataset.i;const sc=svg.getBoundingClientRect().width/W;tip.hidden=false;tip.style.left=Math.min(Math.max(x(i)*sc,70),svg.getBoundingClientRect().width-70)+'px';tip.style.top=(Math.min(y(pv[i]),rv[i]!=null?y(rv[i]):1e9)*sc)+'px';
+      tip.innerHTML=`<b>${ml(M[i].mes)}</b><br>Previsto a origen: ${eur(pv[i],0)}${rv[i]!=null?`<br>Certificado a origen: ${eur(rv[i],0)}`:''}`};
+    r.addEventListener('pointerenter',show); r.addEventListener('pointerdown',show); r.addEventListener('pointerleave',()=>tip.hidden=true);
+  });
+}
+function renderMonths(){
+  if(!plan)return;
+  const byMes={}; for(const c of certs) byMes[c.mes]=c;
+  let acc=0,prevReal=0,h='<thead><tr><th>Mes</th><th class="n">PEM previsto</th><th class="n">PEM certificado</th><th class="n">Líquido</th><th class="n">% previsto</th></tr></thead><tbody>';
+  const total=plan.meses.reduce((s,m)=>s+m.pem,0);
+  for(const m of plan.meses){
+    acc+=m.pem; const c=byMes[m.mes]; let real=null;
+    if(c){real=(Number(c.pemOrigen)||0)-prevReal;prevReal=Number(c.pemOrigen)||0}
+    h+=`<tr class="${c?'real':''}"><td>${ml(m.mes)}${c?` · nº ${esc(c.n)}`:''}</td><td class="n">${eur(m.pem,0)}</td><td class="n">${real==null?'—':eur(real)}</td><td class="n">${c?eur(c.total):'—'}</td><td class="n">${pct(acc/total,1)}</td></tr>`;
+  }
+  h+=`<tr class="tot"><td>Total</td><td class="n">${eur(total,0)}</td><td class="n">${eur(prevReal)}</td><td class="n">${eur(certs.reduce((s,c)=>s+(Number(c.total)||0),0))}</td><td></td></tr></tbody>`;
+  $('#months').innerHTML=h;
+}
+function renderAvance(){
+  if(!partidas.length)return;
+  const lc=medEd||lastCert(); const q={}; if(medEd) Object.assign(q,medEd.q); else if(lc) for(const l of lc.lineas||[]) q[l.n]=Number(l.origen)||0;
+  const rows=partidas.map(p=>{const o=q[p.n]||0;const io=R2(o*p.precio);const imp=p.imp??R2((p.med||0)*p.precio);return {p,o,io,imp,pc:p.med?o/p.med:null}});
+  const show=rows.filter(r=>pf==='todas'||(pf==='avance'?r.o:!r.o));
+  let h='<thead><tr><th>Partida</th><th class="n">Ud</th><th class="n">Medición proyecto</th><th class="n">Ejecutado</th><th class="n">Avance</th><th class="n">Importe proyecto</th><th class="n">Importe ejecutado</th></tr></thead><tbody>';
+  for(const sub of [...new Set(rows.map(r=>r.p.sub))]){
+    const g=rows.filter(x=>x.p.sub===sub);const gp=g.reduce((s,x)=>s+(x.imp||0),0),ge=g.reduce((s,x)=>s+x.io,0);
+    h+=`<tr class="grp"><td colspan="4">${esc(SUBS[sub]||sub)}</td><td class="n">${gp?pct(ge/gp,1):''}</td><td class="n">${gp?eur(gp,0):'sin medición'}</td><td class="n">${eur(ge)}</td></tr>`;
+    const gs=show.filter(x=>x.p.sub===sub);
+    if(!gs.length) h+=`<tr><td colspan="7" class="hint">${pf==='avance'?'Ninguna partida empezada.':'Todas las partidas tienen avance.'}</td></tr>`;
+    for(const r of gs)
+    h+=`<tr class="it"><td class="desc"><span class="c">${esc(r.p.n)}${r.p.codigo?' · '+esc(r.p.codigo):''} · ${esc(r.p.ud)}</span><br>${esc(r.p.desc)}</td><td class="n" data-l="Ud">${esc(r.p.ud)}</td><td class="n" data-l="Proyecto">${r.p.med==null?'—':num(r.p.med)}</td><td class="n" data-l="Ejecutado">${medEd?`<input class="mq${r.p.med&&r.o>r.p.med+1e-9?' over':''}" data-mq="${esc(r.p.n)}" inputmode="decimal" autocomplete="off" value="${r.o?showQ(r.o):''}" placeholder="0" aria-label="Medición a origen ${esc(r.p.n)}">`:(r.o?num(r.o):'—')}</td><td class="n" data-l="Avance">${r.pc==null?(r.o?'s/ medición':'—'):pct(r.pc,1)}${r.pc!=null?`<span class="pbar"><i style="width:${Math.min(100,r.pc*100)}%"></i></span>`:''}</td><td class="n" data-l="Importe proyecto">${r.imp?eur(r.imp):'—'}</td><td class="n" data-l="Ejecutado €">${r.io?eur(r.io):'—'}</td></tr>`;
+  }
+  const tp=rows.reduce((s,x)=>s+(x.imp||0),0), te=rows.reduce((s,x)=>s+x.io,0);
+  h+=`<tr class="tot"><td colspan="4">Total PEM</td><td class="n">${pct(te/tp,2)}</td><td class="n">${eur(tp)}</td><td class="n">${eur(te)}</td></tr></tbody>`;
+  $('#avance').innerHTML=h;
+  if(medEd){$('#avance').querySelectorAll('[data-mq]').forEach(inp=>{inp.oninput=()=>{const v=parseQ(inp.value);if(isNaN(v)){inp.classList.add('over');return}const n=inp.dataset.mq,p=partidas.find(x=>x.n===n);if(v)medEd.q[n]=Math.round(v*1000)/1000;else delete medEd.q[n];inp.classList.toggle('over',!!(p&&p.med&&v>p.med+1e-9));medDirty=true;renderMedTot()}});renderMedTot();$('#stale').textContent='Editando mediciones a origen. Las partidas en rojo superan la medición de proyecto.';return}
+  $('#stale').textContent=lc?`Medición a origen de la certificación nº ${lc.n} (${lc.periodo}). El capítulo 3 no tiene medición de proyecto aportada.`:'Sin certificaciones cargadas.';
+}
+
+/* Edición de mediciones a origen: certificaciones/cNN {n, periodo, mes, fecha, estado, lineas [{n, origen}], pemOrigen, pemMes, total} */
+let medEd=null, medDirty=false;
+const parseQ=s=>{s=String(s).trim();if(!s)return 0;s=s.replace(/\s/g,'');if(s.includes(','))s=s.replace(/\./g,'').replace(',','.');else if(/^-?\d{1,3}(\.\d{3})+$/.test(s))s=s.replace(/\./g,'');const v=parseFloat(s);return isFinite(v)?v:NaN};
+const showQ=v=>Number(v).toLocaleString('es-ES',{maximumFractionDigits:3,useGrouping:false});
+const mesTxt=m=>{const [y,mm]=m.split('-').map(Number);const t=MESL[mm-1];return t.charAt(0).toUpperCase()+t.slice(1)+' '+y};
+function medCalc(e){
+  const pemO=R2(partidas.reduce((s,p)=>s+R2((e.q[p.n]||0)*p.precio),0));
+  const prev=certs.filter(c=>c.n<e.n).sort((a,b)=>b.n-a.n)[0], pemA=prev?Number(prev.pemOrigen)||0:0, pemM=R2(pemO-pemA);
+  const total=R2(R2(R2(pemM*1.19)*(ficha?.coef||0.888856534))*1.07);
+  return {pemO,pemA,pemM,total,prev};
+}
+function renderMedTot(){if(!medEd)return;const k=medCalc(medEd);
+  $('#m-tot').innerHTML=`<span>PEM a origen <b>${eur(k.pemO)}</b></span><span>Anterior${k.prev?` (nº ${k.prev.n})`:''} <b>${eur(k.pemA)}</b></span><span>PEM del periodo <b>${eur(k.pemM)}</b></span><span>Líquido con IGIC <b>${eur(k.total)}</b></span>`}
+function medFill(){const c=certs.find(x=>x.id===$('#m-cert').value);const nn=c?c.n:Math.max(0,...certs.map(x=>+x.n||0))+1;
+  const base=c||lastCert(); const q={}; for(const l of (base?.lineas||[]))q[l.n]=Number(l.origen)||0;
+  let mes=c?.mes; if(!mes){const [y,m]=(lastCert()?.mes||new Date().toISOString().slice(0,7)).split('-').map(Number);const d=new Date(y,m,1);mes=`${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}`}
+  medEd={id:c?c.id:'c'+String(nn).padStart(2,'0'),n:nn,q,isNew:!c}; medDirty=false;
+  $('#m-mes').value=mes; $('#m-fecha').value=c?.fecha||new Date().toISOString().slice(0,10); $('#m-estado').value=c?.estado==='Firmada'?'Firmada':'Borrador';
+  renderAvance()}
+$('#m-edit').onclick=()=>{const L=[...certs].sort((a,b)=>a.n-b.n);const nn=Math.max(0,...certs.map(x=>+x.n||0))+1;
+  $('#m-cert').innerHTML=L.map(c=>`<option value="${esc(c.id)}">Nº ${esc(c.n)} · ${esc(c.periodo||c.mes||'')}${c.estado==='Firmada'?' (firmada)':''}</option>`).join('')+`<option value="">Nueva: nº ${nn}</option>`;
+  const lc=lastCert(); $('#m-cert').value=lc&&lc.estado!=='Firmada'?lc.id:''; pf='todas'; $('#pf').querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed',String(x.dataset.f==='todas')));
+  $('#medbar').hidden=false; $('#m-edit').hidden=true; medFill()};
+$('#m-cert').onchange=()=>medFill();
+['#m-mes','#m-fecha','#m-estado'].forEach(s=>$(s).addEventListener('input',()=>medDirty=true));
+$('#m-cancel').onclick=()=>{medEd=null;$('#medbar').hidden=true;$('#m-edit').hidden=!canWrite;renderAvance()};
+$('#m-save').onclick=async()=>{if(!medEd)return;const mes=$('#m-mes').value;if(!mes){toast('Indica el mes de la certificación.');return}
+  const k=medCalc(medEd), lineas=partidas.filter(p=>medEd.q[p.n]).map(p=>({n:p.n,origen:medEd.q[p.n]}));
+  const old=certs.find(c=>c.id===medEd.id)||{}; const notas={}; for(const l of (old.lineas||[]))if(l.nota)notas[l.n]=l.nota;
+  lineas.forEach(l=>{if(notas[l.n])l.nota=notas[l.n]});
+  const data={...old,n:medEd.n,mes,periodo:mesTxt(mes),fecha:$('#m-fecha').value,estado:$('#m-estado').value,lineas,pemOrigen:k.pemO,pemMes:k.pemM,total:k.total,actualizado:new Date().toISOString().slice(0,10)}; delete data.id;
+  const b=$('#m-save'); b.disabled=true;
+  try{await db.doc('certificaciones/'+medEd.id).set(data);toast(`Certificación nº ${medEd.n} guardada`);medEd=null;$('#medbar').hidden=true;$('#m-edit').hidden=!canWrite;renderAvance()}
+  catch(e){toast('No se pudo guardar.')}finally{b.disabled=false}};
+
+/* Comparativo de cronograma: actividades del cronograma de la DO (19/10/2026) con sus partidas.
+   Previsto: importe de cada actividad repartido por días laborables entre sus fechas.
+   Ejecutado: medición a origen de la última certificación; corte = último día de su mes. */
+const ACTS=[
+ {g:'civil',n:'Implantación, desbroce y replanteo',p:['1.1.6','1.1.30'],s:'2026-09-18',e:'2026-09-30'},
+ {g:'civil',n:'Corte, demolición y fresado de pavimentos',p:['1.1.1','1.1.2','1.1.3','1.1.4','1.1.5'],s:'2026-10-20',e:'2026-11-27'},
+ {g:'civil',n:'Excavación de zanjas y pozos, compactación y transporte',p:['1.1.7','1.1.8','1.1.13','1.1.18','1.1.19'],s:'2026-09-21',e:'2026-12-11'},
+ {g:'civil',n:'Canalización: lecho de arena y hormigonado de zanja',p:['1.1.11','1.1.14'],s:'2026-10-26',e:'2026-12-18'},
+ {g:'civil',n:'Pozos de registro y arquetas',p:['1.1.27','1.1.28','1.1.29'],s:'2026-11-02',e:'2026-12-18'},
+ {g:'civil',n:'Rellenos de zanja y trasdós',p:['1.1.12','1.1.15','1.1.17'],s:'2026-11-02',e:'2027-01-08'},
+ {g:'civil',n:'Obra civil de los CT',p:['1.1.9','1.1.10','1.1.16','1.1.20','1.1.21','1.1.22','1.1.26'],s:'2026-11-02',e:'2026-12-04'},
+ {g:'civil',n:'Reposición de rodaderas y asfalto, ensayos',p:['1.1.23','1.1.24','1.1.25','1.1.32','1.1.33'],s:'2026-11-30',e:'2027-01-22'},
+ {g:'civil',n:'Reposición de servicios afectados',p:['1.1.31'],s:'2026-10-26',e:'2027-01-22'},
+ {g:'mt',n:'Pedido y fabricación de CT y aparamenta',p:[],s:'2026-10-05',e:'2026-11-27'},
+ {g:'mt',n:'Tendido de la línea subterránea 20 kV',p:['1.2.1'],s:'2026-11-16',e:'2027-01-15'},
+ {g:'mt',n:'Redes de tierra de los CT',p:['1.2.11'],s:'2026-11-23',e:'2026-12-18'},
+ {g:'mt',n:'Suministro y colocación de los CT prefabricados',p:['1.2.2','1.2.3'],s:'2026-12-09',e:'2026-12-18'},
+ {g:'mt',n:'Aparamenta MT de los CT',p:['1.2.4','1.2.5'],s:'2026-12-21',e:'2027-01-22'},
+ {g:'mt',n:'Empalmes, bornas, puentes y protecciones',p:['1.2.6','1.2.7','1.2.8','1.2.9','1.2.10'],s:'2027-01-11',e:'2027-01-29'},
+ {g:'mt',n:'Equipamiento interior de los CT',p:['1.2.12','1.2.13','1.2.14'],s:'2027-01-18',e:'2027-01-29'},
+ {g:'mt',n:'Pruebas, megado e inspección OCA',p:['1.2.15'],s:'2027-01-25',e:'2027-02-05'},
+ {g:'mt',n:'e-distribución y puesta en tensión',p:['1.2.16'],s:'2027-02-01',e:'2027-02-18'},
+ {g:'sys',n:'Seguridad y salud (y diferencia con la licitación)',p:['cap3'],s:'2026-09-18',e:'2027-02-18'}];
+const GN={civil:'Obra civil',mt:'Instalación de media tensión',sys:'Seguridad y salud'};
+const FEST=new Set(['2026-10-12','2026-12-08','2026-12-25','2027-01-01','2027-01-06']);
+const iso=t=>new Date(t).toISOString().slice(0,10);
+function wdays(a,b){let n=0;for(let t=a;t<=b;t+=864e5){const d=new Date(t).getUTCDay();if(d&&d<6&&!FEST.has(iso(t)))n++}return n}
+function cronoCalc(){
+  if(!partidas.length||!ficha)return null;
+  const lc=lastCert(); const q={}; if(lc) for(const l of lc.lineas||[]) q[l.n]=Number(l.origen)||0;
+  const byN={}; partidas.forEach(p=>byN[p.n]=p);
+  const cap1=R2(partidas.filter(p=>p.cap==='1').reduce((s,p)=>s+(p.imp??R2((p.med||0)*p.precio)),0));
+  const pemT=plan?.pemTotal||cap1;
+  let cut; if(lc){const [y,m]=lc.mes.split('-').map(Number);cut=Date.UTC(y,m,0)}else cut=D(ficha.inicio)-864e5;
+  const hoy=today(), START=D(ficha.inicio), END=D(ficha.fin);
+  const rep={};
+  const acts=ACTS.map(a=>{
+    const s=D(a.s), e=D(a.e); let imp=0, ej=0;
+    if(a.p[0]==='cap3'){imp=R2(pemT-cap1);ej=R2(partidas.filter(p=>p.cap==='3').reduce((t,p)=>t+R2((q[p.n]||0)*p.precio),0))}
+    else for(const n of a.p){const p=byN[n];if(!p)continue;imp+=p.imp??R2((p.med||0)*p.precio);ej+=R2((q[n]||0)*p.precio)}
+    imp=R2(imp); ej=R2(ej);
+    const tw=wdays(s,e), at=t=>t<s?0:t>=e?imp:R2(imp*wdays(s,t)/tw);
+    const pl=at(cut), plh=at(hoy), pend=R2(Math.max(0,imp-ej));
+    const desf=imp&&(s<=cut||ej>0)?Math.round((ej-pl)/(imp/tw)*10)/10:null;
+    // pendiente: por días laborables desde el día siguiente al corte (o el inicio) hasta el fin previsto
+    if(pend>0){const a0=Math.max(s,cut+864e5); if(e<a0){const k=iso(a0).slice(0,7);rep[k]=(rep[k]||0)+pend}
+      else{const n=wdays(a0,e);for(let t=a0;t<=e;t+=864e5){const d=new Date(t).getUTCDay();if(d&&d<6&&!FEST.has(iso(t))){const k=iso(t).slice(0,7);rep[k]=(rep[k]||0)+pend/n}}}}
+    let est;
+    if(!imp) est=a.p.length?['idle','—']:['warn','Sin constancia'];
+    else if(ej>=imp-0.01) est=['done','Terminada'];
+    else if(s>cut) est=ej>0?['ok','Adelantada']:['idle','Aún no toca'];
+    else if(!ej) est=['bad','Sin empezar'];
+    else {const r=pl?ej/pl:2; est=r>=1.05?['ok','Adelantada']:r>=0.9?['ok','En plazo']:['bad','Retrasada']}
+    return {...a,imp,ej,pl,plh,pend,desf,est,sD:s,eD:e};
+  });
+  const sum=(k,f=()=>true)=>R2(acts.filter(f).reduce((t,o)=>t+o[k],0));
+  const PEM=sum('imp'), EJ=sum('ej'), PL=sum('pl'), PLH=sum('plh'), PEND=R2(PEM-EJ);
+  const wdLeft=wdays(Math.max(hoy,START),END), wdDone=lc?wdays(START,cut):0;
+  const months=(plan?.meses||[]).map(m=>{const c=certs.find(x=>x.mes===m.mes);return {mes:m.mes,plan:m.pem,real:c?Number(c.pemMes)||0:null,pend:c?null:R2(rep[m.mes]||0)}});
+  return {lc,cut,hoy,START,END,acts,PEM,EJ,PL,PLH,PEND,wdLeft,wdDone,months,rep};
+}
+const fdU=t=>{const d=new Date(t);return String(d.getUTCDate()).padStart(2,'0')+'/'+String(d.getUTCMonth()+1).padStart(2,'0')+'/'+d.getUTCFullYear()};
+const lc1=t=>t.charAt(0).toLowerCase()+t.slice(1);
+function cronoNotes(C){
+  const N=[]; const pc=v=>pct(v,1);
+  N.push(`Ejecutado a ${fdU(C.cut)}: ${eur(C.EJ)} (${pc(C.EJ/C.PEM)} del PEM) frente a ${eur(C.PL)} previstos (${pc(C.PL/C.PEM)}). ${C.EJ>=C.PL?'En importe la obra va por delante':'En importe la obra va por detrás'} en ${eur(Math.abs(C.EJ-C.PL))}.`);
+  const tot=(C.END-C.START)/864e5, el=Math.max(0,Math.min(tot,(C.hoy-C.START)/864e5));
+  N.push(`Plazo consumido: ${pct(el/tot,0)}. Quedan ${eur(C.PEND)} PEM en ${C.wdLeft} días laborables: hacen falta ${eur(C.PEND/Math.max(1,C.wdLeft),0)} por día laborable${C.wdDone?`, frente a ${eur(C.EJ/C.wdDone,0)} por día hasta el corte`:''}.`);
+  const ad=C.acts.filter(o=>o.imp&&o.ej-o.pl>0.5).sort((a,b)=>(b.ej-b.pl)-(a.ej-a.pl));
+  const rt=C.acts.filter(o=>o.imp&&o.pl-o.ej>0.5).sort((a,b)=>(b.pl-b.ej)-(a.pl-a.ej));
+  if(ad.length) N.push(`Por delante del cronograma: ${ad.slice(0,3).map(o=>`${lc1(o.n)} (+${eur(o.ej-o.pl,0)})`).join('; ')}.`);
+  if(rt.length) N.push(`Por detrás del cronograma: ${rt.slice(0,4).map(o=>`${lc1(o.n)} (−${eur(o.pl-o.ej,0)}${o.desf!=null?`, ${Math.abs(o.desf).toLocaleString('es-ES')} días lab.`:''})`).join('; ')}.`);
+  const se=C.acts.filter(o=>o.imp&&o.sD<=C.cut&&!o.ej); if(se.length) N.push(`Debían haber empezado y siguen sin medición: ${se.map(o=>lc1(o.n)).join('; ')}.`);
+  const nx=C.acts.filter(o=>o.imp&&o.sD>C.cut&&o.sD<=C.cut+31*864e5&&!o.ej); if(nx.length) N.push(`Arrancan en el mes siguiente al corte: ${nx.map(o=>`${lc1(o.n)} (${fdU(o.sD).slice(0,5)})`).join('; ')}.`);
+  const pm=C.months.filter(m=>m.pend!=null).sort((a,b)=>b.pend-a.pend)[0]; if(pm&&pm.pend) N.push(`El mes con más importe pendiente es ${MESL[+pm.mes.slice(5)-1]} de ${pm.mes.slice(0,4)}: ${eur(pm.pend,0)} PEM.`);
+  return N;
+}
+function renderCrono(){
+  if($('#v-cronograma').hidden)return;
+  const C=cronoCalc(); if(!C){$('#cr-kpis').innerHTML='<p class="hint">Cargando datos…</p>';return}
+  const lc=C.lc;
+  $('#cr-note').innerHTML=lc?`Ejecutado según la <b>certificación nº ${esc(lc.n)}</b> (${esc(lc.periodo||lc.mes)}, ${esc((lc.estado||'').toLowerCase())}), con fecha de corte <b>${fdU(C.cut)}</b>. Se recalcula cada vez que actualizas las mediciones en Partidas.`:'Aún no hay certificaciones.';
+  const tot=(C.END-C.START)/864e5, el=Math.max(0,Math.min(tot,(C.hoy-C.START)/864e5));
+  const bar=(l,v,c,t)=>`<div class="cr-cmp"><span>${l}</span><span class="tr"><i style="width:${Math.min(100,v*100)}%;background:${c}"></i></span><span>${t}</span></div>`;
+  $('#cr-kpis').innerHTML=`<div class="kpi"><span class="kk">Plazo consumido</span><span class="v">${pct(el/tot,0)}</span><span class="n">${Math.round(el)} de ${Math.round(tot)} días. Quedan ${C.wdLeft} laborables hasta el ${fd(ficha.fin)}.</span></div>
+   <div class="kpi"><span class="kk">Ejecutado a ${fdU(C.cut).slice(0,5)}</span><span class="v">${pct(C.EJ/C.PEM,1)}</span>${bar('Ejecutado',C.EJ/C.PEM,'var(--real)',pct(C.EJ/C.PEM,1))}${bar('Previsto',C.PL/C.PEM,'var(--plan)',pct(C.PL/C.PEM,1))}<span class="n">${eur(C.EJ)} frente a ${eur(C.PL)} previstos.</span></div>
+   <div class="kpi"><span class="kk">Pendiente de ejecutar</span><span class="v">${eur(C.PEND,0)}</span><span class="n">PEM, el ${pct(C.PEND/C.PEM,1)} de la obra.</span></div>
+   <div class="kpi"><span class="kk">Ritmo necesario</span><span class="v">${eur(C.PEND/Math.max(1,C.wdLeft),0)}/día</span><span class="n">PEM por día laborable hasta el fin.${C.wdDone?` Hasta el corte: ${eur(C.EJ/C.wdDone,0)}/día.`:''}</span></div>`;
+  // Gantt
+  const T0=Date.UTC(2026,8,14),T1=Date.UTC(2027,2,1),DW=4.2,LAB=280,TL=(T1-T0)/864e5*DW,X=t=>(t-T0)/864e5*DW;
+  let mh='';for(let y=2026,m=8;;){const a=Date.UTC(y,m,1),b=Date.UTC(m==11?y+1:y,(m+1)%12,1);const x0=Math.max(X(a),0),x1=Math.min(X(b),TL);if(x0>=TL)break;mh+=`<div style="left:${x0}px;width:${x1-x0}px">${MES[m]} ${String(y).slice(2)}</div>`;m++;if(m==12){m=0;y++}}
+  let h=`<div class="cr-row cr-head"><div class="cr-lab">Actividad · PEM</div><div class="cr-tl"><div class="cr-months">${mh}</div></div></div>`;
+  for(const gk of ['civil','mt','sys']){
+    h+=`<div class="cr-row cr-grp"><div class="cr-lab"><b>${GN[gk]}</b></div><div class="cr-tl"></div></div>`;
+    for(const o of C.acts.filter(x=>x.g===gk)){
+      const a=X(o.sD),b=X(o.eD)+DW,w=b-a,pe=o.imp?o.ej/o.imp:0,pp=o.imp?o.pl/o.imp:0;
+      h+=`<div class="cr-row"><div class="cr-lab"><span>${esc(o.n)}</span><small>${o.imp?eur(o.imp,0):'sin importe'} · ${o.s.slice(8)}/${o.s.slice(5,7)}–${o.e.slice(8)}/${o.e.slice(5,7)}</small></div><div class="cr-tl">
+        <div class="cr-bar ${gk}${o.imp?'':' nopay'}" style="left:${a}px;width:${w}px"></div>
+        ${o.imp?`<div class="cr-prog" style="left:${a}px;width:${w}px"><i style="width:${Math.min(1,pe)*100}%"></i>${pp>0?`<b style="width:${pp*100}%"></b>`:''}</div><div class="cr-blab" style="left:${b}px">${pct(pe,0)}</div>`:''}</div></div>`;
+    }
+  }
+  h+=`<div class="cr-v cut" style="left:${LAB+X(C.cut)+DW}px"><b>corte ${fdU(C.cut).slice(0,5)}</b></div><div class="cr-v hoy" style="left:${LAB+X(C.hoy)}px"><b>hoy</b></div><div class="cr-v end" style="left:${LAB+X(C.END)+DW}px"></div>`;
+  const g=$('#cr-gantt'); g.style.setProperty('--lab',LAB+'px'); g.style.setProperty('--tl',TL+'px'); g.style.width=(LAB+TL)+'px'; g.innerHTML=h;
+  try{g.parentElement.scrollLeft=Math.max(0,X(C.hoy)-260)}catch(e){}
+  // tabla por actividad
+  let t=`<thead><tr><th>Actividad</th><th class="n">Plazo</th><th class="n">Importe</th><th class="n">Previsto</th><th class="n">Ejecutado</th><th class="n">Desviación</th><th class="n">%</th><th class="n">Desfase (días lab.)</th><th class="n">Pendiente</th><th>Estado</th></tr></thead><tbody>`;
+  for(const gk of ['civil','mt','sys']){
+    const f=o=>o.g===gk, L=C.acts.filter(f); t+=`<tr class="grp"><td colspan="10">${GN[gk]}</td></tr>`;
+    for(const o of L){const dv=R2(o.ej-o.pl);
+      t+=`<tr class="it"><td class="desc">${esc(o.n)}<br><span class="c">${esc(o.p[0]==='cap3'?'cap. 3':o.p.join(' · ')||'taller')}</span></td><td class="n" data-l="Plazo">${o.s.slice(8)}/${o.s.slice(5,7)} – ${o.e.slice(8)}/${o.e.slice(5,7)}</td><td class="n" data-l="Importe">${eur(o.imp)}</td><td class="n" data-l="Previsto">${eur(o.pl)}</td><td class="n" data-l="Ejecutado">${eur(o.ej)}</td><td class="n ${dv>0.5?'pos':dv<-0.5?'neg':''}" data-l="Desviación">${dv>0.5?'+':''}${eur(dv)}</td><td class="n" data-l="%">${o.imp?pct(o.ej/o.imp,1):'—'}</td><td class="n" data-l="Desfase">${o.desf==null?'—':(o.desf>0?'+':'')+o.desf.toLocaleString('es-ES')}</td><td class="n" data-l="Pendiente">${eur(o.pend)}</td><td data-l="Estado"><span class="chip ${o.est[0]}">${o.est[1]}</span></td></tr>`}
+    const i=R2(L.reduce((s,o)=>s+o.imp,0)),p=R2(L.reduce((s,o)=>s+o.pl,0)),e=R2(L.reduce((s,o)=>s+o.ej,0));
+    t+=`<tr class="tot"><td>Total ${GN[gk].toLowerCase()}</td><td></td><td class="n">${eur(i)}</td><td class="n">${eur(p)}</td><td class="n">${eur(e)}</td><td class="n">${e-p>0?'+':''}${eur(R2(e-p))}</td><td class="n">${i?pct(e/i,1):''}</td><td></td><td class="n">${eur(R2(i-e))}</td><td></td></tr>`;
+  }
+  t+=`<tr class="tot"><td>TOTAL OBRA</td><td></td><td class="n">${eur(C.PEM)}</td><td class="n">${eur(C.PL)}</td><td class="n">${eur(C.EJ)}</td><td class="n">${C.EJ-C.PL>0?'+':''}${eur(R2(C.EJ-C.PL))}</td><td class="n">${pct(C.EJ/C.PEM,1)}</td><td></td><td class="n">${eur(C.PEND)}</td><td></td></tr></tbody>`;
+  $('#cr-det').innerHTML=t;
+  // meses
+  let ar=0, mt=`<thead><tr><th>Mes</th><th class="n">Cronograma</th><th class="n">Certificado / pendiente</th><th class="n">Líquido</th><th class="n">% a origen</th></tr></thead><tbody>`;
+  for(const m of C.months){const v=m.real!=null?m.real:m.pend; ar+=v;
+    mt+=`<tr class="${m.real!=null?'real':''}"><td>${ml(m.mes)} <span class="chip ${m.real!=null?'done':'idle'}">${m.real!=null?'certificado':'pendiente'}</span></td><td class="n">${eur(m.plan,0)}</td><td class="n">${eur(v,0)}</td><td class="n">${eur(v*K(),0)}</td><td class="n">${pct(ar/C.PEM,1)}</td></tr>`}
+  mt+=`<tr class="tot"><td>Total</td><td class="n">${eur(C.months.reduce((s,m)=>s+m.plan,0),0)}</td><td class="n">${eur(ar,0)}</td><td class="n">${eur(ar*K(),0)}</td><td></td></tr></tbody>`;
+  $('#cr-mes').innerHTML=mt;
+  $('#cr-notes').innerHTML=cronoNotes(C).map(x=>`<li>${esc(x)}</li>`).join('');
+}
+
+/* Checklist */
+const st=id=>checks[id]||{};
+function counts(){let ok=0,nc=0,na=0;ALL.forEach(i=>{const s=st(i.id).s;if(s==='ok')ok++;else if(s==='nc')nc++;else if(s==='na')na++});return {ok,nc,na,p:ALL.length-ok-nc-na,tot:ALL.length}}
+function match(it){
+  const s=st(it.id).s||'';
+  if(F.state==='pend'&&s)return false;
+  if(F.state!=='all'&&F.state!=='pend'&&s!==F.state)return false;
+  if(F.type!=='all'&&!(it.ty===F.type||(F.type==='I'&&it.ty==='R')))return false;
+  if(F.q){const q=F.q.toLowerCase();if(!(it.tx+' '+it.ref+' '+(st(it.id).n||'')).toLowerCase().includes(q))return false}
+  return true;
+}
+function itemHTML(it){
+  const c=st(it.id), s=c.s||'', dis=canWrite?'':'disabled';
+  const open=openNote.has(it.id);
+  return `<div class="item" data-id="${it.id}" data-s="${s}">
+    <div class="st" role="group" aria-label="Estado">${['ok','nc','na'].map(v=>`<button type="button" data-v="${v}" aria-pressed="${s===v}" ${dis} title="${{ok:'Conforme',nc:'No conforme',na:'No aplica'}[v]}">${v.toUpperCase()}</button>`).join('')}</div>
+    <div class="ibody"><p class="txt">${esc(it.tx)}</p>
+      <div class="tags"><span class="tag ${it.ty}">${TYPES[it.ty]}</span><span class="ref">${esc(it.ref)}</span>${c.t?`<span class="when">${fdt(c.t)}</span>`:''}${canWrite?`<button type="button" class="notebtn">${open?'Cerrar nota':c.n?'Editar nota':'Añadir nota'}</button>`:''}</div>
+      ${open?`<div class="note"><textarea id="nt-${it.id}" aria-label="Nota">${esc(c.n||'')}</textarea></div>`:c.n?`<div class="notetext">${esc(c.n)}</div>`:''}
+    </div></div>`;
+}
+function renderChecklist(){
+  const list=$('#clist'); let h='', shown=0;
+  for(const c of CAPS){
+    const its=ALL.filter(i=>i.cap===c.id&&match(i)); if(!its.length)continue; shown+=its.length;
+    h+=`<section class="cap" id="cap-${c.id}"><div class="caphead"><span class="nn">Cap. ${esc(c.n)}</span><h2>${esc(c.t)}</h2>${c.pem?`<span class="pem">${c.pem} €</span>`:''}</div>${c.note?`<p class="capnote">${esc(c.note)}</p>`:''}${its.map(itemHTML).join('')}</section>`;
+  }
+  list.innerHTML=shown?h:'<p class="empty">Ningún punto coincide con el filtro.</p>';
+  $('#toc').innerHTML=CAPS.map(c=>{const its=ALL.filter(i=>i.cap===c.id);const d=its.filter(i=>['ok','na'].includes(st(i.id).s)).length;const bad=its.some(i=>st(i.id).s==='nc');
+    return `<a href="#checklist" data-cap="${c.id}"><span class="nn">${esc(c.n)}</span><span class="t">${esc(c.t)}</span><span class="c ${bad?'bad':d===its.length?'done':''}">${d}/${its.length}</span></a>`}).join('');
+  $('#toc').querySelectorAll('a').forEach(a=>a.onclick=e=>{e.preventDefault();const t=document.getElementById('cap-'+a.dataset.cap);if(t)t.scrollIntoView({behavior:'smooth',block:'start'})});
+  list.querySelectorAll('.item').forEach(row=>{
+    const id=row.dataset.id;
+    row.querySelectorAll('.st button').forEach(b=>b.onclick=()=>{const v=b.dataset.v;write(id,{s:st(id).s===v?'':v})});
+    const nb=row.querySelector('.notebtn'); if(nb) nb.onclick=()=>{
+      if(openNote.has(id)){const ta=$('#nt-'+id);openNote.delete(id);const v=ta?ta.value.trim():'';if(v!==(st(id).n||''))write(id,{n:v});else renderChecklist()}
+      else{openNote.add(id);renderChecklist();const ta=$('#nt-'+id);if(ta)ta.focus()}
+    };
+    const ta=row.querySelector('textarea'); if(ta) ta.addEventListener('blur',()=>{const v=ta.value.trim();if(v!==(st(id).n||'')){checks[id]={...st(id),n:v};saveCheck(id)}});
+  });
+}
+async function saveCheck(id){
+  const body={...st(id),t:new Date().toISOString()}; checks[id]=body; setSave('busy');
+  try{await db.doc('checks/'+id).set(body);setSave('ok')}catch(e){setSave('err',e)}
+}
+function write(id,patch){checks[id]={...st(id),...patch};renderChecklist();renderStats();saveCheck(id)}
+function setSave(k,e){const el=$('#save');el.className='save';
+  if(k==='ok')el.textContent='Guardado';else if(k==='busy')el.textContent='Guardando…';
+  else if(k==='ro'){el.className='save local';el.textContent='Solo lectura'}
+  else{el.className='save local';el.textContent=e&&e.code==='invalid_argument'?'Sin permiso para guardar':'No se pudo guardar; reintenta'}}
+document.querySelectorAll('#fstate button').forEach(b=>b.onclick=()=>{F.state=b.dataset.f;document.querySelectorAll('#fstate button').forEach(x=>x.setAttribute('aria-pressed',String(x===b)));renderChecklist()});
+document.querySelectorAll('#ftype button').forEach(b=>b.onclick=()=>{F.type=b.dataset.t;document.querySelectorAll('#ftype button').forEach(x=>x.setAttribute('aria-pressed',String(x===b)));renderChecklist()});
+$('#q').oninput=e=>{F.q=e.target.value.trim();renderChecklist()};
+
+/* Pendientes y diario */
+function renderPend(){
+  const ord={Alta:0,Media:1,Baja:2};
+  const L=pend.filter(p=>!pendF||p.estado===pendF).sort((a,b)=>(ord[a.prioridad]??3)-(ord[b.prioridad]??3)||String(a.fecha).localeCompare(String(b.fecha)));
+  const ab=pend.filter(p=>p.estado!=='Resuelto').length;
+  $('#pcount').textContent=`${ab} abierto${ab===1?'':'s'} · ${pend.length-ab} resuelto${pend.length-ab===1?'':'s'}`;
+  const el=$('#plist');
+  if(!L.length){el.innerHTML=`<div class="empty">${pendF==='Abierto'?'No hay pendientes abiertos.':'Nada que mostrar.'}</div>`;return}
+  el.innerHTML=L.map(p=>{const pr=(p.prioridad||'Media').toLowerCase();const res=p.estado==='Resuelto';
+    return `<div class="pend ${res?'res':pr}"><span class="stripe"></span><div class="pb"><div class="pm"><span class="pill ${res?'ok':pr}">${res?'Resuelto':esc(p.prioridad||'Media')}</span><span>${esc(p.origen||'')}</span><span>${fd(p.fecha)}</span></div><p>${esc(p.texto)}</p>${p.accion?`<span class="acc">Acción: ${esc(p.accion)}</span>`:''}${p.resolucion?`<span class="acc">Resolución: ${esc(p.resolucion)}</span>`:''}${canWrite?`<div><button type="button" class="btn small" data-pid="${esc(p.id)}">${res?'Reabrir':'Marcar resuelto'}</button></div>`:''}</div></div>`}).join('');
+  el.querySelectorAll('[data-pid]').forEach(b=>b.onclick=async()=>{const p=pend.find(x=>x.id===b.dataset.pid);b.disabled=true;
+    try{await db.doc('pendientes/'+p.id).update({estado:p.estado==='Resuelto'?'Abierto':'Resuelto',actualizado:new Date().toISOString().slice(0,10)})}catch(e){b.disabled=false;toast('No se pudo guardar.')}});
+}
+function renderDiario(){
+  const el=$('#diary');
+  if(!diario.length){el.innerHTML='<div class="empty">Diario vacío. Anota aquí visitas, órdenes e incidencias.</div>';return}
+  el.innerHTML=[...diario].sort((a,b)=>String(b.fecha).localeCompare(String(a.fecha))).map(d=>`<div class="entry ${esc(d.tipo)}"><span class="d">${fd(d.fecha)}<span class="pill">${esc(d.tipo)}</span></span><p>${esc(d.texto)}</p></div>`).join('');
+}
+function renderFicha(){
+  if(!ficha)return; const f=ficha;
+  const a=`<div class="card"><h3>Contrato</h3><dl class="kv">
+   <dt>Obra</dt><dd>${esc(f.denominacion)}</dd><dt>Promotor</dt><dd>${esc(f.promotor)}</dd><dt>Emplazamiento</dt><dd>${esc(f.emplazamiento)}</dd><dt>Expediente</dt><dd>${esc(f.expediente)}</dd><dt>Expediente AT</dt><dd>${esc(f.expedienteAT)}</dd><dt>Financiación</dt><dd>${esc(f.financiacion)}</dd>
+   <dt>Licitación</dt><dd>${eur(f.licitacion)}</dd><dt>Adjudicación</dt><dd>${eur(f.adjudicacion)} · coef. ${String(f.coef).replace('.',',')}</dd><dt>PEM capítulo 1</dt><dd>${eur(f.pemCap1)}</dd>
+   <dt>Adjudicada / contrato</dt><dd>${fd(f.fechaAdjudicacion)} · ${fd(f.fechaContrato)}</dd><dt>Plazo</dt><dd>${fd(f.inicio)} – ${fd(f.fin)} (${esc(f.plazo)})</dd></dl>
+   <h3>Agentes</h3><dl class="kv">${(f.agentes||[]).map(x=>`<dt>${esc(x.rol)}</dt><dd>${esc(x.nombre)}${x.extra?` <span class="hint">· ${esc(x.extra)}</span>`:''}</dd>`).join('')}</dl></div>`;
+  const b=`<div class="card"><h3>Documentación en obra</h3><dl class="kv">${(f.documentacion||[]).map(x=>`<dt>${esc(x.item)}</dt><dd>${esc(x.estado)}${x.nota?` <span class="hint">· ${esc(x.nota)}</span>`:''}</dd>`).join('')}</dl>
+   <h3>Tramitación</h3><div class="tbl"><table><thead><tr><th>Fecha</th><th>Organismo</th><th>Asunto</th><th>Estado</th></tr></thead><tbody>${(f.expedientes||[]).map(x=>`<tr><td class="m">${fd(x.fecha)}</td><td>${esc(x.organismo)}</td><td>${esc(x.asunto)}</td><td>${esc(x.estado)}</td></tr>`).join('')}</tbody></table></div></div>`;
+  $('#ficha').innerHTML=a+b; $('#foot').textContent=f.fuente||'';
+}
+
+$('#pf').querySelectorAll('button').forEach(b=>b.onclick=()=>{pf=b.dataset.f;$('#pf').querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed',String(x===b)));renderAvance()});
+$('#pendf').querySelectorAll('button').forEach(b=>b.onclick=()=>{pendF=b.dataset.f;$('#pendf').querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed',String(x===b)));renderPend()});
+try{$('#da-f').value=new Date().toISOString().slice(0,10)}catch(e){}
+$('#padd').onsubmit=async e=>{e.preventDefault();const t=$('#pa-t').value.trim();if(!t)return;
+  try{await db.collection('pendientes').doc().set({texto:t,origen:$('#pa-o').value.trim(),prioridad:$('#pa-p').value,estado:'Abierto',fecha:new Date().toISOString().slice(0,10)});$('#pa-t').value='';$('#pa-o').value='';toast('Pendiente añadido')}catch(err){toast('No se pudo guardar.')}};
+$('#dadd').onsubmit=async e=>{e.preventDefault();const x=$('#da-x').value.trim();if(!x)return;
+  try{await db.collection('diario').doc().set({fecha:$('#da-f').value,tipo:$('#da-t').value,texto:x});$('#da-x').value='';toast('Anotado en el diario')}catch(err){toast('No se pudo guardar.')}};
+
+/* Informes con fotos: informes/<id> {num, fecha, tipo, asunto, autor, asistentes, estado, texto, incAv, incPe, incNc, fotos:[{id,pie,w,h}]}; las fotos van al almacén de la página */
+let assets=null, informes=[], ed=null, edDirty=false, upBusy=0;
+const TIPOS_I=['Informe de visita','Informe mensual','Informe de incidencia','Informe de seguridad y salud','Informe técnico'];
+const blobUrl=id=>'/_blob/'+id;
+const director=()=>(ficha?.agentes||[]).find(a=>/director de obra/i.test(a.rol))?.nombre||'';
+function renderInformes(){
+  $('#tc-inf').textContent=informes.length?String(informes.length):'';
+  const el=$('#ilist');
+  if(!informes.length){el.innerHTML=`<div class="empty">Aún no hay informes.${canWrite?' Pulsa «Nuevo informe» para redactar el primero.':''}</div>`;return}
+  el.innerHTML=[...informes].sort((a,b)=>String(b.fecha).localeCompare(String(a.fecha))||(b.num||0)-(a.num||0)).map(i=>{const n=(i.fotos||[]).length;
+    return `<button type="button" class="irow" data-iid="${esc(i.id)}"><span class="no">${String(i.num||'?').padStart(2,'0')}</span><span class="it"><b>${esc(i.asunto||'(sin asunto)')}</b><span>${fd(i.fecha)} · ${esc(i.tipo||'')} · <span class="pill ${i.estado==='emitido'?'emitido':''}">${i.estado==='emitido'?'Emitido':'Borrador'}</span></span></span><span class="ph">${n} foto${n===1?'':'s'}</span></button>`}).join('');
+  el.querySelectorAll('[data-iid]').forEach(b=>b.onclick=()=>openInforme(informes.find(x=>x.id===b.dataset.iid)));
+}
+function showEd(on){$('#i-list-v').hidden=on;$('#i-ed-v').hidden=!on;window.scrollTo(0,0)}
+function openInforme(i){
+  ed=i?JSON.parse(JSON.stringify(i)):{id:null,num:Math.max(0,...informes.map(x=>+x.num||0))+1,fecha:new Date().toISOString().slice(0,10),tipo:TIPOS_I[0],asunto:'',autor:director(),asistentes:'',estado:'borrador',texto:'',incAv:true,incPe:true,incNc:false,incCk:true,ckScope:'desde',incCrono:true,incCert:true,certId:lastCert()?.id||'',fotos:[]};
+  ed.fotos=ed.fotos||[]; edDirty=false;
+  $('#i-num').value=ed.num; $('#i-fecha').value=ed.fecha||''; $('#i-tipo').value=ed.tipo; $('#i-asunto').value=ed.asunto||''; $('#i-autor').value=ed.autor||''; $('#i-asis').value=ed.asistentes||'';
+  $('#i-estado').value=ed.estado||'borrador'; $('#i-texto').value=ed.texto||''; $('#i-incav').checked=!!ed.incAv; $('#i-incpe').checked=!!ed.incPe; $('#i-incnc').checked=!!ed.incNc; $('#i-incck').checked=!!ed.incCk; $('#i-inccr').checked=!!ed.incCrono; $('#i-inccert').checked=!!ed.incCert; $('#i-cert').innerHTML=[...certs].sort((a,b)=>b.n-a.n).map(c=>`<option value="${esc(c.id)}">Nº ${esc(c.n)} · ${esc(c.periodo||c.mes||'')}</option>`).join(''); $('#i-cert').value=ed.certId&&certs.some(c=>c.id===ed.certId)?ed.certId:(lastCert()?.id||''); $('#i-ckscope').value=ed.ckScope||'desde'; ckHint();
+  document.querySelectorAll('#ied input,#ied select,#ied textarea').forEach(x=>x.disabled=!canWrite);
+  ['#i-guardar','#i-del'].forEach(s=>$(s).hidden=!canWrite); $('#i-del').hidden=!canWrite||!ed.id;
+  $('#i-save').textContent=ed.id?'':'Nuevo, sin guardar'; renderFotos(); showEd(true);
+}
+function readEd(){if(!ed)return;Object.assign(ed,{num:+$('#i-num').value||ed.num,fecha:$('#i-fecha').value,tipo:$('#i-tipo').value,asunto:$('#i-asunto').value.trim(),autor:$('#i-autor').value.trim(),asistentes:$('#i-asis').value.trim(),estado:$('#i-estado').value,texto:$('#i-texto').value,incAv:$('#i-incav').checked,incPe:$('#i-incpe').checked,incNc:$('#i-incnc').checked,incCk:$('#i-incck').checked,ckScope:$('#i-ckscope').value,incCrono:$('#i-inccr').checked,incCert:$('#i-inccert').checked,certId:$('#i-cert').value})}
+/* Puntos de la checklist comprobados que entran en el informe, según el alcance elegido */
+const dayOf=t=>{if(!t)return'';const d=new Date(t);return isNaN(d)?'':`${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`};
+function prevInforme(I){return informes.filter(x=>x.id!==I.id&&x.fecha&&I.fecha&&(x.fecha<I.fecha||(x.fecha===I.fecha&&(+x.num||0)<(+I.num||0)))).sort((a,b)=>String(b.fecha).localeCompare(String(a.fecha))||(b.num||0)-(a.num||0))[0]||null}
+function ckItems(I){
+  const sc=I.ckScope||'desde', f=I.fecha||'9999-12-31', pv=sc==='desde'?prevInforme(I):null;
+  return ALL.filter(i=>{const c=st(i.id);if(!c.s)return false;const d=dayOf(c.t);
+    if(sc==='todos')return true; if(!d)return false; if(sc==='dia')return d===f;
+    return d<=f&&(!pv||d>pv.fecha||(d===pv.fecha&&pv.fecha===f))});
+}
+function ckHint(){if(!ed)return;readEd();const L=ckItems(ed),pv=ed.ckScope==='desde'?prevInforme(ed):null;
+  const c={ok:0,nc:0,na:0};L.forEach(i=>c[st(i.id).s]++);
+  $('#i-ckn').textContent=`${L.length} punto${L.length===1?'':'s'}: ${c.ok} OK · ${c.nc} NC · ${c.na} NA`+(ed.ckScope==='desde'?(pv?` (desde el informe nº ${pv.num} del ${fd(pv.fecha)})`:' (no hay informe anterior: hasta la fecha)'):'')}
+function renderFotos(){
+  const g=$('#phgrid'); const n=ed.fotos.length;
+  $('#i-phn').textContent=n?`${n} foto${n===1?'':'s'}`:'';
+  g.innerHTML=ed.fotos.map((f,k)=>`<div class="phc"><img src="${blobUrl(f.id)}" alt="Foto ${k+1}${f.pie?': '+esc(f.pie):''}" loading="lazy"><input data-pie="${k}" value="${esc(f.pie||'')}" placeholder="Pie de foto ${k+1}" ${canWrite?'':'disabled'}>${canWrite?`<div class="pa"><button type="button" class="btn small" data-mv="${k}" ${k?'':'disabled'} aria-label="Mover antes">←</button><button type="button" class="btn small" data-rm="${k}">Quitar</button><button type="button" class="btn small" data-mv2="${k}" ${k<n-1?'':'disabled'} aria-label="Mover después">→</button></div>`:''}</div>`).join('')
+   +(canWrite&&assets?`<label class="addph">${upBusy?`Subiendo ${upBusy} foto${upBusy===1?'':'s'}…`:'+ Añadir fotos'}<small>Cámara o galería</small><input type="file" id="i-file" accept="image/*" multiple></label>`:'');
+  $('#i-phhint').textContent=canWrite&&!assets?'Para añadir fotos hay que abrir el control con una cuenta con permiso de edición.':'';
+  g.querySelectorAll('[data-pie]').forEach(x=>x.oninput=()=>{ed.fotos[+x.dataset.pie].pie=x.value;edDirty=true;$('#i-save').textContent='Cambios sin guardar'});
+  g.querySelectorAll('[data-rm]').forEach(b=>b.onclick=()=>twoTap(b,'¿Quitar?',()=>{const [f]=ed.fotos.splice(+b.dataset.rm,1);renderFotos();saveInforme(true).then(ok=>{if(ok&&assets)assets.delete(f.id).catch(()=>{})})}));
+  g.querySelectorAll('[data-mv]').forEach(b=>b.onclick=()=>{const k=+b.dataset.mv;[ed.fotos[k-1],ed.fotos[k]]=[ed.fotos[k],ed.fotos[k-1]];renderFotos();saveInforme(true)});
+  g.querySelectorAll('[data-mv2]').forEach(b=>b.onclick=()=>{const k=+b.dataset.mv2;[ed.fotos[k+1],ed.fotos[k]]=[ed.fotos[k],ed.fotos[k+1]];renderFotos();saveInforme(true)});
+  const fi=$('#i-file'); if(fi)fi.onchange=()=>{addFotos([...fi.files]);fi.value=''};
+}
+/* Reduce la foto a 1600 px de lado mayor en JPEG antes de subirla */
+function shrink(file){return new Promise((res,rej)=>{const u=URL.createObjectURL(file),im=new Image();
+  im.onload=()=>{const s=Math.min(1,1600/Math.max(im.naturalWidth,im.naturalHeight)),w=Math.round(im.naturalWidth*s),h=Math.round(im.naturalHeight*s);
+    const c=document.createElement('canvas');c.width=w;c.height=h;c.getContext('2d').drawImage(im,0,0,w,h);URL.revokeObjectURL(u);
+    c.toBlob(b=>b?res({b,w,h}):rej(new Error('toBlob')),'image/jpeg',0.82)};
+  im.onerror=()=>{URL.revokeObjectURL(u);rej(new Error('decode'))};im.src=u})}
+async function addFotos(files){
+  if(!assets||!files.length)return; readEd(); upBusy+=files.length; renderFotos();
+  let fail=0;
+  for(const f of files){
+    try{const {b,w,h}=await shrink(f);const r=await assets.upload(b,{type:'image/jpeg'});ed.fotos.push({id:r.id,pie:'',w,h})}
+    catch(e){fail++}
+    upBusy--; renderFotos();
+  }
+  if(fail)toast(fail===1?'Una foto no se pudo subir.':`${fail} fotos no se pudieron subir.`);
+  await saveInforme(true);
+}
+async function saveInforme(quiet){
+  if(!ed||!canWrite)return false; readEd();
+  if(!ed.asunto&&!quiet){toast('Pon un asunto al informe.');$('#i-asunto').focus();return false}
+  const {id,...data}=ed; data.actualizado=new Date().toISOString();
+  $('#i-save').textContent='Guardando…';
+  try{const ref=id?db.doc('informes/'+id):db.collection('informes').doc();await ref.set(data);ed.id=ref.id;edDirty=false;$('#i-save').textContent='Guardado';$('#i-del').hidden=false;if(!quiet)toast('Informe guardado');return true}
+  catch(e){$('#i-save').textContent='No se pudo guardar';toast('No se pudo guardar el informe.');return false}
+}
+$('#i-new').onclick=()=>openInforme(null);
+$('#i-back').onclick=async()=>{if(edDirty&&canWrite&&!await saveInforme(true))return;ed=null;showEd(false)};
+$('#i-guardar').onclick=()=>saveInforme(false);
+$('#ied').addEventListener('input',()=>{edDirty=true;ckHint();$('#i-save').textContent='Cambios sin guardar'});
+$('#i-del').onclick=()=>{if(!ed?.id)return;twoTap($('#i-del'),'Pulsa otra vez para eliminar',async()=>{
+  try{await db.doc('informes/'+ed.id).delete();if(assets)for(const f of ed.fotos)assets.delete(f.id).catch(()=>{});ed=null;showEd(false);toast('Informe eliminado')}catch(e){toast('No se pudo eliminar.')}})};
+async function dataUrl(id){const r=await fetch(blobUrl(id));if(!r.ok)throw new Error(r.status);const b=await r.blob();return new Promise((res,rej)=>{const fr=new FileReader();fr.onload=()=>res(fr.result);fr.onerror=rej;fr.readAsDataURL(b)})}
+$('#i-pdf').onclick=async()=>{
+  const J=window.jspdf&&window.jspdf.jsPDF; if(!J){toast('No se pudo cargar el generador de PDF. Recarga la página.');return}
+  readEd(); const I=ed, f=ficha||{}; const btn=$('#i-pdf'); btn.disabled=true; btn.textContent='Generando…';
+  try{
+    const doc=new J({unit:'mm',format:'a4'}), W=doc.internal.pageSize.getWidth(), H=doc.internal.pageSize.getHeight(), M=16, ink=[27,35,48], green=[31,79,143], mut=[93,104,99];
+    const head={fillColor:green,textColor:255,fontStyle:'bold',fontSize:8};
+    doc.setFillColor(...green); doc.rect(0,0,W,4,'F');
+    doc.setFont('helvetica','bold'); doc.setFontSize(15); doc.setTextColor(...ink);
+    doc.text((I.tipo||'Informe').toUpperCase()+' Nº '+(I.num||''),M,16);
+    doc.setFontSize(10.5); doc.text(doc.splitTextToSize(I.asunto||'',W-2*M),M,23);
+    let y=23+doc.splitTextToSize(I.asunto||'',W-2*M).length*5;
+    doc.autoTable({startY:y,margin:{left:M,right:M},theme:'plain',styles:{fontSize:8.5,cellPadding:1.1,textColor:ink},columnStyles:{0:{cellWidth:38,textColor:mut}},
+      body:[['Obra',f.denominacion||'Instalaciones eléctricas en media tensión · ZOI Cercado Manso'],['Promotor',f.promotor||''],['Expediente',f.expediente||''],['Contratista',f.contratista||''],['Fecha',fd(I.fecha)],['Redacta',I.autor||''],...(I.asistentes?[['Asistentes',I.asistentes]]:[])]});
+    y=doc.lastAutoTable.finalY+3; doc.setDrawColor(217,221,218); doc.line(M,y,W-M,y); y+=7;
+    // Texto: caracteres fuera de la fuente estándar del PDF, títulos que no quedan huérfanos y párrafos justificados
+    const clean=t=>String(t).replace(/[−–—]/g,m=>m==='−'?'-':m).replace(/ | /g,' ');
+    const sec=t=>{if(y>H-45){doc.addPage();y=20}else if(y>30)y+=2;doc.setFont('helvetica','bold');doc.setFontSize(10.5);doc.setTextColor(...green);doc.text(clean(t).toUpperCase(),M,y);doc.setDrawColor(...green);doc.setLineWidth(0.4);doc.line(M,y+1.6,W-M,y+1.6);y+=7;doc.setTextColor(...ink);doc.setFont('helvetica','normal')};
+    const para=(t,o={})=>{const fs=o.fs||9.5,lh=fs*0.5,ind=o.indent||0,bul=o.bullet;doc.setFont('helvetica','normal');doc.setFontSize(fs);doc.setTextColor(...ink);
+      for(const pg of clean(t).split(/\n/)){if(!pg.trim()){y+=lh*0.6;continue}const lines=doc.splitTextToSize(pg.trim(),W-2*M-ind-(bul?4:0));
+        lines.forEach((ln,i)=>{if(y>H-18){doc.addPage();y=20}if(bul&&i===0)doc.text('•',M+ind,y);const x=M+ind+(bul?4:0);
+          if(i<lines.length-1&&!o.left)doc.text(ln,x,y,{align:'justify',maxWidth:W-2*M-ind-(bul?4:0)});else doc.text(ln,x,y);y+=lh});
+        y+=o.gap??2.2}};
+    // Diagrama del cronograma: barras previstas por actividad y avance ejecutado (negro) con lo previsto al corte (rojo)
+    const gantt=C=>{const LW=64,x0=M+LW,x1=W-M,T0=Date.UTC(2026,8,14),T1=Date.UTC(2027,2,1),sc=(x1-x0)/((T1-T0)/864e5),X=t=>x0+(t-T0)/864e5*sc,RH=5.6;
+      const rows=[];['civil','mt','sys'].forEach(gk=>{rows.push({grp:gk});C.acts.filter(o=>o.g===gk).forEach(o=>rows.push(o))});
+      const hgt=8+rows.length*RH+6; if(y+hgt>H-14){doc.addPage();y=20}
+      const top=y, col={civil:[[239,225,201],[168,116,44]],mt:[[226,235,247],[31,79,143]],sys:[[225,230,236],[107,122,138]]};
+      doc.setFontSize(7);doc.setFont('helvetica','bold');doc.setTextColor(...mut);
+      for(let yy=2026,m=8;;){const a=Date.UTC(yy,m,1);if(a>=T1)break;const xa=Math.max(X(a),x0);doc.setDrawColor(215,221,229);doc.setLineWidth(0.15);doc.line(xa,top,xa,top+8+rows.length*RH);doc.text(MES[m]+' '+String(yy).slice(2),xa+1,top+4.5);m++;if(m==12){m=0;yy++}}
+      let ry=top+8;
+      for(const r of rows){
+        if(r.grp){doc.setFillColor(236,240,246);doc.rect(M,ry,W-2*M,RH,'F');doc.setFont('helvetica','bold');doc.setFontSize(7.2);doc.setTextColor(...green);doc.text(GN[r.grp].toUpperCase(),M+1,ry+3.8);ry+=RH;continue}
+        doc.setFont('helvetica','normal');doc.setFontSize(6.8);doc.setTextColor(...ink);
+        const lab=doc.splitTextToSize(clean(r.n),LW-2)[0];doc.text(lab+(doc.splitTextToSize(clean(r.n),LW-2).length>1?'…':''),M+1,ry+3.7);
+        const a=X(r.sD),b=X(r.eD+864e5),[f,s2]=col[r.g];
+        doc.setFillColor(...f);doc.setDrawColor(...s2);doc.setLineWidth(0.25);
+        if(r.imp){doc.rect(a,ry+0.8,b-a,2,'FD');doc.setFillColor(225,229,235);doc.rect(a,ry+3.2,b-a,1.4,'F');const pe=Math.min(1,r.ej/r.imp),pp=Math.min(1,r.pl/r.imp);
+          if(pe>0){doc.setFillColor(...ink);doc.rect(a,ry+3.2,(b-a)*pe,1.4,'F')}
+          if(pp>0){doc.setDrawColor(179,54,43);doc.setLineWidth(0.5);doc.line(a+(b-a)*pp,ry+2.8,a+(b-a)*pp,ry+5)}
+          doc.setFontSize(6);doc.setTextColor(...mut);doc.text(pct(r.ej/r.imp,0),b+1,ry+4.6)}
+        else{doc.setLineDashPattern([0.8,0.6],0);doc.rect(a,ry+0.8,b-a,2,'D');doc.setLineDashPattern([],0)}
+        doc.setDrawColor(236,240,246);doc.setLineWidth(0.1);doc.line(M,ry+RH,W-M,ry+RH);ry+=RH}
+      const yb=top+8+rows.length*RH;
+      doc.setDrawColor(...mut);doc.setLineWidth(0.25);doc.setLineDashPattern([1,0.8],0);doc.line(X(C.cut+864e5),top+5.5,X(C.cut+864e5),yb);doc.setLineDashPattern([],0);
+      doc.setDrawColor(179,54,43);doc.setLineWidth(0.4);doc.line(X(C.hoy),top+5.5,X(C.hoy),yb);
+      doc.setDrawColor(...ink);doc.line(X(C.END+864e5),top+5.5,X(C.END+864e5),yb);
+      doc.setFontSize(6);doc.setTextColor(...mut);doc.text('corte '+fdU(C.cut).slice(0,5),X(C.cut+864e5)-0.8,top+7.4,{align:'right'});doc.setTextColor(179,54,43);doc.text('hoy',X(C.hoy)+0.8,top+7.4);
+      doc.setTextColor(...mut);doc.setFontSize(6.6);doc.text('Barra superior: plazo previsto (obra civil, MT, seguridad y salud). Barra inferior: ejecutado en negro y previsto al corte en rojo.',M,yb+4);
+      doc.setTextColor(...ink);y=yb+8};
+    if((I.texto||'').trim()){
+      sec('Contenido'); para(I.texto.trim()); y+=2;
+    }
+    if(I.incAv&&f.inicio){
+      const t=today(),a=D(f.inicio),b=D(f.fin),pz=Math.max(0,Math.min(1,(t-a)/(b-a))),lc=lastCert(),pem=f.pemCap1||0;
+      sec('Estado de la obra');
+      doc.autoTable({startY:y,margin:{left:M,right:M},head:[['Concepto','Valor']],headStyles:head,styles:{fontSize:8.5,cellPadding:1.3},columnStyles:{1:{halign:'right'}},
+        body:[['Plazo',`${fd(f.inicio)} – ${fd(f.fin)}`],['Plazo consumido a '+fd(new Date().toISOString().slice(0,10)),pct(pz)],
+          ['Última certificación',lc?`Nº ${lc.n} · ${lc.periodo||''}`:'—'],['PEM certificado a origen',lc?eur(lc.pemOrigen):'—'],['Avance económico (PEM)',lc&&pem?pct(lc.pemOrigen/pem):'—']]});
+      y=doc.lastAutoTable.finalY+7;
+    }
+    if(I.incPe){
+      const L=pend.filter(p=>p.estado!=='Resuelto');
+      sec('Pendientes abiertos');
+      if(!L.length){doc.setFont('helvetica','normal');doc.setFontSize(9);doc.text('Ninguno.',M,y);y+=8}
+      else{doc.autoTable({startY:y,margin:{left:M,right:M},head:[['Prioridad','Pendiente','Origen']],headStyles:head,styles:{fontSize:8,cellPadding:1.3,valign:'top'},columnStyles:{0:{cellWidth:20},2:{cellWidth:38}},
+        body:L.sort((a,b)=>({Alta:0,Media:1,Baja:2}[a.prioridad]??3)-({Alta:0,Media:1,Baja:2}[b.prioridad]??3)).map(p=>[p.prioridad||'',p.texto+(p.accion?'\nAcción: '+p.accion:''),p.origen||''])});y=doc.lastAutoTable.finalY+7}
+    }
+    if(I.incNc){
+      const L=ALL.filter(i=>st(i.id).s==='nc');
+      sec('No conformidades de la checklist');
+      if(!L.length){doc.setFont('helvetica','normal');doc.setFontSize(9);doc.text('Ninguna.',M,y);y+=8}
+      else{doc.autoTable({startY:y,margin:{left:M,right:M},head:[['Punto','Comprobación','Observación']],headStyles:head,styles:{fontSize:8,cellPadding:1.3,valign:'top'},columnStyles:{0:{cellWidth:16}},
+        body:L.map(i=>[i.id,i.tx,st(i.id).n||''])});y=doc.lastAutoTable.finalY+7}
+    }
+    if(I.incCert){
+      const c=certs.find(x=>x.id===I.certId)||lastCert();
+      if(c){
+        const pv=certs.filter(x=>x.n<c.n).sort((a,b)=>b.n-a.n)[0], qa={}; for(const l of (pv?.lineas||[]))qa[l.n]=Number(l.origen)||0;
+        const byN={}; partidas.forEach(p=>byN[p.n]=p);
+        const rows=(c.lineas||[]).map(l=>{const p=byN[l.n]||{},o=Number(l.origen)||0,a=qa[l.n]||0;return {n:l.n,p,o,a,per:Math.round((o-a)*1000)/1000,imp:R2((o-a)*(p.precio||0))}}).filter(r=>Math.abs(r.per)>1e-9).sort((x,y)=>cmpN(x.n,y.n));
+        const pm=Number(c.pemMes)||0, coef=ficha?.coef||0.888856534, gg=R2(pm*.13), bi=R2(pm*.06), su=R2(pm+gg+bi), sb=R2(su*coef), ig=R2(sb*.07), tl=R2(sb+ig);
+        const orig=R2(certs.filter(x=>x.n<=c.n).reduce((s,x)=>s+(Number(x.total)||0),0)), adj=f.adjudicacion||852739.2;
+        sec('Certificación nº '+c.n+' · '+(c.periodo||c.mes||''));
+        doc.setFont('helvetica','normal');doc.setFontSize(9.5);
+        const txt=`La certificación nº ${c.n}, correspondiente a ${String(c.periodo||c.mes||'').toLowerCase()}${c.estado?` (${String(c.estado).toLowerCase()})`:''}, recoge un presupuesto de ejecución material del periodo de ${eur(pm)}, con lo que el PEM a origen alcanza ${eur(c.pemOrigen)}, el ${pct((Number(c.pemOrigen)||0)/(f.pemCap1||732380.71),1)} del capítulo 1. Sobre el PEM del periodo se aplican el 13 % de gastos generales y el 6 % de beneficio industrial, el coeficiente de adjudicación (${String(coef).replace('.',',')}) y el 7 % de IGIC, lo que da un líquido de ${eur(tl)}. A origen se han acreditado ${eur(orig)} y quedan ${eur(R2(adj-orig))} por acreditar de la adjudicación.`
+          +(rows.length?` En el periodo se certifican ${rows.length} partida${rows.length===1?'':'s'}; las de mayor importe son ${[...rows].sort((a,b)=>b.imp-a.imp).slice(0,3).map(r=>`${r.n} (${eur(r.imp,0)})`).join(', ')}.`:'');
+        para(txt);
+        y+=2;
+        if(rows.length){doc.autoTable({startY:y,margin:{left:M,right:M},head:[['Partida','Descripción','Ud','Anterior','Periodo','A origen','Importe periodo']],headStyles:head,styles:{fontSize:7.6,cellPadding:1.2,valign:'top'},
+          columnStyles:{0:{cellWidth:15},2:{cellWidth:9},3:{halign:'right',cellWidth:17},4:{halign:'right',cellWidth:17},5:{halign:'right',cellWidth:17},6:{halign:'right',cellWidth:24}},
+          body:rows.map(r=>[r.n,(r.p.desc||'').length>110?(r.p.desc||'').slice(0,107)+'…':(r.p.desc||''),r.p.ud||'',num(r.a),num(r.per),num(r.o),eur(r.imp)]).concat([[{content:'PEM del periodo',colSpan:6,styles:{fontStyle:'bold',halign:'right'}},{content:eur(R2(rows.reduce((s,r)=>s+r.imp,0))),styles:{fontStyle:'bold'}}]])});y=doc.lastAutoTable.finalY+4}
+        doc.autoTable({startY:y,margin:{left:W/2,right:M},theme:'plain',styles:{fontSize:8.5,cellPadding:1},columnStyles:{1:{halign:'right'}},
+          body:[['PEM del periodo',eur(pm)],['13 % Gastos generales',eur(gg)],['6 % Beneficio industrial',eur(bi)],['Suma',eur(su)],['Adjudicación (coef.)',eur(sb)],['7 % IGIC',eur(ig)],[{content:'Líquido certificación nº '+c.n,styles:{fontStyle:'bold'}},{content:eur(tl),styles:{fontStyle:'bold'}}]]});
+        y=doc.lastAutoTable.finalY+7;
+      }
+    }
+    if(I.incCrono){
+      const C=cronoCalc();
+      if(C){
+        if(y+8+12+(C.acts.length+3)*5.6+14>H-14){doc.addPage();y=20}
+        sec('Comparativo con el cronograma');
+        doc.setFont('helvetica','normal');doc.setFontSize(8.5);doc.setTextColor(...mut);
+        doc.text(`Ejecutado según la certificación nº ${C.lc?C.lc.n:'—'}, corte ${fdU(C.cut)}. Previsto: cronograma de la dirección de obra (19/10/2026).`,M,y);y+=5;doc.setTextColor(...ink);
+        gantt(C);
+        doc.autoTable({startY:y,margin:{left:M,right:M},head:[['Actividad','Plazo','Importe','Previsto','Ejecutado','Desv.','%','Desfase','Estado']],headStyles:head,styles:{fontSize:7.2,cellPadding:1.1,valign:'top'},
+          columnStyles:{0:{cellWidth:50},1:{cellWidth:19},2:{halign:'right'},3:{halign:'right'},4:{halign:'right'},5:{halign:'right'},6:{halign:'right',cellWidth:11},7:{halign:'right',cellWidth:14},8:{cellWidth:19}},
+          body:['civil','mt','sys'].flatMap(gk=>[[{content:GN[gk],colSpan:9,styles:{fontStyle:'bold',fillColor:[226,235,247]}}]].concat(C.acts.filter(o=>o.g===gk).map(o=>[o.n,`${o.s.slice(8)}/${o.s.slice(5,7)}–${o.e.slice(8)}/${o.e.slice(5,7)}`,eur(o.imp,0),eur(o.pl,0),eur(o.ej,0),(o.ej-o.pl>0.5?'+':'')+eur(R2(o.ej-o.pl),0),o.imp?pct(o.ej/o.imp,0):'—',o.desf==null?'—':(o.desf>0?'+':'')+o.desf.toLocaleString('es-ES'),o.est[1]])))
+            .concat([[{content:'TOTAL OBRA',styles:{fontStyle:'bold'}},'',eur(C.PEM,0),eur(C.PL,0),eur(C.EJ,0),(C.EJ-C.PL>0?'+':'')+eur(R2(C.EJ-C.PL),0),pct(C.EJ/C.PEM,1),'','']]),
+          didParseCell:d=>{if(d.section==='body'&&d.column.index===8){const v=d.cell.raw;if(v==='Retrasada'||v==='Sin empezar')d.cell.styles.textColor=[179,54,43];else if(v==='Adelantada'||v==='En plazo'||v==='Terminada')d.cell.styles.textColor=[46,125,79]}}});
+        y=doc.lastAutoTable.finalY+4;
+        let ar=0;doc.autoTable({startY:y,margin:{left:M,right:M},head:[['Mes','Cronograma','Certificado / pendiente','Líquido','% a origen']],headStyles:head,styles:{fontSize:7.8,cellPadding:1.1},columnStyles:{1:{halign:'right'},2:{halign:'right'},3:{halign:'right'},4:{halign:'right'}},
+          body:C.months.map(m=>{const v=m.real!=null?m.real:m.pend;ar+=v;return [ml(m.mes)+(m.real!=null?' (certificado)':' (pendiente)'),eur(m.plan,0),eur(v,0),eur(v*K(),0),pct(ar/C.PEM,1)]})});
+        y=doc.lastAutoTable.finalY+5;
+        doc.setFont('helvetica','normal');doc.setFontSize(8.8);
+        for(const nt of cronoNotes(C)) para(nt,{bullet:true,fs:8.8,gap:1.2});
+        y+=5;
+      }
+    }
+    if(I.incCk){
+      const L=ckItems(I), RES={ok:'Conforme',nc:'No conforme',na:'No aplica'}, pv=(I.ckScope||'desde')==='desde'?prevInforme(I):null;
+      sec('Comprobaciones de la checklist');
+      doc.setFont('helvetica','normal');doc.setFontSize(8.5);doc.setTextColor(...mut);
+      doc.text({desde:pv?`Puntos comprobados desde el informe nº ${pv.num} (${fd(pv.fecha)}) hasta el ${fd(I.fecha)}.`:`Puntos comprobados hasta el ${fd(I.fecha)}.`,dia:`Puntos comprobados el ${fd(I.fecha)}.`,todos:'Todos los puntos comprobados de la checklist.'}[I.ckScope||'desde'],M,y);y+=5;doc.setTextColor(...ink);
+      if(!L.length){doc.setFontSize(9);doc.text('Ningún punto comprobado en ese periodo.',M,y);y+=8}
+      else{const body=[];let cap=null;
+        for(const i of L){if(i.cap!==cap){cap=i.cap;const c=CAPS.find(x=>x.id===cap);body.push([{content:`Cap. ${c.n}. ${c.t}`,colSpan:5,styles:{fontStyle:'bold',fillColor:[226,235,247]}}])}
+          const c=st(i.id);body.push([i.id.replace(/^c0?/,''),i.tx+(i.ref?`\n${i.ref}`:''),RES[c.s],fd(dayOf(c.t)),c.n||''])}
+        doc.autoTable({startY:y,margin:{left:M,right:M},head:[['Punto','Comprobación','Resultado','Fecha','Observación']],headStyles:head,styles:{fontSize:7.8,cellPadding:1.2,valign:'top'},
+          columnStyles:{0:{cellWidth:13},1:{cellWidth:72},2:{cellWidth:22,fontStyle:'bold'},3:{cellWidth:18}},body,
+          didParseCell:d=>{if(d.section==='body'&&d.column.index===2){const v=d.cell.raw;if(v==='Conforme')d.cell.styles.textColor=[46,125,79];else if(v==='No conforme')d.cell.styles.textColor=[179,54,43];else if(v==='No aplica')d.cell.styles.textColor=[107,114,128]}}});
+        const c={ok:0,nc:0,na:0};L.forEach(i=>c[st(i.id).s]++);y=doc.lastAutoTable.finalY+4;
+        doc.setFontSize(8.5);doc.text(`Total: ${L.length} puntos · ${c.ok} conformes · ${c.nc} no conformes · ${c.na} no aplican.`,M,y);y+=8}
+    }
+    // firma
+    if(y>H-40){doc.addPage();y=24}
+    y+=6; doc.setFont('helvetica','normal'); doc.setFontSize(9); doc.setTextColor(...ink);
+    doc.text(`En Puntallana, a ${fd(I.fecha)}`,M,y); doc.text('Fdo.: '+(I.autor||''),W-M,y+20,{align:'right'});
+    // fotos: dos por fila, con pie
+    if(I.fotos.length){
+      doc.addPage(); y=20; sec('Reportaje fotográfico');
+      const cw=(W-2*M-6)/2, chMax=68; let col=0, rowH=0;
+      for(let k=0;k<I.fotos.length;k++){
+        const ph=I.fotos[k]; let src; try{src=await dataUrl(ph.id)}catch(e){src=null}
+        const r=(ph.w&&ph.h)?ph.h/ph.w:0.75; let w=cw,h=cw*r; if(h>chMax){h=chMax;w=h/r}
+        const pie=doc.splitTextToSize(`Foto ${k+1}${ph.pie?'. '+ph.pie:''}`,Math.max(w,cw*0.6)); const need=h+3+pie.length*4;
+        if(col===0&&y+need>H-14){doc.addPage();y=20}
+        const x=M+col*(cw+6)+(cw-w)/2;
+        if(src)doc.addImage(src,'JPEG',x,y,w,h,undefined,'FAST');else{doc.setDrawColor(200);doc.rect(x,y,w,h);doc.setFontSize(8);doc.text('Foto no disponible',x+w/2,y+h/2,{align:'center'})}
+        doc.setFont('helvetica','normal');doc.setFontSize(8);doc.setTextColor(...mut);doc.text(pie,Math.min(x,M+col*(cw+6)+cw-Math.max(w,cw*0.6)),y+h+4);doc.setTextColor(...ink);
+        rowH=Math.max(rowH,need);
+        if(col===1||k===I.fotos.length-1){y+=rowH+6;rowH=0;col=0}else col=1;
+      }
+    }
+    const n=doc.getNumberOfPages();
+    for(let i=1;i<=n;i++){doc.setPage(i);doc.setFont('helvetica','normal');doc.setFontSize(7);doc.setTextColor(110);doc.text(`ZOI Cercado Manso · ${I.tipo||'Informe'} nº ${I.num} · ${fd(I.fecha)} · Página ${i} de ${n}`,M,H-7)}
+    const name=`Informe_${String(I.num).padStart(2,'0')}_Cercado_Manso_${I.fecha||''}.pdf`;
+    const dl=await claude.use('downloads'); if(!dl){toast('La descarga no está disponible en esta vista.');return}
+    await dl.save({filename:name,data:doc.output('blob')});
+  }catch(e){toast(e&&e.code==='declined'?'Descarga cancelada.':'No se pudo generar el PDF.')}
+  finally{btn.disabled=false;btn.textContent='Descargar PDF'}
+};
+
+route(); renderChecklist(); renderStats();
+(async()=>{
+  db=await claude.use('db');
+  if(!db){$('#meta').textContent='El control de obra no está disponible en esta vista. Ábrelo con tu cuenta de Claude.';$('#save').textContent='Sin conexión';return}
+  const user=await claude.use('user'); const w=user?await user.can('data.write'):null; canWrite=w!==false;
+  $('#padd').hidden=!canWrite; $('#dadd').hidden=!canWrite; $('#i-new').hidden=!canWrite; $('#m-edit').hidden=!canWrite;
+  assets=canWrite?await claude.use('assets'):null; setSave(canWrite?'ok':'ro'); if(canWrite)$('#save').textContent='Conectado';
+  const err=e=>toast('No se pudieron cargar los datos ('+e.code+')');
+  db.doc('ficha/obra').onSnapshot(s=>{ficha=s.exists?s.data():null;renderHeader();renderStats();renderKpis();renderMonths();renderFicha()},err);
+  db.doc('presupuesto/partidas').onSnapshot(s=>{partidas=(s.exists?s.data().partidas||[]:[]).slice().sort((a,b)=>cmpN(a.n,b.n));renderAvance();renderCrono()},err);
+  db.doc('planificacion/mensual').onSnapshot(s=>{plan=s.exists?s.data():null;renderKpis();renderChart();renderMonths();renderCrono()},err);
+  db.collection('certificaciones').onSnapshot(s=>{certs=s.docs.map(d=>({id:d.id,...d.data()})).sort((a,b)=>a.n-b.n);renderStats();renderKpis();renderChart();renderMonths();renderCrono();if(!medEd)renderAvance();else renderMedTot()},err);
+  db.collection('pendientes').onSnapshot(s=>{pend=s.docs.map(d=>({id:d.id,...d.data()}));renderPend();renderStats()},err);
+  db.collection('diario').onSnapshot(s=>{diario=s.docs.map(d=>({id:d.id,...d.data()}));renderDiario()},err);
+  db.collection('informes').onSnapshot(s=>{informes=s.docs.map(d=>({id:d.id,...d.data()}));renderInformes()},err);
+  db.collection('checks').onSnapshot(s=>{const n={};s.docs.forEach(d=>n[d.id]=d.data());for(const id of openNote)if(checks[id])n[id]={...n[id],n:checks[id].n};checks=n;if(!document.activeElement||document.activeElement.tagName!=='TEXTAREA')renderChecklist();renderStats();if(ed&&!$('#i-ed-v').hidden)ckHint()},err);
+})();
+})();
+</script>
+
+</body></html>

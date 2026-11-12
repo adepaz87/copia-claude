@@ -1,0 +1,303 @@
+{
+  "cierre": {
+    "res": "conforme"
+  },
+  "createdAt": "2025-11-20T09:00:00Z",
+  "example": true,
+  "extra": {},
+  "fotos": [],
+  "h": {
+    "direccion": "CL POLIGONO 34, PCL, 398 camping, 38726",
+    "exp": "0000465093",
+    "fecha": "2025-11-20",
+    "municipio": "BARLOVENTO",
+    "representante": "PROYECPAL INGENIERIA SL",
+    "solicitante": "CABILDO INSULAR DE LA PALMA",
+    "supervisor": ""
+  },
+  "r": {
+    "ct01": {
+      "r": "corr"
+    },
+    "ct02": {
+      "r": "corr"
+    },
+    "ct03": {
+      "r": "corr"
+    },
+    "ct04": {
+      "r": "corr"
+    },
+    "ct05": {
+      "r": "corr"
+    },
+    "ct06": {
+      "r": "corr"
+    },
+    "ct07": {
+      "r": "np"
+    },
+    "ct08": {
+      "r": "np"
+    },
+    "ct09": {
+      "r": "corr"
+    },
+    "ct10": {
+      "r": "corr"
+    },
+    "ct11": {
+      "r": "corr"
+    },
+    "ct12": {
+      "r": "corr"
+    },
+    "ct13": {
+      "r": "corr"
+    },
+    "ct14": {
+      "r": "corr"
+    },
+    "ct15": {
+      "r": "corr"
+    },
+    "ct16": {
+      "r": "corr"
+    },
+    "ct17": {
+      "r": "corr"
+    },
+    "ct18": {
+      "r": "corr"
+    },
+    "ct19": {
+      "r": "corr"
+    },
+    "ct20": {
+      "r": "corr"
+    },
+    "ct21": {
+      "r": "corr"
+    },
+    "ct22": {
+      "r": "corr"
+    },
+    "ct23": {
+      "r": "corr"
+    },
+    "ct24": {
+      "r": "corr"
+    },
+    "ct25": {
+      "r": "corr"
+    },
+    "ct26": {
+      "r": "corr"
+    },
+    "ct27": {
+      "r": "corr"
+    },
+    "ct28": {
+      "r": "corr"
+    },
+    "ct29": {
+      "r": "corr"
+    },
+    "ct30": {
+      "r": "corr"
+    },
+    "ct31": {
+      "obs": "Falta luz de emergencia en puerta de acceso.",
+      "r": "corr"
+    },
+    "ct32": {
+      "r": "corr"
+    },
+    "ct33": {
+      "r": "corr"
+    },
+    "ct34": {
+      "r": "corr"
+    },
+    "ct35": {
+      "r": "corr"
+    },
+    "ct36": {
+      "r": "corr"
+    },
+    "ct37": {
+      "r": "corr"
+    },
+    "ct38": {
+      "r": "corr"
+    },
+    "ct39": {
+      "r": "corr"
+    },
+    "ct40": {
+      "r": "corr"
+    },
+    "ct41": {
+      "r": "corr"
+    },
+    "ct42": {
+      "r": "corr"
+    },
+    "ct43": {
+      "r": "corr"
+    },
+    "ct44": {
+      "r": "corr"
+    },
+    "ct45": {
+      "r": "np"
+    },
+    "ct46": {
+      "r": "corr"
+    },
+    "ct47": {
+      "r": "corr"
+    },
+    "ct48": {
+      "r": "corr"
+    },
+    "ct49": {
+      "r": "corr"
+    },
+    "ct50": {
+      "r": "np"
+    },
+    "ct51": {
+      "r": "np"
+    },
+    "ct52": {
+      "r": "corr"
+    },
+    "ct53": {
+      "r": "corr"
+    },
+    "ct54": {
+      "r": "corr"
+    },
+    "ct55": {
+      "obs": "Recinto sin codificar ni rotular.",
+      "r": "incor"
+    },
+    "gen01": {
+      "r": "corr"
+    },
+    "gen02": {
+      "r": "corr"
+    },
+    "gen03": {
+      "r": "corr"
+    },
+    "gen04": {
+      "r": "corr"
+    },
+    "gen05": {
+      "r": "corr"
+    },
+    "gen06": {
+      "r": "np"
+    },
+    "lsmt01": {
+      "r": "corr"
+    },
+    "lsmt02": {
+      "r": "corr"
+    },
+    "lsmt03": {
+      "r": "corr"
+    },
+    "lsmt04": {
+      "r": "corr"
+    },
+    "lsmt05": {
+      "r": "corr"
+    },
+    "lsmt06": {
+      "r": "np"
+    },
+    "lsmt07": {
+      "r": "corr"
+    },
+    "lsmt08": {
+      "r": "corr"
+    },
+    "lsmt09": {
+      "r": "np"
+    },
+    "lsmt10": {
+      "r": "np"
+    },
+    "lsmt11": {
+      "r": "corr"
+    },
+    "lsmt12": {
+      "r": "corr"
+    },
+    "lsmt13": {
+      "r": "np"
+    },
+    "lsmt14": {
+      "r": "corr"
+    },
+    "lsmt15": {
+      "r": "corr"
+    },
+    "lsmt16": {
+      "r": "corr"
+    },
+    "lsmt17": {
+      "r": "np"
+    },
+    "lsmt18": {
+      "obs": "Canalización con profundidad inferior a 70 cm.",
+      "r": "incor"
+    },
+    "lsmt19": {
+      "r": "corr"
+    },
+    "lsmt20": {
+      "r": "corr"
+    },
+    "lsmt21": {
+      "r": "corr"
+    },
+    "lsmt22": {
+      "r": "np"
+    },
+    "lsmt23": {
+      "r": "np"
+    },
+    "lsmt24": {
+      "r": "corr"
+    },
+    "lsmt25": {
+      "r": "corr"
+    },
+    "lsmt26": {
+      "r": "np"
+    },
+    "lsmt27": {
+      "r": "np"
+    },
+    "lsmt28": {
+      "r": "np"
+    },
+    "lsmt29": {
+      "r": "corr"
+    },
+    "lsmt30": {
+      "r": "corr"
+    },
+    "lsmt31": {
+      "r": "corr"
+    },
+    "lsmt32": {
+      "r": "corr"
+    }
+  },
+  "updatedAt": "2026-10-29T22:02:31.397Z"
+}

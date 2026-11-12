@@ -1,0 +1,82 @@
+{
+  "empresa": "Instapalma",
+  "fecha": "2026-02-27",
+  "lineas": [
+    {
+      "a": "VCTF-003756-2026",
+      "d": "TUBO AISCAN-CR CORRUG.DOBLE CAPA D.20 NG",
+      "dto": "Neto",
+      "f": "2026-02-27",
+      "i": 434,
+      "o": "HOSPITAL",
+      "pn": 0.217,
+      "pt": 0.217,
+      "q": 2000,
+      "r": "AIS-CR20"
+    },
+    {
+      "a": "VCTF-003756-2026",
+      "d": "TUBO AISCAN-CR CORRUG.DOBLE CAPA D.25 NG",
+      "dto": "Neto",
+      "f": "2026-02-27",
+      "i": 564.98,
+      "o": "HOSPITAL",
+      "pn": 0.279,
+      "pt": 0.279,
+      "q": 2025,
+      "r": "AIS-CR25"
+    },
+    {
+      "a": "VCTF-003756-2026",
+      "d": "TUBO AISCAN-CR CORRUG,DOBLE CAPA D.32 NG",
+      "dto": "Neto",
+      "f": "2026-02-27",
+      "i": 437,
+      "o": "HOSPITAL",
+      "pn": 0.437,
+      "pt": 0.437,
+      "q": 1000,
+      "r": "AIS-CR32"
+    },
+    {
+      "a": "VCTF-003756-2026",
+      "d": "TUBO AISCAN-CR CORRUG.DOBLE CAPA D.40 NG",
+      "dto": "Neto",
+      "f": "2026-02-27",
+      "i": 611,
+      "o": "HOSPITAL",
+      "pn": 0.611,
+      "pt": 0.611,
+      "q": 1000,
+      "r": "AIS-CR40"
+    },
+    {
+      "a": "VCTF-003756-2026",
+      "d": "CINTA ELECT.PVC N-10 25MX25X0,13MM BL.",
+      "dto": "40,00",
+      "f": "2026-02-27",
+      "i": 13.5,
+      "o": "HOSPITAL",
+      "pn": 1.35,
+      "pt": 2.25,
+      "q": 10,
+      "r": "PLY-5248"
+    },
+    {
+      "a": "VCTF-003756-2026",
+      "d": "CINTA ELECT.PVC N-10 25MX25X0,13MM NG.",
+      "dto": "40,00",
+      "f": "2026-02-27",
+      "i": 6.75,
+      "o": "HOSPITAL",
+      "pn": 1.35,
+      "pt": 2.25,
+      "q": 5,
+      "r": "PLY-5245"
+    }
+  ],
+  "numero": "FT-001203-2026",
+  "origen": "Gmail",
+  "proveedor": "Diexfe",
+  "tipo": "factura"
+}

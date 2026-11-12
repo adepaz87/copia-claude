@@ -1,0 +1,70 @@
+{
+  "empresa": "Instapalma",
+  "fecha": "2026-02-13",
+  "lineas": [
+    {
+      "a": "30.615/003",
+      "d": "BRIDA 150x2,5 ESTAND. NG 100u.",
+      "f": "2026-02-06",
+      "fab": "APO-425150CCT",
+      "i": 2.1,
+      "o": "PLAZA EL SOCORRO",
+      "pn": 0.021,
+      "pt": 0.021,
+      "q": 100,
+      "r": "71350"
+    },
+    {
+      "a": "30.616/003",
+      "d": "ANGULO INTER.50x80 S93 BLANCO",
+      "f": "2026-02-06",
+      "fab": "UNX-93320-2",
+      "i": 19.58,
+      "o": "PLAZA EL SOCORRO",
+      "pn": 9.79,
+      "pt": 9.792,
+      "q": 2,
+      "r": "18933202"
+    },
+    {
+      "a": "30.676/003",
+      "d": "TAPA FINAL 50x80 S93 BLANCO",
+      "f": "2026-02-10",
+      "fab": "UNX-93370-2",
+      "i": 6.95,
+      "o": "LOCALES PLAZA EL SOCORRO",
+      "pn": 3.475,
+      "pt": 3.476,
+      "q": 2,
+      "r": "18933702"
+    },
+    {
+      "a": "30.753/003",
+      "d": "TAPA BANDEJA PVC 400",
+      "f": "2026-02-13",
+      "fab": "UNX-66402",
+      "i": 62.25,
+      "o": "PARQUE ISLAS CANARIAS",
+      "pn": 20.75,
+      "pt": 20.751,
+      "q": 3,
+      "r": "18664020"
+    },
+    {
+      "a": "30.753/003",
+      "d": "TAPA BANDEJA PVC 300",
+      "f": "2026-02-13",
+      "fab": "UNX-66302",
+      "i": 38.64,
+      "o": "PARQUE ISLAS CANARIAS",
+      "pn": 12.88,
+      "pt": 12.879,
+      "q": 3,
+      "r": "18663020"
+    }
+  ],
+  "numero": "90541526",
+  "origen": "Gmail",
+  "proveedor": "Coelca",
+  "tipo": "factura"
+}

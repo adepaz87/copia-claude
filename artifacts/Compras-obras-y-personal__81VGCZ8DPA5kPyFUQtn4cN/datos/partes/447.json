@@ -1,0 +1,57 @@
+{
+  "albs": [],
+  "cliente": "TRAGSA",
+  "desc": "Colocación  de registros\nAdecuación  de tubos\nEnebrar alumbrado  y fuerza zonas comunes",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-09-10",
+  "horas": 16,
+  "obra": "HOSPITAL (MOD G)",
+  "ops": [
+    {
+      "h": 8,
+      "n": "Manuel"
+    },
+    {
+      "h": 8,
+      "n": "Juan"
+    }
+  ],
+  "stock": [
+    {
+      "d": "cable 2x1,5mm incendio",
+      "q": 650,
+      "u": "m"
+    },
+    {
+      "d": "cable  de 1x1,5 mm rz1",
+      "q": 1600,
+      "u": "m"
+    },
+    {
+      "d": "cable de 1x2,5mm rz1",
+      "q": 1800,
+      "u": "m"
+    },
+    {
+      "d": "registros Pt8",
+      "q": 10,
+      "u": ""
+    },
+    {
+      "d": "cinta aislante",
+      "q": 4,
+      "u": "rollos"
+    },
+    {
+      "d": "botes de duplogel",
+      "q": 2,
+      "u": ""
+    },
+    {
+      "d": "bolsa bridas de 4,8x300",
+      "q": 1,
+      "u": ""
+    }
+  ]
+}

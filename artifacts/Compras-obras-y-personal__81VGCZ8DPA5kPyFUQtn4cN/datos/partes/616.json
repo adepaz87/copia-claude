@@ -1,0 +1,17 @@
+{
+  "albs": [],
+  "cliente": "AYUNTAMIENTO EL PASO",
+  "desc": "Marcar alumbrado, emergencias, sensores y wifi con arquitecto en techo planta baja. Fichar registro y llevar cable a puntos luz despacho.",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-10-02",
+  "horas": 3,
+  "obra": "HOTEL MONTERREY",
+  "ops": [
+    {
+      "h": 3,
+      "n": "Antonio"
+    }
+  ],
+  "stock": []
+}

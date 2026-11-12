@@ -1,0 +1,54 @@
+{
+  "albs": [
+    "Coelca 184.872/018",
+    "Diexfe VCTF-018782-2026"
+  ],
+  "cliente": "CABILDO INSULAR",
+  "desc": "Colocar SAI en pesa entrada a camaras, reparar alumbrado en cajas de transporte de carnes.\nDesmontar aturdidor viejo.\nSustituir pinzas fe aturdido.\nColocar esterilizador nuevo en esquinado de caprino.",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-10-08",
+  "horas": 9,
+  "obra": "MATADERO INSULAR",
+  "ops": [
+    {
+      "h": 4,
+      "n": "Antonio"
+    },
+    {
+      "h": 4,
+      "n": "Iker"
+    },
+    {
+      "h": 1,
+      "n": "Transporte"
+    }
+  ],
+  "stock": [
+    {
+      "d": "diferencial schneider 4x40A/30mA",
+      "q": 4,
+      "u": "ud"
+    },
+    {
+      "d": "termico schneider 4x16A",
+      "q": 4,
+      "u": "ud"
+    },
+    {
+      "d": "curvas pvc 25mm",
+      "q": 2,
+      "u": "ud"
+    },
+    {
+      "d": "tubo diflex de 25mm",
+      "q": 6,
+      "u": "m"
+    },
+    {
+      "d": "termico schneider 2x25A",
+      "q": 1,
+      "u": "ud"
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "empresa": "Kairos Supply",
+  "fecha": "2026-10-31",
+  "lineas": [
+    {
+      "a": "35.684/003",
+      "d": "CABLE ALIM. STRING PLUS NEGRO",
+      "f": "2026-10-22",
+      "fab": "PRI-995092",
+      "i": 725,
+      "o": "",
+      "pn": 7.25,
+      "pt": 7.25,
+      "q": 100,
+      "r": "995092"
+    }
+  ],
+  "numero": "94587926",
+  "origen": "Gmail",
+  "proveedor": "Coelca",
+  "tipo": "factura"
+}

@@ -1,0 +1,25 @@
+{
+  "albs": [],
+  "cliente": "CHICHO DOS TUMBOS",
+  "desc": "Fichar porteros en patinillos\nMontar parlante\nConectar provisional fuentes\nConfigurar 55 porteros y comprobar funcionamiento",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-09-22",
+  "horas": 33,
+  "obra": "EDIFICIO SABINO",
+  "ops": [
+    {
+      "h": 11,
+      "n": "Riki"
+    },
+    {
+      "h": 11,
+      "n": "Aythami"
+    },
+    {
+      "h": 11,
+      "n": "Joel"
+    }
+  ],
+  "stock": []
+}

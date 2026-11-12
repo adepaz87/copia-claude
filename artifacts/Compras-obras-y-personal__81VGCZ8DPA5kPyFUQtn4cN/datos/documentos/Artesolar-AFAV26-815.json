@@ -1,0 +1,23 @@
+{
+  "empresa": "Kairos Supply",
+  "fecha": "2026-07-08",
+  "lineas": [
+    {
+      "a": "AALV26-897",
+      "d": "B.VIDRIO 16 LED (PLACA UNIVERSAL 3) 45W VM PC AMBAR (pedido APEV26-362.1)",
+      "dto": "",
+      "f": "2026-07-07",
+      "i": 2270.1,
+      "igic": 0,
+      "o": "",
+      "pn": 113.505,
+      "pt": 113.505,
+      "q": 20,
+      "r": "51BOV16-040PCATEMEA4U3NGRC2V2E-S"
+    }
+  ],
+  "numero": "AFAV26-815",
+  "origen": "Gmail",
+  "proveedor": "Artesolar Iluminación",
+  "tipo": "factura"
+}

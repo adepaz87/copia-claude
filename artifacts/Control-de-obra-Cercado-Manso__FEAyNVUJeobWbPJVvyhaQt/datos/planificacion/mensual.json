@@ -1,0 +1,30 @@
+{
+  "fuente": "Cronograma Cercado Manso (propuesta de la DO, 19/10/2026). Septiembre = certificación nº 1 real.",
+  "meses": [
+    {
+      "mes": "2026-09",
+      "pem": 3891.87
+    },
+    {
+      "mes": "2026-10",
+      "pem": 40669.47
+    },
+    {
+      "mes": "2026-11",
+      "pem": 157222.22
+    },
+    {
+      "mes": "2026-12",
+      "pem": 310821
+    },
+    {
+      "mes": "2027-01",
+      "pem": 218578.92
+    },
+    {
+      "mes": "2027-02",
+      "pem": 22265.45
+    }
+  ],
+  "pemTotal": 753448.93
+}

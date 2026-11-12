@@ -1,0 +1,20 @@
+{
+  "albs": [],
+  "cliente": "TRAGSA",
+  "desc": "Entubando en lavandería. Colocación de registros",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-11-10",
+  "horas": 8,
+  "id": "938",
+  "obra": "HOSPITAL (PARTE BAJA)",
+  "ops": [
+    {
+      "h": 8,
+      "n": "Juan"
+    }
+  ],
+  "origen": "dashboard",
+  "restante": "Indefinido",
+  "stock": []
+}

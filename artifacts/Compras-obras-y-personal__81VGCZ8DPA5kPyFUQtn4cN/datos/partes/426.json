@@ -1,0 +1,17 @@
+{
+  "albs": [],
+  "cliente": "TOMÁS BARRETO SA",
+  "desc": "Revisión por zona cocina Marmitas 1 y 2. Mediciones comprobación cables chispones, prueba encendidos varios, no aprecia fuga a tierra no aprecia olor ,protecciones correctas.",
+  "devol": [],
+  "estado": "TERMINADO",
+  "fecha": "2026-09-08",
+  "horas": 1.5,
+  "obra": "COCINA LOS LLANOS",
+  "ops": [
+    {
+      "h": 1.5,
+      "n": "Toño"
+    }
+  ],
+  "stock": []
+}

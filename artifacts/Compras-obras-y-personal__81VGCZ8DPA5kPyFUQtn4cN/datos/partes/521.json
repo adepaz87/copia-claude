@@ -1,0 +1,29 @@
+{
+  "albs": [],
+  "cliente": "COVALLE",
+  "desc": "Preparar soperteria para bandeja rejiband,colocar soportes…bandeja 400x100 y 200x100 entrada cuadro general \nEnhebrar por bandeja rejiband maniobras encendidos desde subcuadros 2 y 3 hasta zona interruptores entrada nave (CA1,CA2,CA3,CA4,CA5)…se peinan cables por bandeja.\nRealizar bajadas con tubo hasta campanas Iluminación Almacen y enhebrar línea hasta registro \nLimpiar zonas de trabajo",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-09-21",
+  "horas": 30.5,
+  "obra": "NAVE COOPERATIVA COVALLE",
+  "ops": [
+    {
+      "h": 8,
+      "n": "Junior"
+    },
+    {
+      "h": 8,
+      "n": "Petter"
+    },
+    {
+      "h": 8,
+      "n": "Rafael"
+    },
+    {
+      "h": 6.5,
+      "n": "Jonathan Rodríguez"
+    }
+  ],
+  "stock": []
+}

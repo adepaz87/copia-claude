@@ -1,0 +1,21 @@
+{
+  "albs": [],
+  "cliente": "TRAGSA",
+  "desc": "Instalar starlink. Abrir tapas y maderas para acceder a las canalizaciones del techo. Enhebrar cable de datos desde registro del techo hasta inversor. Instalar bases bridas por vigas hasta el starlink.",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-10-28",
+  "horas": 6,
+  "obra": "FV RIACHUELO",
+  "ops": [
+    {
+      "h": 3,
+      "n": "Eloy"
+    },
+    {
+      "h": 3,
+      "n": "Jonathan Glez"
+    }
+  ],
+  "stock": []
+}

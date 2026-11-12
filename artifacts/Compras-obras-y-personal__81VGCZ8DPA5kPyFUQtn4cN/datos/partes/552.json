@@ -1,0 +1,33 @@
+{
+  "albs": [],
+  "cliente": "TRAGSA",
+  "desc": "Hacer puentes de cable de 240mm en cobre, desde el CBT hasta el trafo. \nColocar y prensar terminales.\nConectar puente en ambos extremos.",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-09-25",
+  "horas": 8,
+  "obra": "CT. PLAZA GAZMIRA",
+  "ops": [
+    {
+      "h": 8,
+      "n": "Jorge"
+    }
+  ],
+  "stock": [
+    {
+      "d": "banqueta aislante de MT",
+      "q": 1,
+      "u": ""
+    },
+    {
+      "d": "par de guantes aislantes de MT",
+      "q": 1,
+      "u": ""
+    },
+    {
+      "d": "pertiga de maniobra de MT",
+      "q": 1,
+      "u": ""
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "albs": [
+    "Coelca 35987"
+  ],
+  "cliente": "VIRGINIA",
+  "desc": "Habrir huecos. Colocación de canaleta. Colocación registro. Enebrar cable. Hacer conexiones. Dar servicio",
+  "devol": [],
+  "estado": "TERMINADO",
+  "fecha": "2026-11-10",
+  "horas": 4,
+  "id": "939",
+  "obra": "TURQUESA LOS SAUCES",
+  "ops": [
+    {
+      "h": 4,
+      "n": "Juan"
+    }
+  ],
+  "origen": "dashboard",
+  "stock": [
+    {
+      "d": "cable 1x2,5 rz1",
+      "q": 25,
+      "u": "m"
+    },
+    {
+      "d": "tacos de 6mm",
+      "q": 15,
+      "u": ""
+    },
+    {
+      "d": "tornillos",
+      "q": 15,
+      "u": ""
+    },
+    {
+      "d": "fichas de 16mm",
+      "q": 6,
+      "u": ""
+    }
+  ]
+}

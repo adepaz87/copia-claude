@@ -1,0 +1,23 @@
+{
+  "albs": [],
+  "cliente": "TRAGSA",
+  "desc": "Colocar tramo de bandeja de 300 y soporte para sujetar cables de BT.\n\nHacer puentes de cable 240mm AL. Prensar terminales y conectar  en trafo y CBT.",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-09-30",
+  "horas": 8,
+  "obra": "CT. PLAZA GAZMIRA",
+  "ops": [
+    {
+      "h": 8,
+      "n": "Jorge"
+    }
+  ],
+  "stock": [
+    {
+      "d": "soporte de bandeja unex de 200mm",
+      "q": 1,
+      "u": ""
+    }
+  ]
+}

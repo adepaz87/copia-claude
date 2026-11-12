@@ -1,0 +1,23 @@
+{
+  "empresa": "Instapalma",
+  "fecha": "2026-09-28",
+  "lineas": [
+    {
+      "a": "",
+      "d": "PROYECTO TECNICO Y DIRECCION DE OBRA RACK, ESCALERAS Y PLATAFORMAS (incl. visados)",
+      "dto": "",
+      "f": "2026-09-28",
+      "i": 2500,
+      "igic": 7,
+      "o": "ESTACION DE SERVICIO PUNTAGORDA",
+      "pn": 2500,
+      "pt": 2500,
+      "q": 1,
+      "r": ""
+    }
+  ],
+  "numero": "042/2026",
+  "origen": "Gmail",
+  "proveedor": "Diego Hernández Hernández",
+  "tipo": "factura"
+}

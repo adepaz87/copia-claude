@@ -1,0 +1,11 @@
+{
+  "aplicado": true,
+  "creada": "2026-10-27T22:48:01.776Z",
+  "docId": "9przleke6npqtv15310k",
+  "estado": "respondida",
+  "registro": "material/pifqn956ol082g9a5x6e",
+  "respondida": "2026-10-27T23:08:14.586Z",
+  "respuesta": "Ok",
+  "resultado": "El responsable ha confirmado con 'Ok' que la base 228,13 del desglose fiscal de IGIC es correcta, así que no cambio el importe del registro.",
+  "texto": "La suma de las líneas da 228,11 y el albarán indica 'Total Materiales: 228,110', pero el desglose de IGIC usa una base de 228,13. He usado 228,13 por ser la base del desglose fiscal; ¿es correcto? Además, no está repetido en los albaranes ya registrados."
+}

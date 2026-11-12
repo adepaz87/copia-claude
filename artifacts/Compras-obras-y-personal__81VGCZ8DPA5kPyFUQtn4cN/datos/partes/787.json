@@ -1,0 +1,31 @@
+{
+  "albs": [
+    "Fraper 212601013327"
+  ],
+  "cliente": "AYTO.EL PASO",
+  "desc": "Conectar latiguillos generales de tierra a caja seccionadora de neutro y herrajes. Terminar bornas de MT y conectar a la cabina. Sellar tubos de entrada al CT con espuma. Limpiar el doble fondo del CT. Conectar el disparo del reloj del trafo a la cabina.",
+  "devol": [
+    {
+      "d": "picas de tierra",
+      "q": 3,
+      "u": ""
+    }
+  ],
+  "estado": "TERMINADO",
+  "fecha": "2026-10-26",
+  "horas": 8,
+  "obra": "CT. PINO DE LA VIRGEN",
+  "ops": [
+    {
+      "h": 8,
+      "n": "Jorge"
+    }
+  ],
+  "stock": [
+    {
+      "d": "bote de espuma",
+      "q": 1,
+      "u": ""
+    }
+  ]
+}

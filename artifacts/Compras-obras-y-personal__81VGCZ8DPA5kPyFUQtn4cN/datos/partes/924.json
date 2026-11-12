@@ -1,0 +1,56 @@
+{
+  "albs": [],
+  "cliente": "TRAGSA",
+  "desc": "Terminar de coneccionar cuadro Enfichar",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-11-09",
+  "horas": 7,
+  "id": "924",
+  "obra": "HOSPITAL (MOD G)",
+  "ops": [
+    {
+      "h": 7,
+      "n": "Juan"
+    }
+  ],
+  "origen": "dashboard",
+  "restante": "Indefinido",
+  "stock": [
+    {
+      "d": "punteras de 2,5mm",
+      "q": 72,
+      "u": ""
+    },
+    {
+      "d": "punteras de 10mm",
+      "q": 30,
+      "u": ""
+    },
+    {
+      "d": "punteras de 16mm",
+      "q": 15,
+      "u": ""
+    },
+    {
+      "d": "bridas de 2,5x100",
+      "q": 200,
+      "u": ""
+    },
+    {
+      "d": "bridas de 3,6x199",
+      "q": 60,
+      "u": ""
+    },
+    {
+      "d": "fichas de 10 mm",
+      "q": 10,
+      "u": ""
+    },
+    {
+      "d": "fichas de 16mm",
+      "q": 8,
+      "u": ""
+    }
+  ]
+}

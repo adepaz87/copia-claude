@@ -1,0 +1,23 @@
+{
+  "empresa": "Instapalma",
+  "fecha": "2026-08-21",
+  "lineas": [
+    {
+      "a": "",
+      "d": "MANO DE OBRA INSTALACION FOTOVOLTAICA TUNEL LA CUMBRE",
+      "dto": "",
+      "f": "2026-08-21",
+      "i": 2880,
+      "igic": 7,
+      "o": "FV TUNEL DE LA CUMBRE",
+      "pn": 20,
+      "pt": 20,
+      "q": 144,
+      "r": ""
+    }
+  ],
+  "numero": "112600323",
+  "origen": "Gmail",
+  "proveedor": "José Carlos (Inst. Eléctricas)",
+  "tipo": "factura"
+}

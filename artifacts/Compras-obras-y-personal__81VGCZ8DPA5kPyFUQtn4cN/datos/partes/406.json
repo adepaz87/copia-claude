@@ -1,0 +1,17 @@
+{
+  "albs": [],
+  "cliente": "CHICHO 2 TUMBOS",
+  "desc": "Devolución material almacén ( se lleva ese material y se añade en stock en edificio domingo el paso)",
+  "devol": [],
+  "estado": "TERMINADO",
+  "fecha": "2026-09-03",
+  "horas": 0,
+  "obra": "EDIFICIO SABINO",
+  "ops": [
+    {
+      "h": 0,
+      "n": "Aythami"
+    }
+  ],
+  "stock": []
+}

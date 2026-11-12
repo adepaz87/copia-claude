@@ -1,0 +1,24 @@
+{
+  "actualizada": "2026-11-05T09:25:00.483Z",
+  "asignadaEn": "2026-11-05T09:23:08.542Z",
+  "avisadoWa": "2026-11-05T09:25:00.483Z",
+  "aviso": "",
+  "centro": "Central Logística Los Guinchos",
+  "creada": "2026-11-03T16:33:28.979Z",
+  "descripcion": "Batería condensadores de la central en peligro. Fernando pasa vídeo y foto.",
+  "estado": "asignada",
+  "fechaAviso": "2026-11-03",
+  "historial": [
+    "3/11/2026 16:33 · Registrada (aviso de )",
+    "5/11/2026 09:23 · Asignada a Toño Guardia",
+    "5/11/2026 09:23 · Asignación: Correo NO enviado: request failed · WhatsApp a Toño Guardia programado · WhatsApp a Fernando programado",
+    "5/11/2026 09:25 · WhatsApp programado a Toño Guardia"
+  ],
+  "informado": false,
+  "notas": "",
+  "operario": "Toño Guardia",
+  "ot": 27,
+  "prioridad": "Sin especificar",
+  "solicitante": "",
+  "tipo": "MANTENIMIENTO"
+}

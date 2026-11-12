@@ -1,0 +1,45 @@
+{
+  "albs": [],
+  "cliente": "CHICHO 2 TUMBOS",
+  "desc": "Entubar cuarto riti\nEntubar baño comunitario\nEntubar cuarto contadores agua\nEntubar encendido cuarto centralizaciones\nColocar registro portero fijar fuentes de alimentación portero y conectarlas\nColocar emergencias cuartos zonas comunes \nEnebrar alumbrados y fuerzas zonas comunes",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-09-28",
+  "horas": 27,
+  "obra": "EDIFICIO SABINO",
+  "ops": [
+    {
+      "h": 8,
+      "n": "Junior"
+    },
+    {
+      "h": 7,
+      "n": "Riki"
+    },
+    {
+      "h": 6,
+      "n": "Joel"
+    },
+    {
+      "h": 6,
+      "n": "Aythami"
+    }
+  ],
+  "stock": [
+    {
+      "d": "curvas rígidas de 25",
+      "q": 6,
+      "u": ""
+    },
+    {
+      "d": "curvas rígidas de 20",
+      "q": 5,
+      "u": ""
+    },
+    {
+      "d": "tubos rígidos de 25",
+      "q": 4,
+      "u": ""
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "aplicado": true,
+  "creada": "2026-10-27T22:48:47.111Z",
+  "docId": "bmynnv2en0vfr8hiecfv",
+  "estado": "respondida",
+  "registro": "material/qkjcvx4jbt76qb42otmx",
+  "respondida": "2026-10-27T23:09:34.873Z",
+  "respuesta": "Ok",
+  "resultado": "No cambio nada: el responsable confirma con 'Ok' que el gasto es de COOVALLE, pero los campos de material (fecha, proveedor, numero, concepto, importe) no incluyen obra, así que no hay nada que modificar en el registro.",
+  "texto": "El cliente es DELEDCAN, S.L. y no consta el nombre de la obra en el albarán: ¿confirmas que este gasto es de COOVALLE?"
+}

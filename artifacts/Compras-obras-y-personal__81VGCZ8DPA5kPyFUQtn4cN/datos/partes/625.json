@@ -1,0 +1,28 @@
+{
+  "albs": [],
+  "cliente": "TRAGSA",
+  "desc": "Elaboración cuadros CA.Inversor.\nCableado tierras conexionado seccionador.\nCableado linea a cuadro general Inversor",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-10-05",
+  "horas": 8,
+  "obra": "RIACHUELO FV.",
+  "ops": [
+    {
+      "h": 8,
+      "n": "Toño"
+    }
+  ],
+  "stock": [
+    {
+      "d": "cm.pletina cobre 160A",
+      "q": 30,
+      "u": ""
+    },
+    {
+      "d": "terminal cobre 25/8mm",
+      "q": 4,
+      "u": ""
+    }
+  ]
+}

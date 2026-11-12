@@ -1,0 +1,23 @@
+{
+  "albs": [
+    "Diexfe VCTF-018202-2026"
+  ],
+  "cliente": "AYUNTAMIENTO EL PASO",
+  "desc": "Entubar t colocar registros de compuertas contraincendios en cuartos de sotano -1.\nEnebar y fichar registros.\nVer cambios en 2 planta de habitaciones.\nColocar cables en S-1 para alumbrado de escalera principal.",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-09-29",
+  "horas": 14,
+  "obra": "HOTEL MONTERREY",
+  "ops": [
+    {
+      "h": 7,
+      "n": "Antonio"
+    },
+    {
+      "h": 7,
+      "n": "Iker"
+    }
+  ],
+  "stock": []
+}

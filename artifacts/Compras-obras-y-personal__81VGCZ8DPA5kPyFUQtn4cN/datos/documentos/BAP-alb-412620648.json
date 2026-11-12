@@ -1,0 +1,24 @@
+{
+  "empresa": "Instapalma",
+  "fecha": "2026-10-08",
+  "lineas": [
+    {
+      "a": "412.620.648",
+      "d": "TRITUBO P/TELECOMUNICACIONES 63 MM R/200",
+      "dto": "25%",
+      "f": "2026-10-08",
+      "i": 2240.26,
+      "igic": 3,
+      "o": "BAP SIN OBRA - TRITUBO 63",
+      "pn": 11.2013,
+      "pt": 14.9351,
+      "q": 200,
+      "r": "26159"
+    }
+  ],
+  "numero": "412.620.648",
+  "obra": "BAP SIN OBRA - TRITUBO 63",
+  "origen": "Gmail",
+  "proveedor": "BAP",
+  "tipo": "albaran"
+}

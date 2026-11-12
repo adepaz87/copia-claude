@@ -1,0 +1,35 @@
+{
+  "empresa": "Kairos Supply",
+  "fecha": "2026-10-13",
+  "lineas": [
+    {
+      "a": "035.486/003",
+      "d": "LUM.ASTRO 30W SOLAR PC-AMBAR",
+      "f": "2026-10-13",
+      "fab": "1733983040500",
+      "i": 345,
+      "o": "",
+      "pn": 345,
+      "pt": 345,
+      "q": 1,
+      "r": "173398"
+    },
+    {
+      "a": "035.486/003",
+      "d": "LUM SOLAR ASTRO 50W PC-AMBAR",
+      "f": "2026-10-13",
+      "fab": "EC-3883",
+      "i": 5707,
+      "o": "",
+      "pn": 439,
+      "pt": 439,
+      "q": 13,
+      "r": "92377297"
+    }
+  ],
+  "numero": "035.486/003",
+  "obra": "",
+  "origen": "Gmail",
+  "proveedor": "Coelca",
+  "tipo": "albaran"
+}

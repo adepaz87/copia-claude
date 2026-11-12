@@ -1,0 +1,17 @@
+{
+  "albs": [],
+  "cliente": "TRAGSA",
+  "desc": "Rotular celdas de MT.\nConectar maniobra de disparo de la celda del trafo.\nConectar latiguillos de tierra a las rapas de los fosos.\nConectar tierra en cajas de seccionamiento de neutro y de herrajes y cerrar cajas.\nColocar soporte de bandeja bajo puentes de BT.\nCortar tapa y cerrar bandeja de 300 de cables de MT.\nConectar tierras de las bornas de MT del trafo.\nRecoger  y tirar basura.",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-10-20",
+  "horas": 8,
+  "obra": "CT.PLAZA GAZMIRA",
+  "ops": [
+    {
+      "h": 8,
+      "n": "Jorge"
+    }
+  ],
+  "stock": []
+}

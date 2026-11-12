@@ -1,0 +1,23 @@
+{
+  "empresa": "Instapalma",
+  "fecha": "2026-10-06",
+  "lineas": [
+    {
+      "a": "184.813/018",
+      "d": "CONDENSADOR 16MF 400V",
+      "f": "2026-10-06",
+      "fab": "06.510/16",
+      "i": 3.88,
+      "o": "MANZILLA",
+      "pn": 3.88,
+      "pt": 3.88,
+      "q": 1,
+      "r": "2465116"
+    }
+  ],
+  "numero": "184.813/018",
+  "obra": "MANZILLA",
+  "origen": "Gmail",
+  "proveedor": "Coelca",
+  "tipo": "albaran"
+}

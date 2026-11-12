@@ -1,0 +1,24 @@
+{
+  "abono": true,
+  "empresa": "Kairos Supply",
+  "fecha": "2026-07-16",
+  "lineas": [
+    {
+      "a": "",
+      "d": "DESCUENTO POR PRONTO PAGO (rectificativa)",
+      "dto": "",
+      "f": "2026-07-16",
+      "i": -1121.5,
+      "igic": 7,
+      "o": "",
+      "pn": 1121.5,
+      "pt": 1121.5,
+      "q": -1,
+      "r": ""
+    }
+  ],
+  "numero": "R260010",
+  "origen": "Gmail",
+  "proveedor": "Lightcan",
+  "tipo": "factura"
+}

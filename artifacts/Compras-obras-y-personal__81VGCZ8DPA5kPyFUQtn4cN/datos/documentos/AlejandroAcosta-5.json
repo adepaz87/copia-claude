@@ -1,0 +1,62 @@
+{
+  "empresa": "Instapalma",
+  "fecha": "2026-03-06",
+  "lineas": [
+    {
+      "a": "",
+      "d": "MANO DE OBRA (2 semanas, 2 empleados, 46 €/h)",
+      "dto": "",
+      "f": "2026-02-18",
+      "i": 3266,
+      "igic": 7,
+      "o": "EL PASO",
+      "pn": 43.5467,
+      "pt": 43.5467,
+      "q": 75,
+      "r": ""
+    },
+    {
+      "a": "",
+      "d": "CEMENTO",
+      "dto": "",
+      "f": "2026-02-18",
+      "i": 280,
+      "igic": 7,
+      "o": "EL PASO",
+      "pn": 4.4444,
+      "pt": 4.4444,
+      "q": 63,
+      "r": ""
+    },
+    {
+      "a": "",
+      "d": "MANGUITO PVC 40 HH",
+      "dto": "",
+      "f": "2026-02-18",
+      "i": 4.7,
+      "igic": 7,
+      "o": "EL PASO",
+      "pn": 0.47,
+      "pt": 0.47,
+      "q": 10,
+      "r": ""
+    },
+    {
+      "a": "",
+      "d": "COMBUSTIBLE",
+      "dto": "",
+      "f": "2026-02-18",
+      "i": 30,
+      "igic": 7,
+      "o": "EL PASO",
+      "pn": 30,
+      "pt": 30,
+      "q": 1,
+      "r": ""
+    }
+  ],
+  "numero": "5",
+  "origen": "Gmail",
+  "proveedor": "Alejandro Acosta Castro",
+  "tipo": "factura"
+}

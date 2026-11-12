@@ -1,0 +1,89 @@
+{
+  "empresa": "Instapalma",
+  "fecha": "2026-06-30",
+  "lineas": [
+    {
+      "a": "309003811",
+      "d": "RESI9 COMBI SPU 1PN C 25A CAN",
+      "f": "2026-06-22",
+      "fab": "R9L20625CAN",
+      "i": 50.22,
+      "m": "Schneider Electric",
+      "o": "CASA FATIMA",
+      "pn": 50.22,
+      "pt": 50.218391,
+      "q": 1,
+      "r": "719692"
+    },
+    {
+      "a": "309003812",
+      "d": "RESI9 COMBI SPU 1PN C 25A CAN",
+      "f": "2026-06-22",
+      "fab": "R9L20625CAN",
+      "i": 50.22,
+      "m": "Schneider Electric",
+      "o": "CASA IONE",
+      "pn": 50.22,
+      "pt": 50.218391,
+      "q": 1,
+      "r": "719692"
+    },
+    {
+      "a": "309003977",
+      "d": "BASE SCHUKO 2P+T 16A MATIX",
+      "dto": "50,00",
+      "f": "2026-06-29",
+      "fab": "AM5440/2",
+      "i": 8.67,
+      "m": "BTICINO",
+      "o": "BALCÓN TABURIENTE",
+      "pn": 4.335,
+      "pt": 8.67,
+      "q": 2,
+      "r": "62538"
+    },
+    {
+      "a": "309003977",
+      "d": "CAJA IP40 HORIZ.4ELEM.MATIX",
+      "dto": "50,00",
+      "f": "2026-06-29",
+      "fab": "25404",
+      "i": 4.93,
+      "m": "BTICINO",
+      "o": "BALCÓN TABURIENTE",
+      "pn": 4.93,
+      "pt": 9.85,
+      "q": 1,
+      "r": "129633"
+    },
+    {
+      "a": "309004009",
+      "d": "GEL LUBRICANTE DUPLOGEL 500CC",
+      "dto": "35,00",
+      "f": "2026-06-30",
+      "fab": "46015000",
+      "i": 6.14,
+      "m": "ANGUILA",
+      "o": "FOTOVOLTAICA EL PASO",
+      "pn": 6.14,
+      "pt": 9.44,
+      "q": 1,
+      "r": "57931"
+    },
+    {
+      "a": "309004009",
+      "d": "KIT ENNOVABLOC R INTERMEDIA 30MM",
+      "f": "2026-06-30",
+      "i": 155,
+      "o": "FOTOVOLTAICA EL PASO",
+      "pn": 1.55,
+      "pt": 1.55,
+      "q": 100,
+      "r": "1146528"
+    }
+  ],
+  "numero": "F03000R-8483",
+  "origen": "Gmail",
+  "proveedor": "Sonepar",
+  "tipo": "factura"
+}

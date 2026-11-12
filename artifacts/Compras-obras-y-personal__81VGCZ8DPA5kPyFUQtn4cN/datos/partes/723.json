@@ -1,0 +1,17 @@
+{
+  "albs": [],
+  "cliente": "CHICHO DOS TUMBOS",
+  "desc": "Naves Bovedillas Chicho:\nFase 1. 31,8A. \nFase 2. 32,6A.\nFase 3. 32,9A.\nL1-L2 . 401,2V\nL2-L3. 403,5V\nL1-L3. 405,7V\nL1-N. 232,2V\nL2-N. 235,8V\nL3-N. 234,8V",
+  "devol": [],
+  "estado": "TERMINADO",
+  "fecha": "2026-10-19",
+  "horas": 2,
+  "obra": "NAVE BOVEDILLAS LOS LLANOS",
+  "ops": [
+    {
+      "h": 2,
+      "n": "Toño"
+    }
+  ],
+  "stock": []
+}

@@ -1,0 +1,119 @@
+{
+  "empresa": "Instapalma",
+  "fecha": "2026-10-21",
+  "lineas": [
+    {
+      "a": "VCTF-019766-2026",
+      "d": "REGLETA DE CONEXIÓN PRO CON CUBIERTA 12 POLOS - CAPACIDAD DE",
+      "dto": "45,00",
+      "f": "2026-10-21",
+      "i": 19.19,
+      "o": "RESIDENCIA TERCERA E",
+      "pn": 1.919,
+      "pt": 3.49,
+      "q": 10,
+      "r": "TEK-PRO10MAX"
+    },
+    {
+      "a": "VCTF-019766-2026",
+      "d": "GEL LUBRICANTE DUPLOGEL INTRODUCIR 500CC",
+      "dto": "Neto",
+      "f": "2026-10-21",
+      "i": 19.82,
+      "o": "RESIDENCIA TERCERA E",
+      "pn": 6.6067,
+      "pt": 6.608,
+      "q": 3,
+      "r": "ANG-46015000"
+    },
+    {
+      "a": "VCTF-019766-2026",
+      "d": "CAJA PT7 294X152X70 FG10215",
+      "dto": "Neto",
+      "f": "2026-10-21",
+      "i": 24.26,
+      "o": "RESIDENCIA TERCERA E",
+      "pn": 4.0433,
+      "pt": 4.043,
+      "q": 6,
+      "r": "CMC-350C7"
+    },
+    {
+      "a": "VCTF-019766-2026",
+      "d": "CAJA EMP.TABIQUES HUECOS (520UD)",
+      "dto": "0,00",
+      "f": "2026-10-21",
+      "i": 31.44,
+      "o": "RESIDENCIA TERCERA E",
+      "pn": 0.524,
+      "pt": 0.524,
+      "q": 60,
+      "r": "SOL-5625"
+    },
+    {
+      "a": "VCTF-019766-2026",
+      "d": "CINTA ELECT.PVC N-10 25MX25X0,13MM BL.",
+      "dto": "40,00",
+      "f": "2026-10-21",
+      "i": 14.16,
+      "o": "RESIDENCIA TERCERA E",
+      "pn": 1.416,
+      "pt": 2.36,
+      "q": 10,
+      "r": "PLY-5248"
+    },
+    {
+      "a": "VCTF-019766-2026",
+      "d": "CINTA ELECT.PVC N-10 25MX25X0,13MM NG.",
+      "dto": "40,00",
+      "f": "2026-10-21",
+      "i": 14.16,
+      "o": "RESIDENCIA TERCERA E",
+      "pn": 1.416,
+      "pt": 2.36,
+      "q": 10,
+      "r": "PLY-5245"
+    },
+    {
+      "a": "VCTF-019766-2026",
+      "d": "CABLE COAX.T100PLUS LSFH DCA 100M BL",
+      "dto": "Neto",
+      "f": "2026-10-21",
+      "i": 159.4,
+      "o": "RESIDENCIA TERCERA E",
+      "pn": 0.797,
+      "pt": 0.797,
+      "q": 200,
+      "r": "TVE-214110"
+    },
+    {
+      "a": "VCTF-019766-2026",
+      "d": "CABLE AFIRENAX-L 05Z1-K/07Z1-K 1,5MM2 AZ",
+      "dto": "Neto",
+      "f": "2026-10-21",
+      "i": 147,
+      "o": "RESIDENCIA TERCERA E",
+      "pn": 0.245,
+      "pt": 0.245,
+      "q": 600,
+      "r": "MIG-84100082"
+    },
+    {
+      "a": "VCTF-019766-2026",
+      "d": "CABLE AFIRENAX-L 05Z1-K/07Z1-K 1,5MM2 GR",
+      "dto": "Neto",
+      "f": "2026-10-21",
+      "i": 98,
+      "o": "RESIDENCIA TERCERA E",
+      "pn": 0.245,
+      "pt": 0.245,
+      "q": 400,
+      "r": "MIG-84100089"
+    }
+  ],
+  "numero": "VCTF-019766-2026",
+  "obra": "RESIDENCIA TERCERA E",
+  "origen": "Gmail",
+  "proveedor": "Diexfe",
+  "tipo": "albaran"
+}

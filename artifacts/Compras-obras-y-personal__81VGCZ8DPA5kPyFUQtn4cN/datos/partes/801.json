@@ -1,0 +1,62 @@
+{
+  "albs": [],
+  "cliente": "TRAGSA",
+  "desc": "Ordenar registros Enebrar líneas por bandeja y por tubo Enbridar por bandeja",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-10-27",
+  "horas": 16,
+  "obra": "HOSPITAL (MOD G )",
+  "ops": [
+    {
+      "h": 8,
+      "n": "Manuel"
+    },
+    {
+      "h": 8,
+      "n": "Juan"
+    }
+  ],
+  "stock": [
+    {
+      "d": "cable 3x1,5 mm",
+      "q": 95,
+      "u": "m"
+    },
+    {
+      "d": "cable 2x1,5mm rojo",
+      "q": 95,
+      "u": "m"
+    },
+    {
+      "d": "cable 1x1,5 mm",
+      "q": 68,
+      "u": "m"
+    },
+    {
+      "d": "bolsas bridas de 4,8x300",
+      "q": 2,
+      "u": ""
+    },
+    {
+      "d": "cinta aislante blanca",
+      "q": 2,
+      "u": "rollos"
+    },
+    {
+      "d": "fichas de 10mm",
+      "q": 10,
+      "u": ""
+    },
+    {
+      "d": "fichas de 16mm",
+      "q": 10,
+      "u": ""
+    },
+    {
+      "d": "fichas de25 mm",
+      "q": 10,
+      "u": ""
+    }
+  ]
+}

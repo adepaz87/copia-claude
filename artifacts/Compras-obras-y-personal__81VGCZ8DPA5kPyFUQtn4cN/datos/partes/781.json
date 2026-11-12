@@ -1,0 +1,17 @@
+{
+  "albs": [],
+  "cliente": "COVALLE",
+  "desc": "Rotular\nColocar  obturador \nPrepara  la tigrillo",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-10-23",
+  "horas": 2,
+  "obra": "CUADRO",
+  "ops": [
+    {
+      "h": 2,
+      "n": "Goyo"
+    }
+  ],
+  "stock": []
+}

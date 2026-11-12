@@ -1,0 +1,17 @@
+{
+  "albs": [],
+  "cliente": "TRAGSA",
+  "desc": "Elaboración cuadros eléctricos. Subcuadro VE2",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-09-10",
+  "horas": 7,
+  "obra": "CENTRO VISITANTES EL PASO FV",
+  "ops": [
+    {
+      "h": 7,
+      "n": "Toño"
+    }
+  ],
+  "stock": []
+}

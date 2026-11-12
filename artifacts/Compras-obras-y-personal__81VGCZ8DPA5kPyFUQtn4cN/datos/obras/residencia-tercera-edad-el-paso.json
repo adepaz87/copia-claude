@@ -1,0 +1,19 @@
+{
+  "alias": [
+    "RESIDENCIA T EDAD EL PASO",
+    "RESIDENCIA TERCERA E",
+    "RESIDENCIA TERCERA EDAD EL PASO",
+    "RECIDENCIA TERCERA EDAD",
+    "REDIDENCIA T EDAD EL PASO",
+    "RESIDENCIA MAYORES EL PASO"
+  ],
+  "cliente": "CONSTRUCCIONES DOS TUMBOS",
+  "creado": "2026-10-29",
+  "estado": "aprobada",
+  "fact": {
+    "igic": 7,
+    "mg": 35,
+    "ph": 25
+  },
+  "nombre": "Residencia Tercera Edad El Paso"
+}

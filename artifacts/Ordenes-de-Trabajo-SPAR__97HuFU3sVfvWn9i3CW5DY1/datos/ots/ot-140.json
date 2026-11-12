@@ -1,0 +1,25 @@
+{
+  "actualizada": "2026-11-10T21:42:28.213Z",
+  "asignadaEn": "2026-11-10T21:42:24.701Z",
+  "avisadoWa": "2026-11-10T21:42:28.213Z",
+  "aviso": "",
+  "centro": "SPAR Triana",
+  "creada": "2026-11-10T20:20:00Z",
+  "descripcion": "Mantenimiento mensual del grupo electrógeno (noviembre 2026).",
+  "empresa": "Tomás Barreto",
+  "estado": "asignada",
+  "fechaAviso": "2026-11-10",
+  "historial": [
+    "10/11/2026 · Creada como OT periódica mensual de mantenimiento de GE (noviembre 2026)",
+    "10/11/2026 21:42 · Asignada a Toño Guardia",
+    "10/11/2026 21:42 · Asignación: Correo enviado a TBSA · WhatsApp a Toño Guardia programado · WhatsApp a Fernando programado"
+  ],
+  "informado": true,
+  "notas": "OT periódica: mantenimiento de grupo electrógeno, se repite cada mes. Nº OT provisional: confirmar o cambiar.",
+  "operario": "Toño Guardia",
+  "ot": 140,
+  "periodica": "GE mensual",
+  "prioridad": "Media",
+  "solicitante": "Periódica mensual",
+  "tipo": "MANTENIMIENTO"
+}

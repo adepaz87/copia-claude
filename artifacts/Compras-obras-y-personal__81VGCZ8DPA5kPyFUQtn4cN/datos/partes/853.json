@@ -1,0 +1,19 @@
+{
+  "albs": [],
+  "cliente": "CABILDO INSULAR",
+  "desc": "Rearmar caldera y revisar cuadros. (En el parte: Transporte 1h)",
+  "devol": [],
+  "estado": "TERMINADO",
+  "fecha": "2026-11-03",
+  "horas": 1,
+  "id": "853",
+  "obra": "MATADERO INSULAR",
+  "ops": [
+    {
+      "h": 1,
+      "n": "Antonio"
+    }
+  ],
+  "origen": "dashboard",
+  "stock": []
+}

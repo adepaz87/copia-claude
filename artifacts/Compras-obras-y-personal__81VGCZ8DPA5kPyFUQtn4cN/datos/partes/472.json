@@ -1,0 +1,25 @@
+{
+  "albs": [],
+  "cliente": "JORGE SASTRE",
+  "desc": "Desmontar pantallas fluorescentes  antiguas.\n\nFijar campanas led al techo y conectar.\n\nProbar funcionamiento.\n\nRecoger y tirar cajas, plasticos, etc a contenedotes de basura.",
+  "devol": [],
+  "duplicado": "471",
+  "editado": "2026-11-02T23:15:00Z",
+  "estado": "TERMINADO",
+  "fecha": "2026-09-15",
+  "horas": 8,
+  "obra": "ASERRADERO MIRCA",
+  "ops": [
+    {
+      "h": 8,
+      "n": "Jorge"
+    }
+  ],
+  "stock": [
+    {
+      "d": "bridas 4,6x300mm",
+      "q": 1,
+      "u": "paquete"
+    }
+  ]
+}

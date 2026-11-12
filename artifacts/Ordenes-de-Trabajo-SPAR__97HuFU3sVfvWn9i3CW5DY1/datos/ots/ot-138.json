@@ -1,0 +1,28 @@
+{
+  "actualizada": "2026-11-11T16:14:00Z",
+  "asignadaEn": "2026-11-10T21:42:11.838Z",
+  "avisadoWa": "2026-11-10T21:42:17.651Z",
+  "aviso": "",
+  "centro": "SPAR El Paso",
+  "creada": "2026-11-10T20:20:00Z",
+  "descripcion": "Mantenimiento mensual del grupo electrógeno (noviembre 2026).",
+  "empresa": "Tomás Barreto",
+  "estado": "terminada",
+  "fechaAviso": "2026-11-10",
+  "historial": [
+    "10/11/2026 · Creada como OT periódica mensual de mantenimiento de GE (noviembre 2026)",
+    "10/11/2026 21:42 · Asignada a Toño Guardia",
+    "10/11/2026 21:42 · Asignación: Correo enviado a TBSA · WhatsApp a Toño Guardia programado · WhatsApp a Fernando programado",
+    "11/11/2026 15:37 · Toño avisa por WhatsApp: «OT 138 resuelto» · Estado: Terminada",
+    "11/11/2026 16:14 · Cierre: correo enviado a TBSA · WhatsApp a Fernando programado"
+  ],
+  "informado": true,
+  "notas": "OT periódica: mantenimiento mensual del grupo electrógeno de SPAR El Paso (noviembre 2026). Hecho por Toño Guardia el 11/11 a las 15:37.",
+  "operario": "Toño Guardia",
+  "ot": 138,
+  "periodica": "GE mensual",
+  "prioridad": "Media",
+  "solicitante": "Periódica mensual",
+  "terminadaEn": "2026-11-11T15:37:00Z",
+  "tipo": "MANTENIMIENTO"
+}

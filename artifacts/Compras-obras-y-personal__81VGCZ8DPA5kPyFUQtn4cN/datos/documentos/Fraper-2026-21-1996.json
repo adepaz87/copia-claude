@@ -1,0 +1,62 @@
+{
+  "empresa": "Instapalma",
+  "fecha": "2026-05-31",
+  "lineas": [
+    {
+      "a": "2026/01/006294",
+      "d": "ALCOHOL DE QUEMAR(METANOL) 1L",
+      "dto": "10",
+      "f": "2026-05-22",
+      "i": 1.87,
+      "nota": "LLEVADO POR JORGE GARCIA",
+      "o": "PARQUE ISLAS CANARIAS",
+      "pn": 1.87,
+      "pt": 2.08,
+      "q": 1,
+      "r": "212522"
+    },
+    {
+      "a": "2026/01/006294",
+      "d": "PAL.TRIPLE M.PLAST AZUUBLANCO 24",
+      "dto": "10",
+      "f": "2026-05-22",
+      "i": 1.35,
+      "nota": "LLEVADO POR JORGE GARCIA",
+      "o": "PARQUE ISLAS CANARIAS",
+      "pn": 1.35,
+      "pt": 1.5,
+      "q": 1,
+      "r": "224059"
+    },
+    {
+      "a": "2026/01/006294",
+      "d": "PAL.TRIPLE M.PLAST AZUUBLANCO 24",
+      "dto": "10",
+      "f": "2026-05-22",
+      "i": 1.35,
+      "nota": "LLEVADO POR JORGE GARCIA",
+      "o": "PARQUE ISLAS CANARIAS",
+      "pn": 1.35,
+      "pt": 1.5,
+      "q": 1,
+      "r": "224059"
+    },
+    {
+      "a": "2026/01/006294",
+      "d": "BOBINA INDUSTRIAL ECOPLUS",
+      "dto": "10",
+      "f": "2026-05-22",
+      "i": 9.49,
+      "nota": "LLEVADO POR JORGE GARCIA",
+      "o": "PARQUE ISLAS CANARIAS",
+      "pn": 9.49,
+      "pt": 10.55,
+      "q": 1,
+      "r": "222545"
+    }
+  ],
+  "numero": "2026/21/1996",
+  "origen": "Gmail",
+  "proveedor": "Fraper",
+  "tipo": "factura"
+}

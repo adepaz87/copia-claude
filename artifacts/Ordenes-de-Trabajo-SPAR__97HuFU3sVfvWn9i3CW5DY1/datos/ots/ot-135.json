@@ -1,0 +1,25 @@
+{
+  "actualizada": "2026-11-11T10:45:45.670Z",
+  "asignadaEn": "2026-11-11T10:45:30.900Z",
+  "avisadoWa": "2026-11-11T10:45:34.122Z",
+  "aviso": "INT-0001",
+  "centro": "Áridos El Riachuelo · Planta de machaqueo",
+  "creada": "2026-11-07T11:05:00Z",
+  "descripcion": "Instalar un horómetro al motor del molino MOL-01 (Smartcrush 10/10), si es posible.",
+  "empresa": "Áridos El Riachuelo",
+  "estado": "asignada",
+  "fechaAviso": "2026-11-07",
+  "historial": [
+    "07/11/2026 · Importada del correo [INT-0001] de Áridos El Riachuelo",
+    "11/11/2026 10:45 · Asignada a Aythami",
+    "11/11/2026 10:45 · Asignación: Correo enviado a TBSA · WhatsApp a Aythami programado · WhatsApp a Fernando programado",
+    "11/11/2026 10:45 · Sin operario"
+  ],
+  "informado": false,
+  "notas": "Solicitud INT-0001 de José Gabriel Barreto Cruz (+34 696 987 654), 07/11 08:59. Tipo: mejora. Equipo parado: no. Prioridad Normal. Indicar la referencia INT-0001 en presupuesto, albarán y factura. Nº OT provisional: confirmar o cambiar.",
+  "operario": "",
+  "ot": 135,
+  "prioridad": "Media",
+  "solicitante": "José Gabriel",
+  "tipo": "MANTENIMIENTO"
+}

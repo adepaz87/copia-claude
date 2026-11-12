@@ -1,0 +1,32 @@
+{
+  "empresa": "Kairos Supply",
+  "fecha": "2026-03-05",
+  "lineas": [
+    {
+      "a": "309001206",
+      "d": "KIT EST. INCLINADA VERT. ABIERTA 30º 4M ANODIZADO",
+      "f": "2026-03-02",
+      "i": 908.69,
+      "o": "CECOPIN",
+      "pn": 151.4483,
+      "pt": 151.4475,
+      "q": 6,
+      "r": "1209281"
+    },
+    {
+      "a": "309001294",
+      "d": "KIT EST. INCLINADA VERT. ABIERTA 30º 4M ANODIZADO",
+      "f": "2026-03-05",
+      "i": 286,
+      "o": "CECOPIN",
+      "pn": 143,
+      "pt": 143,
+      "q": 2,
+      "r": "1209281"
+    }
+  ],
+  "numero": "F03000R-3200",
+  "origen": "Gmail",
+  "proveedor": "Sonepar",
+  "tipo": "factura"
+}

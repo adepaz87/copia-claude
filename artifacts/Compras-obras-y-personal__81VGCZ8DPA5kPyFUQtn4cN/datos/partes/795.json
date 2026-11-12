@@ -1,0 +1,47 @@
+{
+  "albs": [
+    "Diexfe 020003"
+  ],
+  "cliente": "CONSTRUCCIONES DOMINGO",
+  "desc": "Colocar registros y cuadros Entubar viviendas planta 3",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-10-26",
+  "horas": 41,
+  "obra": "EDIFICIO DOMINGO EL PASO",
+  "ops": [
+    {
+      "h": 11,
+      "n": "Riki"
+    },
+    {
+      "h": 11,
+      "n": "Joel"
+    },
+    {
+      "h": 11,
+      "n": "Aythami"
+    },
+    {
+      "h": 8,
+      "n": "Junior"
+    }
+  ],
+  "stock": [
+    {
+      "d": "bridas 4,8x300",
+      "q": 2000,
+      "u": ""
+    },
+    {
+      "d": "tacos brida celo",
+      "q": 1000,
+      "u": ""
+    },
+    {
+      "d": "clavos celo",
+      "q": 1,
+      "u": "caja"
+    }
+  ]
+}

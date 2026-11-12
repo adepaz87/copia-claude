@@ -1,0 +1,47 @@
+{
+  "empresa": "Instapalma",
+  "fecha": "2026-10-07",
+  "lineas": [
+    {
+      "a": "VCTF-018874-2026",
+      "d": "TAPA BANDEJA OMEGA 400",
+      "dto": "Neto",
+      "f": "2026-10-07",
+      "i": 416.45,
+      "o": "EDIFICIO SABINO",
+      "pn": 17.3521,
+      "pt": 17.352,
+      "q": 24,
+      "r": "LEG-637765"
+    },
+    {
+      "a": "VCTF-018874-2026",
+      "d": "TAPA BANDEJA OMEGA 200",
+      "dto": "Neto",
+      "f": "2026-10-07",
+      "i": 96.96,
+      "o": "EDIFICIO SABINO",
+      "pn": 8.08,
+      "pt": 8.08,
+      "q": 12,
+      "r": "LEG-637763"
+    },
+    {
+      "a": "VCTF-018874-2026",
+      "d": "CAJA DE TIERRA (601119)",
+      "dto": "Neto",
+      "f": "2026-10-07",
+      "i": 8.82,
+      "o": "EDIFICIO SABINO",
+      "pn": 8.82,
+      "pt": 8.824,
+      "q": 1,
+      "r": "PIN-41976E00000302"
+    }
+  ],
+  "numero": "VCTF-018874-2026",
+  "obra": "EDIFICIO SABINO",
+  "origen": "Gmail",
+  "proveedor": "Diexfe",
+  "tipo": "albaran"
+}

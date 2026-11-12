@@ -1,0 +1,20 @@
+{
+  "albs": [],
+  "cliente": "INSTAPALMA",
+  "desc": "Agujerar arqueta para meter tubos, rellenar laterales de los tubos con escombro",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-11-10",
+  "horas": 8,
+  "id": "936",
+  "obra": "ZANJA COVALLE",
+  "ops": [
+    {
+      "h": 8,
+      "n": "Luigi"
+    }
+  ],
+  "origen": "dashboard",
+  "restante": "5",
+  "stock": []
+}

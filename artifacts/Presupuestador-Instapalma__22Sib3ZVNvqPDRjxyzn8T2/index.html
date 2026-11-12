@@ -1,0 +1,440 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Presupuestador Instapalma</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: herramienta de mesa de obra. Cabecera fija con pestañas, buscador arriba, tabla de líneas, resumen de totales a la derecha (abajo en móvil). */
+:root{
+  --bg:#f3f4f2; --panel:#ffffff; --ink:#1d2421; --muted:#5f6a65; --line:#d8ddd9;
+  --accent:#c2410c; --accent-soft:#fbe7dc; --ok:#2f6b4f; --warn:#9a6200; --chip:#eceeeb;
+  --sans:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,"SFMono-Regular",Menlo,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#141816; --panel:#1c211f; --ink:#e7ebe8; --muted:#9aa59f; --line:#2f3733;
+  --accent:#f0814a; --accent-soft:#3a2418; --ok:#7fc4a0; --warn:#e0b25a; --chip:#262c29; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#141816; --panel:#1c211f; --ink:#e7ebe8; --muted:#9aa59f; --line:#2f3733;
+  --accent:#f0814a; --accent-soft:#3a2418; --ok:#7fc4a0; --warn:#e0b25a; --chip:#262c29; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:14px;line-height:1.45}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--panel)}
+.wrap{padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));max-width:1280px;margin:0 auto}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--panel);border-bottom:1px solid var(--line)}
+header .wrap{display:flex;flex-wrap:wrap;align-items:center;gap:8px 20px;padding-block:10px}
+h1{font-size:17px;margin:0;font-weight:700;letter-spacing:-.01em}
+h1 small{font-weight:400;color:var(--muted);font-size:12px;margin-left:6px}
+nav{display:flex;gap:4px;flex-wrap:wrap}
+nav button{font:inherit;font-weight:500;border:0;background:transparent;color:var(--muted);padding:6px 12px;border-radius:6px;cursor:pointer}
+nav button[aria-selected="true"]{background:var(--accent-soft);color:var(--accent)}
+nav button:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid var(--accent);outline-offset:1px}
+main .wrap{padding-block:16px 40px}
+.grid{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:16px;align-items:start}
+@media (max-width:900px){.grid{grid-template-columns:minmax(0,1fr)}}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:14px;min-width:0}
+.row{display:flex;flex-wrap:wrap;gap:10px;align-items:end}
+label{display:flex;flex-direction:column;gap:3px;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.05em;color:var(--muted)}
+input,select{font:inherit;font-size:14px;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:6px;padding:7px 9px;text-transform:none;letter-spacing:0;font-weight:400}
+input[type=number]{font-family:var(--mono);text-align:right}
+.btn{font:inherit;font-weight:600;border:1px solid var(--line);background:var(--panel);color:var(--ink);padding:7px 12px;border-radius:6px;cursor:pointer;white-space:nowrap}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:#fff}
+.btn.ghost{border-color:transparent;background:transparent;color:var(--muted);padding:4px 8px}
+.btn:disabled{opacity:.5;cursor:default}
+.search{position:relative;flex:1 1 320px;min-width:0}
+.search input{width:100%;font-size:15px;padding:10px 12px}
+.results{position:absolute;left:0;right:0;top:100%;margin-top:4px;background:var(--panel);border:1px solid var(--line);border-radius:8px;box-shadow:0 8px 24px rgba(0,0,0,.15);max-height:360px;overflow:auto;z-index:4}
+.res{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:2px 12px;padding:8px 12px;border-bottom:1px solid var(--line);cursor:pointer}
+.res:hover,.res.act{background:var(--accent-soft)}
+.res .d{font-weight:500;overflow-wrap:anywhere}
+.res .m{font-size:12px;color:var(--muted)}
+.res .p{font-family:var(--mono);text-align:right;grid-row:span 2;align-self:center}
+.tablewrap{overflow-x:auto;margin-top:12px}
+table{border-collapse:collapse;width:100%;font-variant-numeric:tabular-nums}
+th{font-size:11px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);text-align:left;font-weight:600;padding:6px 8px;border-bottom:1px solid var(--line);white-space:nowrap}
+td{padding:6px 8px;border-bottom:1px solid var(--line);vertical-align:middle}
+td.n,th.n{text-align:right;font-family:var(--mono);white-space:nowrap}
+td.desc{min-width:220px}
+td .ref{font-family:var(--mono);font-size:11px;color:var(--muted)}
+td input[type=number]{width:84px;padding:4px 6px}
+td input.wide{width:100%;min-width:200px}
+.chip{display:inline-block;font-size:11px;padding:1px 7px;border-radius:99px;background:var(--chip);color:var(--muted);white-space:nowrap}
+.chip.warn{background:var(--accent-soft);color:var(--warn)}
+.empty{padding:28px 12px;text-align:center;color:var(--muted)}
+.tot{display:grid;grid-template-columns:1fr auto;gap:6px 12px;font-variant-numeric:tabular-nums}
+.tot dt{color:var(--muted)} .tot dd{margin:0;text-align:right;font-family:var(--mono)}
+.tot .big{font-size:20px;font-weight:700;color:var(--ink);font-family:var(--sans)}
+.tot hr{grid-column:1/-1;border:0;border-top:1px solid var(--line);margin:4px 0;width:100%}
+h2{font-size:13px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin:0 0 10px;font-weight:600}
+.stack{display:flex;flex-direction:column;gap:16px;min-width:0}
+.note{font-size:12px;color:var(--muted)}
+.toggle{display:flex;gap:6px;align-items:center;font-size:13px;text-transform:none;letter-spacing:0;font-weight:500;color:var(--ink);flex-direction:row}
+.saved{display:flex;flex-direction:column}
+.saved div{display:flex;justify-content:space-between;gap:8px;align-items:center;padding:6px 0;border-bottom:1px solid var(--line)}
+.saved div:last-child{border-bottom:0}
+.saved a{color:var(--ink);cursor:pointer;text-decoration:none;font-weight:500;overflow-wrap:anywhere}
+.saved a:hover{color:var(--accent)}
+.toast{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(20px + env(safe-area-inset-bottom,0px));background:var(--ink);color:var(--bg);padding:8px 14px;border-radius:6px;font-weight:500;z-index:20}
+.motipos{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:10px}
+.motipos label{background:var(--bg);padding:10px;border-radius:6px;border:1px solid var(--line)}
+.motipos .cnt{font-weight:400;text-transform:none;letter-spacing:0}
+.sinmo{color:var(--warn)}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+<header><div class="wrap">
+  <h1>Presupuestador <small>Tarifa Diexfe · ofertas sept. 2026</small></h1>
+  <nav role="tablist">
+    <button role="tab" id="tab-pres" aria-selected="true" data-v="pres">Presupuesto</button>
+    <button role="tab" id="tab-compra" aria-selected="false" data-v="compra">Precios de compra</button>
+    <button role="tab" id="tab-mo" aria-selected="false" data-v="mo">Mano de obra y ajustes</button>
+  </nav>
+</div></header>
+<main><div class="wrap">
+
+<section id="v-pres">
+  <div class="grid">
+    <div class="stack">
+      <div class="panel">
+        <div class="row">
+          <label style="flex:1 1 220px">Obra / cliente<input id="p-nombre" placeholder="Ej.: Nave Los Llanos, cuadro general"></label>
+          <label>Beneficio s/ material %<input id="p-benef" type="number" step="1" min="0" style="width:110px"></label>
+          <label>IGIC %<input id="p-igic" type="number" step="0.5" min="0" style="width:90px"></label>
+        </div>
+        <div class="row" style="margin-top:12px">
+          <div class="search">
+            <input id="p-buscar" placeholder="Buscar con cualquier palabra, en cualquier orden (p. ej. «16 rz1k», «300 bandeja unex»)" autocomplete="off">
+            <div id="p-res" class="results" hidden></div>
+          </div>
+          <button class="btn" id="p-libre">+ Línea libre</button>
+        </div>
+        <div class="tablewrap">
+          <table id="p-tabla">
+            <thead><tr id="p-head"></tr></thead>
+            <tbody id="p-body"></tbody>
+          </table>
+          <div id="p-vacio" class="empty">Busca un artículo arriba y pulsa Intro para añadirlo. Cada línea suma material, beneficio y mano de obra.</div>
+        </div>
+      </div>
+    </div>
+    <div class="stack">
+      <div class="panel">
+        <h2>Resumen</h2>
+        <dl class="tot" id="p-tot"></dl>
+        <div class="row" style="margin-top:12px">
+          <label class="toggle"><input type="checkbox" id="p-cliente"> Vista cliente (sin costes)</label>
+        </div>
+        <div class="row" style="margin-top:12px">
+          <button class="btn primary" id="p-guardar">Guardar</button>
+          <button class="btn" id="p-copiar">Copiar para Excel</button>
+          <button class="btn" id="p-csv" hidden>Descargar CSV</button>
+          <button class="btn ghost" id="p-nuevo">Nuevo</button>
+        </div>
+        <p class="note" id="p-estado"></p>
+      </div>
+      <div class="panel">
+        <h2>Presupuestos guardados</h2>
+        <div class="saved" id="p-guardados"><span class="note">Aún no hay presupuestos guardados. Pulsa Guardar para conservar el actual.</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="v-compra" hidden>
+  <div class="panel">
+    <div class="row">
+      <div class="search"><input id="c-buscar" placeholder="Buscar con cualquier palabra: referencia, descripción, tipo o marca" autocomplete="off"></div>
+      <label>Tipo<select id="c-tipo"><option value="">Todos</option></select></label>
+      <label>Tarifa (PDF)<select id="c-tarifa"><option value="">Todas</option></select></label>
+    </div>
+    <p class="note" id="c-info"></p>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th>Referencia</th><th>Descripción</th><th>Tipo</th><th class="n">PVP prov.</th><th class="n">% Dto</th><th class="n">Coste neto</th><th class="n">MO ud</th><th class="n">Venta ud</th><th></th></tr></thead>
+        <tbody id="c-body"></tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section id="v-mo" hidden>
+  <div class="stack">
+    <div class="panel">
+      <h2>Valores por defecto</h2>
+      <div class="row" style="margin-bottom:16px">
+        <label>Beneficio s/ material %<input id="d-benef" type="number" step="1" min="0" style="width:110px"></label>
+        <label>IGIC %<input id="d-igic" type="number" step="0.5" min="0" style="width:90px"></label>
+        <span class="note" style="flex:1 1 220px">Se usan en cada presupuesto nuevo. En un presupuesto concreto puedes cambiarlos arriba sin tocar estos.</span>
+      </div>
+      <h2>Mano de obra por tipo de artículo</h2>
+      <p class="note">Importe en € por unidad de tarifa (metro en cable, tubo y bandeja; unidad en el resto). Se aplica a todos los artículos del tipo salvo que tengan un valor propio abajo.</p>
+      <div class="motipos" id="mo-tipos"></div>
+    </div>
+    <div class="panel">
+      <h2>Mano de obra por artículo</h2>
+      <p class="note">Filtra un grupo (p. ej. «rz1-k 1x» o «rejilla 300») y aplica el mismo importe a todos los que salen. Deja la casilla vacía para volver al valor del tipo.</p>
+      <div class="row">
+        <div class="search"><input id="mo-buscar" placeholder="Filtrar artículos" autocomplete="off"></div>
+        <label>Tipo<select id="mo-tipo"><option value="">Todos</option></select></label>
+        <label>MO € / ud<input id="mo-valor" type="number" step="0.01" min="0" style="width:110px"></label>
+        <button class="btn primary" id="mo-aplicar">Aplicar a los filtrados</button>
+        <button class="btn" id="mo-quitar">Quitar valor propio</button>
+      </div>
+      <p class="note" id="mo-info"></p>
+      <div class="tablewrap">
+        <table>
+          <thead><tr><th>Referencia</th><th>Descripción</th><th>Tipo</th><th class="n">Coste neto</th><th class="n">MO del tipo</th><th class="n">MO propia</th></tr></thead>
+          <tbody id="mo-body"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+</div></main>
+<div class="toast" id="toast" hidden></div>
+<script>
+const TIPOS=["Arquetas y tapas", "Bandeja y rejilla", "Cable", "Centralización y acometida", "Cuadros y envolventes", "Protección (automáticos y sobretensiones)", "Tierras", "Tubo y canalización"];
+const TARIFAS=["ACC TIERRAS Y SOLDADURA EXOTERMICA", "AUTOMATICOS LEGRAND + SOBRETENSION HAGER Y OBO", "BANDEJA UNEX", "CABLE COMPLETA", "CAJAS ICT COMPLETAS", "CANALIZACION ROJA ARQUETAS", "CUADROS LEGRAND", "MATERIAL PINAZO", "REJILLA Y BANDEJA METALICA AISCAN", "TUBO VARIOS"];
+const ART=[["MIG-CU35","COBRE DESNUDO 35 (KG)",16.86,16.86,0,6,0],["MIG-CU50","COBRE DESNUDO 50 (KG)",16.919,16.919,0,6,0],["SOF-TGT142","GRAPA TIERRA TGT142",1.389,1.389,0,6,0],["SOF-T101415","PICA TIERRA 100 14MM 1,5M",7.693,7.693,0,6,0],["SOF-T101420","PICA TIERRA 100 14MM 2,0M",10.223,10.223,0,6,0],["PIN-41976E00000302","CAJA DE TIERRA (601119)",8.824,8.824,0,6,0],["MOR-360100","ARQUETA TIERRA ALUMINIO (2ARQUET)",10.685,10.685,0,6,0],["PIN-479712020P0000","ARQUETA TOMA TIERRA PNZ 200MM POLIESTER (680180)",10.824,10.824,0,6,0],["CMX-TERRAL","LIQUIDO INSTALACIONES PUESTA TIERRA",90.355,90.355,0,6,0],["CMX-TT1030","KIT COMEX 1 ELECTRODO DE GRAFITO ACTIVADO CON 1 ION-FORTE (2X 25KG). + MASSA",310.675,310.675,0,6,0],["PIN-46R75T552CB450","PLACA DE TIERRA 500X500 (580982)",140.0,140.0,0,6,0],["PIN-46R75TA52C0000","PLACA DE TIERRA 1000X500X2MM",347.5,347.5,0,6,0],["ERI-PLUSCU2L6","UNIDAD DE CONTROL CABLE 1,8M ERICO CADWELD PLUS",274.774,274.774,0,2,0],["ERI-TACY2Y2","MOLDE EN T TAC-Y2-Y2 PARA CABLE 35MM",141.09,141.09,0,6,0],["ERI-XBCY2Y2","MOLDE EN CRUZ X PASANTE CABLE COBRE CU35/CU35",141.09,141.09,0,6,0],["ERI-GTC16Y2","MOLDE PARA PICA DIAMETRO 14 CABLE COBRE 35",141.09,141.09,0,6,0],["ERI-RCP-Y3","MOLDE CABLE CU 50MM - VARILLA (234582) RCPY3M",148.852,148.852,0,6,0],["ERI-161000","MANGO PARA SUJETAR MOLDES L160",98.708,98.708,0,6,0],["ERI-161090","MANGO PARA SUJETAR MOLDE ESTRUCTURA L161A",215.611,215.611,0,6,0],["ERI-165703","CARTUCHO CADWELL PLUS 45PLUSF20 COLOR AZUL CLARO",5.555,5.555,0,6,0],["ERI-165704","CARTUCHO CADWELL PLUS 65PLUSF20 COLOR VERDE OSCURO",6.71,6.71,0,6,0],["ERI-165705","CARTUCHO CADWELL PLUS 90PLUSF20 COLOR GRIS",9.1,9.1,0,6,0],["ERI-185020","EMPAQUETADURA PARA MOLDE Z S2904B",2.034,2.034,0,6,0],["LEG-403033","DIFERENCIAL TX3 2/40/30AC",9.639,9.639,0,5,1],["LEG-411525","DIFERENCIAL DX3 2/40/300AC",31.494,31.494,0,5,1],["LEG-411506","DIFERENCIAL DX3 2/63/30AC",148.447,148.447,0,5,1],["LEG-411661","DIFERENCIAL DX3 4/40/30AC",44.06,44.06,0,5,1],["LEG-411665","DIFERENCIAL DX3 4/40/300AC",38.193,38.193,0,5,1],["LEG-411662","DIFERENCIAL DX3 4/63/30AC",94.795,94.795,0,5,1],["LEG-411666","DIFERENCIAL DX3 4/63/300AC",53.663,53.663,0,5,1],["LEG-411663","DIFERENCIAL DX3 4/80/30AC",247.409,247.409,0,5,1],["LEG-411667","DIFERENCIAL DX3 4/80/300AC",195.012,195.012,0,5,1],["LEG-411591","DIFERENCIAL DX3 2/40/30HPI SUPERHINMUNIZADO",48.819,48.819,0,5,1],["LEG-411695","DIFERENCIAL DX3 4/40/30HPI SUPERHINMUNIZADO",167.139,167.139,0,5,1],["LEG-403584","MAGNETOT.TX3 6KA-C P+N 6A",5.723,5.723,0,5,1],["LEG-403585","MAGNETOT.TX3 6KA-C P+N 10A",2.807,2.807,0,5,1],["LEG-403586","MAGNETOT.TX3 6KA-C P+N 16A",2.807,2.807,0,5,1],["LEG-403587","MAGNETOT.TX3 6KA-C P+N 20A",2.952,2.952,0,5,1],["LEG-403588","MAGNETOT.TX3 6KA-C P+N 25A",3.096,3.096,0,5,1],["LEG-403589","MAGNETOT.TX3 6KA-C P+N 32A",5.723,5.723,0,5,1],["LEG-403590","MAGNETOT.TX3 6KA-C P+N 40A",20.611,20.611,0,5,1],["LEG-403625","MAGNETOT.TX3 6KA-C 4P 10A",12.048,12.048,0,5,1],["LEG-403626","MAGNETOT.TX3 6KA-C 4P 16A",12.048,12.048,0,5,1],["LEG-403627","MAGNETOT.TX3 6KA-C 4P 20A",12.048,12.048,0,5,1],["LEG-403628","MAGNETOT.TX3 6KA-C 4P 25A",12.048,12.048,0,5,1],["LEG-403629","MAGNETOT.TX3 6KA-C 4P 32A",13.253,13.253,0,5,1],["LEG-403630","MAGNETOT.TX3 6KA-C 4P 40A",15.663,15.663,0,5,1],["LEG-403631","MAGNET TX3 6KA C 4P 50A",63.06,63.06,0,5,1],["HAG-SP225N","PROTECCIÓN COMBINADA P+T 2P 25A C VIV. PERMANENTE Y TRANSITORIO",46.125,46.125,0.0,5,1],["HAG-SP232N","PROTECCIÓN COMBINADA P+T 2P 32A C VIV. PERMANENTE Y TRANSITORIO",48.375,48.375,0,5,1],["HAG-SP240N","PROTECCIÓN COMBINADA P+T 2P 40A C PERMANENTE Y TRANSITORIO",49.5,49.5,0.0,5,1],["HAG-SP425G","PROTECCIÓN COMBINADA P+T 4P 25A C PERMANENTE Y TRANSITORIO",155.3768,504.47,69.2,5,1],["HAG-SP440G","PROT.COMBINADA P+T 4P 6KA CURVA-C 40A PERMANENTE Y TRANSITORIO",190.738,190.738,0,5,1],["HAG-SP463G","PROT.COMBINADA P+T 4P 6KA CURVA-C 63A",225.752,225.752,0,5,1],["OBO-5092789","PROTECTOR PERMANENTE Y TRANSITORIA MONOFÁSICO 25A SPT-M 25 1+NPE PERMANENTE + TRANSITORIA",48.138,48.138,0.0,5,1],["OBO-5092791","PROTECTOR PERMANENTE Y TRANSITORIA MONOFÁSICO 32A SPT-M 32 1+NPE PERMANENTE + TRANSITORIA",48.45,48.45,0.0,5,1],["OBO-5092793","PROTECTOR PERMANENTE Y TRANSITORIA MONOFÁSICO 40A SPT-M 40 1+NPE PERMANENTE + TRANSITORIA",48.45,48.45,0.0,5,1],["OBO-5092795","PROTECTOR PERMANENTE Y TRANSITORIA TRIFÁSICO 25A SPT-TR 25 3+NPE PERMANENTE + TRANSITORIA",128.888,128.888,0.0,5,1],["OBO-5092799","PROTECTOR PERMANENTE Y TRANSITORIA TRIFÁSICO 40A SPT-TR 40 3+NPE PERMANENTE + TRANSITORIA",135.088,135.088,0.0,5,1],["OBO-5092798","PROTECTOR PERMANENTE Y TRANSITORIA TRIFÁSICO 63A SPT-TR 63 3+NPE PERMANENTE + TRANSITORIA",168.05,168.05,0.0,5,1],["UNE-66845","ANCLAJE TP.IK10 U23X PVC 50 GR RAL7030",2.667,2.667,0,1,2],["UNE-66151","BANDEJA 66 LISA PVC-M1 60X150 GRIS",9.762,9.762,0,1,2],["UNE-66321","BANDEJA 66 LISA PVC-M1 U23X 100X300 GR.",24.475,24.475,0,1,2],["UNE-66421","BANDEJA 66 LISA PVC-M1 U23X 100X400 GRIS",32.169,32.169,0,1,2],["UNE-66101","BANDEJA 66 LISA PVC-M1 U23X 60X100 GRIS",7.584,7.584,0,1,2],["UNE-66201","BANDEJA 66 LISA PVC-M1 U23X 60X200 GRIS",11.649,11.649,0,1,2],["UNE-66301","BANDEJA 66 LISA PVC-M1 U23X 60X300 GRIS",17.693,17.693,0,1,2],["UNE-66520","BANDEJA 66 PERF.PVC-M1 U23X 100X500 GR",41.233,41.233,0,1,2],["UNE-66400","BANDEJA 66 PERF.PVC-M1 U23X 60X400 GR",25.492,25.492,0,1,2],["UNE-66320","BANDEJA 66 PERFORADA PVC-M1 100X300 GRIS",24.475,24.475,0,1,2],["UNE-66420","BANDEJA 66 PERFORADA PVC-M1 100X400 GRIS",32.169,32.169,0,1,2],["UNE-66620","BANDEJA 66 PERFORADA PVC-M1 100X600 GRIS",45.925,45.925,0,1,2],["UNE-66100","BANDEJA 66 PERFORADA PVC-M1 60X100 GRIS",7.584,7.584,0,1,2],["UNE-66150","BANDEJA 66 PERFORADA PVC-M1 60X150 GRIS",9.762,9.762,0,1,2],["UNE-66200","BANDEJA 66 PERFORADA PVC-M1 60X200 GRIS",11.649,11.649,0,1,2],["UNE-66300","BANDEJA 66 PERFORADA PVC-M1 60X300 GRIS",17.693,17.693,0,1,2],["UNE-66220","BANDEJA 66 PERFORADA U23X 100X200 GRIS",17.303,17.303,0,1,2],["UNE-66090","BANDEJA 66 PERFORADA U23X 60X75 GRIS",6.902,6.902,0,1,2],["UNE-66844","BISAGRA HORIZONTAL GRIS RAL7035 60 U23X",2.893,2.893,0,1,2],["UNE-66813","BISAGRA PVC-M1 U23X ALTURA 60 GRIS",2.574,2.574,0,1,2],["UNE-66990","CONECTOR OMEGA PERFORADA EPOXI GRIS",11.764,11.764,0,1,2],["UNE-66152","CUBIERTA PVC-M1 150MM P/66150/1 GRIS",6.556,6.556,0,1,2],["UNE-66202","CUBIERTA PVC-M1 200MM P/66200/1 GRIS",7.991,7.991,0,1,2],["UNE-66072","CUBIERTA PVC-M1 P/66070/1 U23X GRIS",3.393,3.393,0,1,2],["UNE-66102","CUBIERTA PVC-M1 P/66100/1 GRIS",4.636,4.636,0,1,2],["UNE-66302","CUBIERTA PVC-M1 P/66300/1 66320/1 GRIS",10.89,10.89,0,1,2],["UNE-66402","CUBIERTA PVC-M1 P/66400/1 66420/1 GRIS",17.55,17.55,0,1,2],["UNE-66502","CUBIERTA PVC-M1 P/66520/1 U23X GRIS",24.002,24.002,0,1,2],["UNE-66602","CUBIERTA PVC-M1 P/66620/1 GRIS",30.503,30.503,0,1,2],["UNE-66110","CURVA PLANA 90+ 60X100 U23X GRIS RAL7035",31.823,31.823,0,1,2],["UNE-66160","CURVA PLANA 90º 60X150 U23X GRIS RAL7035",37.565,37.565,0,1,2],["UNE-66210","CURVA PLANA 90º 60X200 U23X GRIS RAL7035",42.091,42.091,0,1,2],["UNE-66310","CURVA PLANA 90º 60X300 U23X GRIS RAL7035",64.894,64.894,0,1,2],["UNE-66330","CURVA PNA.90º 100X300 U23X GR RAL7035",86.592,86.592,0,1,2],["UNE-66178","DERIVACIÓN EN T 60X150 U23X GRIS RAL7035",25.096,25.096,0,1,2],["UNE-66228","DERIVACIÓN EN T 60X200 U23X GRIS RAL7035",26.345,26.345,0,1,2],["UNE-66328","DERIVACION EN T 60X300 U23X GRIS RAL7035",33.792,33.792,0,1,2],["UNE-66128","DERIVACION T 60X100 U23X GR.RAL7035",23.782,23.782,0,1,2],["UNE-66937","OMEGA PERF.EPOXI LONG.0.50M GR",27.687,27.687,0,1,2],["UNE-66832","PERNO UNION PVC M1 U23X GRIS",0.296,0.296,0,1,2],["UNE-66903","PROTECTOR PFL.OMEGA PVC PLTFD.AM.",4.031,4.031,0,1,2],["UNE-66603","SOP.HORIZ.AISL.66 100X600 U23X GR.7035",35.783,35.783,0,1,2],["UNE-66103","SOP.HORIZ.PVC-M1 P/66070/1 66100/1 GRIS",4.559,4.559,0,1,2],["UNE-66303","SOP.HORIZ.PVC-M1 P/66300/1 GRIS",8.266,8.266,0,1,2],["UNE-66155","SOP.VERT.PVC-M1 66100/1 66150/1 U23X GR.",7.15,7.15,0,1,2],["UNE-66305","SOP.VT.PVC-M1 66300/1 66320/1 U23X GR",10.45,10.45,0,1,2],["UNE-66405","SOP.VT.PVC-M1 66400/1 66420/1 U23X GR",18.936,18.936,0,1,2],["UNE-66153","SOPORTE HORIZ.PVC-M1 P/66150/1 GRIS",5.208,5.208,0,1,2],["UNE-66203","SOPORTE HORIZ.PVC-M1 P/66200/1 GRIS",6.336,6.336,0,1,2],["UNE-66403","SOPORTE HORIZ.PVC-M1 P/66400/1 U23X GRIS",18.073,18.073,0,1,2],["UNE-66503","SOPORTE HZ.AISL.66 100X500 U23X GR 7035",33.792,33.792,0,1,2],["UNE-66323","SOPORTE HZ.PVC-M1 P/66320/1 U23X GR",16.615,16.615,0,1,2],["UNE-66306","SOPORTE L A-352MM EPOXI GRIS",14.778,14.778,0,1,2],["UNE-66205","SOPORTE VT.PVC-M1 P/66200/1 U23X GR",8.277,8.277,0,1,2],["UNE-66605","SOPORTE VT.PVC-M1 P/66620/1 U23X GR",28.242,28.242,0,1,2],["UNE-66831","TABIQUE SEP.100 PVC-M1 U23X GR RAL7030",7.947,7.947,0,1,2],["UNE-66821","TABIQUE SEP.60 PVC-M1 U23X GR RAL7030",4.499,4.499,0,1,2],["UNE-66111","TAPA CV.PNA.90+ 100 U23X GR RAL7035",14.591,14.591,0,1,2],["UNE-66161","TAPA CV.PNA.90º 150 U23X GR RAL7035",19.701,19.701,0,1,2],["UNE-66211","TAPA CV.PNA.90º 200 U23X GR RAL7035",24.134,24.134,0,1,2],["UNE-66311","TAPA CV.PNA.90º 300 U23X GR RAL7035",30.492,30.492,0,1,2],["UNE-66129","TAPA DERIVACION T 100 U23X GR.RAL7035",21.186,21.186,0,1,2],["UNE-66179","TAPA DERIVACIÓN T 150 U23X GRIS RAL7035",22.049,22.049,0,1,2],["UNE-66229","TAPA DERIVACIÓN T 200 U23X GRIS RAL7035",24.508,24.508,0,1,2],["UNE-66113","TAPA FINAL REDUC.PVC-M1 P/66100/1 GRIS",6.473,6.473,0,1,2],["UNE-66433","TAPA FINAL REDUC.PVC-M1 P/66420/1 GRIS",24.09,24.09,0,1,2],["UNE-66233","TAPA FINAL-REDUCCIÓN 100X200 U23X GRIS",9.993,9.993,0,1,2],["UNE-66213","TAPA FNL.-REDUC.PVC-M1 P/66200/1 U23X GR",8.987,8.987,0,1,2],["UNE-66163","TAPA FNL.REDUC.PVC-M1 P/66150/1 U23X GR",7.232,7.232,0,1,2],["UNE-66333","TAPA FNL.REDUC.PVC-M1 P/66320/1 U23X GR",14.888,14.888,0,1,2],["UNE-66841","UNION ESQUINA PLANA 60 GRIS",4.554,4.554,0,1,2],["UNE-66834","UNION TRAMOS PVC-M1 ALTURA 100 GR.",7.282,7.282,0,1,2],["UNE-66824","UNION TRAMOS PVC-M1 ALTURA 60 GRIS",2.332,2.332,0,1,2],["UNE-66825","UNION TRAMOS S/PERNO ALTURA 60 GR.",1.98,1.98,0,1,2],["MIG-81764","CABLE BARRYFLEX RV-K 0,6 1/KV 5G1,5MM2",1.453,1.453,0,2,3],["MIG-81765","CABLE BARRYFLEX RV-K 0,6 1/KV 5G10mm2",9.131,9.131,0,2,3],["MIG-81766","CABLE BARRYFLEX RV-K 0,6 1/KV 5G2,5MM2 BOBINA",2.288,2.288,0,2,3],["MIG-81767","CABLE BARRYFLEX RV-K 0,6 1/KV 5G4MM2",3.604,3.604,0,2,3],["MIG-81768","CABLE BARRYFLEX RV-K 0,6 1/KV 5G6MM2",5.312,5.312,0,2,3],["MIG-83167","CABLE AFIRENAS-X RZ1-K 0,6/1KV 6G1,5MM2",2.447,2.447,0,2,3],["MIG-83169","CABLE AFIRENAS-X RZ1-K 0,6/1KV 7G1,5MM2",2.765,2.765,0,2,3],["MIG-83171","CABLE AFIRENAS-X RZ1-K 0,6/1KV 8G1,5MM2",3.137,3.137,0,2,3],["MIG-84001","CABLE AFIRENAX-X RZ1-K 0,6/1KV 1x1,5mm2",0.58,0.58,0,2,3],["MIG-84002","CABLE AFIRENAX-X RZ1-K 0,6/1KV 1x2,5mm2",0.673,0.673,0,2,3],["MIG-84003","CABLE AFIRENAX-X RZ1-K 0,6/1KV 1x4mm2",0.941,0.941,0,2,3],["MIG-84004","CABLE AFIRENAX-X RZ1-K 0,6/1KV 1X6MM2",1.245,1.245,0,2,3],["MIG-84005","CABLE AFIRENAX-X RZ1-K 0,6/1KV 1X10MM2 BOB",1.959,1.959,0,2,3],["MIG-84006","CABLE AFIRENAX-X RZ1-K 0,6/1KV 1X16MM2",2.939,2.939,0,2,3],["MIG-84007","CABLE AFIRENAX-X RZ1-K 0,6/1KV 1X25MM2",4.469,4.469,0,2,3],["MIG-84008","CABLE AFIRENAX-X RZ1-K 0,6/1KV 1X35MM2",6.171,6.171,0,2,3],["MIG-84009","CABLE AFIRENAX-X RZ1-K 0,6/1KV 1X50MM2",8.584,8.584,0,2,3],["MIG-84010","CABLE AFIRENAX-X RZ1-K 0,6/1KV 1X70MM2",12.145,12.145,0,2,3],["MIG-84011","CABLE AFIRENAX-X RZ1-K 0,6/1KV 1X95MM2",16.007,16.007,0,2,3],["MIG-84012","CABLE AFIRENAX-X RZ1-K 0,6/1KV 1X120MM2",20.104,20.104,0,2,3],["MIG-84013","CABLE AFIRENAX-X RZ1-K 0,6/1KV 1X150MM2",25.317,25.317,0,2,3],["MIG-84014","CABLE AFIRENAX-X RZ1-K 0,6/1KV 1X185MM2",30.831,30.831,0,2,3],["MIG-84015","CABLE AFIRENAX-X RZ1-K 0,6/1KV 1X240MM2",39.795,39.795,0,2,3],["MIG-84016","CABLE AFIRENAX-X RZ1-K 0,6/1KV 2X1,5MM2 BOBINA",0.811,0.811,0,2,3],["MIG-84017","CABLE AFIRENAX-X RZ1-K 0,6/1KV 2x2,5mm2",1.205,1.205,0,2,3],["MIG-84018","CABLE AFIRENAX-X RZ1-K 0,6/1KV 2x4mm2",1.871,1.871,0,2,3],["MIG-84019","CABLE AFIRENAX-X RZ1-K 0,6/1KV 2X6MM2",2.494,2.494,0,2,3],["MIG-84020","CABLE AFIRENAX-X RZ1-K 0,6/1KV 2X10MM2",4.023,4.023,0,2,3],["MIG-84021","CABLE AFIRENAX-X RZ1-K 0,6/1KV 3G1,5MM2 BOBINA",1.064,1.064,0,2,3],["MIG-84022","CABLE AFIRENAX-X RZ1-K 0,6/1KV 3G2,5MM2 BOBINA",1.576,1.576,0,2,3],["MIG-84023","CABLE AFIRENAX-X RZ1-K 0,6/1KV 3G4MM2",2.429,2.429,0,2,3],["MIG-84024","CABLE AFIRENAX-X RZ1-K 0,6/1KV 3G6MM2 BOBINA",3.484,3.484,0,2,3],["MIG-84025","CABLE AFIRENAX-X RZ1-K 0,6/1KV 3G10MM2",5.712,5.712,0,2,3],["MIG-84030","CABLE AFIRENAX-X RZ1-K 0,6/1KV 4G1,5MM2",1.394,1.394,0,2,3],["MIG-84031","CABLE AFIRENAX-X RZ1-K 0,6/1KV 4G2,5MM2",2.064,2.064,0,2,3],["MIG-84032","CABLE AFIRENAX-X RZ1-K 0,6/1KV 4G4MM2",3.173,3.173,0,2,3],["MIG-84033","CABLE AFIRENAX-X RZ1-K 0,6/1KV 4G6MM2",4.575,4.575,0,2,3],["MIG-84034","CABLE AFIRENAX-X RZ1-K 0,6/1KV 4G10MM2",7.599,7.599,0,2,3],["MIG-84035","CABLE AFIRENAX-X RZ1-K 0,6/1KV 4X16MM2",11.74,11.74,0,2,3],["MIG-84036","CABLE AFIRENAX-X RZ1-K 0,6/1KV 5G1,5MM2 BOBINA",1.687,1.687,0,2,3],["MIG-84037","CABLE AFIRENAX-X RZ1-K 0,6/1KV 5G2,5MM2",2.537,2.537,0,2,3],["MIG-84038","CABLE AFIRENAX-X RZ1-K 0,6/1KV 5G4MM2",3.924,3.924,0,2,3],["MIG-84039","CABLE AFIRENAX-X RZ1-K 0,6/1KV 5G6MM2",5.678,5.678,0,2,3],["MIG-84040","CABLE AFIRENAX-X RZ1-K 0,6/1KV 5G10MM2",9.414,9.414,0,2,3],["MIG-84041","CABLE AFIRENAX-X RZ1-K 0,6/1KV 5G16MM2",14.496,14.496,0,2,3],["MIG-84048","CABLE AFIRENAX-X RZ1-K 0,6/1KV 2X16MM2",6.214,6.214,0,2,3],["MIG-84071","CABLE AFIRENAX-X RZ1-K 0,6/1KV 5G25mm2",22.553,22.553,0,2,3],["MIG-84072","CABLE AFIRENAX-X RZ1-K 0,6/1KV 5G35mm2",32.339,32.339,0,2,3],["MIG-84082","CABLE AFIRENAX-X RZ1-K 0,6/1KV 4X25MM2",18.18,18.18,0,2,3],["MIG-84083","CABLE AFIRENAX-X RZ1-K 0,6/1KV 4x35mm2",25.637,25.637,0,2,3],["MIG-84099082","CABLE AFIRENAX-L 05Z1-K/07Z1-K 1MM2 AZ",0.212,0.212,0,2,3],["MIG-84100082","CABLE AFIRENAX-L 05Z1-K/07Z1-K 1,5MM2 AZ",0.245,0.245,0,2,3],["MIG-84101082","CABLE AFIRENAX-L 05Z1-K/07Z1-K 2,5MM2 AZ",0.402,0.402,0,2,3],["MIG-84102082","CABLE AFIRENAX-L 05Z1-K/07Z1-K 4MM2 AZ",0.638,0.638,0,2,3],["MIG-84103082","CABLE AFIRENAX-L 05Z1-K/07Z1-K 6MM2 AZ",0.931,0.931,0,2,3],["MIG-84104082","CABLE AFIRENAX-L 05Z1-K/07Z1-K 10MM2 AZ",1.614,1.614,0,2,3],["MIG-84105082","CABLE AFIRENAX-L 05Z1-K/07Z1-K 16MM2 AZ",2.51,2.51,0,2,3],["MIG-84106082","CABLE AFIRENAX-L 05Z1-K/07Z1-K 25MM2 AZ",3.939,3.939,0,2,3],["MIG-84122","CABLE AFIREFACIL TRENZADO 07Z1-K 3G10+1,5",5.622,5.622,0,2,3],["MIG-84123","CABLE AFIREFACIL TRENZADO 07Z1-K 3G16+1,5",8.494,8.494,0,2,3],["MIG-84124","CABLE AFIREFACIL TRENZADO 07Z1-K 3G25+1,5",12.912,12.912,0,2,3],["MIG-84125","CABLE AFIREFACIL TRENZADO 07Z1-K 3G35+1,5",18.555,18.555,0,2,3],["MIG-84140","CABLE AFIREFACIL TRENZADO 07Z1-K 5G10+1,5",9.951,9.951,0,2,3],["MIG-84141","CABLE AFIREFACIL TRENZADO 07Z1-K 5G16+1,5",14.895,14.895,0,2,3],["MIG-85405","CABLE AFIREFENIX MICA RZ1-K AS+ 1X16 MM2",3.578,3.578,0,2,3],["MIG-85406","CABLE AFIREFENIX MICA RZ1-K AS+ 1X25 MM2",5.588,5.588,0,2,3],["MIG-85407","CABLE AFIREFENIX MICA RZ1-K AS+ 1X35 MM2",7.188,7.188,0,2,3],["MIG-85408","CABLE AFIREFENIX MICA RZ1-K AS+ 1X50 MM2",9.612,9.612,0,2,3],["MIG-85409","CABLE AFIREFENIX MICA RZ1-K AS+ 1X70 MM2",13.379,13.379,0,2,3],["MIG-85410","CABLE AFIREFENIX MICA RZ1-K AS+ 1X95 MM2",17.51,17.51,0,2,3],["MIG-85411","CABLE AFIREFENIX MICA RZ1-K AS+ 1X120 MM2",22.11,22.11,0,2,3],["MIG-85412","CABLE AFIREFENIX MICA RZ1-K AS+ 1X150 MM2",27.602,27.602,0,2,3],["MIG-85413","CABLE AFIREFENIX MICA RZ1-K AS+ 1X185 MM2",33.365,33.365,0,2,3],["MIG-85414","CABLE AFIREFENIX MICA RZ1-K AS+ 1X240 MM2",43.705,43.705,0,2,3],["MIG-85469","CABLE AFIREFENIX MICA RZ1-K AS+ 5G16 MM2",17.21,17.21,0,2,3],["MIG-85501","CABLE AFIREFENIX SZ1-K 0.6/1KV 1x2.5mm",0.931,0.931,0,2,3],["MIG-85502","CABLE AFIREFENIX SZ1-K 0.6/1KV 1x4mm",1.266,1.266,0,2,3],["MIG-85503","CABLE AFIREFENIX SZ1-K 0.6/1KV 1x6mm",1.676,1.676,0,2,3],["MIG-85504","CABLE AFIREFENIX SZ1-K 0.6/1KV 1X10MM",2.548,2.548,0,2,3],["MIG-85516","CABLE AFIREFENIX SZ1-K 0.6/1KV 2x1.5mm",1.239,1.239,0,2,3],["MIG-85517","CABLE AFIREFENIX SZ1-K 0.6/1KV 2X2.5MM",1.829,1.829,0,2,3],["MIG-85523","CABLE AFIREFENIX SZ1-K 0.6/1KV 3G1.5mm",1.784,1.784,0,2,3],["MIG-85524","CABLE AFIREFENIX SZ1-K 0.6/1KV 3G2.5mm",2.364,2.364,0,2,3],["MIG-85525","CABLE AFIREFENIX SZ1-K 0.6/1KV 3G4MM",3.381,3.381,0,2,3],["MIG-85526","CABLE AFIREFENIX SZ1-K 0.6/1KV 3G6MM",4.586,4.586,0,2,3],["MIG-85531","CABLE AFIREFENIX SZ1-K 0.6/1KV 4G1,5MM",2.48,2.48,0,2,3],["MIG-85532","CABLE AFIREFENIX SZ1-K 0.6/1KV 4G2.5MM",3.142,3.142,0,2,3],["MIG-85533","CABLE AFIREFENIX SZ1-K 0.6/1KV 4G4MM",4.489,4.489,0,2,3],["MIG-85534","CABLE AFIREFENIX SZ1-K 0.6/1KV 4G6MM",5.92,5.92,0,2,3],["MIG-85535","CABLE AFIREFENIX SZ1-K 0.6/1KV 4G10MM",9.322,9.322,0,2,3],["MIG-85540","CABLE AFIREFENIX SZ1-K 0.6/1KV 5G1.5MM",2.746,2.746,0,2,3],["MIG-85541","CABLE AFIREFENIX SZ1-K 0.6/1KV 5G2.5MM",3.679,3.679,0,2,3],["MIG-85542","CABLE AFIREFENIX SZ1-K 0.6/1KV 5G4MM",5.222,5.222,0,2,3],["MIG-85543","CABLE AFIREFENIX SZ1-K 0.6/1KV 5G6MM",7.165,7.165,0,2,3],["MIG-85544","CABLE AFIREFENIX SZ1-K 0.6/1KV 5G10MM",11.126,11.126,0,2,3],["MIG-85545","CABLE AFIREFENIX SZ1-K 0.6/1KV 5G16MM",17.21,17.21,0,2,3],["MIG-86203","CABLE BARRYFLEX RV-K 0,6 1KV 1x2,5mm2",0.61,0.61,0,2,3],["MIG-86204","CABLE BARRYFLEX RV-K 0,6 1KV 1X4MM2",0.761,0.761,0,2,3],["MIG-86205","CABLE BARRYFLEX RV-K 0,6 1KV 1x6mm2",1.069,1.069,0,2,3],["MIG-86206","CABLE BARRYFLEX RV-K 0,6 1KV 1X10MM2",1.78,1.78,0,2,3],["MIG-86207","CABLE BARRYFLEX RV-K 0,6 1KV 1X16MM2",2.741,2.741,0,2,3],["MIG-86208","CABLE BARRYFLEX RV-K 0,6 1KV 1x25mm2",4.223,4.223,0,2,3],["MIG-86232","CABLE BARRYFLEX RV-K 0,6 1KV 3G1,5MM2 BOBINA",0.881,0.881,0,2,3],["MIG-86233","CABLE BARRYFLEX RV-K 0,6 1KV 3G2,5MM2 BOBINA",1.381,1.381,0,2,3],["MIG-86234","CABLE BARRYFLEX RV-K 0,6 1KV 3G4MM2 BOBINA",2.195,2.195,0,2,3],["MIG-86235","CABLE BARRYFLEX RV-K 0,6 1KV 3G6MM2 BOBINA",3.231,3.231,0,2,3],["MIG-86247","CABLE BARRYFLEX RV-K 0,6 1/KV 4G1,5MM2",1.16,1.16,0,2,3],["MIG-86248","CABLE BARRYFLEX RV-K 0,6 1/KV 4G2,5MM2",1.822,1.822,0,2,3],["MIG-86249","CABLE BARRYFLEX RV-K 0,6 1/KV 4G4MM2 BOBINA",2.894,2.894,0,2,3],["MIG-86250","CABLE BARRYFLEX RV-K 0,6 1/KV 4G6MM2",4.184,4.184,0,2,3],["PRY-20217478","CBL.AL VOLTALENE FLAMEX(S)AL XZ1(S)1X16 CPRO",0.711,0.711,0,2,3],["PRY-20217479","CBL.1X25 AL VOLTALENE FLAMEX CPRO XZ1",0.903,0.903,0,2,3],["PRY-20217480","CBL.AL VOLTALENE FLAMEX CPRO XZ1 1X35 1KV",1.407,1.407,0,2,3],["PRY-20217481","CBL.1X50 AL VOLTALENE FLAMEX CPRO XZ1",1.309,1.309,0,2,3],["PRY-20217482","CBL.AL VOLTALENE FLAMEX XZ1 CPR 1X70MM 1KV",1.821,1.821,0,2,3],["PRY-20217483","CBL.AL VOLTALENE FLAMEX(S)AL XZ1(S)1X95 CPR",2.389,2.389,0,2,3],["PRY-20217484","CBL.AL VOLTALENE FLAMEX CPRO XZ1 120MM2 1KV",3.003,3.003,0,2,3],["PRY-20217485","CBL.AL VOLTALENE FLAMEX(S)AL XZ1(S)1X150 CPR",3.684,3.684,0,2,3],["PRY-20046735","CBL.AL VOLTALENE FLAMEX(S)AL XZ1(S)1X185",4.865,4.865,0,2,3],["PRY-20217487","CBL.AL VOLTALENE FLAMEX(S)AL XZ1(S)1X240 CPR",6.145,6.145,0,2,3],["PRY-20216906","CABLE AL POLIRRET CPRO RZ 1KV 2X25 FCA",1.576,1.576,0,2,3],["PRY-20216908","CABLE RZ 3X25+54,6 CPRO",4.817,4.817,0,2,3],["PRY-20216904","CABLE AL POLIRRET CPRO RZ 1KV 4X25 FCA",3.039,3.039,0,2,3],["PRY-20198550","CABLE AL-POLIRRET (N FIADOR) 4X25+54,6 1000V FCA",5.388,5.388,0,2,3],["PRY-20216909","CABLE RZ 3X50+54,6 CPRO",5.385,5.385,0,2,3],["PRY-20216910","CBL.AL POLIRRET CPRO RZ 1KV 3X95+546 FCA",8.68,8.68,0,2,3],["PRY-20031877","CABLE FLEXTREME H07RN-F 450/750V 3G1,5",1.231,1.231,0,2,3],["PRY-20031886","CBL.FLEXTREME H07RN-F 450/750V 3G2,5 ECA",1.84,1.84,0,2,3],["PRY-20031914","CBL.FLEXTREME H07RN-F 450/750V 3G6 T NG",3.762,3.762,0,2,3],["PRY-20031905","FLEXTREME MAX H07RN-F 5G2.5 0,750 KV",2.791,2.791,0,2,3],["PRY-20031907","CBL.FLEXTREME 450/750V 5G6 H07RN-F NG.",6.208,6.208,0,2,3],["PRY-20031908","CABLE FLEXTREME H07RN-F 450/750V 5G10",11.825,11.825,0,2,3],["PRY-20031782","CABLE.FLEXTREME 450/750V 5G16 H07RN-F NG. 750V",16.85,16.85,0,2,3],["PRY-20031896","CBL.XTREM H07RN-F 750V 5G25MM2 BOB.",26.246,26.246,0,2,3],["PRY-20031858","FLEXTREME H07RN-F 1X16",3.375,3.375,0,2,3],["MIG-84633923","CABLE SOLFLEX H1Z2Z2-K 1X6 NEGRO BOB",1.068,1.068,0,2,3],["MIG-84633943","CABLE SOLFLEX H1Z2Z2-K 1X6 ROJO BOB",1.068,1.068,0,2,3],["MIG-821101001009203","C.SOLFLEX H1Z2Z2-K 1X10 NEGRO BOB",1.823,1.823,0,2,3],["MIG-821101001009403","C.SOLFLEX H1Z2Z2-K 1X10 ROJO BOB",1.823,1.823,0,2,3],["MIG-821101001609203","C.SOLFLEX H1Z2Z2-K 1X16 NEGRO BOB",2.774,2.774,0,2,3],["MIG-821101001609403","C.SOLFLEX H1Z2Z2-K 1X16 ROJO BOB",2.774,2.774,0,2,3],["MIG-821101002509203","C.SOLFLEX H1Z2Z2-K 1X25 NEGRO BOB *",2.33,2.33,0,2,3],["IDE-CT2232","CAJA DERIV.EMP.TORN.223X318X60",4.419,4.419,0,4,4],["IDE-CT436","CAJA DISTRIBUCION ICT RTR EMP.450X250X60",8.712,8.712,0,4,4],["IDE-CT3252","CAJA DERIV.EMP.TORN.326X518X60",8.411,8.411,0.0,4,4],["IDE-CT4040","CAJA DERIV.EMP.TORN.404X404X123",11.406,11.406,0,4,4],["SOL-5504/2","CAJA EMP DOS REGISTROS CON PUERTA+MARCO ICT 60X50X8CM",32.61,32.61,0.0,0,4],["IDE-AE4545","REGISTRO SO.ICT RSE 4545 45X45X16 EMP.",39.094,39.094,0,4,4],["IDE-AB4545","RGTRO.SO.SUP.IP33 450X450 C/PL.HIDROFUGA",49.416,49.416,0,4,4],["IDE-AB5070","RGTRO.SO.SUP.IP33 500X700 C/PL.HIDROFUGA",71.764,71.764,0,4,4],["IDE-AB7050","RGTRO.SO.SUP.IP33 700X500 C/PL.HIDROFUGA",71.201,71.201,0,4,4],["IDE-AB55100","RGTRO.SO.SUP.IP33 550X1000 /PL.HIDROFUGA",99.871,99.871,0,4,4],["IDE-AB10055","RGTRO.SO.SUP.IP55 1000X550 /PL.HIDROFUGA",97.196,97.196,0,4,4],["SOL-5508","CAJA RTV-TLCA-TB+RDSI 360X540X85 SUPERFICIE",30.7039,66.03,53.5,4,4],["SOL-5508/2BL","REGISTRO TCION.RED 2P+TT 16A 250V SUPERFICIE",133.362,286.8,53.5,4,4],["AIS-DRL40-C","TUBO AISCAN DRL CURVO DIÁMETRO 40 ROJO",0.8145,1.81,55.0,7,5],["AIS-DRL50-C","TUBO AISCAN DRL CURVO DIÁMETRO 50 ROJO",0.9855,2.19,55.0,7,5],["AIS-DRL63-C","CANALIZACION 250NW D=63MM ROLLO COLOR ROJA",1.35,3.0,55.0,7,5],["AIS-DRL75-C","TUBO AISCAN DRL CURVO DIÁMETRO 75 ROJO",1.8135,4.03,55.0,7,5],["AIS-DRL90-C","TUBO AISCAN DRL CURVO DIÁMETRO 90 ROJO",2.2365,4.97,55.0,7,5],["AIS-DRL110-C","TUBO AISCAN DRL CURVO DIÁMETRO 110 ROJO",2.844,6.32,55.0,7,5],["AIS-DRL160-C","TUBO AISCAN DRL CURVO DIÁMETRO 160, ROJO",5.4585,12.13,55.0,7,5],["BEN-TH40","TAPA HIDRAÚLICA B-125 430X430",15.0,15.0,0,0,5],["BEN-ENA1","TAPA MARCO ENDESA A1 712/X812 D400 MODELO ENA1",165.571,165.571,0,0,5],["BEN-ENA2","TAPA + MARCO ENDESA A2 1365X825 D400 MODELO ENA2",346.429,346.429,0.0,0,5],["CYM-122284","ARQUETA 300X300 ANÓNIMA B125",null,null,0,0,5],["CYM-122190","TAPA Y MARCO 400X400 AN B125",null,null,0,0,5],["CYM-122130","ARQUETA 500X500 ALUMBRADO PÚBLICO",null,null,0,0,5],["CYM-122159","TAPA Y MARCO 600X600 B125 TC",null,null,0,0,5],["CYM-122145","TAPA Y MARCO DE FUNDICIÓN DÚCTIL 700X700 B125",null,null,0,0,5],["CYM-277058","TAPA Y MARCO 1240X720 D400 END RA2 H VIG",null,null,0,0,5],["GAE-GG202020","ARQUETA 200X200X200 4SAL.TAPA CIEGA GR.",7.727,7.727,0,0,5],["GAE-GG303030","ARQ.300X300X300 4SAL.C/TAPA CIEGA GR.",17.387,17.387,0,0,5],["GAE-GG404040","ARQ.400X400X400 4SAL.C/TAPA CIEGA GR.",32.806,32.806,0,0,5],["GAE-GG505050","ARQUETA 480X480X480MM C/TAPA CIEGA GRIS-4 SALIDAS",62.044,62.044,0,0,5],["GAE-GG250TRP","MARCO+TP.RGTRO.POL.250X250X60",32.602,32.602,0,0,5],["GAE-GG400TRM","MARCO + TAPA REGISTRO NEUTRA 400X400X28",123.875,123.875,0,0,5],["AIS-DBL90-C","TUBO AISCAN DBL RÍGIDO DIÁMETRO 90, ROJO",2.2365,4.97,55.0,7,5],["AIS-DBL100-C","TUBO AISCAN DBL RÍGIDO DIÁMETRO 110, ROJO",3.9915,8.87,55.0,7,5],["AIS-DBL160-C","TUBO AISCAN DBL RÍGIDO DIÁMETRO 160, ROJO",5.4585,12.13,55.0,7,5],["AIS-DBL200-C","TUBO AISCAN DBL RÍGIDO DIÁMETRO 200, ROJO",6.678,14.84,55.0,7,5],["LEG-135121","CAJA SUPF.PRACTIBOX S PTA.LISA 1X12 F.",15.808,39.52,60.0,4,6],["LEG-137126","CAJA SUPF.PRACTIBOX S PTA.LISA 1X18 F.",20.888,52.22,60.0,4,6],["LEG-134124","CAJA SUPF.PRACTIBOX S PTA.LISA 1X4 F.",9.048,22.62,60.0,4,6],["LEG-134128","CAJA SUPF.PRACTIBOX S PTA.LISA 1X8 F.",13.988,34.97,60.0,4,6],["LEG-135122","CAJA SUPF.PRACTIBOX S PTA.LISA 2X12 F.",28.324,70.81,60.0,4,6],["LEG-137127","CAJA SUPF.PRACTIBOX S PTA.LISA 2X18 F.",43.732,109.33,60.0,4,6],["LEG-135123","CAJA SUPF.PRACTIBOX S PTA.LISA 3X12 F.",44.304,110.76,60.0,4,6],["LEG-137128","CAJA SUPF.PRACTIBOX S PTA.LISA 3X18 F.",69.912,174.78,60.0,4,6],["LEG-135124","CAJA SUPF.PRACTIBOX S PTA.LISA 4X12 F.",63.448,158.62,60.0,4,6],["LEG-137129","CAJA SUPF.PRACTIBOX S PTA.LISA 4X18 F.",126.116,315.29,60.0,4,6],["LEG-134100","CERRADURA PRACTIBOX S",8.66,21.65,60.0,4,6],["LEG-134048","CJ.EMP.PRACTIBOX S PTA.LISA 1X8 F.TAB",12.404,31.01,60.0,4,6],["LEG-135041","CJ.EMP.PRACTIBOX S PTA.LISA 1X12 F.TABIQUE CONVENCIONAL",13.988,34.97,60.0,4,6],["LEG-137046","CJ.EMP.PRACTIBOX S PTA.LISA 1X18 F.TAB",18.872,47.18,60.0,4,6],["LEG-135042","CJ.EMP.PRACTIBOX S PTA.LISA 2X12 TABIQUE CONVENCIONAL",25.124,62.81,60.0,4,6],["LEG-137047","CJ.EMP.PRACTIBOX S PTA.LISA 2X18 F.TAB",39.404,98.51,60.0,4,6],["LEG-135063","CJ.EMP.PRACTIBOX S PTA.LISA 3X12 F.TABIQUE PREFABRICADO",50.636,126.59,60.0,4,6],["LEG-135043","CJ.EMP.PRACTIBOX S PTA.LISA 3X12 FILAS TABIQUE CONVENCIONAL",39.104,97.76,60.0,4,6],["LEG-137048","CJ.EMP.PRACTIBOX S PTA.LISA 3X18 F.TAB",62.976,157.44,60.0,4,6],["LEG-135044","CJ.EMP.PRACTIBOX S PTA.LISA 4X12 F.TABIQUE CONVENCIONAL",60.212,150.53,60.0,4,6],["LEG-137049","CJ.EMP.PRACTIBOX S PTA.LISA 4X18 F.TAB",124.496,311.24,60.0,4,6],["LEG-601994","CAJA MOD.ESTANCA IP65 4 MOD.",13.468,33.67,60.0,4,6],["LEG-601996","CAJA MOD.ESTANCA IP65 6 MOD.",17.048,42.62,60.0,4,6],["LEG-601998","CAJA MOD.ESTANCA IP65 8 MOD.",26.668,66.67,60.0,4,6],["LEG-601831","CAJA MOD.ESTANCA IP65 1X12 MOD.",37.32,93.3,60.0,4,6],["LEG-601835","CAJA MOD.ESTANCA IP65 1X18 MOD.",63.92,159.8,60.0,4,6],["LEG-601832","CAJA MOD.ESTANCA IP65 2X12 MOD.",76.392,190.98,60.0,4,6],["LEG-601836","CAJA MOD.ESTANCA IP65 2X18 MOD.",106.252,265.63,60.0,4,6],["LEG-601833","CAJA MOD.ESTANCA IP65 3X12 MOD.",95.128,237.82,60.0,4,6],["LEG-601837","CAJA MOD.ESTANCA IP65 3X18 MOD.",133.812,334.53,60.0,4,6],["LEG-337223","CJ.DISTR.MET.XL3S 160 EMP.3 F.X 24 MOD.",272.317,272.317,0,4,6],["LEG-337224","CJ.DISTR.MET.XL3S 160 EMP.4 F.X 24 MOD.",329.651,329.651,0,4,6],["LEG-337225","CJ.DISTR.MET.XL3S 160 EMP.5 F.X 24 MOD.",390.876,390.876,0,4,6],["LEG-337226","CJ.DISTR.MET.XL3S 160 EMP.6 F.X 24 MOD.",429.397,429.397,0,4,6],["LEG-337236","CJ.DISTR.MET.XL3S 160 EMP.6 F.X 36 MOD.",495.855,495.855,0,4,6],["LEG-337227","CJ.DISTR.MET.XL3S 160 EMP.7 F.X 24 MOD.",547.704,547.704,0,4,6],["LEG-337228","CJ.DISTR.MET.XL3S 160 EMP.8 F.X 24 MOD.",605.36,605.36,0,4,6],["LEG-337252","PUERTA METÁLICA XL3S 160 2 X 24 MÓDULOS",57.918,57.918,0,4,6],["LEG-337253","PUERTA METALICA XL3S 160 3 X 24 MODULOS",76.072,76.072,0,4,6],["LEG-337254","PUERTA METALICA XL3S 160 4 X 24 MODULOS",82.078,82.078,0,4,6],["LEG-337255","PUERTA METALICA XL3S 160 5 X 24 MODULOS",91.553,91.553,0,4,6],["LEG-337256","PUERTA METALICA XL3S 160 6 X 24 MODULOS",105.301,105.301,0,4,6],["LEG-337266","PUERTA METALICA XL3S 160 6 X 36 MODULOS",110.747,110.747,0,4,6],["LEG-337268","PUERTA METALICA XL3S 160 8 X 36 MODULOS",154.525,154.525,0,4,6],["LEG-337202","CJ.DISTR.MET.XL3S 160 SUPF.2 F.X 24 MOD.",177.303,177.303,0,4,6],["LEG-337203","CJ.DISTR.MET.XL3S 160 SUPF.3 F.X 24 MOD.",233.254,233.254,0,4,6],["LEG-337204","CJ.DISTR.MET.XL3S 160 SUPF.4 F.X 24 MOD.",267.687,267.687,0,4,6],["LEG-337205","CJ.DISTR.MET.XL3S 160 SUPF.5 F.X 24 MOD.",298.571,298.571,0,4,6],["LEG-337206","CJ.DISTR.MET.XL3S 160 SUPF.6 F.X 24 MOD.",350.045,350.045,0,4,6],["LEG-337216","CJ.DISTR.MET.XL3S 160 SUPF.6 F.X 36 MOD.",354.182,354.182,0,4,6],["LEG-337207","CJ.DISTR.MET.XL3S 160 SUPF.7 F.X 24 MOD.",391.23,391.23,0,4,6],["LEG-337217","CJ.DISTR.MET.XL3S 160 SUPF.7 F.X 36 MOD.",453.005,453.005,0,4,6],["LEG-337208","CJ.DISTR.MET.XL3S 160 SUPF.8 F.X 24 MOD.",432.397,432.397,0,4,6],["LEG-337218","CJ.DISTR.MET.XL3S 160 SUPF.8 F.X 36 MOD.",272.317,272.317,0,4,6],["LEG-337257","PUERTA METALICA XL3S 160 7 X 24 MODULOS",122.335,122.335,0,4,6],["LEG-337267","PUERTA METALICA XL3S 160 7 X 36 MODULOS",141.641,141.641,0,4,6],["LEG-001660","OBTURADOR 5 MODULOS BL.",0.972,2.43,60.0,3,6],["LEG-001662","OBTURADOR 13 MODULOS BL.",1.812,4.53,60.0,3,6],["LEG-020051","OBTURADOR 24 MOD.XL3",4.8755,13.93,65.0,4,6],["PIN-41U542M1F20000","ARMARIO 30X40 1 CONTADOR MONOFASICO 1BASE BUC PNZ34 (710113)",63.529,63.529,0,4,7],["PIN-41U542M1F4000E","ARMARIO 30X40 1 CONTADOR MONOFOFASICO 3 BASE BUC PNZ34",81.429,81.429,0,4,7],["PIN-41965E014B0000","ARMARIO 30X40 CIEGO PNZ34",38.512,38.512,0,4,7],["PIN-41U542M1F40000","ARMARIO 50X50 1 CONTADOR TRIFASICO 3 BASE BUC PNZ55 710114",116.471,116.471,0,4,7],["PIN-41965E024B0000","ARMARIO 50X50 CIEGO PNZ55",55.658,55.658,0,4,7],["PIN-41976E00002732","ARMARIO 50X50 CIEGO PNZ55 +PNZ – CHASIS ALS -2 PNZ 55",271.429,271.429,0,4,7],["PIN-41U542M1F22300","ARMARIO 70X50 2 CONTADORES MONOFÁSICOS 2 BASES BUC PNZ57",132.471,132.471,0,4,7],["PIN-41U542M1F44000","ARMARIO 70X50 2 CONTADORES TRIFÁSICO 6 BASES BUC PNZ57",203.529,203.529,0,4,7],["PIN-41965E034T0000","ARMARIO 70X50 CIEGO PNZ57",72.941,72.941,0,4,7],["PIN-41966MA8R00000","ARMARIO FIBRA 1000X800 PNZ-A/MINI PNZ 108 D B",439.727,439.727,0,4,7],["PIN-41966M32R00000","ARMARIO MINI-PNZ325 IP65 30X25X16",54.068,54.068,0,4,7],["PIN-41966M43RB0000","ARMARIO MINI-PNZ43 IP65 40X30X20",71.995,71.995,0,4,7],["PIN-41966M54R00000","ARMARIO MINI-PNZ54 IP65 50X40X20",98.444,98.444,0,4,7],["PIN-41966M65R00000","ARMARIO MINI-PNZ65 IP65 60X50X25 630332",130.079,130.079,0,4,7],["PIN-41966M86R00000","ARMARIO MINI-PNZ86 IP65 80X60X30",187.501,187.501,0,4,7],["PIN-41U500010B1070","ARMARIO PARA PNZ107+ARD EQUIPO DE MEDIDA DIRECTA 15-44KW DE EXTERIOR *",585.882,585.882,0,4,7],["PIN-41976E00000420","ARMARIO PNZ-105 1MT.ALTOX0,50 ANCHO CON EMBARRADO SIN BASES",585.882,585.882,0,4,7],["PIN-41U5300736SB0U","ARMARIO PNZ-107 1MT.ALTOX0,75ANCHO CON EMBARRADO SIN BASES 710341",594.118,594.118,0,4,7],["PIN-41U5300123000U","ARMARIO PNZ-A/107 TAC T1B 3-BTVC-250A UNELCO",694.286,694.286,0,4,7],["PIN-41U5300710001B","CAJA ACOMETIDA PNZ-CGP 7 - 100 BUC UNELCO (8BB1-50+PLET RET) T1B (370X220X125) REF.: 710481",89.412,89.412,0,4,7],["PIN-4115807400631B","CAJA ACOMETIDA PNZ-CGP 7 400 T1B BUC UNELCO (595X318X179) REF 481197",156.471,156.471,0,4,7],["PIN-4115807160372B","CAJA ACOMETIDA PNZ-CGP 7-160 BUC UNELCO T1B (530X289X153) REF 481192",77.647,77.647,0,4,7],["PIN-4115807250631B","CAJA ACOMETIDA PNZ-CGP-7 250 BUC UNELCO T1B (595X318X179) REF 481196",147.059,147.059,0,4,7],["PIN-41U530014252C0","CAJA ACOMETIDA SUBTERRÁNEA 250A BUC",325.882,325.882,0,4,7],["PIN-41U530014250C0","CAJA ACOMETIDA SUBTERRÁNEA 400A BUC",332.941,332.941,0,4,7],["PIN-41976P42000000","CHASIS DISTRIBUCIÓN CH-43 24 MÓDULOS",23.506,23.506,0,3,7],["PIN-41976P39000000","CHASIS DISTRIBUCIÓN CH-54 54 MÓDULOS",44.032,44.032,0,3,7],["PIN-41976P40000000","CHASIS DISTRIBUCIÓN CH-65 69 MÓDULOS",51.69,51.69,0,3,7],["PIN-41976P41000000","CHASIS DISTRIBUCIÓN CH-86 116 MÓDULOS",92.867,92.867,0,3,7],["PIN-41U53001200000","CHASIS PNZ55 50X50 ALS1 SIN PROTECCION (710083)",101.429,101.429,0,3,7],["PIN-41U5300255014B","CHASIS PNZ55 50X50 ALS2 1 ENTRADA 1 SALIDA 3 BASES BUC (710320)",180.0,180.0,0,3,7],["PIN-41U53002570140","CHASIS PNZ57 75X50 ALS2 1 ENTRADA 1 SALIDA 3 BASES BUC (710321)",185.882,185.882,0,3,7],["PIN-41U5300357000B","CHASIS PNZ57 75X50 ALS3 1 ENTRADA 2 SALIDAS 6 BASES BUC 250 (710282)",272.941,272.941,0,3,7],["PIN-41976E00000440","COFRE ALUMBRADO PÚBLICO 1465 4B 2F",13.224,13.224,0,4,7],["PIN-41976E00000454","COFRE ALUMBRADO PÚBLICO 1465 6B 4F",31.673,31.673,0,4,7],["PIN-41976E00000497","COFRE ALUMBRADO PÚBLICO 1468 (PNZ 2-13-4B-2F)",12.0,12.0,0,4,7],["PIN-41976E00000435","COFRE ALUMBRADO PÚBLICO 1469",7.176,7.176,0,4,7],["PIN-41976E00002228","CONJUNTO MIRILLA PRACTICABLE 584X209",26.0,26.0,0,2,7],["PIN-341UU542M1F2000","FONDO PARA ARMARIO PNZ34 CPM-MF 2 (1 MON BUC)",31.765,31.765,0,4,7],["PIN-31600PMP105900","PLACA DE MONTAJE CIEGA PARA PNZ34",16.694,16.694,0,4,7],["PIN-31600PMP103800","PLACA DE MONTAJE CIEGA PARA PNZ55",8.824,8.824,0,4,7],["PIN-31600PMP103900","PLACA DE MONTAJE CIEGA PARA PNZ57",10.588,10.588,0,4,7],["PIN-31600PMP356800","PLACA FIBRA P/ARMARIO PNZ 1000X800",41.176,41.176,0,4,7],["PIN-31600PMP056000","PLACA FONDO PNZ325",3.801,3.801,0,4,7],["PIN-31600PMP100400","PLACA FONDO PNZ43",6.033,6.033,0,4,7],["PIN-31600PMP100200","PLACA FONDO PNZ54",10.685,10.685,0,4,7],["PIN-31600PMP100600","PLACA FONDO PNZ65",15.338,15.338,0,4,7],["PIN-31600PMP100700","PLACA FONDO PNZ86",29.197,29.197,0,4,7],["PIN-4135810402PBUC","PNZ CS - 400 BUC PNZ-2 SUP. (ANCHA-PNZ-2) ENDESA CNL003 336053,",349.412,349.412,0,3,7],["PIN-4135810402SBUC","PNZ CS - 400 BUC PNZ-2 SALIDA A CGP INFERIOR ENDESA CNL006 (160131) 336052",380.0,380.0,0,3,7],["PIN-41966CA6T1B2P0","PNZ-A/1210 TAC T1B/T1B 2P P/USAS",614.286,614.286,0,3,7],["PIN-41U530003160TU","PNZ-A/57 TAC T1B+INT.400A+3.NHC-00 160A CORTE BOMBEROS UNELCO",792.857,792.857,0,3,7],["PIN-41E564400000SA","PNZ-A/ADI 400A END S/ANCLAJE 481169",676.471,676.471,0,3,7],["PIN-41E58CDU400000","PNZ-A/CDU 400A END 480016",225.882,225.882,0,3,7],["PIN-47366652280B5S","PNZ-A/CO 127 TAC G. 4X250 A, 2 SHUKO 16+ 3P+N+T 16 A. + 3P+N+T 32 A. + 7 S.UF. 4X32 + 1 S. UF. 4X63",2261.429,2261.429,0,3,7],["PIN-47366541232C0S","PNZ-A/CO-54/4X32A/1TC.4X16A +1TC.2X16A +4TC.2X16A SCHUKO ST",614.286,614.286,0,3,7],["PIN-41976E00002100","PNZ-CANALERA CGP 630A/DSPD/CS/CDU",45.882,45.882,0,3,7],["PIN-4115809160372B","PNZ-CGP 9 160 A. BUC T1B 530X289X153 481193",62.353,62.353,0,3,7],["PIN-4115809250631B","PNZ-CGP 9 250 A. BUC T1B 595X318X179 481194",110.588,110.588,0,3,7],["PIN-41U5300357400B","PNZ-CHASIS ALS-3 BUC PNZ-57/3 UNELCO 400",300.0,300.0,0,3,7],["PIN-41U5300255001B","PNZ-CHASIS ALS-3 BUC-160A PNZ-55/2 UNELCO 710396",163.529,163.529,0,3,7],["PIN-41U5300357001B","PNZ-CHASIS ALS-3 BUC-160A PNZ-57/3 UNELCO (710395)",222.857,222.857,0,3,7],["PIN-41976P60000000","PNZ-CHASIS DISTRIBUCION CH-325 16 MODULOS",9.988,9.988,0,3,7],["PIN-4135810402SEB2","PNZ-CS 400 BUC END 335310 (CAJA DE SECCIONAMIENTO)",175.294,175.294,0,4,7],["PIN-41976E00000620","PNZ-CS BUC END+PNZ-A/CPM MF 4 UNELCO (601485)",349.412,349.412,0,3,7],["PIN-41976E00000115","PNZ-CST-50 (CJ. SECC. TIERRA 160X110 TAPA TRANSP (2 SALIDAS CABLE HASTA 50MM2)",8.824,8.824,0,6,7],["PIN-341E58CDU40003","PNZ-INTERIOR A/CDU 400A END EN PNZ-3 (482013)",386.0,386.0,0,3,7],["PIN-41D53250TMFS05","PNZ-M-1T LI/NHC-250 VERTICAL+CAJA MODEM ENDESA (INT C/C 4X250)+TRAFOS 200/5 (482072)",928.235,928.235,0,4,7],["PIN-41U500010Z0000","PNZ-MODULO 1T 0-44 KW UNELCO (NHC00)(1 CAJA 5454)",161.176,161.176,0,4,7],["PIN-41U5040000000E","PNZ-MODULO 4ME UNELCO",270.0,270.0,0,3,7],["PIN-41375121200T14","PNZ-PUERTA MET 1200X1400 (335489)",328.75,328.75,0,4,7],["PIN-41375091900T1B","PNZ-PUERTA MET 1900X900 (335326)",204.706,204.706,0,4,7],["PIN-413751500700T1","PNZ-PUERTA MET. 1500X700 335517 (PARA CS 400+CGP ESQUEMA 9)",158.824,158.824,0,4,7],["PIN-41375F50700STB","PNZ-PUERTA MET. 1650X700 (335436)",202.353,202.353,0,4,7],["PIN-41375670600END","PNZ-PUERTA MET. 570 (ALTO) X 600 (ANCHO) ENDESA (336055)",58.75,58.75,0.0,4,7],["PIN-41375400540S00","PNZ-PUERTA MET. 400X540 SUP 335467",67.059,67.059,0,4,7],["PIN-41375880680END","PNZ-PUERTA MET. 780 (ALTO) X 680 (ANCHO) ENDESA (336056)",81.25,81.25,0.0,4,7],["PIN-41375600600S00","PNZ-PUERTA MET. 600X600 SUP 335468",96.471,96.471,0,4,7],["PIN-41375700420T10","PNZ-PUERTA MET. 700X420 335244 (PARA CS 400 BUC, CGP ESQUEMA 9)",58.824,58.824,0,4,7],["PIN-41375880850END","PNZ-PUERTA MET. 780 (ALTO) X 850 (ANCHO) ENDESA (336057)",96.25,96.25,0.0,4,7],["PIN-41375700780ST0","PNZ-PUERTA MET. 700X780 SUP 335958",109.412,109.412,0,4,7],["PIN-412758001350T1","PNZ-PUERTA MET. 800 (ALTO) X1350 (ANCHO) 2H (335518)",189.412,189.412,0,4,7],["PIN-41375071900000","PNZ-PUERTA METALICA C/MARCO 1900(ALTO)X700(ANCHO) RAL 7035 (335971)",187.059,187.059,0,0,7],["PIN-41975PS2B10000","PNZ-PUERTA PNZ-2 T1B 1P",25.164,25.164,0,4,7],["PIN-41975PS1B00000","PNZ-PUERTA PNZ-3 T1B 1P",32.376,32.376,0,4,7],["PIN-41U542M1F42000","PNZ57 70X50 1 CONT. MONOF.Y 1 CONT. TRIFÁSICO 4 BUC",167.765,167.765,0,3,7],["PIN-41976E00000594","CONJUNTO CS + CGP-9 -250 END +CANALERA (601452)",412.941,412.941,0,3,7],["PIN-41976E00000595","CONJUNTO CS + CGP-9 -400 END +CANALERA (601453)",438.824,438.824,0,3,7],["PIN-41976E00000618","PNZ-CS BUC END+PNZ-A/CPM MF 4 END (601479)",390.588,390.588,0,3,7],["PIN-1ABFNC1400M120","CANALERA CTC-F (EN) INFERIOR S/EMB 680177",42.0,42.0,0,3,7],["PIN-1ABFNC1400M122","CANALERA CTC-F (EN) SUPERIOR S/EMB 680178",15.714,15.714,0,3,7],["PIN-4135810CDUPBUC","PNZ CAJA DIST. URB. CDU-BUC ENDESA CNL004(COD. ENDESA 160134)",494.118,494.118,0,4,7],["PIN-41976E00003066","PNZ-A/EMI 107 T 160 A. +TRAFOS 100/5 (603106)",761.176,761.176,0,3,7],["PIN-41D53160TMFA05","PNZ-M-1T LI/NHC-160 VERTICAL+CAJA MODEM ENDESA (INT C/C 4X160)+TRAFOS 100/5 482071",937.647,937.647,0,4,7],["AIS-BMPZ610","REJILLA MET.PTCBL.100X60 ELECTROZC.",5.45,5.45,0,1,8],["AIS-BMPZ615","REJILLA MET.PTCBL.150X60 ELECTROZC.",6.625,6.625,0,1,8],["AIS-BMPZ620","REJILLA MET.PTCBL.200X60 ELECTROZC.",8.172,8.172,0,1,8],["AIS-BMPZ630","REJILLA MET.PTCBL.300X60 ELECTROZC.",12.0,12.0,0,1,8],["AIS-BMPZ640","REJILLA MET.PTCBL.400X60 ELECTROZC.",15.412,15.412,0,1,8],["AIS-BMPZ650","REIJILLA MET.PTCBL.500X60 ELECTROZC.",18.927,18.927,0,1,8],["AIS-BMPZ660","REIJILLA MET.PTCBL.600X60 ELECTROZC.",22.082,22.082,0,1,8],["AIS-BMPR610","BAND.MET.PTCBL.TIPO REJ.ELECTROSOLDADA 100X60",5.975,5.975,0,1,8],["AIS-BMPR620","BAND.MET.PTCBL.TIPO REJ.ELECTROSOLDADA 200X60",8.47,8.47,0,1,8],["AIS-BMPR630","BAND.MET.PTCBL.TIPO REJ.ELECTROSOLDADA 300X60",12.595,12.595,0,1,8],["AIS-BMPR640","BAND.MET.PTCBL.TIPO REJ.ELECTROSOLDADA 400X60",15.657,15.657,0,1,8],["AIS-CMPS610","CANAL METALICA PERF.100X60 GALV.SENZ.",7.132,7.132,0,1,8],["AIS-CMPS615","CANAL METALICA PERF.150X60 GALV.SENZ.",8.755,8.755,0,1,8],["AIS-CMPS620","CANAL METALICA PERF.200X60 GALV.SENZ.",10.877,10.877,0,1,8],["AIS-CMPS630","CANAL METALICA PERF.300X60 GALV.SENZ.",15.94,15.94,0,1,8],["AIS-CMPS640","CANAL METALICA PERF.400X60 GALV.SENZ.",21.695,21.695,0,1,8],["AIS-CMPS650","CANAL METALICA PERF.500X60 GALV.SENZ.",26.647,26.647,0,1,8],["AIS-CMPS660","CANAL METALICA PERF.600X60 GALV.SENZ.",30.695,30.695,0,1,8],["AIS-TUBCS10","TAPA UNIVERSAL BAND./CAN.100 GALV.SENZ.",3.772,3.772,0,1,8],["AIS-TUBCS15","TAPA UNIVERSAL BAND./CAN.150 GALV.SENZ.",4.95,4.95,0,1,8],["AIS-TUBCS20","TAPA UNIVERSAL BAND./CAN.200 GALV.SENZ.",6.352,6.352,0,1,8],["AIS-TUBCS30","TAPA UNIVERSAL BAND./CAN.300 GALV.SENZ.",9.742,9.742,0,1,8],["AIS-TUBCS40","TAPA UNIVERSAL BAND./CAN.400 GALV.SENZ.",13.95,13.95,0,1,8],["AIS-TUBCS50","TAPA UNIVERSAL BAND./CAN.500 GALV.SENZ.",19.73,19.73,0,1,8],["AIS-TUBCS60","TAPA UNIVERSAL BAND./CAN.600 GALV.SENZ.",22.472,22.472,0,1,8],["AIS-CMPG610","CANAL METALICA PERF.100x60 GALV.CLTE.",14.595,14.595,0,1,8],["AIS-CMPG615","CANAL MET.PERF.60x150 GALV.",18.12,18.12,0,1,8],["AIS-CMPG620","CANAL METALICA PERF.200X60 GALV.CLTE.",21.215,21.215,0,1,8],["AIS-CMPG630","CANAL METALICA PERF.300X60 GALV.CLTE.",27.857,27.857,0,1,8],["AIS-CMPG640","CANAL METALICA PERF.400X60 GALV.CLTE.",37.222,37.222,0,1,8],["AIS-TUBCG10","TAPA UNIVERSAL BAND./CAN.100 GALV.CLTE.",8.28,8.28,0,1,8],["AIS-TUBCG15","TAPA UNIV.BAND.CAN.150 GALV.",11.775,11.775,0,1,8],["AIS-TUBCG20","TAPA UNIVERSAL BAND./CAN.200 GALV.CLTE.",14.052,14.052,0,1,8],["AIS-TUBCG30","TAPA UNIVERSAL BAND./CAN.300 GALV.CLTE.",20.705,20.705,0,1,8],["AIS-TUBCG40","TAPA UNIVERSAL BAND./CAN.400 GALV.CLTE.",30.55,30.55,0,1,8],["AIS-TSCS50","TABIQUE SEPARADOR COLISO 50 GALV.SENZ.",3.875,3.875,0,1,8],["AIS-SOUMS10","SOP.OMEGA U MULTIF.SOUMS10 GALV.SENZ.",4.882,4.882,0,1,8],["AIS-SOUMS15","SOP.OMEGA U MULTIF.SOUMS15 GALV.SENZ.",5.885,5.885,0,1,8],["AIS-SOUMS20","SOP.OMEGA U MULTIF.SOUMS20 GALV.SENZ.",6.202,6.202,0,1,8],["AIS-SOUMS30","SOP.OMEGA U MULTIF.SOUMS30 GALV.SENZ.",7.27,7.27,0,1,8],["AIS-SOUMS40","SOPORTE OMEGA TECHO MULT.S.4",8.297,8.297,0,1,8],["AIS-SPSCS10","SOP.PARED/SUELO COLISO 100 GALV.SENZ.",3.677,3.677,0,1,8],["AIS-SPSCS15","SOP.PARED/SUELO COLISO 150 GALV.SENZ.",4.02,4.02,0,1,8],["AIS-SPSCS20","SOP.PARED/SUELO COLISO 200 GALV.SENZ.",4.275,4.275,0,1,8],["AIS-SPSCS30","SOP.PARED/SUELO COLISO 300 GALV.SENZ.",5.172,5.172,0,1,8],["AIS-SPSCS40","SOP.PARED/SUELO COLISO 400 GALV.SENZ.",8.392,8.392,0,1,8],["AIS-ESCRS10","ESCUADRA SOP.REFORZ.COLISO 100 GALV.SENZ",3.335,3.335,0,1,8],["AIS-ESCRS15","ESCUADRA SOP.REFORZ.COLISO 150 GALV.SENZ",3.74,3.74,0,1,8],["AIS-ESCRS20","ESCUADRA SOP.REFORZ.COLISO 200 GALV.SENZ",4.192,4.192,0,1,8],["AIS-ESCRS30","ESCUADRA SOP.REFORZ.COLISO 300 GALV.SENZ",5.132,5.132,0,1,8],["AIS-ESCRS40","ESCUADRA SOP.REFORZ.COLISO 400 GALV.SENZ",7.417,7.417,0,1,8],["AIS-ESCRS50","ESCUADRA SOP.REFORZ.COLISO 500 GALV.SENZ",9.367,9.367,0,1,8],["AIS-ESCRS60","ESCUADRA SOP.REFORZ.COLISO 600 GALV.SENZ",11.252,11.252,0,1,8],["AIS-SOMS10","SOPORTE OMEGA MULTIF.SOMS10 GALV.SENZ. SOPORTE PARED",2.82,2.82,0,1,8],["AIS-SOMS15","SOPORTE OMEGA MULTIF.SOMS15 GALV.SENZ.SOPORTE PARED",3.502,3.502,0,1,8],["AIS-SOMS20","SOPORTE OMEGA MULTIF.SOMS20 GALV.SENZ.SOPORTE PARED",4.152,4.152,0,1,8],["AIS-SOMS30","SOPORTE OMEGA MULTIF.SOMS30 GALV.SENZ.SOPORTE PARED",4.495,4.495,0,1,8],["AIS-SOMS40","SOPORTE OMEGA MULTIF.SOMS40 GALV.SENZ.SOPORTE PARED",6.135,6.135,0,1,8],["AIS-BGE16","TUBO AISCAN-B BLIND.D.16 ENCHUFABLE GR",0.498,0.498,0,7,9],["AIS-BGE20","TUBO AISCAN-B BLIND.D.20 ENCHUFABLE GR",0.667,0.667,0,7,9],["AIS-BGE25","TUBO AISCAN-B BLIND.D.25 ENCHUFABLE GR",0.904,0.904,0,7,9],["AIS-BGE32","TUBO AISCAN-B BLIND.D.32 ENCHUFABLE GR",1.27,1.27,0,7,9],["AIS-BGE40","TUBO AISCAN-B BLIND.D.40 ENCHUFABLE GR",1.894,1.894,0,7,9],["AIS-BGE50","TUBO AISCAN-B BLIND.D.50 ENCHUFABLE GR",2.6,2.6,0,7,9],["AIS-BGE63","TUBO AISCAN-B BLIND.D.63 ENCHUFABLE GR",3.498,3.498,0,7,9],["AIS-CR16","TUBO AISCAN-CR CORRUG.DOBLE CAPA D.16 NG",0.228,0.228,0,7,9],["AIS-CR20","TUBO AISCAN-CR CORRUG.DOBLE CAPA D.20 NG",0.247,0.247,0,7,9],["AIS-CR25","TUBO AISCAN-CR CORRUG.DOBLE CAPA D.25 NG",0.32,0.32,0,7,9],["AIS-CR32","TUBO AISCAN-CR CORRUG,DOBLE CAPA D.32 NG",0.498,0.498,0,7,9],["AIS-CR40","TUBO AISCAN-CR CORRUG.DOBLE CAPA D.40 NG",0.696,0.696,0,7,9],["AIS-CR50","TUBO AISCAN-CR CORRUG.DOBLE CAPA D.50 NG",1.046,1.046,0,7,9],["AIS-EHF16","TUBO AISCAN-EHF D.16 RIG.LIBRE HALOGS.",1.396,1.396,0,7,9],["AIS-EHF20","TUBO AISCAN-EHF D.20 RIG.LIBRE HALOGS.",1.709,1.709,0,7,9],["AIS-EHF25","TUBO AISCAN-EHF D.25 RIG.LIBRE HALOGS.",2.353,2.353,0,7,9],["AIS-EHF32","TUBO AISCAN-EHF D.32 RIG.LIBRE HALOGS.",3.254,3.254,0,7,9],["AIS-EHF40","TUBO AISCAN-EHF D.40 RIG.LIBRE HALOGS.",4.726,4.726,0,7,9],["AIS-EHF50","TUBO AISCAN-EHF D.50 RIG.LIBRE HALOGS.",6.346,6.346,0,7,9],["AIS-EHF63","TUBO AISCAN-EHF D.63 RIG.LIBRE HALOGS.",8.497,8.497,0,7,9],["AIS-MTME16","MANGUITO TUBO METALICO ENCHUFABLE d.16mm",1.068,1.068,0,7,9],["AIS-MTME20","MANGUITO TUBO METALICO ENCHUFABLE d.20mm",1.116,1.116,0,7,9],["AIS-MTME25","MANGUITO TUBO METALICO ENCHUFABLE d.25mm",1.308,1.308,0,7,9],["AIS-MTME32","MANGUITO TUBO METALICO ENCHUFABLE d.32mm",1.722,1.722,0,7,9],["AIS-MTME40","MANGUITO TUBO METALICO ENCHUFABLE d.40mm",2.562,2.562,0,7,9],["AIS-MTME50","MANGUITO TUBO METALICO ENCHUFABLE d.50mm",3.606,3.606,0,7,9],["AIS-MTME63","MANGUITO TUBO METALICO ENCHUFABLE d.63mm",6.516,6.516,0,7,9],["AIS-TME16","TUBO METALICO ENCHUFABLE D.16MM",1.795,1.795,0,7,9],["AIS-TME20","TUBO METALICO ENCHUFABLE D.20MM",2.145,2.145,0,7,9],["AIS-TME25","TUBO METALICO ENCHUFABLE D.25MM",2.666,2.666,0,7,9],["AIS-TME32","TUBO METALICO ENCHUFABLE D.32MM",4.124,4.124,0,7,9],["AIS-TME40","TUBO METALICO ENCHUFABLE D.40MM",5.413,5.413,0,7,9],["AIS-TME50","TUBO METALICO ENCHUFABLE D.50MM",6.936,6.936,0,7,9],["AIS-TME63","TUBO METALICO ENCHUFABLE D.63MM",8.932,8.932,0,7,9],["GAE-900.2000.0","TUBO CORRUG.HALOFLEX LH M20",0.272,0.272,0,7,9],["GAE-900.2500.0","TUBO CORRUG.HALOFLEX LH M25",0.392,0.392,0,7,9],["GAE-900.3200.0","TUBO CORRUG.HALOFLEX LH M32",0.612,0.612,0,7,9],["GAE-900.4000.0","TUBO CORRUG.HALOFLEX LH M40",0.883,0.883,0,7,9],["GAE-900.5000.0","TUBO HALOFLEX M50 LIBRE DE HALÓGENOS",1.039,1.039,0,7,9],["GAE-920.1300.0","MANGUERA ELECTROFLEX PVC PG.13,5 GRIS",0.968,0.968,0,7,9],["GAE-920.1600.0","MANGUERA ELECTROFLEX PVC PG.16 GRIS",1.029,1.029,0,7,9],["GAE-920.2100.0","MANGUERA ELECTROFLEX PVC PG.21 GRIS",1.335,1.335,0,7,9],["GAE-920.2900.0","MANGUERA ELECTROFLEX PVC PG.29 GRIS",1.74,1.74,0,7,9],["GAE-920.3600.0","MANGUERA ELECTROFLEX PVC PG.36 GRIS",2.533,2.533,0,7,9],["GAE-920.4800.0","MANGUERA ELECTROFLEX PVC PG.48 GRIS",3.335,3.335,0,7,9],["GAE-925.2000.0-R25","MANGUERA ELECTROFLEX-IT PVC M20 GRIS ROLLO 25M",1.52,1.52,0.0,7,9],["GAE-925.2500.0-R25","MANGUERA ELECTROFLEX-IT PVC M25 GRIS CLARO ROLLO 25M++",1.743,1.743,0.0,7,9],["GAE-925.3200.0-R25","MANGUERA ELECTROFLEX-IT PVC M32 GRIS CLARO ROLLO 25M",2.233,2.233,0.0,7,9],["GAE-925.4000.0-R25","MANGUERA ELECTROFLEX-IT PVC M40 GRIS ROLLO 25M",3.237,3.237,0.0,7,9],["GAE-925.5000.0-R25","MANGUERA ELECTROFLEX-IT PVC M50 GRIS ROLLO 25M",4.092,4.092,0.0,7,9],["GAE-960.1300.0","MANGUERA ECOMILFLEX CAMISA PVC GR.PG.13",1.253,1.253,0,7,9],["GAE-960.1600.0","MANGUERA ECOMILFLEX CAMISA PVC GR.PG.16",1.435,1.435,0,7,9],["GAE-960.2100.0","MANGUERA ECOMILFLEX CAMISA PVC GR.PG.21",1.953,1.953,0,7,9],["GAE-960.2900.0","MANGUERA ECOMILFLEX CAMISA PVC GR.PG.29",2.543,2.543,0,7,9],["GAE-960.3600.0","MANGUERA ECOMILFLEX CAMISA PVC GR.PG.36",3.635,3.635,0,7,9],["GAE-960.4800.0","MANGUERA ECOMILFLEX CAMISA PVC GR.PG.48",4.497,4.497,0,7,9],["GAE-0261.234.016","TUBO\"ROHRFLEX PA.6L\"PG-16 GRIS AD21,2 (DN17)",1.428,1.428,0,7,9],["GAE-0261.234.023","TUBO\"ROHRFLEX PA.6L\"PG-21 GRIS AD28,5 (DN23)",2.098,2.098,0,7,9],["GAE-0261.234.029","TUBO\"ROHRFLEX PA.6L\"PG-29 GRIS AD34,5 (DN29)",2.628,2.628,0,7,9],["GAE-0261.234.036","TUBO\"ROHRFLEX PA.6L\"PG-36 GRIS AD42,5 (DN37)",3.264,3.264,0,7,9],["GAE-0261.232.016","TUBO ROHRFLEX-PA 6 L PG-16 NEGRO DN 17",1.428,1.428,0,7,9],["GAE-0261.232.023","TUBO ROHRFLEX-PA 6 L PG-21 NEGRO DN 23",2.098,2.098,0,7,9],["GAE-0261.232.029","TUBO ROHRFLEX-PA 6 L PG-29 NEGRO DN 29",2.628,4.043,35.0,7,9]];
+
+const $=s=>document.querySelector(s);
+const fmt=(n,d=2)=>n==null||isNaN(n)?'–':n.toLocaleString('es-ES',{minimumFractionDigits:d,maximumFractionDigits:d});
+const eur=n=>fmt(n)+' €';
+const norm=s=>String(s).toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'').replace(/,/g,'.');
+const comp=s=>s.replace(/²/g,'2').replace(/[^a-z0-9.]/g,'');
+const raiz=w=>w.length>4&&/es$/.test(w)&&!/[aeiou]es$/.test(w.slice(0,-1))?w.slice(0,-2):w.length>3&&/s$/.test(w)?w.slice(0,-1):w;
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const items=ART.map(a=>({ref:a[0],desc:a[1],coste:a[2],pvp:a[3],dto:a[4],tipo:TIPOS[a[5]],tarifa:TARIFAS[a[6]],key:norm(a[0]+' '+a[1]+' '+TIPOS[a[5]]+' '+TARIFAS[a[6]])})).map(i=>(i.cmp=comp(i.key),i));
+const byRef=new Map(items.map(i=>[i.ref,i]));
+
+let cfg={beneficio:30,igic:7,mo_tipos:{}};
+let moArt={};
+let pres=nuevoPres();
+let guardados=[];
+let db=null, downloads=null;
+
+function nuevoPres(){return {id:null,nombre:'',beneficio:null,igic:null,lineas:[]};}
+function toast(t){const e=$('#toast');e.textContent=t;e.hidden=false;clearTimeout(toast.t);toast.t=setTimeout(()=>e.hidden=true,2200);}
+function ls(k,v){try{if(v===undefined)return JSON.parse(localStorage.getItem(k));localStorage.setItem(k,JSON.stringify(v));}catch(e){return null;}}
+
+function buscar(q,lista=items,max=40){
+  const t=norm(q).replace(/²/g,'2').split(/[\s\/;]+/).filter(Boolean).map(w=>({w,r:raiz(w),c:comp(raiz(w))}));
+  if(!t.length)return lista.slice(0,max);
+  const ok=(i,x)=>i.key.includes(x.w)||i.key.includes(x.r)||(x.c&&i.cmp.includes(x.c));
+  const out=[];for(const i of lista){if(t.every(x=>ok(i,x))){out.push(i);if(out.length>=max)break;}}
+  return out;
+}
+function moTipo(tipo){const v=cfg.mo_tipos[tipo];return v==null||v===''?null:+v;}
+function moEf(ref){const i=byRef.get(ref);if(!i)return null;if(moArt[ref]!=null)return +moArt[ref];return moTipo(i.tipo);}
+function benef(){return pres.beneficio!=null?+pres.beneficio:+cfg.beneficio;}
+function igic(){return pres.igic!=null?+pres.igic:+cfg.igic;}
+
+function calcLinea(l){
+  const cant=+l.cant||0, coste=l.coste==null?0:+l.coste;
+  const moU=l.mo!=null&&l.mo!==''?+l.mo:(l.ref?moEf(l.ref):null);
+  const mat=coste*cant, ben=mat*benef()/100, mo=(moU||0)*cant;
+  const ventaU=coste*(1+benef()/100)+(moU||0);
+  return {cant,coste,moU,mat,ben,mo,total:mat+ben+mo,ventaU};
+}
+function totales(){
+  let mat=0,ben=0,mo=0;for(const l of pres.lineas){const c=calcLinea(l);mat+=c.mat;ben+=c.ben;mo+=c.mo;}
+  const base=mat+ben+mo, ig=base*igic()/100;return {mat,ben,mo,base,ig,total:base+ig};
+}
+
+// ---------- Presupuesto ----------
+const vistaCliente=()=>$('#p-cliente').checked;
+function renderPres(){
+  $('#p-nombre').value=pres.nombre;
+  $('#p-benef').value=benef();$('#p-igic').value=igic();
+  const cli=vistaCliente();
+  $('#p-head').innerHTML=cli
+    ?'<th>Descripción</th><th class="n">Cant.</th><th class="n">Precio ud</th><th class="n">Importe</th>'
+    :'<th>Artículo</th><th class="n">Cant.</th><th class="n">Coste ud</th><th class="n">Material</th><th class="n">Benef.</th><th class="n">MO ud</th><th class="n">MO total</th><th class="n">Total</th><th></th>';
+  $('#p-vacio').hidden=pres.lineas.length>0;
+  $('#p-body').innerHTML=pres.lineas.map((l,ix)=>{
+    const c=calcLinea(l);
+    if(cli)return `<tr><td class="desc">${esc(l.desc)}</td><td class="n">${fmt(c.cant,c.cant%1?2:0)}</td><td class="n">${eur(c.ventaU)}</td><td class="n">${eur(c.total)}</td></tr>`;
+    const libre=!l.ref;
+    const sinPrecio=!libre&&l.coste==null;
+    const moPh=l.ref&&moEf(l.ref)!=null?fmt(moEf(l.ref)):'';
+    return `<tr data-ix="${ix}">
+      <td class="desc">${libre?`<input class="wide" data-f="desc" id="l-desc-${ix}" value="${esc(l.desc)}" placeholder="Descripción">`:`<div>${esc(l.desc)}</div><span class="ref">${esc(l.ref)}</span> <span class="chip">${esc(byRef.get(l.ref)?.tipo||'')}</span>${sinPrecio?' <span class="chip warn">Sin precio en tarifa</span>':''}`}</td>
+      <td class="n"><input type="number" step="any" min="0" data-f="cant" id="l-cant-${ix}" value="${l.cant}"></td>
+      <td class="n">${libre||sinPrecio?`<input type="number" step="any" min="0" data-f="coste" id="l-coste-${ix}" value="${l.coste??''}">`:fmt(c.coste,3)}</td>
+      <td class="n">${eur(c.mat)}</td><td class="n">${eur(c.ben)}</td>
+      <td class="n"><input type="number" step="any" min="0" data-f="mo" id="l-mo-${ix}" value="${l.mo??''}" placeholder="${moPh}" title="Vacío = mano de obra del artículo o del tipo"></td>
+      <td class="n ${c.moU==null?'sinmo':''}">${c.moU==null?'sin MO':eur(c.mo)}</td>
+      <td class="n"><b>${eur(c.total)}</b></td>
+      <td><button class="btn ghost" data-del="${ix}" aria-label="Quitar línea">✕</button></td></tr>`;
+  }).join('');
+  renderTot();
+}
+function renderTot(){
+  const t=totales();const cli=vistaCliente();
+  $('#p-tot').innerHTML=(cli?'':`<dt>Material (coste)</dt><dd>${eur(t.mat)}</dd><dt>Beneficio ${fmt(benef(),0)} %</dt><dd>${eur(t.ben)}</dd>`)
+    +(cli?`<dt>Material</dt><dd>${eur(t.mat+t.ben)}</dd>`:'')
+    +`<dt>Mano de obra</dt><dd>${eur(t.mo)}</dd><hr><dt>Base imponible</dt><dd>${eur(t.base)}</dd><dt>IGIC ${fmt(igic(),igic()%1?1:0)} %</dt><dd>${eur(t.ig)}</dd><hr><dt><b>Total</b></dt><dd class="big">${eur(t.total)}</dd>`;
+  const sin=pres.lineas.filter(l=>calcLinea(l).moU==null).length;
+  $('#p-estado').textContent=sin&&!cli?`${sin} línea${sin>1?'s':''} sin mano de obra asignada.`:'';
+}
+function guardarBorrador(){ls('pres-borrador',pres);}
+function addArt(i){pres.lineas.push({ref:i.ref,desc:i.desc,coste:i.coste,cant:1,mo:null});guardarBorrador();renderPres();
+  const ix=pres.lineas.length-1;const el=$('#l-cant-'+ix);if(el){el.focus();el.select();}}
+
+let resSel=0,resList=[];
+function renderRes(){
+  const q=$('#p-buscar').value.trim();const box=$('#p-res');
+  if(!q){box.hidden=true;return;}
+  resList=buscar(q,items,30);resSel=Math.min(resSel,Math.max(0,resList.length-1));
+  box.innerHTML=resList.length?resList.map((i,k)=>`<div class="res ${k===resSel?'act':''}" data-k="${k}"><span class="d">${esc(i.desc)}</span><span class="p">${i.coste==null?'sin precio':eur(i.coste)}</span><span class="m">${esc(i.ref)} · ${esc(i.tipo)}</span></div>`).join(''):'<div class="empty">Ningún artículo coincide. Prueba con menos palabras o usa «+ Línea libre».</div>';
+  box.hidden=false;
+}
+$('#p-buscar').addEventListener('input',()=>{resSel=0;renderRes();});
+$('#p-buscar').addEventListener('keydown',e=>{
+  if(e.key==='ArrowDown'){resSel=Math.min(resSel+1,resList.length-1);renderRes();e.preventDefault();}
+  else if(e.key==='ArrowUp'){resSel=Math.max(resSel-1,0);renderRes();e.preventDefault();}
+  else if(e.key==='Enter'&&resList[resSel]){addArt(resList[resSel]);e.target.value='';$('#p-res').hidden=true;}
+  else if(e.key==='Escape'){$('#p-res').hidden=true;}
+});
+$('#p-res').addEventListener('mousedown',e=>{const r=e.target.closest('.res');if(!r)return;e.preventDefault();addArt(resList[+r.dataset.k]);$('#p-buscar').value='';$('#p-res').hidden=true;});
+$('#p-buscar').addEventListener('blur',()=>setTimeout(()=>$('#p-res').hidden=true,150));
+$('#p-libre').onclick=()=>{pres.lineas.push({ref:null,desc:'',coste:null,cant:1,mo:null});renderPres();const el=$('#l-desc-'+(pres.lineas.length-1));el&&el.focus();};
+$('#p-body').addEventListener('input',e=>{
+  const f=e.target.dataset.f;if(!f)return;const ix=+e.target.closest('tr').dataset.ix;const l=pres.lineas[ix];
+  if(f==='desc')l.desc=e.target.value;else{const v=e.target.value;l[f]=v===''?(f==='cant'?0:null):+v;}
+  guardarBorrador();
+  // refresh numbers without losing focus
+  const tr=e.target.closest('tr');const c=calcLinea(l);const tds=tr.children;
+  tds[3].textContent=eur(c.mat);tds[4].textContent=eur(c.ben);tds[6].textContent=c.moU==null?'sin MO':eur(c.mo);tds[6].className='n '+(c.moU==null?'sinmo':'');tds[7].innerHTML='<b>'+eur(c.total)+'</b>';
+  renderTot();
+});
+$('#p-body').addEventListener('click',e=>{const d=e.target.dataset.del;if(d==null)return;pres.lineas.splice(+d,1);guardarBorrador();renderPres();});
+$('#p-nombre').addEventListener('input',e=>{pres.nombre=e.target.value;guardarBorrador();});
+$('#p-benef').addEventListener('input',e=>{pres.beneficio=e.target.value===''?null:+e.target.value;guardarBorrador();renderPres();$('#p-benef').focus();});
+$('#p-igic').addEventListener('input',e=>{pres.igic=e.target.value===''?null:+e.target.value;guardarBorrador();renderTot();});
+$('#p-cliente').addEventListener('change',renderPres);
+$('#p-nuevo').onclick=()=>{pres=nuevoPres();guardarBorrador();renderPres();toast('Presupuesto nuevo');};
+
+function filasExport(){
+  const cli=vistaCliente();const t=totales();
+  const head=cli?['Descripción','Cantidad','Precio ud','Importe']:['Referencia','Descripción','Cantidad','Coste ud','Material','Beneficio','MO ud','MO total','Total línea'];
+  const rows=pres.lineas.map(l=>{const c=calcLinea(l);return cli?[l.desc,c.cant,fmt(c.ventaU),fmt(c.total)]:[l.ref||'',l.desc,c.cant,fmt(c.coste,3),fmt(c.mat),fmt(c.ben),c.moU==null?'':fmt(c.moU),fmt(c.mo),fmt(c.total)];});
+  rows.push([]);rows.push(['Base imponible',fmt(t.base)]);rows.push(['IGIC '+igic()+' %',fmt(t.ig)]);rows.push(['Total',fmt(t.total)]);
+  return [head,...rows];
+}
+$('#p-copiar').onclick=async()=>{
+  const txt=(pres.nombre?pres.nombre+'\n':'')+filasExport().map(r=>r.join('\t')).join('\n');
+  try{await navigator.clipboard.writeText(txt);toast('Copiado. Pégalo en Excel.');}catch(e){toast('No se pudo copiar en este navegador');}
+};
+$('#p-csv').onclick=async()=>{
+  if(!downloads)return;
+  const csv='﻿'+filasExport().map(r=>r.map(v=>{v=String(v??'');return /[;"\n]/.test(v)?'"'+v.replace(/"/g,'""')+'"':v;}).join(';')).join('\n');
+  const nombre=(pres.nombre||'presupuesto').replace(/[^\w\- áéíóúñÁÉÍÓÚÑ]/g,'').trim()||'presupuesto';
+  try{await downloads.save({filename:nombre+'.csv',data:new Blob([csv],{type:'text/csv'})});}catch(e){toast('Descarga cancelada');}
+};
+
+// ---------- Guardar / cargar ----------
+$('#p-guardar').onclick=async()=>{
+  if(!pres.lineas.length){toast('Añade alguna línea antes de guardar');return;}
+  if(!pres.nombre.trim()){toast('Pon un nombre de obra o cliente');$('#p-nombre').focus();return;}
+  const t=totales();
+  const body={nombre:pres.nombre.trim(),beneficio:benef(),igic:igic(),lineas:pres.lineas,total:Math.round(t.total*100)/100,fecha:new Date().toISOString()};
+  if(!db){const l=ls('pres-guardados')||{};pres.id=pres.id||('p'+Date.now());l[pres.id]=body;ls('pres-guardados',l);guardados=Object.entries(l).map(([id,d])=>({id,...d}));renderGuardados();guardarBorrador();toast('Guardado en este navegador');return;}
+  try{const ref=pres.id?db.collection('presupuestos').doc(pres.id):db.collection('presupuestos').doc();await ref.set(body);pres.id=ref.id;guardarBorrador();toast('Presupuesto guardado');}
+  catch(e){toast(e.code==='quota_exceeded'?'No queda espacio: borra presupuestos antiguos':'No se pudo guardar. Inténtalo de nuevo.');}
+};
+function renderGuardados(){
+  const box=$('#p-guardados');
+  if(!guardados.length){box.innerHTML='<span class="note">Aún no hay presupuestos guardados. Pulsa Guardar para conservar el actual.</span>';return;}
+  const l=[...guardados].sort((a,b)=>String(b.fecha).localeCompare(String(a.fecha)));
+  box.innerHTML=l.map(g=>`<div><a data-open="${esc(g.id)}">${esc(g.nombre)}<br><span class="note">${new Date(g.fecha).toLocaleDateString('es-ES')} · ${eur(g.total)}</span></a><button class="btn ghost" data-borrar="${esc(g.id)}" aria-label="Borrar">✕</button></div>`).join('');
+}
+$('#p-guardados').addEventListener('click',async e=>{
+  const o=e.target.closest('[data-open]');const b=e.target.closest('[data-borrar]');
+  if(o){const g=guardados.find(x=>x.id===o.dataset.open);if(!g)return;pres={id:g.id,nombre:g.nombre,beneficio:g.beneficio,igic:g.igic,lineas:JSON.parse(JSON.stringify(g.lineas||[]))};guardarBorrador();renderPres();toast('Abierto: '+g.nombre);}
+  if(b){
+    if(b.dataset.confirm!=='1'){b.dataset.confirm='1';b.textContent='¿Borrar?';setTimeout(()=>{b.dataset.confirm='';b.textContent='✕';},3000);return;}
+    const id=b.dataset.borrar;
+    if(db){try{await db.collection('presupuestos').doc(id).delete();}catch(err){toast('No se pudo borrar');}}
+    else{const l=ls('pres-guardados')||{};delete l[id];ls('pres-guardados',l);guardados=guardados.filter(g=>g.id!==id);renderGuardados();}
+    if(pres.id===id)pres.id=null;
+  }
+});
+
+// ---------- Precios de compra ----------
+function renderCompra(){
+  const q=$('#c-buscar').value,t=$('#c-tipo').value,ta=$('#c-tarifa').value;
+  const base=items.filter(i=>(!t||i.tipo===t)&&(!ta||i.tarifa===ta));
+  const l=buscar(q,base,400);
+  $('#c-info').textContent=`${l.length===400?'Primeros 400 de ':''}${l.length===400?base.length:l.length} artículo${l.length===1?'':'s'}. Coste neto = PVP del proveedor menos su descuento, sin IGIC. Venta ud = coste + ${fmt(+cfg.beneficio,0)} % de beneficio + mano de obra.`;
+  $('#c-body').innerHTML=l.map(i=>{const mo=moEf(i.ref);const v=i.coste==null?null:i.coste*(1+cfg.beneficio/100)+(mo||0);
+    return `<tr><td><span class="ref">${esc(i.ref)}</span></td><td>${esc(i.desc)}</td><td><span class="chip">${esc(i.tipo)}</span></td><td class="n">${i.pvp==null?'–':fmt(i.pvp,3)}</td><td class="n">${i.dto?fmt(i.dto,1):'Neto'}</td><td class="n"><b>${i.coste==null?'Sin precio':fmt(i.coste,3)}</b></td><td class="n ${mo==null?'sinmo':''}">${mo==null?'–':fmt(mo)}</td><td class="n">${v==null?'–':fmt(v)}</td><td><button class="btn ghost" data-add="${esc(i.ref)}">+ Presupuesto</button></td></tr>`;}).join('')||'<tr><td colspan="9" class="empty">Ningún artículo coincide.</td></tr>';
+}
+['#c-buscar','#c-tipo','#c-tarifa'].forEach(s=>$(s).addEventListener('input',renderCompra));
+$('#c-body').addEventListener('click',e=>{const r=e.target.dataset.add;if(!r)return;addArt(byRef.get(r));toast('Añadido al presupuesto');});
+
+// ---------- Mano de obra ----------
+let moTimer=null;
+function renderMoTipos(){
+  if(document.activeElement?.id!=='d-benef')$('#d-benef').value=cfg.beneficio;if(document.activeElement?.id!=='d-igic')$('#d-igic').value=cfg.igic;
+  $('#mo-tipos').innerHTML=TIPOS.map((t,k)=>`<label>${esc(t)} <span class="cnt note">${items.filter(i=>i.tipo===t).length} artículos</span><input type="number" step="0.01" min="0" id="mot-${k}" data-tipo="${esc(t)}" value="${cfg.mo_tipos[t]??''}" placeholder="€ / ud"></label>`).join('');
+}
+$('#mo-tipos').addEventListener('input',e=>{const t=e.target.dataset.tipo;if(!t)return;const v=e.target.value;if(v==='')delete cfg.mo_tipos[t];else cfg.mo_tipos[t]=+v;guardarCfg();renderMoLista();});
+function moFiltrados(){const t=$('#mo-tipo').value;return buscar($('#mo-buscar').value,items.filter(i=>!t||i.tipo===t),1000);}
+function renderMoLista(){
+  const l=moFiltrados();const conPropia=Object.keys(moArt).length;
+  $('#mo-info').textContent=`${l.length} artículo${l.length===1?'':'s'} filtrado${l.length===1?'':'s'} · ${conPropia} con mano de obra propia.`;
+  $('#mo-body').innerHTML=l.slice(0,300).map(i=>{const mt=moTipo(i.tipo);return `<tr><td><span class="ref">${esc(i.ref)}</span></td><td>${esc(i.desc)}</td><td><span class="chip">${esc(i.tipo)}</span></td><td class="n">${i.coste==null?'–':fmt(i.coste,3)}</td><td class="n">${mt==null?'–':fmt(mt)}</td><td class="n"><input type="number" step="0.01" min="0" data-ref="${esc(i.ref)}" value="${moArt[i.ref]??''}" placeholder="${mt==null?'':fmt(mt)}"></td></tr>`;}).join('');
+}
+['#mo-buscar','#mo-tipo'].forEach(s=>$(s).addEventListener('input',renderMoLista));
+$('#mo-body').addEventListener('input',e=>{const r=e.target.dataset.ref;if(!r)return;const v=e.target.value;if(v==='')delete moArt[r];else moArt[r]=+v;guardarMoArt();});
+$('#mo-aplicar').onclick=()=>{const v=$('#mo-valor').value;if(v===''){toast('Escribe el importe de mano de obra');return;}const l=moFiltrados();l.forEach(i=>moArt[i.ref]=+v);guardarMoArt();renderMoLista();toast(`Aplicado a ${l.length} artículos`);};
+$('#mo-quitar').onclick=()=>{const l=moFiltrados();l.forEach(i=>delete moArt[i.ref]);guardarMoArt();renderMoLista();toast(`Quitado en ${l.length} artículos`);};
+
+// ---------- Persistencia ----------
+let cfgTimer=null,moArtTimer=null;
+function guardarCfg(){clearTimeout(cfgTimer);cfgTimer=setTimeout(async()=>{
+  if(!db){ls('cfg',cfg);return;}
+  try{await db.doc('ajustes/general').set(cfg);}catch(e){toast('No se pudo guardar la configuración');}
+},700);}
+function guardarMoArt(){clearTimeout(moArtTimer);moArtTimer=setTimeout(async()=>{
+  if(!db){ls('moArt',moArt);return;}
+  try{await db.doc('ajustes/mo_articulos').set({mo:moArt});}catch(e){toast('No se pudo guardar la mano de obra');}
+},700);}
+// beneficio por defecto editable desde el presupuesto: botón implícito al guardar ajustes
+$('#d-benef').addEventListener('input',e=>{if(e.target.value==='')return;cfg.beneficio=+e.target.value;guardarCfg();});
+$('#d-igic').addEventListener('input',e=>{if(e.target.value==='')return;cfg.igic=+e.target.value;guardarCfg();});
+
+function renderTodo(){renderPres();renderCompra();renderMoTipos();renderMoLista();}
+
+// pestañas
+document.querySelectorAll('nav button').forEach(b=>b.onclick=()=>{
+  document.querySelectorAll('nav button').forEach(x=>x.setAttribute('aria-selected',x===b));
+  ['pres','compra','mo'].forEach(v=>$('#v-'+v).hidden=v!==b.dataset.v);
+  if(b.dataset.v==='pres')renderPres();if(b.dataset.v==='compra')renderCompra();if(b.dataset.v==='mo'){renderMoTipos();renderMoLista();}
+  try{history.replaceState(null,'','#'+b.dataset.v);}catch(e){}
+});
+TIPOS.forEach(t=>{$('#c-tipo').insertAdjacentHTML('beforeend',`<option>${esc(t)}</option>`);$('#mo-tipo').insertAdjacentHTML('beforeend',`<option>${esc(t)}</option>`);});
+TARIFAS.forEach(t=>$('#c-tarifa').insertAdjacentHTML('beforeend',`<option>${esc(t)}</option>`));
+
+// arranque
+const borr=ls('pres-borrador');if(borr&&Array.isArray(borr.lineas))pres=borr;
+const lc=ls('cfg');if(lc)cfg={...cfg,...lc};const lm=ls('moArt');if(lm)moArt=lm;
+const lg=ls('pres-guardados');if(lg)guardados=Object.entries(lg).map(([id,d])=>({id,...d}));
+renderTodo();renderGuardados();
+const h=location.hash.slice(1);if(['compra','mo'].includes(h))document.querySelector(`nav button[data-v="${h}"]`).click();
+
+(async()=>{
+  if(!window.claude?.use)return;
+  downloads=await claude.use('downloads').catch(()=>null);if(downloads)$('#p-csv').hidden=false;
+  db=await claude.use('db').catch(()=>null);
+  if(!db)return;
+  guardados=[];renderGuardados();
+  db.doc('ajustes/general').onSnapshot(s=>{if(s.exists){const d=s.data();cfg={beneficio:30,igic:7,mo_tipos:{},...d,mo_tipos:{...(d.mo_tipos||{})}};}
+    const ae=document.activeElement;if(!ae||!ae.closest('#mo-tipos'))renderMoTipos();if(!ae||!ae.closest('#v-pres'))renderPres();else renderTot();renderCompra();});
+  db.doc('ajustes/mo_articulos').onSnapshot(s=>{moArt=s.exists?{...(s.data().mo||{})}:{};
+    const ae=document.activeElement;if(!ae||!ae.closest('#mo-body'))renderMoLista();if(!ae||!ae.closest('#v-pres'))renderPres();else renderTot();renderCompra();});
+  db.collection('presupuestos').onSnapshot(s=>{guardados=s.docs.map(d=>({id:d.id,...d.data()}));renderGuardados();},()=>{});
+})();
+</script>
+
+</body></html>

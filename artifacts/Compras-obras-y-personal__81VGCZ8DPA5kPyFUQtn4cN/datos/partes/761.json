@@ -1,0 +1,17 @@
+{
+  "albs": [],
+  "cliente": "HERBAMACA DISTRIBUCIONES",
+  "desc": "Avería de diferencial circuito caja 2. Limpieza puesto.mediciones, sustituido diferencial general UPS. Por nuevo 300mA.funcionando",
+  "devol": [],
+  "estado": "TERMINADO",
+  "fecha": "2026-10-22",
+  "horas": 2.5,
+  "obra": "SPAR PUNTALLANA",
+  "ops": [
+    {
+      "h": 2.5,
+      "n": "Toño"
+    }
+  ],
+  "stock": []
+}

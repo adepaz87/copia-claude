@@ -1,0 +1,29 @@
+{
+  "albs": [
+    "Coelca 184.365/018"
+  ],
+  "cliente": "CHICHO 2 TUMBOS",
+  "desc": "Cambiar rele térmico superior x cambio de bomba de mayor amperaje\nCambio de contactor bomba \nDesmontaje de boya presión y montar nueva\nCambio de sonda de presión\nRegular sonda a 5 bares de presión \nRegular guardamotor nuevo\nProbar funcionamiento ok",
+  "devol": [],
+  "estado": "TERMINADO",
+  "fecha": "2026-09-11",
+  "horas": 4,
+  "obra": "CASA CHICHO",
+  "ops": [
+    {
+      "h": 2,
+      "n": "Aythami"
+    },
+    {
+      "h": 2,
+      "n": "Joel"
+    }
+  ],
+  "stock": [
+    {
+      "d": "cable 4x2,5 1kv",
+      "q": 1.5,
+      "u": ""
+    }
+  ]
+}

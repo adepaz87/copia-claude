@@ -1,0 +1,25 @@
+{
+  "empresa": "Instapalma",
+  "fecha": "2026-11-06",
+  "lineas": [
+    {
+      "a": "2026/01/013855",
+      "d": "BOLSA BASURA NEG 90X120 XX",
+      "dto": "20",
+      "f": "2026-11-06",
+      "i": 1.97,
+      "o": "PCI PLAZA GAZMIRA",
+      "pn": 1.97,
+      "pt": 2.46,
+      "q": 1,
+      "r": "210171"
+    }
+  ],
+  "msg": "1a1b01db58fa367a",
+  "numero": "2026/01/013855",
+  "obra": "PCI PLAZA GAZMIRA",
+  "origen": "Gmail",
+  "proveedor": "Fraper",
+  "tipo": "albaran",
+  "total": null
+}

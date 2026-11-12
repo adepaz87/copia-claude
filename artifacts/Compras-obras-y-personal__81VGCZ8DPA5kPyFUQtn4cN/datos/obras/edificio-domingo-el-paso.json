@@ -1,0 +1,20 @@
+{
+  "alias": [
+    "EDF DOMINGO EL PASO",
+    "EDIF DOMINGO EL PASO",
+    "EDIFICIO DOMINGO EL PASO",
+    "EDF DOMINGO",
+    "EDIFICIO DOMINGO",
+    "EDIFICIO DOMINGO EL",
+    "EDIFICIO EL PASO"
+  ],
+  "cliente": "CONSTRUCCIONES DOMINGO",
+  "creado": "2026-10-29",
+  "estado": "aprobada",
+  "fact": {
+    "igic": 7,
+    "mg": 35,
+    "ph": 25
+  },
+  "nombre": "Edificio Domingo El Paso"
+}

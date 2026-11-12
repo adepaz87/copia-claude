@@ -1,0 +1,19 @@
+{
+  "albs": [],
+  "cliente": "SUPERMERCADOS EN CADENA",
+  "desc": "Reglaje ajuste de relojes horarios",
+  "devol": [],
+  "estado": "TERMINADO",
+  "fecha": "2026-11-04",
+  "horas": 0.5,
+  "id": "867",
+  "obra": "SPAR EL MUELLE",
+  "ops": [
+    {
+      "h": 0.5,
+      "n": "Toño"
+    }
+  ],
+  "origen": "dashboard",
+  "stock": []
+}

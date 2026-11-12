@@ -1,0 +1,41 @@
+{
+  "albs": [],
+  "cliente": "CONSTRUCCIONES DOMINGO",
+  "desc": "Terminar de entubar viviendas planta 3. Entubar derivaciones vivienda planta 1 hasta patinillos. Entubar zonas comunes planta 1. Enebrar telecomunicaciones hasta patinillo planta 1.",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-10-29",
+  "horas": 40,
+  "obra": "EDIFICIO DOMINGO EL PASO",
+  "ops": [
+    {
+      "h": 11,
+      "n": "Riki"
+    },
+    {
+      "h": 11,
+      "n": "Aythami"
+    },
+    {
+      "h": 10,
+      "n": "Joel"
+    },
+    {
+      "h": 8,
+      "n": "Junior"
+    }
+  ],
+  "origen": "dashboard",
+  "stock": [
+    {
+      "d": "bridas 4,8x300",
+      "q": 1700,
+      "u": ""
+    },
+    {
+      "d": "tacos brida celo",
+      "q": 600,
+      "u": ""
+    }
+  ]
+}

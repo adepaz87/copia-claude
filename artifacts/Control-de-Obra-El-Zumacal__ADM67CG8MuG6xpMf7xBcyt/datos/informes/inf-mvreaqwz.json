@@ -1,0 +1,68 @@
+{
+  "asis": "",
+  "by": "u_c50j2Uc6HZdx2rPfPAz_3A",
+  "cerrado": "2026-10-28T00:52:47.688Z",
+  "creado": "2026-10-28T00:47:45.347Z",
+  "estado": "cerrado",
+  "fecha": "2026-10-21",
+  "fotos": [
+    "b96c135308a472116902c106c4a78d8c",
+    "60276f44f6041c2884369f49f3e82463",
+    "8c03d4c88c6dce2beafcdeee1bf655c4",
+    "f9dde1fc230aef6ef0478b14d7101ec5"
+  ],
+  "items": {
+    "c00-10": {
+      "by": "u_c50j2Uc6HZdx2rPfPAz_3A",
+      "s": "",
+      "t": "2026-10-28T00:52:31.432Z"
+    },
+    "c00-2": {
+      "by": "u_c50j2Uc6HZdx2rPfPAz_3A",
+      "s": "ok",
+      "t": "2026-10-28T00:51:52.531Z"
+    },
+    "c00-7": {
+      "by": "u_c50j2Uc6HZdx2rPfPAz_3A",
+      "s": "ok",
+      "t": "2026-10-28T00:52:04.249Z"
+    },
+    "c00-8": {
+      "by": "u_c50j2Uc6HZdx2rPfPAz_3A",
+      "s": "nc",
+      "t": "2026-10-28T00:52:09.214Z"
+    },
+    "c00-9": {
+      "by": "u_c50j2Uc6HZdx2rPfPAz_3A",
+      "n": "Faltan casetas y baños",
+      "s": "nc",
+      "t": "2026-10-28T00:52:29.300Z"
+    },
+    "c01-3": {
+      "by": "u_c50j2Uc6HZdx2rPfPAz_3A",
+      "s": "ok",
+      "t": "2026-10-28T00:52:41.719Z"
+    }
+  },
+  "ncAbiertas": [
+    {
+      "id": "c00-8",
+      "n": ""
+    },
+    {
+      "id": "c00-9",
+      "n": "Faltan casetas y baños"
+    }
+  ],
+  "num": 2,
+  "obs": "",
+  "resumen": {
+    "na": 0,
+    "nc": 2,
+    "ok": 10,
+    "p": 142,
+    "tot": 154
+  },
+  "tipo": "Visita de obra",
+  "upd": "2026-10-28T00:52:46.255Z"
+}

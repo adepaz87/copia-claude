@@ -1,0 +1,19 @@
+{
+  "albs": [],
+  "cliente": "HERBAMACA",
+  "desc": "Reglaje ajustes relojes horarios",
+  "devol": [],
+  "estado": "TERMINADO",
+  "fecha": "2026-11-04",
+  "horas": 0.5,
+  "id": "875",
+  "obra": "SPAR SAN MIGUEL",
+  "ops": [
+    {
+      "h": 0.5,
+      "n": "Toño"
+    }
+  ],
+  "origen": "dashboard",
+  "stock": []
+}

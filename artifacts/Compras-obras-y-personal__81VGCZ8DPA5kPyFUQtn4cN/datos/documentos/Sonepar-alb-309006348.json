@@ -1,0 +1,35 @@
+{
+  "empresa": "Instapalma",
+  "fecha": "2026-10-16",
+  "lineas": [
+    {
+      "a": "309006348",
+      "d": "COFRET EST KAEDRA 4 MODUL 1 FILA 200X123X112 IP65",
+      "dto": "NETO",
+      "f": "2026-10-16",
+      "i": 15.53,
+      "o": "MATADERO INSULAR",
+      "pn": 15.53,
+      "pt": 15.532,
+      "q": 1,
+      "r": "41240"
+    },
+    {
+      "a": "309006348",
+      "d": "TEMPO INTERM 24VDC/24..240VAC RELÉ",
+      "dto": "45",
+      "f": "2026-10-16",
+      "i": 88.24,
+      "o": "MATADERO INSULAR",
+      "pn": 88.24,
+      "pt": 160.44,
+      "q": 1,
+      "r": "98155"
+    }
+  ],
+  "numero": "309006348",
+  "obra": "MATADERO INSULAR",
+  "origen": "Gmail (escaneo)",
+  "proveedor": "Sonepar",
+  "tipo": "albaran"
+}

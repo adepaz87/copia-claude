@@ -1,0 +1,12 @@
+{
+  "cap": "04",
+  "cod": "04.01",
+  "desc": "Revisión e impermeabilización de cubierta plana con lámina o membrana líquida, incluso limpieza y remates en petos y desagües.",
+  "med": 92,
+  "nota": "Huella exterior ≈ 9,90 × 8,25 m interior + muros perimetrales. Medir en obra con el alero",
+  "orden": 1,
+  "pre": 28,
+  "rev": true,
+  "sb": false,
+  "ud": "m²"
+}

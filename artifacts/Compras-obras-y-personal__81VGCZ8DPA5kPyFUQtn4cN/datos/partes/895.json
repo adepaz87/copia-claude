@@ -1,0 +1,19 @@
+{
+  "albs": [],
+  "cliente": "CARLOS ACOSTA",
+  "desc": "Reparar tubos que albañiles rompieron, comprobar con culebrina que no le entró tierra a los tubos",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-11-05",
+  "horas": 1,
+  "id": "895",
+  "obra": "APARTAMENTOS EL REMO",
+  "ops": [
+    {
+      "h": 1,
+      "n": "Aythami"
+    }
+  ],
+  "origen": "dashboard",
+  "stock": []
+}

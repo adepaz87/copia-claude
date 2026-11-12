@@ -1,0 +1,567 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Presupuesto Los Galguitos</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: hoja de presupuesto tipo documento de obra, tablas por capítulo, observaciones en rojo, resumen al final */
+:root{
+  --bg:#f6f6f9; --paper:#ffffff; --ink:#1c1b29; --muted:#64627a; --line:#dddbe8;
+  --brand:#5b3fd9; --brand-soft:#ece8fc; --obs:#d0201a; --obs-soft:#fdecea; --row:#fafafd;
+  --f-display:"Archivo", "Helvetica Neue", Arial, sans-serif;
+  --f-body:"Archivo", "Helvetica Neue", Arial, sans-serif;
+  --f-num:"IBM Plex Mono", ui-monospace, Menlo, monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#121119; --paper:#1b1a25; --ink:#ecebf5; --muted:#a19fb8; --line:#2f2d3f;
+  --brand:#9c87ff; --brand-soft:#2a2442; --obs:#ff6b61; --obs-soft:#3a1d1c; --row:#201f2c; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#121119; --paper:#1b1a25; --ink:#ecebf5; --muted:#a19fb8; --line:#2f2d3f;
+  --brand:#9c87ff; --brand-soft:#2a2442; --obs:#ff6b61; --obs-soft:#3a1d1c; --row:#201f2c; color-scheme:dark}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:14px;line-height:1.45}
+.wrap{max-width:1180px;margin:0 auto;padding-block:28px 60px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:flex;flex-direction:column;gap:22px}
+.sheet{background:var(--paper);border:1px solid var(--line);border-radius:6px;padding:24px clamp(14px,3vw,30px)}
+header.sheet{display:grid;grid-template-columns:1fr auto;gap:18px 30px;align-items:start}
+.brand{font-family:var(--f-display);font-weight:800;font-size:26px;color:var(--brand);letter-spacing:-.5px;display:flex;align-items:center;gap:8px}
+.brand i{display:inline-block;width:12px;height:22px;background:var(--brand);transform:skew(-14deg);border-radius:2px}
+.brand i+i{height:15px;margin-left:-4px}
+.issuer{font-size:12px;color:var(--muted);margin-top:4px}
+.date{font-family:var(--f-num);font-size:12px;color:var(--muted);text-align:right}
+h1{grid-column:1/-1;font-family:var(--f-display);font-size:clamp(18px,2.4vw,23px);font-weight:700;line-height:1.25;margin:4px 0 0;text-wrap:balance;text-transform:uppercase;letter-spacing:.2px}
+.meta{grid-column:1/-1;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px 24px;font-size:13px}
+.meta b{display:block;font-size:10.5px;text-transform:uppercase;letter-spacing:.8px;color:var(--muted);font-weight:600}
+.lead{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:12px 28px;align-items:baseline;border-top:1px solid var(--line);padding-top:14px}
+.lead .big{font-family:var(--f-num);font-size:26px;font-weight:500}
+.lead .delta{font-family:var(--f-num);color:var(--obs);font-weight:500}
+.legend{display:flex;flex-wrap:wrap;gap:8px;font-size:12px;color:var(--muted);align-items:center}
+.tag{display:inline-block;font-size:10px;font-weight:700;letter-spacing:.6px;text-transform:uppercase;padding:2px 6px;border-radius:3px;color:var(--obs);background:var(--obs-soft);white-space:nowrap}
+.tag.var,.tag.opc{color:var(--brand);background:var(--brand-soft)}
+h2{font-family:var(--f-display);font-size:15px;font-weight:700;text-transform:uppercase;letter-spacing:.4px;margin:0 0 4px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;background:var(--brand-soft);padding:8px 12px;border-radius:4px}
+h2 span{font-family:var(--f-num);font-weight:500}
+.sub{color:var(--muted);font-size:13px;margin:6px 2px 14px;max-width:80ch}
+.tbl{overflow-x:auto}
+table{width:100%;border-collapse:collapse;min-width:820px}
+th{font-size:10.5px;text-transform:uppercase;letter-spacing:.7px;color:var(--muted);text-align:left;font-weight:600;padding:8px 8px;border-bottom:2px solid var(--ink)}
+td{padding:9px 8px;border-bottom:1px solid var(--line);vertical-align:top}
+th.n,td.n{text-align:right;font-family:var(--f-num);font-variant-numeric:tabular-nums;white-space:nowrap}
+td.code{font-family:var(--f-num);font-weight:500;white-space:nowrap}
+td.ud{color:var(--muted)}
+td.desc{max-width:420px}
+td.obs{color:var(--obs);font-weight:600;font-size:12.5px;max-width:300px}
+.obsed{margin-top:3px;min-height:1.4em;padding:2px 4px;border:1px dashed transparent;border-radius:3px;white-space:pre-wrap;cursor:text}
+tr:hover .obsed{border-color:var(--line)}
+.obsed:focus{outline:2px solid var(--obs);outline-offset:1px;border-color:transparent;background:var(--paper)}
+.obsed:empty::before{content:attr(data-ph);color:var(--muted);font-weight:400;font-style:italic;opacity:0}
+tr:hover .obsed:empty::before,.obsed:empty:focus::before{opacity:1}
+tr.new td{background:var(--obs-soft)}
+td.act{width:28px;padding-left:2px;padding-right:2px}
+button.del{padding:0;width:24px;height:24px;line-height:22px;font-size:16px;font-weight:500;color:var(--muted);border-color:transparent;background:transparent;opacity:.35}
+tr:hover button.del,button.del:focus-visible{opacity:1}
+button.del:hover{color:var(--obs);border-color:var(--obs);background:var(--paper)}
+.gone{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:12px;font-size:12.5px;color:var(--muted)}
+.gone button{font-family:var(--f-num);font-weight:500;font-size:12px;padding:4px 9px}
+tr.new td.code,tr.new td.desc{color:var(--obs)}
+tr.mod td.n.chg{color:var(--obs);font-weight:600}
+.was{display:block;font-size:11px;color:var(--muted);text-decoration:line-through;font-weight:400}
+tr.split td{background:transparent;border-bottom:none;padding-top:18px;font-size:11px;text-transform:uppercase;letter-spacing:.8px;color:var(--obs);font-weight:700}
+tr.tot td{font-weight:700;border-bottom:none;border-top:2px solid var(--ink)}
+tr.subt td{font-weight:600;color:var(--muted)}
+input.price{width:92px;font:inherit;font-family:var(--f-num);text-align:right;background:transparent;border:1px dashed var(--line);border-radius:3px;padding:2px 4px;color:inherit}
+input.price:hover{border-color:var(--brand)}
+input.price:focus{outline:2px solid var(--brand);outline-offset:1px;border-color:transparent}
+input.price.edited{border-style:solid;border-color:var(--brand);background:var(--brand-soft)}
+.toolbar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;font-size:12.5px;color:var(--muted)}
+button{font:inherit;font-weight:600;font-size:12.5px;padding:7px 12px;border-radius:4px;border:1px solid var(--line);background:var(--paper);color:var(--ink);cursor:pointer}
+button:hover{border-color:var(--brand);color:var(--brand)}
+button:focus-visible{outline:2px solid var(--brand);outline-offset:2px}
+.summary table{min-width:520px}
+.actions{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.status{font-size:12.5px;color:var(--muted)}
+.status[data-kind="warn"]{color:var(--obs);font-weight:600}
+.status[data-kind="ok"]{color:var(--ink)}
+button.primary{background:var(--brand);border-color:var(--brand);color:#fff}
+button.primary:hover{color:#fff;filter:brightness(1.08)}
+button:disabled{opacity:.45;cursor:default;filter:none}
+button.primary:disabled:hover{color:#fff}
+.words{margin-top:14px;font-size:13px;font-weight:600}
+ul.notes{margin:6px 0 16px;padding-left:20px;display:flex;flex-direction:column;gap:5px;max-width:90ch}
+ul.notes.red li{color:var(--obs)}
+h3{font-size:12px;text-transform:uppercase;letter-spacing:.8px;margin:14px 0 4px}
+footer{font-size:11px;color:var(--muted);text-align:center}
+@media (max-width:640px){header.sheet{grid-template-columns:1fr}.date{text-align:left}}
+</style>
+
+<div class="wrap">
+  <header class="sheet">
+    <div>
+      <div class="brand"><i></i><i></i>Instapalma</div>
+      <div class="issuer">Instapalma Obras y Servicios, S.L. · B76668300 · San Antonio 221 A, Oficina A · 38711 Breña Baja · 690 875 940 · alberto@adpb.es</div>
+    </div>
+    <div class="date">4 DE NOVIEMBRE DE 2026<br>Revisión 1</div>
+    <h1>Presupuesto de: instalación eléctrica y PCI para la cubrición del polideportivo de Los Galguitos en San Andrés y Sauces</h1>
+    <div class="meta">
+      <div><b>Cliente</b>APIMET Construcciones Autoportantes, S.L.</div>
+      <div><b>Situación</b>Calle Llano Palma 20, San Andrés y Sauces</div>
+      <div><b>Proyecto de referencia</b>Presupuesto y mediciones, junio 2024 (cap. 10 y 12)</div>
+    </div>
+    <div class="lead">
+      <div><b style="font-size:10.5px;text-transform:uppercase;letter-spacing:.8px;color:var(--muted)">Ejecución material</b><div class="big" id="leadTotal">—</div></div>
+      <div><b style="font-size:10.5px;text-transform:uppercase;letter-spacing:.8px;color:var(--muted)">Oferta anterior</b><div class="big" style="color:var(--muted)">29.272,01 €</div></div>
+      <div><b style="font-size:10.5px;text-transform:uppercase;letter-spacing:.8px;color:var(--muted)">Diferencia</b><div class="big delta" id="leadDelta">—</div></div>
+    </div>
+  </header>
+
+  <div class="toolbar">
+    <div class="legend">
+      <span class="tag">Nueva</span><span class="tag">Modificada</span><span class="tag var">Variante</span><span class="tag opc">Opcional</span>
+      <span>· Observaciones en rojo. Mediciones, precios y observaciones se pueden cambiar pulsando sobre ellos, y las partidas se eliminan con la ×. Los totales se recalculan. Pulsa «Guardar cambios» para que queden guardados para todos.</span>
+    </div>
+    <div class="actions">
+      <span id="saveStatus" class="status" role="status" aria-live="polite"></span>
+      <button id="discard" type="button" disabled>Descartar cambios</button>
+      <button id="reset" type="button" title="Vuelve a las mediciones, precios y observaciones de esta revisión">Valores iniciales</button>
+      <button id="pdf" type="button" hidden>Exportar PDF</button>
+      <button id="save" type="button" class="primary" disabled hidden>Guardar cambios</button>
+    </div>
+  </div>
+
+  <section class="sheet" id="cap10"></section>
+  <section class="sheet" id="cap12"></section>
+  <section class="sheet summary" id="resumen"></section>
+  <section class="sheet" id="opc"></section>
+
+  <section class="sheet">
+    <h2>Observaciones técnicas, exclusiones y condiciones</h2>
+    <h3>Observaciones técnicas para la dirección facultativa</h3>
+    <ul class="notes red">
+      <li>La sección y la protección de la línea al grupo de presión del proyecto (2,5 mm² y 4P 16 A) no admiten el consumo de la bomba de 15 CV más la jockey de 2 CV (unos 24 A). Se proponen 6 mm² y protección únicamente con fusibles aM 40 A, sin diferencial ni magnetotérmico, tomada aguas arriba del interruptor general (partidas 10.14 y 10.15).</li>
+      <li>La derivación individual del proyecto, 3(1x10) H07Z1-K (AS), es monofásica y no resistente al fuego, mientras que el IGA de 4x40 A y el grupo de presión son trifásicos y el grupo es un servicio de seguridad. Se propone 5(1x10) SZ1-K (AS+). Debe confirmarse el tipo de suministro y la potencia contratada.</li>
+      <li>Los extractores del capítulo 11 no tienen alimentación eléctrica en el unifilar. Se incluye en las partidas 10.16 y 10.17.</li>
+      <li>El alumbrado de emergencia no tiene circuito en el unifilar y la p.p. de línea de sus unidades no cubre el recorrido perimetral. Se incluyen salida en cuadro, tubo y cable (10.18 y 10.19). Se recomienda pedir el estudio lumínico de emergencias: 9 aparatos para 1.362 m² es una cobertura muy justa para el DB SUA 4.</li>
+      <li>La detección con 5 detectores puntuales no cubre los 1.362 m² del recinto. El DB SI 4 exige detección en pública concurrencia de más de 1.000 m². Se añaden barreras lineales (12.11).</li>
+      <li>Las mediciones de las partidas 10.3 y 10.14 (10 m) dependen de la ubicación del cuadro general existente y deben comprobarse en obra.</li>
+    </ul>
+    <h3>Exclusiones</h3>
+    <ul class="notes">
+      <li>Capítulo 11 Instalación de ventilación (extractores y rejillas), salvo su alimentación eléctrica.</li>
+      <li>Protección pasiva R30 de la estructura metálica con pintura intumescente (partida D27AAA00101 del proyecto).</li>
+      <li>Excavación, base resistente y relleno para el depósito enterrado de 12 m³.</li>
+      <li>Acometida de agua desde la red de abastecimiento hasta la válvula de flotador del depósito, no medida en el proyecto.</li>
+      <li>Envolvente del cuadro, maniobra de encendido y pulsadores, salvo aceptación de las partidas opcionales.</li>
+      <li>Legalización, proyectos, boletines e inspecciones de OCA, salvo que se indique lo contrario.</li>
+      <li>IGIC.</li>
+    </ul>
+    <h3>Condiciones</h3>
+    <ul class="notes">
+      <li>Instalación vista en superficie, según lo indicado en el proyecto.</li>
+      <li>Las tuberías de la red de incendios se ofertan en acero galvanizado como variante del proyecto, pendiente de aceptación por la dirección facultativa.</li>
+      <li>Las mediciones se liquidarán según lo realmente ejecutado.</li>
+    </ul>
+  </section>
+
+  <footer>Instapalma Obras y Servicios, S.L. · B76668300 · San Antonio 221 A, Oficina A · 38711 Breña Baja</footer>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.8.2/jspdf.plugin.autotable.min.js"></script>
+<script>
+const DATA = {
+  cap10: {
+    title: "Capítulo 10 · Instalación eléctrica", prev: 14985.32,
+    sub: "Partidas de proyecto con tus precios de la oferta anterior. La medición de la 10.4 se corrige y la 10.5 se sustituye por la 10.14.",
+    items: [
+      {n:"10.1",ud:"m",d:"Derivación individual trifásica 5(1x10) mm² con conductores de cobre SZ1-K (AS+) 0,6/1 kV, resistentes al fuego (UNE-EN 50200), bajo tubo D 32 mm con sujeciones metálicas, enlazando el armario de contadores con el cuadro general, incluso rozas y ayudas de albañilería. Instalada s/REBT-02.",m:6.5,p:32,tag:"mod",obs:"Medición a verificar en obra: los planos no sitúan el armario de contadores ni el cuadro existente. Si los contadores están en fachada y el cuadro dentro del edificio de servicios, pueden ser 10–15 m. El proyecto prevé 3(1x10) H07Z1-K (AS), monofásica y no resistente al fuego. Se cambia a trifásica y SZ1-K (AS+) porque de ella cuelga el grupo contra incendios, servicio de seguridad según ITC-BT-28 y UNE 23500. Medición incrementada un 30 % por trazado real, subidas, bajadas y holguras (5,00 × 1,30 = 6,50 m)."},
+      {n:"10.2",ud:"ud",d:"Ampliación de cuadro general de protección, sustitución de IGA magnetotérmico 4x40 A, circuitos según esquema unifilar y pequeño material. Instalado y conexionado.",m:1,p:380,obs:"No incluye la envolvente, solo la aparamenta interior y su conexionado (ver O.3). No incluye contactores ni maniobra de encendido (ver O.1)."},
+      {n:"10.3",ud:"m",d:"Línea de distribución 2,5 mm² monofásica (F+N+T) H07Z1-K (AS) bajo tubo rígido D 20 mm, incluso p.p. de cajas de registro. Instalación vista.",m:10,p:7.5,obs:"Alimentación a la central de detección. Longitud a confirmar según la ubicación del cuadro existente."},
+      {n:"10.4",ud:"m",d:"Línea de distribución 6 mm² monofásica (F+N+T) RZ1-K (AS) 0,6/1 kV bajo tubo rígido D 25 mm en superficie, circuitos de alumbrado de pista.",m:468.65,was:216,p:10,tag:"mod",obs:"Medición de proyecto 216,00 m. Revisada: 7 filas de proyectores (7 × 36,50 = 255,50 m) + enlaces entre filas (4 × 9,00 = 36,00 m) + acometidas de 3 circuitos desde el cuadro, incluida la subida a la cota del fiador (3 × 23,00 = 69,00 m). Las bajadas a cada proyector se hacen con la manguera de conexionado incluida en la 10.9. Medición incrementada un 30 % por trazado real, subidas, bajadas y holguras (360,50 × 1,30 = 468,65 m)."},
+      {n:"10.5",ud:"m",d:"Línea de distribución 2,5 mm² trifásica (3F+N+T) H07Z1-K (AS) bajo tubo rígido D 20 mm.",m:0,was:10,p:8,tag:"mod",obs:"Sección insuficiente para el grupo de presión (15 CV + jockey 2 CV, unos 24 A). Se sustituye por la 10.14."},
+      {n:"10.6",ud:"ud",d:"Punto de luz sencillo con caja, mecanismo y placa Gewiss Dahlia o equivalente, caja de derivación y pequeño material. Instalado s/REBT-02.",m:4,p:25,obs:"Suficientes para los 3 circuitos de alumbrado."},
+      {n:"10.7",ud:"m",d:"Conducción de puesta a tierra enterrada a 0,5 m con conductor de cobre desnudo de 35 mm², incluso excavación, relleno y soldadura aluminotérmica.",m:170,was:150,p:15,tag:"mod",obs:"Medición de proyecto 150,00 m. Revisada: perímetro de la cimentación (2 × 42,30 + 2 × 30,00 = 144,60 m) + conexión de 14 pilares (14 × 1,00 = 14,00 m) + enlace a arqueta y cuadro (11,40 m)."},
+      {n:"10.8",ud:"ud",d:"Arqueta de puesta a tierra metálica 245x245 mm con tapa, pica de acero cobrizado de 1,5 m, seccionador y soldadura aluminotérmica.",m:1,p:65,obs:"El plano dibuja 2 picas; la segunda va en la 10.13."},
+      {n:"10.9",ud:"ud",d:"Proyector LED de suspensión EQOS1 de Arcluce o equivalente, 150 W, clase I, IP66, IK08, 18.100 lm, 4000 K. Instalado y conexionado.",m:42,p:175.76},
+      {n:"10.10",ud:"ud",d:"Bloque autónomo de emergencia ATRIA N22 A o equivalente, IP65, IK04, 1.000 lm, batería LFP 1 h, con p.p. de línea 1,5 mm² bajo tubo rígido D 20 mm.",m:7,p:219.45,obs:"La p.p. de línea solo cubre el conexionado. El circuito se mide en las 10.18 y 10.19."},
+      {n:"10.11",ud:"ud",d:"Bloque autónomo de emergencia ATRIA 3N28 o equivalente, IP65, IK04, 1.600 lm, batería LFP 1 h, con p.p. de línea 1,5 mm² bajo tubo rígido D 20 mm.",m:2,p:239.45,obs:"Se corrige la descripción: el proyecto la nombra como N22. Circuito en las 10.18 y 10.19."},
+      {n:"10.12",ud:"ud",d:"Bloque autónomo de emergencia NOVA LDN2 o equivalente, IP65, IK04, 100 lm, batería LFP 1 h, con p.p. de línea 1,5 mm² bajo tubo rígido D 20 mm.",m:3,p:134.45,obs:"Circuito en las 10.18 y 10.19."},
+      {n:"10.13",ud:"ud",d:"Pica de puesta a tierra de acero cobrizado de 2 m, hincada y unida a la conducción enterrada mediante soldadura aluminotérmica.",m:1,p:45,tag:"new",obs:"El plano de cimentación dibuja 2 picas y la medición solo incluye 1."},
+      {n:"10.14",ud:"m",d:"Línea trifásica 5G6 mm² SZ1-K (AS+) 0,6/1 kV, resistente al fuego (UNE-EN 50200), bajo tubo D 32 mm en superficie con abrazaderas metálicas, desde la protección del grupo (aguas arriba del interruptor general) hasta el cuadro del grupo de presión contra incendios.",m:18.2,p:19.5,tag:"new",obs:"Recorrido en planta (10,00 m) + subida desde la protección y bajada al cuadro del grupo (2 × 2,00 = 4,00 m), a verificar en obra. Sustituye a la 10.5: el grupo consume unos 24 A y el 2,5 mm² admite unos 18 A. Cable resistente al fuego porque el grupo debe seguir funcionando durante el incendio (ITC-BT-28). Sujeciones metálicas: las de plástico ceden con el calor. Medición incrementada un 30 % por trazado real, subidas, bajadas y holguras (14,00 × 1,30 = 18,20 m)."},
+      {n:"10.15",ud:"ud",d:"Protección de la salida al grupo de presión contra incendios mediante seccionador-portafusibles tripolar con neutro seccionable 22x58 y fusibles aM 40 A, en envolvente propia precintable y señalizada «Grupo contra incendios – no desconectar», conectada aguas arriba del interruptor general. Instalada y conexionada.",m:1,p:120,tag:"new",obs:"Sustituye al 4P 16 A con diferencial de 300 mA del unifilar. Fusibles sin protección diferencial ni térmica, para que la bomba no se quede sin servicio durante un incendio. Calibre a confirmar con el fabricante del grupo."},
+      {n:"10.16",ud:"m",d:"Línea trifásica 5G2,5 mm² RZ1-K (AS) 0,6/1 kV bajo tubo rígido D 20 mm en superficie, alimentación a 3 extractores HCFT/4 630/H en fachada posterior.",m:104,p:9.5,tag:"new",obs:"El proyecto no prevé alimentación a los extractores. Recorrido longitudinal (43,00 m) + subida desde el cuadro (8,00 m) + tramo entre extractores (24,00 m) + bajadas a cada extractor (3 × 1,50 = 4,50 m), redondeado a 80,00 m. Medición incrementada un 30 % por trazado real, subidas, bajadas y holguras (80,00 × 1,30 = 104,00 m)."},
+      {n:"10.17",ud:"ud",d:"Salida en cuadro para extractores: magnetotérmico 4P 16 A, diferencial 4P 25 A/30 mA e interruptor de mando. Instalada y conexionada.",m:1,p:210,tag:"new",obs:"Complementa la 10.16."},
+      {n:"10.18",ud:"ud",d:"Salida en cuadro para circuito de alumbrado de emergencia: magnetotérmico 2P 10 A, conectado aguas abajo del diferencial de alumbrado y antes de cualquier interruptor o contactor de encendido. Instalada y conexionada.",m:1,p:35,tag:"new",obs:"El unifilar no prevé circuito de emergencias. Si se alimentan detrás de los interruptores de encendido, se descargan cada vez que se apaga la pista."},
+      {n:"10.19",ud:"m",d:"Línea de alumbrado de emergencia formada por conductores de cobre (fase + neutro + tierra) H07Z1-K (AS) 750 V, CPR Cca-s1b,d1,a1, de 2,5 mm², bajo tubo rígido de PVC libre de halógenos D 20 mm en superficie (s/UNE-EN 61386-22), incluso abrazaderas, curvas, manguitos, cajas de registro y derivación, fijada a muros, pilares y estructura metálica. Instalada s/REBT-02.",m:249.6,p:8.1,tag:"new",obs:"La p.p. de línea de las partidas 10.10 a 10.12 no cubre el recorrido real. Perímetro (146,00 m) + subida desde cuadro (4,00 m) + derivaciones a ATRIA en altura (9 × 4,00 = 36,00 m) + derivaciones a NOVA (3 × 2,00 = 6,00 m). Medición incrementada un 30 % por trazado real, subidas, bajadas y holguras (192,00 × 1,30 = 249,60 m)."}
+    ]
+  },
+  cap12: {
+    title: "Capítulo 12 · Instalación PCI", prev: 14286.69,
+    sub: "Partidas de proyecto con tus precios de la oferta anterior. Se añaden la detección del volumen de pista, el cableado de detección y alarma, y el extintor de CO₂ del plano.",
+    items: [
+      {n:"12.1",ud:"ud",d:"Detector óptico de humos convencional, Grupo AGUILERA o equivalente, con base intercambiable y salida para indicador de acción. Instalado y probado.",m:5,p:28,obs:"Cubren solo la zona de gradas. El volumen de pista se protege con la 12.11. Cableado en la 12.12."},
+      {n:"12.2",ud:"ud",d:"Sirena convencional óptico-acústica interior/exterior IS2020RE de INIM o equivalente, 14 tonos. Instalada y probada.",m:2,p:65,obs:"Cableado en la 12.12."},
+      {n:"12.3",ud:"ud",d:"Extintor portátil de polvo polivalente ABC de 6 kg con soporte, válvula, difusor y manómetro. Totalmente instalado.",m:6,p:35},
+      {n:"12.4",ud:"ud",d:"Boca de incendio equipada BIE 25 mm, armario metálico rojo con puerta de vidrio, válvula de 1\" con manómetro, manguera semirrígida de 20 m, devanadera y lanza.",m:3,p:300},
+      {n:"12.5",ud:"m",d:"Tubería de D 2\" (50 mm) para red contra incendios, incluso p.p. de pequeño material y piezas especiales. Instalada y probada.",m:84,p:40,tag:"var",obs:"Se oferta en acero galvanizado pintado en rojo según norma UNE, en lugar de acero inoxidable. Requiere aceptación de la DF."},
+      {n:"12.6",ud:"m",d:"Tubería de D 1 1/2\" (40 mm) para red contra incendios, incluso p.p. de pequeño material y piezas especiales. Instalada y probada.",m:19,p:35,tag:"var",obs:"Mismo criterio que la 12.5."},
+      {n:"12.7",ud:"ud",d:"Grupo de presión contra incendios: bomba principal 15 CV, 12 m³/h, 60 m.c.a., jockey 2 CV, depósito de 100 l, cuadro eléctrico, presostato y valvulería, según UNE 23500.",m:1,p:2453.06,obs:"Alimentación eléctrica en las partidas 10.14 y 10.15."},
+      {n:"12.8",ud:"ud",d:"Depósito enterrado de poliéster de 12 m³ para reserva de agua contra incendios, con válvula de flotador, interruptores de nivel y valvulería.",m:1,p:6040.8,obs:"El precio de proyecto (2.378,80 €) no cubre el coste real. No incluye excavación, base ni relleno."},
+      {n:"12.9",ud:"ud",d:"Placa de señalización de evacuación y medios de extinción en aluminio luminiscente 297x210 mm, colocada.",m:14,was:11,p:12.73,tag:"mod",obs:"Medición de proyecto 11 ud. Revisada: 7 extintores (6 de polvo + 1 de CO₂) + 3 BIE + 4 de salida y recorrido de evacuación."},
+      {n:"12.10",ud:"ud",d:"Central convencional de detección de incendios de 2 zonas, Grupo AGUILERA o equivalente, con batería, dos niveles de alarma y cerradura.",m:1,p:247.8,obs:"Zona 1: gradas. Zona 2: barreras de pista. Los pulsadores van en la opcional O.2."},
+      {n:"12.11",ud:"ud",d:"Detector lineal de humos por barrera óptica reflexiva convencional, alcance de 5 a 100 m, con reflector y soportes. Instalado y probado.",m:2,p:890,tag:"new",obs:"A 8–11 m de altura, un detector puntual cubre unos 80 m² y harían falta unos 17. Dos barreras de unos 43 m cubren el ancho de 30 m de pista."},
+      {n:"12.12",ud:"m",d:"Cable apantallado trenzado 2x1,5 mm² libre de halógenos (resistente al fuego en el circuito de sirenas), bajo tubo rígido D 20 mm en superficie.",m:270.4,p:4.5,tag:"new",obs:"No estaba medido. Lazo de gradas (50,00 m) + barreras (2 × 30,00 = 60,00 m) + sirenas (2 × 35,00 = 70,00 m) + subidas desde la central a cubierta para detectores y barreras (3 × 8,00 = 24,00 m) + subidas a sirenas (2 × 2,00 = 4,00 m). Medición incrementada un 30 % por trazado real, subidas, bajadas y holguras (208,00 × 1,30 = 270,40 m)."},
+      {n:"12.13",ud:"ud",d:"Extintor de CO₂ de 5 kg, eficacia 89B, con soporte, junto al cuadro eléctrico y al cuadro del grupo de presión.",m:1,p:75,tag:"new",obs:"Figura en la leyenda del plano de PCI y no está medido."}
+    ]
+  },
+  opc: {
+    title: "Partidas opcionales · no incluidas en el total",
+    sub: "Se ejecutarán solo si las confirma el cliente o la dirección facultativa.",
+    items: [
+      {n:"O.1",ud:"ud",d:"Maniobra de encendido del alumbrado de pista: 3 contactores 2P 25 A y selector con llave en cuadro.",m:1,p:290,tag:"opc",obs:"Recomendada en una instalación de uso público."},
+      {n:"O.2",ud:"ud",d:"Pulsador manual de alarma convencional rearmable, con p.p. de cableado, junto a las salidas.",m:4,p:45,tag:"opc",obs:"No exigible por DB SI 4 con 220 ocupantes, pero es habitual y suele pedirse en inspección."},
+      {n:"O.3",ud:"ud",d:"Envolvente para la ampliación del cuadro, 36 módulos, IP40, con carril DIN y puerta.",m:1,p:160,tag:"opc",obs:"Solo si el cuadro existente no tiene espacio de reserva."}
+    ]
+  }
+};
+
+const TAGS = {new:["Nueva",""],mod:["Modificada",""],var:["Variante","var"],opc:["Opcional","opc"]};
+const fmt = v => v.toLocaleString("es-ES",{minimumFractionDigits:2,maximumFractionDigits:2});
+const r2 = v => Math.round(v*100)/100;
+const ORIG = {}, ORIGM = {}, ORIGO = {};
+for (const c of Object.values(DATA)) for (const it of c.items) { ORIG[it.n] = it.p; ORIGM[it.n] = it.m; ORIGO[it.n] = it.obs || ""; it.obs = it.obs || ""; it.del = false; }
+const esc = s => String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
+const EMPTY = {p:{}, m:{}, o:{}, d:[]};
+let dirty = false, saving = false, loaded = false, remoteNewer = false;
+let saved = EMPTY, savedAt = null, docRef = null, canWrite = null, dbState = "loading";
+
+function currentState(){
+  const out = {p:{}, m:{}, o:{}, d:[]};
+  for (const c of Object.values(DATA)) for (const it of c.items) {
+    if (it.p !== ORIG[it.n]) out.p[it.n] = it.p;
+    if (it.m !== ORIGM[it.n]) out.m[it.n] = it.m;
+    if (it.obs !== ORIGO[it.n]) out.o[it.n] = it.obs;
+    if (it.del) out.d.push(it.n);
+  }
+  return out;
+}
+function normalize(st){
+  const obj = v => (v && typeof v === "object" && !Array.isArray(v)) ? v : {};
+  return {p:obj(st.p), m:obj(st.m), o:obj(st.o), d:Array.isArray(st.d) ? st.d.map(String) : []};
+}
+function applyState(st){
+  for (const c of Object.values(DATA)) for (const it of c.items) {
+    const p = Number(st.p[it.n]), m = Number(st.m[it.n]);
+    it.p = (st.p[it.n] != null && isFinite(p)) ? p : ORIG[it.n];
+    it.m = (st.m[it.n] != null && isFinite(m)) ? m : ORIGM[it.n];
+    it.obs = typeof st.o[it.n] === "string" ? st.o[it.n] : ORIGO[it.n];
+    it.del = st.d.includes(it.n);
+  }
+}
+function fmtDate(iso){
+  try { const d = new Date(iso); return d.toLocaleDateString("es-ES",{day:"numeric",month:"short"}) + " a las " + d.toLocaleTimeString("es-ES",{hour:"2-digit",minute:"2-digit"}); } catch(e){ return ""; }
+}
+function updateStatus(){
+  const st = document.getElementById("saveStatus"), bs = document.getElementById("save"), bd = document.getElementById("discard");
+  let txt, kind = "";
+  if (saving) txt = "Guardando…";
+  else if (dbState === "none") { txt = dirty ? "Cambios sin guardar. Esta vista no puede guardar." : "Esta vista no puede guardar cambios."; kind = dirty ? "warn" : ""; }
+  else if (dbState === "error") { txt = "No se pudo conectar con los datos guardados."; kind = "warn"; }
+  else if (canWrite === false) { txt = "Solo lectura: no tienes permiso para guardar."; }
+  else if (dirty) { txt = remoteNewer ? "Cambios sin guardar. Alguien ha guardado otra versión mientras editabas." : "Cambios sin guardar"; kind = "warn"; }
+  else if (!loaded) txt = "Cargando cambios guardados…";
+  else if (savedAt) { txt = "Guardado el " + fmtDate(savedAt); kind = "ok"; }
+  else txt = "Sin cambios guardados todavía";
+  st.textContent = txt; st.dataset.kind = kind;
+  bs.hidden = !(docRef && canWrite !== false);
+  bs.disabled = !dirty || saving;
+  bd.disabled = !dirty || saving;
+}
+function persist(){ dirty = true; updateStatus(); }
+
+async function save(){
+  if (!docRef || saving || !dirty) return;
+  saving = true; updateStatus();
+  const st = currentState(); st.guardado = new Date().toISOString();
+  try {
+    await docRef.set(st);
+    saved = normalize(st); savedAt = st.guardado; dirty = false; remoteNewer = false;
+  } catch(e) {
+    saving = false;
+    const code = e && e.code;
+    const s2 = document.getElementById("saveStatus");
+    if (code === "invalid_argument" && canWrite !== true) { canWrite = false; updateStatus(); return; }
+    updateStatus();
+    s2.textContent = code === "quota_exceeded" ? "No se pudo guardar: el espacio de datos está lleno." : "No se pudo guardar. Inténtalo de nuevo en un momento.";
+    s2.dataset.kind = "warn";
+    return;
+  }
+  saving = false; updateStatus();
+}
+
+async function connect(){
+  const use = window.claude && window.claude.use;
+  if (!use) { dbState = "none"; updateStatus(); return; }
+  let db = null, user = null;
+  try { db = await window.claude.use("db"); } catch(e) { db = null; }
+  try { user = await window.claude.use("user"); } catch(e) { user = null; }
+  if (user) { try { canWrite = await user.can("data.write"); } catch(e) { canWrite = null; } }
+  if (!db) { dbState = "none"; updateStatus(); return; }
+  dbState = "ok";
+  docRef = db.doc("presupuesto/estado");
+  const timer = setTimeout(() => { if (!loaded) { const s2 = document.getElementById("saveStatus"); s2.textContent = "Todavía no se pueden cargar los cambios guardados."; s2.dataset.kind = "warn"; } }, 10000);
+  docRef.onSnapshot(snap => {
+    if (!snap.fromCache) clearTimeout(timer);
+    loaded = true;
+    const data = snap.exists ? snap.data() : null;
+    saved = data ? normalize(data) : EMPTY;
+    savedAt = data && typeof data.guardado === "string" ? data.guardado : null;
+    if (saving) return;
+    if (!dirty) { applyState(saved); renderAll(); }
+    else if (!snap.hasPendingWrites) remoteNewer = true;
+    updateStatus();
+  }, err => { clearTimeout(timer); dbState = "error"; updateStatus(); });
+  updateStatus();
+}
+
+function rowHTML(it){
+  const cls = it.tag==="new" ? "new" : (it.tag==="mod" ? "mod" : "");
+  const tag = it.tag ? `<span class="tag ${TAGS[it.tag][1]}">${TAGS[it.tag][0]}</span> ` : "";
+  const mEdited = it.m !== ORIGM[it.n] ? " edited" : "";
+  const medInput = `<input class="price med${mEdited}" data-f="m" id="m-${it.n.replace('.','-')}" type="text" inputmode="decimal" value="${fmt(it.m)}" aria-label="Medición ${it.n}">`;
+  const wasVal = it.was!=null ? it.was : (it.m !== ORIGM[it.n] ? ORIGM[it.n] : null);
+  const med = wasVal!=null ? `${medInput}<span class="was">${fmt(wasVal)}</span>` : medInput;
+  const edited = it.p !== ORIG[it.n] ? " edited" : "";
+  return `<tr class="${cls}" data-n="${it.n}">
+    <td class="code">${it.n}</td><td class="ud">${it.ud}</td>
+    <td class="desc">${it.d}</td>
+    <td class="n ${it.was!=null?"chg":""}">${med}</td>
+    <td class="n"><input class="price${edited}" id="p-${it.n.replace('.','-')}" type="text" inputmode="decimal" value="${fmt(it.p)}" aria-label="Precio ${it.n}"></td>
+    <td class="n imp ${it.was!=null?"chg":""}">${fmt(r2(it.m*it.p))}</td>
+    <td class="obs">${tag}<div class="obsed" contenteditable="true" role="textbox" aria-label="Observación ${it.n}" data-ph="Añadir observación">${esc(it.obs)}</div></td>
+    <td class="act"><button type="button" class="del" data-del="${it.n}" title="Eliminar partida ${it.n}" aria-label="Eliminar partida ${it.n}">×</button></td></tr>`;
+}
+
+function chapterTotals(c){
+  const act = c.items.filter(i=>!i.del);
+  const proj = act.filter(i=>i.tag!=="new"), nue = act.filter(i=>i.tag==="new");
+  const s = a => r2(a.reduce((t,i)=>t+r2(i.m*i.p),0));
+  return {proj:s(proj), nue:s(nue), tot:s(act)};
+}
+
+function renderChapter(id){
+  const c = DATA[id], el = document.getElementById(id);
+  const t = chapterTotals(c);
+  const isOpc = id==="opc";
+  const act = c.items.filter(i=>!i.del), gone = c.items.filter(i=>i.del);
+  const proj = act.filter(i=>i.tag!=="new"), nue = act.filter(i=>i.tag==="new");
+  let body = proj.map(rowHTML).join("");
+  if (!isOpc) {
+    body += `<tr class="subt"><td></td><td></td><td>Subtotal partidas de proyecto</td><td></td><td></td><td class="n">${fmt(t.proj)}</td><td></td><td></td></tr>`;
+    if (nue.length) {
+      body += `<tr class="split"><td colspan="8">Partidas nuevas propuestas</td></tr>` + nue.map(rowHTML).join("");
+      body += `<tr class="subt"><td></td><td></td><td>Subtotal partidas nuevas</td><td></td><td></td><td class="n">${fmt(t.nue)}</td><td></td><td></td></tr>`;
+    }
+  }
+  body += `<tr class="tot"><td></td><td></td><td>${isOpc?"Total opcionales":"Total "+c.title.split(" · ")[0].toLowerCase()+" "+c.title.split(" · ")[1].toUpperCase()}</td><td></td><td></td><td class="n">${fmt(t.tot)}</td><td></td><td></td></tr>`;
+  el.innerHTML = `<h2>${c.title}<span>${fmt(t.tot)} €</span></h2><p class="sub">${c.sub}</p>
+    <div class="tbl"><table><thead><tr><th>Nº</th><th>Ud</th><th>Descripción</th><th class="n">Medición</th><th class="n">Precio (€)</th><th class="n">Importe (€)</th><th>Observaciones</th><th></th></tr></thead><tbody>${body}</tbody></table></div>${gone.length ? `<div class="gone"><span>Partidas eliminadas:</span>${gone.map(i=>`<button type="button" data-restore="${i.n}" title="Recuperar ${i.n}">${i.n} · recuperar</button>`).join("")}</div>` : ""}`;
+}
+
+const NUMS = ["","UN","DOS","TRES","CUATRO","CINCO","SEIS","SIETE","OCHO","NUEVE","DIEZ","ONCE","DOCE","TRECE","CATORCE","QUINCE","DIECISÉIS","DIECISIETE","DIECIOCHO","DIECINUEVE","VEINTE","VEINTIUN","VEINTIDÓS","VEINTITRÉS","VEINTICUATRO","VEINTICINCO","VEINTISÉIS","VEINTISIETE","VEINTIOCHO","VEINTINUEVE"];
+const DEC = ["","","","TREINTA","CUARENTA","CINCUENTA","SESENTA","SETENTA","OCHENTA","NOVENTA"];
+const CEN = ["","CIENTO","DOSCIENTOS","TRESCIENTOS","CUATROCIENTOS","QUINIENTOS","SEISCIENTOS","SETECIENTOS","OCHOCIENTOS","NOVECIENTOS"];
+function w99(n){ if(n<30) return NUMS[n]; const d=Math.floor(n/10),u=n%10; return DEC[d]+(u?" Y "+NUMS[u]:""); }
+function w999(n){ if(n===100) return "CIEN"; const c=Math.floor(n/100),r=n%100; return [CEN[c], r?w99(r):""].filter(Boolean).join(" "); }
+function words(v){
+  const e=Math.floor(v), c=Math.round((v-e)*100);
+  const m=Math.floor(e/1000), r=e%1000;
+  let s = m ? (m===1?"MIL":w999(m)+" MIL") : "";
+  if (r) s += (s?" ":"") + w999(r);
+  if (!s) s="CERO";
+  return `${s} EUROS` + (c ? ` CON ${c===1?"UN":w99(c)} CÉNTIMO${c===1?"":"S"}` : "");
+}
+
+function renderSummary(){
+  const a = chapterTotals(DATA.cap10).tot, b = chapterTotals(DATA.cap12).tot, tot = r2(a+b);
+  const pa = DATA.cap10.prev, pb = DATA.cap12.prev, pt = r2(pa+pb);
+  const d = v => (v>=0?"+":"")+fmt(v);
+  document.getElementById("resumen").innerHTML = `<h2>Presupuesto de ejecución material<span>${fmt(tot)} €</span></h2>
+    <div class="tbl"><table><thead><tr><th>Capítulo</th><th class="n">Oferta anterior (€)</th><th class="n">Revisado (€)</th><th class="n">Diferencia (€)</th></tr></thead><tbody>
+    <tr><td>10 Instalación eléctrica</td><td class="n">${fmt(pa)}</td><td class="n">${fmt(a)}</td><td class="n obs">${d(r2(a-pa))}</td></tr>
+    <tr><td>12 Instalación PCI</td><td class="n">${fmt(pb)}</td><td class="n">${fmt(b)}</td><td class="n obs">${d(r2(b-pb))}</td></tr>
+    <tr class="tot"><td>Total ejecución material</td><td class="n">${fmt(pt)}</td><td class="n">${fmt(tot)}</td><td class="n obs">${d(r2(tot-pt))}</td></tr>
+    </tbody></table></div>
+    <p class="words">Asciende el presupuesto de ejecución material a la expresada cantidad de ${words(tot)}. IGIC no incluido.</p>`;
+  document.getElementById("leadTotal").textContent = fmt(tot)+" €";
+  document.getElementById("leadDelta").textContent = d(r2(tot-pt))+" €";
+}
+
+function renderAll(){ ["cap10","cap12","opc"].forEach(renderChapter); renderSummary(); }
+
+function parse(s){ const v = parseFloat(String(s).replace(/\s|€/g,"").replace(/\./g,"").replace(",", ".")); return isFinite(v) && v>=0 ? r2(v) : null; }
+
+document.addEventListener("change", e => {
+  if (!e.target.classList.contains("price")) return;
+  const n = e.target.closest("tr").dataset.n;
+  for (const c of Object.values(DATA)) for (const it of c.items) if (it.n===n) {
+    const v = parse(e.target.value);
+    if (v!==null) { if (e.target.dataset.f==="m") it.m = v; else it.p = v; }
+  }
+  const id = e.target.id; persist(); renderAll();
+  const next = document.getElementById(id); if (next) next.blur();
+});
+document.addEventListener("input", e => {
+  if (!e.target.classList || !e.target.classList.contains("obsed")) return;
+  const n = e.target.closest("tr").dataset.n;
+  for (const c of Object.values(DATA)) for (const it of c.items) if (it.n===n) it.obs = e.target.innerText.trim();
+  persist();
+});
+document.addEventListener("paste", e => {
+  if (!e.target.closest || !e.target.closest(".obsed")) return;
+  e.preventDefault();
+  const t = (e.clipboardData || window.clipboardData).getData("text/plain");
+  document.execCommand("insertText", false, t);
+});
+document.addEventListener("keydown", e => { if (e.key==="Enter" && e.target.classList.contains("price")) e.target.blur(); });
+document.addEventListener("click", e => {
+  const b = e.target.closest && e.target.closest("[data-del],[data-restore]");
+  if (!b) return;
+  const n = b.dataset.del || b.dataset.restore;
+  for (const c of Object.values(DATA)) for (const it of c.items) if (it.n===n) it.del = !!b.dataset.del;
+  persist(); renderAll();
+});
+document.getElementById("reset").addEventListener("click", () => {
+  applyState(EMPTY); persist(); renderAll();
+});
+document.getElementById("save").addEventListener("click", save);
+document.getElementById("discard").addEventListener("click", () => {
+  applyState(saved); dirty = false; remoteNewer = false; renderAll(); updateStatus();
+});
+let downloadsNS = null;
+(async () => {
+  if (!(window.claude && window.claude.use)) return;
+  try { downloadsNS = await window.claude.use("downloads"); } catch(e) { downloadsNS = null; }
+  document.getElementById("pdf").hidden = !(downloadsNS && window.jspdf && window.jspdf.jsPDF.API.autoTable);
+})();
+
+async function exportPDF(){
+  const btn = document.getElementById("pdf"), st = document.getElementById("saveStatus");
+  if (!downloadsNS || !window.jspdf) return;
+  btn.disabled = true; btn.textContent = "Generando PDF…";
+  try {
+    const { jsPDF } = window.jspdf;
+    const doc = new jsPDF({orientation:"landscape", unit:"mm", format:"a4"});
+    const W = doc.internal.pageSize.getWidth(), H = doc.internal.pageSize.getHeight(), M = 12;
+    const brand=[91,63,217], red=[208,32,26], redSoft=[253,236,234], ink=[28,27,41], muted=[100,98,122], soft=[236,232,252];
+    const T = v => String(v).replace(/₂/g,"2").replace(/≤/g,"<=").replace(/≥/g,">=").replace(/→/g,"->").replace(/≈/g,"~");
+    const ISSUER = "Instapalma Obras y Servicios, S.L. · B76668300 · San Antonio 221 A, Oficina A · 38711 Breña Baja · 690 875 940 · alberto@adpb.es";
+    const today = new Date().toLocaleDateString("es-ES",{day:"numeric",month:"long",year:"numeric"}).toUpperCase();
+    let y = 15;
+    doc.setFont("helvetica","bold"); doc.setFontSize(20); doc.setTextColor(...brand); doc.text("Instapalma", M, y);
+    doc.setFont("helvetica","normal"); doc.setFontSize(8.5); doc.setTextColor(...muted);
+    doc.text(today, W-M, y, {align:"right"});
+    doc.text(T(ISSUER), M, y+5);
+    y += 13;
+    doc.setFont("helvetica","bold"); doc.setFontSize(11); doc.setTextColor(...ink);
+    const title = doc.splitTextToSize("PRESUPUESTO DE: INSTALACIÓN ELÉCTRICA Y PCI PARA LA CUBRICIÓN DEL POLIDEPORTIVO DE LOS GALGUITOS EN SAN ANDRÉS Y SAUCES", W-2*M);
+    doc.text(title, M, y); y += title.length*5 + 1;
+    doc.setFont("helvetica","normal"); doc.setFontSize(9.5);
+    doc.text("CLIENTE: ", M, y); doc.setFont("helvetica","bold"); doc.text("APIMET CONSTRUCCIONES AUTOPORTANTES, S. L.", M+17, y);
+    doc.setFont("helvetica","normal"); doc.setTextColor(...muted);
+    doc.text("Situación: Calle Llano Palma 20, San Andrés y Sauces · Proyecto de referencia: Presupuesto y mediciones, junio 2024", M, y+5);
+    y += 11;
+
+    const tagTxt = it => it.tag ? TAGS[it.tag][0].toUpperCase() + ". " : "";
+    function chapter(id){
+      const c = DATA[id], t = chapterTotals(c), isOpc = id === "opc";
+      const act = c.items.filter(i=>!i.del);
+      const proj = act.filter(i=>i.tag!=="new"), nue = act.filter(i=>i.tag==="new");
+      const rows = [], kinds = [];
+      const add = (it) => { rows.push([it.n, it.ud, T(it.d), fmt(it.m), fmt(it.p), fmt(r2(it.m*it.p)), T(tagTxt(it) + (it.obs||""))]); kinds.push(it.tag==="new" ? "new" : (it.tag ? "tag" : "")); };
+      const sub = (label, v) => { rows.push(["","",label,"","",fmt(v),""]); kinds.push("sub"); };
+      proj.forEach(add);
+      if (!isOpc) {
+        sub("Subtotal partidas de proyecto", t.proj);
+        if (nue.length) { rows.push([{content:"PARTIDAS NUEVAS PROPUESTAS", colSpan:7}]); kinds.push("split"); nue.forEach(add); sub("Subtotal partidas nuevas", t.nue); }
+      }
+      rows.push(["","", isOpc ? "TOTAL OPCIONALES (NO INCLUIDAS EN EL TOTAL)" : "TOTAL " + T(c.title.replace(" · "," ").toUpperCase()), "", "", fmt(t.tot), ""]); kinds.push("tot");
+      if (y > H - 40) { doc.addPage(); y = 16; }
+      doc.setFillColor(...soft); doc.rect(M, y-5, W-2*M, 8, "F");
+      doc.setFont("helvetica","bold"); doc.setFontSize(10.5); doc.setTextColor(...ink);
+      doc.text(T(c.title.toUpperCase()), M+2, y); doc.text(fmt(t.tot) + " €", W-M-2, y, {align:"right"});
+      doc.autoTable({
+        startY: y + 4, margin: {left:M, right:M, top:14, bottom:16},
+        head: [["Nº","Ud","Descripción","Medición","Precio (€)","Importe (€)","Observaciones"]],
+        body: rows, theme: "plain",
+        styles: {font:"helvetica", fontSize:7.6, cellPadding:1.6, textColor:ink, lineColor:[221,219,232], lineWidth:{bottom:0.15}, valign:"top", overflow:"linebreak"},
+        headStyles: {fontStyle:"bold", fontSize:7.2, textColor:muted, lineColor:ink, lineWidth:{bottom:0.4}},
+        columnStyles: {0:{cellWidth:13, fontStyle:"bold"},1:{cellWidth:9},2:{cellWidth:98},3:{cellWidth:19,halign:"right"},4:{cellWidth:19,halign:"right"},5:{cellWidth:22,halign:"right"},6:{cellWidth:"auto"}},
+        didParseCell: d => {
+          if (d.section !== "body") { if ([3,4,5].includes(d.column.index)) d.cell.styles.halign = "right"; return; }
+          const k = kinds[d.row.index];
+          if (d.column.index === 6) { d.cell.styles.textColor = red; d.cell.styles.fontStyle = "bold"; }
+          if (k === "new") { d.cell.styles.fillColor = redSoft; if (d.column.index === 0 || d.column.index === 2) d.cell.styles.textColor = red; }
+          if (k === "sub") { d.cell.styles.fontStyle = "bold"; d.cell.styles.textColor = muted; }
+          if (k === "tot") { d.cell.styles.fontStyle = "bold"; d.cell.styles.lineWidth = {top:0.4}; d.cell.styles.lineColor = ink; }
+          if (k === "split") { d.cell.styles.fontStyle = "bold"; d.cell.styles.textColor = red; d.cell.styles.fontSize = 7.2; }
+        }
+      });
+      y = doc.lastAutoTable.finalY + 12;
+    }
+    chapter("cap10"); chapter("cap12");
+
+    const a = chapterTotals(DATA.cap10).tot, b = chapterTotals(DATA.cap12).tot, tot = r2(a+b);
+    if (y > H - 55) { doc.addPage(); y = 16; }
+    doc.setFillColor(...soft); doc.rect(M, y-5, W-2*M, 8, "F");
+    doc.setFont("helvetica","bold"); doc.setFontSize(10.5); doc.setTextColor(...ink);
+    doc.text("PRESUPUESTO DE EJECUCIÓN MATERIAL", M+2, y); doc.text(fmt(tot) + " €", W-M-2, y, {align:"right"});
+    doc.autoTable({
+      startY: y + 4, margin: {left:M, right:M}, theme: "plain", tableWidth: 150,
+      head: [["Capítulo","Importe (€)"]],
+      body: [["10 Instalación eléctrica", fmt(a)], ["12 Instalación PCI", fmt(b)], ["Total ejecución material", fmt(tot)]],
+      styles: {font:"helvetica", fontSize:9, cellPadding:1.8, textColor:ink, lineColor:[221,219,232], lineWidth:{bottom:0.15}},
+      headStyles: {fontStyle:"bold", fontSize:7.5, textColor:muted, lineColor:ink, lineWidth:{bottom:0.4}},
+      columnStyles: {1:{halign:"right"}},
+      didParseCell: d => { if (d.column.index===1) d.cell.styles.halign="right"; if (d.section==="body" && d.row.index===2) { d.cell.styles.fontStyle="bold"; d.cell.styles.lineWidth={top:0.4}; d.cell.styles.lineColor=ink; } }
+    });
+    y = doc.lastAutoTable.finalY + 7;
+    doc.setFont("helvetica","bold"); doc.setFontSize(9); doc.setTextColor(...ink);
+    const w = doc.splitTextToSize("Asciende el presupuesto de ejecución material a la expresada cantidad de " + words(tot) + ". IGIC no incluido.", W-2*M);
+    doc.text(w, M, y); y += w.length*4.5 + 10;
+
+    chapter("opc");
+
+    if (y > H - 40) { doc.addPage(); y = 16; }
+    doc.setFillColor(...soft); doc.rect(M, y-5, W-2*M, 8, "F");
+    doc.setFont("helvetica","bold"); doc.setFontSize(10.5); doc.setTextColor(...ink);
+    doc.text("OBSERVACIONES TÉCNICAS, EXCLUSIONES Y CONDICIONES", M+2, y); y += 9;
+    document.querySelectorAll("ul.notes").forEach(ul => {
+      const h = ul.previousElementSibling && ul.previousElementSibling.tagName === "H3" ? ul.previousElementSibling.textContent : "";
+      const isRed = ul.classList.contains("red");
+      if (y > H - 24) { doc.addPage(); y = 16; }
+      doc.setFont("helvetica","bold"); doc.setFontSize(8.5); doc.setTextColor(...ink); doc.text(T(h.toUpperCase()), M, y); y += 5;
+      doc.setFont("helvetica", isRed ? "bold" : "normal"); doc.setFontSize(8.5); doc.setTextColor(...(isRed ? red : ink));
+      ul.querySelectorAll("li").forEach(li => {
+        const lines = doc.splitTextToSize(T(li.textContent.trim()), W-2*M-5);
+        if (y + lines.length*4 > H - 16) { doc.addPage(); y = 16; doc.setFont("helvetica", isRed ? "bold" : "normal"); doc.setFontSize(8.5); doc.setTextColor(...(isRed ? red : ink)); }
+        doc.text("•", M+1, y); doc.text(lines, M+5, y); y += lines.length*4 + 1.5;
+      });
+      y += 4;
+    });
+
+    const n = doc.getNumberOfPages();
+    for (let i = 1; i <= n; i++) {
+      doc.setPage(i); doc.setDrawColor(221,219,232); doc.setLineWidth(0.2); doc.line(M, H-10, W-M, H-10);
+      doc.setFont("helvetica","normal"); doc.setFontSize(7); doc.setTextColor(...muted);
+      doc.text(T(ISSUER), M, H-6); doc.text("Página " + i + " de " + n, W-M, H-6, {align:"right"});
+    }
+    const blob = doc.output("blob");
+    await downloadsNS.save({filename: "Presupuesto Los Galguitos - Instapalma.pdf", data: blob});
+  } catch(e) {
+    const code = e && e.code;
+    if (code !== "declined") { st.textContent = code === "rate_limited" ? "Ya hay una descarga pendiente de confirmar." : "No se pudo exportar el PDF."; st.dataset.kind = "warn"; }
+  }
+  btn.disabled = false; btn.textContent = "Exportar PDF";
+}
+document.getElementById("pdf").addEventListener("click", exportPDF);
+window.addEventListener("beforeunload", e => { if (dirty) { e.preventDefault(); e.returnValue = ""; } });
+renderAll(); updateStatus(); connect();
+</script>
+
+</body></html>

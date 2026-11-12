@@ -1,0 +1,23 @@
+{
+  "empresa": "Kairos Supply",
+  "fecha": "2026-10-23",
+  "lineas": [
+    {
+      "a": "01-26000582",
+      "d": "PROYECTOR EMERGENCIA VESUBIO 1800LM IP65 (+ecoraee)",
+      "dto": "",
+      "f": "2026-10-09",
+      "i": 3910.24,
+      "igic": 7,
+      "o": "",
+      "pn": 244.39,
+      "pt": 244.39,
+      "q": 16,
+      "r": ""
+    }
+  ],
+  "numero": "F20260358",
+  "origen": "Gmail",
+  "proveedor": "Lightcan",
+  "tipo": "factura"
+}

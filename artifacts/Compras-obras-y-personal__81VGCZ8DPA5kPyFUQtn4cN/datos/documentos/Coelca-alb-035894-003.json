@@ -1,0 +1,24 @@
+{
+  "empresa": "Instapalma",
+  "fecha": "2026-11-05",
+  "lineas": [
+    {
+      "a": "035.894/003",
+      "d": "TUBO DOBLE PARED 63 ROLLO",
+      "f": "2026-11-05",
+      "fab": "CAN-92100063",
+      "i": 71.35,
+      "o": "GASOLINERA DOS TUMBOS",
+      "pn": 1.427,
+      "pt": 1.427,
+      "q": 50,
+      "r": "128903"
+    }
+  ],
+  "msg": "1a1aaefeba796aa4",
+  "numero": "035.894/003",
+  "obra": "GASOLINERA DOS TUMBOS",
+  "origen": "Gmail",
+  "proveedor": "Coelca",
+  "tipo": "albaran"
+}

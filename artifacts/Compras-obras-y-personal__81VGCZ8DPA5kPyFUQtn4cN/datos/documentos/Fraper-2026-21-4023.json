@@ -1,0 +1,73 @@
+{
+  "empresa": "Instapalma",
+  "fecha": "2026-10-15",
+  "lineas": [
+    {
+      "a": "2026/01/012434",
+      "d": "CUTTER AUTOMATICO 8 CUCHILLAS REF. 908",
+      "dto": "10",
+      "f": "2026-10-05",
+      "i": 3.34,
+      "nota": "LLEVADO POR LUIGI",
+      "o": "",
+      "pn": 3.34,
+      "pt": 3.71,
+      "q": 1,
+      "r": "170518"
+    },
+    {
+      "a": "2026/01/012434",
+      "d": "SARG.DE EXTEN.Y SUJECIÓN 120MM 2PZAS",
+      "dto": "",
+      "f": "2026-10-05",
+      "i": 9.23,
+      "nota": "LLEVADO POR LUIGI",
+      "o": "",
+      "pn": 9.23,
+      "pt": 9.23,
+      "q": 1,
+      "r": "165735"
+    },
+    {
+      "a": "2026/01/012434",
+      "d": "TECHO REGISTRABLE MINERVAL LUX BLANCO 60 X60 UNIDAD",
+      "dto": "10",
+      "f": "2026-10-05",
+      "i": 60.66,
+      "nota": "LLEVADO POR LUIGI",
+      "o": "",
+      "pn": 3.033,
+      "pt": 3.37,
+      "q": 20,
+      "r": "80002"
+    },
+    {
+      "a": "2026/01/012485",
+      "d": "GUANTE PROYTAC TALLA L (9) NARANJA/NEGRO",
+      "dto": "10",
+      "f": "2026-10-06",
+      "i": 4.28,
+      "o": "",
+      "pn": 2.14,
+      "pt": 2.38,
+      "q": 2,
+      "r": "225805"
+    },
+    {
+      "a": "2026/01/012485",
+      "d": "MARCADOR PERMANENTE AZUL",
+      "dto": "10",
+      "f": "2026-10-06",
+      "i": 2.19,
+      "o": "",
+      "pn": 2.19,
+      "pt": 2.43,
+      "q": 1,
+      "r": "223155"
+    }
+  ],
+  "numero": "2026/21/4023",
+  "origen": "Gmail",
+  "proveedor": "Fraper",
+  "tipo": "factura"
+}

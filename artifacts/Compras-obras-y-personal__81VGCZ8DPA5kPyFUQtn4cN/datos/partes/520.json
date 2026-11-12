@@ -1,0 +1,17 @@
+{
+  "albs": [],
+  "cliente": "CONSTRUCCIONES DOS TUMBOS",
+  "desc": "Verificar entubados y alimentaciones subcuadros nuevos desde edificio antiguo",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-09-21",
+  "horas": 1.5,
+  "obra": "RESIDENCIA TERCERA EDAD (EL PASO)",
+  "ops": [
+    {
+      "h": 1.5,
+      "n": "Jonathan Rodríguez"
+    }
+  ],
+  "stock": []
+}

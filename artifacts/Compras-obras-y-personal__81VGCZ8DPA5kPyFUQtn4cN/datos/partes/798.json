@@ -1,0 +1,25 @@
+{
+  "albs": [
+    "DIEXFE 019762",
+    "DIEXFE 019766",
+    "INSTAPALMA 202610-0203"
+  ],
+  "cliente": "CONSTRUCCIONES DOS TUMBOS",
+  "desc": "Entubado habitación para llamada enfermería Colocación cajas de mecanismo ,cajas registro,cuadros en paredes pladur habitaciones Limpiar zonas de trabajo",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-10-26",
+  "horas": 22,
+  "obra": "RESIDENCIA TERCERA EDAD EL PASO",
+  "ops": [
+    {
+      "h": 11,
+      "n": "Petter"
+    },
+    {
+      "h": 11,
+      "n": "Jonathan Rodríguez"
+    }
+  ],
+  "stock": []
+}

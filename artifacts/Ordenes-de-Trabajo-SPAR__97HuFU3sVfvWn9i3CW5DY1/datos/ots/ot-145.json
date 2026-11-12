@@ -1,0 +1,22 @@
+{
+  "actualizada": "2026-11-11T18:40:31.657Z",
+  "aviso": "27426",
+  "centro": "SPAR El Paso",
+  "creada": "2026-11-11T09:12:00Z",
+  "descripcion": "El generador de la tienda sigue sin funcionar.",
+  "empresa": "Tomás Barreto",
+  "estado": "terminada",
+  "fechaAviso": "2026-11-11",
+  "historial": [
+    "11/11/2026 · Registrada desde el reenvío de Fernando (aviso GIM 27426)",
+    "11/11/2026 18:40 · Estado: Terminada",
+    "11/11/2026 18:40 · Cierre: Correo enviado a TBSA · WhatsApp a Fernando programado"
+  ],
+  "informado": true,
+  "notas": "Reenvío de Fernando «Gim: Creación de Aviso» 27426 (11/11 09:46, jefe de tienda SPAR El Paso). Es seguimiento del aviso 27420 (OT 143). Nº OT provisional: confirmar o cambiar.",
+  "operario": "",
+  "ot": 145,
+  "prioridad": "Alta",
+  "solicitante": "Fernando",
+  "tipo": "MANTENIMIENTO"
+}

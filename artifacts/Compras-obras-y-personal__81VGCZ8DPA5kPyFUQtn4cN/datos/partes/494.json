@@ -1,0 +1,37 @@
+{
+  "albs": [],
+  "cliente": "TRAGSA",
+  "desc": "Enebrar líneas  de alumbrado, fuerza, dali\nOrganización  de registros",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-09-17",
+  "horas": 16,
+  "obra": "HOSPITAL (MOD G)",
+  "ops": [
+    {
+      "h": 8,
+      "n": "Manuel"
+    },
+    {
+      "h": 8,
+      "n": "Juan"
+    }
+  ],
+  "stock": [
+    {
+      "d": "cable  1x2,5 mm rz1",
+      "q": 600,
+      "u": "m"
+    },
+    {
+      "d": "cable 1x1,5 mm rz1",
+      "q": 800,
+      "u": "m"
+    },
+    {
+      "d": "cinta aislante",
+      "q": 2,
+      "u": "rollos"
+    }
+  ]
+}

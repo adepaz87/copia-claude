@@ -1,0 +1,33 @@
+{
+  "albs": [],
+  "cliente": "CABILDO INSULAR",
+  "desc": "Ver averia del sensor de nivel de gas oil del grupo y rellenar combustible. Se avisa a mecanico para sustituirlo. Desconectar cuadro y perifericos caldera de vapor y aislar cables. Ver programacion en ordenador de control de temperaturas de camaras. Reparar averia en evaporador de frio por ruidos en ventiladores debido a hielo en el mismo.",
+  "devol": [],
+  "estado": "TERMINADO",
+  "fecha": "2026-11-05",
+  "horas": 11,
+  "id": "893",
+  "obra": "MATADERO INSULAR",
+  "ops": [
+    {
+      "h": 5,
+      "n": "Antonio"
+    },
+    {
+      "h": 5,
+      "n": "Iker"
+    },
+    {
+      "h": 1,
+      "n": "Transporte"
+    }
+  ],
+  "origen": "dashboard",
+  "stock": [
+    {
+      "d": "Cinta aislante blanca",
+      "q": 1,
+      "u": "ud"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "actualizada": "2026-08-27T09:00:00Z",
+  "aviso": "",
+  "centro": "Áridos El Riachuelo",
+  "creada": "2026-08-27T09:00:00Z",
+  "descripcion": "Contactar con José Barreto para revisar y coordinar el trabajo.",
+  "estado": "terminada",
+  "fechaAviso": "2026-08-27",
+  "historial": [
+    "27/08/2026 · Importada del correo de Alberto"
+  ],
+  "informado": true,
+  "notas": "Resuelta el 27/08/2026.",
+  "operario": "",
+  "ot": 63,
+  "prioridad": "Sin especificar",
+  "solicitante": "",
+  "tipo": "MANTENIMIENTO"
+}

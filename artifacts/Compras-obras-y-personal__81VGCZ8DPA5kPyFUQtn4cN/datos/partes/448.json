@@ -1,0 +1,21 @@
+{
+  "albs": [],
+  "cliente": "CONSEJO INSULAR DE AGUAS",
+  "desc": "Conectar línea a grupo \nComprobar tensión en cuadros\nHacer pases para manguera nivel agua\nDesmontar carcasa rodillos motor",
+  "devol": [],
+  "estado": "TERMINADO",
+  "fecha": "2026-09-10",
+  "horas": 16,
+  "obra": "ELEVACIÓN JUEGO DE BOLAS",
+  "ops": [
+    {
+      "h": 8,
+      "n": "Aythami"
+    },
+    {
+      "h": 8,
+      "n": "Joel"
+    }
+  ],
+  "stock": []
+}

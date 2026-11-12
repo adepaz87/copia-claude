@@ -1,0 +1,23 @@
+{
+  "empresa": "Instapalma",
+  "fecha": "2026-10-26",
+  "lineas": [
+    {
+      "a": "VCTF-020106-2026",
+      "d": "TUBO AISCAN-CR CORRUG.DOBLE CAPA D.25 NG",
+      "dto": "Neto",
+      "f": "2026-10-26",
+      "i": 48,
+      "o": "RESIDENCIA TERCERA E",
+      "pn": 0.32,
+      "pt": 0.32,
+      "q": 150,
+      "r": "AIS-CR25"
+    }
+  ],
+  "numero": "VCTF-020106-2026",
+  "obra": "RESIDENCIA TERCERA E",
+  "origen": "Gmail",
+  "proveedor": "Diexfe",
+  "tipo": "albaran"
+}

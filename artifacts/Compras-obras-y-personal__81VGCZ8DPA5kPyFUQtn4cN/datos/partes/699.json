@@ -1,0 +1,23 @@
+{
+  "albs": [],
+  "cliente": "TOMÁS BARRETO SA",
+  "desc": "Revisión de grupo supermercado avería carga de batería mediciones y cargando.anulado resistencia calentador aceite previo comprobaciones.",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-10-15",
+  "horas": 2.5,
+  "obra": "SPAR EL PASO",
+  "ops": [
+    {
+      "h": 2.5,
+      "n": "Toño"
+    }
+  ],
+  "stock": [
+    {
+      "d": "ag. 2x16A. Eaton",
+      "q": 1,
+      "u": "m"
+    }
+  ]
+}

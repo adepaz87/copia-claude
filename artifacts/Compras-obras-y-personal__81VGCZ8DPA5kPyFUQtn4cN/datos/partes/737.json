@@ -1,0 +1,46 @@
+{
+  "albs": [
+    "Ayumar 8-1066",
+    "Ayumar 8-1064"
+  ],
+  "cliente": "?",
+  "desc": "Realizado de limpieza secado. Puesta triángulos señalización. Sellado cuadro y entradas. Puesta a tierra exterior visible cuadro.",
+  "devol": [],
+  "estado": "TERMINADO",
+  "fecha": "2026-10-20",
+  "horas": 2.5,
+  "obra": "CARGADOR PUNTALLANA",
+  "ops": [
+    {
+      "h": 2.5,
+      "n": "Toño"
+    }
+  ],
+  "stock": [
+    {
+      "d": "cm.Cable 1x6mm",
+      "q": 20,
+      "u": ""
+    },
+    {
+      "d": "terminal cobre 6mm",
+      "q": 1,
+      "u": ""
+    },
+    {
+      "d": "puntera simple 6mm",
+      "q": 1,
+      "u": ""
+    },
+    {
+      "d": "bote espuma",
+      "q": 1,
+      "u": ""
+    },
+    {
+      "d": "bote sicaflex",
+      "q": 1,
+      "u": ""
+    }
+  ]
+}

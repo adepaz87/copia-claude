@@ -1,0 +1,87 @@
+{
+  "asis": "Director de Obra y contratista ",
+  "by": "u_c50j2Uc6HZdx2rPfPAz_3A",
+  "cerrado": "2026-10-28T00:08:34.378Z",
+  "creado": "2026-10-28T00:07:32.630Z",
+  "estado": "cerrado",
+  "fecha": "2026-10-28",
+  "items": {
+    "c00-1": {
+      "by": "u_c50j2Uc6HZdx2rPfPAz_3A",
+      "s": "ok",
+      "t": "2026-10-28T00:07:53.928Z"
+    },
+    "c00-10": {
+      "by": "u_c50j2Uc6HZdx2rPfPAz_3A",
+      "s": "ok",
+      "t": "2026-10-28T00:08:19.915Z"
+    },
+    "c00-2": {
+      "by": "u_c50j2Uc6HZdx2rPfPAz_3A",
+      "s": "nc",
+      "t": "2026-10-28T00:07:57.102Z"
+    },
+    "c00-3": {
+      "by": "u_c50j2Uc6HZdx2rPfPAz_3A",
+      "s": "ok",
+      "t": "2026-10-28T00:08:00.852Z"
+    },
+    "c00-4": {
+      "by": "u_c50j2Uc6HZdx2rPfPAz_3A",
+      "s": "ok",
+      "t": "2026-10-28T00:07:59.986Z"
+    },
+    "c00-5": {
+      "by": "u_c50j2Uc6HZdx2rPfPAz_3A",
+      "s": "ok",
+      "t": "2026-10-28T00:08:03.357Z"
+    },
+    "c00-6": {
+      "by": "u_c50j2Uc6HZdx2rPfPAz_3A",
+      "s": "ok",
+      "t": "2026-10-28T00:08:05.548Z"
+    },
+    "c00-7": {
+      "by": "u_c50j2Uc6HZdx2rPfPAz_3A",
+      "s": "ok",
+      "t": "2026-10-28T00:08:09.906Z"
+    },
+    "c00-8": {
+      "by": "u_c50j2Uc6HZdx2rPfPAz_3A",
+      "s": "ok",
+      "t": "2026-10-28T00:08:15.015Z"
+    },
+    "c00-9": {
+      "by": "u_c50j2Uc6HZdx2rPfPAz_3A",
+      "s": "ok",
+      "t": "2026-10-28T00:08:17.139Z"
+    },
+    "c01-1": {
+      "by": "u_c50j2Uc6HZdx2rPfPAz_3A",
+      "s": "ok",
+      "t": "2026-10-28T00:08:27.915Z"
+    },
+    "c01-2": {
+      "by": "u_c50j2Uc6HZdx2rPfPAz_3A",
+      "s": "ok",
+      "t": "2026-10-28T00:08:29.623Z"
+    }
+  },
+  "ncAbiertas": [
+    {
+      "id": "c00-2",
+      "n": ""
+    }
+  ],
+  "num": 1,
+  "obs": "",
+  "resumen": {
+    "na": 0,
+    "nc": 1,
+    "ok": 11,
+    "p": 142,
+    "tot": 154
+  },
+  "tipo": "Visita de obra",
+  "upd": "2026-10-28T00:08:31.209Z"
+}

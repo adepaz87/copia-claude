@@ -1,0 +1,22 @@
+{
+  "actualizada": "2026-11-11T18:40:27.684Z",
+  "aviso": "27420",
+  "centro": "SPAR El Paso",
+  "creada": "2026-11-11T09:12:00Z",
+  "descripcion": "Se fue la luz y el grupo electrógeno no arrancó.",
+  "empresa": "Tomás Barreto",
+  "estado": "terminada",
+  "fechaAviso": "2026-11-11",
+  "historial": [
+    "11/11/2026 · Registrada desde el reenvío de Fernando (aviso GIM 27420)",
+    "11/11/2026 18:40 · Estado: Terminada",
+    "11/11/2026 18:40 · Cierre: Correo enviado a TBSA · WhatsApp a Fernando programado"
+  ],
+  "informado": true,
+  "notas": "Reenvío de Fernando «Gim: Creación de Aviso» 27420 (11/11 08:31, Administrador GIM). Relacionada con la OT 145 (aviso 27426 de la tienda: el generador sigue sin funcionar) y con la OT 138 (mantenimiento mensual del GE de El Paso). Nº OT provisional: confirmar o cambiar.",
+  "operario": "",
+  "ot": 143,
+  "prioridad": "Sin especificar",
+  "solicitante": "Fernando",
+  "tipo": "MANTENIMIENTO"
+}

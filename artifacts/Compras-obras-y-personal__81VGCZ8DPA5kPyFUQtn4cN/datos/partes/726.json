@@ -1,0 +1,28 @@
+{
+  "albs": [
+    "Coelca 185.005/018",
+    "Sonepar 309006402"
+  ],
+  "cliente": "CABILDO INSULAR",
+  "desc": "Reparar averia esterilizador de esquinado de porcino.\nHacer cuadro de maniobra de escaldado de cuernos.\nColocar bomba hidrauloica prensa.\nColocar iluminacion en caja de transporte de carne.\nVer averia en boya de gas oil.\nColocar piloto en sierra de caprino.",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-10-19",
+  "horas": 15,
+  "obra": "MATADERO INSULAR",
+  "ops": [
+    {
+      "h": 7,
+      "n": "Antonio"
+    },
+    {
+      "h": 7,
+      "n": "Iker"
+    },
+    {
+      "h": 1,
+      "n": "Transporte"
+    }
+  ],
+  "stock": []
+}

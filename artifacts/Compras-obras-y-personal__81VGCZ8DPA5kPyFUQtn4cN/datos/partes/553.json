@@ -1,0 +1,21 @@
+{
+  "albs": [],
+  "cliente": "AYUNTAMIENTO EL PASO",
+  "desc": "Tapar registros de habitaciones y oficinas.\nDar servicio a cuadros y probar.\nConectar cable cerradura CE13.",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-09-25",
+  "horas": 5,
+  "obra": "HOTEL MONTERREY",
+  "ops": [
+    {
+      "h": 2,
+      "n": "Antonio"
+    },
+    {
+      "h": 3,
+      "n": "Iker"
+    }
+  ],
+  "stock": []
+}

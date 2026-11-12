@@ -1,0 +1,21 @@
+{
+  "albs": [
+    "Sastre 26/1 - 3160",
+    "Estación Moeve 445635",
+    "Estación moeve 445634"
+  ],
+  "cliente": "INSTAPALMA",
+  "desc": "Raspar paredes \nRecoger material \nAplicar mortero a paredes \nAplicar pasta a paredes",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-09-11",
+  "horas": 8,
+  "obra": "TALLER BELLIDO",
+  "ops": [
+    {
+      "h": 8,
+      "n": "Luigi"
+    }
+  ],
+  "stock": []
+}

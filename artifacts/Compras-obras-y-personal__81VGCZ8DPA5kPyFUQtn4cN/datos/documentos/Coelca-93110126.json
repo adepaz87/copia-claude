@@ -1,0 +1,103 @@
+{
+  "empresa": "Instapalma",
+  "fecha": "2026-07-31",
+  "lineas": [
+    {
+      "a": "34.128/003",
+      "d": "CINTA AISLANTE N10 33x25 NEGR",
+      "f": "2026-07-31",
+      "fab": "PLY-5261",
+      "i": 47.18,
+      "o": "FERIA ARTESANIA",
+      "pn": 2.359,
+      "pt": 2.359,
+      "q": 20,
+      "r": "2995"
+    },
+    {
+      "a": "34.128/003",
+      "d": "CINTA AISLANTE N10 33x25 BLANC",
+      "f": "2026-07-31",
+      "fab": "PLY-5538",
+      "i": 47.18,
+      "o": "FERIA ARTESANIA",
+      "pn": 2.359,
+      "pt": 2.359,
+      "q": 20,
+      "r": "3088"
+    },
+    {
+      "a": "34.128/003",
+      "d": "BORNA CONEXION BLANCO 12P 10mm OBO-2056372",
+      "f": "2026-07-31",
+      "i": 32.19,
+      "o": "FERIA ARTESANIA",
+      "pn": 1.073,
+      "pt": 1.073,
+      "q": 30,
+      "r": "74002"
+    },
+    {
+      "a": "34.128/003",
+      "d": "BORNA CONEXION BLANCO 12P 16mm OBO-2056550",
+      "f": "2026-07-31",
+      "i": 62.07,
+      "o": "FERIA ARTESANIA",
+      "pn": 2.069,
+      "pt": 2.069,
+      "q": 30,
+      "r": "74003"
+    },
+    {
+      "a": "34.128/003",
+      "d": "BORNA CONEXION BLANCO 12P 25mm OBO-2056577",
+      "f": "2026-07-31",
+      "i": 88.86,
+      "o": "FERIA ARTESANIA",
+      "pn": 4.443,
+      "pt": 4.443,
+      "q": 20,
+      "r": "74004"
+    },
+    {
+      "a": "34.128/003",
+      "d": "BORNA ACOPLABLES S-2535",
+      "f": "2026-07-31",
+      "fab": "EBX-10220304",
+      "i": 67.74,
+      "o": "FERIA ARTESANIA",
+      "pn": 3.387,
+      "pt": 3.387,
+      "q": 20,
+      "r": "12121"
+    },
+    {
+      "a": "34.135/003",
+      "d": "BRIDA 380x7,6 ESTAND. NG 100u.",
+      "f": "2026-07-31",
+      "fab": "GEW-GW52261",
+      "i": 189.5,
+      "o": "FERIA ARTESANIA",
+      "pn": 0.379,
+      "pt": 0.379,
+      "q": 500,
+      "r": "952261"
+    },
+    {
+      "a": "34.135/003",
+      "d": "BRIDA 370x4,8 ESTAND. BL 100u.",
+      "f": "2026-07-31",
+      "fab": "APO-148370CCT",
+      "i": 56.5,
+      "o": "FERIA ARTESANIA",
+      "pn": 0.113,
+      "pt": 0.113,
+      "q": 500,
+      "r": "71363"
+    }
+  ],
+  "numero": "93110126",
+  "origen": "Gmail",
+  "proveedor": "Coelca",
+  "tipo": "factura"
+}

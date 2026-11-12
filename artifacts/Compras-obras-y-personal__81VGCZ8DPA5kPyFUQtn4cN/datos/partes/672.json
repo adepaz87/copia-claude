@@ -1,0 +1,17 @@
+{
+  "albs": [],
+  "cliente": "TOMAS BARRETO SA.",
+  "desc": "Entubado y cableado de datos de zona marketing hasta rack fijaciones colocación conectores, identificados.",
+  "devol": [],
+  "estado": "TERMINADO",
+  "fecha": "2026-10-13",
+  "horas": 5,
+  "obra": "CENTRAL TBSA.",
+  "ops": [
+    {
+      "h": 5,
+      "n": "Toño"
+    }
+  ],
+  "stock": []
+}

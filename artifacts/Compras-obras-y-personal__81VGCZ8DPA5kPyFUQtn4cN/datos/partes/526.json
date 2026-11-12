@@ -1,0 +1,19 @@
+{
+  "albs": [
+    "Diexfe vctf-017768-2926"
+  ],
+  "cliente": "TRAGSA",
+  "desc": "Medicion de tierra (7ohmios)\nHacer bandeja de 300 para favles de MT y fijarla a la pared.\n\nColocar pletina de tierra de herrajes, hacer latiguillos de cobre de 50mm, colocar y prensar terminales y conectar.",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-09-22",
+  "horas": 8,
+  "obra": "CT. PLAZA GAZMIRA",
+  "ops": [
+    {
+      "h": 8,
+      "n": "Jorge"
+    }
+  ],
+  "stock": []
+}

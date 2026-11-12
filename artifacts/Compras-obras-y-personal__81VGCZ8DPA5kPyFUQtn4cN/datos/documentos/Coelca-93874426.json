@@ -1,0 +1,22 @@
+{
+  "empresa": "Kairos Supply",
+  "fecha": "2026-09-10",
+  "lineas": [
+    {
+      "a": "34.902/003",
+      "d": "BATERIA OPTIM 5 P&P-70-440",
+      "f": "2026-09-10",
+      "fab": "CIR-R3L220",
+      "i": 925,
+      "o": "HOTEL MONTERREY",
+      "pn": 925,
+      "pt": 925,
+      "q": 1,
+      "r": "92301458"
+    }
+  ],
+  "numero": "93874426",
+  "origen": "Gmail",
+  "proveedor": "Coelca",
+  "tipo": "factura"
+}

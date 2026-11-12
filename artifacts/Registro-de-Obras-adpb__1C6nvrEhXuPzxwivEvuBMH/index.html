@@ -1,0 +1,218 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Registro de Obras adpb</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Source+Sans+3:wght@400;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: cabecera con resumen, lista de obras a la izquierda y ficha a la derecha; una columna en móvil */
+:root{
+  --bg:#f5f8f8; --surface:#ffffff; --fg:#1f2433; --muted:#5d6577; --line:#d9e4e3;
+  --teal:#03a29a; --teal-soft:#e3f4f2; --navy:#28265b; --navy-soft:#ecebf5;
+  --ok:#1f8a5b; --warn:#b7791f; --stop:#b23a3a; --idle:#6b7280;
+  --display:"Montserrat",system-ui,sans-serif; --body:"Source Sans 3",system-ui,sans-serif; --mono:"JetBrains Mono",ui-monospace,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#12151d; --surface:#1a1e29; --fg:#e8eaf0; --muted:#a3aabb; --line:#2c3242;
+  --teal:#2cc3b9; --teal-soft:#16332f; --navy:#b9b6ee; --navy-soft:#262443;
+  --ok:#4cc38a; --warn:#e0a54a; --stop:#e07272; --idle:#9aa1ae; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#12151d; --surface:#1a1e29; --fg:#e8eaf0; --muted:#a3aabb; --line:#2c3242;
+  --teal:#2cc3b9; --teal-soft:#16332f; --navy:#b9b6ee; --navy-soft:#262443;
+  --ok:#4cc38a; --warn:#e0a54a; --stop:#e07272; --idle:#9aa1ae; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font:16px/1.5 var(--body)}
+.wrap{max-width:1240px;margin:0 auto;padding-block:20px 48px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+header.top{display:flex;flex-wrap:wrap;gap:12px 24px;align-items:flex-end;justify-content:space-between;border-bottom:2px solid var(--teal);padding-bottom:14px}
+.brand{display:flex;flex-direction:column;gap:2px}
+.brand small{font:600 12px/1 var(--display);letter-spacing:.08em;text-transform:uppercase;color:var(--teal)}
+h1{font:700 clamp(22px,3vw,30px)/1.15 var(--display);margin:0;color:var(--navy);text-wrap:balance}
+.stats{display:flex;flex-wrap:wrap;gap:8px 20px;font-variant-numeric:tabular-nums}
+.stat{display:flex;flex-direction:column}
+.stat b{font:700 20px/1.1 var(--display);color:var(--navy)}
+.stat span{font-size:12px;color:var(--muted);letter-spacing:.04em;text-transform:uppercase}
+.toolbar{display:flex;flex-wrap:wrap;gap:10px;margin:18px 0 14px;align-items:center}
+input,select,textarea{font:inherit;color:var(--fg);background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:8px 10px;min-width:0}
+input:focus,select:focus,textarea:focus,button:focus-visible{outline:2px solid var(--teal);outline-offset:1px}
+#q{flex:1 1 220px}
+button{font:600 14px/1 var(--display);border-radius:6px;padding:10px 14px;cursor:pointer;border:1px solid var(--line);background:var(--surface);color:var(--fg)}
+button.primary{background:var(--teal);border-color:var(--teal);color:#fff}
+button.ghost{background:transparent}
+button.danger{color:var(--stop);border-color:var(--stop);background:transparent}
+button:disabled{opacity:.5;cursor:not-allowed}
+.grid{display:grid;grid-template-columns:minmax(0,380px) minmax(0,1fr);gap:20px;align-items:start}
+@media (max-width:860px){.grid{grid-template-columns:minmax(0,1fr)}}
+.list{display:flex;flex-direction:column;gap:8px}
+.item{display:grid;grid-template-columns:4px minmax(0,1fr);gap:0 12px;text-align:left;width:100%;padding:12px 14px 12px 0;background:var(--surface);border:1px solid var(--line);border-radius:8px;font:inherit;color:inherit}
+.item[aria-current="true"]{border-color:var(--teal);box-shadow:0 0 0 1px var(--teal)}
+.item .stripe{border-radius:8px 0 0 8px;grid-row:1/4}
+.item .code{font:500 12px/1.2 var(--mono);color:var(--muted)}
+.item .name{font:600 15px/1.3 var(--display);color:var(--navy)}
+.item .meta{font-size:13px;color:var(--muted);display:flex;flex-wrap:wrap;gap:4px 10px}
+.pill{display:inline-flex;align-items:center;gap:6px;font:600 11px/1 var(--display);letter-spacing:.04em;text-transform:uppercase;padding:5px 8px;border-radius:99px;background:var(--navy-soft);color:var(--navy)}
+.pill::before{content:"";width:7px;height:7px;border-radius:50%;background:currentColor}
+.s-ejec{color:var(--ok)} .s-proy{color:var(--navy)} .s-par{color:var(--warn)} .s-fin{color:var(--idle)}
+.bg-ejec{background:var(--ok)} .bg-proy{background:var(--navy)} .bg-par{background:var(--warn)} .bg-fin{background:var(--idle)}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:20px;min-width:0}
+.panel h2{font:700 20px/1.25 var(--display);color:var(--navy);margin:4px 0 6px;text-wrap:balance}
+.panel h3{font:600 12px/1 var(--display);letter-spacing:.08em;text-transform:uppercase;color:var(--teal);margin:22px 0 10px}
+dl.kv{display:grid;grid-template-columns:minmax(0,190px) minmax(0,1fr);gap:6px 16px;margin:0}
+dl.kv dt{color:var(--muted);font-size:14px}
+dl.kv dd{margin:0;font-variant-numeric:tabular-nums;overflow-wrap:anywhere}
+@media (max-width:520px){dl.kv{grid-template-columns:minmax(0,1fr)} dl.kv dd{margin-bottom:6px}}
+.progress{height:8px;background:var(--teal-soft);border-radius:99px;overflow:hidden;margin-top:6px}
+.progress i{display:block;height:100%;background:var(--teal)}
+.tbl{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:14px;font-variant-numeric:tabular-nums}
+th{font:600 11px/1.2 var(--display);letter-spacing:.05em;text-transform:uppercase;color:var(--muted);text-align:left;border-bottom:1px solid var(--line);padding:6px 8px}
+td{border-bottom:1px solid var(--line);padding:6px 8px;vertical-align:top}
+td.num,th.num{text-align:right}
+.notes{white-space:pre-wrap;margin:0}
+.actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+.empty{color:var(--muted);padding:28px 20px;border:1px dashed var(--line);border-radius:10px;background:var(--surface)}
+.empty b{color:var(--navy);font-family:var(--display)}
+form.edit{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px 16px}
+form.edit label{display:flex;flex-direction:column;gap:4px;font-size:13px;color:var(--muted)}
+form.edit .full{grid-column:1/-1}
+@media (max-width:620px){form.edit{grid-template-columns:minmax(0,1fr)}}
+.hint{font-size:13px;color:var(--muted)}
+.toast{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(16px + env(safe-area-inset-bottom,0px));background:var(--navy);color:var(--bg);padding:10px 16px;border-radius:8px;font:600 14px var(--display)}
+@media (prefers-reduced-motion:no-preference){.item{transition:border-color .15s}}
+</style>
+
+<div class="wrap">
+  <header class="top">
+    <div class="brand"><small>adpb · Alberto de Paz Bethencourt</small><h1>Registro de obras</h1></div>
+    <div class="stats" id="stats" aria-live="polite">
+      <div class="stat"><b id="st-total">–</b><span>Obras</span></div>
+      <div class="stat"><b id="st-ejec">–</b><span>En ejecución</span></div>
+      <div class="stat"><b id="st-imp">–</b><span>Adjudicado (IGIC incl.)</span></div>
+    </div>
+  </header>
+
+  <div class="toolbar">
+    <input id="q" type="search" placeholder="Buscar por nombre, cliente, municipio, expediente…" aria-label="Buscar obras">
+    <select id="f-estado" aria-label="Filtrar por estado">
+      <option value="">Todos los estados</option>
+      <option>En ejecución</option><option>En proyecto</option><option>Paralizada</option><option>Finalizada</option>
+    </select>
+    <button class="primary" id="btn-new" disabled>Añadir obra</button>
+    <button class="ghost" id="btn-export" hidden>Exportar copia (JSON)</button>
+  </div>
+
+  <div class="grid">
+    <div class="list" id="list">
+      <div class="empty" id="empty"><b>Cargando obras…</b><br>Aquí aparecerán las obras registradas. Para añadir una, envía a Claude la documentación escaneada o pulsa «Añadir obra».</div>
+    </div>
+    <section class="panel" id="detail" aria-live="polite">
+      <p class="hint">Selecciona una obra para ver su ficha: contrato, plazos, certificaciones, documentos e hitos.</p>
+    </section>
+  </div>
+</div>
+<div class="toast" id="toast" hidden></div>
+
+<script>
+(function(){
+const $=s=>document.querySelector(s);
+const fmtE=n=>(n==null||n==='')?'—':Number(n).toLocaleString('es-ES',{minimumFractionDigits:2,maximumFractionDigits:2})+' €';
+const fmtD=s=>{if(!s)return '—';const m=/^(\d{4})-(\d{2})-(\d{2})$/.exec(s);return m?`${m[3]}/${m[2]}/${m[1]}`:s};
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const cls=e=>({'En ejecución':'ejec','En proyecto':'proy','Paralizada':'par','Finalizada':'fin'}[e]||'proy');
+let db=null, canWrite=false, obras=[], sel=null, editing=false, downloads=null;
+try{sel=localStorage.getItem('obra-sel')}catch(e){}
+function toast(t){const el=$('#toast');el.textContent=t;el.hidden=false;clearTimeout(toast._t);toast._t=setTimeout(()=>el.hidden=true,2600)}
+
+function renderStats(){
+  $('#st-total').textContent=obras.length;
+  $('#st-ejec').textContent=obras.filter(o=>o.estado==='En ejecución').length;
+  const t=obras.reduce((a,o)=>a+(Number(o.importeAdjudicacion)||0),0);
+  $('#st-imp').textContent=t?t.toLocaleString('es-ES',{maximumFractionDigits:0})+' €':'—';
+}
+function renderList(){
+  const q=$('#q').value.trim().toLowerCase(), fe=$('#f-estado').value;
+  const L=obras.filter(o=>(!fe||o.estado===fe)&&(!q||[o.nombre,o.cliente,o.municipio,o.expediente,o.codigo,o.contratista].join(' ').toLowerCase().includes(q)));
+  const list=$('#list'); list.textContent='';
+  if(!obras.length){list.innerHTML='<div class="empty"><b>Todavía no hay obras.</b><br>Envía a Claude la documentación escaneada de una obra y la añadirá aquí, o pulsa «Añadir obra».</div>';return}
+  if(!L.length){list.innerHTML='<div class="empty">Ninguna obra coincide con la búsqueda.</div>';return}
+  for(const o of L){
+    const b=document.createElement('button'); b.className='item'; b.setAttribute('aria-current',String(o.id===sel));
+    b.innerHTML=`<span class="stripe bg-${cls(o.estado)}"></span><span class="code">${esc(o.codigo||'')}</span><span class="name">${esc(o.nombre)}</span><span class="meta"><span class="pill s-${cls(o.estado)}">${esc(o.estado||'—')}</span><span>${esc(o.cliente||'')}</span><span>${esc(o.municipio||'')}</span></span>`;
+    b.onclick=()=>{sel=o.id;editing=false;try{localStorage.setItem('obra-sel',sel)}catch(e){};renderList();renderDetail()};
+    list.appendChild(b);
+  }
+}
+function kv(rows){return '<dl class="kv">'+rows.filter(r=>r[1]!==undefined).map(([k,v])=>`<dt>${esc(k)}</dt><dd>${v}</dd>`).join('')+'</dl>'}
+function renderDetail(){
+  const p=$('#detail'); const o=obras.find(x=>x.id===sel);
+  if(editing){renderForm(o);return}
+  if(!o){p.innerHTML='<p class="hint">Selecciona una obra para ver su ficha: contrato, plazos, certificaciones, documentos e hitos.</p>';return}
+  const cert=(o.certificaciones||[]); const origen=cert.reduce((a,c)=>a+(Number(c.importe)||0),0);
+  const pct=o.importeAdjudicacion?Math.min(100,origen/o.importeAdjudicacion*100):null;
+  let h=`<span class="pill s-${cls(o.estado)}">${esc(o.estado||'—')}</span><h2>${esc(o.nombre)}</h2><div class="hint">${esc([o.codigo,o.cliente,o.municipio].filter(Boolean).join(' · '))}</div>`;
+  h+='<h3>Contrato</h3>'+kv([['Mi papel',esc(o.rol||'—')],['Cliente / promotor',esc(o.cliente||'—')],['Situación',esc(o.situacion||'—')],['Contratista',esc(o.contratista||'—')],['Procedimiento',esc(o.procedimiento||'—')],['Expediente',esc(o.expediente||'—')],['Adjudicación',esc(o.adjudicacion||'—')],['Importe de adjudicación',fmtE(o.importeAdjudicacion)+(o.importeNota?` <span class="hint">(${esc(o.importeNota)})</span>`:'')]]);
+  h+='<h3>Plazos</h3>'+kv([['Inicio',fmtD(o.fechaInicio)],['Fin contractual',fmtD(o.fechaFinContractual)],['Fin previsto',fmtD(o.fechaFinPrevista)],['Plazo',esc(o.plazo||'—')]]);
+  h+='<h3>Certificaciones</h3>';
+  if(cert.length){
+    h+=`<div class="hint">Certificado a origen: <b>${fmtE(origen)}</b>${pct!=null?` · ${pct.toFixed(2).replace('.',',')} % del importe de adjudicación`:''}</div>`+(pct!=null?`<div class="progress" role="img" aria-label="${pct.toFixed(0)} % certificado"><i style="width:${pct}%"></i></div>`:'');
+    h+='<div class="tbl"><table><thead><tr><th>Nº</th><th>Periodo</th><th>Fecha</th><th class="num">Importe</th></tr></thead><tbody>'+cert.map(c=>`<tr><td>${esc(c.n)}</td><td>${esc(c.periodo||'')}</td><td>${fmtD(c.fecha)}</td><td class="num">${fmtE(c.importe)}</td></tr>`).join('')+'</tbody></table></div>';
+  } else h+='<p class="hint">Sin certificaciones registradas.</p>';
+  const docs=o.documentos||[];
+  h+='<h3>Documentos</h3>'+(docs.length?'<div class="tbl"><table><thead><tr><th>Documento</th><th>Fecha</th><th>Observaciones</th></tr></thead><tbody>'+docs.map(d=>`<tr><td>${esc(d.nombre)}</td><td>${fmtD(d.fecha)}</td><td>${esc(d.nota||'')}</td></tr>`).join('')+'</tbody></table></div>':'<p class="hint">Sin documentos registrados.</p>');
+  const hit=o.hitos||[];
+  h+='<h3>Hitos</h3>'+(hit.length?'<div class="tbl"><table><thead><tr><th>Fecha</th><th>Hito</th></tr></thead><tbody>'+hit.map(x=>`<tr><td>${fmtD(x.fecha)}</td><td>${esc(x.texto)}</td></tr>`).join('')+'</tbody></table></div>':'<p class="hint">Sin hitos registrados.</p>');
+  if(o.notas) h+='<h3>Notas</h3><p class="notes">'+esc(o.notas)+'</p>';
+  if(canWrite) h+='<div class="actions"><button id="b-edit">Editar datos generales</button></div>';
+  p.innerHTML=h;
+  const be=$('#b-edit'); if(be) be.onclick=()=>{editing=true;renderDetail()};
+}
+const FIELDS=[['codigo','Código interno'],['nombre','Nombre de la obra','full'],['cliente','Cliente / promotor'],['municipio','Municipio'],['situacion','Situación','full'],['rol','Mi papel'],['estado','Estado'],['contratista','Contratista'],['procedimiento','Procedimiento'],['expediente','Expediente'],['adjudicacion','Adjudicación (decreto, fecha)'],['importeAdjudicacion','Importe de adjudicación (€)'],['plazo','Plazo'],['fechaInicio','Fecha de inicio','date'],['fechaFinContractual','Fin contractual','date'],['fechaFinPrevista','Fin previsto','date'],['notas','Notas','full area']];
+function renderForm(o){
+  const v=o||{estado:'En proyecto'};
+  let h=`<h2>${o?'Editar obra':'Nueva obra'}</h2><p class="hint">Las certificaciones, documentos e hitos los añade Claude a partir de la documentación que le envíes.</p><form class="edit" id="f">`;
+  for(const [k,l,t='']of FIELDS){
+    const id='fld-'+k, val=esc(v[k]??'');
+    let input;
+    if(k==='estado') input=`<select id="${id}" name="${k}">${['En proyecto','En ejecución','Paralizada','Finalizada'].map(s=>`<option ${s===v.estado?'selected':''}>${s}</option>`).join('')}</select>`;
+    else if(t.includes('area')) input=`<textarea id="${id}" name="${k}" rows="4">${val}</textarea>`;
+    else input=`<input id="${id}" name="${k}" ${t.includes('date')?'type="date"':k==='importeAdjudicacion'?'type="number" step="0.01"':'type="text"'} value="${val}" ${k==='nombre'?'required':''}>`;
+    h+=`<label class="${t.includes('full')?'full':''}" for="${id}">${l}${input}</label>`;
+  }
+  h+='<div class="actions full"><button class="primary" type="submit">Guardar</button><button type="button" id="b-cancel">Cancelar</button>'+(o?'<button type="button" class="danger" id="b-del">Eliminar obra</button>':'')+'</div><div class="full" id="confirm"></div></form>';
+  $('#detail').innerHTML=h;
+  $('#b-cancel').onclick=()=>{editing=false;renderDetail()};
+  const bd=$('#b-del'); if(bd) bd.onclick=()=>{$('#confirm').innerHTML='<p>¿Eliminar definitivamente esta obra y sus registros? <button type="button" class="danger" id="b-del2">Sí, eliminar</button></p>';$('#b-del2').onclick=async()=>{try{await db.doc('obras/'+o.id).delete();editing=false;sel=null;toast('Obra eliminada')}catch(e){toast('No se pudo eliminar: '+(e&&e.message||e.code))}}};
+  $('#f').onsubmit=async ev=>{
+    ev.preventDefault(); const fd=new FormData(ev.target); const data={};
+    for(const [k] of FIELDS){let x=fd.get(k);x=x==null?'':String(x).trim();data[k]=k==='importeAdjudicacion'?(x===''?null:Number(x)):x}
+    data.actualizado=new Date().toISOString().slice(0,10);
+    try{
+      if(o){await db.doc('obras/'+o.id).update(data)}
+      else{const ref=db.collection('obras').doc();await ref.set({...data,certificaciones:[],documentos:[],hitos:[],creado:data.actualizado});sel=ref.id}
+      editing=false; toast('Guardado'); renderDetail();
+    }catch(e){toast(e&&e.code==='invalid_argument'?'No tienes permiso para guardar en este registro':'No se pudo guardar. Inténtalo de nuevo.')}
+  };
+}
+$('#q').oninput=renderList; $('#f-estado').onchange=renderList;
+$('#btn-new').onclick=()=>{sel=null;editing=true;renderList();renderForm(null)};
+$('#btn-export').onclick=async()=>{
+  if(!downloads)return;
+  try{await downloads.save({filename:'registro-obras-'+new Date().toISOString().slice(0,10)+'.json',data:JSON.stringify(obras,null,2)});toast('Copia exportada')}catch(e){toast('Exportación cancelada')}
+};
+renderStats();
+(async()=>{
+  db=await claude.use('db');
+  if(!db){$('#list').innerHTML='<div class="empty"><b>El registro no está disponible en esta vista.</b><br>Abre la página con tu cuenta de Claude para ver las obras.</div>';return}
+  const user=await claude.use('user');
+  const w=user?await user.can('data.write'):null; canWrite=w!==false;
+  $('#btn-new').disabled=!canWrite;
+  downloads=await claude.use('downloads'); $('#btn-export').hidden=!downloads;
+  db.collection('obras').orderBy('nombre').onSnapshot(s=>{
+    obras=s.docs.map(d=>({id:d.id,...d.data()}));
+    if(!sel&&obras.length) sel=obras[0].id;
+    renderStats(); renderList(); if(!editing) renderDetail();
+  },e=>{$('#list').innerHTML='<div class="empty">No se pudo cargar el registro ('+esc(e.code)+'). Recarga la página.</div>'});
+})();
+})();
+</script>
+
+</body></html>

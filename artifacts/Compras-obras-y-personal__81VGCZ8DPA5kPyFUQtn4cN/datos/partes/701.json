@@ -1,0 +1,42 @@
+{
+  "albs": [],
+  "cliente": "JOSÉ BARRETO",
+  "desc": "Entubar\nColocación registro",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-10-15",
+  "horas": 6,
+  "obra": "GARAJES BELLIDO",
+  "ops": [
+    {
+      "h": 3,
+      "n": "Manuel"
+    },
+    {
+      "h": 3,
+      "n": "Juan"
+    }
+  ],
+  "stock": [
+    {
+      "d": "tubo rígido  de 25",
+      "q": 15,
+      "u": "m"
+    },
+    {
+      "d": "10x15",
+      "q": 1,
+      "u": "caja"
+    },
+    {
+      "d": "curvas  flexibles de 25",
+      "q": 3,
+      "u": ""
+    },
+    {
+      "d": "curvas  rígidas de 25",
+      "q": 4,
+      "u": ""
+    }
+  ]
+}

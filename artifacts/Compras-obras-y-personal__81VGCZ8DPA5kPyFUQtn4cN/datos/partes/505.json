@@ -1,0 +1,32 @@
+{
+  "albs": [],
+  "cliente": "TRAGSA",
+  "desc": "Enhebrado de linea general de cuarto FV. A arquera entrada cuadro General con guía y cable incendio.",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-09-18",
+  "horas": 16,
+  "obra": "CENTRO VISITANTES FV",
+  "ops": [
+    {
+      "h": 8,
+      "n": "Toño"
+    },
+    {
+      "h": 8,
+      "n": "Adán Herrera"
+    }
+  ],
+  "stock": [
+    {
+      "d": "Hilo rafia",
+      "q": 300,
+      "u": "m"
+    },
+    {
+      "d": "bote gel pasacables",
+      "q": 1,
+      "u": ""
+    }
+  ]
+}

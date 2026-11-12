@@ -1,0 +1,20 @@
+{
+  "actualizada": "2026-11-03T06:29:37.405Z",
+  "aviso": "",
+  "centro": "SPAR Tagomago",
+  "creada": "2026-07-01T09:00:00Z",
+  "descripcion": "Varias luminarias sin encender.",
+  "estado": "terminada",
+  "fechaAviso": "2026-07-01",
+  "historial": [
+    "01/07/2026 · Importada del correo de Alberto",
+    "3/11/2026 06:29 · Estado: Terminada"
+  ],
+  "informado": false,
+  "notas": "Visita programada para el viernes 03/07/2026. No hay correo de cierre: confirmar si está resuelta.",
+  "operario": "",
+  "ot": 19,
+  "prioridad": "Sin especificar",
+  "solicitante": "",
+  "tipo": "MANTENIMIENTO"
+}

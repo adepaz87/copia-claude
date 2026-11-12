@@ -1,0 +1,185 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Obras Proyecpal</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Source+Sans+3:wght@400;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: ficha de registro de obra — cabecera con resumen, filtros, lista de fichas plegables */
+:root{
+  --bg:#f3f5f5; --surface:#ffffff; --fg:#1b2526; --muted:#5d6b6c; --line:#d6dddd;
+  --accent:#0d6466; --accent-soft:#dcecec;
+  --ok:#2f7a3b; --ok-soft:#e1f0e3; --warn:#9a6a00; --warn-soft:#f7ecd2; --idle:#59646a; --idle-soft:#e6eaec;
+  --f-display:"Barlow Condensed","Arial Narrow",sans-serif;
+  --f-body:"Source Sans 3",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --f-mono:"JetBrains Mono",ui-monospace,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#121819; --surface:#1a2223; --fg:#e4ebeb; --muted:#97a6a7; --line:#2d393a;
+  --accent:#5cc2c2; --accent-soft:#173536;
+  --ok:#7fcc8a; --ok-soft:#1b3320; --warn:#e2b24c; --warn-soft:#382c12; --idle:#a5b1b5; --idle-soft:#262f32;
+  color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#121819; --surface:#1a2223; --fg:#e4ebeb; --muted:#97a6a7; --line:#2d393a;
+  --accent:#5cc2c2; --accent-soft:#173536;
+  --ok:#7fcc8a; --ok-soft:#1b3320; --warn:#e2b24c; --warn-soft:#382c12; --idle:#a5b1b5; --idle-soft:#262f32;
+  color-scheme:dark}
+body{background:var(--bg);color:var(--fg);font-family:var(--f-body);font-size:15px;line-height:1.5}
+.wrap{max-width:960px;margin:0 auto;padding-block:20px 48px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:flex;flex-direction:column;gap:20px}
+header{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:12px;border-bottom:2px solid var(--fg);padding-bottom:12px}
+.eyebrow{font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+h1{font-family:var(--f-display);font-weight:700;font-size:34px;line-height:1;margin:4px 0 0;letter-spacing:.01em;text-wrap:balance}
+.btn{font:600 14px var(--f-body);border:1px solid var(--line);background:var(--surface);color:var(--fg);border-radius:6px;padding:8px 14px;cursor:pointer}
+.btn:hover{border-color:var(--accent);color:var(--accent)}
+.btn:focus-visible,.chip:focus-visible,input:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.stats{display:flex;flex-wrap:wrap;gap:8px 28px;font-variant-numeric:tabular-nums}
+.stat b{font-family:var(--f-display);font-size:26px;font-weight:600;display:block;line-height:1.1}
+.stat span{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
+.controls{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.controls input{flex:1 1 220px;min-width:0;font:15px var(--f-body);padding:9px 12px;border:1px solid var(--line);border-radius:6px;background:var(--surface);color:var(--fg)}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{font:600 13px var(--f-body);border:1px solid var(--line);background:transparent;color:var(--muted);border-radius:999px;padding:5px 12px;cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--fg);border-color:var(--fg);color:var(--bg)}
+.list{display:flex;flex-direction:column;gap:10px}
+details.obra{background:var(--surface);border:1px solid var(--line);border-radius:8px}
+details.obra[open]{border-color:var(--accent)}
+summary{list-style:none;cursor:pointer;padding:14px 16px;display:grid;grid-template-columns:1fr auto;gap:4px 12px}
+summary::-webkit-details-marker{display:none}
+.code{font-family:var(--f-mono);font-size:12px;color:var(--accent)}
+.name{font-family:var(--f-display);font-size:21px;font-weight:600;line-height:1.15;min-width:0;text-wrap:balance}
+.meta{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:4px 16px;font-size:13px;color:var(--muted)}
+.pill{align-self:start;font:600 12px var(--f-body);padding:3px 10px;border-radius:999px;white-space:nowrap}
+.pill.curso{background:var(--ok-soft);color:var(--ok)}
+.pill.pend{background:var(--warn-soft);color:var(--warn)}
+.pill.fin{background:var(--idle-soft);color:var(--idle)}
+.flag{grid-column:1/-1;font-size:13px;color:var(--warn);font-weight:600}
+.body{padding:4px 16px 16px;border-top:1px solid var(--line);display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
+.body h3{font-family:var(--f-mono);font-size:11px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:12px 0 6px}
+dl{display:grid;grid-template-columns:auto 1fr;gap:4px 12px;margin:0;font-size:14px}
+dt{color:var(--muted)} dd{margin:0;min-width:0;overflow-wrap:anywhere;font-variant-numeric:tabular-nums}
+ul{margin:0;padding-left:18px;font-size:14px} li{margin:2px 0}
+ul.miss li::marker{color:var(--warn)}
+.notes{grid-column:1/-1;font-size:14px;white-space:pre-wrap}
+.empty{border:1px dashed var(--line);border-radius:8px;padding:28px 20px;text-align:center;color:var(--muted)}
+.empty strong{display:block;font-family:var(--f-display);font-size:22px;color:var(--fg);margin-bottom:6px}
+.toast{font-size:13px;color:var(--muted);min-height:1em}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+
+<div class="wrap">
+  <header>
+    <div>
+      <div class="eyebrow">Proyecpal · registro documental</div>
+      <h1>Obras Proyecpal</h1>
+    </div>
+    <button class="btn" id="csv" hidden>Descargar CSV</button>
+  </header>
+
+  <div class="stats" id="stats">
+    <div class="stat"><b id="s-total">0</b><span>Obras</span></div>
+    <div class="stat"><b id="s-curso">0</b><span>En curso</span></div>
+    <div class="stat"><b id="s-pend">0</b><span>Con documentos pendientes</span></div>
+    <div class="stat"><b id="s-pres">—</b><span>Presupuesto en curso</span></div>
+  </div>
+
+  <div class="controls">
+    <input id="q" type="search" placeholder="Buscar por obra, cliente, municipio…" aria-label="Buscar">
+    <div class="chips" role="group" aria-label="Filtrar por estado">
+      <button class="chip" data-f="todas" aria-pressed="true">Todas</button>
+      <button class="chip" data-f="En curso" aria-pressed="false">En curso</button>
+      <button class="chip" data-f="Pendiente de inicio" aria-pressed="false">Pendiente de inicio</button>
+      <button class="chip" data-f="Finalizada" aria-pressed="false">Finalizada</button>
+    </div>
+  </div>
+  <div class="toast" id="toast" aria-live="polite"></div>
+
+  <div class="list" id="list">
+    <div class="empty" id="empty">
+      <strong>Aún no hay obras registradas</strong>
+      Cuando empieces una obra, envía la documentación escaneada en el chat con Claude y aparecerá aquí como una ficha nueva.
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  const $=s=>document.querySelector(s);
+  let rows=[], filtro="todas", q="";
+  const eur=n=>typeof n==="number"?n.toLocaleString("es-ES",{style:"currency",currency:"EUR",maximumFractionDigits:0}):"—";
+  const fecha=s=>{if(!s)return "—";const d=new Date(s+"T12:00:00");return isNaN(d)?s:d.toLocaleDateString("es-ES",{day:"2-digit",month:"short",year:"numeric"})};
+  const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+  const pillCls=e=>e==="En curso"?"curso":e==="Finalizada"?"fin":"pend";
+
+  function render(){
+    const curso=rows.filter(r=>r.estado==="En curso");
+    $("#s-total").textContent=rows.length;
+    $("#s-curso").textContent=curso.length;
+    $("#s-pend").textContent=rows.filter(r=>(r.pendientes||[]).length).length;
+    const tot=curso.reduce((a,r)=>a+(typeof r.presupuesto==="number"?r.presupuesto:0),0);
+    $("#s-pres").textContent=tot?eur(tot):"—";
+
+    const list=$("#list"); const empty=$("#empty");
+    list.querySelectorAll("details").forEach(n=>n.remove());
+    const ql=q.toLowerCase();
+    const vis=rows.filter(r=>(filtro==="todas"||r.estado===filtro)&&
+      (!ql||[r.codigo,r.nombre,r.cliente,r.promotor,r.municipio,r.ubicacion,r.contratista,r.tipo].join(" ").toLowerCase().includes(ql)));
+    empty.hidden=vis.length>0;
+    if(rows.length && !vis.length){empty.innerHTML="<strong>Sin resultados</strong>Ninguna obra coincide con la búsqueda o el filtro.";}
+    for(const r of vis){
+      const d=document.createElement("details"); d.className="obra";
+      const docs=(r.documentos||[]).map(x=>`<li>${esc(x.nombre||x)}${x.fecha?` <span style="color:var(--muted)">· ${esc(fecha(x.fecha))}</span>`:""}</li>`).join("")||"<li>—</li>";
+      const pend=(r.pendientes||[]);
+      d.innerHTML=`<summary>
+        <div style="min-width:0"><div class="code">${esc(r.codigo||"")}</div><div class="name">${esc(r.nombre||"Obra sin nombre")}</div></div>
+        <span class="pill ${pillCls(r.estado)}">${esc(r.estado||"Sin estado")}</span>
+        <div class="meta"><span>${esc(r.cliente||"Cliente —")}</span><span>${esc(r.municipio||"")}</span><span>Inicio ${esc(fecha(r.fecha_inicio))}</span><span>${esc(eur(r.presupuesto))}</span></div>
+        ${pend.length?`<div class="flag">Faltan ${pend.length} documento${pend.length>1?"s":""}</div>`:""}
+      </summary>
+      <div class="body">
+        <div><h3>Datos de la obra</h3><dl>
+          <dt>Tipo</dt><dd>${esc(r.tipo||"—")}</dd>
+          <dt>Ubicación</dt><dd>${esc(r.ubicacion||"—")}</dd>
+          <dt>Promotor</dt><dd>${esc(r.promotor||"—")}</dd>
+          <dt>Contratista</dt><dd>${esc(r.contratista||"—")}</dd>
+          <dt>Nuestro papel</dt><dd>${esc(r.rol||"—")}</dd>
+        </dl></div>
+        <div><h3>Plazos e importes</h3><dl>
+          <dt>Inicio</dt><dd>${esc(fecha(r.fecha_inicio))}</dd>
+          <dt>Plazo</dt><dd>${esc(r.plazo||"—")}</dd>
+          <dt>Presupuesto</dt><dd>${esc(eur(r.presupuesto))}</dd>
+          <dt>Licencia</dt><dd>${esc(r.licencia||"—")}</dd>
+        </dl></div>
+        <div><h3>Documentación recibida</h3><ul>${docs}</ul></div>
+        <div><h3>Pendiente</h3>${pend.length?`<ul class="miss">${pend.map(p=>`<li>${esc(p)}</li>`).join("")}</ul>`:"<p style='margin:0;font-size:14px;color:var(--muted)'>Nada pendiente.</p>"}</div>
+        ${r.notas?`<div class="notes"><h3>Notas</h3>${esc(r.notas)}</div>`:""}
+      </div>`;
+      list.appendChild(d);
+    }
+  }
+
+  document.querySelectorAll(".chip").forEach(b=>b.addEventListener("click",()=>{
+    filtro=b.dataset.f; document.querySelectorAll(".chip").forEach(c=>c.setAttribute("aria-pressed",c===b)); render();
+  }));
+  $("#q").addEventListener("input",e=>{q=e.target.value;render()});
+
+  function toCSV(){
+    const cols=["codigo","nombre","estado","cliente","promotor","contratista","tipo","rol","municipio","ubicacion","fecha_inicio","plazo","presupuesto","licencia","documentos","pendientes","notas"];
+    const cell=v=>{if(Array.isArray(v))v=v.map(x=>x&&x.nombre?x.nombre:x).join(" | ");v=v==null?"":String(v);return /[;"\n]/.test(v)?'"'+v.replace(/"/g,'""')+'"':v};
+    return "﻿"+cols.join(";")+"\n"+rows.map(r=>cols.map(c=>cell(r[c])).join(";")).join("\n");
+  }
+
+  (async()=>{
+    const db=await claude.use("db");
+    if(!db){$("#empty").innerHTML="<strong>No se pueden cargar las obras</strong>Abre esta página con tu cuenta de Claude para ver el registro.";return}
+    db.collection("obras").orderBy("fecha_inicio","desc").onSnapshot(s=>{rows=s.docs.map(d=>({id:d.id,...d.data()}));render()},
+      e=>{$("#toast").textContent="No se pudo leer el registro ("+e.code+"). Recarga la página."});
+    const dl=await claude.use("downloads");
+    if(dl){const b=$("#csv");b.hidden=false;b.addEventListener("click",async()=>{
+      if(!rows.length){$("#toast").textContent="No hay obras que exportar todavía.";return}
+      try{await dl.save({filename:"obras-proyecpal-"+new Date().toISOString().slice(0,10)+".csv",data:toCSV()});$("#toast").textContent="CSV guardado."}
+      catch(e){if(e.code!=="declined")$("#toast").textContent="No se pudo generar el CSV."}
+    })}
+  })();
+})();
+</script>
+
+</body></html>

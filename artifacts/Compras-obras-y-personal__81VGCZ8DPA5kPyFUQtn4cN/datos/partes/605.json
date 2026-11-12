@@ -1,0 +1,17 @@
+{
+  "albs": [],
+  "cliente": "TRAGSA",
+  "desc": "Hacer puentes de BT. Cortar tiradas de cable 240mm AL. Prensar terminales y colocar y fijar puentes entre el CBT y el trafo.",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-10-01",
+  "horas": 8,
+  "obra": "CT..PLAZA GAZMIRA",
+  "ops": [
+    {
+      "h": 8,
+      "n": "Jorge"
+    }
+  ],
+  "stock": []
+}

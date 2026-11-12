@@ -1,0 +1,23 @@
+{
+  "albs": [
+    "Diexfe  vctf-019307-2026"
+  ],
+  "cliente": "EXTINPALMA S.L.",
+  "desc": "Zona Parking 1, zona escaleras comunes .\n- Tendido y enhebrado de cableado a través de las canalizaciones instaladas\n- Verificación de continuidad y correcta disposición del cableado y preparación de puntas cables para conexionados\n- localización y seguimientos del trazado del cableado antiguo,para estudio \nde  la nueva arquitectura de instalación de contraincendio",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-10-16",
+  "horas": 16,
+  "obra": "HIPERDINO EL PUENTE (CONTRAINCENDIO)",
+  "ops": [
+    {
+      "h": 8,
+      "n": "Eloy"
+    },
+    {
+      "h": 8,
+      "n": "Rafa"
+    }
+  ],
+  "stock": []
+}

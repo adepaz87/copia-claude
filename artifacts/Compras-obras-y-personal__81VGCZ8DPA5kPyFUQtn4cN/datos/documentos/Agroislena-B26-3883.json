@@ -1,0 +1,36 @@
+{
+  "empresa": "Instapalma",
+  "fecha": "2026-10-01",
+  "lineas": [
+    {
+      "a": "B26/4644",
+      "d": "SPRAY NEGRO RAL9005",
+      "dto": "",
+      "f": "2026-08-18",
+      "i": 4.73,
+      "igic": 7,
+      "o": "EL SOCORRO",
+      "pn": 4.73,
+      "pt": 4.73,
+      "q": 1,
+      "r": ""
+    },
+    {
+      "a": "B26/4644",
+      "d": "CINTA CREPE 48MM",
+      "dto": "",
+      "f": "2026-08-18",
+      "i": 1.79,
+      "igic": 7,
+      "o": "EL SOCORRO",
+      "pn": 1.79,
+      "pt": 1.79,
+      "q": 1,
+      "r": ""
+    }
+  ],
+  "numero": "B26/3883",
+  "origen": "Gmail",
+  "proveedor": "Agroisleña",
+  "tipo": "factura"
+}

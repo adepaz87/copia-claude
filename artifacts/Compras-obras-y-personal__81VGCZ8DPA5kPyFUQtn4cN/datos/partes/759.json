@@ -1,0 +1,21 @@
+{
+  "albs": [],
+  "cliente": "CONSTRUCCIONES DOMINGO",
+  "desc": "Entubar vivienda planta 3 \nColocar registros planta 3",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-10-21",
+  "horas": 17,
+  "obra": "EDIFICIO DOMINGO EL PASO",
+  "ops": [
+    {
+      "h": 8,
+      "n": "Júnior"
+    },
+    {
+      "h": 9,
+      "n": "Ricky"
+    }
+  ],
+  "stock": []
+}

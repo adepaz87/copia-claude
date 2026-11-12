@@ -1,0 +1,29 @@
+{
+  "albs": [
+    "Sonepar 309005900"
+  ],
+  "cliente": "CHICHO DOS TUMBOS",
+  "desc": "Enebrar fuerza y alumbrado \nOrganización de registros",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-09-25",
+  "horas": 16,
+  "obra": "VIVIENDAS EL TANQUE",
+  "ops": [
+    {
+      "h": 8,
+      "n": "Manuel"
+    },
+    {
+      "h": 8,
+      "n": "Juan"
+    }
+  ],
+  "stock": [
+    {
+      "d": "cable  gris de 1x2,5 rz1",
+      "q": 200,
+      "u": "m"
+    }
+  ]
+}

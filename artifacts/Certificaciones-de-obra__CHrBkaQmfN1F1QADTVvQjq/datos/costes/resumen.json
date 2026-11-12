@@ -1,0 +1,932 @@
+{
+  "actualizado": "2026-10-28T19:42:32Z",
+  "fuente": "https://claude.ai/artifact/GpG3J8aU1LyPDGyyoBbHHh",
+  "manoobra": [
+    {
+      "costeHora": 23,
+      "fecha": "2026-10-16",
+      "horas": 8,
+      "operario": "Joni"
+    },
+    {
+      "costeHora": 23,
+      "fecha": "2026-09-21",
+      "horas": 8,
+      "operario": "Rafa"
+    },
+    {
+      "costeHora": 23,
+      "fecha": "2026-10-21",
+      "horas": 11,
+      "operario": "Petter"
+    },
+    {
+      "costeHora": 23,
+      "fecha": "2026-09-29",
+      "horas": 2,
+      "operario": "Goyo"
+    },
+    {
+      "costeHora": 23,
+      "fecha": "2026-07-07",
+      "horas": 8,
+      "operario": "PETTER"
+    },
+    {
+      "costeHora": 23,
+      "fecha": "2026-07-21",
+      "horas": 8,
+      "operario": "Petter"
+    },
+    {
+      "costeHora": 23,
+      "fecha": "2026-07-15",
+      "horas": 8,
+      "operario": "Joni"
+    },
+    {
+      "costeHora": 23,
+      "fecha": "2026-10-22",
+      "horas": 8,
+      "operario": "Petter"
+    },
+    {
+      "costeHora": 23,
+      "fecha": "2026-06-12",
+      "horas": 8,
+      "operario": "JONI"
+    },
+    {
+      "costeHora": 23,
+      "fecha": "2026-09-25",
+      "horas": 8,
+      "operario": "Joni"
+    },
+    {
+      "costeHora": 23,
+      "fecha": "2026-07-09",
+      "horas": 4,
+      "operario": "PETTER"
+    },
+    {
+      "costeHora": 23,
+      "fecha": "2026-06-26",
+      "horas": 8,
+      "operario": "JONI"
+    },
+    {
+      "costeHora": 23,
+      "fecha": "2026-09-28",
+      "horas": 3,
+      "operario": "Goyo"
+    },
+    {
+      "costeHora": 23,
+      "fecha": "2026-09-24",
+      "horas": 8,
+      "operario": "Petter"
+    },
+    {
+      "costeHora": 23,
+      "fecha": "2026-07-16",
+      "horas": 8,
+      "operario": "Joni"
+    },
+    {
+      "costeHora": 23,
+      "fecha": "2026-06-11",
+      "horas": 8,
+      "operario": "JONI"
+    },
+    {
+      "costeHora": 23,
+      "fecha": "2026-07-16",
+      "horas": 8,
+      "operario": "Petter"
+    },
+    {
+      "costeHora": 23,
+      "fecha": "2026-10-14",
+      "horas": 4,
+      "operario": "Goyo"
+    },
+    {
+      "costeHora": 23,
+      "fecha": "2026-07-13",
+      "horas": 5,
+      "operario": "PETTER"
+    },
+    {
+      "costeHora": 23,
+      "fecha": "2026-10-20",
+      "horas": 11,
+      "operario": "Petter"
+    },
+    {
+      "costeHora": 23,
+      "fecha": "2026-07-15",
+      "horas": 8,
+      "operario": "Petter"
+    },
+    {
+      "costeHora": 23,
+      "fecha": "2026-10-23",
+      "horas": 2,
+      "operario": "Goyo"
+    },
+    {
+      "costeHora": 23,
+      "fecha": "2026-09-30",
+      "horas": 11,
+      "operario": "Petter"
+    },
+    {
+      "costeHora": 23,
+      "fecha": "2026-10-22",
+      "horas": 8,
+      "operario": "Joni"
+    },
+    {
+      "costeHora": 23,
+      "fecha": "2026-06-24",
+      "horas": 8,
+      "operario": "JONI"
+    },
+    {
+      "costeHora": 23,
+      "fecha": "2026-07-08",
+      "horas": 8,
+      "operario": "PETTER"
+    },
+    {
+      "costeHora": 23,
+      "fecha": "2026-07-10",
+      "horas": 8,
+      "operario": "PETTER"
+    },
+    {
+      "costeHora": 23,
+      "fecha": "2026-07-09",
+      "horas": 4,
+      "operario": "JONI"
+    },
+    {
+      "costeHora": 23,
+      "fecha": "2026-09-28",
+      "horas": 10,
+      "operario": "Joni"
+    },
+    {
+      "costeHora": 23,
+      "fecha": "2026-07-14",
+      "horas": 8,
+      "operario": "Juan"
+    },
+    {
+      "costeHora": 23,
+      "fecha": "2026-09-16",
+      "horas": 8,
+      "operario": "Joni"
+    },
+    {
+      "costeHora": 23,
+      "fecha": "2026-10-19",
+      "horas": 11,
+      "operario": "Petter"
+    },
+    {
+      "costeHora": 23,
+      "fecha": "2026-07-15",
+      "horas": 8,
+      "operario": "Juan"
+    },
+    {
+      "costeHora": 23,
+      "fecha": "2026-06-11",
+      "horas": 8,
+      "operario": "PETTER"
+    },
+    {
+      "costeHora": 23,
+      "fecha": "2026-10-21",
+      "horas": 11,
+      "operario": "Joni"
+    },
+    {
+      "costeHora": 23,
+      "fecha": "2026-06-19",
+      "horas": 7,
+      "operario": "TOÑO"
+    },
+    {
+      "costeHora": 23,
+      "fecha": "2026-07-13",
+      "horas": 5,
+      "operario": "JONI"
+    },
+    {
+      "costeHora": 23,
+      "fecha": "2026-06-18",
+      "horas": 8,
+      "operario": "TOÑO"
+    },
+    {
+      "costeHora": 23,
+      "fecha": "2026-07-08",
+      "horas": 8,
+      "operario": "JONI"
+    },
+    {
+      "costeHora": 23,
+      "fecha": "2026-06-08",
+      "horas": 8,
+      "operario": "JONI"
+    },
+    {
+      "costeHora": 23,
+      "fecha": "2026-07-10",
+      "horas": 8,
+      "operario": "JONI"
+    },
+    {
+      "costeHora": 23,
+      "fecha": "2026-10-22",
+      "horas": 1,
+      "operario": "Goyo"
+    },
+    {
+      "costeHora": 23,
+      "fecha": "2026-10-16",
+      "horas": 8,
+      "operario": "Petter"
+    },
+    {
+      "costeHora": 23,
+      "fecha": "2026-09-21",
+      "horas": 6.5,
+      "operario": "Joni"
+    },
+    {
+      "costeHora": 23,
+      "fecha": "2026-07-08",
+      "horas": 8,
+      "operario": "TOÑO"
+    },
+    {
+      "costeHora": 23,
+      "fecha": "2026-09-15",
+      "horas": 8,
+      "operario": "Petter"
+    },
+    {
+      "costeHora": 23,
+      "fecha": "2026-10-20",
+      "horas": 11,
+      "operario": "Joni"
+    },
+    {
+      "costeHora": 23,
+      "fecha": "2026-09-30",
+      "horas": 3,
+      "operario": "Goyo"
+    },
+    {
+      "costeHora": 23,
+      "fecha": "2026-10-23",
+      "horas": 8,
+      "operario": "Joni"
+    },
+    {
+      "costeHora": 23,
+      "fecha": "2026-10-19",
+      "horas": 11,
+      "operario": "Joni"
+    },
+    {
+      "costeHora": 23,
+      "fecha": "2026-06-10",
+      "horas": 8,
+      "operario": "PETTER"
+    },
+    {
+      "costeHora": 23,
+      "fecha": "2026-06-25",
+      "horas": 8,
+      "operario": "JONI"
+    },
+    {
+      "costeHora": 23,
+      "fecha": "2026-09-16",
+      "horas": 8,
+      "operario": "Rafa"
+    },
+    {
+      "costeHora": 23,
+      "fecha": "2026-06-09",
+      "horas": 10,
+      "operario": "JONI"
+    },
+    {
+      "costeHora": 23,
+      "fecha": "2026-09-17",
+      "horas": 8,
+      "operario": "Rafa"
+    },
+    {
+      "costeHora": 23,
+      "fecha": "2026-09-16",
+      "horas": 8,
+      "operario": "Petter"
+    },
+    {
+      "costeHora": 23,
+      "fecha": "2026-07-16",
+      "horas": 8,
+      "operario": "Juan"
+    },
+    {
+      "costeHora": 23,
+      "fecha": "2026-10-06",
+      "horas": 3,
+      "operario": "Goyo"
+    },
+    {
+      "costeHora": 23,
+      "fecha": "2026-07-13",
+      "horas": 6.5,
+      "operario": "TOÑO"
+    },
+    {
+      "costeHora": 23,
+      "fecha": "2026-10-13",
+      "horas": 6,
+      "operario": "Goyo"
+    },
+    {
+      "costeHora": 23,
+      "fecha": "2026-07-21",
+      "horas": 8,
+      "operario": "Juan"
+    },
+    {
+      "costeHora": 23,
+      "fecha": "2026-06-12",
+      "horas": 8,
+      "operario": "PETTER"
+    },
+    {
+      "costeHora": 23,
+      "fecha": "2026-06-08",
+      "horas": 8,
+      "operario": "PETTER"
+    },
+    {
+      "costeHora": 23,
+      "fecha": "2026-06-16",
+      "horas": 8,
+      "operario": "JONI"
+    },
+    {
+      "costeHora": 23,
+      "fecha": "2026-07-16",
+      "horas": 8,
+      "operario": "Junior"
+    },
+    {
+      "costeHora": 23,
+      "fecha": "2026-10-26",
+      "horas": 6.5,
+      "operario": "Toño"
+    },
+    {
+      "costeHora": 23,
+      "fecha": "2026-09-24",
+      "horas": 11,
+      "operario": "Joni"
+    },
+    {
+      "costeHora": 23,
+      "fecha": "2026-07-21",
+      "horas": 8,
+      "operario": "Junior"
+    },
+    {
+      "costeHora": 23,
+      "fecha": "2026-09-21",
+      "horas": 8,
+      "operario": "Petter"
+    },
+    {
+      "costeHora": 23,
+      "fecha": "2026-07-09",
+      "horas": 8,
+      "operario": "TOÑO"
+    },
+    {
+      "costeHora": 23,
+      "fecha": "2026-09-18",
+      "horas": 8,
+      "operario": "Petter"
+    },
+    {
+      "costeHora": 23,
+      "fecha": "2026-06-10",
+      "horas": 8,
+      "operario": "JONI"
+    },
+    {
+      "costeHora": 23,
+      "fecha": "2026-10-07",
+      "horas": 2,
+      "operario": "Goyo"
+    },
+    {
+      "costeHora": 23,
+      "fecha": "2026-10-15",
+      "horas": 2,
+      "operario": "Goyo"
+    },
+    {
+      "costeHora": 23,
+      "fecha": "2026-10-05",
+      "horas": 3,
+      "operario": "Goyo"
+    },
+    {
+      "costeHora": 23,
+      "fecha": "2026-10-08",
+      "horas": 2,
+      "operario": "Goyo"
+    },
+    {
+      "costeHora": 23,
+      "fecha": "2026-06-09",
+      "horas": 10,
+      "operario": "PETTER"
+    },
+    {
+      "costeHora": 23,
+      "fecha": "2026-06-23",
+      "horas": 8,
+      "operario": "JONI"
+    },
+    {
+      "costeHora": 23,
+      "fecha": "2026-06-23",
+      "horas": 8,
+      "operario": "PETTER"
+    },
+    {
+      "costeHora": 23,
+      "fecha": "2026-09-29",
+      "horas": 11,
+      "operario": "Petter"
+    },
+    {
+      "costeHora": 23,
+      "fecha": "2026-06-26",
+      "horas": 8,
+      "operario": "PETTER"
+    },
+    {
+      "costeHora": 23,
+      "fecha": "2026-09-28",
+      "horas": 11,
+      "operario": "Petter"
+    },
+    {
+      "costeHora": 23,
+      "fecha": "2026-09-17",
+      "horas": 8,
+      "operario": "Petter"
+    },
+    {
+      "costeHora": 23,
+      "fecha": "2026-07-14",
+      "horas": 8,
+      "operario": "Joni"
+    },
+    {
+      "costeHora": 23,
+      "fecha": "2026-07-07",
+      "horas": 5,
+      "operario": "TOÑO"
+    },
+    {
+      "costeHora": 23,
+      "fecha": "2026-06-22",
+      "horas": 11,
+      "operario": "PETTER"
+    },
+    {
+      "costeHora": 23,
+      "fecha": "2026-09-21",
+      "horas": 8,
+      "operario": "Junior"
+    },
+    {
+      "costeHora": 23,
+      "fecha": "2026-06-16",
+      "horas": 8,
+      "operario": "PETTER"
+    },
+    {
+      "costeHora": 23,
+      "fecha": "2026-07-07",
+      "horas": 8,
+      "operario": "RAFA"
+    },
+    {
+      "costeHora": 23,
+      "fecha": "2026-07-07",
+      "horas": 11,
+      "operario": "JONI"
+    },
+    {
+      "costeHora": 23,
+      "fecha": "2026-09-30",
+      "horas": 11,
+      "operario": "Joni"
+    },
+    {
+      "costeHora": 23,
+      "fecha": "2026-06-29",
+      "horas": 11,
+      "operario": "PETTER"
+    },
+    {
+      "costeHora": 23,
+      "fecha": "2026-10-23",
+      "horas": 8,
+      "operario": "Petter"
+    },
+    {
+      "costeHora": 23,
+      "fecha": "2026-06-24",
+      "horas": 8,
+      "operario": "PETTER"
+    },
+    {
+      "costeHora": 23,
+      "fecha": "2026-06-22",
+      "horas": 11,
+      "operario": "JONI"
+    },
+    {
+      "costeHora": 23,
+      "fecha": "2026-06-25",
+      "horas": 8,
+      "operario": "PETTER"
+    },
+    {
+      "costeHora": 23,
+      "fecha": "2026-07-06",
+      "horas": 8,
+      "operario": "TOÑO"
+    },
+    {
+      "costeHora": 23,
+      "fecha": "2026-09-15",
+      "horas": 8,
+      "operario": "Joni"
+    },
+    {
+      "costeHora": 23,
+      "fecha": "2026-09-29",
+      "horas": 11,
+      "operario": "Joni"
+    },
+    {
+      "costeHora": 23,
+      "fecha": "2026-09-18",
+      "horas": 7,
+      "operario": "Joni"
+    },
+    {
+      "costeHora": 23,
+      "fecha": "2026-10-19",
+      "horas": 4,
+      "operario": "Goyo"
+    },
+    {
+      "costeHora": 23,
+      "fecha": "2026-09-18",
+      "horas": 8,
+      "operario": "Rafa"
+    },
+    {
+      "costeHora": 23,
+      "fecha": "2026-09-17",
+      "horas": 7,
+      "operario": "Joni"
+    },
+    {
+      "costeHora": 23,
+      "fecha": "2026-06-29",
+      "horas": 11,
+      "operario": "JONI"
+    },
+    {
+      "costeHora": 23,
+      "fecha": "2026-09-25",
+      "horas": 8,
+      "operario": "Petter"
+    }
+  ],
+  "material": [
+    {
+      "concepto": "100 uds. CJTO.UNION BANDEJA M6 ELECTROZC. (AIS-CUBZ), entrega directa a obra en La Palma",
+      "fecha": "2026-06-29",
+      "importe": 71,
+      "numero": "VCTF-012148-2026",
+      "proveedor": "Diexfe"
+    },
+    {
+      "concepto": "Cable AFIRENAX-X RZ1-K 0,6/1kV 3G2,5mm2 (500 m) y 3G1,5mm2 (500 m), bobinas. Pedido PCTF-006704-2026",
+      "fecha": "2026-07-15",
+      "importe": 1091.5,
+      "numero": "VCTF-013310-2026",
+      "proveedor": "Diexfe"
+    },
+    {
+      "concepto": "Tubo corrugado doble capa D.20/25/32/40, tubo blindado D.25, cajas, reglectas, gel lubricante y cinta aislante",
+      "fecha": "2026-09-17",
+      "importe": 963.63,
+      "numero": "VCTF-017599-2026",
+      "proveedor": "Diexfe"
+    },
+    {
+      "concepto": "Perfil index, varilla roscada, tirafondos, broca HSS cobalto, manguito, tacos Fischer, arandelas, argollas, tuercas y tornillos barraquero",
+      "fecha": "2026-06-08",
+      "importe": 151.68,
+      "numero": "312.606.163",
+      "proveedor": "Bolsa de Aguas de La Palma, S.A."
+    },
+    {
+      "concepto": "Bridas 200x2,5 con pletina identificadora (100 uds) y bridas 200x3,6 estándar blancas (500 uds)",
+      "fecha": "2026-09-25",
+      "importe": 38.6,
+      "numero": "184641/018",
+      "proveedor": "Comercial Eléctrica Canarias, S.A. (Grupo Coelca)"
+    },
+    {
+      "concepto": "Cable Flextreme H07 RN-F 3G10 (4 uds), bandeja 66 perforada U23X 100x200 gris (9 uds), unión tramos PVC-M1 altura 100 gr. (4 uds)",
+      "fecha": "2026-10-22",
+      "importe": 210.71,
+      "numero": "VCTF-019887-2026",
+      "proveedor": "Diexfe"
+    },
+    {
+      "concepto": "Rejilla metálica portacables 200x100 electrozincada (162 uds) y bandeja metálica portacables 100x400 electrozincada (210 uds)",
+      "fecha": "2026-05-21",
+      "importe": 3662.63,
+      "numero": "VCTF-009506-2026",
+      "proveedor": "Diexfe"
+    },
+    {
+      "concepto": "Cable AFIRENAX-X RZ1-K 0,6/1kV 3G2,5mm2, bobina, 500 uds",
+      "fecha": "2026-07-09",
+      "importe": 646,
+      "numero": "VCTF-012899-2026",
+      "proveedor": "Diexfe"
+    },
+    {
+      "concepto": "Cable AFIRENAX-X RZ1-K 0,6/1kV 3G1,5mm2 bobina (486 m) y cable AFIRENAX-L H07Z1-K 1,5mm2 en 4 colores (4 x 400 m)",
+      "fecha": "2026-06-19",
+      "importe": 774.31,
+      "numero": "VCTF-011598-2026",
+      "proveedor": "Diexfe"
+    },
+    {
+      "concepto": "Luminarias (Sylvie Vario, Anna Varioflex, Boris Flex, Julie Flex, Ibox, IS XS) y tasas ECORAEE",
+      "fecha": "2026-08-26",
+      "importe": 14029.34,
+      "numero": "K2026-0146",
+      "proveedor": "Kairos Supply SL"
+    },
+    {
+      "concepto": "100 uds. CJTO. UNION BANDEJA M6 ELECTROZC. (AIS-CUBZ) a 0,71 €/ud",
+      "fecha": "2026-06-11",
+      "importe": 71,
+      "numero": "VCTF-011005-2026",
+      "proveedor": "Diexfe"
+    },
+    {
+      "concepto": "Material eléctrico: curvas y manguitos Aiscan, regletas Conex, bornes, mangueras Electroflex, racores, gel lubricante, cinta aislante y cajas Ybox",
+      "fecha": "2026-06-29",
+      "importe": 705.71,
+      "numero": "VCTF-012128-2026",
+      "proveedor": "Diexfe"
+    },
+    {
+      "concepto": "Cable RVK CPR 3G2.5 (100 m), 2 clavijas 16A PVC fácil prensado, 2 bases 16A PVC fácil negro",
+      "fecha": "2026-05-27",
+      "importe": 129.19,
+      "numero": "182523/018",
+      "proveedor": "Comercial Eléctrica Canarias, S.A. (Grupo Coelca)"
+    },
+    {
+      "concepto": "2400 uds · CLAVO 3x27 MM NG HFB CS2/CS3 CARGA GAS · 0,28 €/ud",
+      "fecha": "2026-07-13",
+      "importe": 672,
+      "numero": "",
+      "proveedor": "Instapalma Obras y Servicios"
+    },
+    {
+      "concepto": "1 uds · SUBCUADRO NAVE 2 · 1515,00 €/ud",
+      "fecha": "2026-07-13",
+      "importe": 1515,
+      "numero": "",
+      "proveedor": "Instapalma Obras y Servicios"
+    },
+    {
+      "concepto": "1 uds · SUBCUADRO NAVE 3 · 2316,00 €/ud",
+      "fecha": "2026-07-13",
+      "importe": 2316,
+      "numero": "",
+      "proveedor": "Instapalma Obras y Servicios"
+    },
+    {
+      "concepto": "12 uds · CABLE H07Z1-K CPR 1x35 NG BOB · 6,05 €/ud",
+      "fecha": "2026-07-13",
+      "importe": 72.6,
+      "numero": "",
+      "proveedor": "Instapalma Obras y Servicios"
+    },
+    {
+      "concepto": "62 uds · CABLE H07Z1-K CPR 1x10 · 1,58 €/ud",
+      "fecha": "2026-07-13",
+      "importe": 97.96,
+      "numero": "",
+      "proveedor": "Instapalma Obras y Servicios"
+    },
+    {
+      "concepto": "68 uds · CABLE H07Z1-K CPR 1x6 · 0,78 €/ud",
+      "fecha": "2026-07-13",
+      "importe": 53.04,
+      "numero": "",
+      "proveedor": "Instapalma Obras y Servicios"
+    },
+    {
+      "concepto": "58 uds · CABLE H07Z1-K CPR 1x2,5 · 0,24 €/ud",
+      "fecha": "2026-07-13",
+      "importe": 13.92,
+      "numero": "",
+      "proveedor": "Instapalma Obras y Servicios"
+    },
+    {
+      "concepto": "12 uds · PUNTA HUECA CORTA APF-6.0 VERDE · 0,32 €/ud",
+      "fecha": "2026-07-13",
+      "importe": 3.84,
+      "numero": "",
+      "proveedor": "Instapalma Obras y Servicios"
+    },
+    {
+      "concepto": "68 uds · PUNTERA HUECA 2,5MM GRIS · 0,02 €/ud",
+      "fecha": "2026-07-13",
+      "importe": 1.36,
+      "numero": "",
+      "proveedor": "Instapalma Obras y Servicios"
+    },
+    {
+      "concepto": "78 uds · PUNTERA HUECA 10MM MARRON · 0,06 €/ud",
+      "fecha": "2026-07-13",
+      "importe": 4.68,
+      "numero": "",
+      "proveedor": "Instapalma Obras y Servicios"
+    },
+    {
+      "concepto": "168 uds · PUNTERA HUECA 6MM VERDE · 0,05 €/ud",
+      "fecha": "2026-07-13",
+      "importe": 8.4,
+      "numero": "",
+      "proveedor": "Instapalma Obras y Servicios"
+    },
+    {
+      "concepto": "4 uds · TERMINAL COBRE T-35/10 · 0,58 €/ud",
+      "fecha": "2026-07-13",
+      "importe": 2.32,
+      "numero": "",
+      "proveedor": "Instapalma Obras y Servicios"
+    },
+    {
+      "concepto": "58 uds · TERMINAL CU T-10/8 · 2,26 €/ud",
+      "fecha": "2026-07-13",
+      "importe": 131.08,
+      "numero": "",
+      "proveedor": "Instapalma Obras y Servicios"
+    },
+    {
+      "concepto": "2 uds · TERMORRETRACTIL MED.ADH.12/3 · 3,75 €/ud",
+      "fecha": "2026-07-13",
+      "importe": 7.5,
+      "numero": "",
+      "proveedor": "Instapalma Obras y Servicios"
+    },
+    {
+      "concepto": "282 uds · BRIDA 150x2,5 ESTAND.NG 100u. · 0,02 €/ud",
+      "fecha": "2026-07-13",
+      "importe": 5.64,
+      "numero": "",
+      "proveedor": "Instapalma Obras y Servicios"
+    },
+    {
+      "concepto": "53 uds · Brida 3,6x200mm · 0,02 €/ud",
+      "fecha": "2026-07-13",
+      "importe": 1.06,
+      "numero": "",
+      "proveedor": "Instapalma Obras y Servicios"
+    },
+    {
+      "concepto": "22 uds · PLACA SENALIZACION PA 6.6 18X40 NATURAL · 0,11 €/ud",
+      "fecha": "2026-07-13",
+      "importe": 2.51,
+      "numero": "",
+      "proveedor": "Instapalma Obras y Servicios"
+    },
+    {
+      "concepto": "2 uds · Abrazadera Desa Click 50mm · 1,50 €/ud",
+      "fecha": "2026-07-13",
+      "importe": 3,
+      "numero": "",
+      "proveedor": "Instapalma Obras y Servicios"
+    },
+    {
+      "concepto": "5 uds · Abrazadera Desa Click 63mm · 2,65 €/ud",
+      "fecha": "2026-07-13",
+      "importe": 13.25,
+      "numero": "",
+      "proveedor": "Instapalma Obras y Servicios"
+    },
+    {
+      "concepto": "1 uds · Carrete Brother · 9,50 €/ud",
+      "fecha": "2026-07-13",
+      "importe": 9.5,
+      "numero": "",
+      "proveedor": "Instapalma Obras y Servicios"
+    },
+    {
+      "concepto": "60 uds tubo AISCAN-B blindado D.32 enchufable GR (pedido PCTF-004268-2026)",
+      "fecha": "2026-05-06",
+      "importe": 64.68,
+      "numero": "VCTF-008391-2026",
+      "proveedor": "Diexfe"
+    },
+    {
+      "concepto": "500 bridas 4,8x300 gris (certificación N1 nº 2026-0126; las 96 h de mano de obra se han retirado de material)",
+      "fecha": "2026-08-26",
+      "importe": 15,
+      "numero": "2026-0126",
+      "proveedor": "Instapalma Obras y Servicios, S.L.U."
+    },
+    {
+      "concepto": "16 uds. proyector sup. emerg. autotest Vesubio 1800Lm IP65 a 299,00 €/ud",
+      "fecha": "2026-10-28",
+      "importe": 4784,
+      "numero": "K2026-0172",
+      "proveedor": "Kairos Supply SL"
+    },
+    {
+      "concepto": "Cajas estancas YBOX Y715/Y716/Y686, manguera Electroflex M20 y M25, racores y manguitos de unión (pedido PCTF-004169-2026)",
+      "fecha": "2026-05-05",
+      "importe": 228.13,
+      "numero": "VCTF-008217-2026",
+      "proveedor": "Diexfe"
+    },
+    {
+      "concepto": "Spray marcador obra 500 ml rojo (SOU-155570)",
+      "fecha": "2026-09-24",
+      "importe": 6.12,
+      "numero": "184599/018",
+      "proveedor": "Comercial Eléctrica Canarias, S.A. (Grupo Coelca)"
+    },
+    {
+      "concepto": "Cable AFIRENAX-L 05Z1-K/07Z1-K 2,5 mm2 (3.600 m en 5 colores) y 1,5 mm2 (4.200 m en 5 colores). Pedido PCTF-009138-2026",
+      "fecha": "2026-09-25",
+      "importe": 1856.8,
+      "numero": "VCTF-018141-2026",
+      "proveedor": "Diexfe"
+    },
+    {
+      "concepto": "Cajetines y marcos empotrar CIMA 4 y 3 módulos (15+15+5+5 uds), entregar en almacén COVALLE. Pedido PCTF-009875-2026",
+      "fecha": "2026-10-19",
+      "importe": 487.47,
+      "numero": "VCTF-019530-2026",
+      "proveedor": "Diexfe"
+    },
+    {
+      "concepto": "12 uds bandeja metálica perforada 100x400 electrozincada (Ref. COVALLE, pedido PCTF-004158-2026)",
+      "fecha": "2026-06-08",
+      "importe": 141.74,
+      "numero": "VCTF-010646-2026",
+      "proveedor": "Diexfe"
+    },
+    {
+      "concepto": "3 uds. emergencia no permanente 195LM Normalux G-200L",
+      "fecha": "2026-09-15",
+      "importe": 42.15,
+      "numero": "309005676",
+      "proveedor": "Sonepar La Palma"
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "albs": [],
+  "cliente": "TRAGSA",
+  "desc": "Adecuación  de tubos",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-10-20",
+  "horas": 8,
+  "obra": "HOSPITAL (MOD G)",
+  "ops": [
+    {
+      "h": 4,
+      "n": "Manuel"
+    },
+    {
+      "h": 4,
+      "n": "Juan"
+    }
+  ],
+  "stock": [
+    {
+      "d": "bollsa bridas  de 4,8x300",
+      "q": 1,
+      "u": ""
+    }
+  ]
+}

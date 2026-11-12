@@ -1,0 +1,29 @@
+{
+  "albs": [],
+  "cliente": "TOMÁS BARRETO",
+  "desc": "Enhebrar cable utp cat 6 desde Rack en planta baja hasta portillon zona de self check-out. Limpiar zonas de trabajo",
+  "devol": [],
+  "estado": "TERMINADO",
+  "fecha": "2026-11-05",
+  "horas": 10,
+  "id": "891",
+  "obra": "SPAR TRIANA (OT 134)",
+  "ops": [
+    {
+      "h": 5.5,
+      "n": "Petter"
+    },
+    {
+      "h": 4.5,
+      "n": "Jonathan Rodríguez"
+    }
+  ],
+  "origen": "dashboard",
+  "stock": [
+    {
+      "d": "Cable utp cat 6",
+      "q": 46,
+      "u": "m"
+    }
+  ]
+}

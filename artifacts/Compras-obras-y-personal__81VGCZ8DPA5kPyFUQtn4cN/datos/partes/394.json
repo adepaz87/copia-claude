@@ -1,0 +1,25 @@
+{
+  "albs": [],
+  "cliente": "TRAGSA",
+  "desc": "Instalar carril perforado para bandejas en cuarto del inversor\nPasar culebrina para medir acometida y dejar pasada una guía \nBuscar canalizaciones por el edificio hasta el rack y dejar pasada una guía \nConectar tierras a estructuras\nInstalar inversor",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-09-02",
+  "horas": 22.5,
+  "obra": "FV CENTRO DE VISITANTES",
+  "ops": [
+    {
+      "h": 8,
+      "n": "Adán"
+    },
+    {
+      "h": 6.5,
+      "n": "Toño"
+    },
+    {
+      "h": 8,
+      "n": "Jonathan Glez"
+    }
+  ],
+  "stock": []
+}

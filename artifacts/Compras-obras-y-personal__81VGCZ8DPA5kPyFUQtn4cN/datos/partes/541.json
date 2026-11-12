@@ -1,0 +1,23 @@
+{
+  "albs": [
+    "Diexfe VCTF-017854-2026"
+  ],
+  "cliente": "DRAGADOS",
+  "desc": "Colocar portalamparas y lamparas en escaleras de hotel, azotea, habitaciones 2 planta, pasillos, cuarto de rack, baño PMR, etc\nPuentear sensores para alumbrados.\nColocar focos en planta baja.\nColocar alumbrado en escalera teatro y focos en el escenario y sala butacas.",
+  "devol": [],
+  "estado": "TERMINADO",
+  "fecha": "2026-09-24",
+  "horas": 14,
+  "obra": "HOTEL Y TEATRO MONTERREY",
+  "ops": [
+    {
+      "h": 7,
+      "n": "Antonio"
+    },
+    {
+      "h": 7,
+      "n": "Iker"
+    }
+  ],
+  "stock": []
+}

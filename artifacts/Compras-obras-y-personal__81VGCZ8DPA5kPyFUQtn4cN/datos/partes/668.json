@@ -1,0 +1,17 @@
+{
+  "albs": [],
+  "cliente": "INSTAPALMA",
+  "desc": "Colocar tubos eléctricos , hacer agujeros a arquetas y dejar tubos en posición",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-10-08",
+  "horas": 8,
+  "obra": "ZANJA COVALLE",
+  "ops": [
+    {
+      "h": 8,
+      "n": "Luigi"
+    }
+  ],
+  "stock": []
+}

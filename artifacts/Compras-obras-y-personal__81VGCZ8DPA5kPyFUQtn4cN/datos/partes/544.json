@@ -1,0 +1,31 @@
+{
+  "albs": [],
+  "cliente": "TRAGSA",
+  "desc": "Quitar espuma de las canalizaciones.\nEnhebrar fibra óptica desde cuarto del inversor hasta cuarto de cuadro general.\nEnbridar fibra óptica por tramos de bandejas.",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-09-24",
+  "horas": 18,
+  "obra": "FV JTI",
+  "ops": [
+    {
+      "h": 6,
+      "n": "Adán"
+    },
+    {
+      "h": 6,
+      "n": "Toño"
+    },
+    {
+      "h": 6,
+      "n": "Jonathan Glez"
+    }
+  ],
+  "stock": [
+    {
+      "d": "fibra óptica",
+      "q": 150,
+      "u": "m"
+    }
+  ]
+}

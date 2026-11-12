@@ -1,0 +1,70 @@
+{
+  "albs": [],
+  "cliente": "CHICHO 2 TUMBOS",
+  "desc": "Descargar material en obra\nHacer bajadas de alimentación centralizaciones\nHacer bajadas con bandeja hasta centralizaciones\nColocar varillas y carriles para bandeja centralizaciones",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-09-10",
+  "horas": 19,
+  "obra": "EDIFICIO SABINO",
+  "ops": [
+    {
+      "h": 9,
+      "n": "Riki"
+    },
+    {
+      "h": 8,
+      "n": "Junior"
+    },
+    {
+      "h": 1,
+      "n": "Joel"
+    },
+    {
+      "h": 1,
+      "n": "Aythami"
+    }
+  ],
+  "stock": [
+    {
+      "d": "varilla roscada de 8mm",
+      "q": 14,
+      "u": "m"
+    },
+    {
+      "d": "carril perforado",
+      "q": 18,
+      "u": "m"
+    },
+    {
+      "d": "tacos y tornillos de 6",
+      "q": 1,
+      "u": "caja"
+    },
+    {
+      "d": "tacos de 10",
+      "q": 1,
+      "u": "caja"
+    },
+    {
+      "d": "tornillos tr de 8mm",
+      "q": 1,
+      "u": "caja"
+    },
+    {
+      "d": "arandelas de 8mm",
+      "q": 40,
+      "u": ""
+    },
+    {
+      "d": "tuercas de 8mmm",
+      "q": 40,
+      "u": ""
+    },
+    {
+      "d": "uniones para varilla de 8mm",
+      "q": 40,
+      "u": ""
+    }
+  ]
+}

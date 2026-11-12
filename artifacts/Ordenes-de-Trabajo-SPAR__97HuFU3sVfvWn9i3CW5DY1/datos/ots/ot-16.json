@@ -1,0 +1,19 @@
+{
+  "actualizada": "2026-05-28T09:00:00Z",
+  "aviso": "",
+  "centro": "SPAR Triana",
+  "creada": "2026-05-28T09:00:00Z",
+  "descripcion": "Palancas saltadas en el obrador de fruta y la cafetería; sin corriente.",
+  "estado": "terminada",
+  "fechaAviso": "2026-05-28",
+  "historial": [
+    "28/05/2026 · Importada del correo de Alberto"
+  ],
+  "informado": true,
+  "notas": "Resuelta (correo 28/05/2026).",
+  "operario": "",
+  "ot": 16,
+  "prioridad": "Sin especificar",
+  "solicitante": "",
+  "tipo": "MANTENIMIENTO"
+}

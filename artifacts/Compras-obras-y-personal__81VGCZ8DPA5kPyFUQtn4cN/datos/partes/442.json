@@ -1,0 +1,27 @@
+{
+  "albs": [],
+  "cliente": "CONSTRUCCIONES DOMINGO",
+  "desc": "Entubar terrazas exteriores",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-09-09",
+  "horas": 3,
+  "obra": "CASA ANA PADRON",
+  "ops": [
+    {
+      "h": 1.5,
+      "n": "Aythami"
+    },
+    {
+      "h": 1.5,
+      "n": "Joel"
+    }
+  ],
+  "stock": [
+    {
+      "d": "tubo cuarrugado de 20",
+      "q": 65,
+      "u": "m"
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "empresa": "Kairos Supply",
+  "fecha": "2026-08-20",
+  "lineas": [
+    {
+      "a": "309005122",
+      "d": "ENNOVAPARK HORMIGON DOBLE SC 12P",
+      "f": "2026-08-20",
+      "i": 16282.93,
+      "o": "",
+      "pn": 16282.93,
+      "pt": 16282.926829,
+      "q": 1,
+      "r": "1308126"
+    }
+  ],
+  "numero": "F03000R-11331",
+  "origen": "Gmail",
+  "proveedor": "Sonepar",
+  "tipo": "factura"
+}

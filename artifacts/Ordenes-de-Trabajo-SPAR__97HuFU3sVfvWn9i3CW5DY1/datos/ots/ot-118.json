@@ -1,0 +1,20 @@
+{
+  "actualizada": "2026-11-03T16:08:41.388Z",
+  "aviso": "26187",
+  "centro": "Eurospar Mederos",
+  "creada": "2026-11-03T16:30:00Z",
+  "descripcion": "Tendido de cable UTP cat5 para las nuevas antenas wifi de etiquetas electrónicas.",
+  "estado": "terminada",
+  "fechaAviso": "2026-08-04",
+  "historial": [
+    "03/11/2026 · Importada del correo GIM",
+    "3/11/2026 16:08 · Estado: Terminada"
+  ],
+  "informado": false,
+  "notas": "Lo pidió Goretti (Informática). No encuentro parte ni cierre de Mederos: comprobar si ya se hizo. Nº OT provisional: confirmar o cambiar.",
+  "operario": "",
+  "ot": 118,
+  "prioridad": "Sin especificar",
+  "solicitante": "Otro",
+  "tipo": "OBRA"
+}

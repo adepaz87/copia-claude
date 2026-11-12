@@ -1,0 +1,68 @@
+{
+  "albs": [],
+  "cliente": "CONSTRUCCIONES DOS TUMBOS",
+  "desc": "Colocación cajas Mecanismo Enhebrar en habitaciones 1planta y zonas comunes (Fuerza,Alumbrado,Alumbrado Emg) Limpiar zonas de trabajo",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-10-30",
+  "horas": 14,
+  "obra": "RESIDENCIA TERCERA EDAD EL PASO",
+  "ops": [
+    {
+      "h": 8,
+      "n": "Petter"
+    },
+    {
+      "h": 6,
+      "n": "Jonathan Rodríguez"
+    }
+  ],
+  "origen": "dashboard",
+  "stock": [
+    {
+      "d": "Cable UTP cat-6 A",
+      "q": 423,
+      "u": "m"
+    },
+    {
+      "d": "Cable 1x1,5mm Marrón",
+      "q": 1100,
+      "u": "m"
+    },
+    {
+      "d": "Cable 1x1,5mm Gris",
+      "q": 400,
+      "u": "m"
+    },
+    {
+      "d": "Cable 1x1,5mm Azul",
+      "q": 400,
+      "u": "m"
+    },
+    {
+      "d": "Cable 1x1,5mm Am/Ver",
+      "q": 400,
+      "u": "m"
+    },
+    {
+      "d": "Cable 1x1,5mm Negro",
+      "q": 200,
+      "u": "m"
+    },
+    {
+      "d": "Cable 1x2,5mm Azul",
+      "q": 200,
+      "u": "m"
+    },
+    {
+      "d": "Cable 1x2,5mm Am/Ver",
+      "q": 400,
+      "u": "m"
+    },
+    {
+      "d": "Cajas mecanismo pladur 2 elementos Ref:5725",
+      "q": 10,
+      "u": "ud"
+    }
+  ]
+}

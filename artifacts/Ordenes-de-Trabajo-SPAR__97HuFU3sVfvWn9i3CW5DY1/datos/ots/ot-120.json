@@ -1,0 +1,19 @@
+{
+  "actualizada": "2026-11-03T16:30:00Z",
+  "aviso": "26912",
+  "centro": "Central Logística y Oficinas",
+  "creada": "2026-11-03T16:30:00Z",
+  "descripcion": "Extracción de la zona de preventa no funciona.",
+  "estado": "terminada",
+  "fechaAviso": "2026-09-29",
+  "historial": [
+    "03/11/2026 · Importada del correo GIM"
+  ],
+  "informado": true,
+  "notas": "Anulada por Raquel el 19/10 («VENTILADORES / PREVENTA: anular avería»). Nº OT provisional: confirmar o cambiar.",
+  "operario": "",
+  "ot": 120,
+  "prioridad": "Sin especificar",
+  "solicitante": "Fernando",
+  "tipo": "MANTENIMIENTO"
+}

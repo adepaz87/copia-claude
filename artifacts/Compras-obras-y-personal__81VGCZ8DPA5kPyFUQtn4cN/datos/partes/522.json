@@ -1,0 +1,23 @@
+{
+  "albs": [],
+  "cliente": "TOMÁS BARRETO SA",
+  "desc": "Salto esporádico diferencial general UPS. En serie con otros.Mediciines comprobaciones ,sustituido y funcionando.",
+  "devol": [],
+  "estado": "TERMINADO",
+  "fecha": "2026-09-22",
+  "horas": 1,
+  "obra": "SPAR EL MERCADO",
+  "ops": [
+    {
+      "h": 1,
+      "n": "Toño"
+    }
+  ],
+  "stock": [
+    {
+      "d": "Diferencial 2x40A.300mA.eaton",
+      "q": 1,
+      "u": ""
+    }
+  ]
+}

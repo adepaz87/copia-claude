@@ -1,0 +1,115 @@
+{
+  "albs": [],
+  "cliente": "COVALLE",
+  "desc": "Elaboración cuadros eléctricos: Modificaciones Subcuadro Almacén",
+  "devol": [],
+  "estado": "TERMINADO",
+  "fecha": "2026-11-09",
+  "horas": 4,
+  "id": "917",
+  "obra": "CUADROS ELÉCTRICOS.MODIFICACIONES",
+  "ops": [
+    {
+      "h": 4,
+      "n": "Toño"
+    }
+  ],
+  "origen": "dashboard",
+  "stock": [
+    {
+      "d": "Cuadro metálico S/P.blanco BF-0-5/165-E.Moeller",
+      "q": 1,
+      "u": ""
+    },
+    {
+      "d": "Repartidor trifásico 160A.Contact.",
+      "q": 1,
+      "u": ""
+    },
+    {
+      "d": "Cable 1x16mm",
+      "q": 7,
+      "u": "m"
+    },
+    {
+      "d": "Cable 1x10mm",
+      "q": 33,
+      "u": "m"
+    },
+    {
+      "d": "Cable 1x6mm",
+      "q": 18,
+      "u": "m"
+    },
+    {
+      "d": "Cable 1x2,5mm",
+      "q": 46,
+      "u": "m"
+    },
+    {
+      "d": "Punteras simple 16mm",
+      "q": 16,
+      "u": ""
+    },
+    {
+      "d": "Punteras simple 10mm",
+      "q": 84,
+      "u": ""
+    },
+    {
+      "d": "Punteras simple 6mm",
+      "q": 72,
+      "u": ""
+    },
+    {
+      "d": "Punteras simple 2,5mm",
+      "q": 104,
+      "u": ""
+    },
+    {
+      "d": "Punteras dobles 10mm",
+      "q": 6,
+      "u": ""
+    },
+    {
+      "d": "Punteras dobles 6mm",
+      "q": 8,
+      "u": ""
+    },
+    {
+      "d": "Punteras dobles 2,5mm",
+      "q": 6,
+      "u": ""
+    },
+    {
+      "d": "Brida 2,5x150mm",
+      "q": 242,
+      "u": ""
+    },
+    {
+      "d": "Brida 4,8x300mm",
+      "q": 13,
+      "u": ""
+    },
+    {
+      "d": "Brida etiqueta 2,5x200mm",
+      "q": 23,
+      "u": ""
+    },
+    {
+      "d": "Obturador Eaton",
+      "q": 1.5,
+      "u": "m"
+    },
+    {
+      "d": "Triángulo peligro 100mm",
+      "q": 1,
+      "u": ""
+    },
+    {
+      "d": "Borna carril 25mm",
+      "q": 4,
+      "u": ""
+    }
+  ]
+}

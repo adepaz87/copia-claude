@@ -1,0 +1,12 @@
+{
+  "cap": "01",
+  "cod": "01.07",
+  "desc": "Levantado puntual de pavimento existente en trazado de zanjas y zonas de aseos.",
+  "med": 12,
+  "nota": "El resto se conserva como soporte del nuevo pavimento",
+  "orden": 7,
+  "pre": 12,
+  "rev": false,
+  "sb": false,
+  "ud": "m²"
+}

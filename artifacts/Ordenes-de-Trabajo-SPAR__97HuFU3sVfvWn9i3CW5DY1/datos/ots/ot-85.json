@@ -1,0 +1,19 @@
+{
+  "actualizada": "2026-10-19T09:00:00Z",
+  "aviso": "",
+  "centro": "Central Logística y Oficinas (Breña Baja)",
+  "creada": "2026-10-19T09:00:00Z",
+  "descripcion": "Pasar cable UTP 5e del rack de centralita al pasillo de la oficina de José Gabriel / Marketing / sala de juntas.",
+  "estado": "terminada",
+  "fechaAviso": "2026-10-19",
+  "historial": [
+    "19/10/2026 · Importada del correo de Alberto"
+  ],
+  "informado": true,
+  "notas": "Resolución confirmada el 19/10/2026.",
+  "operario": "Toño Guardia",
+  "ot": 85,
+  "prioridad": "Sin especificar",
+  "solicitante": "",
+  "tipo": "MANTENIMIENTO"
+}

@@ -1,0 +1,19 @@
+{
+  "albs": [],
+  "cliente": "TOMÁS BARRETO SA",
+  "desc": "Reglaje ajuste relojes horarios. Reglaje ajuste sensor movimiento alumbrado zona recepción mercancías. Funcionando",
+  "devol": [],
+  "estado": "TERMINADO",
+  "fecha": "2026-11-04",
+  "horas": 1,
+  "id": "882",
+  "obra": "SPAR EL PASO",
+  "ops": [
+    {
+      "h": 1,
+      "n": "Toño"
+    }
+  ],
+  "origen": "dashboard",
+  "stock": []
+}

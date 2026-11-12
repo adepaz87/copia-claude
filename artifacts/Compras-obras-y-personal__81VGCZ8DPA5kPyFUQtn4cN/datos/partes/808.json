@@ -1,0 +1,37 @@
+{
+  "albs": [],
+  "cliente": "TRAGSA",
+  "desc": "Instalar tubo visto, diflex y cajas de registro para PCI en cuarto de depósitos, grupo de presión y zonas que faltaban en parking.",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-10-27",
+  "horas": 8,
+  "obra": "PCI PLAZA GAZMIRA",
+  "ops": [
+    {
+      "h": 4,
+      "n": "Eloy"
+    },
+    {
+      "h": 4,
+      "n": "Jonathan Glez"
+    }
+  ],
+  "stock": [
+    {
+      "d": "tubo rígido de 20mm",
+      "q": 6,
+      "u": "m"
+    },
+    {
+      "d": "racores de tubo rígido a caja de 20mm",
+      "q": 2,
+      "u": ""
+    },
+    {
+      "d": "racores de tubo diflex a tubo rígido de 20/20mm",
+      "q": 4,
+      "u": ""
+    }
+  ]
+}

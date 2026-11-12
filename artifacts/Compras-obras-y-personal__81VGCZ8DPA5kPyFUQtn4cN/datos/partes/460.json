@@ -1,0 +1,27 @@
+{
+  "albs": [],
+  "cliente": "TOMAS BARRETO S.A.",
+  "desc": "- colocación de protector plástico en perfilería de luces led. (Apto. 1)\n- Colocación de perfilería para líneas led, enhebrar línea para tira led RGB/B y conexionado de equipos (transformadores ,controladores y programación mandos) en apto. 2\n- entubado y enhebrado de cable exterior de antena TV, instalación de caja amplificación y conexionado.",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-09-11",
+  "horas": 16,
+  "obra": "APARTAMENTOS SPAR-TRIANA",
+  "ops": [
+    {
+      "h": 8,
+      "n": "Junior"
+    },
+    {
+      "h": 8,
+      "n": "Rafa"
+    }
+  ],
+  "stock": [
+    {
+      "d": "estanca Solera con conos de 230x180",
+      "q": 1,
+      "u": "caja"
+    }
+  ]
+}

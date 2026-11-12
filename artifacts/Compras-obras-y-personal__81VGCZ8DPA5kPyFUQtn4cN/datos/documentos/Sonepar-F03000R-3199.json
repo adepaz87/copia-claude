@@ -1,0 +1,38 @@
+{
+  "empresa": "Kairos Supply",
+  "fecha": "2026-03-12",
+  "lineas": [
+    {
+      "a": "309001440",
+      "d": "PORTAFUSIBLE 1P 1-32A DC 1000V 10X38",
+      "dto": "2,00",
+      "f": "2026-03-12",
+      "fab": "10005583",
+      "i": 13.37,
+      "m": "TOSCANO",
+      "o": "FUENCALIENTE FOTOVOLTAICA",
+      "pn": 1.6712,
+      "pt": 1.705624,
+      "q": 8,
+      "r": "1165339"
+    },
+    {
+      "a": "309001440",
+      "d": "FUSIBLE 20A DC 1000V 10X38",
+      "dto": "2,00",
+      "f": "2026-03-12",
+      "fab": "10005585",
+      "i": 7.04,
+      "m": "TOSCANO",
+      "o": "FUENCALIENTE FOTOVOLTAICA",
+      "pn": 0.88,
+      "pt": 0.897082,
+      "q": 8,
+      "r": "1165344"
+    }
+  ],
+  "numero": "F03000R-3199",
+  "origen": "Gmail",
+  "proveedor": "Sonepar",
+  "tipo": "factura"
+}

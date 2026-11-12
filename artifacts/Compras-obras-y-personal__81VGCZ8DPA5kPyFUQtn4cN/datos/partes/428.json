@@ -1,0 +1,27 @@
+{
+  "albs": [
+    "Bap 112.608.640"
+  ],
+  "cliente": "TRAGSA",
+  "desc": "Terminar de instalar baterías, sigenstack y sigenstack covers.\nFijar baterías entre sí.\nInstalar fijaciones para polipasto.\nInstalar Inversor en nueva ubicación.\nSoltar cables y desmontar bandeja por cambios en la distribución.\nInstalar cuadro de CA y aparamenta.\nRecoger y separar cartones y plásticos y tirar basura.",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-09-08",
+  "horas": 21.5,
+  "obra": "FV CENTRO DE VISITANTES",
+  "ops": [
+    {
+      "h": 8,
+      "n": "Adán"
+    },
+    {
+      "h": 5.5,
+      "n": "Toño"
+    },
+    {
+      "h": 8,
+      "n": "Jonathan Glez"
+    }
+  ],
+  "stock": []
+}

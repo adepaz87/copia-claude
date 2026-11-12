@@ -1,0 +1,36 @@
+{
+  "empresa": "Instapalma",
+  "fecha": "2026-09-23",
+  "lineas": [
+    {
+      "a": "309005837",
+      "d": "PRESENCE HUBLOT 14W 1200LM 4000K ON/OFF (+raee)",
+      "dto": "",
+      "f": "2026-09-23",
+      "i": 13.6,
+      "igic": 7,
+      "o": "CHICHO DOS TUMBSO (VIVIENDAS TANQUE)",
+      "pn": 13.6,
+      "pt": 13.6,
+      "q": 1,
+      "r": "824287"
+    },
+    {
+      "a": "309005837",
+      "d": "PACK 12XLR6 PILA ALCALINA AA 1,5V",
+      "dto": "",
+      "f": "2026-09-23",
+      "i": 5.78,
+      "igic": 7,
+      "o": "CHICHO DOS TUMBSO (VIVIENDAS TANQUE)",
+      "pn": 5.78,
+      "pt": 5.78,
+      "q": 1,
+      "r": "705153"
+    }
+  ],
+  "numero": "309005837",
+  "origen": "Gmail",
+  "proveedor": "Sonepar",
+  "tipo": "albaran"
+}

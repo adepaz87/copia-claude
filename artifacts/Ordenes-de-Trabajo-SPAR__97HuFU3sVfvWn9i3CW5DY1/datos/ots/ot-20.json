@@ -1,0 +1,19 @@
+{
+  "actualizada": "2026-08-12T09:00:00Z",
+  "aviso": "",
+  "centro": "Central Logística y Oficinas (Breña Baja)",
+  "creada": "2026-08-12T09:00:00Z",
+  "descripcion": "Instalación de tomas de corriente según ficha técnica en la zona de PREVENTAS, Almacén Central.",
+  "estado": "terminada",
+  "fechaAviso": "2026-08-12",
+  "historial": [
+    "12/08/2026 · Importada del correo de Alberto"
+  ],
+  "informado": true,
+  "notas": "Resolución confirmada por Toño (12/08/2026).",
+  "operario": "Toño Guardia",
+  "ot": 20,
+  "prioridad": "Sin especificar",
+  "solicitante": "",
+  "tipo": "MANTENIMIENTO"
+}

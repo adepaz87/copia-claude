@@ -1,0 +1,25 @@
+{
+  "empresa": "Instapalma",
+  "fecha": "2026-11-10",
+  "lineas": [
+    {
+      "a": "VCTF-021175-2026",
+      "d": "CJ.ETCA.CX.YBOX Y715 IP55 IK08 TORN.1/4\"",
+      "dto": "0,00",
+      "f": "2026-11-10",
+      "i": 30.98,
+      "o": "NAVE COVALLE (PCI)",
+      "pn": 1.549,
+      "pt": 1.549,
+      "q": 20,
+      "r": "SOL-Y715"
+    }
+  ],
+  "msg": "1a1c5923f5c3a47a",
+  "numero": "VCTF-021175-2026",
+  "obra": "NAVE COVALLE (PCI)",
+  "origen": "Gmail",
+  "proveedor": "Diexfe",
+  "tipo": "albaran",
+  "total": 30.98
+}

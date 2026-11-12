@@ -1,0 +1,28 @@
+{
+  "albs": [],
+  "cliente": "COVALLE",
+  "desc": "Enhebrar por bandeja alimentación subcuadro Transportadora aérea L-4 desde subcuadro nave 3. (5x10mm 1kv-Rz1) Entubar puntos luz porche exterior planta baja Entubar oficinas planta alta Tapar cajas mecanismo,puesto trabajo planta baja (yeso) Realizar medidas alimentaciones sub cuadros desde cuadro general Colocación sub-cuadro nave 1 y sub-cuadro almacén Limpiar zonas de trabajo",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-11-09",
+  "horas": 26,
+  "id": "923",
+  "obra": "NAVE COOPERATIVA COVALLE",
+  "ops": [
+    {
+      "h": 11,
+      "n": "Petter"
+    },
+    {
+      "h": 11,
+      "n": "Jonathan Rodríguez"
+    },
+    {
+      "h": 4,
+      "n": "Toño"
+    }
+  ],
+  "origen": "dashboard",
+  "restante": "Indefinido",
+  "stock": []
+}

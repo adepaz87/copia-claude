@@ -1,0 +1,21 @@
+{
+  "albs": [],
+  "cliente": "CABILDO INSULAR",
+  "desc": "Reparar averia en esterilizador de inspeccion  de porcino.",
+  "devol": [],
+  "estado": "TERMINADO",
+  "fecha": "2026-09-28",
+  "horas": 2,
+  "obra": "MATADERO INSULAR",
+  "ops": [
+    {
+      "h": 1,
+      "n": "Antonio"
+    },
+    {
+      "h": 1,
+      "n": "Transporte"
+    }
+  ],
+  "stock": []
+}

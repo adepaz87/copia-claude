@@ -1,0 +1,23 @@
+{
+  "albs": [
+    "Fraper 2026/01/011402"
+  ],
+  "cliente": "TRAGSA",
+  "desc": "Instalar Inversor\nCablear y conectar torres de baterías entre sí.\nFijar entre sí baterías, singenstack cover y sigenstack controlador.\nDesmontar luminaria averiada e instalar foco en el cuarto del inversor.\nDesmontar estanterías y quitar materiales del cuarto del inversor.\nSeparar cartones, plásticos y basura.\nLimpiar cuarto del inversor y tirar basura.\nHacer curvas en bandeja de 200x100.",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-09-11",
+  "horas": 16,
+  "obra": "FV RIACHUELO",
+  "ops": [
+    {
+      "h": 8,
+      "n": "Adán"
+    },
+    {
+      "h": 8,
+      "n": "Jonathan Glez"
+    }
+  ],
+  "stock": []
+}

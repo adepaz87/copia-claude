@@ -1,0 +1,19 @@
+{
+  "albs": [],
+  "cliente": "TOMÁS BARRETO S.A",
+  "desc": "Buscar avería Avería en caja de conexión de condensadora aire rota y le entró agua, se deja bajado diferencial",
+  "devol": [],
+  "estado": "TERMINADO",
+  "fecha": "2026-11-11",
+  "horas": 1,
+  "id": "944",
+  "obra": "NUEVO ALMACÉN 2 :OT 144",
+  "ops": [
+    {
+      "h": 1,
+      "n": "Aythami"
+    }
+  ],
+  "origen": "dashboard",
+  "stock": []
+}

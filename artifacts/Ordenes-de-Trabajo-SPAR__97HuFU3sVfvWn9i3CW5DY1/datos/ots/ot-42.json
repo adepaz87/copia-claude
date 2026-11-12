@@ -1,0 +1,19 @@
+{
+  "actualizada": "2026-07-18T09:00:00Z",
+  "aviso": "",
+  "centro": "SPAR El Paso",
+  "creada": "2026-07-18T09:00:00Z",
+  "descripcion": "Instalación de 2 tomas de corriente normales en la zona cafetera.",
+  "estado": "terminada",
+  "fechaAviso": "2026-07-18",
+  "historial": [
+    "18/07/2026 · Importada del correo de Alberto"
+  ],
+  "informado": true,
+  "notas": "Resuelta (correo 18/07/2026).",
+  "operario": "",
+  "ot": 42,
+  "prioridad": "Sin especificar",
+  "solicitante": "",
+  "tipo": "MANTENIMIENTO"
+}

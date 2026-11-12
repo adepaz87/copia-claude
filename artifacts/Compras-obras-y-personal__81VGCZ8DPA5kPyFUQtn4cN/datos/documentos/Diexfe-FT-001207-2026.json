@@ -1,0 +1,22 @@
+{
+  "empresa": "Instapalma",
+  "fecha": "2026-02-25",
+  "lineas": [
+    {
+      "a": "VCTF-003569-2026",
+      "d": "CABLE BARRYFLEX RV-K 0,6 1/KV 4X6MM2",
+      "dto": "Neto",
+      "f": "2026-02-25",
+      "i": 941.49,
+      "o": "MIRADOR LAS INDIAS",
+      "pn": 3.487,
+      "pt": 3.487,
+      "q": 270,
+      "r": "MIG-87250"
+    }
+  ],
+  "numero": "FT-001207-2026",
+  "origen": "Gmail",
+  "proveedor": "Diexfe",
+  "tipo": "factura"
+}

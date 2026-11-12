@@ -1,0 +1,17 @@
+{
+  "albs": [],
+  "cliente": "AYUNTAMIENTO EL PASO",
+  "desc": "Colocar cable fachada 3 Piso con elevador llevarlo a registro y fichar.\nRevisar obra con ingeniero y arquitecto para ver cambios.\nProbar extraccion con varidor y ver consumos. \nMarcar registros en planta baja para cortar. \nMarcar alumbrado planta baja.",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-09-30",
+  "horas": 8,
+  "obra": "HOTEL MONTERREY",
+  "ops": [
+    {
+      "h": 8,
+      "n": "Antonio"
+    }
+  ],
+  "stock": []
+}

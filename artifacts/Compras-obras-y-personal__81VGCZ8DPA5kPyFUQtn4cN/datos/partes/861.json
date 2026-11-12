@@ -1,0 +1,19 @@
+{
+  "albs": [],
+  "cliente": "TOMÁS BARRETO",
+  "desc": "Ver trabajos a realizar con encargada Spar Triana",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-11-03",
+  "horas": 0.5,
+  "id": "861",
+  "obra": "SPAR TRIANA",
+  "ops": [
+    {
+      "h": 0.5,
+      "n": "Jonathan Rodríguez"
+    }
+  ],
+  "origen": "dashboard",
+  "stock": []
+}

@@ -1,0 +1,28 @@
+{
+  "albs": [],
+  "cliente": "TRAGSA",
+  "desc": "Abrir pases en bandeja para cables de baterías, comunicación, tierras…\nCortar carril perforado.\nInstalar carril perforado y subida de bandeja para cables de baterías.\nTerminar instalacion de bandeja en cuarto de cuadro general.\nEnhebrar y enbridar por bandeja cables de baterías.\nEnhebrar y enbridar por bandeja línea de tierra para chasis del inversor.\nConectar tierras.",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-10-15",
+  "horas": 8,
+  "obra": "FV RIACHUELO",
+  "ops": [
+    {
+      "h": 8,
+      "n": "Jonathan Glez"
+    }
+  ],
+  "stock": [
+    {
+      "d": "cable 1x10",
+      "q": 12,
+      "u": "m"
+    },
+    {
+      "d": "terminales redondos de 10mm",
+      "q": 2,
+      "u": ""
+    }
+  ]
+}

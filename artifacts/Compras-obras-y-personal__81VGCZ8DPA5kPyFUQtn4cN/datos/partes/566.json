@@ -1,0 +1,22 @@
+{
+  "albs": [],
+  "cliente": "DRAGADOS",
+  "desc": "Reparar averia por fallo de el paro de emergencia del cuadro general",
+  "devol": [],
+  "estado": "TERMINADO",
+  "fecha": "2026-09-24",
+  "horas": 2,
+  "obra": "HOTEL MONTERREY",
+  "ops": [
+    {
+      "h": 1,
+      "n": "Antonio"
+    },
+    {
+      "h": 1,
+      "n": "Transporte"
+    }
+  ],
+  "origen": "dashboard",
+  "stock": []
+}

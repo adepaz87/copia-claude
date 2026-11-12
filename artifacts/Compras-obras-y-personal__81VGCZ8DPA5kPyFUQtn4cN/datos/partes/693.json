@@ -1,0 +1,29 @@
+{
+  "albs": [],
+  "cliente": "CONSTRUCCIONES DOS TUMBOS",
+  "desc": "Entubar alimentación subcuadro planta 1\nEntubar telecomunicaciones entre planta 1y2 …\nEntubar desde caja teleco en planta 1 hasta Rack planta baja\nColocación caja teleco y caja corriente en pasillo 1planta + entubar \nColocación caja preistalacion,tubos cobre y cable maniobra aire acondicionado 2planta \nLimpiar zonas de trabajo",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-10-14",
+  "horas": 35,
+  "obra": "RESIDENCIA TERCERA EDAD EL PASO",
+  "ops": [
+    {
+      "h": 8,
+      "n": "Petter"
+    },
+    {
+      "h": 8,
+      "n": "Junior"
+    },
+    {
+      "h": 8,
+      "n": "Ricky"
+    },
+    {
+      "h": 11,
+      "n": "Jonathan Rodríguez"
+    }
+  ],
+  "stock": []
+}

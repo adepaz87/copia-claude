@@ -1,0 +1,23 @@
+{
+  "albs": [
+    "Diexfe VCTF-018210-2026"
+  ],
+  "cliente": "EXTINPALMA S.L.",
+  "desc": "Ejecución y tendido del cableado del sistema de protección contra incendios\n mediante canalización de tubo de PVC visto, fijado al techo del aparcamiento y dispuesto \nsegún el recorrido previsto.  (Zona parking -2 )",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-09-30",
+  "horas": 16,
+  "obra": "HIPERDINO EL PUENTE (CONTRAINCENDIO)",
+  "ops": [
+    {
+      "h": 8,
+      "n": "Eloy"
+    },
+    {
+      "h": 8,
+      "n": "Rafa"
+    }
+  ],
+  "stock": []
+}

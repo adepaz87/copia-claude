@@ -1,0 +1,17 @@
+{
+  "albs": [],
+  "cliente": "TRAGSA",
+  "desc": "Colocar CBT en su ubicación y fijar a la pared.\n\nCortar tramel metalico para la  entrada por la parte baja de los cables al CBT.\n\nPerforar los tramel y las vigas metalicas del trafo para conectar tierras.\n\nColocar grapas en pared para red de tierras.\n\nAbrir pase en pared para los puentes del trafo al CBT.",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-09-21",
+  "horas": 8,
+  "obra": "CT. PLAZA GAZMIRA",
+  "ops": [
+    {
+      "h": 8,
+      "n": "Jorge"
+    }
+  ],
+  "stock": []
+}

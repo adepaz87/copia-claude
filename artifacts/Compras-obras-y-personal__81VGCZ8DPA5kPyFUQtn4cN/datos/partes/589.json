@@ -1,0 +1,29 @@
+{
+  "albs": [],
+  "cliente": "CHICHO DOS TUMBOS",
+  "desc": "Enhebrar derivaciones\nModificar altura centralización 1,3 y 4",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-09-29",
+  "horas": 41,
+  "obra": "EDIFICIO SABINO",
+  "ops": [
+    {
+      "h": 11,
+      "n": "Riki"
+    },
+    {
+      "h": 11,
+      "n": "Joel"
+    },
+    {
+      "h": 11,
+      "n": "Aythami"
+    },
+    {
+      "h": 8,
+      "n": "Junior"
+    }
+  ],
+  "stock": []
+}

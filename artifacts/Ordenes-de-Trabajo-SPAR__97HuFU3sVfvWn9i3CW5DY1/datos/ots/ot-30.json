@@ -1,0 +1,19 @@
+{
+  "actualizada": "2026-08-12T09:00:00Z",
+  "aviso": "25782",
+  "centro": "Central Logística y Oficinas (Breña Baja)",
+  "creada": "2026-08-12T09:00:00Z",
+  "descripcion": "Fallo en la luminaria de emergencia de la zona de carga.",
+  "estado": "terminada",
+  "fechaAviso": "2026-08-12",
+  "historial": [
+    "12/08/2026 · Importada del correo de Alberto"
+  ],
+  "informado": true,
+  "notas": "Resolución confirmada por Toño (12/08/2026).",
+  "operario": "Toño Guardia",
+  "ot": 30,
+  "prioridad": "Sin especificar",
+  "solicitante": "",
+  "tipo": "MANTENIMIENTO"
+}

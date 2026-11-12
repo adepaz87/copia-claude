@@ -1,0 +1,21 @@
+{
+  "albs": [],
+  "cliente": "CONSTRUCCIONES DOMINGO",
+  "desc": "Hacer pasamuros para puntos de luz terrazas",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-09-21",
+  "horas": 4,
+  "obra": "EDIFICIO DOMINGO EL PASO",
+  "ops": [
+    {
+      "h": 2,
+      "n": "Riki"
+    },
+    {
+      "h": 2,
+      "n": "Aythami"
+    }
+  ],
+  "stock": []
+}

@@ -1,0 +1,46 @@
+{
+  "albs": [
+    "Diexfe VCTF-019509-2026",
+    "Diexfe VCTF-019533-2026",
+    "Coelca 035.792/003"
+  ],
+  "cliente": "CABILDO INSULAR",
+  "desc": "Sustitución de fluorescentes 4x36W por paneles LED 60x60 en sala de reuniones planta alta; cambio de pantalla en oficina de Cocampa por 2 LED 60x60; colocación de un puesto de trabajo; reparación de falso techo y placas; luz de emergencia descolgada en oficina del encargado; revisión avería de emergencia en oficina de Cocampa.",
+  "devol": [],
+  "estado": "TERMINADO",
+  "fecha": "2026-10-29",
+  "horas": 17,
+  "obra": "HORTOFRUTICOLA",
+  "ops": [
+    {
+      "h": 8,
+      "n": "Antonio"
+    },
+    {
+      "h": 8,
+      "n": "Iker"
+    },
+    {
+      "h": 1,
+      "n": "Transporte"
+    }
+  ],
+  "origen": "dashboard",
+  "stock": [
+    {
+      "d": "tubo ferroplast 20mm",
+      "q": 8,
+      "u": "m"
+    },
+    {
+      "d": "cable flexible 1x1,5mm",
+      "q": 42,
+      "u": "m"
+    },
+    {
+      "d": "regletas empalme de 10mm",
+      "q": 2,
+      "u": ""
+    }
+  ]
+}

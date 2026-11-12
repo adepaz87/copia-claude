@@ -1,0 +1,32 @@
+{
+  "albs": [],
+  "cliente": "TRAGSA",
+  "desc": "Instalar seccionador de tierra.\nRecoger materiales en Barito.\nElaborar cuadro de CC.\nEnhebrar y conectar CA del inversor.\nEnbridar cables por bandeja.\nInstalar tubo diflex.",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-10-02",
+  "horas": 8,
+  "obra": "FV RIACHUELO",
+  "ops": [
+    {
+      "h": 4,
+      "n": "Toño"
+    },
+    {
+      "h": 4,
+      "n": "Jonathan Glez"
+    }
+  ],
+  "stock": [
+    {
+      "d": "tacos+tornillos de 6mm",
+      "q": 1,
+      "u": "caja"
+    },
+    {
+      "d": "bridas de 4,8x300",
+      "q": 2,
+      "u": "paquetes"
+    }
+  ]
+}

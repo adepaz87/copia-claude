@@ -1,0 +1,23 @@
+{
+  "albs": [],
+  "cliente": "COMERCIAL SASTRE",
+  "desc": "Desmontar pantallas fluorescentes antiguas en zona de carpinteria. Colocar shucos a las campanas led nuevas. Colocar campanas en techo y conectarlas.",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-10-27",
+  "horas": 8,
+  "obra": "ASERRADERO MIRCA",
+  "ops": [
+    {
+      "h": 8,
+      "n": "Jorge"
+    }
+  ],
+  "stock": [
+    {
+      "d": "bridas 4,6mm x 300mm",
+      "q": 1,
+      "u": "paquete"
+    }
+  ]
+}

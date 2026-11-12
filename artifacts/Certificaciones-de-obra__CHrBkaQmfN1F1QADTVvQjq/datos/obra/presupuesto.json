@@ -1,0 +1,827 @@
+{
+  "capitulos": [
+    {
+      "codigo": "C01",
+      "id": "kc01",
+      "nombre": "CUADROS"
+    },
+    {
+      "codigo": "C02",
+      "id": "kc02",
+      "nombre": "CIRCUITOS"
+    },
+    {
+      "codigo": "C03",
+      "id": "kc03",
+      "nombre": "MECANISMOS"
+    },
+    {
+      "codigo": "C04",
+      "id": "kc04",
+      "nombre": "LUMINARIAS"
+    },
+    {
+      "codigo": "C05",
+      "id": "kc05",
+      "nombre": "RED INFORMÁTICA"
+    },
+    {
+      "codigo": "C07",
+      "id": "kc07",
+      "nombre": "OBRA CIVIL"
+    },
+    {
+      "codigo": "08",
+      "id": "k08",
+      "nombre": "SEGURIDAD Y SALUD"
+    },
+    {
+      "codigo": "09",
+      "id": "k09",
+      "nombre": "GESTIÓN DE RESIDUOS"
+    },
+    {
+      "codigo": "FV-C01",
+      "id": "kfv1",
+      "nombre": "FV · VARIOS"
+    },
+    {
+      "codigo": "FV-C02",
+      "id": "kfv2",
+      "nombre": "FV · ELECTRICIDAD"
+    },
+    {
+      "codigo": "FV-C03",
+      "id": "kfv3",
+      "nombre": "FV · SEGURIDAD Y SALUD"
+    },
+    {
+      "codigo": "FV-C04",
+      "id": "kfv4",
+      "nombre": "FV · GESTIÓN DE RESIDUOS"
+    }
+  ],
+  "partidas": [
+    {
+      "cap": "kc01",
+      "codigo": "C.01.1",
+      "desc": "Cuadro eléctrico general. Aparamenta marca Moeller",
+      "id": "p001",
+      "med": 1,
+      "precio": 7500,
+      "ud": "Ud"
+    },
+    {
+      "cap": "kc01",
+      "codigo": "AD04",
+      "desc": "Subcuadro Nave 1. Aparamenta marca Moeller",
+      "id": "p002",
+      "med": 1,
+      "precio": 1700,
+      "ud": "ud"
+    },
+    {
+      "cap": "kc01",
+      "codigo": "AD05",
+      "desc": "Subcuadro Nave 2. Aparamenta marca Moeller",
+      "id": "p003",
+      "med": 1,
+      "precio": 2269.5,
+      "ud": "ud"
+    },
+    {
+      "cap": "kc01",
+      "codigo": "C01.17",
+      "desc": "Subcuadro Nave 3. Aparamenta marca Moeller",
+      "id": "p004",
+      "med": 1,
+      "precio": 4510,
+      "ud": "ud"
+    },
+    {
+      "cap": "kc01",
+      "codigo": "C01.18",
+      "desc": "Subcuadro Nave 4. Aparamenta marca Moeller",
+      "id": "p005",
+      "med": 1,
+      "precio": 1368,
+      "ud": "ud"
+    },
+    {
+      "cap": "kc01",
+      "codigo": "E23",
+      "desc": "Subcuadro oficina planta alta. Aparamenta marca Moeller",
+      "id": "p006",
+      "med": 1,
+      "precio": 705,
+      "ud": "ud"
+    },
+    {
+      "cap": "kc01",
+      "codigo": "C01.19",
+      "desc": "Subcuadro surtidor combustible. Aparamenta marca Moeller",
+      "id": "p007",
+      "med": 1,
+      "precio": 675,
+      "ud": "ud"
+    },
+    {
+      "cap": "kc01",
+      "codigo": "C01.20",
+      "desc": "Subcuadro cámara. Aparamenta marca Moeller",
+      "id": "p008",
+      "med": 1,
+      "precio": 684,
+      "ud": "ud"
+    },
+    {
+      "cap": "kc01",
+      "codigo": "C07.31",
+      "desc": "Subcuadro oficina planta baja. Aparamenta marca Moeller",
+      "id": "p009",
+      "med": 1,
+      "precio": 628,
+      "ud": "Ud"
+    },
+    {
+      "cap": "kc01",
+      "codigo": "C01.5",
+      "desc": "Subcuadro almacén. Aparamenta marca Moeller",
+      "id": "p010",
+      "med": 1,
+      "precio": 1077,
+      "ud": "Ud"
+    },
+    {
+      "cap": "kc01",
+      "codigo": "C01.13",
+      "desc": "Subcuadro edificio comedor. Aparamenta marca Moeller",
+      "id": "p011",
+      "med": 1,
+      "precio": 515.3,
+      "ud": "Ud"
+    },
+    {
+      "cap": "kc01",
+      "codigo": "C01.14",
+      "desc": "Subcuadro PCI. Aparamenta marca Moeller",
+      "id": "p012",
+      "med": 1,
+      "precio": 385,
+      "ud": "ud"
+    },
+    {
+      "cap": "kc01",
+      "codigo": "C01.15",
+      "desc": "Subcuadro hidros. Aparamenta marca Moeller",
+      "id": "p013",
+      "med": 1,
+      "precio": 468.5,
+      "ud": "Ud"
+    },
+    {
+      "cap": "kc01",
+      "codigo": "C01.16",
+      "desc": "Subcuadro ascensor. Aparamenta marca Moeller",
+      "id": "p014",
+      "med": 1,
+      "precio": 296.6,
+      "ud": "Ud"
+    },
+    {
+      "cap": "kc01",
+      "codigo": "C01.N15",
+      "desc": "Material modificación Subcuadro Nave 3 (No incluye mano de obra y pequeño material)",
+      "id": "4rncxos1",
+      "med": 0,
+      "nueva": true,
+      "precio": 1280,
+      "ud": "ud"
+    },
+    {
+      "cap": "kc01",
+      "codigo": "C01.N16",
+      "desc": "Material modificación Subcuadro Nave 2 (No incluye mano de obra y pequeño material)",
+      "id": "8xo2vrk5",
+      "med": 0,
+      "nueva": true,
+      "precio": 670,
+      "ud": "ud"
+    },
+    {
+      "cap": "kc01",
+      "codigo": "C01.N17",
+      "desc": "Material modificación Subcuadro Nave 1 (No incluye mano de obra y pequeño material)",
+      "id": "ylidvx27",
+      "med": 0,
+      "nueva": true,
+      "precio": 1142,
+      "ud": "ud"
+    },
+    {
+      "cap": "kc01",
+      "codigo": "C01.N18",
+      "desc": "Material modificación Subcuadro Nave 4 (No incluye mano de obra y pequeño material)",
+      "id": "a20si21e",
+      "med": 0,
+      "nueva": true,
+      "precio": 709,
+      "ud": "ud"
+    },
+    {
+      "cap": "kc02",
+      "codigo": "C02.1",
+      "desc": "DERIV.IND.TRIF 4x1x150+1x95 (sin tubo; tubo de 63 no apto cable 150 mm²)",
+      "id": "p015",
+      "med": 95,
+      "precio": 141.85,
+      "ud": "ml"
+    },
+    {
+      "cap": "kc02",
+      "codigo": "02.10",
+      "desc": "Línea eléctrica de 4x2,5+2,5 mm² bajo tubo PVC 25 mm",
+      "id": "p016",
+      "med": 100,
+      "precio": 8,
+      "ud": "m"
+    },
+    {
+      "cap": "kc02",
+      "codigo": "02.19",
+      "desc": "Línea eléctrica 2x1,5+1,5 mm² bajo tubo PVC 20 mm",
+      "id": "p017",
+      "med": 700,
+      "precio": 6,
+      "ud": "m"
+    },
+    {
+      "cap": "kc02",
+      "codigo": "C02.2",
+      "desc": "Línea eléctrica de 2x2,5+2,5 mm² bajo tubo PVC 25 mm",
+      "id": "p018",
+      "med": 500,
+      "precio": 6.5,
+      "ud": "ml"
+    },
+    {
+      "cap": "kc02",
+      "codigo": "C02.3",
+      "desc": "Línea eléctrica 2x2,5+2,5 1kV bajo canal 400 y tubo PVC 25 mm (solo cable)",
+      "id": "p019",
+      "med": 150,
+      "precio": 3,
+      "ud": "ml"
+    },
+    {
+      "cap": "kc02",
+      "codigo": "C02.9",
+      "desc": "Línea eléctrica 4x2,5+2,5 1kV bajo canal 400 y tubo PVC 25 mm (solo cable)",
+      "id": "p020",
+      "med": 625,
+      "precio": 3.65,
+      "ud": "ml"
+    },
+    {
+      "cap": "kc02",
+      "codigo": "C02.6",
+      "desc": "Línea eléctrica 2x1,5+1,5 1kV bajo canal 400 y tubo PVC 20 mm (solo cable)",
+      "id": "p021",
+      "med": 550,
+      "precio": 2.85,
+      "ud": "m"
+    },
+    {
+      "cap": "kc02",
+      "codigo": "02.11",
+      "desc": "Línea eléctrica de 2x4+4 mm² bajo tubo PVC 25 mm",
+      "id": "p022",
+      "med": 100,
+      "precio": 7.35,
+      "ud": "m"
+    },
+    {
+      "cap": "kc02",
+      "codigo": "02.12",
+      "desc": "Línea eléctrica de 2x6+6 mm² bajo tubo PVC 32 mm",
+      "id": "p023",
+      "med": 50,
+      "precio": 8.5,
+      "ud": "m"
+    },
+    {
+      "cap": "kc02",
+      "codigo": "02.13",
+      "desc": "Línea eléctrica de 4x10+10 mm² bajo tubo PVC 50 mm",
+      "id": "p024",
+      "med": 110,
+      "precio": 19.5,
+      "ud": "m"
+    },
+    {
+      "cap": "kc02",
+      "codigo": "02.14",
+      "desc": "Línea eléctrica de 4x6+6 mm² bajo tubo PVC 40 mm",
+      "id": "p025",
+      "med": 90,
+      "precio": 13,
+      "ud": "m"
+    },
+    {
+      "cap": "kc02",
+      "codigo": "02.2",
+      "desc": "Línea eléctrica 4x4+4 1kV bajo canal 400 y tubo PVC 40 mm",
+      "id": "p026",
+      "med": 1000,
+      "precio": 3.85,
+      "ud": "m"
+    },
+    {
+      "cap": "kc02",
+      "codigo": "02.15",
+      "desc": "Línea eléctrica 4x6+6 1kV bajo canal 400 y tubo PE 63 mm (solo cable)",
+      "id": "p027",
+      "med": 106,
+      "precio": 7.5,
+      "ud": "m"
+    },
+    {
+      "cap": "kc02",
+      "codigo": "02.16",
+      "desc": "Línea eléctrica 4x2,5+2,5 1kV bajo canal 400 y tubo PVC 25 (solo cable)",
+      "id": "p028",
+      "med": 118,
+      "precio": 4,
+      "ud": "m"
+    },
+    {
+      "cap": "kc02",
+      "codigo": "02.17",
+      "desc": "Línea eléctrica de 2x10+10 mm² bajo tubo PVC 40 mm + 63 su",
+      "id": "p029",
+      "med": 100,
+      "precio": 13.8,
+      "ud": "m"
+    },
+    {
+      "cap": "kc02",
+      "codigo": "0.18",
+      "desc": "Línea eléctrica de 4x10+10 mm² bajo canal 400 PVC y tubo 40 PVC (solo cable)",
+      "id": "p030",
+      "med": 50,
+      "precio": 13.5,
+      "ud": "m"
+    },
+    {
+      "cap": "kc02",
+      "codigo": "02.21",
+      "desc": "Línea eléctrica de 4x35+25 mm² bajo canal 400 PVC y tubo 50 PVC (solo cable)",
+      "id": "p031",
+      "med": 200,
+      "precio": 32.5,
+      "ud": "m"
+    },
+    {
+      "cap": "kc02",
+      "codigo": "02.22",
+      "desc": "Línea eléctrica de 4x50+25 mm² bajo canal 400 PVC y tubo 50 PVC",
+      "id": "p032",
+      "med": 100,
+      "precio": 49,
+      "ud": "m"
+    },
+    {
+      "cap": "kc02",
+      "codigo": "02.23",
+      "desc": "Línea 4x16+16 FIRS mm² bajo tubo 110 mm subterráneo",
+      "id": "p033",
+      "med": 95,
+      "precio": 23.5,
+      "ud": "m"
+    },
+    {
+      "cap": "kc02",
+      "codigo": "02.24",
+      "desc": "Línea eléctrica 4x2,5+2,5 1kV bajo tubo metálico 25 mm",
+      "id": "p034",
+      "med": 25,
+      "precio": 10,
+      "ud": "m"
+    },
+    {
+      "cap": "kc02",
+      "codigo": "02.25",
+      "desc": "Línea eléctrica 2x2,5+2,5 1kV bajo tubo PE subterráneo 63 mm",
+      "id": "p035",
+      "med": 100,
+      "precio": 5,
+      "ud": "m"
+    },
+    {
+      "cap": "kc02",
+      "codigo": "02.26",
+      "desc": "Línea eléctrica 4x4+4 1kV bajo tubo metálico 25 mm",
+      "id": "p036",
+      "med": 50,
+      "precio": 6.5,
+      "ud": "m"
+    },
+    {
+      "cap": "kc03",
+      "codigo": "C03.5",
+      "desc": "Interruptor de corte bipolar de 16 A",
+      "id": "p037",
+      "med": 1,
+      "precio": 28,
+      "ud": "Ud"
+    },
+    {
+      "cap": "kc03",
+      "codigo": "C03.6",
+      "desc": "Puesto de trabajo de 2 tomas",
+      "id": "p038",
+      "med": 3,
+      "precio": 50,
+      "ud": "Ud"
+    },
+    {
+      "cap": "kc03",
+      "codigo": "C03.8",
+      "desc": "Puesto de trabajo de 6 tomas",
+      "id": "p039",
+      "med": 16,
+      "precio": 145,
+      "ud": "Ud"
+    },
+    {
+      "cap": "kc03",
+      "codigo": "D18JA0100",
+      "desc": "Punto de luz sencillo Gewiss System-Virna",
+      "id": "p040",
+      "med": 30,
+      "precio": 25,
+      "ud": "ud"
+    },
+    {
+      "cap": "kc03",
+      "codigo": "D18JC0050",
+      "desc": "Punto de luz conmutado Gewiss serie System-Virna",
+      "id": "p041",
+      "med": 20,
+      "precio": 40,
+      "ud": "ud"
+    },
+    {
+      "cap": "kc03",
+      "codigo": "D18JE0150",
+      "desc": "Toma de corriente schuko c/seg 16 A Gewiss System-Virna",
+      "id": "p042",
+      "med": 60,
+      "precio": 30,
+      "ud": "ud"
+    },
+    {
+      "cap": "kc03",
+      "codigo": "D18L0030",
+      "desc": "Toma de tierra equipotencial baños",
+      "id": "p043",
+      "med": 4,
+      "precio": 15,
+      "ud": "ud"
+    },
+    {
+      "cap": "kc03",
+      "codigo": "D06OW0003",
+      "desc": "Detector mov. infr. 10 m Gewiss System",
+      "id": "p044",
+      "med": 10,
+      "precio": 40,
+      "ud": "Ud"
+    },
+    {
+      "cap": "kc03",
+      "codigo": "C03.13",
+      "desc": "Puesto de trabajo suelo",
+      "id": "p045",
+      "med": 3,
+      "precio": 185,
+      "ud": "Ud"
+    },
+    {
+      "cap": "kc04",
+      "codigo": "C04.s/c",
+      "desc": "Luminaria AEC SRL (sin código en el presupuesto)",
+      "id": "p046",
+      "med": 10,
+      "precio": 422,
+      "ud": "Ud"
+    },
+    {
+      "cap": "kc04",
+      "codigo": "C04.7",
+      "desc": "Luminaria THORN IS XS12L35",
+      "id": "p047",
+      "med": 10,
+      "precio": 251,
+      "ud": "Ud"
+    },
+    {
+      "cap": "kc04",
+      "codigo": "C04.8",
+      "desc": "Luminaria THORN SYLVIE VARIO 68",
+      "id": "p048",
+      "med": 30,
+      "precio": 43,
+      "ud": "Ud"
+    },
+    {
+      "cap": "kc04",
+      "codigo": "C04.9",
+      "desc": "Luminaria emergencia",
+      "id": "p049",
+      "med": 52,
+      "precio": 76,
+      "ud": "Ud"
+    },
+    {
+      "cap": "kc04",
+      "codigo": "C04.10",
+      "desc": "Luminaria THORN eco ANNA VARIOFLEX 2",
+      "id": "p050",
+      "med": 15,
+      "precio": 73,
+      "ud": "ml"
+    },
+    {
+      "cap": "kc04",
+      "codigo": "C04.11",
+      "desc": "Luminaria THORNeco 96700008 (STD) BORIS FLEX",
+      "id": "p051",
+      "med": 80,
+      "precio": 157,
+      "ud": "Ud"
+    },
+    {
+      "cap": "kc04",
+      "codigo": "C04.12",
+      "desc": "Lum. THORNeco 96700008 (STD) BORIS FLEX S 20000 840",
+      "id": "p052",
+      "med": 25,
+      "precio": 157,
+      "ud": "Ud"
+    },
+    {
+      "cap": "kc04",
+      "codigo": "C04.13",
+      "desc": "Lum. THORNeco 96700012 (STD) JULIE FLEX 1200 4200 840",
+      "id": "p053",
+      "med": 5,
+      "precio": 61.5,
+      "ud": "ml"
+    },
+    {
+      "cap": "kc04",
+      "codigo": "C04.14",
+      "desc": "Lum. THORNeco 96700015 (STD) JULIE FLEX 1500 6300 840",
+      "id": "p054",
+      "med": 10,
+      "precio": 69.96,
+      "ud": "ml"
+    },
+    {
+      "cap": "kc04",
+      "codigo": "D18NAAA0090",
+      "desc": "Lum. THORNeco 96700023 (STD) JULIE FLEX 600 2200 840",
+      "id": "p055",
+      "med": 5,
+      "precio": 47.5,
+      "ud": "ud"
+    },
+    {
+      "cap": "kc04",
+      "codigo": "01.02.17",
+      "desc": "Medios de elevación para la instalación de focos en cubierta (los aporta la instaladora)",
+      "id": "p056",
+      "med": 1,
+      "precio": 0,
+      "ud": "UD"
+    },
+    {
+      "cap": "kc04",
+      "codigo": "C04.20",
+      "desc": "Columna y/o postelete para luminaria exterior (no incluye obra civil)",
+      "id": "p057",
+      "med": 15,
+      "precio": 250,
+      "ud": "Ud"
+    },
+    {
+      "cap": "kc04",
+      "codigo": "C04.N13",
+      "desc": "PROYECTOR SUP. EMERG. AUTOTEST VESUBIO 1800Lm IP65.",
+      "id": "m5h9dajk",
+      "med": 0,
+      "nueva": true,
+      "precio": 433.65,
+      "ud": "ud"
+    },
+    {
+      "cap": "kc05",
+      "codigo": "C05.1",
+      "desc": "Rack 42U + armario totalmente instalado",
+      "id": "p058",
+      "med": 1,
+      "precio": 1480,
+      "ud": "Ud"
+    },
+    {
+      "cap": "kc05",
+      "codigo": "C05.2",
+      "desc": "Cableado red informática cat.6",
+      "id": "p059",
+      "med": 750,
+      "precio": 5,
+      "ud": "ml"
+    },
+    {
+      "cap": "kc05",
+      "codigo": "C05.3",
+      "desc": "Canal protectora PVC 200x100",
+      "id": "p060",
+      "med": 160,
+      "precio": 27,
+      "ud": "ml"
+    },
+    {
+      "cap": "kc07",
+      "codigo": "C07.11",
+      "desc": "Partida alzada a justificar ayudas albañilería (no se oferta)",
+      "id": "p061",
+      "med": 1,
+      "precio": 0,
+      "ud": "PA"
+    },
+    {
+      "cap": "kc07",
+      "codigo": "D29JCB0020",
+      "desc": "Arqueta p/conexionado eléctr. ext., de fábrica bloques, tipo A-2 (no se oferta)",
+      "id": "p062",
+      "med": 1,
+      "precio": 0,
+      "ud": "ud"
+    },
+    {
+      "cap": "kc07",
+      "codigo": "D29JAB0050",
+      "desc": "Canalización con 2 tubos de PE D 160 mm, T.P.P. (solo colocación, no obra civil)",
+      "id": "p063",
+      "med": 120,
+      "precio": 8.2,
+      "ud": "m"
+    },
+    {
+      "cap": "kc07",
+      "codigo": "D29JAB0030",
+      "desc": "Canalización con 1 tubo de PE D 110 mm, T.P.P. (solo suministro y colocación, no obra civil)",
+      "id": "p064",
+      "med": 55,
+      "precio": 3.5,
+      "ud": "m"
+    },
+    {
+      "cap": "kc07",
+      "codigo": "C07.13",
+      "desc": "Medios auxiliares (incluidos en el precio)",
+      "id": "p065",
+      "med": 1,
+      "precio": 0,
+      "ud": "Ud"
+    },
+    {
+      "cap": "kc07",
+      "codigo": "C07.2",
+      "desc": "Canal protectora 400x100",
+      "id": "p066",
+      "med": 220,
+      "precio": 73,
+      "ud": "m"
+    },
+    {
+      "cap": "k08",
+      "codigo": "08.1",
+      "desc": "Seguridad y salud (incluido en el precio)",
+      "id": "p067",
+      "med": 1,
+      "precio": 0,
+      "ud": "Ud"
+    },
+    {
+      "cap": "k09",
+      "codigo": "09.1",
+      "desc": "Gestión de residuos (incluido en el precio)",
+      "id": "p068",
+      "med": 1,
+      "precio": 0,
+      "ud": "Ud"
+    },
+    {
+      "cap": "kfv1",
+      "codigo": "FV-C01.1",
+      "desc": "Legalización. Incluye tasas y contratación de OCA.",
+      "id": "f001",
+      "med": 1,
+      "precio": 400,
+      "ud": "Ud"
+    },
+    {
+      "cap": "kfv1",
+      "codigo": "FV-C01.2",
+      "desc": "Camión grúa. Prueba de carga en forjado del depósito.",
+      "id": "f002",
+      "med": 1,
+      "precio": 450,
+      "ud": "Ud"
+    },
+    {
+      "cap": "kfv1",
+      "codigo": "FV-C01.3",
+      "desc": "Mano de obra de ejecución y puesta en marcha",
+      "id": "f003",
+      "med": 1,
+      "precio": 6400,
+      "ud": "Ud"
+    },
+    {
+      "cap": "kfv1",
+      "codigo": "FV-C01.4",
+      "desc": "Obra civil. Ayudas albañilería (no se oferta)",
+      "id": "f004",
+      "med": 1,
+      "precio": 0,
+      "ud": "Ud"
+    },
+    {
+      "cap": "kfv2",
+      "codigo": "FV-C02.1",
+      "desc": "Módulos fotovoltaicos LONGI SOLAR LR5-72HPH 545M 545Wp. Instalado y funcionando",
+      "id": "f005",
+      "med": 96,
+      "precio": 117,
+      "ud": "Ud"
+    },
+    {
+      "cap": "kfv2",
+      "codigo": "FV-C02.2",
+      "desc": "Inversor trifásico 50kW FRONIUS ECO",
+      "id": "f006",
+      "med": 1,
+      "precio": 4500,
+      "ud": "Ud"
+    },
+    {
+      "cap": "kfv2",
+      "codigo": "FV-C02.4",
+      "desc": "Estructura soporte metálica coplanar de aluminio sobre teja existente, de acuerdo a planos y memoria del proyecto.",
+      "id": "f007",
+      "med": 1,
+      "precio": 4450,
+      "ud": "Ud"
+    },
+    {
+      "cap": "kfv2",
+      "codigo": "FV-C02.5",
+      "desc": "Pequeños materiales, cuadros de protección (cables, conectores, tubos, etc).",
+      "id": "f008",
+      "med": 1,
+      "precio": 4960,
+      "ud": "Ud"
+    },
+    {
+      "cap": "kfv2",
+      "codigo": "FV-C02.6",
+      "desc": "Puesta a tierra de la instalación solar fotovoltaica y la estructura soporte de la misma.",
+      "id": "f009",
+      "med": 1,
+      "precio": 253,
+      "ud": "Ud"
+    },
+    {
+      "cap": "kfv3",
+      "codigo": "FV-C03.1",
+      "desc": "Seguridad y salud (incluido en el precio)",
+      "id": "f010",
+      "med": 1,
+      "precio": 0,
+      "ud": "Ud"
+    },
+    {
+      "cap": "kfv4",
+      "codigo": "FV-C04.1",
+      "desc": "Gestión de residuos (incluido en el precio)",
+      "id": "f011",
+      "med": 1,
+      "precio": 0,
+      "ud": "Ud"
+    }
+  ]
+}

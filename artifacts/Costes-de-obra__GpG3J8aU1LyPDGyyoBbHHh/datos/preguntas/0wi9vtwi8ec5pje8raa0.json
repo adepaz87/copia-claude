@@ -1,0 +1,11 @@
+{
+  "aplicado": true,
+  "creada": "2026-10-27T22:48:42.558Z",
+  "docId": "hizrtyra1rp6g2qq9jc8",
+  "estado": "respondida",
+  "registro": "material/iqtx73g29gwy6z1jyz0x",
+  "respondida": "2026-10-27T23:09:39.120Z",
+  "respuesta": "Ok",
+  "resultado": "No cambio nada: el responsable confirma con 'Ok' que el albarán es de esta obra, y el registro ya tiene la base sin IGIC (64,68 €) correctamente indicada.",
+  "texto": "No aparece duplicado en los albaranes registrados. El IGIC es del 3 % (reducido), no del 7 %, y la base de 64,68 € está indicada en el documento. ¿Confirmas que es de esta obra? La referencia es COVALLE y el destinatario es DELEDCAN, S.L.U."
+}

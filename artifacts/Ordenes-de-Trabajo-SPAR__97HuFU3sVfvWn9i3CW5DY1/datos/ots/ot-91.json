@@ -1,0 +1,19 @@
+{
+  "actualizada": "2026-10-21T09:00:00Z",
+  "aviso": "27124",
+  "centro": "Nuevo Almacén I",
+  "creada": "2026-10-21T09:00:00Z",
+  "descripcion": "Fusible de carnicería saltado; no funcionaban la sierra sin fin ni la moledora.",
+  "estado": "terminada",
+  "fechaAviso": "2026-10-21",
+  "historial": [
+    "21/10/2026 · Importada del correo de Alberto"
+  ],
+  "informado": true,
+  "notas": "Resuelta el 21/10/2026.",
+  "operario": "Toño Guardia",
+  "ot": 91,
+  "prioridad": "Alta",
+  "solicitante": "Fernando",
+  "tipo": "MANTENIMIENTO"
+}

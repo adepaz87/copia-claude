@@ -1,0 +1,19 @@
+{
+  "albs": [],
+  "cliente": "HERBAMACA",
+  "desc": "Reglaje ajustes relojes horarios",
+  "devol": [],
+  "estado": "TERMINADO",
+  "fecha": "2026-11-05",
+  "horas": 1,
+  "id": "890",
+  "obra": "SPAR PUNTALLANA",
+  "ops": [
+    {
+      "h": 1,
+      "n": "Toño"
+    }
+  ],
+  "origen": "dashboard",
+  "stock": []
+}

@@ -1,0 +1,25 @@
+{
+  "albs": [],
+  "cliente": "CONSTRUCCIONES DOS TUMBOS",
+  "desc": "Colocación cajas mecanismo en pladur Enhebrar fuerzas en zonas comunes 2planta (pasillos) Conexionado de cajas de registro habitaciones y pasillos Enhebrar cable (5x6)desde azotea hasta cuadro general 3planta,preparar protección en cuadro (Máquina proyectar yeso)",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-11-11",
+  "horas": 16,
+  "id": "947",
+  "msg": "1a1ccbe3dc68805f",
+  "obra": "RESIDENCIA TERCERA EDAD EL PASO",
+  "ops": [
+    {
+      "h": 8,
+      "n": "Petter"
+    },
+    {
+      "h": 8,
+      "n": "Jonathan Rodríguez"
+    }
+  ],
+  "origen": "dashboard",
+  "restante": "Indefinido",
+  "stock": []
+}

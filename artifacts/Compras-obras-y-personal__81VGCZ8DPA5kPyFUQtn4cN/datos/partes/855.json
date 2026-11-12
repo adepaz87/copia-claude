@@ -1,0 +1,23 @@
+{
+  "albs": [],
+  "cliente": "HERBAMACA DISTRIBUCIONES",
+  "desc": "Revisión comprobación estado de UPS. Y revisión en cuadro. Funcionando",
+  "devol": [],
+  "estado": "TERMINADO",
+  "fecha": "2026-11-03",
+  "horas": 1,
+  "id": "855",
+  "obra": "SPAR SAN PEDRO",
+  "ops": [
+    {
+      "h": 0.5,
+      "n": "Toño"
+    },
+    {
+      "h": 0.5,
+      "n": "Junior"
+    }
+  ],
+  "origen": "dashboard",
+  "stock": []
+}

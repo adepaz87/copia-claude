@@ -1,0 +1,20 @@
+{
+  "actualizada": "2026-11-03T16:11:49.939Z",
+  "aviso": "25931",
+  "centro": "Central Logística y Oficinas",
+  "creada": "2026-11-03T16:30:00Z",
+  "descripcion": "Revisar si los enchufes de los dispositivos de fichaje en oficinas y almacén central tienen corriente estabilizada.",
+  "estado": "terminada",
+  "fechaAviso": "2026-07-13",
+  "historial": [
+    "03/11/2026 · Importada del correo GIM",
+    "3/11/2026 16:11 · Estado: Terminada"
+  ],
+  "informado": false,
+  "notas": "Sin cierre en el correo. Puede estar ligada a la OT 29 (equipo de fichar). Comprobar. Nº OT provisional: confirmar o cambiar.",
+  "operario": "",
+  "ot": 121,
+  "prioridad": "Sin especificar",
+  "solicitante": "Fernando",
+  "tipo": "MANTENIMIENTO"
+}

@@ -1,0 +1,19 @@
+{
+  "actualizada": "2026-10-19T09:00:00Z",
+  "aviso": "",
+  "centro": "SPAR Tijarafe",
+  "creada": "2026-10-19T09:00:00Z",
+  "descripcion": "Reparación de la iluminación de las vitrinas de carnicería y charcutería.",
+  "estado": "terminada",
+  "fechaAviso": "2026-10-19",
+  "historial": [
+    "19/10/2026 · Importada del correo de Alberto"
+  ],
+  "informado": true,
+  "notas": "Resolución confirmada el 19/10/2026.",
+  "operario": "Toño Guardia",
+  "ot": 86,
+  "prioridad": "Sin especificar",
+  "solicitante": "",
+  "tipo": "MANTENIMIENTO"
+}

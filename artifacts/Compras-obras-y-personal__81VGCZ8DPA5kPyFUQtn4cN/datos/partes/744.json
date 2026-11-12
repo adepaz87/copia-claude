@@ -1,0 +1,21 @@
+{
+  "albs": [],
+  "cliente": "CABILDO INSULAR",
+  "desc": "Ver averia por salto diferencial de alumbeado parte baja al mojar registro. Se seca y rearma.",
+  "devol": [],
+  "estado": "TERMINADO",
+  "fecha": "2026-10-20",
+  "horas": 2,
+  "obra": "MATADERO",
+  "ops": [
+    {
+      "h": 1,
+      "n": "Antonio"
+    },
+    {
+      "h": 1,
+      "n": "Transporte"
+    }
+  ],
+  "stock": []
+}

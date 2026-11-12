@@ -1,0 +1,27 @@
+{
+  "albs": [],
+  "cliente": "COVALLE",
+  "desc": "Entubar oficinas planta alta (fuerza,alumbrado,alumbrado emergencia,datos,etc)\nLimpiar zonas de trabajo",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-10-23",
+  "horas": 16,
+  "obra": "NAVE COOPERATIVA COVALLE",
+  "ops": [
+    {
+      "h": 8,
+      "n": "Petter"
+    },
+    {
+      "h": 8,
+      "n": "Jonathan Rodríguez"
+    }
+  ],
+  "stock": [
+    {
+      "d": "clavo pistola 2,7x25 (Wurth)",
+      "q": 200,
+      "u": "ud"
+    }
+  ]
+}

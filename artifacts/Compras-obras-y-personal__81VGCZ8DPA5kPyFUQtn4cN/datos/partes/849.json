@@ -1,0 +1,21 @@
+{
+  "albs": [],
+  "cliente": "TRAGSA",
+  "desc": "Abrir huecos en pladur para pasar canalizaciones. Instalar tubo precableado en rellano y zona de central PCI y Central de monóxido. Modificar entubados de entrada a cuarto de la central de incendios y central de CO.",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-10-30",
+  "horas": 8,
+  "obra": "PCI PLAZA GAZMIRA (ADMINISTRACIÓN)",
+  "ops": [
+    {
+      "h": 4,
+      "n": "Eloy"
+    },
+    {
+      "h": 4,
+      "n": "Jonathan Glez"
+    }
+  ],
+  "stock": []
+}

@@ -1,0 +1,18 @@
+{
+  "albs": [],
+  "cliente": "ALMACEN",
+  "desc": "Colocar material limpiar",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-10-29",
+  "horas": 3,
+  "obra": "ALMACEN",
+  "ops": [
+    {
+      "h": 3,
+      "n": "Goyo"
+    }
+  ],
+  "origen": "dashboard",
+  "stock": []
+}

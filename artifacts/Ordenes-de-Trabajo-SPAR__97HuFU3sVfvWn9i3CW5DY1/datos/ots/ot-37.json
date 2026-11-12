@@ -1,0 +1,19 @@
+{
+  "actualizada": "2026-08-10T09:00:00Z",
+  "aviso": "",
+  "centro": "Central Logística y Oficinas (Breña Baja)",
+  "creada": "2026-08-10T09:00:00Z",
+  "descripcion": "Grupo electrógeno central: intervención con corte de luz; comprobar la conmutación.",
+  "estado": "terminada",
+  "fechaAviso": "2026-08-10",
+  "historial": [
+    "10/08/2026 · Importada del correo de Alberto"
+  ],
+  "informado": true,
+  "notas": "Primero quedó sin resolver por incomparecencia; resuelta según correo del 10/08/2026.",
+  "operario": "",
+  "ot": 37,
+  "prioridad": "Sin especificar",
+  "solicitante": "",
+  "tipo": "MANTENIMIENTO"
+}

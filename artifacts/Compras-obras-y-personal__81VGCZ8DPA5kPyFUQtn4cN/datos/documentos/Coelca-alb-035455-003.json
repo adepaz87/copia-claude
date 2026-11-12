@@ -1,0 +1,23 @@
+{
+  "empresa": "Instapalma",
+  "fecha": "2026-10-08",
+  "lineas": [
+    {
+      "a": "035.455/003",
+      "d": "CANDADO INOX50 ENDESA \"C\"57604",
+      "f": "2026-10-08",
+      "fab": "085007C",
+      "i": 17.8,
+      "o": "BELLIDO EL CANTILLO",
+      "pn": 17.8,
+      "pt": 17.8,
+      "q": 1,
+      "r": "5205"
+    }
+  ],
+  "numero": "035.455/003",
+  "obra": "BELLIDO EL CANTILLO",
+  "origen": "Gmail",
+  "proveedor": "Coelca",
+  "tipo": "albaran"
+}

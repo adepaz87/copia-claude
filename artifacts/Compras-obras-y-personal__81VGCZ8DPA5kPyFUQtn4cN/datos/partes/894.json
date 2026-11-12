@@ -1,0 +1,21 @@
+{
+  "albs": [
+    "Ayumar- 41208"
+  ],
+  "cliente": "CONSTRUCCIONES DOMINGO",
+  "desc": "Avería en enchufe exterior, se cambia embellecedor y enchufe exterior ya que los pintores los sacaron para pintar no lo apretaron bien y entró agua en mecanismo",
+  "devol": [],
+  "estado": "TERMINADO",
+  "fecha": "2026-11-05",
+  "horas": 1,
+  "id": "894",
+  "obra": "CASA PAOLA",
+  "ops": [
+    {
+      "h": 1,
+      "n": "Aythami"
+    }
+  ],
+  "origen": "dashboard",
+  "stock": []
+}

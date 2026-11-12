@@ -1,0 +1,17 @@
+{
+  "albs": [],
+  "cliente": "TOMÁS BARRETO SA",
+  "desc": "Avería de circuito de fuerza en sala.busqueda cambio de tomas enchufes y clavija conexionado funcionando.",
+  "devol": [],
+  "estado": "TERMINADO",
+  "fecha": "2026-10-21",
+  "horas": 1.5,
+  "obra": "NUEVO ALMACÉN 1",
+  "ops": [
+    {
+      "h": 1.5,
+      "n": "Toño"
+    }
+  ],
+  "stock": []
+}

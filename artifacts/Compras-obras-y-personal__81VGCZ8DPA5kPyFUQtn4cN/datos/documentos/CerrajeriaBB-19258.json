@@ -1,0 +1,23 @@
+{
+  "empresa": "Instapalma",
+  "fecha": "2026-05-25",
+  "lineas": [
+    {
+      "a": "",
+      "d": "PIEZA TUBO 100X50 GALVANIZADO 2,42 M CON PLACAS DE ANCLAJE",
+      "dto": "",
+      "f": "2026-05-25",
+      "i": 104.89,
+      "igic": 7,
+      "o": "",
+      "pn": 104.89,
+      "pt": 104.89,
+      "q": 1,
+      "r": ""
+    }
+  ],
+  "numero": "19258",
+  "origen": "Gmail",
+  "proveedor": "Cerrajería Breña Baja",
+  "tipo": "factura"
+}

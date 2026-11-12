@@ -1,0 +1,23 @@
+{
+  "empresa": "Instapalma",
+  "fecha": "2026-10-16",
+  "lineas": [
+    {
+      "a": "035.571/003",
+      "d": "CABLE 07Z1K CPR 1X1.5 AZ 100MT",
+      "f": "2026-10-16",
+      "fab": "CABLE",
+      "i": 24.5,
+      "o": "GARAJES BELLIDO",
+      "pn": 0.245,
+      "pt": 0.245,
+      "q": 100,
+      "r": "89555160"
+    }
+  ],
+  "numero": "035.571/003",
+  "obra": "GARAJES BELLIDO",
+  "origen": "Gmail",
+  "proveedor": "Coelca",
+  "tipo": "albaran"
+}

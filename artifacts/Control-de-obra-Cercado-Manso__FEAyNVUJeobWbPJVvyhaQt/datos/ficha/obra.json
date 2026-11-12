@@ -1,0 +1,125 @@
+{
+  "adjudicacion": 852739.2,
+  "agentes": [
+    {
+      "extra": "Ingeniero Técnico Industrial",
+      "nombre": "Alberto de Paz Bethencourt",
+      "rol": "Director de obra"
+    },
+    {
+      "nombre": "Alejandro Morera Felipe",
+      "rol": "Representante de la Administración"
+    },
+    {
+      "extra": "A-38205373",
+      "nombre": "Instalaciones Eléctricas Ayumar, S.A.",
+      "rol": "Contratista"
+    },
+    {
+      "nombre": "Jesús Francisco Rodríguez",
+      "rol": "Jefe de obra"
+    },
+    {
+      "extra": "cert. nº 1",
+      "nombre": "Manuel Jesús Francisco Rodríguez",
+      "rol": "Firma por el contratista"
+    },
+    {
+      "nombre": "Proyecpal Ingeniería SLU",
+      "rol": "DEO y coordinación de SyS"
+    },
+    {
+      "extra": "199.481,09 € · Res. 2026/10741 (13/10/2026)",
+      "nombre": "Carlos Candelario SLU",
+      "rol": "Subcontrata obra civil"
+    },
+    {
+      "extra": "Héctor Mejías Carrasco",
+      "nombre": "EDISTRIBUCIÓN Redes Digitales, S.L.U.",
+      "rol": "Distribuidora"
+    }
+  ],
+  "coef": 0.888856534,
+  "contratista": "Instalaciones Eléctricas Ayumar, S.A. (A-38205373)",
+  "denominacion": "Instalaciones eléctricas en media tensión para el sector del suelo urbanizable sectorizado ordenado de uso industrial (ZOI) Cercado Manso",
+  "director": "Alberto de Paz Bethencourt",
+  "documentacion": [
+    {
+      "estado": "Sí",
+      "item": "Libro de órdenes",
+      "nota": "Anexo cert. nº 1"
+    },
+    {
+      "estado": "Sí",
+      "item": "Libro de incidencias",
+      "nota": "Anexo cert. nº 1"
+    },
+    {
+      "estado": "Sí",
+      "item": "Libro de subcontratación",
+      "nota": "Anexo cert. nº 1"
+    },
+    {
+      "estado": "Sí",
+      "item": "Cartel de obra",
+      "nota": "Fotos 19/10/2026"
+    },
+    {
+      "estado": "Aprobado",
+      "item": "Plan de Seguridad y Salud",
+      "nota": "Res. 2026/9445 (09/09/2026)"
+    },
+    {
+      "estado": "No aportado",
+      "item": "Programa de trabajo del contratista",
+      "nota": "Se usa el cronograma de la DO"
+    }
+  ],
+  "emplazamiento": "CL Martín Luis s/n, LP-102, 38715 Puntallana (La Palma)",
+  "enlaces": [
+    {
+      "texto": "Certificaciones",
+      "url": "https://claude.ai/artifact/2vs2rsqUAu3GJ1nDFkNfGe"
+    },
+    {
+      "texto": "Cronograma",
+      "url": "https://claude.ai/artifact/R2USPxtxRDsTF7RucoQceF"
+    },
+    {
+      "texto": "Registro de obras",
+      "url": "https://claude.ai/artifact/1C6nvrEhXuPzxwivEvuBMH"
+    }
+  ],
+  "expediente": "6/2026/CONT-OBR/CNT/2026000011",
+  "expedienteAT": "MT202200234 (DG Energía, Gobierno de Canarias)",
+  "expedientes": [
+    {
+      "asunto": "Solicitud de autorización administrativa AT",
+      "estado": "Presentada",
+      "fecha": "2022-07-05",
+      "organismo": "DG Energía"
+    },
+    {
+      "asunto": "Condicionado técnico ref. 0000491807. CT nº1 4296, CT nº2 4297",
+      "estado": "Favorable",
+      "fecha": "2022-07-21",
+      "organismo": "e-distribución"
+    },
+    {
+      "asunto": "Requerimiento: permisos del Ayto. de Puntallana y autorización de aguas por el cruce del Barranco Los Rodeos-Oropesa",
+      "estado": "Subsanación sin confirmar",
+      "fecha": "2023-01-27",
+      "organismo": "DG Energía"
+    }
+  ],
+  "fechaAdjudicacion": "2026-07-28",
+  "fechaContrato": "2026-08-21",
+  "fin": "2027-02-18",
+  "financiacion": "FDCAN, Gobierno de Canarias (LE 2, Eje 5, PACAN 2.5.9)",
+  "fuente": "Fuente: Cercado_Manso_base_datos.xlsx, certificación nº 1, cronograma de la dirección de obra (19/10/2026).",
+  "inicio": "2026-09-18",
+  "licitacion": 959366.52,
+  "pemCap1": 732380.71,
+  "plazo": "5 meses",
+  "promotor": "Cabildo Insular de La Palma, Área de Infraestructuras"
+}

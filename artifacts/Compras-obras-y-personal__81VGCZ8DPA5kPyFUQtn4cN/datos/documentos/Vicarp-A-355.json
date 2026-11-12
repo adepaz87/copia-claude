@@ -1,0 +1,62 @@
+{
+  "empresa": "Instapalma",
+  "fecha": "2026-10-26",
+  "lineas": [
+    {
+      "a": "",
+      "d": "HORAS CAT 301.7",
+      "dto": "",
+      "f": "2026-10-26",
+      "i": 520,
+      "igic": 7,
+      "o": "CT PINO DE LA VIRGEN",
+      "pn": 40,
+      "pt": 40,
+      "q": 13,
+      "r": ""
+    },
+    {
+      "a": "",
+      "d": "PORTE DE MAQUINA",
+      "dto": "",
+      "f": "2026-10-26",
+      "i": 60,
+      "igic": 7,
+      "o": "CT PINO DE LA VIRGEN",
+      "pn": 60,
+      "pt": 60,
+      "q": 1,
+      "r": ""
+    },
+    {
+      "a": "",
+      "d": "PORTE DE ESCOMBRO",
+      "dto": "",
+      "f": "2026-10-26",
+      "i": 50,
+      "igic": 7,
+      "o": "CT PINO DE LA VIRGEN",
+      "pn": 50,
+      "pt": 50,
+      "q": 1,
+      "r": ""
+    },
+    {
+      "a": "",
+      "d": "HORAS DE CAMION",
+      "dto": "",
+      "f": "2026-10-26",
+      "i": 300,
+      "igic": 7,
+      "o": "CT PINO DE LA VIRGEN",
+      "pn": 50,
+      "pt": 50,
+      "q": 6,
+      "r": ""
+    }
+  ],
+  "numero": "A/355",
+  "origen": "Gmail",
+  "proveedor": "Excavaciones Vicarp",
+  "tipo": "factura"
+}

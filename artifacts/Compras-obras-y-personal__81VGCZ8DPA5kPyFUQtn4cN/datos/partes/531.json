@@ -1,0 +1,17 @@
+{
+  "albs": [],
+  "cliente": "EXTINPALMA S.L.",
+  "desc": "- recogida de materiales y equipos necesarios en \nalmacén para su posterior traslado a obra.\n\n- Preparación y Selección de materiales a utilizar en obra.\n\n- Estudio y seguimiento de las líneas eléctricas y circuitos \nasociados a la instalación de protección contra incendios.\n- Identificación y comprobación de los dispositivos existentes en la instalación, \nverificando los elementos previstos para ",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-09-22",
+  "horas": 8,
+  "obra": "HIPERDINO EL PUENTE",
+  "ops": [
+    {
+      "h": 8,
+      "n": "Rafa"
+    }
+  ],
+  "stock": []
+}

@@ -1,0 +1,29 @@
+{
+  "albs": [],
+  "cliente": "CHICHO 2 TUMBOS",
+  "desc": "Colocar extractores\nEnebrar alimentación portero",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-09-18",
+  "horas": 32,
+  "obra": "EDIFICIO SABINO",
+  "ops": [
+    {
+      "h": 8,
+      "n": "Aythami"
+    },
+    {
+      "h": 8,
+      "n": "Riki"
+    },
+    {
+      "h": 8,
+      "n": "Joel"
+    },
+    {
+      "h": 8,
+      "n": "Junior"
+    }
+  ],
+  "stock": []
+}

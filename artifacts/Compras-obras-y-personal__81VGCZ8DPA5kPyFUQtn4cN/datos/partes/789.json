@@ -1,0 +1,21 @@
+{
+  "albs": [],
+  "cliente": "DRAGADOS",
+  "desc": "Cortar techosny buscar tubos de electricidad y teleco en 2 planta. Recolocarlos en su nueva ubicacion. Empezar a biscar tubos en 3 planta para reubicarlos.",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-10-26",
+  "horas": 14,
+  "obra": "HOTEL MONTERREY",
+  "ops": [
+    {
+      "h": 7,
+      "n": "Antonio"
+    },
+    {
+      "h": 7,
+      "n": "Iker"
+    }
+  ],
+  "stock": []
+}

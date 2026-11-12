@@ -1,0 +1,36 @@
+{
+  "albs": [],
+  "cliente": "CONSTRUCCIONES DOS TUMBOS",
+  "desc": "Realizar entubado para fuerza,alumbrado,datos,TV en segunda planta,enlaces de cajas,etc… colocación caja registro en pladur Pt-7 y Pt-8\nRealizar pase en pared desde obra nueva a edificio antiguo para alimentación sub-cuadros y TV + Datos segunda planta \nLimpiar zonas de trabajo",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-09-22",
+  "horas": 24,
+  "obra": "RESIDENCIA TERCERA EDAD (EL PASO)",
+  "ops": [
+    {
+      "h": 8,
+      "n": "Junior"
+    },
+    {
+      "h": 8,
+      "n": "Petter"
+    },
+    {
+      "h": 8,
+      "n": "Jonathan Rodríguez"
+    }
+  ],
+  "stock": [
+    {
+      "d": "Caja registro empotrar PT-7",
+      "q": 1,
+      "u": "ud"
+    },
+    {
+      "d": "Caja registro empotrar PT-8",
+      "q": 1,
+      "u": "ud"
+    }
+  ]
+}

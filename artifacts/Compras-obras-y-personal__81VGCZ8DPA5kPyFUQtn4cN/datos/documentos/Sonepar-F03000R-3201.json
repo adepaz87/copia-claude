@@ -1,0 +1,21 @@
+{
+  "empresa": "Kairos Supply",
+  "fecha": "2026-03-12",
+  "lineas": [
+    {
+      "a": "309001441",
+      "d": "ANGULO SUJECCION 50X50X5 - ANODIZADO",
+      "f": "2026-03-12",
+      "i": 9,
+      "o": "CASA ROSADA",
+      "pn": 0.9,
+      "pt": 0.9,
+      "q": 10,
+      "r": "1209299"
+    }
+  ],
+  "numero": "F03000R-3201",
+  "origen": "Gmail",
+  "proveedor": "Sonepar",
+  "tipo": "factura"
+}

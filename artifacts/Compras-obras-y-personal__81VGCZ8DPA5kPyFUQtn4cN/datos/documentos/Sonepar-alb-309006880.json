@@ -1,0 +1,25 @@
+{
+  "empresa": "Instapalma",
+  "fecha": "2026-11-11",
+  "lineas": [
+    {
+      "a": "309006880",
+      "d": "RESI9 COMBI SPU 1PN C 25A CAN SCHN R9L20625CAN",
+      "dto": "NETO",
+      "f": "2026-11-11",
+      "i": 50.22,
+      "o": "CASA CARLOS ACOSTA",
+      "pn": 50.22,
+      "pt": 50.218391,
+      "q": 1,
+      "r": "719692"
+    }
+  ],
+  "msg": "1a1caa23c3b25915",
+  "numero": "309006880",
+  "obra": "CASA CARLOS ACOSTA",
+  "origen": "Gmail (escaneo)",
+  "proveedor": "Sonepar",
+  "tipo": "albaran",
+  "total": 50.22
+}

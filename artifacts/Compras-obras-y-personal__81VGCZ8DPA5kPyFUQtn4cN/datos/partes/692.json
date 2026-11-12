@@ -1,0 +1,21 @@
+{
+  "albs": [],
+  "cliente": "EXTINPALMA S.L.",
+  "desc": "- Tendido y enhebrado de cableado a través de las canalizaciones instaladas.- \n- Verificación de continuidad y correcta disposición del cableado.\n- instalación de bases  conexionado y colocación detectores \n\n(Trabajos en Parking 1 y parking 2 )",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-10-14",
+  "horas": 19,
+  "obra": "HIPERDINO EL PUENTE (CONTRAINCENDIO)",
+  "ops": [
+    {
+      "h": 8,
+      "n": "Eloy"
+    },
+    {
+      "h": 11,
+      "n": "Rafa"
+    }
+  ],
+  "stock": []
+}

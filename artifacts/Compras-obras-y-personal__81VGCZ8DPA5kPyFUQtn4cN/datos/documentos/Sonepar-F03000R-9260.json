@@ -1,0 +1,38 @@
+{
+  "empresa": "Instapalma",
+  "fecha": "2026-07-03",
+  "lineas": [
+    {
+      "a": "309004082",
+      "d": "BASE MOVIL BIPOLAR CON T/T LATERAL 16A,250V.",
+      "dto": "68,00",
+      "f": "2026-07-03",
+      "fab": "707C",
+      "i": 11.6,
+      "m": "SOLERA",
+      "o": "MATADERO INSULAR",
+      "pn": 1.9333,
+      "pt": 6.04,
+      "q": 6,
+      "r": "250548"
+    },
+    {
+      "a": "309004082",
+      "d": "CLAVIJA BIPOLAR CON T/T LATERAL 16A,250V. ESPIGAS",
+      "dto": "68,00",
+      "f": "2026-07-03",
+      "fab": "706C",
+      "i": 1.81,
+      "m": "SOLERA",
+      "o": "MATADERO INSULAR",
+      "pn": 1.81,
+      "pt": 5.67,
+      "q": 1,
+      "r": "229366"
+    }
+  ],
+  "numero": "F03000R-9260",
+  "origen": "Gmail",
+  "proveedor": "Sonepar",
+  "tipo": "factura"
+}

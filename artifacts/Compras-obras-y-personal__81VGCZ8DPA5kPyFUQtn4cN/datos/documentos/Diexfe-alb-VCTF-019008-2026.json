@@ -1,0 +1,23 @@
+{
+  "empresa": "Instapalma",
+  "fecha": "2026-10-08",
+  "lineas": [
+    {
+      "a": "VCTF-019008-2026",
+      "d": "CL-PULS IL 1P 10A 1M BLAN",
+      "dto": "53,00",
+      "f": "2026-10-08",
+      "i": 5.02,
+      "o": "EDIFICIO SABINO",
+      "pn": 5.02,
+      "pt": 10.68,
+      "q": 1,
+      "r": "BTI-RW4005L"
+    }
+  ],
+  "numero": "VCTF-019008-2026",
+  "obra": "EDIFICIO SABINO",
+  "origen": "Gmail",
+  "proveedor": "Diexfe",
+  "tipo": "albaran"
+}

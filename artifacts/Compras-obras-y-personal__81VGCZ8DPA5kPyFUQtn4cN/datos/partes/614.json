@@ -1,0 +1,17 @@
+{
+  "albs": [],
+  "cliente": "DRAGADOS",
+  "desc": "Planteo iluminacion, enebrar cable y registros",
+  "devol": [],
+  "estado": "TERMINADO",
+  "fecha": "2026-10-02",
+  "horas": 4,
+  "obra": "ESCALERA CALLE ANTONIO PINO PEREZ",
+  "ops": [
+    {
+      "h": 4,
+      "n": "Antonio"
+    }
+  ],
+  "stock": []
+}

@@ -1,0 +1,35 @@
+{
+  "empresa": "Instapalma",
+  "fecha": "2026-10-01",
+  "lineas": [
+    {
+      "a": "VCTF-018485-2026",
+      "d": "MARCO 1 ELEMENTO S.27 PLAY BL",
+      "dto": "52,00",
+      "f": "2026-10-01",
+      "i": 236.57,
+      "o": "HOSPITAL",
+      "pn": 1.666,
+      "pt": 3.47,
+      "q": 142,
+      "r": "SIM-2700610-030"
+    },
+    {
+      "a": "VCTF-018485-2026",
+      "d": "BASE 2P TT LAT.SCHUKO+SEG.S.27 BL.NIEVE",
+      "dto": "52,00",
+      "f": "2026-10-01",
+      "i": 442.33,
+      "o": "HOSPITAL",
+      "pn": 3.115,
+      "pt": 6.49,
+      "q": 142,
+      "r": "SIM-27472-65"
+    }
+  ],
+  "numero": "VCTF-018485-2026",
+  "obra": "HOSPITAL",
+  "origen": "Gmail",
+  "proveedor": "Diexfe",
+  "tipo": "albaran"
+}

@@ -1,0 +1,75 @@
+{
+  "empresa": "Instapalma",
+  "fecha": "2026-10-13",
+  "lineas": [
+    {
+      "a": "4-1171",
+      "d": "CABLE LIBRE HALOG 750V 1X16 AZUL Z1-K",
+      "dto": "",
+      "f": "2026-10-13",
+      "i": 20.93,
+      "igic": 7,
+      "o": "FV RAYCO",
+      "pn": 2.6162,
+      "pt": 2.6162,
+      "q": 8,
+      "r": "17962"
+    },
+    {
+      "a": "4-1171",
+      "d": "CABLE LIBRE HALOG 750V 1X16 NEGRO Z1-K",
+      "dto": "",
+      "f": "2026-10-13",
+      "i": 20.93,
+      "igic": 7,
+      "o": "FV RAYCO",
+      "pn": 2.6162,
+      "pt": 2.6162,
+      "q": 8,
+      "r": "17960"
+    },
+    {
+      "a": "4-1171",
+      "d": "CABLE LIBRE HALOG 750V 1X16 GRIS Z1-K",
+      "dto": "",
+      "f": "2026-10-13",
+      "i": 20.93,
+      "igic": 7,
+      "o": "FV RAYCO",
+      "pn": 2.6162,
+      "pt": 2.6162,
+      "q": 8,
+      "r": "17963"
+    },
+    {
+      "a": "4-1171",
+      "d": "CABLE LIBRE HALOG 750V 1X16 MARRON Z1-K",
+      "dto": "",
+      "f": "2026-10-13",
+      "i": 20.93,
+      "igic": 7,
+      "o": "FV RAYCO",
+      "pn": 2.6162,
+      "pt": 2.6162,
+      "q": 8,
+      "r": "17961"
+    },
+    {
+      "a": "4-1171",
+      "d": "TUBO PVC ESPIRALADO M40/IP67 GRIS",
+      "dto": "",
+      "f": "2026-10-13",
+      "i": 20.17,
+      "igic": 3,
+      "o": "FV RAYCO",
+      "pn": 2.5213,
+      "pt": 2.5213,
+      "q": 8,
+      "r": "18005"
+    }
+  ],
+  "numero": "4-1171",
+  "origen": "Gmail",
+  "proveedor": "Ayumar",
+  "tipo": "albaran"
+}

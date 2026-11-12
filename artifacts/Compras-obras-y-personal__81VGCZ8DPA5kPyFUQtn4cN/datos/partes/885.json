@@ -1,0 +1,39 @@
+{
+  "albs": [],
+  "cliente": "CONSTRUCCIONES DOS TUMBOS",
+  "desc": "Colocación cajas mecanismo habitaciones y baños (pladur). Enhebrar tomas corriente habitación. Pasar línea 5x2,5mm desde cuadro andamio exterior obra hasta cuadro 3planta ,preparar Protección para andamio cablear y conexionar. Limpiar zonas de trabajo",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-11-04",
+  "horas": 13,
+  "id": "885",
+  "obra": "RESIDENCIA TERCERA EDAD EL PASO",
+  "ops": [
+    {
+      "h": 6.5,
+      "n": "Petter"
+    },
+    {
+      "h": 6.5,
+      "n": "Jonathan Rodríguez"
+    }
+  ],
+  "origen": "dashboard",
+  "stock": [
+    {
+      "d": "Cable 1x10mm 750v",
+      "q": 4,
+      "u": "m"
+    },
+    {
+      "d": "Punteras 10mm",
+      "q": 16,
+      "u": ""
+    },
+    {
+      "d": "Magnetotermico 4x16A Eaton",
+      "q": 1,
+      "u": ""
+    }
+  ]
+}

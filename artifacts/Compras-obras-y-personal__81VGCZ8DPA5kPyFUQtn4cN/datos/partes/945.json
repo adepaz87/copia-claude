@@ -1,0 +1,25 @@
+{
+  "albs": [],
+  "cliente": "HERBAMACA",
+  "desc": "Avería en circuito caja 2 por humedades.limpieza secado y Funcionando",
+  "devol": [],
+  "estado": "TERMINADO",
+  "fecha": "2026-11-11",
+  "horas": 2,
+  "id": "945",
+  "obra": "SPAR PUNTALLANA",
+  "ops": [
+    {
+      "h": 2,
+      "n": "Toño"
+    }
+  ],
+  "origen": "dashboard",
+  "stock": [
+    {
+      "d": "Diferencial 2x40A.30mA",
+      "q": 1,
+      "u": ""
+    }
+  ]
+}

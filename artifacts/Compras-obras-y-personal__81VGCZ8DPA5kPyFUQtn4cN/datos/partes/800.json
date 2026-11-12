@@ -1,0 +1,93 @@
+{
+  "albs": [],
+  "cliente": "COOP. COVALLE",
+  "desc": "Elaboración de Cuadros Eléctricos: Subcuadro Nave 1",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-10-27",
+  "horas": 8,
+  "obra": "CUADROS NAVES COVALLE",
+  "ops": [
+    {
+      "h": 8,
+      "n": "Toño"
+    }
+  ],
+  "stock": [
+    {
+      "d": "Cable 1x6mm",
+      "q": 2,
+      "u": "m"
+    },
+    {
+      "d": "Cable 1x10mm",
+      "q": 22,
+      "u": "m"
+    },
+    {
+      "d": "Cable 1x6mm",
+      "q": 27,
+      "u": "m"
+    },
+    {
+      "d": "Cable 1x2,5mm",
+      "q": 41,
+      "u": "m"
+    },
+    {
+      "d": "Punteras simple 16mm",
+      "q": 8,
+      "u": ""
+    },
+    {
+      "d": "Punteras simple 10mm",
+      "q": 88,
+      "u": ""
+    },
+    {
+      "d": "Punteras simple 6mm",
+      "q": 82,
+      "u": ""
+    },
+    {
+      "d": "Punteras simple 2,5mm",
+      "q": 62,
+      "u": ""
+    },
+    {
+      "d": "Punteras dobles 6mm",
+      "q": 4,
+      "u": ""
+    },
+    {
+      "d": "Brida 2,5x150mm",
+      "q": 158,
+      "u": ""
+    },
+    {
+      "d": "Brida 4,8x300mm",
+      "q": 6,
+      "u": ""
+    },
+    {
+      "d": "Brida etiqueta 2,5x200mm",
+      "q": 13,
+      "u": ""
+    },
+    {
+      "d": "Obturador Eaton",
+      "q": 1.5,
+      "u": "m"
+    },
+    {
+      "d": "Triángulo peligro 100mm",
+      "q": 1,
+      "u": ""
+    },
+    {
+      "d": "Dif. 2x40A.30mA. Eaton",
+      "q": 2,
+      "u": ""
+    }
+  ]
+}

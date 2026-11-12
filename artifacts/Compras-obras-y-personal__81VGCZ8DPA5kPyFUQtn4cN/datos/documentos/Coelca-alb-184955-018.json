@@ -1,0 +1,35 @@
+{
+  "empresa": "Instapalma",
+  "fecha": "2026-10-15",
+  "lineas": [
+    {
+      "a": "184.955/018",
+      "d": "SOPORTE CARRIL TOP SYSTEM 1H",
+      "f": "2026-10-15",
+      "fab": "GEW-GW26409",
+      "i": 2.02,
+      "o": "MATADERO INSULAR",
+      "pn": 2.02,
+      "pt": 2.015,
+      "q": 1,
+      "r": "926409"
+    },
+    {
+      "a": "184.955/018",
+      "d": "INTERRUPTOR 2P 250V LUMIN. 16A",
+      "f": "2026-10-15",
+      "fab": "GEW-GW20504",
+      "i": 11.97,
+      "o": "MATADERO INSULAR",
+      "pn": 11.97,
+      "pt": 11.971,
+      "q": 1,
+      "r": "920504"
+    }
+  ],
+  "numero": "184.955/018",
+  "obra": "MATADERO INSULAR",
+  "origen": "Gmail",
+  "proveedor": "Coelca",
+  "tipo": "albaran"
+}

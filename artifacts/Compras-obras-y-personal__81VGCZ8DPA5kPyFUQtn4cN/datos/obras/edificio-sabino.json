@@ -1,0 +1,22 @@
+{
+  "alias": [
+    "EDF SABINO",
+    "EDIFICIO SABINO",
+    "OBRA SABINO",
+    "EDIFICIOS SABINO",
+    "NAVE BOVEDILLAS LOS LLANOS",
+    "CASA CHICHO",
+    "CASA CHICHO 2 TUMBOS",
+    "CASA CHICHO DOS TUMBOS",
+    "OBRA CHICHO 2 TUMBOS"
+  ],
+  "cliente": "CHICHO 2 TUMBOS",
+  "creado": "2026-10-29",
+  "estado": "aprobada",
+  "fact": {
+    "igic": 7,
+    "mg": 35,
+    "ph": 25
+  },
+  "nombre": "Edificio Sabino"
+}

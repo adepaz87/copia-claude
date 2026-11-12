@@ -1,0 +1,118 @@
+{
+  "empresa": "Instapalma",
+  "fecha": "2026-01-14",
+  "lineas": [
+    {
+      "a": "30.028/003",
+      "d": "CAJA PLADUR 194x154x50",
+      "f": "2026-01-08",
+      "fab": "SOL-5314",
+      "i": 3.5,
+      "o": "LOCAL EL SASTRTE EL PUENTE",
+      "pn": 3.5,
+      "pt": 3.5,
+      "q": 1,
+      "r": "853140"
+    },
+    {
+      "a": "30.125/003",
+      "d": "DICRO LED 8W/83 36D 600LM GU10",
+      "f": "2026-01-14",
+      "fab": "SYL-0029183",
+      "i": 3.09,
+      "o": "VIVIENDA JORGE SASTRE",
+      "pn": 3.09,
+      "pt": 2.978,
+      "q": 1,
+      "r": "127462"
+    },
+    {
+      "a": "30.125/003",
+      "d": "ROTULADOR PERMANENTE NEGRO",
+      "f": "2026-01-14",
+      "fab": "UNX-1751",
+      "i": 10.35,
+      "o": "VIVIENDA JORGE SASTRE",
+      "pn": 5.175,
+      "pt": 5.176,
+      "q": 2,
+      "r": "18017510"
+    },
+    {
+      "a": "30.125/003",
+      "d": "ARO CIRC BASC NG C82/75 GU10",
+      "f": "2026-01-14",
+      "fab": "780E-G42X1B-02",
+      "i": 2.9,
+      "o": "VIVIENDA JORGE SASTRE",
+      "pn": 2.9,
+      "pt": 2.9,
+      "q": 1,
+      "r": "697781"
+    },
+    {
+      "a": "180.164/018",
+      "d": "ADAPT.DER.VACIO 2+T 16A 230V",
+      "f": "2026-01-14",
+      "fab": "GEW-GW64223",
+      "i": 45.96,
+      "o": "dragados el paso",
+      "pn": 45.96,
+      "pt": 45.96,
+      "q": 1,
+      "r": "964223"
+    },
+    {
+      "a": "180.164/018",
+      "d": "BASE C/PROTECCION 2P+T 10/16A",
+      "f": "2026-01-14",
+      "fab": "GEW-GW20265",
+      "i": 4.54,
+      "o": "dragados el paso",
+      "pn": 4.54,
+      "pt": 4.539,
+      "q": 1,
+      "r": "920265"
+    },
+    {
+      "a": "180.164/018",
+      "d": "ADAPTADOR 2P+T 16A A SCHUKO",
+      "f": "2026-01-14",
+      "fab": "GEW-GW64210",
+      "i": 26.66,
+      "o": "dragados el paso",
+      "pn": 13.33,
+      "pt": 13.33,
+      "q": 2,
+      "r": "964210"
+    },
+    {
+      "a": "180.165/018",
+      "d": "CAJA DERIV.100x100x50 IP55",
+      "f": "2026-01-14",
+      "fab": "GEW-GW44024",
+      "i": 4.14,
+      "o": "HOTEL ESCUELA MONTERREY",
+      "pn": 2.07,
+      "pt": 2.069,
+      "q": 2,
+      "r": "944024"
+    },
+    {
+      "a": "180.166/018",
+      "d": "CABEZA FLEXIBLE 6mm ROSCA M5",
+      "f": "2026-01-14",
+      "fab": "EST-41001000",
+      "i": 11.11,
+      "o": "HOTEL ESCUELA MONTERREY",
+      "pn": 3.7033,
+      "pt": 3.702,
+      "q": 3,
+      "r": "9695"
+    }
+  ],
+  "numero": "90086926",
+  "origen": "Gmail",
+  "proveedor": "Coelca",
+  "tipo": "factura"
+}

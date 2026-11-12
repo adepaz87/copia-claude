@@ -1,0 +1,37 @@
+{
+  "albs": [],
+  "cliente": "TRAGSA",
+  "desc": "Enebrar  cable por bandeja  en zonas  comunes",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-10-07",
+  "horas": 16,
+  "obra": "HOSPITAL (MOD G)",
+  "ops": [
+    {
+      "h": 8,
+      "n": "Manuel"
+    },
+    {
+      "h": 8,
+      "n": "Juan"
+    }
+  ],
+  "stock": [
+    {
+      "d": "bolsas  de bridas  de 300x4,8",
+      "q": 2,
+      "u": ""
+    },
+    {
+      "d": "n cable  de 3x2,5",
+      "q": 1005,
+      "u": ""
+    },
+    {
+      "d": "cable  de 3x1,5",
+      "q": 712,
+      "u": "m"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "actualizada": "2026-08-20T09:00:00Z",
+  "aviso": "26371",
+  "centro": "Nuevo Almacén II",
+  "creada": "2026-08-20T09:00:00Z",
+  "descripcion": "Pasar cable de la oficina a la sala de reuniones e instalar un punto de red.",
+  "estado": "terminada",
+  "fechaAviso": "2026-08-20",
+  "historial": [
+    "20/08/2026 · Importada del correo de Alberto"
+  ],
+  "informado": true,
+  "notas": "Resuelta el 20/08/2026.",
+  "operario": "Toño Guardia",
+  "ot": 60,
+  "prioridad": "Alta",
+  "solicitante": "",
+  "tipo": "MANTENIMIENTO"
+}

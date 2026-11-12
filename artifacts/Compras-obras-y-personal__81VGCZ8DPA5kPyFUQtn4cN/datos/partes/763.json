@@ -1,0 +1,19 @@
+{
+  "albs": [
+    "Ayumar 4-1187"
+  ],
+  "cliente": "AYTO. EL PASO",
+  "desc": "Comprobar cableado de tierra de herrajes y de neutro. \nHacer medición de tierra de herrajes (8,24 ohmios).\nCortar y preparar puntas para las bornas de MT.\nHacer bornas de MT.",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-10-22",
+  "horas": 8,
+  "obra": "CT. PINO DE LA VIRGEN",
+  "ops": [
+    {
+      "h": 8,
+      "n": "Jorge"
+    }
+  ],
+  "stock": []
+}

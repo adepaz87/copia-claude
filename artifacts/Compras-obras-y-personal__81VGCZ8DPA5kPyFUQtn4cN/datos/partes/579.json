@@ -1,0 +1,18 @@
+{
+  "albs": [],
+  "cliente": "ORVECAN",
+  "desc": "Recoger escalera dejarla en almacen",
+  "devol": [],
+  "estado": "TERMINADO",
+  "fecha": "2026-09-25",
+  "horas": 1,
+  "obra": "ORVECAN",
+  "ops": [
+    {
+      "h": 1,
+      "n": "Goyo"
+    }
+  ],
+  "origen": "dashboard",
+  "stock": []
+}

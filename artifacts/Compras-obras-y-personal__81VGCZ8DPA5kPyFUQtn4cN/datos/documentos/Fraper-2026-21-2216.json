@@ -1,0 +1,58 @@
+{
+  "empresa": "Instapalma",
+  "fecha": "2026-06-15",
+  "lineas": [
+    {
+      "a": "2026/01/006783",
+      "d": "JUEGO PUNTAS 1/4\" TORNILLOS RANURADOS 12",
+      "dto": "10",
+      "f": "2026-06-02",
+      "i": 6.58,
+      "o": "FV TUNEL DE LA CUMBRE",
+      "pn": 6.58,
+      "pt": 7.31,
+      "q": 1,
+      "r": "210890"
+    },
+    {
+      "a": "2026/01/006783",
+      "d": "JUEGO PUNTAS 1/4\" TORNILLOS RANURADOS 12",
+      "dto": "10",
+      "f": "2026-06-02",
+      "i": 6.58,
+      "o": "FV TUNEL DE LA CUMBRE",
+      "pn": 6.58,
+      "pt": 7.31,
+      "q": 1,
+      "r": "210890"
+    },
+    {
+      "a": "2026/01/006783",
+      "d": "GUANTE NYLON NARANJA GALGA T9",
+      "dto": "10",
+      "f": "2026-06-02",
+      "i": 7.64,
+      "o": "FV TUNEL DE LA CUMBRE",
+      "pn": 2.5467,
+      "pt": 2.83,
+      "q": 3,
+      "r": "200401"
+    },
+    {
+      "a": "2026/01/006783",
+      "d": "GUANTE NYLON NARANJA GALGA T9",
+      "dto": "10",
+      "f": "2026-06-02",
+      "i": 2.55,
+      "o": "FV TUNEL DE LA CUMBRE",
+      "pn": 2.55,
+      "pt": 2.83,
+      "q": 1,
+      "r": "200401"
+    }
+  ],
+  "numero": "2026/21/2216",
+  "origen": "Gmail",
+  "proveedor": "Fraper",
+  "tipo": "factura"
+}

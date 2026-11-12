@@ -1,0 +1,17 @@
+{
+  "albs": [],
+  "cliente": "HERBAMACA",
+  "desc": "Asistencia a avería GIM 27042 . Está siendo resuelto por mantenimiento TBSA. Por derivación cableado Vitrinas",
+  "devol": [],
+  "estado": "TERMINADO",
+  "fecha": "2026-10-15",
+  "horas": 2,
+  "obra": "SPAR TIJARAFE",
+  "ops": [
+    {
+      "h": 2,
+      "n": "Toño"
+    }
+  ],
+  "stock": []
+}

@@ -1,0 +1,36 @@
+{
+  "empresa": "Instapalma",
+  "fecha": "2026-01-30",
+  "lineas": [
+    {
+      "a": "309000636",
+      "d": "IK60N 1P+N 16A C",
+      "f": "2026-01-30",
+      "fab": "A9K17616CAN",
+      "i": 164.2,
+      "m": "Schneider Electric",
+      "o": "ALMACEN",
+      "pn": 3.284,
+      "pt": 3.284091,
+      "q": 50,
+      "r": "719537"
+    },
+    {
+      "a": "309000636",
+      "d": "IK60N 1P+N 25A C",
+      "f": "2026-01-30",
+      "fab": "A9K17625CAN",
+      "i": 53.01,
+      "m": "Schneider Electric",
+      "o": "ALMACEN",
+      "pn": 3.534,
+      "pt": 3.534091,
+      "q": 15,
+      "r": "719539"
+    }
+  ],
+  "numero": "F03000R-1126",
+  "origen": "Gmail",
+  "proveedor": "Sonepar",
+  "tipo": "factura"
+}

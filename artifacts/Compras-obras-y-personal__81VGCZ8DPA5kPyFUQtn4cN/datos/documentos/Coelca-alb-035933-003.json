@@ -1,0 +1,24 @@
+{
+  "empresa": "Kairos Supply",
+  "fecha": "2026-11-09",
+  "lineas": [
+    {
+      "a": "035.933/003",
+      "d": "LUM.ASTRO 30W SOLAR PC-AMBAR",
+      "f": "2026-11-09",
+      "fab": "1733983040500",
+      "i": 1775,
+      "o": "A.P. BARLOVENTO",
+      "pn": 355,
+      "pt": 355,
+      "q": 5,
+      "r": "173398"
+    }
+  ],
+  "msg": "1a1bf479ebac622b",
+  "numero": "035.933/003",
+  "obra": "A.P. BARLOVENTO",
+  "origen": "Gmail",
+  "proveedor": "Coelca",
+  "tipo": "albaran"
+}

@@ -1,0 +1,50 @@
+{
+  "albs": [
+    "Diexfe 18485",
+    "Diexfe 18542"
+  ],
+  "cliente": "TRAGSA",
+  "desc": "Registrar 4 cajas y una empezada",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-10-05",
+  "horas": 16,
+  "obra": "HOSPITAL (MOD G)",
+  "ops": [
+    {
+      "h": 8,
+      "n": "Manuel"
+    },
+    {
+      "h": 8,
+      "n": "Juan"
+    }
+  ],
+  "stock": [
+    {
+      "d": "regletas fichas de 25",
+      "q": 4,
+      "u": ""
+    },
+    {
+      "d": "bornas de 50",
+      "q": 6,
+      "u": ""
+    },
+    {
+      "d": "regletas de fichas de 16mm",
+      "q": 4,
+      "u": ""
+    },
+    {
+      "d": "regletas  de fichas 10mm",
+      "q": 4,
+      "u": ""
+    },
+    {
+      "d": "cinta aislante",
+      "q": 2,
+      "u": "rollos"
+    }
+  ]
+}

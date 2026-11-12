@@ -1,0 +1,21 @@
+{
+  "albs": [],
+  "cliente": "COVALLE",
+  "desc": "Entubar,colocación registros planta baja para fuerza ,alumbrado,alumbrado emergencia,datos,TV…etc\nEntubar escalera subida planta alta (alumbrado,alumbrado emergencia,conmutada…\nEntubar cuarto fitosanitarios (alumbrado,alumbrado emergencia y fuerza)",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-09-30",
+  "horas": 22,
+  "obra": "NAVE COOPERATIVA COVALLE",
+  "ops": [
+    {
+      "h": 11,
+      "n": "Petter"
+    },
+    {
+      "h": 11,
+      "n": "Jonathan Rodríguez"
+    }
+  ],
+  "stock": []
+}

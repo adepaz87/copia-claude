@@ -1,0 +1,75 @@
+{
+  "empresa": "Instapalma",
+  "fecha": "2026-08-31",
+  "lineas": [
+    {
+      "a": "509615",
+      "d": "ALQUILER GRUPO 150KVA INSONORIZADO 1 SEMANA",
+      "dto": "",
+      "f": "2026-08-14",
+      "i": 668.85,
+      "igic": 7,
+      "o": "FERIA ARTESANIA TAZACORTE",
+      "pn": 668.85,
+      "pt": 668.85,
+      "q": 1,
+      "r": ""
+    },
+    {
+      "a": "509615",
+      "d": "RESIDUOS",
+      "dto": "",
+      "f": "2026-08-14",
+      "i": 100.33,
+      "igic": 7,
+      "o": "FERIA ARTESANIA TAZACORTE",
+      "pn": 100.33,
+      "pt": 100.33,
+      "q": 1,
+      "r": ""
+    },
+    {
+      "a": "509615",
+      "d": "SEGURO",
+      "dto": "",
+      "f": "2026-08-14",
+      "i": 100.33,
+      "igic": 7,
+      "o": "FERIA ARTESANIA TAZACORTE",
+      "pn": 100.33,
+      "pt": 100.33,
+      "q": 1,
+      "r": ""
+    },
+    {
+      "a": "509615",
+      "d": "TRANSPORTE ENTREGA",
+      "dto": "",
+      "f": "2026-08-14",
+      "i": 100,
+      "igic": 7,
+      "o": "FERIA ARTESANIA TAZACORTE",
+      "pn": 100,
+      "pt": 100,
+      "q": 1,
+      "r": ""
+    },
+    {
+      "a": "509615",
+      "d": "TRANSPORTE RECOGIDA",
+      "dto": "",
+      "f": "2026-08-14",
+      "i": 100,
+      "igic": 7,
+      "o": "FERIA ARTESANIA TAZACORTE",
+      "pn": 100,
+      "pt": 100,
+      "q": 1,
+      "r": ""
+    }
+  ],
+  "numero": "2026101019111",
+  "origen": "Gmail",
+  "proveedor": "Opein",
+  "tipo": "factura"
+}

@@ -1,0 +1,71 @@
+{
+  "empresa": "Instapalma",
+  "fecha": "2026-10-22",
+  "lineas": [
+    {
+      "a": "VCTF-019880-2026",
+      "d": "COBRE DESNUDO 50 (KG)",
+      "dto": "Neto",
+      "f": "2026-10-22",
+      "i": 135.35,
+      "o": "CT PINO DE LA VIRGEN",
+      "pn": 16.9187,
+      "pt": 16.919,
+      "q": 8,
+      "r": "MIG-CU50"
+    },
+    {
+      "a": "VCTF-019880-2026",
+      "d": "ARQUETA TIERRA ALUMINIO (2ARQUET)",
+      "dto": "Neto",
+      "f": "2026-10-22",
+      "i": 21.37,
+      "o": "CT PINO DE LA VIRGEN",
+      "pn": 10.685,
+      "pt": 10.685,
+      "q": 2,
+      "r": "MOR-360100"
+    },
+    {
+      "a": "VCTF-019880-2026",
+      "d": "PICA TIERRA 100 14MM 1,5M",
+      "dto": "Neto",
+      "f": "2026-10-22",
+      "i": 76.93,
+      "o": "CT PINO DE LA VIRGEN",
+      "pn": 7.693,
+      "pt": 7.693,
+      "q": 10,
+      "r": "SOF-T101415"
+    },
+    {
+      "a": "VCTF-019880-2026",
+      "d": "GRAPA TIERRA TGT142",
+      "dto": "Neto",
+      "f": "2026-10-22",
+      "i": 16.67,
+      "o": "CT PINO DE LA VIRGEN",
+      "pn": 1.3892,
+      "pt": 1.389,
+      "q": 12,
+      "r": "SOF-TGT142"
+    },
+    {
+      "a": "VCTF-019880-2026",
+      "d": "CABLE BARRYFLEX RV-K 0,6 1KV 1X50MM2",
+      "dto": "Neto",
+      "f": "2026-10-22",
+      "i": 169.46,
+      "o": "CT PINO DE LA VIRGEN",
+      "pn": 8.473,
+      "pt": 8.473,
+      "q": 20,
+      "r": "MIG-86210"
+    }
+  ],
+  "numero": "VCTF-019880-2026",
+  "obra": "CT PINO DE LA VIRGEN",
+  "origen": "Gmail",
+  "proveedor": "Diexfe",
+  "tipo": "albaran"
+}

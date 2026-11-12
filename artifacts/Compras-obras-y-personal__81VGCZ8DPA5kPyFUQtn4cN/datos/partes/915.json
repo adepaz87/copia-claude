@@ -1,0 +1,26 @@
+{
+  "albs": [
+    "Fraper 2026/01/013855"
+  ],
+  "cliente": "TRAGSA",
+  "desc": "Conectar centrales de incendios y monóxido. Instalar y conectar pulsadores y sirenas. Conectar bases de detectores. Enfichar y tapar registros. Agujerar placas de falso techo. Instalar bases de detectores en placas. Sacar cables en bases.",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-11-06",
+  "horas": 16,
+  "id": "915",
+  "obra": "PCI PLAZA GAZMIRA",
+  "ops": [
+    {
+      "h": 8,
+      "n": "Eloy"
+    },
+    {
+      "h": 8,
+      "n": "Jonathan Glez"
+    }
+  ],
+  "origen": "dashboard",
+  "restante": "3-4 días PCI planta alta",
+  "stock": []
+}

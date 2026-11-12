@@ -1,0 +1,21 @@
+{
+  "albs": [],
+  "cliente": "HERBAMACA DISTRIBUCIONES",
+  "desc": "Avería en circuitos de Sala y de oficina y UPS. Búsqueda derivaciones a tierra, separado lineas derivadas y puesta en servicio momentaneo",
+  "devol": [],
+  "editado": "2026-11-02",
+  "estado": "EN CURSO",
+  "fecha": "2026-11-02",
+  "horas": 4,
+  "obra": "SPAR TIJARAFE",
+  "obraId": "spar-tijarafe",
+  "ops": [
+    {
+      "h": 4,
+      "n": "Toño Guardia",
+      "pid": "tono-guardia"
+    }
+  ],
+  "origen": "dashboard",
+  "stock": []
+}

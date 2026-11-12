@@ -1,0 +1,40 @@
+{
+  "albs": [
+    "Diexfe VCTF-016583-2026"
+  ],
+  "cliente": "ARIDOS EL RIACHUELO SAU",
+  "desc": "Instalación en cuadro de planta áridos para cinta de alimentación variador , fijación ,cableado,conexionado, establecimiento de parámetros y pruebas de arranque en vacío y en carga",
+  "devol": [],
+  "estado": "TERMINADO",
+  "fecha": "2026-09-07",
+  "horas": 8,
+  "obra": "PLANTA ÁRIDOS",
+  "ops": [
+    {
+      "h": 8,
+      "n": "Toño"
+    }
+  ],
+  "stock": [
+    {
+      "d": "Cable 1x2,5mm",
+      "q": 14,
+      "u": "m"
+    },
+    {
+      "d": "Cable 1x6mm",
+      "q": 8,
+      "u": "m"
+    },
+    {
+      "d": "punteras simples 6mm",
+      "q": 9,
+      "u": ""
+    },
+    {
+      "d": "punteras simples 2,5mm",
+      "q": 14,
+      "u": ""
+    }
+  ]
+}

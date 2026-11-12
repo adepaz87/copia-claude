@@ -1,0 +1,80 @@
+{
+  "empresa": "Instapalma",
+  "fecha": "2026-02-03",
+  "lineas": [
+    {
+      "a": "309000711",
+      "d": "CL-PLACA 3M BLANCO",
+      "dto": "45,00",
+      "f": "2026-02-03",
+      "fab": "R4803RW",
+      "i": 1.85,
+      "m": "BTICINO",
+      "o": "APARTAMENTO CASA CHICHO LAS MARTELAS",
+      "pn": 1.85,
+      "pt": 3.37,
+      "q": 1,
+      "r": "707695"
+    },
+    {
+      "a": "309000711",
+      "d": "CL-INT IL 2P 16A 1M BLAN",
+      "dto": "45,00",
+      "f": "2026-02-03",
+      "fab": "RW4002L",
+      "i": 9.83,
+      "m": "BTICINO",
+      "o": "APARTAMENTO CASA CHICHO LAS MARTELAS",
+      "pn": 9.83,
+      "pt": 17.88,
+      "q": 1,
+      "r": "723835"
+    },
+    {
+      "a": "309000711",
+      "d": "PUNTERA HUECA AIS.CORTA APF 6,0MM VD",
+      "dto": "40,00",
+      "f": "2026-02-03",
+      "fab": "245160",
+      "i": 3.56,
+      "m": "SOFAMEL",
+      "o": "APARTAMENTO CASA CHICHO LAS MARTELAS",
+      "pn": 0.0356,
+      "pt": 0.0594,
+      "q": 100,
+      "r": "21320"
+    },
+    {
+      "a": "309000711",
+      "d": "CL-SOPORTE RECTAN 3M",
+      "dto": "45,00",
+      "f": "2026-02-03",
+      "fab": "R4703P",
+      "i": 0.89,
+      "m": "BTICINO",
+      "o": "APARTAMENTO CASA CHICHO LAS MARTELAS",
+      "pn": 0.89,
+      "pt": 1.61,
+      "q": 1,
+      "r": "852460"
+    },
+    {
+      "a": "309000711",
+      "d": "BRIDAS 100*2,5MM,NEGRO INT/EXT 100UDS",
+      "dto": "28,00",
+      "f": "2026-02-03",
+      "fab": "0000460027",
+      "i": 1.42,
+      "m": "TRADEFORCE",
+      "o": "APARTAMENTO CASA CHICHO LAS MARTELAS",
+      "pn": 0.0142,
+      "pt": 0.0197,
+      "q": 100,
+      "r": "1034756"
+    }
+  ],
+  "numero": "F03000R-1800",
+  "origen": "Gmail",
+  "proveedor": "Sonepar",
+  "tipo": "factura"
+}

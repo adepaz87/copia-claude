@@ -1,0 +1,24 @@
+{
+  "albs": [],
+  "cliente": "BORJA PÉREZ SICILIA",
+  "desc": "Ver trabajos a realizar con Borja. Buscar avería en barbacoa. Se identifica avería en punto luz baño (corto-circuito). Se identifica avería en registro exterior (césped) (corto-circuito), cable comido de ratones alumbrado, fuerza, conmutadas",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-11-10",
+  "horas": 7,
+  "id": "942",
+  "obra": "VIVIENDA BORJA",
+  "ops": [
+    {
+      "h": 3.5,
+      "n": "Petter"
+    },
+    {
+      "h": 3.5,
+      "n": "Jonathan Rodríguez"
+    }
+  ],
+  "origen": "dashboard",
+  "restante": "1 día",
+  "stock": []
+}

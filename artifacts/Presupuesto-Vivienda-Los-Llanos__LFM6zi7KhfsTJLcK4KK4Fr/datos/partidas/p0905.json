@@ -1,0 +1,12 @@
+{
+  "cap": "09",
+  "cod": "09.05",
+  "desc": "Instalación de fontanería en cuarto de limpieza (toma de lavadora y desagüe).",
+  "med": 1,
+  "nota": "",
+  "orden": 5,
+  "pre": 220,
+  "rev": false,
+  "sb": false,
+  "ud": "ud"
+}

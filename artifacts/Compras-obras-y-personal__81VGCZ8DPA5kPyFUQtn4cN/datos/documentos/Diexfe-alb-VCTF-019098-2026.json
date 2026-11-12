@@ -1,0 +1,71 @@
+{
+  "empresa": "Instapalma",
+  "fecha": "2026-10-09",
+  "lineas": [
+    {
+      "a": "VCTF-019098-2026",
+      "d": "CABLE AFIREFENIX MICA RZ1-K AS+ 1X35 MM2",
+      "dto": "Neto",
+      "f": "2026-10-09",
+      "i": 718.77,
+      "o": "EDF SABINO",
+      "pn": 6.305,
+      "pt": 6.305,
+      "q": 114,
+      "r": "MIG-85407"
+    },
+    {
+      "a": "VCTF-019098-2026",
+      "d": "CABLE AFIREFENIX MICA RZ1-K AS+ 1X16 MM2",
+      "dto": "Neto",
+      "f": "2026-10-09",
+      "i": 197.88,
+      "o": "EDF SABINO",
+      "pn": 3.141,
+      "pt": 3.141,
+      "q": 63,
+      "r": "MIG-85405"
+    },
+    {
+      "a": "VCTF-019098-2026",
+      "d": "CABLE AFIRENAX-X RZ1-K 0,6/1KV 1X35MM2",
+      "dto": "Neto",
+      "f": "2026-10-09",
+      "i": 1006.92,
+      "o": "EDF SABINO",
+      "pn": 5.594,
+      "pt": 5.594,
+      "q": 180,
+      "r": "MIG-84008"
+    },
+    {
+      "a": "VCTF-019098-2026",
+      "d": "CABLE AFIRENAX-X RZ1-K 0,6/1KV 1X25MM2",
+      "dto": "Neto",
+      "f": "2026-10-09",
+      "i": 182.25,
+      "o": "EDF SABINO",
+      "pn": 4.05,
+      "pt": 4.05,
+      "q": 45,
+      "r": "MIG-84007"
+    },
+    {
+      "a": "VCTF-019098-2026",
+      "d": "CABLE AFIREFENIX MICA RZ1-K AS+ 1X35 MM2",
+      "dto": "Neto",
+      "f": "2026-10-09",
+      "i": 239.59,
+      "o": "EDF SABINO",
+      "pn": 6.305,
+      "pt": 6.305,
+      "q": 38,
+      "r": "MIG-85407"
+    }
+  ],
+  "numero": "VCTF-019098-2026",
+  "obra": "EDF SABINO",
+  "origen": "Gmail",
+  "proveedor": "Diexfe",
+  "tipo": "albaran"
+}

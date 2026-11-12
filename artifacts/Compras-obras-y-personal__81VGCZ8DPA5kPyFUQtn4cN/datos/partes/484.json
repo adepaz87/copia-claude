@@ -1,0 +1,24 @@
+{
+  "albs": [
+    "Diexfe vctf-016639-2026",
+    "Diexfe vctf-017252-2026"
+  ],
+  "cliente": "AYUNTAMIENTO EL PASO",
+  "desc": "Enebrar puntos liz fachada azotea, enebrar y mecanizar cuarto servicio azotea.\nEnebrar puntos de emergencia y sensor de rellano azotea.\nColocar puntos en rellano ascensor S-1\nFinar bateria de condensadores y colocar bandeja 100x60.",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-09-16",
+  "horas": 16,
+  "obra": "HOTEL MONTERREY",
+  "ops": [
+    {
+      "h": 8,
+      "n": "Antonio"
+    },
+    {
+      "h": 8,
+      "n": "Iker"
+    }
+  ],
+  "stock": []
+}

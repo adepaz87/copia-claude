@@ -1,0 +1,21 @@
+{
+  "albs": [],
+  "cliente": "TRAGSA",
+  "desc": "Mecanizando mod A",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-10-20",
+  "horas": 8,
+  "obra": "HOSPITAL",
+  "ops": [
+    {
+      "h": 4,
+      "n": "Manuel"
+    },
+    {
+      "h": 4,
+      "n": "Juan"
+    }
+  ],
+  "stock": []
+}

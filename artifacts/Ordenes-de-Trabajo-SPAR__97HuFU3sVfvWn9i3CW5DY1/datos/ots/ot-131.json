@@ -1,0 +1,26 @@
+{
+  "actualizada": "2026-11-05T09:12:00Z",
+  "asignadaEn": "2026-11-04T12:50:58.371Z",
+  "avisadoWa": "2026-11-04T12:51:02.243Z",
+  "aviso": "",
+  "centro": "SPAR Mazo",
+  "creada": "2026-11-04T12:20:00Z",
+  "descripcion": "Regular relojes horarios por cambio de hora.",
+  "estado": "terminada",
+  "fechaAviso": "2026-11-04",
+  "historial": [
+    "04/11/2026 · Importada de la captura GIM de Raquel (correo «MAZO»)",
+    "4/11/2026 12:50 · Asignada a Toño Guardia",
+    "4/11/2026 12:51 · Asignación: Correo enviado a TBSA · WhatsApp a Toño Guardia programado · WhatsApp a Fernando programado",
+    "5/11/2026 08:27 · Toño Guardia por WhatsApp: «OT 131 resuelto»",
+    "5/11/2026 09:12 · Cierre: correo a TBSA y WhatsApp a Fernando"
+  ],
+  "informado": true,
+  "notas": "GIM 04/11 12:41. Nº OT provisional: confirmar o cambiar.",
+  "operario": "Toño Guardia",
+  "ot": 131,
+  "prioridad": "Sin especificar",
+  "solicitante": "Raquel",
+  "terminadaEn": "2026-11-05T08:27:00Z",
+  "tipo": "MANTENIMIENTO"
+}

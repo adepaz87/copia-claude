@@ -1,0 +1,21 @@
+{
+  "albs": [],
+  "cliente": "DRAGADOS",
+  "desc": "Cortar techos para buscar tubos de alumbrado y teleco de 1 planta y reubicarlos en la nueva distribucion de alumbrado por orden de la jefa de obra.",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-10-20",
+  "horas": 16,
+  "obra": "HOTEL MONTERREY",
+  "ops": [
+    {
+      "h": 8,
+      "n": "Antonio"
+    },
+    {
+      "h": 8,
+      "n": "Iker"
+    }
+  ],
+  "stock": []
+}

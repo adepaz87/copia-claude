@@ -1,0 +1,45 @@
+{
+  "albs": [
+    "Instapalma 202610-0182",
+    "Sonepar 309006169"
+  ],
+  "cliente": "CONSTRUCCIONES DOS TUMBOS",
+  "desc": "Colocación cajas registro,cajas mecanismo,cuadro habitación en paredes pladur.\nEnhebrar habitación en segunda planta.\nRealizar entubado para llamada  enfermería habitación segunda planta.\nLimpiar zonas de trabajo.",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-10-07",
+  "horas": 19,
+  "obra": "RESIDENCIA TERCERA EDAD EL PASO",
+  "ops": [
+    {
+      "h": 8,
+      "n": "Petter"
+    },
+    {
+      "h": 11,
+      "n": "Jonathan Rodríguez"
+    }
+  ],
+  "stock": [
+    {
+      "d": "Cable 1x2,5 mm Negro",
+      "q": 200,
+      "u": "m"
+    },
+    {
+      "d": "Cable 1x2,5 mm AM/verd",
+      "q": 200,
+      "u": "m"
+    },
+    {
+      "d": "Cable 1x1,5 mm AM/verd",
+      "q": 200,
+      "u": "m"
+    },
+    {
+      "d": "Caja registro PT-7 ref:5530 (300x160x70)",
+      "q": 1,
+      "u": "ud"
+    }
+  ]
+}

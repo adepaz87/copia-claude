@@ -1,0 +1,17 @@
+{
+  "albs": [],
+  "cliente": "APT SALEMERA",
+  "desc": "Revisar",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-10-07",
+  "horas": 2,
+  "obra": "REVISAR",
+  "ops": [
+    {
+      "h": 2,
+      "n": "Goyo"
+    }
+  ],
+  "stock": []
+}

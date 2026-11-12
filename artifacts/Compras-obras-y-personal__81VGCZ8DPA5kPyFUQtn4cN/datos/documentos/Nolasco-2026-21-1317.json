@@ -1,0 +1,82 @@
+{
+  "empresa": "Instapalma",
+  "fecha": "2026-09-01",
+  "lineas": [
+    {
+      "a": "2026/02/004387",
+      "d": "PILAS ALC.GAMA PLUS LR06 DURACEL BL.8",
+      "dto": "",
+      "f": "2026-08-04",
+      "i": 13.72,
+      "o": "GIMNASIO DARWIN",
+      "pn": 6.86,
+      "pt": 6.86,
+      "q": 2,
+      "r": "EHLI 9150R806"
+    },
+    {
+      "a": "2026/03/000680",
+      "d": "CADENA ACERO CINC.ESLA.LGO 3MM/5M DIN568",
+      "dto": "",
+      "f": "2026-08-10",
+      "i": 8.77,
+      "o": "GIMNASIO DARWIN",
+      "pn": 8.77,
+      "pt": 8.77,
+      "q": 1,
+      "r": "ROMB 830802052370"
+    },
+    {
+      "a": "2026/03/000680",
+      "d": "CADENA ACERO CINC.ESLA.LGO 3MM/5M DIN568",
+      "dto": "",
+      "f": "2026-08-10",
+      "i": 8.77,
+      "o": "GIMNASIO DARWIN",
+      "pn": 8.77,
+      "pt": 8.77,
+      "q": 1,
+      "r": "ROMB 830802052370"
+    },
+    {
+      "a": "2026/03/000680",
+      "d": "BOLSA P.",
+      "dto": "",
+      "f": "2026-08-10",
+      "i": 2.99,
+      "o": "GIMNASIO DARWIN",
+      "pn": 2.99,
+      "pt": 2.99,
+      "q": 1,
+      "r": "CELO 9BCP"
+    },
+    {
+      "a": "2026/02/004662",
+      "d": "CARTUCHO C206",
+      "dto": "",
+      "f": "2026-08-19",
+      "i": 3.52,
+      "o": "GIMNASIO DARWIN",
+      "pn": 1.76,
+      "pt": 1.76,
+      "q": 2,
+      "r": "SAPA 3000002290"
+    },
+    {
+      "a": "2026/02/004662",
+      "d": "BOLSA MEDIANA",
+      "dto": "",
+      "f": "2026-08-19",
+      "i": 5.14,
+      "o": "GIMNASIO DARWIN",
+      "pn": 5.14,
+      "pt": 5.14,
+      "q": 1,
+      "r": "CELO 9BCM"
+    }
+  ],
+  "numero": "2026/21/1317",
+  "origen": "Gmail",
+  "proveedor": "Nolasco",
+  "tipo": "factura"
+}

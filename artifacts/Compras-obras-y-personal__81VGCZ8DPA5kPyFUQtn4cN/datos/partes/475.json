@@ -1,0 +1,19 @@
+{
+  "albs": [
+    "Diexfe Vctf- 017319-2026"
+  ],
+  "cliente": "CONSTRUCCIONES DOS TUMBOS",
+  "desc": "- preparación y adaptación de cableados coaxiales y de datos en caja registro\n- Terminación y conectorización de cables de datos mediante conectores RJ45.\n- Montaje y conexionado de elementos pasivos de distribución de señal de TV,  derivadores.",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-09-15",
+  "horas": 5,
+  "obra": "APARTAMENTOS TAZACORTE",
+  "ops": [
+    {
+      "h": 5,
+      "n": "Rafa"
+    }
+  ],
+  "stock": []
+}

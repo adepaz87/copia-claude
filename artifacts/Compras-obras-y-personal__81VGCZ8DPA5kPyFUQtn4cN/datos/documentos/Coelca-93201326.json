@@ -1,0 +1,22 @@
+{
+  "empresa": "Kairos Supply",
+  "fecha": "2026-07-27",
+  "lineas": [
+    {
+      "a": "34.008/003",
+      "d": "CRUCETA CT2L 2 BRAZOS 2X0.5",
+      "f": "2026-07-27",
+      "fab": "BAC-CT.2L",
+      "i": 356.72,
+      "o": "",
+      "pn": 89.18,
+      "pt": 89.181,
+      "q": 4,
+      "r": "12607"
+    }
+  ],
+  "numero": "93201326",
+  "origen": "Gmail",
+  "proveedor": "Coelca",
+  "tipo": "factura"
+}

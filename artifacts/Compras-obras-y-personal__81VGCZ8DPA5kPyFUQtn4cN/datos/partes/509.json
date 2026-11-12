@@ -1,0 +1,54 @@
+{
+  "albs": [
+    "Sonepar 309005739"
+  ],
+  "cliente": "CHICHO DOS TUMBOS",
+  "desc": "Colocación de registros\nHabrir huecos\nColocación  de zócalos \nEntubar",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-09-18",
+  "horas": 16,
+  "obra": "VIVIENDAS  EL TANQUE",
+  "ops": [
+    {
+      "h": 8,
+      "n": "Manuel"
+    },
+    {
+      "h": 8,
+      "n": "Juan"
+    }
+  ],
+  "stock": [
+    {
+      "d": "registros  10x10 solera",
+      "q": 5,
+      "u": ""
+    },
+    {
+      "d": "curva rígidas de 32",
+      "q": 1,
+      "u": ""
+    },
+    {
+      "d": "bases bridas",
+      "q": 1,
+      "u": "caja"
+    },
+    {
+      "d": "bridas de 4,8x300",
+      "q": 1,
+      "u": "paquete"
+    },
+    {
+      "d": "tubo rígido  de 20",
+      "q": 12,
+      "u": "m"
+    },
+    {
+      "d": "tacos y tornillos de 6mm",
+      "q": 2,
+      "u": "cajas"
+    }
+  ]
+}

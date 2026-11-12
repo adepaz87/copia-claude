@@ -1,0 +1,17 @@
+{
+  "albs": [],
+  "cliente": "?",
+  "desc": "Elaboración cuadro cargadores, mediciones tierras",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-10-22",
+  "horas": 1.5,
+  "obra": "CARGADOR EL PASO",
+  "ops": [
+    {
+      "h": 1.5,
+      "n": "Toño"
+    }
+  ],
+  "stock": []
+}

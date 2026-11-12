@@ -1,0 +1,363 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Licitaciones La Palma</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: sticky filter bar over a single column of tender rows; deadline is the primary signal */
+:root{
+  --bg:#f5f6f3; --surface:#ffffff; --line:#dde1d9; --fg:#1d2420; --muted:#5f6b63;
+  --accent:#1f6b4f; --accent-soft:#e2efe8;
+  --ok:#1f6b4f; --warn:#a15c07; --warn-soft:#fbeedb; --crit:#b42318; --crit-soft:#fbe5e2; --neutral-soft:#eceee9;
+  --sans:"Public Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#121614; --surface:#1a201d; --line:#2c3530; --fg:#e6ebe7; --muted:#9aa69f;
+  --accent:#6fc79e; --accent-soft:#1f3229; --ok:#6fc79e; --warn:#f0b45c; --warn-soft:#3a2d18; --crit:#f2897d; --crit-soft:#3d201d; --neutral-soft:#242b27; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#121614; --surface:#1a201d; --line:#2c3530; --fg:#e6ebe7; --muted:#9aa69f;
+  --accent:#6fc79e; --accent-soft:#1f3229; --ok:#6fc79e; --warn:#f0b45c; --warn-soft:#3a2d18; --crit:#f2897d; --crit-soft:#3d201d; --neutral-soft:#242b27; color-scheme:dark}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+body{background:var(--bg);color:var(--fg);font-family:var(--sans);font-size:15px;line-height:1.45}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
+.wrap{max-width:980px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:20px 48px}
+header h1{font-size:1.6rem;font-weight:700;margin:0;letter-spacing:-.01em;text-wrap:balance}
+header p{margin:4px 0 0;color:var(--muted);font-size:.9rem}
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);padding-block:14px 10px;display:grid;gap:10px;border-bottom:1px solid var(--line);margin-bottom:12px}
+.row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+input[type=search],select,input[type=number]{font:inherit;font-size:.95rem;color:var(--fg);background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:9px 11px;min-width:0}
+input[type=search]{flex:1 1 260px}
+select{flex:1 1 180px;max-width:100%}
+input[type=number]{width:120px;font-family:var(--mono)}
+input:focus-visible,select:focus-visible,button:focus-visible,a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{font:inherit;font-size:.85rem;border:1px solid var(--line);background:var(--surface);color:var(--fg);border-radius:999px;padding:6px 12px;cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--bg);font-weight:600}
+.lbl{font-size:.72rem;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);font-weight:600;margin-right:2px}
+.meta{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;color:var(--muted);font-size:.85rem}
+.meta b{color:var(--fg);font-variant-numeric:tabular-nums}
+.link-btn{font:inherit;font-size:.85rem;background:none;border:0;color:var(--accent);cursor:pointer;padding:0;text-decoration:underline}
+ol.list{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.item{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:14px 16px;display:grid;grid-template-columns:1fr auto;gap:6px 16px;min-width:0}
+.item h2{font-size:1rem;font-weight:600;margin:0;line-height:1.35;grid-column:1/-1;min-width:0;overflow-wrap:anywhere}
+.item h2 a{color:inherit;text-decoration:none}
+.item h2 a:hover{text-decoration:underline;text-decoration-color:var(--accent)}
+.org{color:var(--muted);font-size:.86rem;grid-column:1/-1;min-width:0}
+.facts{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:.86rem;align-items:center;min-width:0}
+.facts .num{font-family:var(--mono);font-variant-numeric:tabular-nums;font-weight:500}
+.pill{display:inline-block;font-size:.75rem;font-weight:600;border-radius:4px;padding:2px 7px;background:var(--neutral-soft);color:var(--fg)}
+.pill.open{background:var(--accent-soft);color:var(--ok)}
+.pill.soon{background:var(--warn-soft);color:var(--warn)}
+.pill.reg{background:transparent;border:1px solid var(--line);color:var(--muted)}
+.pill.late{background:var(--crit-soft);color:var(--crit)}
+.deadline{text-align:right;font-size:.82rem;color:var(--muted);white-space:nowrap}
+.deadline b{display:block;font-family:var(--mono);font-size:.95rem;color:var(--fg)}
+.award{grid-column:1/-1;font-size:.84rem;color:var(--muted);min-width:0;overflow-wrap:anywhere}
+.award b{color:var(--fg);font-weight:600}
+.cpv{font-family:var(--mono);font-size:.78rem;color:var(--muted)}
+.empty{padding:40px 0;text-align:center;color:var(--muted)}
+footer{margin-top:28px;color:var(--muted);font-size:.82rem;max-width:65ch}
+
+.group{display:grid;gap:6px;min-width:0}
+.panel{display:grid;gap:12px;min-width:0;grid-template-columns:minmax(0,1fr)}
+.bar,.group{grid-template-columns:minmax(0,1fr)}
+select{width:100%}
+.row.top{flex-wrap:nowrap}
+.row.nowrap{flex-wrap:nowrap}
+.dash{color:var(--muted)}
+.ftoggle,.done{display:none;font:inherit;font-size:.95rem;font-weight:600;border-radius:8px;cursor:pointer}
+.ftoggle{flex:0 0 auto;padding:9px 14px;border:1px solid var(--line);background:var(--surface);color:var(--fg)}
+.ftoggle.active{border-color:var(--accent);color:var(--accent)}
+.done{padding:12px;border:0;background:var(--accent);color:var(--bg)}
+.top-line{display:flex;flex-wrap:wrap;gap:6px 10px;align-items:center;grid-column:1/-1;font-size:.85rem;color:var(--muted)}
+.top-line .when{font-family:var(--mono);color:var(--fg)}
+.top-line .amt{font-family:var(--mono);font-weight:500;color:var(--fg);margin-left:auto}
+@media (max-width:640px){
+  body{font-size:15px}
+  .wrap{padding-block:14px 40px}
+  header h1{font-size:1.3rem}
+  header p{font-size:.8rem}
+  .bar{padding-block:10px 8px;gap:8px;margin-inline:calc(-1 * max(16px,env(safe-area-inset-left,0px)));padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+  input[type=search],select,input[type=number]{font-size:16px}
+  input[type=search]{flex:1 1 auto}
+  .ftoggle{display:block}
+  .panel{display:none;max-height:60vh;overflow-y:auto;padding-block:4px 2px}
+  .panel.open{display:grid}
+  .done{display:block}
+  .panel .row select{flex:1 1 100%;width:100%}
+  input[type=number]{flex:1 1 0;width:auto}
+  .chips.scroll{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;margin-inline:calc(-1 * max(16px,env(safe-area-inset-left,0px)));padding-inline:max(16px,env(safe-area-inset-left,0px))}
+  .chips.scroll::-webkit-scrollbar{display:none}
+  .chip{white-space:nowrap;padding:7px 13px}
+  .item{grid-template-columns:1fr;padding:12px 14px;gap:5px}
+  .item h2{font-size:.95rem}
+  .org{font-size:.8rem}
+  .facts,.deadline{display:none}
+  .award{font-size:.8rem}
+}
+@media (min-width:641px){.top-line{display:none}}
+.hrow{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:4px}
+.hrow p{margin:0}
+.refresh{flex:0 0 auto;font:inherit;font-size:.85rem;font-weight:600;padding:7px 14px;border-radius:8px;border:1px solid var(--accent);background:var(--surface);color:var(--accent);cursor:pointer}
+.refresh:disabled{opacity:.65;cursor:default;border-color:var(--line);color:var(--muted)}
+.note{margin:8px 0 0;font-size:.85rem;color:var(--fg);background:var(--accent-soft);border-radius:8px;padding:8px 12px}
+.seg{display:grid;grid-template-columns:1fr 1fr;border:1px solid var(--line);border-radius:10px;padding:3px;background:var(--surface);gap:3px}
+.seg button{font:inherit;font-size:.88rem;font-weight:600;border:0;border-radius:7px;padding:8px 6px;background:none;color:var(--muted);cursor:pointer;line-height:1.2}
+.seg button[aria-selected="true"]{background:var(--accent-soft);color:var(--accent)}
+</style>
+
+<div class="wrap">
+  <header>
+    <h1>Licitaciones en La Palma</h1>
+    <div class="hrow">
+      <p>Plataforma de Contratación del Sector Público · <span id="stamp">cargando…</span></p>
+      <button type="button" class="refresh" id="refresh">Actualizar</button>
+    </div>
+    <p class="note" id="rnote" hidden></p>
+  </header>
+
+  <div class="bar">
+    <div class="row top">
+      <input type="search" id="q" placeholder="Buscar título, órgano, CPV…" aria-label="Buscar">
+      <button type="button" class="ftoggle" id="ftoggle" aria-expanded="false" aria-controls="panel">Filtros</button>
+    </div>
+    <div class="seg" role="tablist" aria-label="Qué ver">
+      <button type="button" role="tab" id="m-lic" data-m="lic">Licitaciones</button>
+      <button type="button" role="tab" id="m-men" data-m="men">Menores adjudicados</button>
+    </div>
+    <div class="chips scroll" id="estado" aria-label="Estado"></div>
+    <div class="panel" id="panel">
+      <div class="group"><span class="lbl">Administración</span><div class="chips scroll" id="adm"></div></div>
+      <div class="row"><select id="org" aria-label="Órgano de contratación"></select>
+        <select id="sort" aria-label="Ordenar">
+          <option value="plazo">Plazo más próximo</option>
+          <option value="pub">Publicadas recientemente</option>
+          <option value="imp">Importe mayor</option>
+        </select></div>
+      <div class="group"><span class="lbl">Ámbito</span><div class="chips scroll" id="ambito"></div></div>
+      <div class="group"><span class="lbl">Tipo</span><div class="chips scroll" id="tipo"></div></div>
+      <div class="group"><span class="lbl">Actividad</span><div class="chips scroll" id="cpvf"></div></div>
+      <div class="group"><span class="lbl">Importe sin IGIC</span>
+        <div class="row nowrap"><input type="number" id="min" placeholder="desde €" min="0" step="1000" inputmode="numeric" aria-label="Importe mínimo"><span class="dash">–</span><input type="number" id="max" placeholder="hasta €" min="0" step="1000" inputmode="numeric" aria-label="Importe máximo"></div></div>
+      <button type="button" class="done" id="done">Ver resultados</button>
+    </div>
+    <div class="meta"><span><b id="count">0</b> <span id="countlbl">licitaciones</span></span><button class="link-btn" id="reset" type="button">Quitar filtros</button></div>
+  </div>
+
+  <ol class="list" id="list"></ol>
+  <p class="empty" id="empty" hidden>Ninguna licitación cumple estos filtros. Prueba a quitar alguno.</p>
+
+  <footer>
+    Incluye licitaciones y contratos menores del Cabildo, los 14 ayuntamientos y otros organismos con sede u obra en La Palma, y además todo lo que contratan el Gobierno de Canarias (consejerías, direcciones generales y sus organismos, salvo hospitales y gerencias sanitarias de otras islas), el IAC, Visocan, el ICAVI y la Reserva de la Biosfera, sea en la isla que sea, publicadas o actualizadas desde enero de 2026 (perfiles de la Plataforma, plataformas agregadas y feed de contratos menores; los menores se publican ya adjudicados). "Plazo vencido" se calcula con la fecha de hoy: la Plataforma tarda a veces en cambiar el estado. Comprueba siempre los pliegos en el enlace oficial antes de presentar oferta.
+  </footer>
+</div>
+
+<script>
+let DATA = [];
+let UPDATED = null;
+const TRIGGER = "trig_013YVbebw3D1hFz5Tg6k7J6Z";
+
+const ACT = [
+  {k:"ing", t:"Ingeniería y arquitectura", p:["71"]},
+  {k:"obra", t:"Construcción", p:["45"]},
+  {k:"elec", t:"Instalaciones eléctricas", p:["4531","3100","3110","3120","3130","3150","3152","3160","3170","3171","3172","3121","3168","3155","0931","3163","3123","3114","3132","5071","5070","5032"]},
+  {k:"clima", t:"Climatización y fontanería", p:["4533","4282","3910","4451"]},
+  {k:"mant", t:"Mantenimiento", p:["50"]},
+];
+const ESTADOS = [
+  {k:"abiertas", t:"Abiertas"},
+  {k:"pend", t:"Pendientes de adjudicar"},
+  {k:"adj", t:"Adjudicadas"},
+  {k:"todas", t:"Todas"},
+];
+const TIPOS = ["Obras","Servicios","Suministros","Otros"];
+const ADMINS = ["Municipal","Insular","Regional","Estatal"];
+function adminLevel(o){
+  if(/Ayuntamiento/i.test(o)) return "Municipal";
+  if(/Cabildo|SODEPAL|Consejo Insular|Consorcio de Servicios de la Palma|Energ[ií]as Renovables S\.A|Reserva Mundial de la Biosfera/i.test(o)) return "Insular";
+  if(/TRAGSA|Aena|Autoridad Portuaria|Mando de Canarias|Guardia Civil|Astrof[ií]sica de Canarias|Gran Telescopio|Administraci[oó]n General del Estado|Instituto Geogr[aá]fico Nacional|Delegaci[oó]n de Econom[ií]a y Hacienda|Mutua de Accidentes|Ministerio|Estatal/i.test(o)) return "Estatal";
+  if(/Canari|Gobierno|Consejer[ií]a|Viceconsejer|Direcci[oó]n General|Secretar[ií]a General|[AÁ]rea de Salud|Diputado del Com[uú]n|Gesti[oó]n y Planeamiento/i.test(o)) return "Regional";
+  return "Otras";
+}
+const today = new Date(); today.setHours(0,0,0,0);
+const eur = new Intl.NumberFormat("es-ES",{style:"currency",currency:"EUR",maximumFractionDigits:0});
+const fshort = s => new Date(s.slice(0,10)+"T00:00").toLocaleDateString("es-ES",{day:"numeric",month:"short"});
+const fdate = s => s ? new Date(s.slice(0,10)+"T00:00").toLocaleDateString("es-ES",{day:"2-digit",month:"short",year:"numeric"}) : "—";
+
+function prep(){
+DATA.forEach(d=>{
+  d._tipo = ["Obras","Servicios","Suministros"].includes(d.tipo) ? d.tipo : "Otros";
+  d._dl = d.plazo ? new Date(d.plazo.length>10 ? d.plazo : d.plazo+"T23:59") : null;
+  d._days = d._dl ? Math.round((new Date(d._dl.getFullYear(),d._dl.getMonth(),d._dl.getDate()) - today)/864e5) : null;
+  d._open = d.estado==="En plazo" && d._dl && d._dl >= new Date();
+  d._text = [d.titulo,d.organo,d.expediente,d.adjudicatario,(d.cpv||[]).join(" "),d.municipio].join(" ").toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"");
+  d._short = shortOrg(d.organo||"");
+  d._adm = adminLevel(d.organo||"");
+});}
+
+function shortOrg(o){
+  let m;
+  if(/Cabildo Insular de la Palma/i.test(o)) return "Cabildo de La Palma";
+  if((m=o.match(/Ayuntamiento de (?:La )?(.+)$/i))) return "Ayto. "+m[1].replace(/^Fuencaliente de la Palma$/i,"Fuencaliente").trim();
+  return o;
+}
+
+const S = {modo:"lic", amb:new Set(), adm:new Set(), q:"", org:"", estado:"abiertas", tipo:new Set(), act:new Set(), min:"", max:"", sort:"plazo"};
+try{ const s=JSON.parse(localStorage.getItem("lp-filtros")||"null"); if(s){Object.assign(S,s,{tipo:new Set(s.tipo),act:new Set(s.act),amb:new Set(s.amb||[]),adm:new Set(s.adm||[])});} }catch(e){}
+function save(){ try{ localStorage.setItem("lp-filtros",JSON.stringify({...S,tipo:[...S.tipo],act:[...S.act],amb:[...S.amb],adm:[...S.adm]})); }catch(e){} }
+
+const $ = id => document.getElementById(id);
+function chips(el, items, isOn, onClick){
+  el.innerHTML="";
+  items.forEach(it=>{
+    const b=document.createElement("button"); b.type="button"; b.className="chip"; b.textContent=it.t;
+    b.setAttribute("aria-pressed", isOn(it.k)); b.onclick=()=>{onClick(it.k); render();};
+    el.appendChild(b);
+  });
+}
+function fillOrgs(){
+const orgs = Object.entries(DATA.filter(d=>!!d.menor===(S.modo==="men") && (!S.adm.size || S.adm.has(d._adm))).reduce((a,d)=>(a[d._short]=(a[d._short]||0)+1,a),{})).sort((a,b)=>b[1]-a[1]);
+$("org").innerHTML = '<option value="">Todos los órganos</option>' + orgs.map(([o,n])=>`<option value="${esc(o)}">${esc(o)} (${n})</option>`).join("");
+}
+function esc(s){return String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));}
+
+function pass(d){
+  if(!!d.menor !== (S.modo==="men")) return false;
+  if(S.modo==="men") return passCommon(d);
+  if(S.estado==="abiertas" && !d._open) return false;
+  if(S.estado==="pend" && !(d.estado==="Pendiente de adjudicación" || (d.estado==="En plazo" && !d._open))) return false;
+  if(S.estado==="adj" && !["Adjudicada","Resuelta"].includes(d.estado)) return false;
+  return passCommon(d);
+}
+function passCommon(d){
+  if(S.amb.size && !S.amb.has(d.ambito||"La Palma")) return false;
+  if(S.adm.size && !S.adm.has(d._adm)) return false;
+  if(S.tipo.size && !S.tipo.has(d._tipo)) return false;
+  if(S.act.size){
+    const pre = ACT.filter(a=>S.act.has(a.k)).flatMap(a=>a.p);
+    if(!(d.cpv||[]).some(c=>pre.some(p=>c.startsWith(p)))) return false;
+  }
+  if(S.org && d._short!==S.org) return false;
+  const imp = d.menor ? (d.importe_adjudicacion ?? d.importe) : (d.importe ?? d.valor_estimado);
+  if(S.min!=="" && !(imp>=+S.min)) return false;
+  if(S.max!=="" && !(imp<=+S.max)) return false;
+  if(S.q){
+    const words=S.q.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"").split(/\s+/).filter(Boolean);
+    if(!words.every(w=>d._text.includes(w))) return false;
+  }
+  return true;
+}
+function badge(d){
+  if(d.menor) return `<span class="pill">Adjudicado</span>`;
+  if(d._open){
+    if(d._days<=7) return `<span class="pill soon">Cierra ${d._days<=0?"hoy":d._days===1?"mañana":"en "+d._days+" días"}</span>`;
+    return `<span class="pill open">En plazo · ${d._days} días</span>`;
+  }
+  if(d.estado==="En plazo") return `<span class="pill late">Plazo vencido</span>`;
+  if(d.estado==="Anulada") return `<span class="pill late">Anulada</span>`;
+  return `<span class="pill">${esc(d.estado)}</span>`;
+}
+function render(){
+  const men = S.modo==="men";
+  $("m-lic").setAttribute("aria-selected", !men); $("m-men").setAttribute("aria-selected", men);
+  $("estado").hidden = men;
+  $("sort").options[0].hidden = men;
+  if(men && S.sort==="plazo") S.sort="pub";
+  if(!men && S.sort==="pub" && S._autoPub){ S.sort="plazo"; }
+  S._autoPub = men;
+  const okey = S.modo+"|"+[...S.adm].sort().join();
+  if(fillOrgs._m!==okey){ fillOrgs(); fillOrgs._m=okey; if(![...$("org").options].some(o=>o.value===S.org)) S.org=""; }
+  chips($("estado"), ESTADOS, k=>S.estado===k, k=>S.estado=k);
+  chips($("ambito"), [{k:"La Palma",t:"La Palma"},{k:"Canarias",t:"Gobierno de Canarias, IAC, Visocan…"}], k=>S.amb.has(k), k=>S.amb.has(k)?S.amb.delete(k):S.amb.add(k));
+  chips($("adm"), ADMINS.map(t=>({k:t,t})), k=>S.adm.has(k), k=>S.adm.has(k)?S.adm.delete(k):S.adm.add(k));
+  chips($("tipo"), TIPOS.map(t=>({k:t,t})), k=>S.tipo.has(k), k=>S.tipo.has(k)?S.tipo.delete(k):S.tipo.add(k));
+  chips($("cpvf"), ACT, k=>S.act.has(k), k=>S.act.has(k)?S.act.delete(k):S.act.add(k));
+  $("q").value=S.q; $("org").value=S.org; $("min").value=S.min; $("max").value=S.max; $("sort").value=S.sort;
+  let r = DATA.filter(pass);
+  if(S.sort==="plazo") r.sort((a,b)=> (a._open!==b._open) ? (a._open?-1:1) : a._open ? a._dl-b._dl : (b.publicado||"").localeCompare(a.publicado||""));
+  if(S.sort==="pub") r.sort((a,b)=>(b.publicado||"").localeCompare(a.publicado||""));
+  if(S.sort==="imp") r.sort((a,b)=>((b.importe??b.valor_estimado??0)-(a.importe??a.valor_estimado??0)));
+  $("count").textContent=r.length;
+  $("countlbl").textContent = men ? "contratos menores" : "licitaciones";
+  $("empty").hidden = r.length>0;
+  $("list").innerHTML = r.map(d=>{
+    const imp = d.menor ? (d.importe_adjudicacion ?? d.importe) : (d.importe ?? d.valor_estimado);
+    const when = d.menor ? `publ. ${d.publicado?fshort(d.publicado):"—"}` : d._open ? `cierra ${fshort(d.plazo)}${d.plazo.length>10?" "+d.plazo.slice(11,16):""}` : d.plazo ? `cerró ${fshort(d.plazo)}` : `publ. ${d.publicado?fshort(d.publicado):"—"}`;
+    return `<li class="item">
+      <div class="top-line">${badge(d)}${d.ambito==="Canarias"?`<span class="pill reg">Canarias</span>`:""}<span>${esc(d._tipo)}</span><span class="when">${when}</span>${imp!=null?`<span class="amt">${eur.format(imp)}</span>`:""}</div>
+      <h2><a href="${esc(d.url)}" target="_blank" rel="noopener">${esc(d.titulo)}</a></h2>
+      <div class="org">${esc(d.organo)}${d.expediente?` · <span class="cpv">${esc(d.expediente)}</span>`:""}</div>
+      <div class="facts">${badge(d)}${d.ambito==="Canarias"?`<span class="pill reg">Canarias</span>`:""}<span>${esc(d.tipo)}</span>${d.procedimiento?`<span>${esc(d.procedimiento)}</span>`:""}${imp!=null?`<span class="num">${eur.format(imp)}</span>`:""}${(d.cpv||[]).length?`<span class="cpv">CPV ${esc(d.cpv.slice(0,3).join(", "))}</span>`:""}</div>
+      <div class="deadline">${d.menor?`Publicado<b>${fdate(d.publicado)}</b>`:d.plazo?`Fin de ofertas<b>${fdate(d.plazo)}${d.plazo.length>10?" "+d.plazo.slice(11,16):""}</b>`:`Publicada<b>${fdate(d.publicado)}</b>`}</div>
+      ${d.adjudicatario?`<div class="award">Adjudicataria: <b>${esc(d.adjudicatario)}</b>${d.importe_adjudicacion?` · <span class="num">${eur.format(d.importe_adjudicacion)}</span>`:""}</div>`:""}
+    </li>`;
+  }).join("");
+  const n = S.amb.size + S.adm.size + S.tipo.size + S.act.size + (S.org?1:0) + (S.min!==""?1:0) + (S.max!==""?1:0);
+  ft.textContent = n ? `Filtros · ${n}` : "Filtros"; ft.classList.toggle("active", n>0);
+  $("done").textContent = `Ver ${r.length} resultados`;
+  save();
+}
+$("q").addEventListener("input",e=>{S.q=e.target.value; render();});
+$("org").addEventListener("change",e=>{S.org=e.target.value; render();});
+$("min").addEventListener("input",e=>{S.min=e.target.value; render();});
+$("max").addEventListener("input",e=>{S.max=e.target.value; render();});
+$("sort").addEventListener("change",e=>{S.sort=e.target.value; render();});
+document.querySelectorAll(".seg button").forEach(b=>b.onclick=()=>{S.modo=b.dataset.m; render(); window.scrollTo({top:0});});
+$("reset").onclick=()=>{S.amb=new Set(); S.adm=new Set(); Object.assign(S,{q:"",org:"",estado:"abiertas",tipo:new Set(),act:new Set(),min:"",max:"",sort:"plazo"}); render();};
+const panel=$("panel"), ft=$("ftoggle");
+function setPanel(open){panel.classList.toggle("open",open); ft.setAttribute("aria-expanded",open);}
+ft.onclick=()=>setPanel(!panel.classList.contains("open"));
+$("done").onclick=()=>{setPanel(false); $("list").scrollIntoView({block:"start"});};
+async function load(){
+  try{
+    const r = await fetch("datos.json",{cache:"no-store"});
+    if(!r.ok) throw new Error(r.status);
+    const j = await r.json();
+    DATA = j.licitaciones || []; UPDATED = j.actualizado;
+    prep(); fillOrgs._m=null;
+    $("stamp").textContent = "datos del " + new Date(UPDATED).toLocaleString("es-ES",{day:"numeric",month:"long",hour:"2-digit",minute:"2-digit"});
+    render();
+  }catch(e){
+    $("stamp").textContent = "no se pudieron cargar los datos";
+    $("empty").textContent = "No se han podido cargar las licitaciones. Recarga la página en unos segundos.";
+    $("empty").hidden = false;
+  }
+}
+const RKEY="lp-refresh";
+function note(t){ $("rnote").textContent=t; $("rnote").hidden=!t; }
+function pendingRefresh(){
+  try{ const t=+localStorage.getItem(RKEY)||0; if(t && Date.now()-t<15*60e3 && (!UPDATED || new Date(UPDATED).getTime()<t)) return t; }catch(e){}
+  return 0;
+}
+function showPending(){
+  const t=pendingRefresh(); const b=$("refresh");
+  if(t){ b.disabled=true; b.textContent="Actualizando…"; note("Buscando licitaciones nuevas. Tarda unos minutos; la página se recargará sola cuando termine."); }
+  else { b.disabled=false; b.textContent="Actualizar"; }
+}
+let mcpP = null;
+$("refresh").onclick = async ()=>{
+  const b=$("refresh"); b.disabled=true; b.textContent="Lanzando…"; note("");
+  try{
+    const mcp = await (mcpP ||= window.claude?.use ? window.claude.use("mcp") : Promise.resolve(null));
+    if(!mcp){ note("Para actualizar, abre esta página en claude.ai o en la app de Claude."); b.disabled=false; b.textContent="Actualizar"; return; }
+    await mcp.callTool("Claude Code Remote","fire_trigger",{trigger_id:TRIGGER},{cache:false});
+    try{ localStorage.setItem(RKEY,String(Date.now())); }catch(e){}
+    showPending();
+    if(!pendingRefresh()) note("Actualización en marcha. Tarda unos minutos; la página se recargará sola cuando termine.");
+  }catch(e){
+    const msg = {
+      approval_required:"Hace falta que permitas a esta página usar «Claude Code Remote». Vuelve a pulsar Actualizar y acepta el aviso.",
+      not_in_manifest:"Has desactivado el permiso de esta página para lanzar la actualización. Actívalo en el menú Permisos de la página.",
+      server_not_connected:"Falta el conector «Claude Code Remote». Añádelo en claude.ai › Ajustes › Conectores.",
+      needs_reauth:"Vuelve a conectar «Claude Code Remote» en claude.ai › Ajustes › Conectores.",
+      tool_error:"No se pudo lanzar la tarea de actualización: " + (e.message||""),
+    }[e && e.code] || "No se pudo comprobar si la actualización arrancó. Espera unos minutos antes de volver a intentarlo.";
+    note(msg); b.disabled=false; b.textContent="Actualizar";
+  }
+};
+load().then(showPending);
+</script>
+
+</body></html>

@@ -1,0 +1,17 @@
+{
+  "albs": [],
+  "cliente": "CONSTRUCCIONES DOS TUMBOS",
+  "desc": "Elaboración cuadros eléctricos",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-09-09",
+  "horas": 2,
+  "obra": "APARTAMENTOS TAZACORTE",
+  "ops": [
+    {
+      "h": 2,
+      "n": "Jonathan Rodriguez"
+    }
+  ],
+  "stock": []
+}

@@ -1,0 +1,17 @@
+{
+  "albs": [],
+  "cliente": "DRAGADOS",
+  "desc": "Conectar entrada y salida de SAI en cuadro general. Conectar receptores de fuerza en cuadro de cafeteria.\nFichar y marcar registros en planta baja y cafeteria.",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-09-22",
+  "horas": 8,
+  "obra": "TEATRO MONTERREY",
+  "ops": [
+    {
+      "h": 8,
+      "n": "Antonio"
+    }
+  ],
+  "stock": []
+}

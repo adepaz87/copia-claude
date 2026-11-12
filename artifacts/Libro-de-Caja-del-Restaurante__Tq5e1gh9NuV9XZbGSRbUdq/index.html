@@ -1,0 +1,653 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Libro de Caja del Restaurante</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=IBM+Plex+Mono:wght@500&family=Public+Sans:wght@400;500;600&display=swap">
+<style>
+/* Layout: cabecera fija con mes y pestañas; una columna en móvil, dos en escritorio (formulario | lista) */
+:root{
+  --bg:#F3F5F1; --surface:#FFFFFF; --sunk:#E9EDE7; --ink:#1B2420; --muted:#5B6862; --line:#D7DDD6;
+  --accent:#1F5C4A; --accent-ink:#FFFFFF; --in:#2B7A4B; --out:#B3452C; --warn:#9A6A0E;
+  --f-display:"Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --f-body:"Public Sans", "Segoe UI", system-ui, sans-serif;
+  --f-num:"IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
+  --bg:#111614; --surface:#18201C; --sunk:#202A25; --ink:#E5ECE7; --muted:#97A59E; --line:#2C3832;
+  --accent:#73C4A4; --accent-ink:#0E1A15; --in:#6CC48F; --out:#E8876A; --warn:#E0B054; color-scheme:dark } }
+:root[data-theme="dark"]{
+  --bg:#111614; --surface:#18201C; --sunk:#202A25; --ink:#E5ECE7; --muted:#97A59E; --line:#2C3832;
+  --accent:#73C4A4; --accent-ink:#0E1A15; --in:#6CC48F; --out:#E8876A; --warn:#E0B054; color-scheme:dark }
+
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:15px;line-height:1.45;-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--surface)}
+h1,h2,h3{font-family:var(--f-display);text-wrap:balance;margin:0;letter-spacing:-.01em}
+.num{font-family:var(--f-num);font-variant-numeric:tabular-nums}
+button,input,select,textarea{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+
+header.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:9;background:var(--surface);border-bottom:1px solid var(--line)}
+.wrap{max-width:1080px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.top .wrap{padding-block:12px 0;display:grid;gap:10px}
+.row1{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.brand{flex:1;min-width:0}
+.brand h1{font-size:1.25rem;line-height:1.15}
+#nombreBtn{background:none;border:0;padding:0;cursor:pointer;color:var(--muted);font-size:.82rem;text-align:left}
+#nombreBtn:hover{color:var(--ink)}
+.status{font-size:.78rem;color:var(--muted);display:flex;align-items:center;gap:6px}
+.dot{width:7px;height:7px;border-radius:50%;background:var(--muted)}
+.status.ok .dot{background:var(--in)} .status.busy .dot{background:var(--warn)} .status.err .dot{background:var(--out)}
+.month{display:flex;align-items:center;gap:4px}
+.month button{width:34px;height:34px;border-radius:8px;border:1px solid var(--line);background:var(--surface);cursor:pointer;font-size:1.1rem}
+.month span{min-width:132px;text-align:center;font-weight:600;text-transform:capitalize}
+nav.tabs{display:flex;gap:4px;overflow-x:auto}
+nav.tabs button{border:0;background:none;padding:10px 14px;cursor:pointer;color:var(--muted);font-weight:600;border-bottom:3px solid transparent;white-space:nowrap}
+nav.tabs button[aria-selected="true"]{color:var(--ink);border-bottom-color:var(--accent)}
+
+main.wrap{padding-block:18px 48px;display:grid;gap:18px}
+.banner{padding:10px 14px;border-radius:10px;background:var(--sunk);color:var(--ink);font-size:.88rem;border:1px solid var(--line)}
+.banner.err{border-color:var(--out)}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:10px 16px;border-radius:10px;border:1px solid var(--line);background:var(--surface);cursor:pointer;font-weight:600;min-height:42px;text-decoration:none;color:var(--ink)}
+.btn.primary{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+.btn.ghost{background:transparent}
+.btn.small{padding:6px 10px;min-height:32px;font-size:.84rem;border-radius:8px}
+.btn.danger{color:var(--out);border-color:var(--out)}
+.btn:disabled{opacity:.5;cursor:not-allowed}
+
+/* Resumen */
+.kpis{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.kpi{background:var(--surface);padding:14px 16px;display:grid;gap:2px;min-width:0}
+.kpi .lbl{font-size:.72rem;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);font-weight:600}
+.kpi .val{font-size:1.45rem;line-height:1.2;overflow-wrap:anywhere}
+.kpi .sub{font-size:.8rem;color:var(--muted)}
+.val.in{color:var(--in)} .val.out{color:var(--out)}
+@media (max-width:620px){.kpis{grid-template-columns:1fr}.kpi{grid-template-columns:1fr auto;align-items:baseline}.kpi .sub{grid-column:1/-1}}
+
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px;display:grid;gap:12px;min-width:0}
+.panel h2{font-size:1.05rem}
+.panel-head{display:flex;justify-content:space-between;align-items:baseline;gap:10px;flex-wrap:wrap}
+.legend{display:flex;gap:14px;font-size:.8rem;color:var(--muted)}
+.legend i{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:5px;vertical-align:-1px}
+.chart{overflow-x:auto}
+.chart svg{display:block;width:100%;min-width:520px;height:auto}
+.cats{display:grid;gap:8px}
+.cat{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:2px 12px;font-size:.9rem}
+.cat .bar{grid-column:1/-1;height:6px;background:var(--sunk);border-radius:3px;overflow:hidden}
+.cat .bar span{display:block;height:100%;background:var(--out);border-radius:3px}
+.two{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;align-items:start}
+@media (max-width:820px){.two{grid-template-columns:1fr}}
+
+/* Formularios */
+form{display:grid;gap:12px}
+.fields{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.full{grid-column:1/-1}
+label{display:grid;gap:4px;font-size:.8rem;color:var(--muted);font-weight:600;min-width:0}
+input,select,textarea{width:100%;min-width:0;padding:10px 12px;border-radius:9px;border:1px solid var(--line);background:var(--bg);font-size:16px;color:var(--ink)}
+input.money{font-family:var(--f-num);text-align:right}
+textarea{min-height:60px;resize:vertical}
+.totalline{display:flex;justify-content:space-between;align-items:baseline;padding:10px 12px;border-radius:9px;background:var(--sunk)}
+.totalline b{font-size:1.25rem}
+.actions{display:flex;gap:8px;flex-wrap:wrap}
+.hint{font-size:.82rem;color:var(--muted);margin:0}
+
+.seg{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:4px;padding:4px;background:var(--sunk);border-radius:11px}
+.seg input{position:absolute;opacity:0;width:1px;height:1px}
+.seg label{display:block;text-align:center;padding:9px 6px;border-radius:8px;cursor:pointer;color:var(--muted);font-size:.86rem}
+.seg input:checked+span{color:var(--ink)}
+.seg label:has(input:checked){background:var(--surface);color:var(--ink);box-shadow:0 1px 2px rgb(0 0 0 / .08)}
+.seg label:has(input:focus-visible){outline:2px solid var(--accent)}
+[data-modo="personal"] .m-f,[data-modo="extra"] .m-f{display:none}
+[data-modo="personal"] .m-cat{display:none}
+.drop{border:1.5px dashed var(--line);border-radius:12px;padding:18px;text-align:center;cursor:pointer;display:grid;gap:4px;background:var(--bg)}
+.drop:hover,.drop.over{border-color:var(--accent)}
+.drop strong{font-family:var(--f-display);font-size:1rem}
+.preview{display:flex;gap:12px;align-items:center;padding:10px;border:1px solid var(--line);border-radius:12px;background:var(--bg)}
+.preview img{width:72px;height:72px;object-fit:cover;border-radius:8px;flex:none;background:var(--sunk)}
+.pdficon{width:72px;height:72px;border-radius:8px;flex:none;display:grid;place-items:center;background:var(--sunk);font-family:var(--f-num);font-weight:500;color:var(--out)}
+.preview .meta{flex:1;min-width:0;font-size:.85rem;overflow-wrap:anywhere}
+.ai{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.ai .msg{font-size:.84rem;color:var(--muted)}
+
+/* Listas */
+.list{display:grid}
+.item{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:4px 12px;align-items:center;padding:12px 0;border-top:1px solid var(--line)}
+.item:first-child{border-top:0}
+.item .day{font-family:var(--f-num);font-size:.8rem;color:var(--muted);text-align:center;width:42px;line-height:1.1}
+.item .day b{display:block;font-size:1.15rem;color:var(--ink)}
+.item .main{min-width:0}
+.item .t{font-weight:600;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.item .d{font-size:.8rem;color:var(--muted);overflow-wrap:anywhere}
+.item .amt{text-align:right;font-family:var(--f-num)}
+.item .amt.in{color:var(--in)} .item .amt.out{color:var(--out)}
+.item .ops{grid-column:2/-1;display:flex;gap:6px;flex-wrap:wrap}
+.chip{display:inline-block;font-size:.7rem;font-weight:600;padding:2px 7px;border-radius:999px;background:var(--sunk);color:var(--muted);margin-right:4px}
+.chip.warn{color:var(--warn)}
+.empty{padding:22px 8px;text-align:center;color:var(--muted);display:grid;gap:4px}
+.empty strong{color:var(--ink);font-family:var(--f-display)}
+.listfoot{display:flex;justify-content:space-between;padding-top:10px;border-top:2px solid var(--ink);font-weight:600}
+
+dialog{border:1px solid var(--line);border-radius:14px;background:var(--surface);color:var(--ink);padding:18px;max-width:min(420px,calc(100vw - 32px))}
+dialog::backdrop{background:rgb(0 0 0 / .4)}
+.toast{position:fixed;left:50%;bottom:calc(16px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--ink);color:var(--bg);padding:10px 16px;border-radius:10px;font-size:.88rem;z-index:20;max-width:calc(100vw - 32px)}
+@media (prefers-reduced-motion:no-preference){.toast{animation:up .2s ease-out}@keyframes up{from{transform:translate(-50%,8px);opacity:0}}}
+</style>
+
+<header class="top">
+  <div class="wrap">
+    <div class="row1">
+      <div class="brand">
+        <h1>Libro de caja</h1>
+        <button id="nombreBtn" type="button" title="Cambiar nombre del negocio">Mi restaurante ✎</button>
+      </div>
+      <div class="month" aria-label="Mes">
+        <button type="button" id="prevM" aria-label="Mes anterior">‹</button>
+        <span id="mesLbl">—</span>
+        <button type="button" id="nextM" aria-label="Mes siguiente">›</button>
+      </div>
+    </div>
+    <div class="row1" style="justify-content:space-between">
+      <nav class="tabs" role="tablist">
+        <button role="tab" data-tab="resumen" aria-selected="true">Resumen</button>
+        <button role="tab" data-tab="cajas" aria-selected="false">Cajas</button>
+        <button role="tab" data-tab="gastos" aria-selected="false">Gastos</button>
+      </nav>
+      <div style="display:flex;gap:10px;align-items:center">
+        <div class="status" id="status"><span class="dot"></span><span id="statusTxt">Conectando…</span></div>
+        <button class="btn small" id="pdfBtn" type="button">Exportar PDF</button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+  <div class="banner err" id="banner" hidden></div>
+
+  <!-- RESUMEN -->
+  <section id="v-resumen" class="view" style="display:grid;gap:18px">
+    <div class="kpis">
+      <div class="kpi"><span class="lbl">Ingresos (cajas)</span><span class="val num in" id="kIn">0,00 €</span><span class="sub" id="kInSub">0 días con caja</span></div>
+      <div class="kpi"><span class="lbl">Gastos</span><span class="val num out" id="kOut">0,00 €</span><span class="sub" id="kOutSub">0 facturas · IGIC soportado 0,00 €</span></div>
+      <div class="kpi"><span class="lbl">Resultado</span><span class="val num" id="kRes">0,00 €</span><span class="sub" id="kResSub">Ingresos menos gastos</span></div>
+    </div>
+    <div class="panel">
+      <div class="panel-head">
+        <h2>Día a día</h2>
+        <div class="legend"><span><i style="background:var(--in)"></i>Caja</span><span><i style="background:var(--out)"></i>Gastos</span></div>
+      </div>
+      <div class="chart" id="chart"></div>
+    </div>
+    <div class="two">
+      <div class="panel">
+        <h2>Gastos por categoría</h2>
+        <div class="cats" id="cats"></div>
+      </div>
+      <div class="panel">
+        <h2>Cobros por forma de pago</h2>
+        <div class="cats" id="pagos"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CAJAS -->
+  <section id="v-cajas" class="view two" hidden>
+    <div class="panel">
+      <h2 id="cajaTitle">Anotar caja del día</h2>
+      <form id="cajaForm" autocomplete="off">
+        <div class="fields">
+          <label class="full">Fecha<input type="date" id="cFecha" required></label>
+          <label>Efectivo (€)<input class="money" id="cEfectivo" inputmode="decimal" placeholder="0,00"></label>
+          <label>Tarjeta / TPV (€)<input class="money" id="cTarjeta" inputmode="decimal" placeholder="0,00"></label>
+          <label>Bizum / transf. (€)<input class="money" id="cBizum" inputmode="decimal" placeholder="0,00"></label>
+          <label>Otros / delivery (€)<input class="money" id="cOtros" inputmode="decimal" placeholder="0,00"></label>
+          <label class="full">Notas<input id="cNotas" placeholder="Ej.: cierre Z nº 214, comida de empresa…"></label>
+        </div>
+        <div class="totalline"><span>Total caja</span><b class="num" id="cTotal">0,00 €</b></div>
+        <p class="hint" id="cHint">Una caja por día. Si ya existe la de esa fecha, se sustituye al guardar.</p>
+        <div class="actions">
+          <button class="btn primary" type="submit" id="cSave">Guardar caja</button>
+          <button class="btn ghost" type="button" id="cReset">Limpiar</button>
+        </div>
+      </form>
+    </div>
+    <div class="panel">
+      <div class="panel-head"><h2>Cajas del mes</h2><span class="hint" id="cCount"></span></div>
+      <div class="list" id="cajaList"></div>
+    </div>
+  </section>
+
+  <!-- GASTOS -->
+  <section id="v-gastos" class="view two" hidden>
+    <div class="panel">
+      <h2 id="gastoTitle">Añadir gasto</h2>
+      <form id="gastoForm" autocomplete="off" data-modo="factura">
+        <div class="seg" role="radiogroup" aria-label="Tipo de gasto">
+          <label><input type="radio" name="modo" id="mFactura" value="factura" checked><span>Factura</span></label>
+          <label><input type="radio" name="modo" id="mPersonal" value="personal"><span>Personal</span></label>
+          <label><input type="radio" name="modo" id="mExtra" value="extra"><span>Gasto extra</span></label>
+        </div>
+        <p class="hint" id="modoHint">Factura de proveedor con IGIC. Sube la foto o el PDF y se rellena sola.</p>
+        <input type="file" id="gFile" accept="image/*,application/pdf" hidden>
+        <div class="drop" id="drop" role="button" tabindex="0">
+          <strong id="dropTitle">Foto o PDF de la factura</strong>
+          <span class="hint">Toca para hacer una foto o elegir un archivo. También puedes arrastrarlo aquí.</span>
+        </div>
+        <div class="preview" id="prev" hidden>
+          <img id="prevImg" alt="" hidden>
+          <div class="pdficon" id="prevPdf" hidden>PDF</div>
+          <div class="meta"><div id="prevName"></div><div class="hint" id="prevSize"></div></div>
+          <button class="btn small ghost" type="button" id="prevRemove">Quitar</button>
+        </div>
+        <div class="ai" id="aiRow" hidden>
+          <button class="btn small" type="button" id="aiBtn">Leer datos de la factura</button>
+          <span class="msg" id="aiMsg">Rellena los campos automáticamente. Revísalos antes de guardar.</span>
+        </div>
+        <div class="fields">
+          <label><span id="lFecha">Fecha factura</span><input type="date" id="gFecha" required></label>
+          <label class="m-f">Nº factura<input id="gNumero" placeholder="Opcional"></label>
+          <label class="full"><span id="lProv">Proveedor</span><input id="gProv" placeholder="Ej.: Distribuciones Insulares"></label>
+          <label class="m-f">NIF proveedor<input id="gNif" placeholder="Opcional"></label>
+          <label class="m-cat">Categoría<select id="gCat"></select></label>
+          <label class="full"><span id="lConc">Concepto</span><input id="gConc" list="concList" placeholder="Ej.: pescado fresco, carnes, cervezas…"></label>
+          <datalist id="concList"></datalist>
+          <label class="m-f">Base imponible (€)<input class="money" id="gBase" inputmode="decimal" placeholder="0,00"></label>
+          <label class="m-f">Tipo IGIC<select id="gTipo">
+            <option value="0">0 %</option><option value="3">3 %</option><option value="7" selected>7 %</option>
+            <option value="9.5">9,5 %</option><option value="15">15 %</option><option value="20">20 %</option>
+          </select></label>
+          <label class="m-f">Cuota IGIC (€)<input class="money" id="gCuota" inputmode="decimal" placeholder="0,00"></label>
+          <label><span id="lTotal">Total factura (€)</span><input class="money" id="gTotal" inputmode="decimal" placeholder="0,00" required></label>
+          <label>Forma de pago<select id="gPago">
+            <option>Tarjeta</option><option>Efectivo</option><option>Transferencia</option><option>Domiciliación</option><option>Pendiente de pago</option>
+          </select></label>
+        </div>
+        <p class="hint m-f">Si escribes la base, se calculan IGIC y total. Si solo escribes el total, se calcula la base.</p>
+        <div class="actions">
+          <button class="btn primary" type="submit" id="gSave">Guardar gasto</button>
+          <button class="btn ghost" type="button" id="gReset">Limpiar</button>
+        </div>
+      </form>
+    </div>
+    <div class="panel">
+      <div class="panel-head"><h2>Gastos del mes</h2><span class="hint" id="gCount"></span></div>
+      <div class="list" id="gastoList"></div>
+    </div>
+  </section>
+</main>
+
+<dialog id="nameDlg">
+  <form method="dialog" id="nameForm" style="display:grid;gap:12px">
+    <h2 style="font-size:1.1rem">Nombre del negocio</h2>
+    <label>Aparece en la cabecera y en el PDF<input id="nameInput" maxlength="80"></label>
+    <div class="actions"><button class="btn primary" value="ok" id="nameOk">Guardar</button><button class="btn ghost" value="cancel" formnovalidate>Cancelar</button></div>
+  </form>
+</dialog>
+
+<script>
+(() => {
+const CATS = ["Materia prima (comida)","Bebidas","Personal y nóminas","Alquiler","Luz, agua y gas","Limpieza y menaje","Mantenimiento y reparaciones","Gestoría y asesoría","Seguros","Impuestos y tasas","Comisiones bancarias / TPV","Publicidad","Otros"];
+const $ = s => document.querySelector(s);
+const fmt = n => new Intl.NumberFormat("es-ES",{style:"currency",currency:"EUR"}).format(n||0);
+const fmt2 = n => new Intl.NumberFormat("es-ES",{minimumFractionDigits:2,maximumFractionDigits:2}).format(n||0);
+const parse = v => { if (v==null) return 0; let s=String(v).trim().replace(/\s|€/g,""); if(!s) return 0;
+  if (s.includes(",")) s = s.replace(/\./g,"").replace(",","."); const n = parseFloat(s); return isFinite(n)? Math.round(n*100)/100 : 0; };
+const r2 = n => Math.round((n||0)*100)/100;
+const pad = n => String(n).padStart(2,"0");
+const today = () => { const d=new Date(); return `${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())}`; };
+const esc = s => String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+
+const S = { cajas:[], gastos:[], nombre:"Mi restaurante", mes: today().slice(0,7), tab:"resumen", editGasto:null, file:null, fileUrl:null };
+let db=null, assets=null, downloads=null, sample=null;
+
+/* ---------- estado de guardado ---------- */
+function status(kind, txt){ const el=$("#status"); el.className="status "+kind; $("#statusTxt").textContent=txt; }
+function toast(msg){ const t=document.createElement("div"); t.className="toast"; t.textContent=msg; document.body.appendChild(t); setTimeout(()=>t.remove(),2600); }
+function banner(msg){ const b=$("#banner"); b.hidden=!msg; b.textContent=msg||""; }
+async function saving(fn, okMsg){
+  status("busy","Guardando…");
+  try { await fn(); status("ok","Cambios guardados"); if(okMsg) toast(okMsg); return true; }
+  catch(e){ status("err","No se pudo guardar"); toast("No se pudo guardar: "+(e?.message||e?.code||"error")); return false; }
+}
+
+/* ---------- mes y pestañas ---------- */
+function mesLabel(m){ const [y,mm]=m.split("-").map(Number); return new Date(y,mm-1,1).toLocaleDateString("es-ES",{month:"long",year:"numeric"}); }
+function shiftMes(d){ const [y,m]=S.mes.split("-").map(Number); const n=new Date(y,m-1+d,1); S.mes=`${n.getFullYear()}-${pad(n.getMonth()+1)}`; render(); }
+$("#prevM").onclick=()=>shiftMes(-1); $("#nextM").onclick=()=>shiftMes(1);
+document.querySelectorAll("nav.tabs button").forEach(b=>b.onclick=()=>{ S.tab=b.dataset.tab; try{localStorage.setItem("tab",S.tab)}catch(e){} render(); });
+try{ const t=localStorage.getItem("tab"); if(t) S.tab=t; }catch(e){}
+
+/* ---------- cálculos ---------- */
+const cajaTotal = c => r2((c.efectivo||0)+(c.tarjeta||0)+(c.bizum||0)+(c.otros||0));
+const delMes = arr => arr.filter(x=>(x.fecha||"").startsWith(S.mes)).sort((a,b)=>a.fecha<b.fecha?1:a.fecha>b.fecha?-1:0);
+
+function render(){
+  $("#mesLbl").textContent = mesLabel(S.mes);
+  $("#nombreBtn").textContent = S.nombre+" ✎";
+  document.querySelectorAll("nav.tabs button").forEach(b=>b.setAttribute("aria-selected", String(b.dataset.tab===S.tab)));
+  ["resumen","cajas","gastos"].forEach(t=>$("#v-"+t).hidden = t!==S.tab);
+  const cajas=delMes(S.cajas), gastos=delMes(S.gastos);
+  const tIn = r2(cajas.reduce((s,c)=>s+cajaTotal(c),0));
+  const tOut = r2(gastos.reduce((s,g)=>s+(g.total||0),0));
+  const tIgic = r2(gastos.reduce((s,g)=>s+(g.cuota||0),0));
+  const res = r2(tIn-tOut);
+  $("#kIn").textContent=fmt(tIn); $("#kInSub").textContent=`${cajas.length} ${cajas.length===1?"día":"días"} con caja`+(cajas.length?` · media ${fmt(tIn/cajas.length)}`:"");
+  $("#kOut").textContent=fmt(tOut); const tPers=r2(gastos.filter(g=>g.categoria==="Personal y nóminas").reduce((s,g)=>s+(g.total||0),0));
+  $("#kOutSub").textContent=`${gastos.length} ${gastos.length===1?"apunte":"apuntes"} · personal ${fmt(tPers)} · IGIC ${fmt(tIgic)}`;
+  const kr=$("#kRes"); kr.textContent=fmt(res); kr.className="val num "+(res>0?"in":res<0?"out":"");
+  $("#kResSub").textContent = tIn? `Margen ${fmt2(res/tIn*100)} % sobre caja` : "Ingresos menos gastos";
+  renderChart(cajas,gastos); renderCats(gastos); renderPagos(cajas);
+  renderCajas(cajas); renderGastos(gastos);
+}
+
+function renderChart(cajas,gastos){
+  const [y,m]=S.mes.split("-").map(Number); const days=new Date(y,m,0).getDate();
+  const inc=Array(days+1).fill(0), out=Array(days+1).fill(0);
+  cajas.forEach(c=>inc[+c.fecha.slice(8,10)]+=cajaTotal(c));
+  gastos.forEach(g=>out[+g.fecha.slice(8,10)]+=(g.total||0));
+  const max=Math.max(1,...inc,...out);
+  const W=760,H=230,L=56,R=8,T=12,B=26, mid=T+(H-T-B)*0.62, hu=mid-T, hd=H-B-mid;
+  const kIn=hu/max, kOut=hd/max; const bw=(W-L-R)/days;
+  const step = (()=>{ const raw=max/3; const p=Math.pow(10,Math.floor(Math.log10(raw))); return [1,2,2.5,5,10].map(x=>x*p).find(x=>x>=raw); })();
+  let g=`<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Caja y gastos por día">`;
+  for(let v=step; v<=max; v+=step){ const yy=mid-v*kIn; g+=`<line x1="${L}" x2="${W-R}" y1="${yy}" y2="${yy}" stroke="var(--line)" stroke-dasharray="2 3"/><text x="${L-6}" y="${yy+4}" text-anchor="end" font-size="11" fill="var(--muted)" font-family="var(--f-num)">${fmt2(v).replace(",00","")}</text>`; }
+  g+=`<line x1="${L}" x2="${W-R}" y1="${mid}" y2="${mid}" stroke="var(--muted)"/>`;
+  const dow=(d)=>new Date(y,m-1,d).getDay();
+  for(let d=1; d<=days; d++){
+    const x=L+(d-1)*bw+bw*0.15, w=bw*0.7;
+    if(dow(d)===0) g+=`<rect x="${L+(d-1)*bw}" y="${T}" width="${bw}" height="${H-B-T}" fill="var(--sunk)"/>`;
+    if(inc[d]) g+=`<rect x="${x}" y="${mid-inc[d]*kIn}" width="${w}" height="${inc[d]*kIn}" rx="2" fill="var(--in)"><title>${d}: caja ${fmt(inc[d])}</title></rect>`;
+    if(out[d]) g+=`<rect x="${x}" y="${mid}" width="${w}" height="${out[d]*kOut}" rx="2" fill="var(--out)"><title>${d}: gastos ${fmt(out[d])}</title></rect>`;
+    if(d===1||d%5===0||d===days) g+=`<text x="${L+(d-0.5)*bw}" y="${H-8}" text-anchor="middle" font-size="11" fill="var(--muted)" font-family="var(--f-num)">${d}</text>`;
+  }
+  g+=`<text x="${L-6}" y="${mid+4}" text-anchor="end" font-size="11" fill="var(--muted)" font-family="var(--f-num)">0</text></svg>`;
+  $("#chart").innerHTML=g;
+}
+function barsHtml(rows, color){
+  if(!rows.length) return `<div class="empty"><span>Sin datos este mes.</span></div>`;
+  const max=Math.max(...rows.map(r=>r[1]));
+  return rows.map(([k,v])=>`<div class="cat"><span>${esc(k)}</span><span class="num">${fmt(v)}</span><div class="bar"><span style="width:${(v/max*100).toFixed(1)}%;background:${color}"></span></div></div>`).join("");
+}
+function renderCats(gastos){
+  const m={}; gastos.forEach(g=>m[g.categoria||"Otros"]=(m[g.categoria||"Otros"]||0)+(g.total||0));
+  $("#cats").innerHTML=barsHtml(Object.entries(m).sort((a,b)=>b[1]-a[1]),"var(--out)");
+}
+function renderPagos(cajas){
+  const m={Efectivo:0,"Tarjeta / TPV":0,"Bizum / transf.":0,"Otros / delivery":0};
+  cajas.forEach(c=>{m.Efectivo+=c.efectivo||0;m["Tarjeta / TPV"]+=c.tarjeta||0;m["Bizum / transf."]+=c.bizum||0;m["Otros / delivery"]+=c.otros||0;});
+  $("#pagos").innerHTML=barsHtml(Object.entries(m).filter(e=>e[1]>0).sort((a,b)=>b[1]-a[1]),"var(--in)");
+}
+function dayCell(f){ const d=new Date(f+"T12:00:00"); return `<div class="day"><b>${f.slice(8,10)}</b>${d.toLocaleDateString("es-ES",{weekday:"short"})}</div>`; }
+
+function renderCajas(cajas){
+  $("#cCount").textContent = cajas.length? `${cajas.length} · ${fmt(cajas.reduce((s,c)=>s+cajaTotal(c),0))}` : "";
+  if(!cajas.length){ $("#cajaList").innerHTML=`<div class="empty"><strong>Aún no hay cajas en ${esc(mesLabel(S.mes))}</strong><span>Anota el cierre del día con el formulario: efectivo, tarjeta y lo que cobres por otras vías.</span></div>`; return; }
+  $("#cajaList").innerHTML = cajas.map(c=>{
+    const parts=[["Efect.",c.efectivo],["Tarj.",c.tarjeta],["Bizum",c.bizum],["Otros",c.otros]].filter(p=>p[1]).map(p=>`${p[0]} ${fmt2(p[1])}`).join(" · ");
+    return `<div class="item">${dayCell(c.fecha)}<div class="main"><div class="t">${esc(parts||"Sin desglose")}</div>${c.notas?`<div class="d">${esc(c.notas)}</div>`:""}</div><div class="amt in">${fmt(cajaTotal(c))}</div>
+    <div class="ops"><button class="btn small" data-editc="${esc(c.id)}">Editar</button><button class="btn small ghost" data-delc="${esc(c.id)}">Borrar</button></div></div>`;
+  }).join("") + `<div class="listfoot"><span>Total del mes</span><span class="num">${fmt(cajas.reduce((s,c)=>s+cajaTotal(c),0))}</span></div>`;
+}
+function renderGastos(gastos){
+  $("#gCount").textContent = gastos.length? `${gastos.length} · ${fmt(gastos.reduce((s,g)=>s+(g.total||0),0))}` : "";
+  if(!gastos.length){ $("#gastoList").innerHTML=`<div class="empty"><strong>Aún no hay gastos en ${esc(mesLabel(S.mes))}</strong><span>Sube la foto o el PDF de una factura y pulsa «Leer datos de la factura» para rellenarla sola.</span></div>`; return; }
+  $("#gastoList").innerHTML = gastos.map(g=>{
+    const doc = g.docId ? `<a class="btn small" href="/_blob/${esc(g.docId)}" target="_blank" rel="noopener">Ver ${g.docTipo==="pdf"?"PDF":"foto"}</a>` : ((g.modo||"factura")==="factura" ? `<span class="chip warn">Sin justificante</span>` : "");
+    return `<div class="item">${dayCell(g.fecha)}<div class="main"><div class="t">${esc(g.proveedor||g.concepto||"Sin proveedor")}</div>
+      <div class="d"><span class="chip">${esc(g.categoria||"Otros")}</span>${esc(g.concepto||"")}${g.numero?` · Nº ${esc(g.numero)}`:""}</div>
+      <div class="d">${(g.modo||"factura")==="factura"?`Base ${fmt2(g.base)} · IGIC ${fmt2(g.cuota)} · `:`<span class="chip">${g.modo==="personal"?"Personal":"Gasto extra"}</span>`}${esc(g.pago||"")}</div></div>
+      <div class="amt out">${fmt(g.total)}</div>
+      <div class="ops">${doc}<button class="btn small" data-editg="${esc(g.id)}">Editar</button><button class="btn small ghost" data-delg="${esc(g.id)}">Borrar</button></div></div>`;
+  }).join("") + `<div class="listfoot"><span>Total del mes</span><span class="num">${fmt(gastos.reduce((s,g)=>s+(g.total||0),0))}</span></div>`;
+}
+
+/* ---------- borrar con confirmación en la propia fila ---------- */
+document.addEventListener("click", async e=>{
+  const b=e.target.closest("button"); if(!b) return;
+  if(b.dataset.delc||b.dataset.delg){
+    if(b.dataset.armed!=="1"){ b.dataset.armed="1"; b.textContent="¿Seguro? Toca otra vez"; b.classList.add("danger"); setTimeout(()=>{ if(b.isConnected){b.dataset.armed="";b.textContent="Borrar";b.classList.remove("danger");}},3500); return; }
+    if(b.dataset.delc){ const id=b.dataset.delc; if(!db){ S.cajas=S.cajas.filter(x=>x.id!==id); render(); return; }
+      await saving(()=>db.collection("cajas").doc(id).delete(),"Caja borrada"); }
+    else { const id=b.dataset.delg; const g=S.gastos.find(x=>x.id===id);
+      if(!db){ S.gastos=S.gastos.filter(x=>x.id!==id); render(); return; }
+      const ok = await saving(()=>db.collection("gastos").doc(id).delete(),"Gasto borrado");
+      if(ok && g?.docId && assets){ try{ await assets.delete(g.docId); }catch(_){} } }
+  }
+  if(b.dataset.editc){ const c=S.cajas.find(x=>x.id===b.dataset.editc); if(c) loadCaja(c); window.scrollTo({top:0,behavior:"smooth"}); }
+  if(b.dataset.editg){ const g=S.gastos.find(x=>x.id===b.dataset.editg); if(g) loadGasto(g); window.scrollTo({top:0,behavior:"smooth"}); }
+});
+
+/* ---------- CAJAS ---------- */
+const cIds=["cEfectivo","cTarjeta","cBizum","cOtros"];
+function cajaFromForm(){ return { fecha:$("#cFecha").value, efectivo:parse($("#cEfectivo").value), tarjeta:parse($("#cTarjeta").value), bizum:parse($("#cBizum").value), otros:parse($("#cOtros").value), notas:$("#cNotas").value.trim() }; }
+function updCajaTotal(){ $("#cTotal").textContent=fmt(cajaTotal(cajaFromForm())); const ex=S.cajas.find(c=>c.fecha===$("#cFecha").value);
+  $("#cHint").textContent = ex ? `Ya hay caja el ${$("#cFecha").value.split("-").reverse().join("/")} (${fmt(cajaTotal(ex))}). Al guardar se sustituye.` : "Una caja por día. Si ya existe la de esa fecha, se sustituye al guardar."; }
+cIds.concat(["cFecha"]).forEach(id=>$("#"+id).addEventListener("input",updCajaTotal));
+function loadCaja(c){ $("#cFecha").value=c.fecha; $("#cEfectivo").value=c.efectivo?fmt2(c.efectivo):""; $("#cTarjeta").value=c.tarjeta?fmt2(c.tarjeta):""; $("#cBizum").value=c.bizum?fmt2(c.bizum):""; $("#cOtros").value=c.otros?fmt2(c.otros):""; $("#cNotas").value=c.notas||""; $("#cajaTitle").textContent="Editar caja"; updCajaTotal(); }
+function resetCaja(){ $("#cajaForm").reset(); $("#cFecha").value=today(); $("#cajaTitle").textContent="Anotar caja del día"; updCajaTotal(); }
+$("#cReset").onclick=resetCaja;
+$("#cajaForm").addEventListener("submit", async e=>{
+  e.preventDefault(); const c=cajaFromForm(); if(!c.fecha) return;
+  if(!cajaTotal(c)){ toast("Escribe al menos un importe"); return; }
+  c.actualizado=new Date().toISOString();
+  if(!db){ S.cajas=S.cajas.filter(x=>x.fecha!==c.fecha).concat({...c,id:c.fecha}); render(); resetCaja(); toast("Anotada (sin guardar: no hay conexión)"); return; }
+  $("#cSave").disabled=true;
+  const ok=await saving(()=>db.collection("cajas").doc(c.fecha).set(c),"Caja guardada");
+  $("#cSave").disabled=false; if(ok){ S.mes=c.fecha.slice(0,7); resetCaja(); render(); }
+});
+
+/* ---------- GASTOS ---------- */
+$("#gCat").innerHTML=CATS.map(c=>`<option>${esc(c)}</option>`).join("");
+const MODOS={
+  factura:{hint:"Factura de proveedor con IGIC. Sube la foto o el PDF y se rellena sola.", fecha:"Fecha factura", prov:"Proveedor", provPh:"Ej.: Distribuciones Insulares", conc:"Concepto", concPh:"Ej.: pescado fresco, carnes, cervezas…", total:"Total factura (€)", drop:"Foto o PDF de la factura", sug:[]},
+  personal:{hint:"Nóminas, Seguridad Social y demás coste de personal. Sin IGIC; el justificante es opcional.", fecha:"Fecha de pago", prov:"Empleado", provPh:"Ej.: María (cocina) o «Plantilla»", conc:"Concepto", concPh:"Ej.: nómina octubre", total:"Importe (€)", drop:"Nómina o recibo (opcional)", sug:["Nómina","Seguridad Social (cuota empresa)","Horas extra","Paga extra","Finiquito","Extras de fin de semana","Propinas repartidas","Formación / manipulador de alimentos","Uniformes"]},
+  extra:{hint:"Cualquier otro gasto que quieras anotar a mano, sin factura o con ticket. Sin IGIC.", fecha:"Fecha", prov:"Pagado a (opcional)", provPh:"Ej.: mercado, fontanero…", conc:"Descripción", concPh:"Ej.: hielo de urgencia, propina músico…", total:"Importe (€)", drop:"Ticket o recibo (opcional)", sug:["Compra de urgencia en supermercado","Reparación sin factura","Parking / transporte","Hielo","Gas (bombona)","Propinas / gratificaciones","Pequeño menaje"]}
+};
+function setModo(m, keepCat){
+  S.modo=m; const M=MODOS[m]; const f=$("#gastoForm"); f.dataset.modo=m;
+  $("#m"+m[0].toUpperCase()+m.slice(1)).checked=true;
+  $("#modoHint").textContent=M.hint; $("#lFecha").textContent=M.fecha; $("#lProv").textContent=M.prov; $("#gProv").placeholder=M.provPh;
+  $("#lConc").textContent=M.conc; $("#gConc").placeholder=M.concPh; $("#lTotal").textContent=M.total; $("#dropTitle").textContent=M.drop;
+  $("#concList").innerHTML=M.sug.map(s=>`<option value="${esc(s)}">`).join("");
+  if(m==="personal") $("#gCat").value="Personal y nóminas";
+  else if(!keepCat && $("#gCat").value==="Personal y nóminas") $("#gCat").value = m==="extra"?"Otros":CATS[0];
+  if(m==="extra" && !keepCat) $("#gCat").value="Otros";
+  $("#aiRow").hidden = !S.file || !sample || m!=="factura";
+}
+document.querySelectorAll('input[name="modo"]').forEach(r=>r.addEventListener("change",()=>setModo(r.value)));
+let lastEdited="";
+["gBase","gCuota","gTotal"].forEach(id=>$("#"+id).addEventListener("input",()=>{ lastEdited=id; recalc(id); }));
+$("#gTipo").addEventListener("change",()=>recalc(lastEdited==="gTotal"?"gTotal":"gBase"));
+function recalc(src){
+  const t=parse($("#gTipo").value)/100;
+  if(src==="gBase"){ const b=parse($("#gBase").value); if(!$("#gBase").value) return; const q=r2(b*t); $("#gCuota").value=fmt2(q); $("#gTotal").value=fmt2(r2(b+q)); }
+  else if(src==="gTotal"){ const tot=parse($("#gTotal").value); if(!$("#gTotal").value) return; const b=r2(tot/(1+t)); $("#gBase").value=fmt2(b); $("#gCuota").value=fmt2(r2(tot-b)); }
+}
+const drop=$("#drop"), fileIn=$("#gFile");
+drop.onclick=()=>fileIn.click(); drop.onkeydown=e=>{ if(e.key==="Enter"||e.key===" "){e.preventDefault();fileIn.click();} };
+drop.ondragover=e=>{e.preventDefault();drop.classList.add("over");}; drop.ondragleave=()=>drop.classList.remove("over");
+drop.ondrop=e=>{e.preventDefault();drop.classList.remove("over"); const f=e.dataTransfer.files[0]; if(f) setFile(f);};
+fileIn.onchange=()=>{ const f=fileIn.files[0]; if(f) setFile(f); fileIn.value=""; };
+$("#prevRemove").onclick=()=>setFile(null);
+
+function setFile(f){
+  if(S.fileUrl && S.fileUrl.startsWith("blob:")) URL.revokeObjectURL(S.fileUrl);
+  S.file=f; S.fileUrl=null; S.keepDoc = false;
+  if(f && !(f.type.startsWith("image/")||f.type==="application/pdf")){ toast("Solo fotos o PDF"); S.file=null; f=null; }
+  $("#prev").hidden=!f; drop.hidden=!!f; $("#aiRow").hidden=!f || !sample || (S.modo||"factura")!=="factura";
+  if(!f) return;
+  const isPdf=f.type==="application/pdf";
+  $("#prevImg").hidden=isPdf; $("#prevPdf").hidden=!isPdf;
+  if(!isPdf){ S.fileUrl=URL.createObjectURL(f); $("#prevImg").src=S.fileUrl; }
+  $("#prevName").textContent=f.name||"Factura"; $("#prevSize").textContent=(f.size/1024>1024? (f.size/1048576).toFixed(1)+" MB" : Math.round(f.size/1024)+" KB");
+  $("#aiMsg").textContent="Rellena los campos automáticamente. Revísalos antes de guardar.";
+}
+function showExistingDoc(g){
+  S.file=null; S.keepDoc=!!g.docId;
+  $("#prev").hidden=!g.docId; drop.hidden=!!g.docId; $("#aiRow").hidden=true;
+  if(!g.docId) return;
+  const isPdf=g.docTipo==="pdf"; $("#prevImg").hidden=isPdf; $("#prevPdf").hidden=!isPdf;
+  if(!isPdf) $("#prevImg").src="/_blob/"+g.docId;
+  $("#prevName").textContent=g.docNombre||"Justificante guardado"; $("#prevSize").textContent="Ya guardado";
+}
+function loadGasto(g){
+  S.editGasto=g.id; $("#gastoTitle").textContent="Editar gasto";
+  $("#gFecha").value=g.fecha||""; $("#gNumero").value=g.numero||""; $("#gProv").value=g.proveedor||""; $("#gNif").value=g.nif||"";
+  $("#gCat").value=CATS.includes(g.categoria)?g.categoria:"Otros"; $("#gConc").value=g.concepto||"";
+  $("#gBase").value=fmt2(g.base); $("#gCuota").value=fmt2(g.cuota); $("#gTotal").value=fmt2(g.total);
+  $("#gTipo").value=String(g.tipo??7); $("#gPago").value=g.pago||"Tarjeta"; setModo(g.modo||"factura", true); showExistingDoc(g);
+}
+function resetGasto(){ $("#gastoForm").reset(); S.editGasto=null; $("#gastoTitle").textContent="Añadir gasto"; $("#gFecha").value=today(); $("#gTipo").value="7"; setFile(null); S.keepDoc=false; lastEdited=""; setModo(S.modo||"factura"); }
+$("#gReset").onclick=resetGasto;
+
+async function shrinkImage(file, maxSide=1800, q=0.85){
+  const url=URL.createObjectURL(file);
+  try{
+    const img=await new Promise((res,rej)=>{ const i=new Image(); i.onload=()=>res(i); i.onerror=rej; i.src=url; });
+    const k=Math.min(1, maxSide/Math.max(img.naturalWidth,img.naturalHeight));
+    const c=document.createElement("canvas"); c.width=Math.round(img.naturalWidth*k); c.height=Math.round(img.naturalHeight*k);
+    c.getContext("2d").drawImage(img,0,0,c.width,c.height);
+    return await new Promise(r=>c.toBlob(r,"image/jpeg",q));
+  } finally { URL.revokeObjectURL(url); }
+}
+function loadScript(src){ return new Promise((res,rej)=>{ if(document.querySelector(`script[src="${src}"]`)) return res(); const s=document.createElement("script"); s.src=src; s.onload=res; s.onerror=()=>rej(new Error("No se pudo cargar "+src)); document.head.appendChild(s); }); }
+async function pdfToImagesAndText(file){
+  await loadScript("https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js");
+  await loadScript("https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js");
+  const lib=window.pdfjsLib; const pdf=await lib.getDocument({data:await file.arrayBuffer()}).promise;
+  const imgs=[]; let text="";
+  for(let p=1; p<=Math.min(pdf.numPages,2); p++){
+    const page=await pdf.getPage(p); const vp0=page.getViewport({scale:1}); const sc=Math.min(2, 1600/Math.max(vp0.width,vp0.height)); const vp=page.getViewport({scale:sc});
+    const c=document.createElement("canvas"); c.width=vp.width; c.height=vp.height; const ctx=c.getContext("2d"); ctx.fillStyle="#fff"; ctx.fillRect(0,0,c.width,c.height);
+    await page.render({canvasContext:ctx,viewport:vp}).promise;
+    imgs.push(await new Promise(r=>c.toBlob(r,"image/jpeg",0.85)));
+    const tc=await page.getTextContent(); text+=tc.items.map(i=>i.str).join(" ")+"\n";
+  }
+  return {imgs, text:text.slice(0,6000)};
+}
+$("#aiBtn").onclick=async()=>{
+  if(!S.file||!sample) return;
+  const btn=$("#aiBtn"), msg=$("#aiMsg"); btn.disabled=true; msg.textContent="Leyendo la factura…";
+  try{
+    let imgs=[], text="";
+    if(S.file.type==="application/pdf"){ ({imgs,text}=await pdfToImagesAndText(S.file)); }
+    else imgs=[await shrinkImage(S.file)];
+    const lim=await sample.limits().catch(()=>null);
+    const canImg = lim?.images; const opts={modelTier:"default"}; if(canImg) opts.images=imgs.slice(0, lim.images.maxCount||1);
+    if(!canImg && !text) throw {message:"No se pueden leer imágenes aquí. Rellena los campos a mano."};
+    const prompt=`Eres un asistente contable en Canarias (España). Extrae los datos de esta factura de un proveedor de un restaurante.
+${text?`Texto extraído del PDF:\n"""${text}"""\n`:""}Devuelve SOLO un objeto JSON con estas claves:
+{"fecha":"YYYY-MM-DD","numero":"","proveedor":"razón social del emisor","nif":"","concepto":"resumen breve de lo comprado (máx. 8 palabras)","base":0,"tipo_igic":7,"cuota_igic":0,"total":0,"categoria":"una de: ${CATS.join(" | ")}"}
+Los importes en número con punto decimal. Si hay varios tipos de IGIC, suma las bases y cuotas y pon en tipo_igic el tipo principal. Si es IVA en vez de IGIC, usa igualmente esas claves. Si un dato no aparece, usa "" o 0.`;
+    const d=await sample.json(prompt, opts);
+    if(d.fecha && /^\d{4}-\d{2}-\d{2}$/.test(d.fecha)) $("#gFecha").value=d.fecha;
+    if(d.numero) $("#gNumero").value=d.numero; if(d.proveedor) $("#gProv").value=d.proveedor; if(d.nif) $("#gNif").value=d.nif;
+    if(d.concepto) $("#gConc").value=d.concepto; if(CATS.includes(d.categoria)) $("#gCat").value=d.categoria;
+    const tipos=["0","3","7","9.5","15","20"]; if(tipos.includes(String(d.tipo_igic))) $("#gTipo").value=String(d.tipo_igic);
+    if(+d.base) $("#gBase").value=fmt2(+d.base); if(+d.cuota_igic||+d.base) $("#gCuota").value=fmt2(+d.cuota_igic||0); if(+d.total) $("#gTotal").value=fmt2(+d.total);
+    if(!+d.total && +d.base) recalc("gBase"); if(+d.total && !+d.base) recalc("gTotal");
+    msg.textContent="Datos leídos. Revísalos y pulsa «Guardar gasto».";
+  }catch(e){
+    msg.textContent = e?.code==="not_granted" ? "Sin permiso para leer facturas. Rellena los campos a mano." : e?.code==="rate_limited" ? "Demasiadas lecturas seguidas. Espera un poco." : ("No se pudo leer: "+(e?.message||"error")+".");
+  }finally{ btn.disabled=false; }
+};
+
+$("#gastoForm").addEventListener("submit", async e=>{
+  e.preventDefault();
+  const g={ fecha:$("#gFecha").value, numero:$("#gNumero").value.trim(), proveedor:$("#gProv").value.trim(), nif:$("#gNif").value.trim().toUpperCase(),
+    categoria:$("#gCat").value, concepto:$("#gConc").value.trim(), base:parse($("#gBase").value), tipo:parse($("#gTipo").value), cuota:parse($("#gCuota").value),
+    total:parse($("#gTotal").value), pago:$("#gPago").value, modo:S.modo||"factura", actualizado:new Date().toISOString() };
+  if(g.modo!=="factura"){ g.base=g.total; g.cuota=0; g.tipo=0; g.numero=""; g.nif=""; if(g.modo==="personal") g.categoria="Personal y nóminas"; }
+  if(!g.total && g.base) g.total=r2(g.base+g.cuota);
+  if(!g.fecha||!g.total){ toast("Faltan la fecha o el importe"); return; }
+  if(g.modo==="factura" && !g.proveedor){ toast("Falta el proveedor"); return; }
+  if(g.modo!=="factura" && !g.proveedor && !g.concepto){ toast("Escribe un concepto o a quién se pagó"); return; }
+  if(!db){ S.gastos.push({...g,id:"local"+Date.now()}); render(); resetGasto(); toast("Anotado (sin guardar: no hay conexión)"); return; }
+  $("#gSave").disabled=true;
+  const prev = S.editGasto ? S.gastos.find(x=>x.id===S.editGasto) : null;
+  const ok = await saving(async()=>{
+    if(S.file){
+      if(!assets) throw {message:"no se pueden subir archivos aquí"};
+      const isPdf=S.file.type==="application/pdf";
+      const blob = isPdf ? S.file : (S.file.size>2.5e6 ? await shrinkImage(S.file,2400,0.88) : S.file);
+      status("busy","Subiendo justificante…");
+      const a=await assets.upload(blob);
+      g.docId=a.id; g.docTipo=isPdf?"pdf":"img"; g.docNombre=S.file.name||"";
+    } else if(prev && S.keepDoc){ g.docId=prev.docId; g.docTipo=prev.docTipo; g.docNombre=prev.docNombre||""; }
+    else { g.docId=""; g.docTipo=""; g.docNombre=""; }
+    if(S.editGasto) await db.collection("gastos").doc(S.editGasto).set(g);
+    else await db.collection("gastos").add(g);
+    if(prev?.docId && prev.docId!==g.docId && assets){ try{ await assets.delete(prev.docId); }catch(_){} }
+  }, S.editGasto?"Gasto actualizado":"Gasto guardado");
+  $("#gSave").disabled=false; if(ok){ S.mes=g.fecha.slice(0,7); resetGasto(); render(); }
+});
+
+/* ---------- nombre ---------- */
+$("#nombreBtn").onclick=()=>{ $("#nameInput").value=S.nombre; $("#nameDlg").showModal(); };
+$("#nameForm").addEventListener("submit", async e=>{
+  if(e.submitter?.value!=="ok") return;
+  const n=$("#nameInput").value.trim()||"Mi restaurante"; S.nombre=n; render();
+  if(db) await saving(()=>db.collection("ajustes").doc("general").set({nombre:n}),"Nombre guardado");
+});
+
+/* ---------- PDF ---------- */
+$("#pdfBtn").onclick=async()=>{
+  const btn=$("#pdfBtn"); if(!downloads){ toast("La descarga de archivos no está disponible en esta vista"); return; }
+  btn.disabled=true; const old=btn.textContent; btn.textContent="Generando…";
+  try{
+    await loadScript("https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js");
+    await loadScript("https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.8.2/jspdf.plugin.autotable.min.js");
+    const { jsPDF } = window.jspdf; const doc=new jsPDF({unit:"mm",format:"a4"});
+    const cajas=delMes(S.cajas).reverse(), gastos=delMes(S.gastos).reverse();
+    const tIn=cajas.reduce((s,c)=>s+cajaTotal(c),0), tOut=gastos.reduce((s,g)=>s+(g.total||0),0);
+    const tBase=gastos.reduce((s,g)=>s+(g.base||0),0), tIg=gastos.reduce((s,g)=>s+(g.cuota||0),0);
+    const green=[31,92,74], red=[179,69,44];
+    doc.setFont("helvetica","bold"); doc.setFontSize(18); doc.text(S.nombre,14,18);
+    doc.setFont("helvetica","normal"); doc.setFontSize(11); doc.setTextColor(90); doc.text("Libro de caja · "+mesLabel(S.mes).replace(/^./,c=>c.toUpperCase()),14,25);
+    doc.text("Generado el "+new Date().toLocaleDateString("es-ES"),196,25,{align:"right"}); doc.setTextColor(0);
+    doc.autoTable({startY:31, theme:"grid", head:[["Resumen del mes","Importe"]], headStyles:{fillColor:green},
+      body:[["Ingresos (cajas) · "+cajas.length+" días",fmt(tIn)],["Gastos · "+gastos.length+" apuntes",fmt(tOut)],["  De ellos, coste de personal",fmt(gastos.filter(g=>g.categoria==="Personal y nóminas").reduce((s,g)=>s+(g.total||0),0))],["  De ellos, gastos extra a mano",fmt(gastos.filter(g=>g.modo==="extra").reduce((s,g)=>s+(g.total||0),0))],["  Base imponible gastos",fmt(tBase)],["  IGIC soportado",fmt(tIg)],["Resultado (ingresos − gastos)",fmt(tIn-tOut)]],
+      columnStyles:{1:{halign:"right",cellWidth:45}}, styles:{fontSize:10}});
+    doc.setFont("helvetica","bold"); doc.setFontSize(13); doc.text("Cajas diarias",14,doc.lastAutoTable.finalY+10);
+    doc.autoTable({startY:doc.lastAutoTable.finalY+13, theme:"striped", headStyles:{fillColor:green}, styles:{fontSize:9},
+      head:[["Fecha","Efectivo","Tarjeta","Bizum","Otros","Total","Notas"]],
+      body: cajas.length? cajas.map(c=>[c.fecha.split("-").reverse().join("/"),fmt2(c.efectivo),fmt2(c.tarjeta),fmt2(c.bizum),fmt2(c.otros),fmt2(cajaTotal(c)),c.notas||""]) : [["Sin cajas","","","","","",""]],
+      foot:[["Total",fmt2(cajas.reduce((s,c)=>s+(c.efectivo||0),0)),fmt2(cajas.reduce((s,c)=>s+(c.tarjeta||0),0)),fmt2(cajas.reduce((s,c)=>s+(c.bizum||0),0)),fmt2(cajas.reduce((s,c)=>s+(c.otros||0),0)),fmt2(tIn),""]],
+      footStyles:{fillColor:[230,236,232],textColor:20}, columnStyles:{1:{halign:"right"},2:{halign:"right"},3:{halign:"right"},4:{halign:"right"},5:{halign:"right",fontStyle:"bold"}}});
+    doc.setFont("helvetica","bold"); doc.setFontSize(13); doc.text("Gastos",14,doc.lastAutoTable.finalY+10);
+    doc.autoTable({startY:doc.lastAutoTable.finalY+13, theme:"striped", headStyles:{fillColor:red}, styles:{fontSize:8.5},
+      head:[["Fecha","Proveedor / Nº","Categoría","Pago","Base","IGIC","Total","Just."]],
+      body: gastos.length? gastos.map(g=>[g.fecha.split("-").reverse().join("/"), (g.proveedor||"")+(g.concepto?(g.proveedor?"\n":"")+g.concepto:"")+(g.numero?"\nNº "+g.numero:"")+(g.nif?" · "+g.nif:""), g.categoria||"", g.pago||"", fmt2(g.base), fmt2(g.cuota)+(g.tipo!=null?` (${String(g.tipo).replace(".",",")}%)`:""), fmt2(g.total), g.docId?"Sí":((g.modo||"factura")==="factura"?"No":"—")]) : [["Sin gastos","","","","","","",""]],
+      foot:[["Total","","","",fmt2(tBase),fmt2(tIg),fmt2(tOut),""]], footStyles:{fillColor:[240,228,224],textColor:20},
+      columnStyles:{4:{halign:"right"},5:{halign:"right"},6:{halign:"right",fontStyle:"bold"},7:{halign:"center"}}});
+    const m={}; gastos.forEach(g=>m[g.categoria||"Otros"]=(m[g.categoria||"Otros"]||0)+(g.total||0));
+    if(Object.keys(m).length){ doc.autoTable({startY:doc.lastAutoTable.finalY+8, theme:"plain", head:[["Gastos por categoría","Total","%"]], styles:{fontSize:9}, headStyles:{fontStyle:"bold"},
+      body:Object.entries(m).sort((a,b)=>b[1]-a[1]).map(([k,v])=>[k,fmt(v),fmt2(v/tOut*100)+" %"]), columnStyles:{1:{halign:"right"},2:{halign:"right"}}}); }
+    const pages=doc.getNumberOfPages(); for(let i=1;i<=pages;i++){ doc.setPage(i); doc.setFontSize(8); doc.setTextColor(130); doc.text(`Página ${i} de ${pages}`,196,290,{align:"right"}); }
+    await downloads.save({filename:`libro-caja-${S.mes}.pdf`, data:doc.output("blob")});
+    toast("PDF listo");
+  }catch(e){ if(e?.code!=="declined") toast("No se pudo exportar: "+(e?.message||e?.code||"error")); }
+  finally{ btn.disabled=false; btn.textContent=old; }
+};
+
+/* ---------- arranque ---------- */
+$("#cFecha").value=today(); $("#gFecha").value=today(); setModo("factura"); updCajaTotal(); render();
+const use = n => (window.claude?.use ? window.claude.use(n).catch(()=>null) : Promise.resolve(null));
+(async()=>{
+  [db,assets,downloads,sample] = await Promise.all([use("db"),use("assets"),use("downloads"),use("sample")]);
+  $("#aiRow").hidden = !S.file || !sample;
+  if(!downloads) $("#pdfBtn").title="Exportar PDF no está disponible en esta vista";
+  if(!db){ status("err","Sin guardado"); banner("No se puede guardar desde esta vista. Abre la página con tu cuenta de Claude para que las cajas y gastos queden guardados."); return; }
+  status("busy","Cargando…");
+  let pending=2;
+  const timer=setTimeout(()=>{ status("err","Sin conexión"); banner("No se puede conectar con el almacén de datos. Lo que ves puede no estar actualizado."); },10000);
+  const done=(snap)=>{ if(!snap.metadata?.fromCache){ pending=Math.max(0,pending-1); if(!pending){ clearTimeout(timer); banner(""); status("ok","Todo guardado"); } } };
+  const onErr=e=>{ clearTimeout(timer); status("err","Error"); banner("Error al cargar los datos: "+(e?.message||e?.code)); };
+  db.collection("cajas").onSnapshot(s=>{ S.cajas=s.docs.map(d=>({id:d.id,...d.data()})); render(); updCajaTotal(); done(s); }, onErr);
+  db.collection("gastos").onSnapshot(s=>{ S.gastos=s.docs.map(d=>({id:d.id,...d.data()})); render(); done(s); }, onErr);
+  db.doc("ajustes/general").onSnapshot(s=>{ if(s.exists && s.data().nombre){ S.nombre=s.data().nombre; render(); } }, ()=>{});
+})();
+})();
+</script>
+
+</body></html>

@@ -1,0 +1,88 @@
+{
+  "empresa": "Kairos Supply",
+  "fecha": "2026-09-02",
+  "lineas": [
+    {
+      "a": "",
+      "d": "TIRA LED 24V RGBW 60LED/M 5M",
+      "dto": "",
+      "f": "2026-09-02",
+      "i": 425,
+      "igic": 7,
+      "o": "VIVIENDAS TRIANA",
+      "pn": 42.5,
+      "pt": 42.5,
+      "q": 10,
+      "r": ""
+    },
+    {
+      "a": "",
+      "d": "CONECTOR HIPOPOTAMO TIRA LED",
+      "dto": "",
+      "f": "2026-09-02",
+      "i": 31.5,
+      "igic": 7,
+      "o": "VIVIENDAS TRIANA",
+      "pn": 2.1,
+      "pt": 2.1,
+      "q": 15,
+      "r": ""
+    },
+    {
+      "a": "",
+      "d": "CONTROLADOR RGBW + MANDO RF 4 ZONAS",
+      "dto": "",
+      "f": "2026-09-02",
+      "i": 65.7,
+      "igic": 7,
+      "o": "VIVIENDAS TRIANA",
+      "pn": 32.85,
+      "pt": 32.85,
+      "q": 2,
+      "r": ""
+    },
+    {
+      "a": "",
+      "d": "FUENTE ALIMENTACION 24V 200W",
+      "dto": "",
+      "f": "2026-09-02",
+      "i": 99.2,
+      "igic": 7,
+      "o": "VIVIENDAS TRIANA",
+      "pn": 24.8,
+      "pt": 24.8,
+      "q": 4,
+      "r": ""
+    },
+    {
+      "a": "",
+      "d": "PERFIL ALUMINIO TIRA LED CON TAPA",
+      "dto": "",
+      "f": "2026-09-02",
+      "i": 284.7,
+      "igic": 7,
+      "o": "VIVIENDAS TRIANA",
+      "pn": 10.95,
+      "pt": 10.95,
+      "q": 26,
+      "r": ""
+    },
+    {
+      "a": "",
+      "d": "DOWNLIGHT LED 5W COB 4000K",
+      "dto": "",
+      "f": "2026-09-02",
+      "i": 1261.5,
+      "igic": 7,
+      "o": "VIVIENDAS TRIANA",
+      "pn": 14.5,
+      "pt": 14.5,
+      "q": 87,
+      "r": ""
+    }
+  ],
+  "numero": "2026-0040",
+  "origen": "Gmail",
+  "proveedor": "Leirbag",
+  "tipo": "factura"
+}

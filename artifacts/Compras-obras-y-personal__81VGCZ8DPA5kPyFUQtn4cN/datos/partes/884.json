@@ -1,0 +1,23 @@
+{
+  "albs": [],
+  "cliente": "TRAGSA",
+  "desc": "Instalar bases de detectores en tapas de registro. Conectar bases de detectores. Enfichar y tapar registros. Instalar tubo precableado y diflex desde central de monóxido hasta cuadro de extracción. Instalar y conectar detectores de monóxido",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-11-04",
+  "horas": 16,
+  "id": "884",
+  "obra": "PCI PLAZA GAZMIRA",
+  "ops": [
+    {
+      "h": 8,
+      "n": "Eloy"
+    },
+    {
+      "h": 8,
+      "n": "Jonathan Glez"
+    }
+  ],
+  "origen": "dashboard",
+  "stock": []
+}

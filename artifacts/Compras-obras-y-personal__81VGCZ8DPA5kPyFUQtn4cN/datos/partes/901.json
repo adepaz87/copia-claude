@@ -1,0 +1,23 @@
+{
+  "albs": [],
+  "cliente": "AYUNTAMIENTO EL PASO",
+  "desc": "Terminar emergencias de habitaciones y almacenes de 3 planta. Empezar alumbrado de 1 planta ZC.",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-11-05",
+  "horas": 6,
+  "id": "901",
+  "obra": "HOTEL MONTERREY",
+  "ops": [
+    {
+      "h": 3,
+      "n": "Antonio"
+    },
+    {
+      "h": 3,
+      "n": "Iker"
+    }
+  ],
+  "origen": "dashboard",
+  "stock": []
+}

@@ -1,0 +1,32 @@
+{
+  "albs": [],
+  "cliente": "CONSTRUCCIONES DOMINGO",
+  "desc": "Enebrar alumbrado y fuerza viviendas 1 y 2 planta 1. Enebrar alumbrado y fuerza viviendas 6 y 7 planta 2. Enebrar datos y TV viviendas 1,2,3,4 y 5 planta 0. Enebrar viviendas 1,2,3 y 4 planta 1. Ranuras trasteros y entubar. Ranuras zonas comunes planta 4 y entubar",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-11-10",
+  "horas": 43.5,
+  "id": "940",
+  "obra": "EDIFICIO DOMINGO EL PASO",
+  "ops": [
+    {
+      "h": 13.5,
+      "n": "Aythami"
+    },
+    {
+      "h": 11,
+      "n": "Riki"
+    },
+    {
+      "h": 11,
+      "n": "Joel"
+    },
+    {
+      "h": 8,
+      "n": "Junior"
+    }
+  ],
+  "origen": "dashboard",
+  "restante": "Indefinido",
+  "stock": []
+}

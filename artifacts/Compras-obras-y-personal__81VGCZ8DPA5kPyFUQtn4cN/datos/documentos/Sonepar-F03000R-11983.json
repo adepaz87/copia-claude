@@ -1,0 +1,23 @@
+{
+  "empresa": "Instapalma",
+  "fecha": "2026-09-02",
+  "lineas": [
+    {
+      "a": "309005428",
+      "d": "RESI9 COMBI SPU 1PN C 25A CAN",
+      "f": "2026-09-02",
+      "fab": "R9L20625CAN",
+      "i": 50.22,
+      "m": "Schneider Electric",
+      "o": "CASA JUAN ALBERTO",
+      "pn": 50.22,
+      "pt": 50.218391,
+      "q": 1,
+      "r": "719692"
+    }
+  ],
+  "numero": "F03000R-11983",
+  "origen": "Gmail",
+  "proveedor": "Sonepar",
+  "tipo": "factura"
+}

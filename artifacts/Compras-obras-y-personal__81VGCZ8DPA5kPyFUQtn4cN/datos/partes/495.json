@@ -1,0 +1,25 @@
+{
+  "albs": [],
+  "cliente": "COVALLE",
+  "desc": "Seguir entubando,colocación de cajas registro,campanas de iluminación,etc…en almacén \nConexionado cajas de registro interior nave  \nLimpiar zonas de trabajo",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-09-17",
+  "horas": 23,
+  "obra": "NAVE COOPERATIVA COVALLE",
+  "ops": [
+    {
+      "h": 8,
+      "n": "Petter"
+    },
+    {
+      "h": 8,
+      "n": "Rafael"
+    },
+    {
+      "h": 7,
+      "n": "Jonathan Rodríguez"
+    }
+  ],
+  "stock": []
+}

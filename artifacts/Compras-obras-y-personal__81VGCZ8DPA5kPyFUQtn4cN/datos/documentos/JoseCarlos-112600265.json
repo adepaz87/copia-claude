@@ -1,0 +1,36 @@
+{
+  "empresa": "Instapalma",
+  "fecha": "2026-07-06",
+  "lineas": [
+    {
+      "a": "",
+      "d": "MANO DE OBRA - CAMBIO LUMINARIAS FOTOVOLTAICAS",
+      "dto": "",
+      "f": "2026-07-06",
+      "i": 100,
+      "igic": 7,
+      "o": "ALUMBRADO FOTOVOLTAICO MONTAÑA DE LA BREÑA",
+      "pn": 20,
+      "pt": 20,
+      "q": 5,
+      "r": ""
+    },
+    {
+      "a": "",
+      "d": "SERVICIO CITROEN JUMPER CON CESTA",
+      "dto": "",
+      "f": "2026-07-06",
+      "i": 60,
+      "igic": 7,
+      "o": "ALUMBRADO FOTOVOLTAICO MONTAÑA DE LA BREÑA",
+      "pn": 20,
+      "pt": 20,
+      "q": 3,
+      "r": ""
+    }
+  ],
+  "numero": "112600265",
+  "origen": "Gmail",
+  "proveedor": "José Carlos (Inst. Eléctricas)",
+  "tipo": "factura"
+}

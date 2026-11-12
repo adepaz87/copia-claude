@@ -1,0 +1,23 @@
+{
+  "albs": [
+    "Fraper"
+  ],
+  "cliente": "TRAGSA",
+  "desc": "Recoger materiales de la obra.\nLimpiar y tirar basura.\nLlevar materiales, escalera, inversor… A almacén.",
+  "devol": [],
+  "estado": "TERMINADO",
+  "fecha": "2026-10-19",
+  "horas": 8,
+  "obra": "FV JTI",
+  "ops": [
+    {
+      "h": 4,
+      "n": "Eloy"
+    },
+    {
+      "h": 4,
+      "n": "Jonathan Glez"
+    }
+  ],
+  "stock": []
+}

@@ -1,0 +1,63 @@
+{
+  "albs": [],
+  "cliente": "CONSTRUCCIONES DOMINGO",
+  "desc": "Terminar de entubar apartamento 2. Picar cajas exteriores",
+  "devol": [
+    {
+      "d": "tubo de 25",
+      "q": 150,
+      "u": "m"
+    },
+    {
+      "d": "tubo de 32",
+      "q": 50,
+      "u": "m"
+    },
+    {
+      "d": "tubo de 20",
+      "q": 50,
+      "u": "m"
+    }
+  ],
+  "estado": "EN CURSO",
+  "fecha": "2026-11-04",
+  "horas": 14,
+  "id": "886",
+  "obra": "CASAS BENEDICTO",
+  "ops": [
+    {
+      "h": 4,
+      "n": "Aythami"
+    },
+    {
+      "h": 4,
+      "n": "Riki"
+    },
+    {
+      "h": 3,
+      "n": "Joel"
+    },
+    {
+      "h": 3,
+      "n": "Junior"
+    }
+  ],
+  "origen": "dashboard",
+  "stock": [
+    {
+      "d": "bridas 4,8x300",
+      "q": 100,
+      "u": ""
+    },
+    {
+      "d": "paquete de tacos bridas celo",
+      "q": 1,
+      "u": ""
+    },
+    {
+      "d": "clavos pistola celo",
+      "q": 100,
+      "u": ""
+    }
+  ]
+}

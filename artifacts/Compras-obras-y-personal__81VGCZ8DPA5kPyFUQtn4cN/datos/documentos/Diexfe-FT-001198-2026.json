@@ -1,0 +1,58 @@
+{
+  "empresa": "Instapalma",
+  "fecha": "2026-02-26",
+  "lineas": [
+    {
+      "a": "VCTF-003699-2026",
+      "d": "CABLE AFIRENAX-L 05Z1-K/07Z1-K 35MM2 AZ",
+      "dto": "Neto",
+      "f": "2026-02-26",
+      "i": 508.2,
+      "o": "CUADROS HOTEL",
+      "pn": 5.082,
+      "pt": 5.082,
+      "q": 100,
+      "r": "MIG-84107082"
+    },
+    {
+      "a": "VCTF-003699-2026",
+      "d": "CABLE AFIRENAX-L 05Z1-K/07Z1-K 35MM2 MR",
+      "dto": "Neto",
+      "f": "2026-02-26",
+      "i": 508.2,
+      "o": "CUADROS HOTEL",
+      "pn": 5.082,
+      "pt": 5.082,
+      "q": 100,
+      "r": "MIG-84107091"
+    },
+    {
+      "a": "VCTF-003699-2026",
+      "d": "CABLE AFIRENAX-L 05Z1-K/07Z1-K 35MM2 NG",
+      "dto": "Neto",
+      "f": "2026-02-26",
+      "i": 508.2,
+      "o": "CUADROS HOTEL",
+      "pn": 5.082,
+      "pt": 5.082,
+      "q": 100,
+      "r": "MIG-84107092"
+    },
+    {
+      "a": "VCTF-003699-2026",
+      "d": "CABLE AFIRENAX-L 05Z1-K/07Z1-K 35MM2 GR",
+      "dto": "Neto",
+      "f": "2026-02-26",
+      "i": 508.2,
+      "o": "CUADROS HOTEL",
+      "pn": 5.082,
+      "pt": 5.082,
+      "q": 100,
+      "r": "MIG-84107089"
+    }
+  ],
+  "numero": "FT-001198-2026",
+  "origen": "Gmail",
+  "proveedor": "Diexfe",
+  "tipo": "factura"
+}

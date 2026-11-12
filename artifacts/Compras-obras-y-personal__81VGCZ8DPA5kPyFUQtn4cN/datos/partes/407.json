@@ -1,0 +1,21 @@
+{
+  "albs": [],
+  "cliente": "CONSTRUCCIONES DOMINGO",
+  "desc": "Colocar embellecedores \nColocar y conectar sobre tensión\nColocar mecanismos exteriores",
+  "devol": [],
+  "estado": "TERMINADO",
+  "fecha": "2026-09-03",
+  "horas": 3,
+  "obra": "CASA JUAN ALBERTO",
+  "ops": [
+    {
+      "h": 1.5,
+      "n": "Aythami"
+    },
+    {
+      "h": 1.5,
+      "n": "Joel"
+    }
+  ],
+  "stock": []
+}

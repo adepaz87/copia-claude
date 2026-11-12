@@ -1,0 +1,27 @@
+{
+  "actualizada": "2026-11-11T16:14:00Z",
+  "asignadaEn": "2026-11-10T17:52:24.673Z",
+  "avisadoWa": "2026-11-10T17:52:30.170Z",
+  "aviso": "27392",
+  "centro": "SPAR El Paso",
+  "creada": "2026-11-10T09:15:00Z",
+  "descripcion": "Revisar la UPS: ayer por la tarde se apagaron todas las cajas, balanzas y ordenadores porque saltó el automático de la UPS, que marcaba batería baja.",
+  "empresa": "Tomás Barreto",
+  "estado": "terminada",
+  "fechaAviso": "2026-11-09",
+  "historial": [
+    "10/11/2026 · Importada de la captura GIM de Raquel (correo «EL PASO», aviso 27392)",
+    "10/11/2026 17:52 · Asignada a Toño Guardia",
+    "10/11/2026 17:52 · Asignación: Correo enviado a TBSA · WhatsApp a Toño Guardia programado · WhatsApp a Fernando programado",
+    "11/11/2026 15:37 · Toño avisa por WhatsApp: «OT 137 resuelto» · Estado: Terminada",
+    "11/11/2026 16:14 · Cierre: correo enviado a TBSA · WhatsApp a Fernando programado"
+  ],
+  "informado": true,
+  "notas": "Captura GIM de Raquel (correo «EL PASO», 10/11 09:53). Aviso 27392 del jefe de tienda SPAR El Paso, 09/11 19:18. UPS revisada por Toño Guardia, resuelta el 11/11 a las 15:37.",
+  "operario": "Toño Guardia",
+  "ot": 137,
+  "prioridad": "Alta",
+  "solicitante": "Raquel",
+  "terminadaEn": "2026-11-11T15:37:00Z",
+  "tipo": "MANTENIMIENTO"
+}

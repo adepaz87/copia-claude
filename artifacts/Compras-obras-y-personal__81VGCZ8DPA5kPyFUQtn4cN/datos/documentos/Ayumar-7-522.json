@@ -1,0 +1,142 @@
+{
+  "empresa": "Instapalma",
+  "fecha": "2026-08-31",
+  "lineas": [
+    {
+      "a": "7-522",
+      "d": "CONECTOR MC4 MACHO+HEMBRA PLACA SOLAR",
+      "dto": 0,
+      "f": "2026-08-31",
+      "i": 12.47,
+      "o": "",
+      "pn": 1.3856,
+      "pt": 1.3856,
+      "q": 9,
+      "r": "1729"
+    },
+    {
+      "a": "7-522",
+      "d": "TOMA BTICINO CLASSIA RJ45",
+      "dto": 0,
+      "f": "2026-08-31",
+      "i": 15.5,
+      "o": "",
+      "pn": 15.5,
+      "pt": 15.5,
+      "q": 1,
+      "r": "3516"
+    },
+    {
+      "a": "7-522",
+      "d": "TERMINAL REFORZADO SOFAMEL TL-50/10",
+      "dto": 0,
+      "f": "2026-08-31",
+      "i": 4.91,
+      "o": "",
+      "pn": 1.2275,
+      "pt": 1.2275,
+      "q": 4,
+      "r": "26417"
+    },
+    {
+      "a": "7-522",
+      "d": "CABLE ALUMINIO 1KV 1X50 XZ1",
+      "dto": 0,
+      "f": "2026-08-31",
+      "i": 282,
+      "o": "",
+      "pn": 1.175,
+      "pt": 1.175,
+      "q": 240,
+      "r": "17801"
+    },
+    {
+      "a": "7-522",
+      "d": "CAJA BTICINO CLASSIA IP40 4M",
+      "dto": 0,
+      "f": "2026-08-31",
+      "i": 6.24,
+      "o": "",
+      "pn": 6.24,
+      "pt": 6.24,
+      "q": 1,
+      "r": "3533"
+    },
+    {
+      "a": "7-522",
+      "d": "ENCHUFE SCHUKO BTICINO CLASSIA",
+      "dto": 0,
+      "f": "2026-08-31",
+      "i": 28.31,
+      "o": "",
+      "pn": 4.7183,
+      "pt": 4.7183,
+      "q": 6,
+      "r": "3510"
+    },
+    {
+      "a": "7-522",
+      "d": "ENCHUFE SCHUKO BTICINO CLASSIA",
+      "dto": 0,
+      "f": "2026-08-31",
+      "i": 5.36,
+      "o": "",
+      "pn": 5.36,
+      "pt": 5.36,
+      "q": 1,
+      "r": "3510"
+    },
+    {
+      "a": "7-522",
+      "d": "CAJA BTICINO CLASSIA IP40 3M",
+      "dto": 0,
+      "f": "2026-08-31",
+      "i": 4.15,
+      "o": "",
+      "pn": 4.15,
+      "pt": 4.15,
+      "q": 1,
+      "r": "3532"
+    },
+    {
+      "a": "7-522",
+      "d": "TACO CIEGO BTICINO CLASSIA",
+      "dto": 0,
+      "f": "2026-08-31",
+      "i": 1.35,
+      "o": "",
+      "pn": 1.35,
+      "pt": 1.35,
+      "q": 1,
+      "r": "3508"
+    },
+    {
+      "a": "7-522",
+      "d": "GRAPAS PLASTICAS 11MM",
+      "dto": 0,
+      "f": "2026-08-31",
+      "i": 10.4,
+      "o": "",
+      "pn": 0.026,
+      "pt": 0.026,
+      "q": 400,
+      "r": "6048"
+    },
+    {
+      "a": "7-522",
+      "d": "SEÑAL RIESGO ELECTRICO",
+      "dto": 0,
+      "f": "2026-08-31",
+      "i": 2.08,
+      "o": "",
+      "pn": 1.04,
+      "pt": 1.04,
+      "q": 2,
+      "r": "57058"
+    }
+  ],
+  "numero": "7-522",
+  "origen": "correo ana@ayumar.com 03/09/2026 (los albaranes adjuntos son de otro cliente)",
+  "proveedor": "Ayumar",
+  "tipo": "factura"
+}

@@ -1,0 +1,59 @@
+{
+  "empresa": "Instapalma",
+  "fecha": "2026-10-19",
+  "lineas": [
+    {
+      "a": "309006402",
+      "d": "PERFIL DE SUPERFICIE TSL-S15 (1UD=1M)",
+      "dto": "NETO",
+      "f": "2026-10-19",
+      "i": 15.57,
+      "o": "MATADERO INSULAR",
+      "pn": 3.8925,
+      "pt": 3.892,
+      "q": 4,
+      "r": "310959"
+    },
+    {
+      "a": "309006402",
+      "d": "DIF.POLIC.COMPBLE.CON TSL-S8 S11 S15 C18N E8 E15",
+      "dto": "NETO",
+      "f": "2026-10-19",
+      "i": 8.15,
+      "o": "MATADERO INSULAR",
+      "pn": 2.0375,
+      "pt": 2.038,
+      "q": 4,
+      "r": "310960"
+    },
+    {
+      "a": "309006402",
+      "d": "TIRA FLEX.BONE 1 SLIM R5M 12W/ 24V 6000K IP65",
+      "dto": "45",
+      "f": "2026-10-19",
+      "i": 35.48,
+      "o": "MATADERO INSULAR",
+      "pn": 35.48,
+      "pt": 64.5,
+      "q": 1,
+      "r": "1172540"
+    },
+    {
+      "a": "309006402",
+      "d": "DLP MINI CANAL 14X13,5MM P/CABLES 7-9MM BL",
+      "dto": "45",
+      "f": "2026-10-19",
+      "i": 4.7,
+      "o": "MATADERO INSULAR",
+      "pn": 2.35,
+      "pt": 4.27,
+      "q": 2,
+      "r": "7776"
+    }
+  ],
+  "numero": "309006402",
+  "obra": "MATADERO INSULAR",
+  "origen": "Gmail (escaneo)",
+  "proveedor": "Sonepar",
+  "tipo": "albaran"
+}

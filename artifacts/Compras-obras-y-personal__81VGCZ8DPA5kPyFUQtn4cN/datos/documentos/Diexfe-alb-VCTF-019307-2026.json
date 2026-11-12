@@ -1,0 +1,35 @@
+{
+  "empresa": "Instapalma",
+  "fecha": "2026-10-15",
+  "lineas": [
+    {
+      "a": "VCTF-019307-2026",
+      "d": "ML CABLE DETECTOR INCENDIOS APANT. 2X1,5 LH (DCA) TRAPF-215AL LH",
+      "dto": "10,00",
+      "f": "2026-10-15",
+      "i": 331.5,
+      "o": "HIPER EL PUENTE",
+      "pn": 0.663,
+      "pt": 0.737,
+      "q": 500,
+      "r": "GES-38CPTFP0175B96"
+    },
+    {
+      "a": "VCTF-019307-2026",
+      "d": "GEL LUBRICANTE DUPLOGEL INTRODUCIR 500CC",
+      "dto": "Neto",
+      "f": "2026-10-15",
+      "i": 6.61,
+      "o": "HIPER EL PUENTE",
+      "pn": 6.61,
+      "pt": 6.608,
+      "q": 1,
+      "r": "ANG-46015000"
+    }
+  ],
+  "numero": "VCTF-019307-2026",
+  "obra": "HIPER EL PUENTE",
+  "origen": "Gmail",
+  "proveedor": "Diexfe",
+  "tipo": "albaran"
+}

@@ -1,0 +1,78 @@
+{
+  "actualizado": "2026-11-06T13:15:07.436Z",
+  "asistentes": "Jesús Francisco y Alejandro Morera",
+  "asunto": "Visita",
+  "autor": "Alberto de Paz Bethencourt",
+  "ckScope": "desde",
+  "estado": "borrador",
+  "fecha": "2026-11-06",
+  "fotos": [
+    {
+      "h": 1600,
+      "id": "e6fb8a211950afb821ac0d25371a8bf0",
+      "pie": "",
+      "w": 1200
+    },
+    {
+      "h": 1600,
+      "id": "f8849522ea75e0620e21e1c2c16b7bb6",
+      "pie": "",
+      "w": 1200
+    },
+    {
+      "h": 1600,
+      "id": "78c9fca6804878fb841f5209869de205",
+      "pie": "",
+      "w": 1200
+    },
+    {
+      "h": 1600,
+      "id": "fc00b69304bb885528f4d6c70182a840",
+      "pie": "",
+      "w": 1200
+    },
+    {
+      "h": 1600,
+      "id": "55b214ba073b299b8b3054b724e2b09c",
+      "pie": "",
+      "w": 1200
+    },
+    {
+      "h": 1600,
+      "id": "d9a1e535f1876ff2d72483f143ef5eea",
+      "pie": "",
+      "w": 1200
+    },
+    {
+      "h": 1600,
+      "id": "78eb120f62ff7052b54eee4e9194dd44",
+      "pie": "",
+      "w": 1200
+    },
+    {
+      "h": 1600,
+      "id": "fb0cc7adc412839dce4fe8820b8bd927",
+      "pie": "",
+      "w": 1200
+    },
+    {
+      "h": 1600,
+      "id": "ea9ffd1bfa622915fda7e7bbcb9aaeee",
+      "pie": "",
+      "w": 1200
+    },
+    {
+      "h": 1600,
+      "id": "9e39d4fed08c8a7d693688a7818d61bd",
+      "pie": "",
+      "w": 1200
+    }
+  ],
+  "incAv": true,
+  "incCk": true,
+  "incNc": true,
+  "incPe": true,
+  "num": 2,
+  "texto": "Se realiza visita a obra y se comprueban los avances de ejecución para realizar la certificación n2. Se planifican los siguientes tajos de obra y tramos a realizar. \n\nSe comprueba ejecución de canalizaciones y arquetas sin ninguna objeción al respecto. ",
+  "tipo": "Informe de visita"
+}

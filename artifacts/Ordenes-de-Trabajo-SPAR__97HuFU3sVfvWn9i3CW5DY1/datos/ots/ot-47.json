@@ -1,0 +1,19 @@
+{
+  "actualizada": "2026-07-23T09:00:00Z",
+  "aviso": "26010",
+  "centro": "SPAR El Muelle",
+  "creada": "2026-07-23T09:00:00Z",
+  "descripcion": "Instalación de toma de corriente para la puerta eléctrica.",
+  "estado": "terminada",
+  "fechaAviso": "2026-07-23",
+  "historial": [
+    "23/07/2026 · Importada del correo de Alberto"
+  ],
+  "informado": true,
+  "notas": "Resuelta (correo 23/07/2026).",
+  "operario": "",
+  "ot": 47,
+  "prioridad": "Sin especificar",
+  "solicitante": "",
+  "tipo": "MANTENIMIENTO"
+}

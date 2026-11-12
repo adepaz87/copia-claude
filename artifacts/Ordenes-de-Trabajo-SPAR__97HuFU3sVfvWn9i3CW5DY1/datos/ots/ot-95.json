@@ -1,0 +1,19 @@
+{
+  "actualizada": "2026-10-24T09:00:00Z",
+  "aviso": "27168",
+  "centro": "SPAR El Paso",
+  "creada": "2026-10-24T09:00:00Z",
+  "descripcion": "El cargador de coches eléctricos no funciona.",
+  "estado": "terminada",
+  "fechaAviso": "2026-10-24",
+  "historial": [
+    "24/10/2026 · Importada del correo de Alberto"
+  ],
+  "informado": true,
+  "notas": "Resuelta (confirmada por WhatsApp el 26/10/2026).",
+  "operario": "Toño Guardia",
+  "ot": 95,
+  "prioridad": "Alta",
+  "solicitante": "Fernando",
+  "tipo": "MANTENIMIENTO"
+}

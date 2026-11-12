@@ -1,0 +1,630 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Certificaciones El Zumacal</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Barlow:wght@400;500;600&display=swap">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.8.2/jspdf.plugin.autotable.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+<style>
+/* Layout: hoja de certificación — cabecera de obra, resumen económico, relación valorada por capítulos */
+:root{
+  --bg:#f5f6f3; --paper:#ffffff; --ink:#1d2621; --muted:#5d6a62; --line:#d9ded8; --soft:#eef1ec;
+  --accent:#2e6b4c; --accent-ink:#ffffff; --accent-soft:#e1eee6;
+  --warn:#a35a00; --warn-soft:#fbefdc; --bad:#b3261e; --bad-soft:#fbe4e2; --ok:#2e6b4c;
+  --f-display:"Barlow Condensed","Arial Narrow",Arial,sans-serif;
+  --f-body:"Barlow",system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#121614; --paper:#1a201d; --ink:#e4ebe6; --muted:#9aa89f; --line:#2e3833; --soft:#222a26;
+  --accent:#6fbf94; --accent-ink:#0d1a13; --accent-soft:#1f3329;
+  --warn:#e3a54f; --warn-soft:#33281a; --bad:#f08a80; --bad-soft:#3a1f1d; --ok:#6fbf94; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#121614; --paper:#1a201d; --ink:#e4ebe6; --muted:#9aa89f; --line:#2e3833; --soft:#222a26;
+  --accent:#6fbf94; --accent-ink:#0d1a13; --accent-soft:#1f3329;
+  --warn:#e3a54f; --warn-soft:#33281a; --bad:#f08a80; --bad-soft:#3a1f1d; --ok:#6fbf94; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:15px;line-height:1.45}
+.wrap{max-width:1280px;margin:0 auto;padding-block:20px 60px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:flex;flex-direction:column;gap:18px}
+h1,h2,h3{font-family:var(--f-display);font-weight:700;margin:0;text-wrap:balance;letter-spacing:.01em}
+h1{font-size:2rem;line-height:1.05}
+h2{font-size:1.35rem}
+.eyebrow{font-size:.75rem;text-transform:uppercase;letter-spacing:.09em;color:var(--muted);font-weight:600}
+.num{font-variant-numeric:tabular-nums;text-align:right;white-space:nowrap}
+.muted{color:var(--muted)}
+header.top{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:12px;border-bottom:2px solid var(--ink);padding-bottom:12px}
+header.top .meta{display:flex;gap:18px;flex-wrap:wrap;font-size:.9rem}
+header.top .meta b{font-family:var(--f-display);font-size:1.1rem}
+.panel{background:var(--paper);border:1px solid var(--line);border-radius:6px;padding:16px}
+.bar{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.certs{display:flex;gap:6px;flex-wrap:wrap}
+button,.btn{font:inherit;font-weight:600;border:1px solid var(--line);background:var(--paper);color:var(--ink);border-radius:4px;padding:6px 12px;cursor:pointer}
+button:hover{border-color:var(--accent)}
+button:focus-visible,input:focus-visible,select:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:1px}
+button.primary{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+button.chip{font-family:var(--f-display);font-size:1rem;padding:4px 12px;display:flex;gap:6px;align-items:center}
+button.chip[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+button.danger{color:var(--bad)}
+button.armed{background:var(--bad);color:#fff;border-color:var(--bad)}
+button:disabled{opacity:.45;cursor:not-allowed}
+.dot{width:7px;height:7px;border-radius:50%;background:var(--warn);display:inline-block}
+.dot.closed{background:var(--ok)}
+.fields{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px 14px}
+label.f{display:flex;flex-direction:column;gap:3px;font-size:.78rem;color:var(--muted);font-weight:600;text-transform:uppercase;letter-spacing:.05em}
+input,select{font:inherit;color:var(--ink);background:var(--paper);border:1px solid var(--line);border-radius:4px;padding:5px 8px;min-width:0}
+input:disabled{background:var(--soft);color:var(--muted)}
+.pill{font-size:.75rem;font-weight:600;padding:2px 8px;border-radius:99px;background:var(--warn-soft);color:var(--warn);white-space:nowrap}
+.pill.closed{background:var(--accent-soft);color:var(--ok)}
+.pill.over{background:var(--bad-soft);color:var(--bad)}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
+.kpi{background:var(--paper);border:1px solid var(--line);border-radius:6px;padding:12px 14px;display:flex;flex-direction:column;gap:4px}
+.kpi .v{font-family:var(--f-display);font-size:1.7rem;font-weight:600;font-variant-numeric:tabular-nums;line-height:1.1}
+.kpi.main{border-color:var(--accent);background:var(--accent-soft)}
+.meter{height:6px;background:var(--soft);border-radius:3px;overflow:hidden}
+.meter>i{display:block;height:100%;background:var(--accent)}
+.grid2{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:18px;align-items:start}
+@media (max-width:900px){.grid2{grid-template-columns:minmax(0,1fr)}}
+.scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+table{border-collapse:collapse;width:100%}
+th{font-size:.72rem;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);font-weight:600;text-align:left;padding:6px 8px;border-bottom:1px solid var(--ink);white-space:nowrap}
+th.num{text-align:right}
+td{padding:5px 8px;border-bottom:1px solid var(--line);vertical-align:top}
+tr.total td{font-weight:700;border-top:2px solid var(--ink);border-bottom:none}
+tr.strong td{font-weight:600}
+tr.liq td{font-family:var(--f-display);font-size:1.15rem;font-weight:700;background:var(--accent-soft)}
+.econ td:first-child{white-space:nowrap}
+.toolbar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between}
+.toolbar .left{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+details.chap{background:var(--paper);border:1px solid var(--line);border-radius:6px}
+details.chap+details.chap{margin-top:8px}
+details.chap>summary{cursor:pointer;list-style:none;padding:10px 14px;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:4px 16px;align-items:center}
+details.chap>summary::-webkit-details-marker{display:none}
+details.chap>summary .t{font-family:var(--f-display);font-weight:600;font-size:1.12rem}
+details.chap>summary .t::before{content:"▸";display:inline-block;width:1em;color:var(--muted);transition:transform .15s}
+details.chap[open]>summary .t::before{transform:rotate(90deg)}
+details.chap>summary .s{display:flex;gap:16px;font-size:.88rem;flex-wrap:wrap;justify-content:flex-end}
+details.chap>summary .s span b{font-variant-numeric:tabular-nums}
+.items{border-top:1px solid var(--line)}
+.items table{min-width:1080px}
+.items td.desc{min-width:260px;max-width:420px;font-size:.88rem}
+.items td.desc .code{font-size:.72rem;color:var(--muted);letter-spacing:.03em}
+.items td.desc .txt{cursor:pointer}
+.items td.desc .txt.clamp{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.items input{width:96px;text-align:right;font-variant-numeric:tabular-nums}
+.items tr.sub td{background:var(--soft);font-family:var(--f-display);font-weight:600;font-size:1rem}
+.items tr.has td{background:color-mix(in srgb,var(--accent-soft) 45%,transparent)}
+.items tr.overrow td{background:var(--bad-soft)}
+.items input:not(:disabled){background:var(--accent-soft);border-color:var(--accent);font-weight:600}
+.pct{min-width:70px}
+@media (max-width:760px){
+  .items table{min-width:0}
+  .items thead{display:none}
+  .items tr[data-k]{display:grid;grid-template-columns:1fr 1fr;gap:4px 12px;padding:10px 12px;border-bottom:1px solid var(--line)}
+  .items tr[data-k] td{border:none;padding:0;display:flex;justify-content:space-between;gap:8px;align-items:center;text-align:right;min-width:0}
+  .items tr[data-k] td[data-l]::before{content:attr(data-l);color:var(--muted);font-size:.78rem;text-align:left}
+  .items tr[data-k] td:first-child{grid-column:1/-1;font-family:var(--f-display);font-weight:700;font-size:1rem;justify-content:flex-start}
+  .items tr[data-k] td.desc{grid-column:1/-1;max-width:none;min-width:0;display:block;text-align:left}
+  .items tr[data-k] td{order:3;font-size:.85rem}
+  .items tr[data-k] td:first-child{order:0}
+  .items tr[data-k] td.desc{order:1}
+  .items tr[data-k] td.in{order:2;grid-column:span 1;flex-direction:column;align-items:stretch;padding-block:4px}
+  .items tr[data-k] td.in::before{font-weight:600;color:var(--ink)}
+  .items tr[data-k] td.in input{width:100%;font-size:16px;padding:8px}
+  .items tr.sub td{display:block}
+}
+.pct .meter{margin-top:3px}
+.notice{font-size:.85rem;padding:8px 12px;border-radius:4px;background:var(--warn-soft);color:var(--warn)}
+.status{font-size:.82rem;color:var(--muted)}
+.foot{font-size:.82rem;color:var(--muted)}
+@media (max-width:560px){h1{font-size:1.6rem}.kpi .v{font-size:1.4rem}details.chap>summary{grid-template-columns:minmax(0,1fr)}details.chap>summary .s{justify-content:flex-start}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+
+<div class="wrap">
+  <header class="top">
+    <div>
+      <div class="eyebrow">Dirección de obra · Relación valorada</div>
+      <h1>Parque Zona Verde El Zumacal</h1>
+    </div>
+    <div class="meta">
+      <span><span class="muted">PEM proyecto</span><br><b id="h-pem"></b></span>
+      <span><span class="muted">PEC (con IGIC)</span><br><b id="h-pec"></b></span>
+      <span><span class="muted">Importe adjudicación</span><br><b id="h-adj"></b></span>
+    </div>
+  </header>
+
+  <section class="panel" style="display:flex;flex-direction:column;gap:14px">
+    <div class="toolbar">
+      <div class="left">
+        <span class="eyebrow">Certificaciones</span>
+        <div class="certs" id="certs"></div>
+        <button id="b-new" class="primary">+ Nueva certificación</button>
+      </div>
+      <div class="left">
+        <span id="save" class="status"></span>
+      </div>
+    </div>
+    <div id="storage-note" class="notice" hidden>Esta vista no tiene acceso al almacenamiento compartido. Los cambios se guardan solo en este navegador.</div>
+    <div class="fields">
+      <label class="f">Nº certificación<input id="f-num" type="text" disabled></label>
+      <label class="f">Periodo (mes)<input id="f-periodo" type="month"></label>
+      <label class="f">Fecha de emisión<input id="f-fecha" type="date"></label>
+      <label class="f">Baja de adjudicación (%)<input id="f-baja" type="text" inputmode="decimal" placeholder="0,00"></label>
+      <label class="f">Coef. de adjudicación<input id="f-coef" type="text" inputmode="decimal" placeholder="1,000000" title="Coeficiente = 1 − baja. Por ejemplo, una baja del 12,5 % es un coeficiente de 0,875"></label>
+      <label class="f">Contratista<input id="f-contr" type="text" placeholder="Empresa adjudicataria"></label>
+    </div>
+    <div class="bar">
+      <span id="estado" class="pill"></span>
+      <button id="b-close"></button>
+      <button id="b-del" class="danger">Eliminar esta certificación</button>
+      <button id="b-save" class="primary">Guardar</button>
+      <button id="b-pdf">Descargar PDF</button>
+      <button id="b-xls">Descargar Excel</button>
+    </div>
+  </section>
+
+  <section class="kpis" id="kpis"></section>
+
+  <section class="grid2">
+    <div class="panel">
+      <h2>Resumen económico</h2>
+      <p class="foot" style="margin:4px 0 10px">GG <span id="r-gg"></span>% y BI <span id="r-bi"></span>% sobre PEM, baja sobre PEM+GG+BI, IGIC <span id="r-ig"></span>%.</p>
+      <div class="scroll"><table class="econ" id="econ"></table></div>
+    </div>
+    <div class="panel">
+      <h2>Resumen por capítulos (PEM)</h2>
+      <div class="scroll" style="margin-top:10px"><table id="caps"></table></div>
+    </div>
+  </section>
+
+  <section style="display:flex;flex-direction:column;gap:10px">
+    <div class="toolbar">
+      <h2>Relación valorada por partidas</h2>
+      <div class="left">
+        <input id="q" type="search" placeholder="Buscar partida, código o texto" style="width:240px">
+        <label style="display:flex;gap:6px;align-items:center;font-size:.9rem"><input id="only" type="checkbox"> Solo con medición</label>
+        <button id="b-open">Desplegar todo</button>
+      </div>
+    </div>
+    <p class="foot" style="margin:0">Escribe la medición <b>del periodo</b> o la medición <b>a origen</b>: la otra se calcula sola. La medición anterior es la medición a origen de la certificación previa. Las filas en rojo superan la medición de proyecto.</p>
+    <div id="chapters"></div>
+  </section>
+
+  <p class="foot">Presupuesto extraído del Documento nº 3 del proyecto (Presupuesto y medición): 20 capítulos, 125 partidas, PEM 1.020.969,13 €. Revisa la baja y los porcentajes antes de emitir.</p>
+</div>
+
+<script>
+const DATA = {"chaps":{"1":"MOVIMIENTOS DE TIERRAS","2":"SANEAMIENTO","3":"CIMENTACIÓN","4":"ESTRUCTURAS","5":"ALBAÑILERIA","6":"REVESTIDOS Y APLACADOS","7":"SOLADOS Y ALICATADOS","8":"CUBIERTAS","9":"CARPINTERIA ALUMINIO","10":"CARPINTERIA MADERA","11":"FONTANERIA","12":"DESAGUES","13":"ELECTRICIDAD E ILUMINACION","14":"SANITARIOS","15":"INCENDIOS","16":"PINTURAS","17":"ENSAYOS","18":"EQUIPAMIENTO","19":"ANEXO: SEGURIDAD y SALUD","20":"ANEXO: GESTIÓN DE RESIDUOS"},"subs":{"18.1":"PADEL","18.2":"PARQUE INFANTIL NUEVO","18.3":"PARQUE INFANTIL DRAGO","18.4":"PARQUE DE CALISTENIA","18.6":"VARIOS","18.7":"APARATOS DEPORTIVOS","18.8":"PUMP TRACK","18.9":"CANCHA MULTIDEPORTE"},"items":[["1.1","D02A0010","m²","Desbroce y limpieza de terrenos con medios mecánicos, con carga sobre camión, sin transporte. La medición se hará sobre perfil.",1593.65,2.17],["1.2","D02B0040","m³","Desmonte en todo tipo de terreno, incluso desbroce, demoliciones no clasificadas, apilado de la tierra vegetal, refino de taludes, acabado de la explanación y transporte a vertedero o lugar de empleo.",968.47,3.58],["1.3","D07BB0030","m²","Mampostería careada a dos caras vistas de piedra basáltica en fábrica de espesor 30 cm, colocada con mortero 1:6, incluso rejuntado y limpieza de la misma.",84.84,135.08],["1.4","D02D0020","m³","Terraplén con medios mecánicos, compactado por capas de 30 cm, al 95% del Proctor modificado, con productos de préstamo, incluso riego.",239.05,20.66],["1.5","D02D0070","m³","Relleno de trasdós de muros de contención con material procedente de la excavación, compactado por capas de 30 cm, al proctor modificado del 95 %, incluso riego.",239.05,8.6],["1.6","D02D0100","m²","Compactado superficial de tierras con apisonadora mecánica manual para posterior ejecución de la solera.",1593.65,5.56],["1.7","D02E0020","m³","Carga mecánica y transporte de tierras a vertedero, con camión de 18 Tn, con un recorrido máximo de 10 Km.",767.05,2.11],["2.1","E03M010","ud","Acometida domiciliaria de saneamiento a la red general municipal, hasta una distancia máxima de 12 m., formada por: rotura del pavimento con compresor, excavación manual de zanjas de saneamiento en terrenos de consistencia dura, colocación de tubería, con junta de goma de 30 cm. de diámetro interior, tapado posterior de la acometida y reposición del pavimento con hormigón en masa HM-20/P/40/I, sin incluir formación del pozo en el punto de acometida y con p.p. de medios auxiliares.",1.0,614.34],["2.2","E03M010P","ud","Acometidas a la red existente de evacuación pluviales de cuenca, por obras de modificación de trazado o rasantes, formada por: rotura de canalización con compresor, excavación manual de zanjas de saneamiento en terrenos de consistencia dura, conexión de tuberias SN-4, de PVC-U, UNE-EN 1401-1, T.P.P, tapado posterior de la acometida y reposición de rellanos y protección, sin incluir formación de los pozos en los puntos de acometida y con p.p. de medios auxiliares.",1.0,657.27],["2.3","D04AB0270","m","Tubería de saneamiento SN-4, de PVC-U, UNE-EN 1401-1, Terrain o equivalente, de D 160 mm y 4,0 mm de espesor, con junta elástica, enterrada en zanja, con p.p. de piezas especiales, incluso excavación con extracción de tierras al borde, solera de arena de 10 cm de espesor, colocación de la tubería, relleno y compactación de la zanja con arena volcánica, carga y transporte de tierras a vertedero.",50.0,43.46],["2.4","D04AB0340","m","Tubería de saneamiento SN-4, de PVC-U, UNE-EN 1401-1, Terrain o equivalente, de D 200 mm y 4,9 mm de espesor, con junta elástica, enterrada en zanja, con p.p. de piezas especiales, incluso excavación con extracción de tierras al borde, solera de arena de 10 cm de espesor, colocación de la tubería, relleno y compactación de la zanja con arena volcánica, carga y transporte de tierras a vertedero.",11.68,58.69],["2.5","D04BA0060","ud","Arqueta prefabricada de registro para saneamiento de 55x55x55 cm, de polipropileno reforzado, Fulma o equivalente, con registro peatonal B-125 s/UNE EN 124, de fundición dúctil, i/excavación, solera de hormigón de fck=10 N/mm² de 10 cm de espesor, relleno de trasdós con hormigón de fck=17,5 N/mm², carga y transporte de tierras a vertedero, acometida y remate de tubos, según C.T.E. DB HS-5.",2.0,194.85],["3.1","D03A0020","m³","Hormigón en masa de limpieza y nivelación, con hormigón de fck=15 N/mm², de 10 cm de espesor medio, en base de cimentaciones, incluso elaboración, puesta en obra, curado y nivelación de la superficie. Según C.T.E. DB SE y DB SE-C.",12.82,166.77],["3.2","D03F0040","m³","Hormigón armado en losas de cimentación, HA-30/B/20/IIIa, armado 50 kg/m³ de acero B 500 S, incluso elaboración, colocación de las armaduras, separadores, puesta en obra, vibrado y curado, s/EHE-08 y C.T.E. DB SE y DB SE-C.",34.49,271.98],["3.3","D03D0010","m³","Hormigón armado en vigas riostras de cimentación, HA-25/B/20/I, armado con 150 kg/m³ acero B 500 S, incluso elaboración, encofrado con una cuantía de 6 m²/m³, desencofrado, colocación de las armaduras, separadores, puesta en obra, vibrado y curado, s/EHE-08 y C.T.E. DB SE y DB SE-C.",14.7,556.76],["3.4","D09E0010","m²","Impermeabilización de cimentaciones o trasdós de muros con pintura asfáltica tipo Emufal negro o equivalente, con un rendimiento de 1 kg/m²",19.25,12.2],["3.5","D09F0010","m²","Protección de impermeabilización de trasdós de muros de contención con lámina de polietileno de alta densidad, en forma de nódulos, tipo Drentex protec 80, de Texsa o equivalente, anclado mecánicamente y solapado a modo de botones. Colocada.",19.25,17.64],["3.6","D18L0010","m","Conducción de puesta a tierra enterrada a una profundidad no menor de 0,5 m, instalada con conductor de cobre desnudo de 35 mm² de sección nominal, electrodos, incluso excavación, relleno y p.p. de soldadura aluminotérmica. Instalada s/RBT-02.",66.0,24.54],["4.1","D05AB0030","m³","Hormigón armado para dejar visto en pilares rectangulares,con motivo decorativo , HA-30/B/20/IIIa, armado con 170 kg/m³ de acero B 500 S, incluso elaboración, colocación de las armaduras, separadores, encofrado termoformado RELTEC CR-02 Ref 5A2400 y desencofrado, vertido, vibrado y curado, s/RD470/2021 y C.T.E. DB SE.",3.96,989.84],["4.2","D05BB0040","m³","Hormigón armado en vigas colgadas, HA-30/B/20/IIIa, armado con 100 kg/m³ acero B 500 S, incluso elaboración, colocación de las armaduras, separadores, encofrado y desencofrado, vertido, vibrado y curado, s/RD470/2021 y C.T.E. DB SE.",6.38,550.63],["4.3","D05CA0040","m³","Hormigón armado en losas, HA-30/B/20/IIIa, armado con 100 kg/m³ de acero B 500 S, incluso elaboración, colocación de las armaduras, separadores, encofrado, vertido, desencofrado, vibrado y curado, s/RD470/2021 y C.T.E. DB SE.",58.58,500.71],["4.4","0201","m²","Forjado metálico de vigueta metálica RHS 60x30x4 de acero S275JR; a 1,00 m de separación. Instalado.",85.85,45.13],["4.5","D06.0030","kg.","Acero A42b elaborado y colocado en vigas, pilares y zunchos, con perfiles huecos (rectangulares: RHS o circulares: CHS) laminados en caliente, incluso corte, soldadura, montaje, p.p. de piezas especiales y dos manos de imprimación antioxidante, según NBE EA-95, NTE-EAS y NTE-EAV.",316.0,2.95],["5.1","D07DDAA0030P2","m²","Cerramiento de fachada de dos hojas, constituida por: fábrica exterior de 12 cm de espesor y fábrica interior de 9 cm de espesor, ambas de bloques de hormigón de árido de picón, con marcado CE, categoría I, s/UNE-EN 771-3, recibidos con mortero industrial M-2,5 con marcado CE, s/UNE-EN 998-2; rigidizado mediante armadura triangulada de acero AHT 500 con recubrimiento de epoxi tipo murfor o similar dispuesta cada dos hiladas, incluso p.p. de pilaretes y correa de atado;aislante no hidrófilo intermedio de lana mineral e=40 mm, con marcado CE. Terminado, según C.T.E.",57.86,69.16],["5.2","D07I0010","m","Dintel de hormigón armado de 20x25 cm, con hormigón HA-25/P/16/I, armado con 4 D 12, estribos D 6 c/ 20 cm, incluso separadores, encofrado y desencofrado, vertido, vibrado y curado.",23.55,60.41],["5.3","D07JA0050","ud","Recibido de contracercos interiores menores de 2 m² de carpintería de madera o metálica, con mortero de cemento 1:5, incluso anclajes, cajeado de la fábrica y aplomado.",4.0,34.95],["5.4","D07JA0060","ud","Recibido de contracercos interiores, mayores de 2 m² de carpintería de madera o metálica, con mortero de cemento 1:5, en exteriores o interiores, incluso cajeado y aplomado.",2.0,51.6],["5.5","D07JA0070","ud","Recibido de contracercos exteriores menores de 2 m² de carpintería de madera o metálica, con mortero de cemento 1:5, incluso anclajes, sellado de junta entre fábrica y carpintería, cajeado de la fábrica y aplomado.",8.0,46.91],["5.6","D07JA0080","ud","Recibido de contracercos exteriores mayores de 2 m² de carpintería de madera o metálica, con mortero de cemento 1:5, incluso anclajes, sellado de junta entre fábrica y carpintería, cajeado de la fábrica y aplomado.",5.0,66.64],["6.1","D07K0110","m²","Guarnecido y enlucido con mortero de yeso proyectado tipo Cayezol o equivalente, a buena vista, aplicado en paramentos verticales/horizontal, de 15 mm de espesor, incluso p.p. de malla en unión de fábrica y estructura, limpieza y humedecido del soporte.",101.05,18.04],["6.2","D07L0110","m²","Enfoscado de preparación de soportes, para recibir alicatados o gresite, en paramentos verticales, con mortero 1:5 de cemento y arena.",62.98,15.5],["6.3","D07L0150","m²","Enfoscado maestreado fratasado en paramentos verticales exteriores, con mortero industrial de uso corriente, con marcado CE, tipo GP CS IV W1, en capa gruesa de 1,5 cm de espesor, acabado con mortero tipo GP CS III W1, en capa fina de 0,5 cm de espesor, s/UNE-EN 998-1, armado con malla de fibra de vidrio, incluso remate de huecos y aristas, limpieza y humedecido del soporte. Se deducirán huecos mayores de 3,00 m²",106.35,36.65],["6.4","D12P5020","ml.","Vierteaguas de planta curva en hormigón polimero con bocel de 40 mm, tacón trasero para encastre de la carpinteria y goterón inferior tipo Ulma T-22, con piezas de 1,50 metros, , en color blanco superficie pulida, colocados con juntas de 5 mm, selladas con masilla a base de poliuretano tipo Sikaflex-11 FC o similar., recibido con mortero 1:5 de cemento, incluso p.p. de cortes. y limpieza.",16.35,26.35],["6.5","D10B0010","m²","Falso techo contínuo Knauf tipo D 113, formado por una estructura metálica de acero galvanizado de maestras primarias de 60x27x0,6 mm, moduladas a 1200 mm de eje a eje, y suspendidas del forjado o elemento soporte mediante cuelgues combinados cada 1000 m y maestras secundarias fijadas perpendicularmente a las primarias y a un mismo nivel mediantes empalmes en cruz y modulados a 500 mm de eje a eje, y una placa de yeso Knauf stándard de 12,5 mm de espesor atornillada a la estructura, terminado y listo para imprimar y decorar.",86.43,44.52],["6.6","D13.3700","m2.","Revestimiento de paramentos verticales u horizontales (paredes, solados, falsos techos...), para interiores, Parklex 500 o similar, realizado con tablero estratificado de madera de 1220x2440x8 mm, acabado liso, en Eyong natural, Eyong Brown, Boak natural o Boak Brown, con coeficiente de reacción al fuego M1 y coeficiente de toxicidad del humo F1, fijado a paramento con rastreles de madera de pino tratada en autoclave de 50x20 mm anclados a soporte mediante tornillos y pegado del tablero con adhesivo SikaTack Panel, colocado.",14.08,138.72],["7.1","D03A0071","m²","Solera ligera, para sobrecarga estática no mayor de 10 kN/m², formada por capa de piedra en rama de 30 cm de espesor sobre terreno previamente compactado, terminado con solera de hormigón en masa HM-20/B/20/I, de 10 cm de espesor, armada con malla electrosoldada # 15x30 cm D 5mm, incluso vertido, extendido, colocación de la piedra, curado y formación de juntas de dilatación. S/NTE-RSS.",1576.55,27.15],["7.2","D09.7110","m2.","Barrera antihumedad en losa de cimentación con lámina de polietileno de alta densidad (HDPE) Platon Capa de Limpieza o similar, con secciones troncocónicas y banda libre para sellado hermético, colocada directamente sobre hormigón de limpieza o sobre terreno natural compactado.",65.03,15.18],["7.3","D09IA0080","m²","Aislamiento térmico de suelos realizado a base de planchas de espuma rígida de poliestireno extruído Floormate -200 de Texsa o equivalente, de 3 cm de espesor. Colocado.",65.03,7.99],["7.4","D11.9510","m2","pavimento continuo monolítico de hormigón coloreado por tratamiento en seco a base a cargas silicias incorporando 3,5 kg de arena de silice/cuarzo y 2 kg de cemento con pigmento de color verde (óxido de plomo) en una proporción del 10% del peso en cemento, de 15 cm de espesor con hormigón fck 25 kN/cm², incluso fratasado con llana mecánica, colocación de maestra, malla electrosoldada de 20x20 cm con alambre de 6 mm o fibras de polipropileno monofilamentosas de 12 a 16 mm, con una dosificación de 800 gr/m3 tipo Fibrecrete ó similar, y corte mecánico de juntas de retracción de profundidad 5 cm con modulación no superior a 3,5 metros, incluso p.p. de junta de dilatación perimetral y de separación entorno a los soportes mediante banda de material compresible tipo poliestireno de 2,5 de espesor y 20 kg/m3 de densidad con sellado superiorcon masilla autonivelante de dos componentes a base de alquitran y poliuretano resistente a aceites y carburantes tipo sikaflex T68W . incluso curado y limpieza del soporte para recibir pintura de señalización.",481.44,36.12],["7.5","D11ICAC0100P","m²","Pavimento rustico metal 45x45, (absorción de agua E <=0,5%), según UNE-EN-14411, clase 2, según UNE-ENV 12633 y C.T.E. DB SU-1, de la casa COLRCERK recibido con adhesivo cementoso C 1TE, con marcado CE, según UNE-EN 12004, incluso atezado de hormigón aligerado de 13 cm de espesor medio, p.p. de rodapié del mismo material, rejuntado con mortero preparado flexible y limpieza.",65.03,124.35],["7.6","D29GA0030","m²","Pavimento continuo de hormigón estampado Tennisquick, realizado a base de resinas silíceas, aplicadas sobre solera de hormigón fresco HM-25/B/20/I, de 12 cm de espesor armado con malla electrosoldada de 150x150x4 mm, impreso con moldes con forma a elegir, capa de rodadura silícea aglomerada con producto especial Tennisquick en color, 4 kg/m², de e=4 mm, acabado con resinas de poliuretano incoloro Decur, incluso p.p. de hormigón vertido, extendido, formación de maestras y juntas de",115.11,38.95],["7.7","D11.8641","ml.","Quicialera de granito natural nacional Rosa Purriño, de 25 cm de ancho y 2 cm de espesor, cogida con mortero 1:6 de cemento y arena, incluso atezado de hormigón aligerado, rejuntado, pulido, abrillantado y limpieza.",3.0,29.06],["7.8","D12A0190P","m²","Revestimiento con plaquetas de azulejo vítreo de 21x21 cm, blanco niebla y azul de la casa ALTOGLASS, recibidas con adhesivo cementoso C 1T, con marcado CE, según UNE-EN 12004, incluso retirada del papel, rejuntado con mortero preparado flexible y limpieza, s/NTE RPA-4.",62.98,45.04],["8.1","D09D0480Mb","m²","Impermeabilización con membrana líquida impermeabilizante a base de poliuretano, sistema Mariseal 250 Aqua W2 o equivalente, para cubierta no transitable, aplicado sobre superficie consolidada, limpia y seca, previamente preparada, consistente en: capa de imprimación epoxy Mariseal Aqua-Coat o equivalente, con un rendimiento de 200 gr/m² aplicada con rodillo en toda la superficie; aplicación de la membrana de poliuretano monocomponente de aplicación líquida Mariseal 250 Aqua o equivalente, con un consumo de 1 Kg./m², aplicada con rodillo; colocación de armadura con geotextil de poliester no tejido Mariseal Fabric H20 o equivalente de 60 gramos en toda la superficie (100 gramos en los puntos singulares), con un encabalgamiento de 5 a 10 cm entre las tiras de tejido; aplicación de dos capas mas de Mariseal 250 o equivalente con un consumo de 0,5 Kg/m² cada capa; terminación del sistema con la membrana alifática de poliuretano monocomponente Mariseal 400 Aqua o equivalente, con un consumo de 200 gr./m² aplicada en toda la superficie. Terminado y rematado. Color a elegir por la D.F.",234.33,39.24],["8.2","PAZDOD01","ud","Partida alzada a justificar",1.0,3671.82],["9.1","D23ECAE0040","ud","Puerta balconera de cuatro hojas correderas, aluminio con rotura de puente térmico, anodizado plata acabado grata, hasta 4,40x2,40 m, SISTEMA 4200 CORTIZO o equivalente, con marcado CE s/UNE-EN 14351-1, compuesta por perfiles TSAC de aleación de aluminio 6063 y tratamiento térmico T-5 de canal europeo, marco de 60/65/77 mm y hoja de 37 mm (recta) ó 33 mm (curva), formado por perfiles de 1,5 mm de espesor, anodizado mediante ciclo de desengrase, lavado, oxidación anódica, coloreado y sellado, de 15 micras de espesor según sello EWAA-EURAS, con clasificaciones: clase 3, según ensayo de permeabilidad al aire (UNE-EN 12207); clase 7A, según ensayo de estanqueidad al agua (UNE-EN 12208) y clase C5, según ensayo de resistencia al viento (UNE-EN 12211), con doble acristalamiento formado por dos vidrios monolíticos incoloros con cámara de aire, de espesor total 6+8+6 mm (cristal+cámara+cristal), incluso precerco de aluminio sistema CORTIZO, tapajuntas, herrajes del propio sistema, escuadras, juntas de EPDM, imprimación con liquido sellador en cortes y taladros, tornillos en acero inoxidable, sellado perimetral con masilla de poliuretano. Accesorios, herrajes de colgar y apertura homologados con las serie suministrada por STAC accesorios CORTIZO, recibido del precerco, montaje, ajuste, aplomado, nivelado, colocación y ayudas de albañilería, según C.T.E.",1.0,825.66],["9.2","D23ADAE0040","ud","Ventana de dos hojas corredera de aluminio, anodizado plata acabado grata, hata 1,50x1,20 m, SISTEMA 5000 Perimetral CORTIZO o equivalente, con marcado CE s/UNE-EN 14351-1, compuesta por perfiles TSAC de aleación de aluminio 6063 y tratamiento térmico T-5 de canal europeo, marco de 70 mm y hoja de 28 mm, formado por perfiles de 1,5 mm de espesor, anodizado mediante ciclo de desengrase, lavado, oxidación anódica, coloreado y sellado, de 15 micras de espesor según sello EWAA-EURAS, con clasificaciones: clase 3, según ensayo de permeabilidad al aire (UNE-EN 12207); clase 8A, según ensayo de estanqueidad al agua (UNE-EN 12208) y clase C5, según ensayo de resistencia al viento (UNE-EN 12211), con doble acristalamiento formado por dos vidrios monolíticos incoloros con cámara de aire, de espesor total 4+8+4 mm (cristal+cámara+cristal), incluso precerco de aluminio sistema CORTIZO, tapajuntas, herrajes del propio sistema, escuadras, juntas de EPDM, imprimación con liquido sellador en cortes y taladros, tornillos en acero inoxidable, sellado perimetral con masilla de poliuretano. Accesorios, herrajes de colgar y apertura homologados con las serie suministrada por STAC accesorios CORTIZO, recibido del precerco, montaje, ajuste, aplomado, nivelado, colocación y ayudas de albañilería, según C.T.E.",3.0,562.56],["9.3","D23ADAE0030","ud","Ventana de dos hojas corredera de aluminio, anodizado plata acabado grata, hasta 1,20x1,20 m, SISTEMA 5000 Perimetral CORTIZO o equivalente, con marcado CE s/UNE-EN 14351-1, compuesta por perfiles TSAC de aleación de aluminio 6063 y tratamiento térmico T-5 de canal europeo, marco de 70 mm y hoja de 28 mm, formado por perfiles de 1,5 mm de espesor, anodizado mediante ciclo de desengrase, lavado, oxidación anódica, coloreado y sellado, de 15 micras de espesor según sello EWAA-EURAS, con clasificaciones: clase 3, según ensayo de permeabilidad al aire (UNE-EN 12207); clase 8A, según ensayo de estanqueidad al agua (UNE-EN 12208) y clase C5, según ensayo de resistencia al viento (UNE-EN 12211), con doble acristalamiento formado por dos vidrios monolíticos incoloros con cámara de aire, de espesor total 4+8+4 mm (cristal+cámara+cristal), incluso precerco de aluminio sistema CORTIZO, tapajuntas, herrajes del propio sistema, escuadras, juntas de EPDM, imprimación con liquido sellador en cortes y taladros, tornillos en acero inoxidable, sellado perimetral con masilla de poliuretano. Accesorios, herrajes de colgar y apertura homologados con las serie suministrada por STAC accesorios CORTIZO, recibido del precerco, montaje, ajuste, aplomado, nivelado, colocación y ayudas de albañilería, según C.T.E.",1.0,451.13],["9.4","D23ADAE0020","ud","Ventana de dos hojas corredera de aluminio, anodizado plata acabado grata, hata 1,00x1,00 m, SISTEMA 5000 Perimetral CORTIZO o equivalente, con marcado CE s/UNE-EN 14351-1, compuesta por perfiles TSAC de aleación de aluminio 6063 y tratamiento térmico T-5 de canal europeo, marco de 70 mm y hoja de 28 mm, formado por perfiles de 1,5 mm de espesor, anodizado mediante ciclo de desengrase, lavado, oxidación anódica, coloreado y sellado, de 15 micras de espesor según sello EWAA-EURAS, con clasificaciones: clase 3, según ensayo de permeabilidad al aire (UNE-EN 12207); clase 8A, según ensayo de estanqueidad al agua (UNE-EN 12208) y clase C5, según ensayo de resistencia al viento (UNE-EN 12211), con doble acristalamiento formado por dos vidrios monolíticos incoloros con cámara de aire, de espesor total 4+8+4 mm (cristal+cámara+cristal), incluso precerco de aluminio sistema CORTIZO, tapajuntas, herrajes del propio sistema, escuadras, juntas de EPDM, imprimación con liquido sellador en cortes y taladros, tornillos en acero inoxidable, sellado perimetral con masilla de poliuretano. Accesorios, herrajes de colgar y apertura homologados con las serie suministrada por STAC accesorios CORTIZO, recibido del precerco, montaje, ajuste, aplomado, nivelado, colocación y ayudas de albañilería, según C.T.E.",8.0,306.89],["9.5","D23ADAE0050","ud","Ventana de dos hojas corredera de aluminio, anodizado plata acabado grata, hasta 2,00x1,20 m, SISTEMA 5000 Perimetral CORTIZO o equivalente, con marcado CE s/UNE-EN 14351-1, compuesta por perfiles TSAC de aleación de aluminio 6063 y tratamiento térmico T-5 de canal europeo, marco de 70 mm y hoja de 28 mm, formado por perfiles de 1,5 mm de espesor, anodizado mediante ciclo de desengrase, lavado, oxidación anódica, coloreado y sellado, de 15 micras de espesor según sello EWAA-EURAS, con clasificaciones: clase 3, según ensayo de permeabilidad al aire (UNE-EN 12207); clase 8A, según ensayo de estanqueidad al agua (UNE-EN 12208) y clase C5, según ensayo de resistencia al viento (UNE-EN 12211), con doble acristalamiento formado por dos vidrios monolíticos incoloros con cámara de aire, de espesor total 4+8+4 mm (cristal+cámara+cristal), incluso precerco de aluminio sistema CORTIZO, tapajuntas, herrajes del propio sistema, escuadras, juntas de EPDM, imprimación con liquido sellador en cortes y taladros, tornillos en acero inoxidable, sellado perimetral con masilla de poliuretano. Accesorios, herrajes de colgar y apertura homologados con las serie suministrada por STAC accesorios CORTIZO, recibido del precerco, montaje, ajuste, aplomado, nivelado, colocación y ayudas de albañilería, según C.T.E.",1.0,708.65],["10.1","D22A0020","m²","Carpintería en puerta de acceso a vivienda de madera de morera, con hoja maciza de cojinetes o cuarterones moldurados a ambas caras, incluso cerco del ancho de la fábrica + revestimiento, tapajuntas de riga de 7x1,5 cm, ambos de morera, precerco de pino insigne, mirilla óptica, tope de goma, herrajes de colgar y de seguridad, ajuste y colocación.",7.5,455.44],["10.2","D22A0080P","m²","Puerta cristalera de 2 hojas, para hueco menor o igual de 1.50x2.20 mt. con contracerco de pino de 25x2 cms. y cerco en madera riga de 25x4.5 cms. formada por dos hojas prefabricadas de dimensiones máximas de 0.725 x 2.15 x 4.5 m, con parte superior acristalada con vidrio mate mediante baño al ácido de 6 mm, parte inferior y bastidores forrada a dos caras con tablero de alta densidad, de 6 mm, Prodema Mad o equivalente, color a elegir, con bastidor interior perimetral de madera de morera y relleno con placa rígida de espuma de poliestireno extrusionado Wallmate o equivalente, tapajuntas de morera de 11x2 cms y herrajes de colgar y seguridad con sistema de vaivén, en acero inoxidable de la casa Hoppe, incluso manillon semicircular de diametro 300, ajuste y colocación.",6.6,467.47],["10.3","D22A0080P1","m²","Puerta de 1 hojas,de 0.8x2.20 mt. con contracerco de pino de 25x2 cms. y cerco en madera riga de 25x4.5 cms. formada por una hojas prefabricadas de dimensiones máximas de 0.725 x 2.15 x 4.5 m, y bastidores forrada a dos caras con tablero de alta densidad, de 6 mm, Prodema Mad o equivalente, color a elegir, con bastidor interior perimetral de madera de morera y relleno con placa rígida de espuma de poliestireno extrusionado Wallmate o equivalente, tapajuntas de morera de 11x2 cms y herrajes de colgar y seguridad de acero inoxidable, ajuste y colocación.",7.04,417.38],["11.1","PAZDOD02","ud","Acometida de agua potable a la red municipal, comprendiendo apertura de zanja con medios mecánicos o manuales, compactación de fondos de la misma, p.p. de demolición de pavimento de aceras y bordillos, demolición de pavimento asfáltico de calzadas, elaboración vertido y nivelación de solera de hormigón en masa H-150, tubería diámetro 1 1/4\" (32mm) del tipo que exija la compañía suministradora, incluso colocación y p.p. de de piezas especiales, protección de la tubería con hormigón H-150, relleno compactado de zanjas con material seleccionado, reposición de pavimentos asfálticos, bordillos y pavimentos de aceras, limpieza y retirada de productos sobrantes a vertedero autorizado, incluso tramitación de documentación, permisos municipales, derechos de acople y contratación con la empresa concesionaria. Arqueta de hormigón en masa, tapa y cerco de fundición de 30 x 30 cm., incluso llave de terminada y funcionando.",2.0,309.44],["11.2","D14CA0030","ud","Contador de agua fría 1 1/2\", Sensus C 405S) homologado, instalado en fachada, en armario o nicho de dimensiones aproximadas 500x800x300 mm (LxAxP), con puerta de registro, incluso válvulas de corte de esfera antes y después del contador, válvula de retención y te de aforo de 1\", filtro y reductora de presión, p.p. de pequeño material, conexiones y ayudas de albañilería. Instalado y probado s/normas de la empresa municipal de aguas y C.T.E. DB HS-4.",1.0,474.62],["11.3","D14ACA0090","m","Canalización con tubería de polipropileno (PP), UNE-EN ISO 15874, GF o similar, de DN 32 mm, para agua fria, incluso p.p. de piezas especiales y pequeño material. Instalada y probada. Según C.T.E. DB HS-4 y Orden 25/05/2007 Consejería de Industria.",30.0,16.2],["11.4","D14ACA0060","m","Canalización con tubería de polipropileno (PP), UNE-EN ISO 15874, GF o equivalente de DN 25 mm, para agua fria, incluso p.p. de piezas especiales y pequeño material. Instalada y probada. Según C.T.E. DB HS-4 y Orden 25/05/2007 Consejería de Industria.",15.0,9.04],["11.5","D14ACA0030","m","Canalización con tubería de polipropileno (PP), UNE-EN ISO 15874, GF o equivalente de DN 20 mm, para agua fria, incluso p.p. de piezas especiales y pequeño material. Instalada y probada. Según C.T.E. DB HS-4 y Orden 25/05/2007 Consejería de Industria.",10.0,8.29],["11.6","D14ACA0010","m","Canalización con tubería de polipropileno (PP), UNE-EN ISO 15874, Fusiotherm o equivalente de DN 16 mm, para agua fria, instalación no empotrada, sujeta mediante abrazaderas, incluso p.p. de piezas especiales y pequeño material. Instalada y probada. Según C.T.E. DB HS-4 y Orden 25/05/2007 Consejería de Industria.",15.0,8.13],["11.7","PAZDOD03","Ud.","Punto de agua fria de ø ½\", en interior de vivienda, con tubería de polipropileno Georg Fischer, de ø ½\" (20 mm), incluso p.p. de piezas especiales y pequeño material, apertura de rozas. Instalada y probada. Según C.T.E. DB HS-4 y Orden 25/05/2007 Consejería de Industria",8.0,15.73],["11.8","PAZDOD04","Ud.","Punto de agua fria de ø 3/4\", en interior de vivienda, con tubería de polipropileno Georg Fischer, de ø 3/4\" (25 mm), incluso p.p. de piezas especiales y pequeño material, apertura de rozas. Instalada y probada. Según C.T.E. DB HS-4 y Orden 25/05/2007 Consejería de Industria",6.0,19.92],["11.9","PAZDOD05","Ud.","Lave de regulación oculta de 25 mm., de Georg Fischer, instalada en entrada a cuartos húmedos, empotrada, incluso embellecedor. Instalada. Según C.T.E. DB HS-4 y Orden 25/05/2007 Consejería de Industria",6.0,16.76],["11.10","D14BB0070","ud","Llave de regulación oculta de 32 mm, de polibutileno PB Terrain, instalada en entrada a cuartos húmedos o vivienda, incluso embellecedor. Instalada. Según C.T.E. DB HS-4.",4.0,52.51],["12.1","D14FAB0070","m","Desagüe de aparato sanitario realizado con tubería de PVC-U, clase B, UNE-EN 1329-1, Terrain o equivalente, de D 40 mm, empotrada o vista, incluso p.p. de piezas especiales, recibida con mortero de cemento y arena. Instalado hasta bote sifónico, según C.T.E. DB HS-5 y UNE-ENV 13801.",2.6,30.02],["12.2","D14FAB0100","m","Desagüe de aparato sanitario realizado con tubería de PVC-U, clase B, UNE-EN 1329-1, Terrain o equivalente, de D 50 mm, empotrada o vista, incluso p.p. de sifón individual y piezas especiales, recibida con mortero de cemento y arena. Instalado hasta bajante o colector, según C.T.E. DB HS-5.",17.0,36.58],["12.3","D14FG0020","ud","Manguetón PVC Terrain D 110 acoplado a bajantes, con p.p. de piezas especiales y pequeño material, recibido con mortero de cemento. Instalado, incluso ayudas de albañilería, según C.T.E. DB HS-5.",6.0,58.49],["12.4","D14FB0020","ud","Bote sifónico registrable de PVC Terrain, con tapa de acero inoxidable, enterrado en piso, incluso acoples a tuberías de desagües y tubería de desembarque de 50 mm Instalado, incluso ayudas de albañilería, según C.T.E. DB HS-5.",4.0,61.11],["12.5","D14FD0030","ud","Sumidero sifónico de PVC Terrain de D 50 mm de salida, en locales húmedos, con tapa y rejilla, recibido con mortero de cemento y arena. Instalado, incluso ayudas de albañilería, según C.T.E. DB HS-5.",4.0,62.28],["12.6","D04AB0090","m","Tubería de saneamiento interior de PVC-U, clase B, UNE-EN 1329-1, T.P.P. (Tuberías y perfiles plásticos) o equivalente, de D 110 mm y e=3,2 mm de espesor, enterrada en zanja, con p.p. de piezas especiales, incluso excavación con extracción de tierras al borde, solera de arena de 10 cm de espesor, colocación de la tubería, relleno y compactación de la zanja con arena volcánica, carga y transporte de tierras a",18.0,65.32],["13.1","D29JAB0030","m","Canalización eléctrica formada por 1 tubo de polietileno (rojo), de doble pared, D 110 mm, T.P.P. (Tuberías y perfiles plásticos) o equivalente, s/UNE-EN 50086, incluso alambre guía galvanizado, cinta de señalización, excavación en zanja, protección con hormigón, relleno y compactación del resto de la zanja con tierras saneadas. Instalada.",632.0,22.44],["13.2","D29JBA0020","ud","Base para cimentación de báculo o columna de 4 a 6 m de altura, realizada con hormigón en masa de fck=17,5 N/mm², incluso encofrado, excavación precisa, recibido de pernos de anclaje y codo PVC D 110 colocado.",21.0,174.18],["13.3","D29JBA0040","ud","Base para cimentación de báculo o columna de 8 a 10 m de altura, realizada con hormigón en masa de fck=17,5 N/mm², incluso encofrado, excavación precisa, recibido de pernos de anclaje y codo PVC D 110 colocado.",25.0,402.63],["13.4","D29JCA0030","ud","Arqueta prefabricada de registro de instalaciones eléctricas de 40x40 y 40 cm de profundidad, Gewiss o equivalente, de polipropileno de una sola pieza, con marco en la parte superior y tapa de polipropileno reforzado de 40x40 cm, i/p.p. de material auxiliar, excavación, relleno y compactado de tierra, transporte del sobrante y acometida y remate de tubos.",60.0,85.76],["13.5","D29JCB0010","ud","Arqueta para conexionado de electricidad en exteriores, tipo A-1, (sólo para reposición) realizada con bloque hueco de hormigón vibrado de 9x25x50 cm, enfoscada y bruñida interiormente, con tapa y marco de acabada.",2.0,206.55],["14.1","D15DA0040","ud","Lavabo con pedestal de porcelana vitrificada Roca Meridian o similar, color blanco de 65 cm incluso elementos de fijación, válvula de desagüe con tapón y cadenilla, flexibles con llaves de escuadra, sin sifón. Instalado, con grifería monomando de lavabo, M2 Roca o similar.",4.0,506.46],["14.2","D15DI0020","ud","Lavabo mural de porcelana vitrificada, para discapacitados, Valadares o equivalente, color blanco, de 67x58 cm, incluso i/sop basculante, sifón flexible, válvula de desagüe con tapón y cadenilla y flexibles con llaves de escuadra. Instalado, con grifería monomando de lavabo, cromada, con palanca clínica para discapacitados, Valadares o equivalente.",2.0,715.57],["14.3","D15FB0020","ud","Inodoro de porcelana vitrificada para fluxor, Roca Meridian o equivalente, color blanco, incluso asiento con tapa, juego de fijación y codo de evacuación, con fluxor temporizado de 3/4\" para inodoro, con tubo de enlace curvo, exterior, Presto 1000 M o equivalente, colocado mediante tacos y tornillos al solado, incluso sellado con silicona, instalado y funcionando.",2.0,722.6],["14.4","D15FE0020","ud","Inodoro de porcelana vitrificada p/discapacitados, de 52x38x48 cm, Valadares o equivalente, color blanco, incluso elementos de fijación y codo de evacuación, asiento con tapa Valadares y fluxor infrarrojo electrónico para WC, empotrado, completo, Schell o equivalente, instalado y funcionando.",2.0,1145.33],["14.5","D15I0010","ud","Urinario mural de porcelana vitrificada, blanco, Roca modelo Mural o equivalente, de 72x46 cm, con rociador integral, cobertores laterales y sifón incorporado, dotado de manguito de alimentación, tapón de limpieza, juego de fijación y codos de enlace y de desagüe, instalado con grifo temporizado de 1/2\", para urinario, Presto 12 A o equivalente, incluso tubo de enlace y llave de escuadra, funcionando.",2.0,493.08],["14.6","E21MI260","ud","Barra de apoyo doble BOBRICK ref B-4998, abatible giro vertical, con muelle de seguridad, de acero inoxidable 18/10 (AISI-304) de 1,5 mm. de espesor acabado satiado de D=32 mm. y longitud max 80 cm., co pletina para fijación de 220x155x5mm, i/ cubretornillos de fijación. Instalado con tacos de plástico y tornillos a la pared.",2.0,391.45],["14.7","D15.9830","ud","Asidero para ducha BOBRICK ref, para discapacitados, en \"L\", de acero inoxidable AISI304 acabado mate electropulido, D 30x1,5 mm, 70x120 mm, o similar, colocado, incluso elementos de fijación.",2.0,420.93],["14.8","E21MI260P","ud","Barra de apoyo recto, BOBRICK ref B-5806 X 24, O SIMILAR, de acero inoxidable 18/10 (AISI-304) de 1,5 mm. de espesor acabado satiado de D=32 mm. y longitud max 80 cm.co embellecedor, i/ cubretornillos de fijación. Instalado con tacos de plástico y tornillos a la pared.",2.0,249.55],["14.9","D15PAB0170","ud","Secadora de manos por aire caliente, con carcasa de aluminio acabado en blanco, y sensor electrónico, tipo Mediclinics, colocada incluso elementos de fijación.",4.0,217.31],["14.10","D15PAB0190","ud","Dispensador de papel higiénico con contenedor de rollos de 250/300 m, metálico acabado en epoxi blanco, tipo Mediclinics, incluso mecanismo de cierre y elementos de fijación. Colocado.",4.0,67.06],["14.11","D15PAB0210","ud","Dispensador de papel toalla metálico acabado en epoxi blanco, para 400/600 servicios, tipo Mediclinics, incluso elementos de fijación. Colocado.",4.0,76.25],["14.12","D15PAB0150","ud","Dosificador de jabón de 0,35 l de capacidad, de ABS fumé, Mediclinics, colocado, incluso elementos de fijación.",4.0,53.99],["15.1","D26.0030","ud.","Extintor portátil de polvo químico polivalente contra fuegos A B C, de 6 Kg de agente extintor, eficacia 21A-113B, tipo Zenith o similar, con soporte, válvula de disparo, manguera con difusor y manómetro, incluídas fijaciones a la pared, colocado.",4.0,109.18],["15.2","D27D0010","ud","Placa de señalización de evacuación y medios móviles de extinción en aluminio luminiscente TAM 297x210 mm, colocada. Según C.T.E. DB SI.",5.0,15.13],["16.1","D28AAA0070","m²","Pintura plástica impermeable, de acabado mate, Emuldis o equivalente, aplicada a dos manos, a brocha o rodillo, sobre paramentos verticales y horizontales, interiores y exteriores, colores medios, incluso limpieza del soporte e imprimación con Acridur fondo fijador.",150.87,9.26],["16.2","D28BA0070","m²","Pintura plástica impermeable, de acabado mate, Emuldis fachadas o equivalente, aplicada a dos manos, a brocha o rodillo, para la protección y decoración de fachadas, colores medios, incluso limpieza del soporte e imprimación con Acridur fondo fijador.",118.37,11.79],["17.1","E29SVX030","ud","Estudio geotécnico de solar de 500 a 1.000 m2., con un sondeo a rotación con testificación continua hasta 10 m. de profundidad, realización de dos S.P.T. y extracción de dos muestras inalteradas, con realización de ensayos de laboratorio para clasificar e identificar el suelo, para determinar la expansividad y agresividad potenciales, y para comprobar la tensión admisible y la deformabilidad, completado con la realización de dos ensayos de penetración dinámica superpesada hasta rechazo, incluso emisión del informe.",1.0,1535.37],["17.2","D33BA0010","ud","Ensayo de tracción y características geométricas de barras de acero corrugado, según UNE-EN 10002-1, UNE 36068 y UNE 36065.",6.0,72.33],["17.3","D33BA0020","ud","Ensayo de doblado-desdoblado a 90º, de barras de acero corrugado, según según UNE-EN ISO 15630-1.",6.0,27.82],["17.4","D33BA0030","ud","Ensayo de doblado simple a 180º, de barras de acero corrugado, según según UNE-EN ISO 15630-1.",6.0,13.34],["17.5","D33BA0050","ud","Ensayo mecánico de malla electrosoldada de acero, incluyendo ensayo de tracción, doblado simple y doblado-desdoblado, según UNE 36092 y UNE-EN 10080.",3.0,139.09],["17.6","D33BD0010","ud","Ensayo estático de puesta en carga sobre estructuras de piso en edificación, según UNE 7457, por m², mínimo 25 m², incluso establecimiento del plan de carga inicial. Incluso emisión del informe de la prueba.",2.0,72.29],["17.7","D33CA0010","ud","Prueba de resistencia mecánica y de estanqueidad en red de fontanería, según CTE DB HS-4, agrupando un máximo de 6 viviendas.",2.0,105.69],["17.8","D33CB0020","ud","Prueba de estanqueidad del saneamiento vertical por medio de prueba hidráulica (altura máxima 15 m), según CTE DB HS-5.",2.0,127.95],["17.9","D33CC0010","ud","Medida de la resistividad de la puesta a tierra, hasta 3 mediciones.",2.0,24.43],["17.10","D33CC0020","ud","Comprobación de cuadros de corte y protección (hasta 2 diferenciales y 8 PIA por cuadro).",2.0,38.9],["17.11","D33CC0050","ud","Comprobación de la sección de los conductores y el código de colores de la misma, hasta 40 comprobaciones por ud.",6.0,5.77],["17.12","D33CC0060","ud","Comprobación de conexión y funcionamiento de mecanismo, hasta 10 mecanismos por ud de ensayo.",6.0,6.57],["17.13","D33E0010","ud","Ensayo al desgaste de un pavimento en pista rotatoria, según normas s/UNE-EN 1339 y UNE-EN 1342.",1.0,211.39],["17.14","D33E0040","ud","Ensayo para determinación de la dureza al rayado de la superficie en baldosas cerámicas, mediante escala de MOHS, según UNE 67101.",1.0,150.16],["17.15","D33E0100","ud","Ensayo de resistencia a la compresión de bordillos, mediante procedimiento interno por extracción de testigos.",1.0,183.56],["17.16","D33G0010","ud","Ensayo para determinación del espesor de capa de pintura sobre mortero, yeso o similar, por medios ópticos o rayado, según UNE-EN ISO 2808.",2.0,50.05],["17.17","D33G0020","ud","Ensayo para determinación de la adherencia en pinturas aplicadas sobre base metálica, según UNE-EN ISO 2409 (cuchilla múltiple).",1.0,24.39],["17.18","D33G0040","ud","Ensayo para determinación del espesor de anodizado (según UNE-EN 12373-3 ) o lacado sobre aluminio por medios no destructivos.",2.0,50.05],["17.19","D33I0010","ud","Prueba de escorrentía (permeabilidad) en fachadas, en tramos de 3 m de longitud, según procedimiento interno, comprobando filtraciones al interior.",2.0,161.34],["18.1.1","D31C0070","ud","Pista de pádel, de 20x10 m, con cerramiento de 4 m de altura en los fondos y en los 2 m iniciales de cada lateral, y de 3 m de altura en el resto, con sistema PADEL LIFE MODELO GRANADA de COMPOSAN INDUSTRIAL Y TECNOLOGÍA, con 2 puertas de acceso, lunas de vidrio de seguridad templado, de 10 mm de espesor y soportes de luminarias, de 3 de longitud, para fijar sobre la estructura metálica, formado por una estructura metálica compuesta por pilares de acero S275 JR laminado en caliente, de 100x50 mm y 2 mm de espesor, con refuerzos de chapa plegada galvanizada en caliente, de 3 mm de espesor y 1 m de longitud, soldada al pilar; placas de anclaje de acero S275JR laminado en caliente, con taladros de 18 mm de diámetro, de 280x200 mm y 10 mm de espesor, para pilares intermedios y placas de anclaje especiales, de 15 mm de espesor, para pilares de esquina; malla electrosoldada de acero galvanizado, de 50x50 mm y 4 mm de diámetro; marcos para fijación de malla electrosoldada compuestos por perfiles angulares de chapa galvanizada en caliente, de 3 mm de espesor, con taladros para alojamiento de las puntas de la malla electrosoldada; 2 puertas de acceso con cerradura; travesaños horizontales de tubo de acero galvanizado en caliente, de 40x30 mm y 1,5 mm de espesor; y pletinas horizontales para refuerzo y fijación de malla de fleje galvanizado en caliente, de 40x3 mm; un conjunto de lunas de vidrio de seguridad templado, de 10 mm de espesor, compuesto por 14 lunas de vidrio de seguridad templado, de 2995x1995 mm y 10 mm de espesor, y 4 lunas de vidrio de seguridad templado, de 1995x1995 mm y 10 mm de espesor, con taladros para fijación a la estructura y cuatro soportes de luminarias, de 3 m de longitud, para fijar sobre la estructura metálica, cada uno de ellos compuesto por un pilar de acero S275JR laminado en caliente, de 100x50 mm y 2 mm de espesor, y una cruceta de chapa plegada galvanizada en caliente, de 2 mm de espesor, con taladros para fijación de luminarias. Incluso recubrimiento de estructura metálica y soportes de luminarias con pintura de resina de epoxi/poliéster, de color a elegir y tornillería. Pavimento de césped sintético COMPOGRASS P 12/49 V (5.0) de COMPOSAN INDUSTRIAL Y TECNOLOGÍA, en color VERDE ; pavimento deportivo especialmente diseñado para la práctica de tenis o pádel a nivel profesional o amateur, sistema formado por una moqueta de césped sintético Compograss, con separación entre hileras de mechones de 5/32'', a base de fibra recta 100% polietileno, prefibrilado, resistente a los rayos UV, con 5000 decitex y 110 micras de espesor; tejidos sobre base de polipropileno drenante, con incisiones de 4 mm cada 10x10 cm, reforzado con una capa de fieltro de agujas, con termo-fijado y sellado con mezcla de látex con base de copolímero de vinil-etileno; fibras con 12 mm de altura de pelo, 14 mm de altura total de moqueta y 49.140 puntadas/m2, con peso total de 2.264 gr/m2 y permeabilidad (medida sin material de lastrado) 60 l/m2.min, suministrado en rollos; con p.p. de líneas de juego Compograss P 12/49 (5.0) en color BLANCO y p.p. de banda de unión Jointing Tape de geotextil de polipropileno NT no tejido de 100x30cm y adhesivo especial de poliuretano bicomponente (base + endurecedor) para juntas; incluso lastrado a base de 17 kg/m2 de arena de cuarzo limpia y seca de granulometría 0'4-0'8 mm, con un 80% de grano redondo; Incluye 8 proyectores , modelo LEO FLEX, IP66 en aluminio inyectado, led 190W. 4000K 15000/20000/25000 Lm.",2.0,39483.54],["18.2.1","D31BA0001","ud","UD. MUELLE LA BALLENITA REF. U30AI_P_SD. Muelle de doble panel con forma de ballena del fabricante Galopín diseñado para 1 usuario con unas edades comprendidas entre los 2 y los 6 años fabricado en HDPE de 20mm. Manetas de aluminio anodizado que sirven para pies y manos y respaldo trasero en HDPE de 20mm. Muelle en acero S235 con tratamiento térmico específico de cataforesis para aportar a la pieza de una mayor resistencia frente a la corrosión y posteriormente lacado. Ø20mm de espiral con +/-6vueltas. Compuesto de antipellizcos en aluminio y de abarcones en dacromet. El área de seguridad necesaria para su instalación es de 7,7 m2, con una altura libre de caída de 0,50m.Deberá estar certificado bajo la norma europea EN-1176 emitido por TÜV Product Service.",1.0,1532.22],["18.2.2","D31BA0002","ud","UD. FARO Y MEDUSA REF. FAC1017-C6-C2_SD. Conjunto de juego formado por dos torres, red de trepa vertical, red de trepa inclinada y tobogán Faro y Medusa del fabricante Galopín diseñado para 23 usuarios con edades comprendidas entre los 2 y 6 años.Fabricado con paneles de polietileno de alta densidad de 20mm de espesor y HPL de 15mm. Piezas metálicas en acero AISI-304 y aluminio EN AW 5754-H111, con tornillería de acero calidad 8.8 DIN267 y AISI-304, además de piezas plásticas para los acabados en polietileno y polipropileno . En una de sus torres cuenta con un tobogán de 1,00m. con laterales deHPL de 15mm, en color gris y chapa plegada en inox de espesor 1,5mm. Las barras utilizadas son de acero inoxidable, 304 de diámetro 40 y 1,5mm de espesor. Los suelos del conjunto son en HPL antideslizante de 15 mm de espesor, todos los paneles decorativos son en HDPE de 20 mm de espesor. Ambas torres son estrechas,de similares dimensiones, y en la unión de ambas se encuentra una red de trepa vertical fabricada con cuerda de multifilamento centrada de 16mm con alma de acero/nylon recubierta de polipropileno, y otra red de trepa inclinada de iguales dimensiones en la torre donde se sitúa el tobogán. Cuenta también con panel activo en un lateral de la torre escalera, en HPL de 15mm con juego de ábaco y ruedas en acero inox AISI-304 y polietileno.Acabados de las uniones de cuerda en naranja, combinando con las tonalidades del conjunto (azul y naranja). Paneles decorativos en tejadillos de las 2 torres simulando medusa y faro.El área de seguridad necesaria para su instalación es de 33,12m2 con una altura libre de caída de 1,68.Deberá estar certificado bajo la norma europea EN-1176 emitido por TÜV Product Service",1.0,11128.71],["18.2.3","D31BA0003","ud","UD. COLUMPIO INDIVIDUAL INOX REF. L10S-IN_P_SDZ. Columpio dos asientos inox. del fabricante Galopin o similar diseñado para 1 usuario con edades comprendidas entre los 3 y los 14 años. Formado por 4 postes en madera de pino laminada escandinavo de sección 95x95 tratada en autoclave, clase de riesgo IV y un dintel de tubo redondo de0,974mt de largo en acero inoxidable para un asiento plano. Laterales en HDPE de 20mm con motivo de flor. El área de seguridad necesaria para su instalación es de 12,4m2 con una altura libre de caída de 1,16m.Deberá estar certificado bajo la norma europea EN-1176 emitido por TÜV Product Service. El fabricante contará con certificados de calidad ISO-9001 de calidad, ISO 14001 de Gestión Ambiental.",1.0,2753.44],["18.2.4","D31BA0004","ud","Pavimento continuo de seguridad y protección frente a caídas, realizado \"in situ\", de espesor total varriable, compuesto de una capa inferior de gránulos de caucho reciclado SBR de color negro de espesor variable según HIC de caída de los juegos y una capa superior de gránulos de caucho EPDM de 10 mm de espesor, color a elegir de la carta RAL, unidas ambas capas con un ligante de poliuretano monocomponente, resistente a los rayos UV, a los hidrocarburos y a los agentes atmosféricos, según UNE-EN 1177. Espesor de (5+1) para una superficie de 10 m2, y (2+1) para una superficie de 74,50 m2.",84.5,104.87],["18.3.1","D31BC0001","ud","UD. MULTIJUEGO EL DRAGO REF. COT000305. Juego tipo árbol EL DRAGO, representando un drago, del fabricante Galopín o equivalente, para usuarios con edades comprendidas entre los 4 y los 14 años de edad, con capacidad para 20 usuarios. Funciones lúdicas de trepa, sorpresa, reunión, deslizarse y gatear. Área del juego de 65 m2 y altura de caída máxima de 1 m y con una altura máxima de 6,3 m. Copa compuesta por ocho tetracaidecaedros, poliedros compuestos de dos hexágonos y doce pentágonos irregulares. Cada uno de ellos está formado por una estructura realizada en un perfil compuesto de doble tubo de acero al carbono reforzado interiormente S-235, de 50x50x3 mm soldados y posteriormente protegidos mediante un esquema de protección C5-M según UNE-EN ISO 12944-5. Esto implica un grado de protección frente a corrosión alta, adecuado para áreas industriales y áreas costeras. Acabado lacado constituido por mezcla de resinas de poliéster, endurecedores y pigmentos, exento de plomo y con alta resistencia a la meteorización. Revestimiento realizado en cerramiento de lamas de madera de pino escandinavo laminado tratado con clase de riesgo IV y protegido con un lasur al agua. Cuenta con suelos de HPL, plataformas de 15 mm de espesor con acabado antideslizante con protección a los rayos ultravioletas. La copa se encuentra sostenida por una estructura de tubos de acero S-235, protegido mediante un esquema de protección C5 según UNE-EN ISO 12944-5. Esto implica un grado de protección frente a corrosión alta, adecuado para áreas industriales y áreas costeras. Acabado lacado constituido por mezcla de resinas de poliéster, endurecedores y pigmentos, exento de plomo y con alta resistencia a la meteorización. En caras puntuales cuenta con cerramiento de malla de cable de acero inoxidable fabricada en tejido de cable de acero AISI 316 de 1,5 mm de espesor, con rombos de 60 x 30 mm, unida mediante casquillos y fijada a la estructura mediante un cable de acero inoxidable. Saliendo de la copa se sitúa un túnel de 80 cm de diámetro de varillas soldadas de acero inoxidable AISI 304 de 10 mm de diámetro. En el interior cuenta con redes trepables, que se componen de cuerda trenzada poliamida de alta resistencia con alma acero galvanizado Ø18/20 mm en color negro, con núcleo de acero o fibra. Tanto el material con el que se fabrica, como el proceso de trenzado de las hebras (en contraposición a las cuerdas torcidas), proporcionan a estos elementos una alta resistencia a la abrasión y al desgaste. Así mismo en la composición de los elementos se incluye un componente que funciona como filtro UV y que garantiza la durabilidad del color a lo largo del tiempo. Todos los terminales, conectores y elementos de intersección con los que se confecciona el entramado de redes se fabrican con acero inox AISI 316 o aluminio. El tobogán tubular, de 375 cm sobre la cota del suelo, está realizado en chapa acero inox AISI 304 de 2 mm de espesor, con refuerzos en tubo redondo acero inox AISI 304 de sección 40x1,5 mm y apoyos en tubo acero inox AISI 304. La soldadura del tobogán se realiza mediante soldadura robótica láser, no requiere aporte de material consiguiendo unos cordones de soldadura de poca dimensión, resistentes, lisos, redondeados y estéticos. El acabado de la chapa del tobogán será 2K, acabado pulido satinado. Cuentan con apoyos de acero inoxidable que se fijan en la zona de unión de los módulos. La tornillería utilizada es de acero inoxidable calidad AISI-304 Y AISI-306 protegida donde lo requiere con tapones de polipropileno.La superficie de seguridad requerida y revestimientos del suelo según las normas EN1177.El elemento deberá estar certificado bajo la norma europea EN-1176 emitido por empresa acreditada.El fabricante contará con certificados de calidad ISO-9001 de calidad, ISO 14001 de Gestión Ambiental. UD. CUADRADO TANGRAM REF. TGM2_SD. Elemento de Muelle y Equilibrio Cuadrado Tangram, TGM2-N, del fabricante Galopín o equivalente diseñado para 1 usuario con unas edades comprendidas entre los 6 y 15 años. Consta de plataforma de para equilibrio y balanceo en forma triangular, inspirada en los elementos del Tangram tradicional, a base de plataforma fabricada madera de pino escandinavo, tratado en autoclave, clase de riesgo IV, con acabado lasur, listones ensamblados de 40mm espesor, geometría cuadrada, anclado sobre 2 muelles en acero S235 con tratamiento térmico específico de cataforesis para aportar a la pieza de una mayor resistencia frente a la corrosión y posteriormente lacado. Ø20mm de espiral con +/-6vueltas. Compuesto de antipellizcos en aluminio y de abarcones en dacromet. Dimensiones totales del elemento: 85x85cm con una altura total de 39cm. El área de seguridad necesaria para su instalación es de 12,90 m2, con una altura libre de caída de 39 cm. Deberá estar certificado bajo la norma europea EN-1176 emitido por TÜV Product Service. El fabricante contará con certificados de calidad ISO-9001 de calidad, ISO 14001 de Gestión Ambiental. UD. COLUMPIO CESTA DOS POSTES REF. L613_SB. Columpio cesta dos postes de robinia sin dintel del fabricante Galopín o equivalente, para niños entre 2 y 8 años y un máximo de 5 usuarios. Los postes son de madera maciza de robinia con una sección circular aproximada de 200 mm y un largo de 3 metros, protegidos con un lasur al agua. El asiento es un cesto con 1 metro de diámetro con una estructura de cuerdas con multifilamento trenzada y recubierta de polipropileno y alma de acero con certificado de producto TÜV. La cadena del asiento y las rótulas son de acero inoxidable AISI 304. Toda la tornillería está recubierta por tapones de seguridad de polipropileno y está fabricada en acero calidad 8.8 DIN267, AISI304 y AISI316. El área de seguridad necesaria para su instalación es de 17 m² y la altura máxima de caída de 114 cm. Función lúdica de balanceo. Deberá estar certificado bajo la norma europea EN-1176 emitido por TÜV Product Service. El fabricante contará con certificados de calidad ISO-9001 de calidad, ISO 14001 de Gestión AmbientaL. 283,15 m2 de pavimento continuo de seguridad y protección frente a caídas, realizado \"in situ\", de espesor total 30 mm, compuesto de una capa inferior de gránulos de caucho reciclado SBR de color negro de 20 mm de espesor y una capa superior de gránulos de caucho EPDM de 10 mm de espesor, color a elegir de la carta RAL, unidas ambas capas con un ligante de poliuretano monocomponente, resistente a los rayos UV, a los hidrocarburos y a los agentes atmosféricos, según UNE-EN 1177.",1.0,403430.36],["18.4.1","PAZDOD07","ud","UD. CONJUNTO DE ESTACIÓN CALISTENIA WORKOUT, EN CAUCHO, MODELO MADRID SEGÚN DISEÑO ADJUNTO. Compuesta por los siguientes elementos:- 1 Ud. Triangulo de elevaciones en caucho.- 1 Ud. Cuadrado de elevaciones en caucho.- 1 Ud. Barra elevaciones freestyle long. 1500 mm en caucho y altura montaje entre 2,35 m y 1,95 m.- 1 Ud. Barra elevaciones freestyle long. 1800 mm con agarre neutro en caucho.- 1 Ud. Monkey bar en caucho.- 1 Ud. Monkey bar adaptado.- 1 Ud. Pared sueca en caucho.- 1 Ud. Barra flexiones triples francesa en caucho.- 1 Ud. Paralelas americanas bajas en caucho.- 1 Ud. Banco abdominales horizontal en caucho.- 1 Ud. Paralelas olímpicas en caucho. Ud. Mano de obra necesaria para la correcta colocación de la calistenia ofertada en su posición final. Incluye:• Replanteo de los elementos de calistenia en su posición final, respetando la norma UNE-EN 16630 y las indicaciones del fabricante.• Fijación de estos en su situación final.• Limpieza para trabajos posteriores y recogida de los escombros generados.*La propiedad deberá vallar la zona de trabajo. Suministro e instalación de pavimento de suelo continuo de base elastech, con capa superior de tracktech y resina aromática, con el espesor suficiente de (2+1). Colores disponibles a elegir: azul, marrón, arena, rojo teja, verde top y verde oscuro. Espesor de (5+1) para una superficie de 145 m2, y (2+1) para una superficie de 129 m2.",1.0,45981.87],["18.6.1","D22H0021","ud","Pérgola de base metálica de acero acabada con oxiron, de 5,00 x 3,00, acabado con tableros de madera de morera, incluso anclaje y dados de hormigón, según planos, colocada.",1.0,4149.47],["18.6.2","D25I0010","m","Barandilla de 1 m de altura, formada por perfiles de acero galvanizado, 2 largueros horizontales, incluso barrotes verticales de 20 mm, separados 10 cm, con parte proporcional de soldaduras y anclajes, incluso pintura oxiron y puesta a tierra, totalmente colocada e instalada.",17.9,55.31],["18.6.3","PAZDOD09","ud","Reparación y reubicación de pérgola existente",1.0,5770.06],["18.6.4","D22G0020","m","Barandilla de madera de morera o sapelly de 0.90 m. de altura, formada por balaustres torneados de 4.5x4.5 cm (2 por peldaño), pasamanos de 8x4.5 cm y pilares de 9x9 cm, i/anclajes, colocada.",87.0,170.71],["18.7.1","PAZDOD10","ud","UD. APARATO SQUAT. Medidas: 142 x 116 x 134cm. Área de seguridad: 442 x 416cm. Funciones: Aumenta la flexibilidad de los glúteos y las piernas. Fortalece gemelosy glúteos. UD. APARATO PEC FLY. Medidas: 144 x 152 x 207cm. Área de seguridad: 444 x 452cm. Funciones: Fortalece pectorales y bíceps, y aumenta su flexibilidad. UD. APARATO LEG EXTENSION. Medidas:127 x 128 x 169cm. Área de seguridad: 427 x 428cm. Funciones: Fortalece gluteos y piernas, y aumenta su flexibilidad. UD. APARATO PULL DOWN. Medidas:145 x 158 x 244cm. Área de seguridad: 445 x 458cm Funciones: Fortalece glúteos, piernas, adbodem y brazos. Aumenta su flexibilidad. UD. APARATO CHEST PRESS. Medidas: 127 x 114 x 155cm. Área de seguridad: 427 x 414cm Funciones: Fortalece pectorales y bíceps, y aumenta su flexibilidad. UD. APARATO CALF. Medidas: 135 x 111 x 141cm. Área de seguridad: 435 x 411cm Funciones:Fortalece glúteos y piernas, y aumenta su flexibilidad. UD. APARATO PULL UP. Medidas: 127 x 122 x 167cm. Área de seguridad: 427 x 422 cm. Funciones: Fortalece pectorales, bíceps, hombro y dorsal, y aumenta su flexibilidad. UD. APARATO BENCH LIFT. Medidas: 162 x 127 x 115cm. Área de seguridad: 462 x 427cm Funciones: Fortalece pectorales, bíceps, brazos y hombro, y aumenta su flexibilidad. UD. INSTALACIÓN DE APARATOS DEPORTIVOS CON PESO REGULABLE. Mano de obra necesaria para la instalación de los elementos ofertados, la cual incluye: replanto de las áreas de seguridad de los elementos según la norma UNE EN 16630 y las instrucciones del fabricante, fijación de los mismos en su emplazamiento final mediante varillas roscadas y tacos químicos y limpieza y recogida de los escombros y residuos generados.",1.0,27422.01],["18.8.1","PAZDOD11","ud","Los trabajos a desarrollar son los necesarios para la construcción de un circuito tipo pump track, consistiendo fundamentalmente en: - Desbroce y limpieza del terreno de la superficie de actuación para eliminación de la capa de tierra vegetal y nivelación previa, así como la compactación de la toda la superficie sobre la que se implantará el circuito. - Una vez el terreno sobre el que vamos a construir el pumptrack está nivelado procedemos a marcar el recorrido total del trazado mediante cal, marcando con hilos y estacas el trazado de la pista, permitiéndonos así mantener las dimensiones correctas. - Excavación de zanjas y/o pozos de drenaje para evacuación de las aguas pluviales, que en este caso, se desaguarán al subsuelo. - Marcado y ejecución del circuito y obtención de las alturas diseñadas rellenando y compactando en capas de 20/30 cm de suelo seleccionado, según zona y altura, y zahorra artificial, después de haberles dado el riego adecuado, perfilando y compactando manualmente. Cuando esté debidamente perfilado y compactado se procederá a realizar una prueba por especialistas en este tipo de instalaciones para determinar si tanto curvas peraltadas como obstáculos están correctamente ubicados tanto en altura, pendientes, radios de curvatura y longitudes. - Tras la revisión y prueba del circuito con todos sus obstáculos y taludes perfectamente perfilados y con sus niveles correctos, se procederá al asfaltado. Se empleará un pavimento de unos 10 cm de espesor medio, en el recorrido principal, así como en los taludes,realizado con mezcla bituminosa continua en caliente tipo AC-11 SURF B 35/50 D, de composición densa, con árido calizo y betún asfáltico de penetración. El extendido de asfalto se realizará mediante medios manuales y mecánicos dependiendo de la zona y con el objetivo de obtener las geometrías específicas requeridas en cada obstáculo diseñado. - Las islas interiores prevén realizarse con solera de hormigón de espesor medio 10 cm tipo HM-20, previo extendido de una capa de zahorras artificiales de 20 cm de espesor. Las islas interiores dispondrán de pendiente suficiente para desaguar a un pozo drenante consistente en grava drenante de dimensiones mínimas 1x1x1,50 m. - Ejecución de recubrimiento de acabado en slurry sintético en una capa de color negro para el recorrido, y señalización del circuito, marcando líneas y flechas de sentido de circulación en el recorrido, mediante marca vial reflexiva de color blanco. - Pintado mediante pintura plástica de color azul o rojo, en dos capas, en las islas interiores hormigonadas. - Colocación de placa informativa de la obra. Se instalará un cartel de información con normas de usos y protecciones para utilización del circuito de PumpTrack.",1.0,104911.22],["18.9.1","PAZDOD12","ud","CANCHA MULTIDEPORTE FORMADA POR 250 m2 PAVIMENTO DEPORTIVO SISTEMA SPORTPLUS S/ HORMIGÓN. Suministro y puesta en obra de pavimento deportivo para pista polideportiva, sistema SPORTPLUS sobre hormigón de COMPOSAN INDUSTRIAL Y TECNOLOGÍA, de 1 mm de espesor total aproximado, pavimento deportivo de alta resistencia de acabado rugoso, resistencia al deslizamiento Rd>45 según UNE-EN 13606-4, resbaladicidad clase 3 según CTE, obtenido mediante la aplicación sucesiva de una capa de regularización y acondicionamiento de la superficie, con mortero bicomponente, Epoxán, a base de resinas epoxi y cargas minerales calibradas (rendimiento aproximado de 0,8 kg/m²), aplicada con rastrillo de goma, sobre superficie soporte cementosa (no incluida en este precio); dos capas con mortero, Compotex, acabado texturizado, a base de resinas acrílicas, cargas minerales calibradas y pigmentos (rendimiento aproximado de 0,5 kg/m² por capa), aplicadas con brocha, rodillo o rastrillo de goma, dejando secar totalmente la primera capa antes de aplicar la segunda capa y una capa de sellado con pintura al agua, Paintex, a base de resinas acrílicas, cargas micronizadas y pigmentos (rendimiento aproximado de 0,3 kg/m²), aplicada con rodillo, pistola o rastrillo de goma. Incluso p/p de limpieza de la superficie soporte y limpieza final de la superficie acabada. Incluido marcaje de 2 deportes.NO INCLUYE: preparación de la superficie soporte existente, las juntas de construcción, de retracción y de dilatación, ni las juntas perimetrales. 2 UD de Portería reforzada de fútbol-sala con canasta de minibasket integrada en su parte superior. También incluye lared reglamentaria. Una portería muy reforzada pensada para escuelas, hoteles, campings o comunidades depropietarios. Las porterías están hechas en perfi l de acero lado al horno. Acabado termo lacado en epoxi-poliéster (ASTM 11.757 / DIN 50.015) (estructura). Las bandas blancas estánpintadas con esmalte de polietileno endurecido. Tubo de 80 x 80 mm con cantos romos. Dimensiones de la portería de balonmano o fútbol-sala: Largo 300 cm Alto: 200 cm Profundidad 105 cm Tubo del soporte posterior de un diámetro de 40 mm Marco (sección) de 80 x 80 mm Anclajes de 25 mm de diámetro x 125 mm Dimensiones de la canasta de minibasket: El tablero de baloncesto es tipo abanico de 120 x 90 cm fabricados en fi bra de vidrio, aros reforzados y redesde nylon. La altura del aro es de 260 cm La red se fi ja con cilindros guía. La sujeción de la red mediante una cuerda en zig-zag que se hace pasar porunos cilindros metálicos soldados a la parte posterior del marco, diseñados de forma anti lesión para evitaraccidentes. La red subministrada es de hilo de nylon de 3 de diámetro ofreciendo un cuadre de 80 x 80 mm. Sin nudos. Cada portería viene con 2 bridas para anclarse. Este modelo es trasladable pero lleva unos anclajes para fi jaral suelo, de esta forma queda totalmente fuerte y estable Todas las porterías deben anclarse al suelo . Por tanto son fi jas. Las porterías trasladables, son paraatornillarse en el hormigón. Se pueden desatornillar si alguna vez lo necesitan. Las porterías fi jas, se hunde laestructura al suelo y no se podrán sacar nunca. Portería que cumple la norma EN749 tipo 2. Es por tanto una portería que puede estar en una escuela, unpabellón deportivo o en el campo de juego de un hotel.",1.0,13113.87],["19.1","PAZDOD13","ud","ESTUDIO DE SEGURIDAD Y SALUD",1.0,5244.54],["20.1","PAZDOD14","ud","GESTIÓN DE RESIDUOS",1.0,4616.02]]};
+const GG = 13, BI = 6, IG = 7;
+const fmt = new Intl.NumberFormat('es-ES',{minimumFractionDigits:2,maximumFractionDigits:2,useGrouping:'always'});
+const fq = new Intl.NumberFormat('es-ES',{minimumFractionDigits:0,maximumFractionDigits:3,useGrouping:'always'});
+const eur = v => fmt.format(v) + ' €';
+const coefOf = b => 1 - (+b||0)/100;
+const fcoef = v => new Intl.NumberFormat('es-ES',{minimumFractionDigits:2,maximumFractionDigits:6}).format(v);
+const r2 = v => Math.round((v + Number.EPSILON) * 100) / 100;
+const $ = id => document.getElementById(id);
+const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+
+const ITEMS = DATA.items.map(([id,code,ud,d,q,p]) => {
+  const parts = id.split('.');
+  return {id, k:id.replace(/\./g,'_'), code, ud, d, q, p, t:r2(q*p), cap:parts[0], sub: parts.length===3 ? parts[0]+'.'+parts[1] : ''};
+});
+const CAPS = Object.keys(DATA.chaps).sort((a,b)=>a-b).map(n => ({n, name:DATA.chaps[n], items:ITEMS.filter(i=>i.cap===n)}));
+CAPS.forEach(c => c.t = r2(c.items.reduce((s,i)=>s+i.t,0)));
+const PEM = r2(CAPS.reduce((s,c)=>s+c.t,0));
+
+function econ(pem, baja){
+  const gg = r2(pem*GG/100), bi = r2(pem*BI/100), s = r2(pem+gg+bi);
+  const bj = r2(s*baja/100), sb = r2(s-bj), ig = r2(sb*IG/100);
+  return {pem, gg, bi, s, bj, sb, ig, tot:r2(sb+ig)};
+}
+
+/* ---------- estado ---------- */
+let certs = [];          // [{id,num,periodo,fecha,estado,o:{k:qty}}] ordenadas por num
+let config = {baja:0, contratista:''};
+let selId = null;
+let store = null;
+
+const LS = 'zumacal-cert-v1';
+const local = {
+  read(){ try { return JSON.parse(localStorage.getItem(LS)) || {certs:[],config:null}; } catch(e){ return {certs:[],config:null}; } },
+  write(st){ try { localStorage.setItem(LS, JSON.stringify(st)); } catch(e){} }
+};
+
+function makeLocalStore(){
+  const st = local.read();
+  certs = st.certs || []; if (st.config) config = st.config;
+  const flush = () => { local.write({certs, config}); setSave('Guardado en este navegador a las ' + new Date().toLocaleTimeString('es-ES',{hour:'2-digit',minute:'2-digit'})); return Promise.resolve(); };
+  return { saveCert: flush, saveConfig: flush, deleteCert: flush };
+}
+
+function makeDbStore(db){
+  const queue = new Map(); let busy = false;
+  async function pump(){
+    if (busy) return; busy = true;
+    while (queue.size){
+      const [path, job] = queue.entries().next().value; queue.delete(path);
+      try { setSave('Guardando…'); await job(); setSave((lastCount != null ? lastCount + ' partidas con medición · ' : '') + 'Guardado a las ' + new Date().toLocaleTimeString('es-ES',{hour:'2-digit',minute:'2-digit'})); }
+      catch(e){ setSave('No se pudo guardar: ' + (e && e.message || e.code || 'error') + '. Revisa tus permisos de edición.'); }
+    }
+    busy = false;
+  }
+  const enqueue = (path, job) => { queue.set(path, job); pump(); };
+  db.collection('certs').onSnapshot(snap => {
+    const focused = document.activeElement;
+    certs = snap.docs.map(d => { if (dirty && dirty.id === d.id) return dirty; const x = d.data() || {};
+      const p = pend[d.id]; if (p) { if ((x.rev||0) < p.rev) return p; delete pend[d.id]; } let o = x.o || {}; if (typeof x.oj === 'string') { try { o = JSON.parse(x.oj) || {}; } catch(e){} } return {id:d.id, rev:x.rev||0, num:x.num, periodo:x.periodo, fecha:x.fecha, estado:x.estado, o}; }).sort((a,b)=>a.num-b.num);
+    if (!certs.find(c=>c.id===selId)) selId = certs.length ? certs[certs.length-1].id : null;
+    renderAll(focused);
+  }, e => setSave('Error de lectura: ' + e.message));
+  db.doc('obra/config').onSnapshot(s => {
+    if (s.exists) { config = Object.assign({baja:0,contratista:''}, s.data()); renderAll(document.activeElement); }
+  });
+  return {
+    saveCert(c){ c.rev = (c.rev||0) + 1; pend[c.id] = c; const data = {rev:c.rev, num:c.num, periodo:c.periodo||'', fecha:c.fecha||'', estado:c.estado||'borrador', oj:JSON.stringify(c.o||{})}; const n = Object.keys(c.o||{}).length; enqueue('certs/'+c.id, async () => { await db.doc('certs/'+c.id).set(data); lastCount = n; }); },
+    saveConfig(){ enqueue('obra/config', () => db.doc('obra/config').set({baja:config.baja, contratista:config.contratista})); },
+    deleteCert(id){ enqueue('certs/'+id, () => db.doc('certs/'+id).delete()); }
+  };
+}
+
+let lastCount = null;
+const pend = {};
+function setSave(t){ $('save').textContent = t; }
+
+/* ---------- certificación seleccionada ---------- */
+const VIRTUAL = () => ({id:'c01', num:1, periodo:new Date().toISOString().slice(0,7), fecha:new Date().toISOString().slice(0,10), estado:'borrador', o:{}, _virtual:true});
+let virtualCert = null;
+function cur(){
+  if (!certs.length){ virtualCert = virtualCert || VIRTUAL(); return virtualCert; }
+  return certs.find(c=>c.id===selId) || certs[certs.length-1];
+}
+function prevOf(c){ const i = certs.findIndex(x=>x.id===c.id); return i>0 ? certs[i-1] : null; }
+const qOrig = (c,k) => (c && c.o && +c.o[k]) || 0;
+function persist(c){
+  if (dirty === c) { dirty = null; clearTimeout(saveTimer); }
+  if (c._virtual){ delete c._virtual; certs = [c]; selId = c.id; virtualCert = null; }
+  store.saveCert(c);
+}
+const locked = c => c.estado === 'cerrada';
+
+function totals(c){
+  const p = prevOf(c);
+  let org = 0, ant = 0; const byCap = {};
+  for (const it of ITEMS){
+    const a = r2(qOrig(c,it.k)*it.p), b = r2(qOrig(p,it.k)*it.p);
+    org += a; ant += b;
+    const bc = byCap[it.cap] ||= {org:0, ant:0}; bc.org += a; bc.ant += b;
+  }
+  return {org:r2(org), ant:r2(ant), byCap};
+}
+
+/* ---------- render ---------- */
+function renderHeader(){
+  const e = econ(PEM, 0), a = econ(PEM, +config.baja||0);
+  $('h-pem').textContent = eur(PEM);
+  $('h-pec').textContent = eur(e.tot);
+  $('h-adj').textContent = (+config.baja ? eur(a.tot) + ' (coef. ' + fcoef(coefOf(config.baja)) + ')' : 'Sin baja');
+  $('r-gg').textContent = GG; $('r-bi').textContent = BI; $('r-ig').textContent = IG;
+}
+
+function renderCerts(){
+  const c = cur();
+  const list = certs.length ? certs : [c];
+  $('certs').innerHTML = list.map(x => `<button class="chip" data-id="${esc(x.id)}" aria-pressed="${x.id===c.id}"><span class="dot ${x.estado==='cerrada'?'closed':''}"></span>C${x.num}</button>`).join('');
+  const lk = locked(c);
+  $('f-num').value = 'Certificación nº ' + c.num;
+  setIfIdle($('f-periodo'), c.periodo || ''); $('f-periodo').disabled = lk;
+  setIfIdle($('f-fecha'), c.fecha || ''); $('f-fecha').disabled = lk;
+  setIfIdle($('f-baja'), fcoef(+config.baja||0).replace(/(,\d\d)0+$/,'$1'));
+  setIfIdle($('f-coef'), fcoef(coefOf(config.baja)));
+  setIfIdle($('f-contr'), config.contratista || '');
+  $('estado').textContent = lk ? 'Cerrada · solo lectura' : 'Borrador · editable';
+  $('estado').className = 'pill' + (lk ? ' closed' : '');
+  $('b-close').textContent = lk ? 'Reabrir certificación' : 'Cerrar certificación';
+  $('b-close').disabled = !!c._virtual;
+  const isLast = !certs.length || certs[certs.length-1].id === c.id;
+  $('b-del').disabled = !!c._virtual || !isLast; $('b-del').title = isLast ? '' : 'Solo se puede eliminar la última certificación';
+  disarm($('b-del'), 'Eliminar esta certificación');
+}
+
+function setIfIdle(el, v){ if (document.activeElement !== el) el.value = v; }
+
+function renderKpis(){
+  const c = cur(), t = totals(c), b = +config.baja || 0;
+  const eo = econ(t.org, b), ea = econ(t.ant, b);
+  const pct = PEM ? t.org/PEM*100 : 0;
+  $('kpis').innerHTML = `
+    <div class="kpi main"><span class="eyebrow">Líquido certificación nº ${c.num}</span><span class="v">${eur(r2(eo.tot-ea.tot))}</span><span class="foot">con IGIC, descontada la anterior</span></div>
+    <div class="kpi"><span class="eyebrow">PEM ejecutado en el periodo</span><span class="v">${eur(r2(t.org-t.ant))}</span><span class="foot">${fmt.format(PEM? (t.org-t.ant)/PEM*100:0)} % del PEM</span></div>
+    <div class="kpi"><span class="eyebrow">PEM ejecutado a origen</span><span class="v">${eur(t.org)}</span><div class="meter"><i style="width:${Math.min(100,pct).toFixed(2)}%"></i></div><span class="foot">${fmt.format(pct)} % de ${eur(PEM)}</span></div>
+    <div class="kpi"><span class="eyebrow">Certificado a origen</span><span class="v">${eur(eo.tot)}</span><span class="foot">Pendiente: ${eur(r2(econ(PEM,b).tot - eo.tot))}</span></div>`;
+
+  const row = (lab, k, cls='') => `<tr class="${cls}"><td>${lab}</td><td class="num">${eur(eo[k])}</td><td class="num">${eur(ea[k])}</td><td class="num">${eur(r2(eo[k]-ea[k]))}</td></tr>`;
+  $('econ').innerHTML = `<thead><tr><th></th><th class="num">A origen</th><th class="num">Anterior</th><th class="num">Esta cert.</th></tr></thead><tbody>
+    ${row('Ejecución material (PEM)','pem','strong')}
+    ${row(GG+' % Gastos generales','gg')}
+    ${row(BI+' % Beneficio industrial','bi')}
+    ${row('Suma','s','strong')}
+    ${b ? row('Baja '+fmt.format(b)+' % (coef. '+fcoef(coefOf(b))+')','bj') : ''}
+    ${b ? row('Importe tras baja','sb','strong') : ''}
+    ${row(IG+' % IGIC','ig')}
+    ${row('Total','tot','liq')}</tbody>`;
+
+  $('caps').innerHTML = `<thead><tr><th>Capítulo</th><th class="num">Proyecto</th><th class="num">Periodo</th><th class="num">A origen</th><th class="num">%</th></tr></thead><tbody>` +
+    CAPS.map(cp => { const x = t.byCap[cp.n]; const o = r2(x.org), per = r2(x.org-x.ant); const p = cp.t? o/cp.t*100:0;
+      return `<tr><td>${cp.n}. ${esc(cp.name)}</td><td class="num">${fmt.format(cp.t)}</td><td class="num">${per?fmt.format(per):'<span class="muted">–</span>'}</td><td class="num">${o?fmt.format(o):'<span class="muted">–</span>'}</td><td class="num pct">${fmt.format(p)}<div class="meter"><i style="width:${Math.min(100,p).toFixed(1)}%"></i></div></td></tr>`; }).join('') +
+    `<tr class="total"><td>Total</td><td class="num">${fmt.format(PEM)}</td><td class="num">${fmt.format(r2(t.org-t.ant))}</td><td class="num">${fmt.format(t.org)}</td><td class="num">${fmt.format(PEM?t.org/PEM*100:0)}</td></tr></tbody>`;
+}
+
+let builtFor = null;
+function buildChapters(){
+  const c = cur();
+  builtFor = c.id + '|' + c.estado;
+  const lk = locked(c);
+  $('chapters').innerHTML = CAPS.map(cp => {
+    let lastSub = null;
+    const rows = cp.items.map(it => {
+      let h = '';
+      if (it.sub && it.sub !== lastSub){ lastSub = it.sub; h += `<tr class="sub"><td colspan="11">${it.sub} ${esc(DATA.subs[it.sub]||'')}</td></tr>`; }
+      const short = it.d.length > 160;
+      return h + `<tr data-k="${it.k}">
+        <td class="num">${it.id}</td>
+        <td class="desc"><div class="code">${esc(it.code)}</div><div class="txt ${short?'clamp':''}" title="${short?'Pulsa para ver el texto completo':''}">${esc(it.d)}</div></td>
+        <td data-l="Ud">${esc(it.ud)}</td>
+        <td class="num" data-l="Med. proyecto">${fq.format(it.q)}</td>
+        <td class="num" data-l="Precio">${fmt.format(it.p)}</td>
+        <td class="num" data-l="Importe proyecto">${fmt.format(it.t)}</td>
+        <td class="num" data-c="ant" data-l="Med. anterior"></td>
+        <td class="num in" data-l="Med. periodo"><input data-in="per" type="text" inputmode="decimal" autocomplete="off" placeholder="0" aria-label="Medición del periodo ${it.id}" ${lk?'disabled':''}></td>
+        <td class="num in" data-l="Med. a origen"><input data-in="org" type="text" inputmode="decimal" autocomplete="off" placeholder="0" aria-label="Medición a origen ${it.id}" ${lk?'disabled':''}></td>
+        <td class="num" data-c="imp" data-l="Importe origen"></td>
+        <td class="num pct" data-c="pct" data-l="% ejecutado"></td></tr>`;
+    }).join('');
+    return `<details class="chap" data-cap="${cp.n}"><summary><span class="t">${cp.n}. ${esc(cp.name)}</span><span class="s"><span>Proyecto <b>${fmt.format(cp.t)}</b></span><span>Periodo <b data-s="per"></b></span><span>Origen <b data-s="org"></b></span><span><b data-s="pct"></b></span></span></summary>
+      <div class="items scroll"><table><thead><tr><th class="num">Nº</th><th>Partida</th><th>Ud</th><th class="num">Med. proyecto</th><th class="num">Precio</th><th class="num">Importe proyecto</th><th class="num">Med. anterior</th><th class="num">Med. periodo</th><th class="num">Med. a origen</th><th class="num">Importe origen</th><th class="num">% ejec.</th></tr></thead><tbody>${rows}</tbody></table></div></details>`;
+  }).join('');
+  applyFilter();
+}
+
+const parseQ = s => { s = String(s).trim(); if (!s) return 0; s = s.replace(/\s/g,''); if (s.includes(',')) s = s.replace(/\./g,'').replace(',', '.'); const v = parseFloat(s); return isFinite(v) ? v : NaN; };
+const showQ = v => v ? fq.format(Math.round(v*1000)/1000) : '';
+
+function refreshRows(){
+  const c = cur(), p = prevOf(c), t = totals(c);
+  document.querySelectorAll('#chapters tr[data-k]').forEach(tr => {
+    const it = ITEMS_BY_K[tr.dataset.k];
+    const o = qOrig(c,it.k), a = qOrig(p,it.k), per = r2(o - a);
+    tr.querySelector('[data-c="ant"]').textContent = a ? fq.format(a) : '–';
+    const ip = tr.querySelector('[data-in="per"]'), io = tr.querySelector('[data-in="org"]');
+    if (document.activeElement !== ip) ip.value = showQ(per);
+    if (document.activeElement !== io) io.value = showQ(o);
+    const imp = r2(o*it.p), pct = it.q ? o/it.q*100 : 0;
+    tr.querySelector('[data-c="imp"]').textContent = imp ? fmt.format(imp) : '–';
+    tr.querySelector('[data-c="pct"]').innerHTML = o ? `${fmt.format(pct)}${pct>100.0001?' <span class="pill over">Exceso</span>':''}` : '<span class="muted">–</span>';
+    tr.classList.toggle('has', !!o && pct<=100.0001);
+    tr.classList.toggle('overrow', pct>100.0001);
+  });
+  document.querySelectorAll('#chapters details.chap').forEach(d => {
+    const cp = CAPS.find(x=>x.n===d.dataset.cap), x = t.byCap[cp.n];
+    d.querySelector('[data-s="per"]').textContent = fmt.format(r2(x.org-x.ant));
+    d.querySelector('[data-s="org"]').textContent = fmt.format(r2(x.org));
+    d.querySelector('[data-s="pct"]').textContent = fmt.format(cp.t? x.org/cp.t*100 : 0) + ' %';
+  });
+}
+const ITEMS_BY_K = Object.fromEntries(ITEMS.map(i=>[i.k,i]));
+
+function applyFilter(){
+  const q = $('q').value.trim().toLowerCase(), only = $('only').checked, c = cur();
+  document.querySelectorAll('#chapters details.chap').forEach(d => {
+    let any = false;
+    d.querySelectorAll('tr[data-k]').forEach(tr => {
+      const it = ITEMS_BY_K[tr.dataset.k];
+      const okQ = !q || (it.id+' '+it.code+' '+it.d).toLowerCase().includes(q);
+      const okM = !only || qOrig(c,it.k) || qOrig(prevOf(c),it.k);
+      tr.hidden = !(okQ && okM); if (!tr.hidden) any = true;
+    });
+    d.querySelectorAll('tr.sub').forEach(tr => { tr.hidden = !!(q||only); });
+    d.hidden = !any;
+    if ((q || only) && any) d.open = true;
+  });
+}
+
+function renderAll(){
+  renderHeader(); renderCerts(); renderKpis();
+  const c = cur();
+  if (builtFor !== c.id + '|' + c.estado) buildChapters();
+  refreshRows();
+}
+
+/* ---------- eventos ---------- */
+let saveTimer = null;
+let dirty = null;
+function scheduleSave(c){ dirty = c; clearTimeout(saveTimer); setSave('Cambios sin guardar…'); saveTimer = setTimeout(() => persist(c), 600); }
+
+function commitInput(e){
+  const inp = e.target.closest && e.target.closest('input[data-in]'); if (!inp) return;
+  const c = cur(); if (locked(c)) { setSave('Esta certificación está cerrada. Pulsa «Reabrir certificación» para editarla.'); return; }
+  const tr = inp.closest('tr'), it = ITEMS_BY_K[tr.dataset.k];
+  const v = parseQ(inp.value); if (isNaN(v)) return;
+  const a = qOrig(prevOf(c), it.k);
+  const o = inp.dataset.in === 'per' ? r2(a + v) : v;
+  c.o = c.o || {}; if (o) c.o[it.k] = Math.round(o*1000)/1000; else delete c.o[it.k];
+  refreshRows(); renderKpis(); scheduleSave(c);
+}
+['input','change','keyup'].forEach(ev => $('chapters').addEventListener(ev, commitInput));
+$('chapters').addEventListener('focusout', e => { commitInput(e); setTimeout(refreshRows, 0); });
+$('chapters').addEventListener('click', e => { const t = e.target.closest('.txt'); if (t) t.classList.toggle('clamp'); });
+
+$('certs').addEventListener('click', e => { const b = e.target.closest('button[data-id]'); if (!b) return; selId = b.dataset.id; renderAll(); });
+
+$('b-new').addEventListener('click', () => {
+  const last = certs[certs.length-1] || cur();
+  if (last._virtual) persist(last);
+  const num = (certs.length ? certs[certs.length-1].num : 0) + 1;
+  const pm = (last.periodo || new Date().toISOString().slice(0,7)).split('-').map(Number);
+  const d = new Date(pm[0], pm[1], 1);
+  const c = {id:'c'+String(num).padStart(2,'0'), num, periodo:`${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}`, fecha:new Date().toISOString().slice(0,10), estado:'borrador', o:{...(last.o||{})}};
+  certs.push(c); selId = c.id; store.saveCert(c); renderAll();
+});
+
+function bindMeta(id, key){
+  $(id).addEventListener('change', e => { const c = cur(); if (locked(c)) return; c[key] = e.target.value; persist(c); renderCerts(); });
+}
+bindMeta('f-periodo','periodo'); bindMeta('f-fecha','fecha');
+function setBaja(v){ if (isNaN(v) || v<0 || v>=100){ setSave('La baja debe estar entre 0 y 100 %.'); renderCerts(); return; } config.baja = Math.round(v*1e6)/1e6; store.saveConfig(); renderHeader(); renderCerts(); renderKpis(); }
+$('f-baja').addEventListener('change', e => setBaja(parseQ(e.target.value)));
+$('f-coef').addEventListener('change', e => { const k = parseQ(e.target.value); if (isNaN(k) || k<=0 || k>1){ setSave('El coeficiente debe estar entre 0 y 1.'); renderCerts(); return; } setBaja((1-k)*100); });
+$('b-save').addEventListener('click', () => { const c = cur(); if (document.activeElement && document.activeElement.blur) document.activeElement.blur(); clearTimeout(saveTimer); dirty = null; persist(c); store.saveConfig(); });
+$('f-contr').addEventListener('change', e => { config.contratista = e.target.value; store.saveConfig(); });
+
+$('b-close').addEventListener('click', () => { const c = cur(); c.estado = locked(c) ? 'borrador' : 'cerrada'; persist(c); renderAll(); });
+
+function disarm(b, label){ b.classList.remove('armed'); b.textContent = label; b.dataset.armed = ''; }
+$('b-del').addEventListener('click', e => {
+  const b = e.currentTarget;
+  if (!b.dataset.armed){ b.dataset.armed = '1'; b.classList.add('armed'); b.textContent = 'Pulsa otra vez para eliminar'; setTimeout(() => disarm(b,'Eliminar esta certificación'), 4000); return; }
+  const c = cur(); certs = certs.filter(x => x.id !== c.id); store.deleteCert(c.id);
+  selId = certs.length ? certs[certs.length-1].id : null; renderAll();
+});
+
+$('q').addEventListener('input', applyFilter);
+$('only').addEventListener('change', applyFilter);
+$('b-open').addEventListener('click', e => {
+  const ds = [...document.querySelectorAll('#chapters details.chap')];
+  const open = !ds.every(d=>d.open); ds.forEach(d => d.open = open);
+  e.currentTarget.textContent = open ? 'Plegar todo' : 'Desplegar todo';
+});
+
+/* ---------- exportación ---------- */
+const ECON_ROWS = () => { const b = +config.baja||0; return [['Ejecución material (PEM)','pem'],[GG+' % Gastos generales','gg'],[BI+' % Beneficio industrial','bi'],['Suma','s']].concat(b ? [['Baja '+fmt.format(b)+' % (coef. '+fcoef(coefOf(b))+')','bj'],['Importe tras baja','sb']] : []).concat([[IG+' % IGIC','ig'],['Total','tot']]); };
+const mesTxt = p => { if (!p) return ''; const [y,m] = p.split('-').map(Number); return new Date(y,m-1,1).toLocaleDateString('es-ES',{month:'long',year:'numeric'}); };
+const fechaTxt = f => f ? new Date(f+'T12:00:00').toLocaleDateString('es-ES') : '';
+const baseName = c => `Certificacion_${String(c.num).padStart(2,'0')}_Zumacal_${c.periodo||''}`;
+
+async function offer(filename, data){
+  try {
+    const dl = await claude.use('downloads');
+    if (!dl) { setSave('La descarga no está disponible en esta vista.'); return; }
+    await dl.save({filename, data});
+  } catch(e){ setSave(e && e.code === 'declined' ? 'Descarga cancelada.' : 'No se pudo descargar: ' + (e && (e.message || e.code) || 'error')); }
+}
+
+function itemRows(c){
+  const p = prevOf(c);
+  return ITEMS.map(it => { const o = qOrig(c,it.k), a = qOrig(p,it.k); return {it, a, o, per:r2(o-a), ia:r2(a*it.p), io:r2(o*it.p)}; });
+}
+
+$('b-xls').addEventListener('click', async () => {
+  if (!window.XLSX){ setSave('No se pudo cargar el generador de Excel. Recarga la página.'); return; }
+  const c = cur(), t = totals(c), b = +config.baja||0, eo = econ(t.org,b), ea = econ(t.ant,b);
+  const wb = XLSX.utils.book_new();
+  const N = '#,##0.00', Q = '#,##0.000';
+  // Hoja 1: resumen
+  const R = [
+    ['PARQUE ZONA VERDE EL ZUMACAL'],
+    ['Certificación nº ' + c.num, '', 'Periodo', mesTxt(c.periodo)],
+    ['Fecha', fechaTxt(c.fecha), 'Contratista', config.contratista||''],
+    ['Baja %', b, 'Coeficiente de adjudicación', coefOf(b)],
+    [],
+    ['RESUMEN ECONÓMICO', 'A origen', 'Anterior', 'Esta certificación'],
+    ...ECON_ROWS().map(([l,k]) => [l, eo[k], ea[k], r2(eo[k]-ea[k])]),
+    [],
+    ['CAPÍTULO', 'Presupuesto', 'Anterior', 'Periodo', 'A origen', '% ejecutado'],
+    ...CAPS.map(cp => { const x = t.byCap[cp.n]; return [cp.n+'. '+cp.name, cp.t, r2(x.ant), r2(x.org-x.ant), r2(x.org), cp.t ? x.org/cp.t : 0]; }),
+    ['TOTAL PEM', PEM, t.ant, r2(t.org-t.ant), t.org, PEM ? t.org/PEM : 0]
+  ];
+  const ws1 = XLSX.utils.aoa_to_sheet(R);
+  const r1 = XLSX.utils.decode_range(ws1['!ref']);
+  for (let r=0;r<=r1.e.r;r++) for (let cc=1;cc<=5;cc++){ const a = ws1[XLSX.utils.encode_cell({r,c:cc})]; if (a && a.t==='n') a.z = (cc===5 && r>6+ECON_ROWS().length) ? '0.00%' : N; }
+  ws1['B4'].z = '0.00'; ws1['D4'].z = '0.000000';
+  ws1['!cols'] = [{wch:44},{wch:16},{wch:16},{wch:18},{wch:16},{wch:12}];
+  XLSX.utils.book_append_sheet(wb, ws1, 'Resumen');
+  // Hoja 2: relación valorada con fórmulas
+  const H = ['Nº','Código','Ud','Descripción','Med. proyecto','Precio','Importe proyecto','Med. anterior','Med. periodo','Med. a origen','Importe anterior','Importe periodo','Importe a origen','% ejec.'];
+  const rows = [H]; const rowsMeta = [];
+  let cap = null;
+  for (const r of itemRows(c)){
+    if (r.it.cap !== cap){ cap = r.it.cap; rows.push([cap, '', '', DATA.chaps[cap]]); rowsMeta.push('cap'); }
+    rows.push([r.it.id, r.it.code, r.it.ud, r.it.d, r.it.q, r.it.p, r.it.t, r.a, r.per, r.o, r.ia, r2(r.io-r.ia), r.io, r.it.q ? r.o/r.it.q : 0]); rowsMeta.push('it');
+  }
+  const ws2 = XLSX.utils.aoa_to_sheet(rows);
+  rowsMeta.forEach((m,i) => {
+    if (m !== 'it') return; const R1 = i+2, E = XLSX.utils.encode_cell, row = i+1;
+    const set = (col, f, z) => { const cell = ws2[E({r:row,c:col})]; cell.f = f; cell.z = z; };
+    ['E','H','I','J'].forEach(L => { const cell = ws2[L+R1]; cell.z = Q; });
+    ws2['F'+R1].z = N;
+    set(6, `ROUND(E${R1}*F${R1},2)`, N);
+    set(8, `J${R1}-H${R1}`, Q);
+    set(10, `ROUND(H${R1}*F${R1},2)`, N);
+    set(11, `M${R1}-K${R1}`, N);
+    set(12, `ROUND(J${R1}*F${R1},2)`, N);
+    set(13, `IF(E${R1}=0,0,J${R1}/E${R1})`, '0.00%');
+  });
+  ws2['!cols'] = [{wch:8},{wch:13},{wch:5},{wch:70},{wch:12},{wch:11},{wch:14},{wch:12},{wch:12},{wch:12},{wch:14},{wch:14},{wch:14},{wch:8}];
+  ws2['!autofilter'] = {ref: 'A1:N1'};
+  XLSX.utils.book_append_sheet(wb, ws2, 'Relación valorada');
+  const buf = XLSX.write(wb, {bookType:'xlsx', type:'array'});
+  await offer(baseName(c) + '.xlsx', new Blob([buf]));
+});
+
+$('b-pdf').addEventListener('click', async () => {
+  const J = window.jspdf && window.jspdf.jsPDF;
+  if (!J){ setSave('No se pudo cargar el generador de PDF. Recarga la página.'); return; }
+  const c = cur(), t = totals(c), b = +config.baja||0, eo = econ(t.org,b), ea = econ(t.ant,b);
+  const doc = new J({orientation:'landscape', unit:'mm', format:'a4'});
+  const W = doc.internal.pageSize.getWidth(), ink = [29,38,33], green = [46,107,76];
+  const head = { fillColor: green, textColor: 255, fontStyle:'bold', fontSize:8 };
+  const nf = v => fmt.format(v), qf = v => v ? fq.format(v) : '';
+  doc.setFont('helvetica','bold'); doc.setFontSize(15); doc.setTextColor(...ink);
+  doc.text('CERTIFICACIÓN DE OBRA Nº ' + c.num, 14, 16);
+  doc.setFontSize(10); doc.setFont('helvetica','normal');
+  doc.text('Obra: PARQUE ZONA VERDE EL ZUMACAL', 14, 23);
+  doc.text('Periodo: ' + mesTxt(c.periodo) + '      Fecha: ' + fechaTxt(c.fecha), 14, 28);
+  doc.text('Contratista: ' + (config.contratista || '—'), 14, 33);
+  doc.text('Baja: ' + nf(b) + ' %   ·   Coeficiente de adjudicación: ' + fcoef(coefOf(b)) + '   ·   Estado: ' + (locked(c) ? 'Cerrada' : 'Borrador'), 14, 38);
+  doc.autoTable({ startY: 43, margin:{left:14, right:W/2+4}, head:[['Resumen económico','A origen','Anterior','Esta cert.']],
+    body: ECON_ROWS().map(([l,k]) => [l, nf(eo[k]), nf(ea[k]), nf(r2(eo[k]-ea[k]))]),
+    styles:{fontSize:8, cellPadding:1.4}, headStyles:head, columnStyles:{1:{halign:'right'},2:{halign:'right'},3:{halign:'right'}},
+    didParseCell: d => { if (d.section==='body' && d.row.index === ECON_ROWS().length-1) { d.cell.styles.fontStyle='bold'; d.cell.styles.fillColor=[225,238,230]; } } });
+  const yEcon = doc.lastAutoTable.finalY;
+  doc.autoTable({ startY: 43, margin:{left:W/2+2, right:14}, head:[['Capítulo','Presupuesto','Periodo','A origen','%']],
+    body: CAPS.map(cp => { const x = t.byCap[cp.n]; return [cp.n+'. '+cp.name, nf(cp.t), nf(r2(x.org-x.ant)), nf(r2(x.org)), nf(cp.t? x.org/cp.t*100:0)]; }).concat([['TOTAL PEM', nf(PEM), nf(r2(t.org-t.ant)), nf(t.org), nf(PEM? t.org/PEM*100:0)]]),
+    styles:{fontSize:7, cellPadding:1}, headStyles:head, columnStyles:{1:{halign:'right'},2:{halign:'right'},3:{halign:'right'},4:{halign:'right'}},
+    didParseCell: d => { if (d.section==='body' && d.row.index === CAPS.length) d.cell.styles.fontStyle='bold'; } });
+  // firmas
+  let y = Math.max(yEcon, doc.lastAutoTable.finalY) + 14;
+  if (y > 180) { doc.addPage(); y = 30; }
+  doc.setFontSize(9);
+  doc.text('El Director de Obra', 40, y); doc.text('El Contratista', W-90, y);
+  doc.text('Fdo.:', 40, y+22); doc.text('Fdo.:', W-90, y+22);
+  // relación valorada
+  doc.addPage();
+  doc.setFont('helvetica','bold'); doc.setFontSize(12); doc.text('Relación valorada · Certificación nº ' + c.num, 14, 14);
+  const body = []; let cap = null;
+  for (const r of itemRows(c)){
+    if (!r.o && !r.a) continue;
+    if (r.it.cap !== cap){ cap = r.it.cap; body.push([{content: cap + '. ' + DATA.chaps[cap], colSpan: 11, styles:{fontStyle:'bold', fillColor:[238,241,236]}}]); }
+    const d = r.it.d.length > 140 ? r.it.d.slice(0,137) + '…' : r.it.d;
+    body.push([r.it.id, r.it.code + '\n' + d, r.it.ud, qf(r.it.q), nf(r.it.p), qf(r.a), qf(r.per), qf(r.o), nf(r2(r.io-r.ia)), nf(r.io), nf(r.it.q? r.o/r.it.q*100:0)]);
+  }
+  if (!body.length) body.push([{content:'Sin mediciones en esta certificación.', colSpan:11}]);
+  doc.autoTable({ startY: 19, margin:{left:10,right:10}, head:[['Nº','Partida','Ud','Med. proy.','Precio','Med. ant.','Med. periodo','Med. origen','Imp. periodo','Imp. origen','%']],
+    body, styles:{fontSize:6.8, cellPadding:1, valign:'top'}, headStyles:head,
+    columnStyles:{0:{cellWidth:13},1:{cellWidth:100},2:{cellWidth:9},3:{halign:'right'},4:{halign:'right'},5:{halign:'right'},6:{halign:'right'},7:{halign:'right'},8:{halign:'right'},9:{halign:'right'},10:{halign:'right'}} });
+  const n = doc.getNumberOfPages();
+  for (let i=1;i<=n;i++){ doc.setPage(i); doc.setFont('helvetica','normal'); doc.setFontSize(7); doc.setTextColor(110); doc.text(`Zona Verde El Zumacal · Certificación nº ${c.num} · ${mesTxt(c.periodo)} · Página ${i} de ${n}`, 14, doc.internal.pageSize.getHeight()-7); }
+  await offer(baseName(c) + '.pdf', doc.output('blob'));
+});
+
+/* ---------- arranque ---------- */
+store = makeLocalStore();
+renderAll();
+(async () => {
+  let db = null;
+  try { db = window.claude && await claude.use('db'); } catch(e){}
+  if (db){ certs = []; store = makeDbStore(db); setSave('Conectado al almacenamiento compartido'); }
+  else { $('storage-note').hidden = false; }
+})();
+</script>
+
+</body></html>

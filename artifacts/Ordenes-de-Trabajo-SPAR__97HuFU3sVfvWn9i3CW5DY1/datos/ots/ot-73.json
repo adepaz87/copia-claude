@@ -1,0 +1,19 @@
+{
+  "actualizada": "2026-09-01T09:00:00Z",
+  "aviso": "",
+  "centro": "SPAR El Paso Nuevo",
+  "creada": "2026-09-01T09:00:00Z",
+  "descripcion": "Enchufes de la zona de desayuno sin corriente («OT no generada» en el aviso).",
+  "estado": "terminada",
+  "fechaAviso": "2026-09-01",
+  "historial": [
+    "01/09/2026 · Importada del correo de Alberto"
+  ],
+  "informado": true,
+  "notas": "Resuelta el 01/09/2026.",
+  "operario": "",
+  "ot": 73,
+  "prioridad": "Alta",
+  "solicitante": "",
+  "tipo": "MANTENIMIENTO"
+}

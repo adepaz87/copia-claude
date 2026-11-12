@@ -1,0 +1,35 @@
+{
+  "albs": [],
+  "cliente": "CONSTRUCCIONES DOMINGO",
+  "desc": "Entubar derivación, salidas desde cuadro al exterior y teleco hacia el exterior ya que iban hacer las aceras de vivienda",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-11-09",
+  "horas": 2,
+  "id": "929",
+  "obra": "CASA PABLO",
+  "ops": [
+    {
+      "h": 1,
+      "n": "Aythami"
+    },
+    {
+      "h": 1,
+      "n": "Joel"
+    }
+  ],
+  "origen": "dashboard",
+  "restante": "Indefinido",
+  "stock": [
+    {
+      "d": "tubo cuarrugado de 50",
+      "q": 10,
+      "u": "m"
+    },
+    {
+      "d": "royo tubo cuarrugado de 32",
+      "q": 1,
+      "u": ""
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "albs": [],
+  "cliente": "TOMAS BARRETO S.A.",
+  "desc": "Realización de orden OT.66, instalación de cable de audio desde equipo amplificación (rack) hasta sala recepción de mercancías.",
+  "devol": [],
+  "estado": "TERMINADO",
+  "fecha": "2026-09-08",
+  "horas": 2,
+  "obra": "SPAR TRIANA",
+  "ops": [
+    {
+      "h": 1,
+      "n": "Junior"
+    },
+    {
+      "h": 1,
+      "n": "Rafa"
+    }
+  ],
+  "stock": [
+    {
+      "d": "Cable altavoz",
+      "q": 20,
+      "u": "m"
+    }
+  ]
+}

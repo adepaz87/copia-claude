@@ -1,0 +1,39 @@
+{
+  "albs": [],
+  "cliente": "CONSTRUCCIONES DOMINGO",
+  "desc": "Terminar de entubar derivaciones desde centralización hasta patinillo\nEntubar derivaciones teleco desde viviendas planta baja hasta patinillo\nEntubar zonas comunes planta baja",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-09-04",
+  "horas": 39,
+  "obra": "EDIFICIO DOMINGO EL PASO",
+  "ops": [
+    {
+      "h": 8,
+      "n": "Riki"
+    },
+    {
+      "h": 8,
+      "n": "Junior"
+    },
+    {
+      "h": 8,
+      "n": "Manuel"
+    },
+    {
+      "h": 8,
+      "n": "Joel"
+    },
+    {
+      "h": 7,
+      "n": "Aythami"
+    }
+  ],
+  "stock": [
+    {
+      "d": "bridas 4,8x300",
+      "q": 1000,
+      "u": ""
+    }
+  ]
+}

@@ -1,0 +1,911 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Costes de obra</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@112,600;112,800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: cabecera con la obra, cifras clave, importar documentos, preguntas pendientes y dos pestañas (Material · Operarios · Documentos) en columna de 1100px */
+:root{
+  --bg:#f3f4f1; --surface:#ffffff; --ink:#1d2321; --muted:#5f6a66; --line:#d9ddd8;
+  --accent:#b07a00; --accent-ink:#ffffff; --accent-soft:#f6ecd2;
+  --good:#2f7d4f; --good-soft:#e2f1e7; --bad:#b3362c; --bad-soft:#f8e1de;
+  --mat:#4a6fa5; --mo:#b07a00;
+  --f-display:"Archivo","Arial Narrow",system-ui,sans-serif;
+  --f-body:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,"SFMono-Regular",Menlo,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#141817; --surface:#1c2120; --ink:#e6e9e6; --muted:#9aa4a0; --line:#2f3634;
+  --accent:#e0a934; --accent-ink:#1a1400; --accent-soft:#3a3016;
+  --good:#5cc489; --good-soft:#1b3326; --bad:#ef7b70; --bad-soft:#3d1f1c;
+  --mat:#7fa3d8; --mo:#e0a934; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#141817; --surface:#1c2120; --ink:#e6e9e6; --muted:#9aa4a0; --line:#2f3634;
+  --accent:#e0a934; --accent-ink:#1a1400; --accent-soft:#3a3016;
+  --good:#5cc489; --good-soft:#1b3326; --bad:#ef7b70; --bad-soft:#3d1f1c;
+  --mat:#7fa3d8; --mo:#e0a934; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:15px;line-height:1.5}
+a{color:var(--accent)}
+.wrap{max-width:1100px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:20px 48px;display:flex;flex-direction:column;gap:20px}
+header.top{display:flex;flex-wrap:wrap;gap:8px 20px;align-items:flex-end;justify-content:space-between;border-bottom:2px solid var(--ink);padding-bottom:14px}
+h1{font-family:var(--f-display);font-stretch:112%;font-weight:800;font-size:clamp(22px,4vw,30px);margin:0;letter-spacing:-.01em;text-wrap:balance;text-transform:uppercase}
+h1 small{display:block;font-family:var(--f-mono);font-weight:400;font-size:12px;letter-spacing:.08em;color:var(--muted);text-transform:uppercase}
+h2{font-family:var(--f-display);font-stretch:112%;font-weight:600;font-size:17px;margin:0;text-transform:uppercase;letter-spacing:.02em}
+.hint{font-size:13px;color:var(--muted);margin:0}
+textarea{font:inherit;font-size:15px;color:var(--ink);background:var(--surface);border:1px solid var(--line);border-radius:4px;padding:8px 10px;width:100%;min-height:64px;resize:vertical}
+textarea:focus-visible,button:focus-visible,select:focus-visible,.drop:focus-within{outline:2px solid var(--accent);outline-offset:1px}
+input.f{font:inherit;font-size:14px;color:var(--ink);background:var(--surface);border:1px solid var(--line);border-radius:4px;padding:6px 8px;width:100%;min-width:0}
+input.f:focus-visible{outline:2px solid var(--accent);outline-offset:1px}
+.edit-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:8px 10px;margin-bottom:10px}
+.edit-grid .wide{grid-column:span 2}
+@media (max-width:480px){.edit-grid .wide{grid-column:auto}}
+.edit-grid label,.inline{display:flex;flex-direction:column;gap:3px;font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.inline{flex-direction:row;align-items:center;gap:8px}
+.inline input.f{width:80px}
+tr.editing td{background:var(--accent-soft)}
+.chat{display:flex;flex-direction:column;gap:10px;max-height:420px;overflow-y:auto}
+.msg{max-width:min(70ch,92%);padding:8px 12px;border-radius:6px;white-space:pre-wrap;overflow-wrap:anywhere;font-size:14px}
+.msg.u{align-self:flex-end;background:var(--accent-soft)}
+.msg.a{align-self:flex-start;background:var(--bg);border:1px solid var(--line)}
+.msg.t{align-self:flex-start;font-size:12px;color:var(--good);font-family:var(--f-mono);padding:2px 12px}
+.chat-form{display:flex;flex-direction:column;gap:8px}
+.chat-form textarea{min-height:52px}
+select{font:inherit;font-size:14px;color:var(--ink);background:var(--surface);border:1px solid var(--line);border-radius:4px;padding:6px 8px}
+button,.btn{font:inherit;font-weight:600;font-size:14px;border-radius:4px;border:1px solid var(--line);background:var(--surface);color:var(--ink);padding:8px 14px;cursor:pointer;white-space:nowrap;display:inline-block}
+button.primary,.btn.primary{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+button.ghost{border-color:transparent;background:transparent;padding:4px 8px;font-weight:500;color:var(--muted)}
+button.ghost:hover{color:var(--ink);background:var(--accent-soft)}
+button.danger{color:var(--bad)}
+button:disabled{opacity:.5;cursor:not-allowed}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px}
+.kpi{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:14px 16px;display:flex;flex-direction:column;gap:4px}
+.kpi .k{font-size:11px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);display:flex;align-items:center;gap:6px}
+.kpi .v{font-family:var(--f-mono);font-size:22px;font-weight:500;font-variant-numeric:tabular-nums}
+.kpi .s{font-size:12px;color:var(--muted)}
+.kpi.alert{border-color:var(--accent);background:var(--accent-soft)}
+.dot{width:9px;height:9px;border-radius:2px;display:inline-block}
+.split-bar{display:flex;height:10px;border-radius:2px;overflow:hidden;background:var(--line)}
+.split-bar span{display:block;height:100%}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:16px;display:flex;flex-direction:column;gap:14px;min-width:0}
+.card.q{border-color:var(--accent)}
+.row-head{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+.actions{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.drop{border:2px dashed var(--line);border-radius:6px;padding:22px 16px;display:flex;flex-direction:column;align-items:center;gap:10px;text-align:center;transition:border-color .15s,background .15s}
+.drop.over{border-color:var(--accent);background:var(--accent-soft)}
+.drop input[type=file]{position:absolute;width:1px;height:1px;opacity:0;pointer-events:none}
+.jobs{display:flex;flex-direction:column;gap:6px}
+.job{display:flex;gap:10px;align-items:baseline;font-size:14px;flex-wrap:wrap}
+.job .name{font-weight:500;overflow-wrap:anywhere}
+.job .st{font-size:13px;color:var(--muted)}
+.job .st.err{color:var(--bad)}
+.job .st.ok{color:var(--good)}
+.qlist{display:flex;flex-direction:column;gap:14px}
+.qitem{display:flex;flex-direction:column;gap:8px;padding-bottom:14px;border-bottom:1px solid var(--line)}
+.qitem:last-child{border-bottom:none;padding-bottom:0}
+.qitem .ref{font-size:12px;color:var(--muted);font-family:var(--f-mono)}
+.qitem .txt{margin:0;max-width:70ch}
+.qitem .ans{margin:0;font-size:14px;max-width:70ch;padding-left:10px;border-left:3px solid var(--good)}
+.qitem .res{margin:0;font-size:13px;color:var(--muted);max-width:70ch}
+.qitem.flash{animation:flash 1.2s ease-out}
+@keyframes flash{from{background:var(--accent-soft)}to{background:transparent}}
+details summary{cursor:pointer;font-size:13px;color:var(--muted);font-weight:600}
+nav.tabs{display:flex;gap:2px;overflow-x:auto;border-bottom:1px solid var(--line)}
+nav.tabs button{border:none;border-bottom:3px solid transparent;border-radius:0;background:none;color:var(--muted);padding:10px 14px;font-family:var(--f-display);font-stretch:112%;text-transform:uppercase;letter-spacing:.03em;font-size:13px}
+nav.tabs button[aria-selected="true"]{color:var(--ink);border-bottom-color:var(--accent)}
+.tbl-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:6px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{padding:8px 10px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);background:var(--bg);white-space:nowrap}
+td.n,th.n{text-align:right;font-family:var(--f-mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+.code{font-family:var(--f-mono);font-size:13px;white-space:nowrap}
+td.doc{font-size:12px;color:var(--muted);max-width:180px;overflow-wrap:anywhere}
+tr.tot td{font-weight:600;border-top:2px solid var(--ink);border-bottom:none}
+tbody tr:last-child td{border-bottom:none}
+tr.rev td:first-child{box-shadow:inset 3px 0 0 var(--accent)}
+.pill{display:inline-block;font-family:var(--f-mono);font-size:11px;padding:1px 7px;border-radius:999px;white-space:nowrap;border:none;cursor:pointer;font-weight:500}
+.pill.rev{background:var(--accent-soft);color:var(--accent)}
+.pill.ok{background:var(--good-soft);color:var(--good);cursor:default}
+.pill.err{background:var(--bad-soft);color:var(--bad);cursor:default}
+.toolbar{display:flex;flex-direction:column;align-items:flex-end;gap:6px}
+.duo{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,380px),1fr));gap:20px;align-items:start}
+.imp-row{display:flex;flex-wrap:wrap;gap:10px 16px;align-items:center;justify-content:space-between}
+.drop{flex-direction:row;flex-wrap:wrap;justify-content:center;padding:12px 16px}
+.panel-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:18px;margin-top:18px}
+.panel-grid .span2{grid-column:1/-1}
+.legend{display:flex;gap:14px;font-size:12px;color:var(--muted);align-items:center}
+.legend span{display:inline-flex;gap:6px;align-items:center}
+.chart{width:100%;height:auto;max-height:300px;display:block}
+.chart .grid{stroke:var(--line);stroke-width:1}
+.chart .ax{fill:var(--muted);font-size:11px;font-family:var(--f-mono)}
+.chart .val{fill:var(--ink);font-size:11px;font-family:var(--f-mono)}
+.chart .b-mat{fill:var(--mat)}
+.chart .b-mo{fill:var(--mo)}
+.blist{display:flex;flex-direction:column;gap:10px}
+.bl-row{display:grid;grid-template-columns:minmax(90px,1.2fr) 2fr 9.5em;gap:4px 10px;align-items:center;font-size:14px}
+.bl-name{overflow-wrap:anywhere}
+.bl-bar{height:10px;background:var(--bg);border-radius:2px;overflow:hidden;display:flex}
+.bl-bar i{display:block;height:100%}
+.bl-val{font-family:var(--f-mono);font-variant-numeric:tabular-nums;text-align:right;white-space:nowrap}
+.bl-val small{color:var(--muted);margin-left:6px}
+.bl-sub{grid-column:1/-1;font-size:12px;color:var(--muted);margin-top:-6px}
+input.f[type=search]{width:200px}
+tr.sub td{font-weight:600;background:var(--bg);font-size:13px}
+td.n button{font-family:var(--f-body)}
+@media (max-width:600px){.toolbar{align-items:flex-start}}
+.empty{padding:28px 16px;text-align:center;color:var(--muted)}
+.status{font-size:13px;color:var(--muted);min-height:1.2em}
+.status.err{color:var(--bad)}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+
+<div class="wrap">
+  <header class="top">
+    <h1><small>Control de costes</small><span id="obraNombre">Costes de obra</span></h1>
+    <div class="toolbar">
+      <span class="hint" id="obraMeta"></span>
+      <div class="actions">
+        <button id="btnRefresh">Actualizar</button>
+        <button id="btnSave">Guardar</button>
+        <button id="btnPdf">Exportar PDF</button>
+        <button id="btnXls">Exportar Excel</button>
+      </div>
+      <span class="status" id="barStatus"></span>
+    </div>
+  </header>
+
+  <div id="noDb" class="card" hidden><p class="hint">No se pueden cargar los datos guardados en esta vista. Abre la página desde claude.ai con tu sesión iniciada.</p></div>
+
+  <div class="kpis" id="kpis"></div>
+
+  <div class="card" id="impCard">
+    <div class="imp-row">
+      <div><h2>Importar documentos</h2><span class="hint">Albaranes, facturas, partes de horas o resúmenes de costes</span></div>
+      <label class="drop" id="drop" for="fileIn">
+        <input type="file" id="fileIn" multiple accept="image/*,application/pdf,.pdf,.xlsx,.xls,.csv,.txt">
+        <span class="btn primary">Elegir archivos</span>
+        <span class="hint">o arrástralos aquí</span>
+      </label>
+    </div>
+    <p class="hint" id="impHint">Claude lee cada documento, añade sus líneas a Material u Operarios y te deja una pregunta en "Para revisar" si algo no cuadra.</p>
+    <div class="jobs" id="jobs"></div>
+  </div>
+
+  <div class="duo">
+  <div class="card q" id="qCard" hidden>
+    <div class="row-head"><h2>Para revisar</h2><span class="hint">Responde y Claude corregirá el registro.</span></div>
+    <div class="qlist" id="qOpen"></div>
+    <details id="qDoneWrap" hidden><summary id="qDoneSum"></summary><div class="qlist" id="qDone" style="margin-top:12px"></div></details>
+  </div>
+
+  <div class="card" id="chatCard" hidden>
+    <div class="row-head"><h2>Pregunta a Claude</h2><button class="ghost" id="chatClear">Borrar conversación</button></div>
+    <div class="chat" id="chatLog"><p class="hint">Pregunta lo que quieras sobre los costes: «¿Cuánto llevamos de Diexfe?», «¿Qué día trabajó más horas Petter?», «Cambia el importe del albarán 012148 a 75 €».</p></div>
+    <form id="chatForm" class="chat-form">
+      <textarea id="chatIn" aria-label="Tu pregunta" placeholder="Escribe tu pregunta" rows="2"></textarea>
+      <div class="actions"><button class="primary" type="submit" id="chatSend">Preguntar</button><button type="button" id="chatStop" hidden>Parar</button></div>
+    </form>
+  </div>
+  </div>
+
+  <main>
+    <nav class="tabs" role="tablist">
+      <button role="tab" data-tab="resumen" aria-selected="true">Resumen</button>
+      <button role="tab" data-tab="material" aria-selected="false">Material</button>
+      <button role="tab" data-tab="operarios" aria-selected="false">Operarios</button>
+      <button role="tab" data-tab="documentos" aria-selected="false">Documentos</button>
+    </nav>
+
+    <section data-panel="resumen" class="panel-grid">
+      <div class="card span2">
+        <div class="row-head"><h2>Coste por mes</h2><span class="legend"><span><i class="dot" style="background:var(--mat)"></i>Material</span><span><i class="dot" style="background:var(--mo)"></i>Operarios</span></span></div>
+        <div id="chMes"></div>
+      </div>
+      <div class="card"><div class="row-head"><h2>Por proveedor</h2><span class="hint" id="provSum"></span></div><div class="blist" id="blProv"></div></div>
+      <div class="card"><div class="row-head"><h2>Por operario</h2><span class="hint" id="opSum"></span></div><div class="blist" id="blOp"></div></div>
+    </section>
+
+    <section data-panel="material" hidden style="margin-top:18px" class="card">
+      <div class="row-head"><h2>Material</h2>
+        <div class="actions"><input class="f" type="search" id="qMat" placeholder="Buscar concepto, nº…" aria-label="Buscar en material"><select id="fProv" aria-label="Filtrar por proveedor"></select><label class="inline" for="grpMat"><input type="checkbox" id="grpMat" checked> Agrupar</label></div>
+      </div>
+      <div class="tbl-wrap"><table id="tblMat"></table></div>
+      <p class="hint">Importes en base imponible, sin IGIC.</p>
+    </section>
+
+    <section data-panel="operarios" hidden style="margin-top:18px" class="card">
+      <div class="row-head"><h2>Operarios</h2>
+        <div class="actions"><label class="inline" for="tarifaIn">Tarifa €/h<input class="f" id="tarifaIn" inputmode="decimal"></label><button id="tarifaApply">Aplicar a todas</button><input class="f" type="search" id="qOp" placeholder="Buscar…" aria-label="Buscar en operarios"><select id="fOp" aria-label="Filtrar por operario"></select></div>
+      </div>
+      <div class="tbl-wrap"><table id="tblOpRes"></table></div>
+      <div class="tbl-wrap"><table id="tblOp"></table></div>
+    </section>
+
+    <section data-panel="documentos" hidden style="margin-top:18px" class="card">
+      <h2>Documentos importados</h2>
+      <div class="tbl-wrap"><table id="tblDocs"></table></div>
+    </section>
+  </main>
+</div>
+
+<script>
+(() => {
+const $ = id => document.getElementById(id);
+const eur = new Intl.NumberFormat('es-ES',{style:'currency',currency:'EUR',useGrouping:'always'});
+const num = new Intl.NumberFormat('es-ES',{maximumFractionDigits:2,useGrouping:'always'});
+const fmtDate = s => s ? String(s).slice(0,10).split('-').reverse().join('/') : '';
+const esc = s => String(s ?? '').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const n = v => { const x = parseFloat(v); return isFinite(x) ? x : 0; };
+const has = v => v !== null && v !== undefined && v !== '';
+const tarifa = () => has(S.obra.tarifaHora) ? n(S.obra.tarifaHora) : null;
+const costeH = h => has(h.costeHora) ? n(h.costeHora) : (tarifa() ?? 0);
+const moImp = h => has(h.importe) ? n(h.importe) : n(h.horas) * costeH(h);
+const parseNum = v => { let s = String(v ?? '').trim().replace(/[€\s]/g,''); if (s === '') return null; if (s.includes(',')) s = s.replace(/\./g,'').replace(',','.'); const x = parseFloat(s); return isFinite(x) ? x : null; };
+let editing = null, editDraft = {};
+const nowIso = () => new Date().toISOString();
+const today = () => nowIso().slice(0,10);
+
+let db = null, downloads = null, sample = null, assets = null, imgLimits = null;
+const S = { obra:{}, material:[], manoobra:[], preguntas:[], documentos:[], tab:'resumen' };
+
+// ---------- tabs ----------
+try { const t = localStorage.getItem('co_tab3'); if (t) S.tab = t; } catch(e){}
+document.querySelectorAll('nav.tabs button').forEach(b => b.addEventListener('click', () => setTab(b.dataset.tab)));
+function setTab(t){
+  if (!document.querySelector(`[data-panel="${t}"]`)) t = 'resumen';
+  S.tab = t;
+  document.querySelectorAll('nav.tabs button').forEach(b => b.setAttribute('aria-selected', b.dataset.tab===t));
+  document.querySelectorAll('[data-panel]').forEach(p => p.hidden = p.dataset.panel !== t);
+  try { localStorage.setItem('co_tab3', t); } catch(e){}
+}
+setTab(S.tab);
+$('fProv').onchange = render; $('fOp').onchange = render; $('grpMat').onchange = render;
+$('qMat').addEventListener('input', () => render()); $('qOp').addEventListener('input', () => render());
+const norm = s => String(s ?? '').normalize('NFD').replace(/[̀-ͯ]/g,'').toLowerCase();
+const matches = (q, ...vals) => { const t = norm(q).trim(); if (!t) return true; const hay = norm(vals.join(' ')); return t.split(/\s+/).every(w => hay.includes(w)); };
+const MESES = ['ene','feb','mar','abr','may','jun','jul','ago','sep','oct','nov','dic'];
+const mesKey = f => /^\d{4}-\d{2}/.test(String(f||'')) ? String(f).slice(0,7) : '';
+const mesLabel = k => k ? MESES[+k.slice(5,7)-1] + ' ' + k.slice(2,4) : 'Sin fecha';
+const mesLargo = k => k ? ['enero','febrero','marzo','abril','mayo','junio','julio','agosto','septiembre','octubre','noviembre','diciembre'][+k.slice(5,7)-1] + ' ' + k.slice(0,4) : 'Sin fecha';
+function porMes(){ const m = {}; const add = (k, f, v) => { m[k] = m[k] || { mat:0, mo:0, h:0 }; m[k][f] += v; };
+  for (const r of S.material) add(mesKey(r.fecha), 'mat', n(r.importe));
+  for (const r of S.manoobra){ add(mesKey(r.fecha), 'mo', moImp(r)); add(mesKey(r.fecha), 'h', n(r.horas)); }
+  return Object.entries(m).sort((a,b) => a[0] === '' ? 1 : b[0] === '' ? -1 : a[0].localeCompare(b[0])); }
+function porProveedor(){ const p = {}; for (const r of S.material){ const k = r.proveedor || '(sin proveedor)'; p[k] = p[k] || { t:0, lines:0, docs:new Set() }; p[k].t += n(r.importe); p[k].lines++; p[k].docs.add(r.numero || r.docId || r.id); } return Object.entries(p).sort((a,b) => b[1].t - a[1].t); }
+const niceStep = r => { const p = Math.pow(10, Math.floor(Math.log10(r || 1))); const m = r / p; return (m <= 1 ? 1 : m <= 2 ? 2 : m <= 5 ? 5 : 10) * p; };
+const kfmt = v => v >= 1000 ? num.format(Math.round(v/100)/10) + ' k' : num.format(Math.round(v));
+function chartMes(rows){
+  if (!rows.length) return '<p class="hint">Todavía no hay costes.</p>';
+  const W = 720, H = 250, pl = 50, pr = 8, pt = 22, pb = 30;
+  const max = Math.max(...rows.map(([,v]) => v.mat + v.mo)) || 1, step = niceStep(max / 4), top = Math.ceil(max / step) * step;
+  const bw = (W - pl - pr) / rows.length, y = v => pt + (H - pt - pb) * (1 - v / top);
+  let s = `<svg viewBox="0 0 ${W} ${H}" class="chart" role="img" aria-label="Coste por mes">`;
+  for (let t = 0; t <= top + 1e-9; t += step) s += `<line x1="${pl}" x2="${W-pr}" y1="${y(t).toFixed(1)}" y2="${y(t).toFixed(1)}" class="grid"/><text x="${pl-6}" y="${(y(t)+4).toFixed(1)}" text-anchor="end" class="ax">${kfmt(t)}</text>`;
+  rows.forEach(([k,v], i) => { const w = Math.min(56, bw * 0.62), x = pl + i * bw + (bw - w) / 2, tot = v.mat + v.mo;
+    s += `<g><title>${esc(mesLargo(k))}: material ${eur.format(v.mat)}, operarios ${eur.format(v.mo)} (${num.format(v.h)} h), total ${eur.format(tot)}</title>`
+      + `<rect class="b-mat" x="${x.toFixed(1)}" y="${y(v.mat).toFixed(1)}" width="${w.toFixed(1)}" height="${(y(0)-y(v.mat)).toFixed(1)}"/>`
+      + `<rect class="b-mo" x="${x.toFixed(1)}" y="${y(tot).toFixed(1)}" width="${w.toFixed(1)}" height="${(y(v.mat)-y(tot)).toFixed(1)}"/>`
+      + `<text class="val" x="${(x+w/2).toFixed(1)}" y="${(y(tot)-6).toFixed(1)}" text-anchor="middle">${kfmt(tot)}</text>`
+      + `<text class="ax" x="${(x+w/2).toFixed(1)}" y="${H-pb+18}" text-anchor="middle">${esc(mesLabel(k))}</text></g>`; });
+  return s + '</svg>';
+}
+function renderResumen(){
+  $('chMes').innerHTML = chartMes(porMes());
+  const pv = porProveedor(), mat = pv.reduce((s,[,v]) => s + v.t, 0), maxP = pv.length ? pv[0][1].t : 1;
+  $('provSum').textContent = pv.length ? `${pv.length} proveedores · ${eur.format(mat)}` : '';
+  $('blProv').innerHTML = pv.length ? pv.map(([k,v]) => `<div class="bl-row"><span class="bl-name">${esc(k)}</span><span class="bl-bar"><i style="width:${(v.t/maxP*100).toFixed(1)}%;background:var(--mat)"></i></span><span class="bl-val">${eur.format(v.t)}<small>${mat ? Math.round(v.t/mat*100) : 0} %</small></span><span class="bl-sub">${v.docs.size} ${v.docs.size === 1 ? 'documento' : 'documentos'} · ${v.lines} ${v.lines === 1 ? 'línea' : 'líneas'}</span></div>`).join('') : '<p class="hint">Sin material todavía.</p>';
+  const ov = porOperarioAll(), mo = ov.reduce((s,[,v]) => s + v.t, 0), hrs = ov.reduce((s,[,v]) => s + v.h, 0), maxO = ov.length ? ov[0][1].t : 1;
+  $('opSum').textContent = ov.length ? `${num.format(hrs)} h · ${eur.format(mo)}` : '';
+  $('blOp').innerHTML = ov.length ? ov.map(([k,v]) => `<div class="bl-row"><span class="bl-name">${esc(k)}</span><span class="bl-bar"><i style="width:${(v.t/maxO*100).toFixed(1)}%;background:var(--mo)"></i></span><span class="bl-val">${eur.format(v.t)}<small>${num.format(v.h)} h</small></span><span class="bl-sub">${v.dias.size} ${v.dias.size === 1 ? 'día' : 'días'} · ${v.h ? eur.format(v.t/v.h) : '—'}/h</span></div>`).join('') : '<p class="hint">Sin horas todavía.</p>';
+}
+function porOperarioAll(){ const a = {}; for (const r of S.manoobra){ const k = r.operario || '(sin nombre)'; a[k] = a[k] || { h:0, t:0, dias:new Set() }; a[k].h += n(r.horas); a[k].t += moImp(r); if (r.fecha) a[k].dias.add(r.fecha); } return Object.entries(a).sort((x,y) => y[1].t - x[1].t); }
+function matRows(list, fn){
+  if (!$('grpMat').checked) return list.map(fn).join('');
+  const groups = {}; for (const r of list){ const k = r.proveedor || '(sin proveedor)'; (groups[k] = groups[k] || []).push(r); }
+  return Object.entries(groups).sort((a,b) => b[1].reduce((s,r)=>s+n(r.importe),0) - a[1].reduce((s,r)=>s+n(r.importe),0))
+    .map(([k, rs]) => `<tr class="sub"><td colspan="4">${esc(k)} · ${rs.length} ${rs.length === 1 ? 'línea' : 'líneas'}</td><td class="n">${eur.format(rs.reduce((s,r)=>s+n(r.importe),0))}</td><td colspan="3"></td></tr>` + rs.map(fn).join('')).join('');
+}
+
+// ---------- file preparation ----------
+const loadScript = src => new Promise((res, rej) => { const s = document.createElement('script'); s.src = src; s.onload = res; s.onerror = () => rej(new Error('No se pudo cargar ' + src)); document.head.appendChild(s); });
+const PDFJS = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/';
+async function ensurePdf(){ if (!window.pdfjsLib){ await loadScript(PDFJS+'pdf.min.js'); await loadScript(PDFJS+'pdf.worker.min.js'); } }
+async function ensureXlsx(){ if (!window.XLSX) await loadScript('https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js'); }
+const canvasBlob = c => new Promise(r => c.toBlob(r, 'image/jpeg', 0.85));
+async function imageToJpeg(file){
+  const bmp = await createImageBitmap(file);
+  const k = Math.min(1, 2000 / Math.max(bmp.width, bmp.height));
+  const c = document.createElement('canvas'); c.width = Math.round(bmp.width*k); c.height = Math.round(bmp.height*k);
+  c.getContext('2d').drawImage(bmp, 0, 0, c.width, c.height);
+  return canvasBlob(c);
+}
+async function prepare(file){
+  const name = file.name || 'documento';
+  const ext = (name.split('.').pop() || '').toLowerCase();
+  const maxImgs = imgLimits ? imgLimits.maxCount : 0;
+  if (file.type.startsWith('image/')){
+    if (!maxImgs) throw new Error('Esta vista no puede enviar imágenes a Claude.');
+    const ok = imgLimits.mediaTypes.includes(file.type) && file.size <= imgLimits.maxInputBytes;
+    return { kind:'imagen', images:[ ok ? file : await imageToJpeg(file) ], text:'', store:file, storeType:file.type };
+  }
+  if (file.type === 'application/pdf' || ext === 'pdf'){
+    await ensurePdf();
+    const pdf = await pdfjsLib.getDocument({ data: await file.arrayBuffer() }).promise;
+    const images = []; let text = '';
+    for (let i = 1; i <= pdf.numPages; i++){
+      const page = await pdf.getPage(i);
+      try { const tc = await page.getTextContent(); text += `\n--- Página ${i} ---\n` + tc.items.map(t => t.str).join(' '); } catch(e){}
+      if (images.length < maxImgs){
+        const vp = page.getViewport({ scale:1 });
+        const v = page.getViewport({ scale: Math.min(2.5, 1800 / Math.max(vp.width, vp.height)) });
+        const c = document.createElement('canvas'); c.width = Math.round(v.width); c.height = Math.round(v.height);
+        await page.render({ canvasContext:c.getContext('2d'), viewport:v }).promise;
+        images.push(await canvasBlob(c));
+      }
+    }
+    if (pdf.numPages > images.length) text += `\n(El PDF tiene ${pdf.numPages} páginas; se envían como imagen las ${images.length} primeras y el texto de todas.)`;
+    return { kind:'PDF', images, text:text.slice(0,150000), store:file, storeType:'application/pdf' };
+  }
+  if (['xlsx','xls','xlsm','ods'].includes(ext)){
+    await ensureXlsx();
+    const wb = XLSX.read(await file.arrayBuffer(), { type:'array', cellDates:true });
+    const text = wb.SheetNames.map(s => `### Hoja: ${s}\n` + XLSX.utils.sheet_to_csv(wb.Sheets[s], { FS:';', blankrows:false })).join('\n\n');
+    return { kind:'Excel', images:[], text:text.slice(0,150000), store:new Blob([text], { type:'text/csv' }), storeType:'text/csv' };
+  }
+  const text = await file.text();
+  return { kind: ext === 'csv' ? 'CSV' : 'texto', images:[], text:text.slice(0,150000), store:file, storeType: ext === 'csv' ? 'text/csv' : 'text/plain' };
+}
+
+// ---------- prompts ----------
+function tarifas(){
+  const t = {}; for (const r of S.manoobra) if (r.operario && has(r.costeHora)) t[r.operario] = n(r.costeHora);
+  return Object.entries(t).map(([k,v]) => `${k}: ${v} €/h`).join('\n') || '(ninguna todavía)';
+}
+function existentes(){
+  return S.material.filter(r => r.numero).slice(-150).map(r => `${r.proveedor} nº ${r.numero} (${r.fecha}) ${r.importe} €`).join('\n') || '(ninguno)';
+}
+function importPrompt(name, prep){
+  return `Eres técnico de control de costes de una empresa de instalaciones eléctricas en Canarias. Analiza este documento de la obra "${S.obra.nombre || 'la obra'}" y extrae sus costes reales.
+Documento: "${name}" (${prep.kind}). ${prep.images.length ? `Van ${prep.images.length} imagen(es) del documento.` : ''}
+Fecha de hoy: ${today()}.
+
+Solo hay dos tipos de coste:
+- "material": albaranes y facturas de proveedores (material, alquileres, subcontratas y cualquier compra).
+- "operarios": horas de trabajo del personal propio.
+
+Reglas:
+1. Material: un registro por albarán o factura (no por línea), salvo que el documento sea un resumen que liste varios albaranes; entonces uno por albarán listado. "importe" es la BASE IMPONIBLE sin IGIC ni IVA, en euros. Si solo hay total con impuesto, calcula la base (IGIC 7 % salvo que el documento diga otro tipo) y explícalo en "duda".
+2. Operarios: un registro por operario y día, o por línea si el documento ya viene agrupado. Si hay horas y coste/hora, rellena ambos y deja "importe" en null. Si solo hay un importe total, pon "importe" y deja horas/costeHora como vengan (o null). Si no hay coste/hora, usa la tarifa conocida del operario; si no la hay, deja costeHora en null y pregúntalo en "duda".
+   ${tarifa() != null ? `Toda la mano de obra de esta obra se paga a ${tarifa()} €/h: pon costeHora ${tarifa()} salvo que el documento indique otro coste para un operario concreto, y no preguntes por la tarifa.` : 'Tarifas ya conocidas:\n' + tarifas()}
+3. Fechas en formato AAAA-MM-DD. Si falta, usa la fecha del documento; si no hay ninguna, "".
+4. Albaranes ya registrados (para detectar duplicados; si encuentras uno repetido, inclúyelo igualmente y avísalo en "duda"):
+${existentes()}
+5. No inventes datos. Si algo es ilegible, ambiguo o raro (importe que no cuadra, IGIC dudoso, operario desconocido, fecha imposible, no parece de esta obra), escribe una pregunta corta y concreta en "duda" del registro afectado. Preguntas que no son de un registro concreto van en "preguntas". Pregunta en español, tuteando.
+6. Si el documento no contiene costes, devuelve listas vacías y explícalo en "resumen".
+
+Responde SOLO con este JSON:
+{"tipo":"albaran|factura|parte_horas|resumen_costes|otro","resumen":"1-3 frases: qué es y qué importes suma","material":[{"fecha":"","proveedor":"","numero":"","concepto":"","importe":0,"duda":""}],"operarios":[{"fecha":"","operario":"","concepto":"","horas":0,"costeHora":0,"importe":null,"duda":""}],"preguntas":[""]}
+${prep.text ? `\nTexto extraído del documento:\n${prep.text}` : ''}`;
+}
+
+// ---------- import ----------
+const jobs = [];
+function renderJobs(){ $('jobs').innerHTML = jobs.map(j => `<div class="job"><span class="name">${esc(j.name)}</span><span class="st ${j.cls||''}">${esc(j.msg)}</span>${j.cls==='err' && j.docId ? `<button class="ghost" data-retry="${esc(j.docId)}">Reintentar</button>` : ''}</div>`).join(''); }
+function job(name){ const j = { name, msg:'En cola', cls:'' }; jobs.unshift(j); renderJobs(); return (msg, cls, docId) => { j.msg = msg; j.cls = cls || ''; j.docId = docId; renderJobs(); }; }
+const fileByDoc = {};
+async function retryDoc(id){
+  const d = S.documentos.find(x => x.id === id); if (!d) return;
+  jobs.forEach(j => { if (j.docId === id) { j.docId = null; j.cls = ''; j.msg = 'Reintentando abajo…'; } });
+  const set = job(d.nombre);
+  let file = fileByDoc[id] || null;
+  if (!file && d.assetId){
+    set('Recuperando el original…');
+    try { const res = await fetch('/_blob/' + d.assetId); if (!res.ok) throw new Error(); const b = await res.blob(); const t = d.tipoArchivo || b.type; let nm = d.nombre; if (t === 'text/csv' && !/\.csv$/i.test(nm)) nm += '.csv'; file = new File([b], nm, { type:t }); } catch(e){ file = null; }
+  }
+  if (!file){ set('No encuentro el original. Vuelve a subir el archivo.', 'err'); return; }
+  queue = queue.then(() => importOne(file, set, d));
+}
+const sampleErr = e => ({ not_granted:'No diste permiso para usar Claude en esta página.', rate_limited:'Demasiadas peticiones seguidas. Espera un poco y vuelve a subirlo.', prompt_too_large:'El documento es demasiado grande. Divídelo en partes.', image_rejected:'La imagen no se puede leer. Prueba con otra foto o un PDF.', invalid_json:'Claude no devolvió un resultado válido. Vuelve a subirlo.', sampling_disabled:'Claude no está disponible en esta cuenta ahora mismo.' }[e && e.code] || (e && e.message) || 'No se pudo analizar.');
+
+let queue = Promise.resolve();
+function importFiles(list){ for (const f of list) { const set = job(f.name); queue = queue.then(() => importOne(f, set)); } }
+async function importOne(file, set, retry){
+  if (!db) { set('No hay base de datos en esta vista.', 'err'); return; }
+  const docRef = retry ? db.doc('documentos/' + retry.id) : db.collection('documentos').doc();
+  fileByDoc[docRef.id] = file;
+  const displayName = retry ? retry.nombre : file.name;
+  const base = { nombre:displayName, subido:(retry && retry.subido) || nowIso(), estado:'analizando', ...(retry && retry.assetId ? { assetId:retry.assetId, tipoArchivo:retry.tipoArchivo || '' } : {}) };
+  try {
+    set('Preparando…');
+    const prep = await prepare(file);
+    if (assets && !base.assetId){
+      set('Guardando el original…');
+      try { const up = await assets.upload(prep.store, { type: prep.storeType }); base.assetId = up.id; base.tipoArchivo = up.contentType; } catch(e){ base.errorGuardar = e && e.code || 'error'; }
+    }
+    await docRef.set(base);
+    if (!sample){ await docRef.update({ estado:'pendiente', error:'Sin acceso a Claude en esta vista' }); set('Guardado. Pide a Claude en el hilo que lo analice.', 'err'); return; }
+    set('Claude lo está leyendo…');
+    const opts = { modelTier:'default' }; if (prep.images.length) opts.images = prep.images;
+    const r = await sample.json(importPrompt(displayName, prep), opts);
+    set('Guardando líneas…');
+    const doc = { documento:displayName, docId:docRef.id, ...(base.assetId ? { assetId:base.assetId } : {}) };
+    let nm = 0, no = 0, nq = 0;
+    for (const m of (Array.isArray(r.material) ? r.material : [])){
+      const ref = db.collection('material').doc();
+      const duda = String(m.duda || '').trim();
+      await ref.set({ fecha:String(m.fecha||''), proveedor:String(m.proveedor||''), numero:String(m.numero||''), concepto:String(m.concepto||''), importe:n(m.importe), revisar:!!duda, creado:nowIso(), ...doc });
+      nm++;
+      if (duda){ await addQ(duda, 'material/'+ref.id, docRef.id); nq++; }
+    }
+    for (const o of (Array.isArray(r.operarios) ? r.operarios : [])){
+      const ref = db.collection('manoobra').doc();
+      const duda = String(o.duda || '').trim();
+      const row = { fecha:String(o.fecha||''), operario:String(o.operario||''), concepto:String(o.concepto||''), horas:n(o.horas), revisar:!!duda, creado:nowIso(), ...doc };
+      if (has(o.costeHora)) row.costeHora = n(o.costeHora);
+      if (has(o.importe)) row.importe = n(o.importe);
+      await ref.set(row);
+      no++;
+      if (duda){ await addQ(duda, 'manoobra/'+ref.id, docRef.id); nq++; }
+    }
+    for (const p of (Array.isArray(r.preguntas) ? r.preguntas : [])){ const t = String(p||'').trim(); if (t){ await addQ(t, '', docRef.id); nq++; } }
+    await docRef.update({ estado:'hecho', tipo:String(r.tipo||''), resumen:String(r.resumen||''), nMaterial:nm, nOperarios:no, nPreguntas:nq });
+    set(`Hecho: ${nm} de material, ${no} de operarios${nq ? `, ${nq} para revisar` : ''}.`, 'ok');
+  } catch(e){
+    const msg = e && e.code ? sampleErr(e) : (e && e.message) || 'No se pudo importar.';
+    set(msg, 'err', docRef.id);
+    try { await docRef.set({ ...base, estado:'error', error:msg }); } catch(_){}
+  }
+}
+async function addQ(texto, registro, docId){ await db.collection('preguntas').add({ texto, registro, docId, estado:'abierta', creada:nowIso() }); }
+
+const drop = $('drop');
+$('fileIn').addEventListener('change', e => { importFiles([...e.target.files]); e.target.value = ''; });
+['dragenter','dragover'].forEach(t => drop.addEventListener(t, e => { e.preventDefault(); drop.classList.add('over'); }));
+['dragleave','drop'].forEach(t => drop.addEventListener(t, e => { e.preventDefault(); drop.classList.remove('over'); }));
+drop.addEventListener('drop', e => { if (e.dataTransfer?.files?.length) importFiles([...e.dataTransfer.files]); });
+
+// ---------- preguntas ----------
+const openQ = () => S.preguntas.filter(q => q.estado !== 'respondida');
+const qFor = (col, id) => S.preguntas.filter(q => q.registro === `${col}/${id}`);
+function findReg(ref){ if (!ref) return null; const [col, id] = ref.split('/'); const list = col === 'material' ? S.material : col === 'manoobra' ? S.manoobra : null; return list ? list.find(x => x.id === id) || null : null; }
+function regLabel(ref, docId){
+  const r = findReg(ref);
+  if (ref && r){
+    if (ref.startsWith('material/')) return `Material · ${fmtDate(r.fecha)} · ${r.proveedor||''} ${r.numero?'nº '+r.numero:''} · ${eur.format(n(r.importe))}`;
+    return `Operarios · ${fmtDate(r.fecha)} · ${r.operario||''} · ${num.format(n(r.horas))} h`;
+  }
+  const d = S.documentos.find(x => x.id === docId);
+  return d ? `Documento · ${d.nombre}` : 'General';
+}
+const MAT_F = ['fecha','proveedor','numero','concepto','importe'], MO_F = ['fecha','operario','concepto','horas','costeHora','importe'];
+const clean = r => { const o = { id:r.id }; for (const k of [...new Set([...MAT_F, ...MO_F])]) if (k in r) o[k] = r[k]; return o; };
+function applyPrompt(q, answer){
+  const reg = findReg(q.registro);
+  const fromDoc = q.docId ? [...S.material.filter(r=>r.docId===q.docId).map(r=>({tipo:'material', ...clean(r)})), ...S.manoobra.filter(r=>r.docId===q.docId).map(r=>({tipo:'manoobra', ...clean(r)}))] : [];
+  return `Eres técnico de control de costes. Hiciste esta pregunta sobre los costes de una obra y el responsable ha contestado. Decide qué cambios aplicar a los registros.
+Pregunta: ${q.texto}
+Respuesta: ${answer}
+${reg ? `Registro de la pregunta (${q.registro.split('/')[0]}): ${JSON.stringify(clean(reg))}` : ''}
+Registros del mismo documento: ${JSON.stringify(fromDoc).slice(0,60000)}
+Campos de material: ${MAT_F.join(', ')} (importe = base sin IGIC). Campos de manoobra: ${MO_F.join(', ')} (importe solo si no hay horas × costeHora; usa null para quitarlo).
+Responde SOLO con JSON: {"cambios":[{"registro":"material/ID o manoobra/ID","campos":{}}],"borrar":["material/ID"],"comentario":"una frase con lo que has cambiado, o por qué no cambias nada"}`;
+}
+const drafts = {};
+document.addEventListener('input', e => { if (e.target.matches('textarea[data-q]')) drafts[e.target.dataset.q] = e.target.value; });
+async function applyAnswer(q, answer){
+  if (!sample) return;
+  let r;
+  try { r = await sample.json(applyPrompt(q, answer), { modelTier:'default' }); }
+  catch(e){ await db.doc('preguntas/'+q.id).update({ aplicado:false, resultado:'Claude no pudo aplicar la respuesta: ' + sampleErr(e) }); return; }
+  const touched = new Set();
+  for (const c of (Array.isArray(r.cambios) ? r.cambios : [])){
+    const reg = String(c.registro||''); const [col, id] = reg.split('/');
+    if (!['material','manoobra'].includes(col) || !findReg(reg)) continue;
+    const allowed = col === 'material' ? MAT_F : MO_F, upd = {};
+    for (const [k,v] of Object.entries(c.campos || {})) if (allowed.includes(k)) upd[k] = (['importe','horas','costeHora'].includes(k) ? (has(v) ? n(v) : { __del:true }) : String(v ?? ''));
+    for (const k in upd) if (upd[k] && upd[k].__del) { delete upd[k]; upd[k] = null; }
+    if (Object.keys(upd).length){ await db.doc(reg).update(upd); touched.add(reg); }
+  }
+  for (const reg of (Array.isArray(r.borrar) ? r.borrar : [])){ const [col] = String(reg).split('/'); if (['material','manoobra'].includes(col) && findReg(reg)) { await db.doc(reg).delete(); touched.add(reg); } }
+  await db.doc('preguntas/'+q.id).update({ aplicado:true, resultado:String(r.comentario||'') });
+  const reg = q.registro;
+  if (reg && findReg(reg) && !S.preguntas.some(x => x.id !== q.id && x.registro === reg && x.estado !== 'respondida')) { try { await db.doc(reg).update({ revisar:false }); } catch(e){} }
+}
+document.addEventListener('click', async e => {
+  const send = e.target.closest('button[data-send]');
+  if (send){
+    const id = send.dataset.send, ta = document.querySelector(`textarea[data-q="${id}"]`), st = $('st-'+id);
+    const txt = ta.value.trim(); if (!txt || !db) return;
+    const q = S.preguntas.find(x => x.id === id);
+    send.disabled = true; st.textContent = sample ? 'Guardando y aplicando…' : 'Guardando…';
+    try {
+      await db.doc('preguntas/'+id).update({ respuesta:txt, estado:'respondida', respondida:nowIso() });
+      delete drafts[id];
+      if (q) applyAnswer({ ...q }, txt).catch(() => {});
+    } catch(err){ st.textContent = 'No se pudo guardar la respuesta. Prueba otra vez.'; st.classList.add('err'); send.disabled = false; }
+    return;
+  }
+  const go = e.target.closest('button[data-goq]');
+  if (go){ const el = $('q-'+go.dataset.goq); if (el){ el.scrollIntoView({block:'center'}); el.classList.remove('flash'); void el.offsetWidth; el.classList.add('flash'); el.querySelector('textarea')?.focus({preventScroll:true}); } return; }
+  const dd = e.target.closest('button[data-deldoc]');
+  if (dd){
+    const id = dd.dataset.deldoc, d = S.documentos.find(x => x.id === id); if (!d || !db) return;
+    const mats = S.material.filter(r => r.docId === id), mos = S.manoobra.filter(r => r.docId === id), qs = S.preguntas.filter(q => q.docId === id);
+    if (!dd.dataset.armed){ dd.dataset.armed = '1'; dd.classList.add('danger'); dd.textContent = (mats.length + mos.length) ? `¿Eliminar con sus ${mats.length + mos.length} líneas?` : '¿Seguro?'; setTimeout(() => { if (dd.isConnected){ delete dd.dataset.armed; dd.classList.remove('danger'); dd.textContent = 'Eliminar'; } }, 4000); return; }
+    dd.disabled = true; dd.textContent = 'Eliminando…';
+    try {
+      for (const r of mats) await db.doc('material/' + r.id).delete();
+      for (const r of mos) await db.doc('manoobra/' + r.id).delete();
+      for (const q of qs) await db.doc('preguntas/' + q.id).delete();
+      if (d.assetId && assets && !S.documentos.some(x => x.id !== id && x.assetId === d.assetId)) { try { await assets.delete(d.assetId); } catch(err){} }
+      await db.doc('documentos/' + id).delete();
+      delete fileByDoc[id];
+      bar(`Eliminado ${d.nombre}` + ((mats.length + mos.length) ? ` y sus ${mats.length + mos.length} líneas` : ''));
+    } catch(err){ bar('No se pudo eliminar el documento. Prueba otra vez.', true); dd.disabled = false; dd.textContent = 'Eliminar'; }
+    return;
+  }
+  const rt = e.target.closest('button[data-retry]');
+  if (rt){ rt.disabled = true; retryDoc(rt.dataset.retry); return; }
+  const ed = e.target.closest('button[data-edit]');
+  if (ed){ editing = ed.dataset.edit; editDraft = {}; render(); const first = document.querySelector('tr.editing input'); first && first.focus(); return; }
+  if (e.target.closest('button[data-canceledit]')){ editing = null; editDraft = {}; render(); return; }
+  if (e.target.closest('button[data-saveedit]')){ saveEdit(); return; }
+  const del = e.target.closest('button[data-del]');
+  if (del){
+    if (!del.dataset.armed){ del.dataset.armed='1'; del.textContent='¿Seguro?'; del.classList.add('danger'); setTimeout(()=>{ if (del.isConnected){ delete del.dataset.armed; del.textContent='Borrar'; del.classList.remove('danger'); } },3000); return; }
+    try { await db.doc(del.dataset.del).delete(); } catch(err){}
+  }
+});
+
+// ---------- render ----------
+const byFecha = (a,b) => String(b.fecha||'').localeCompare(String(a.fecha||''));
+function setOptions(sel, opts){ const v=sel.value; sel.innerHTML = opts.map(([val,lab])=>`<option value="${esc(val)}">${esc(lab)}</option>`).join(''); if (opts.some(o=>o[0]===v)) sel.value=v; }
+function revCell(col, r){
+  const open = qFor(col, r.id).filter(q=>q.estado!=='respondida');
+  if (open.length) return `<button class="pill rev" data-goq="${esc(open[0].id)}">Revisar</button>`;
+  if (r.revisar) return `<span class="pill rev">Revisar</span>`;
+  return '';
+}
+const docLink = (name, assetId) => assetId ? `<a href="/_blob/${esc(assetId)}" target="_blank" rel="noopener">${esc(name)}</a>` : esc(name||'');
+const docCell = r => `<td class="doc">${docLink(r.documento, r.assetId)}</td>`;
+const delBtn = path => `<button class="ghost" data-del="${esc(path)}">Borrar</button>`;
+const editBtn = path => `<button class="ghost" data-edit="${esc(path)}">Editar</button>`;
+const ED_LABEL = { fecha:'Fecha', proveedor:'Proveedor', numero:'Nº albarán', concepto:'Concepto', importe:'Importe base (€)', operario:'Operario', horas:'Horas', costeHora:'€/hora', };
+function editRow(col, r, span){
+  const F = col === 'material' ? MAT_F : MO_F;
+  const val = f => f in editDraft ? editDraft[f] : (has(r[f]) ? (typeof r[f] === 'number' ? String(r[f]).replace('.', ',') : r[f]) : '');
+  const inp = f => {
+    const type = f === 'fecha' ? 'date' : 'text', im = ['importe','horas','costeHora'].includes(f) ? ' inputmode="decimal"' : '';
+    const lab = col === 'manoobra' && f === 'importe' ? 'Coste total (€, vacío = horas × €/h)' : col === 'manoobra' && f === 'concepto' ? 'Trabajo' : ED_LABEL[f];
+    return `<label class="${f==='concepto'?'wide':''}" for="ed-${f}">${esc(lab)}<input class="f" id="ed-${f}" data-ef="${f}" type="${type}"${im} value="${esc(val(f))}"></label>`;
+  };
+  return `<tr class="editing"><td colspan="${span}"><div class="edit-grid">${F.map(inp).join('')}</div><div class="actions"><button class="primary" data-saveedit>Guardar cambios</button><button data-canceledit>Cancelar</button><span class="status" id="editSt"></span></div></td></tr>`;
+}
+async function saveEdit(){
+  if (!editing || !db) return;
+  const col = editing.split('/')[0], F = col === 'material' ? MAT_F : MO_F, upd = {};
+  for (const f of F){ const el = $('ed-' + f); if (!el) continue; upd[f] = ['importe','horas','costeHora'].includes(f) ? parseNum(el.value) : el.value.trim(); }
+  if (col === 'material' && upd.importe === null) upd.importe = 0;
+  if (col === 'manoobra' && upd.horas === null) upd.horas = 0;
+  upd.revisar = false; upd.editado = nowIso();
+  const btn = document.querySelector('button[data-saveedit]'); if (btn) btn.disabled = true;
+  try { await db.doc(editing).update(upd); editing = null; editDraft = {}; render(); bar('Cambios guardados a las ' + hhmm()); }
+  catch(e){ const st = $('editSt'); if (st){ st.textContent = 'No se pudo guardar. Prueba otra vez.'; st.classList.add('err'); } if (btn) btn.disabled = false; }
+}
+document.addEventListener('input', e => { if (e.target.dataset && e.target.dataset.ef) editDraft[e.target.dataset.ef] = e.target.value; });
+document.addEventListener('keydown', e => { if (!e.target.dataset || !e.target.dataset.ef) return; if (e.key === 'Enter'){ e.preventDefault(); saveEdit(); } if (e.key === 'Escape'){ editing = null; editDraft = {}; render(); } });
+
+function render(){
+  const ae = document.activeElement, aeId = ae && ae.id && ae.id.startsWith('ed-') ? ae.id : null;
+  let selS = null; try { selS = aeId ? ae.selectionStart : null; } catch(e){}
+  renderAll();
+  if (aeId && $(aeId)){ const el = $(aeId); el.focus(); try { if (selS != null) el.setSelectionRange(selS, selS); } catch(e){} }
+  const ti = $('tarifaIn'); if (ti && document.activeElement !== ti) ti.value = has(S.obra.tarifaHora) ? String(S.obra.tarifaHora).replace('.', ',') : '';
+}
+function renderAll(){
+  const o = S.obra;
+  $('obraNombre').textContent = o.nombre || 'Costes de obra';
+  $('obraMeta').textContent = [o.cliente, o.ref].filter(Boolean).join(' · ');
+
+  const mat = S.material.reduce((s,r)=>s+n(r.importe),0);
+  const mo = S.manoobra.reduce((s,r)=>s+moImp(r),0);
+  const hrs = S.manoobra.reduce((s,r)=>s+n(r.horas),0);
+  const total = mat + mo;
+  const oq = openQ();
+  $('kpis').innerHTML = `
+    <div class="kpi"><span class="k">Coste total</span><span class="v">${eur.format(total)}</span>
+      <div class="split-bar" title="Material ${eur.format(mat)} · Operarios ${eur.format(mo)}"><span style="width:${total?mat/total*100:0}%;background:var(--mat)"></span><span style="width:${total?mo/total*100:0}%;background:var(--mo)"></span></div></div>
+    <div class="kpi"><span class="k"><i class="dot" style="background:var(--mat)"></i>Material</span><span class="v">${eur.format(mat)}</span><span class="s">${S.material.length} líneas${total?' · '+Math.round(mat/total*100)+' %':''}</span></div>
+    <div class="kpi"><span class="k"><i class="dot" style="background:var(--mo)"></i>Operarios</span><span class="v">${eur.format(mo)}</span><span class="s">${num.format(hrs)} h${hrs?' · '+eur.format(mo/hrs)+'/h medio':''}</span></div>
+    <div class="kpi${oq.length?' alert':''}"><span class="k">Por revisar</span><span class="v">${oq.length}</span><span class="s">${oq.length?'Preguntas esperando tu respuesta':'Nada pendiente'}</span></div>`;
+
+  // preguntas
+  $('qCard').hidden = S.preguntas.length === 0;
+  const focused = document.activeElement?.dataset?.q;
+  $('qOpen').innerHTML = oq.length ? oq.sort((a,b)=>String(a.creada||'').localeCompare(String(b.creada||''))).map(q => `
+    <div class="qitem" id="q-${esc(q.id)}">
+      <span class="ref">${esc(regLabel(q.registro, q.docId))}</span>
+      <p class="txt">${esc(q.texto)}</p>
+      <textarea id="ta-${esc(q.id)}" data-q="${esc(q.id)}" aria-label="Respuesta" placeholder="Escribe tu respuesta">${esc(drafts[q.id]||'')}</textarea>
+      <div class="actions"><button class="primary" data-send="${esc(q.id)}">Responder</button><span class="status" id="st-${esc(q.id)}"></span></div>
+    </div>`).join('') : `<p class="hint">No hay preguntas pendientes.</p>`;
+  if (focused && $('ta-'+focused)) { const t=$('ta-'+focused); t.focus(); t.setSelectionRange(t.value.length,t.value.length); }
+  const done = S.preguntas.filter(q=>q.estado==='respondida').sort((a,b)=>String(b.respondida||'').localeCompare(String(a.respondida||'')));
+  $('qDoneWrap').hidden = !done.length;
+  $('qDoneSum').textContent = `${done.length} respondidas`;
+  $('qDone').innerHTML = done.map(q => `<div class="qitem"><span class="ref">${esc(regLabel(q.registro, q.docId))}</span><p class="txt">${esc(q.texto)}</p><p class="ans">${esc(q.respuesta)}</p>${q.aplicado?`<p class="res"><span class="pill ok">Corregido</span> ${esc(q.resultado||'')}</p>`:q.resultado?`<p class="res"><span class="pill err">Pendiente</span> ${esc(q.resultado)}</p>`:'<p class="res">Aplicando…</p>'}</div>`).join('');
+
+  // material
+  setOptions($('fProv'), [['*','Todos los proveedores'], ...[...new Set(S.material.map(r=>r.proveedor).filter(Boolean))].sort((a,b)=>a.localeCompare(b,'es')).map(p=>[p,p])]);
+  const fp = $('fProv').value;
+  const ms = S.material.filter(r => (!fp || fp==='*' || r.proveedor===fp) && matches($('qMat').value, r.proveedor, r.numero, r.concepto, r.documento, fmtDate(r.fecha))).sort(byFecha);
+  const mT = ms.reduce((s,r)=>s+n(r.importe),0);
+  $('tblMat').innerHTML = ms.length ? `<thead><tr><th>Fecha</th><th>Proveedor</th><th>Nº albarán</th><th>Concepto</th><th class="n">Importe</th><th>Documento</th><th></th><th></th></tr></thead><tbody>${
+    matRows(ms, r=>{ if (editing === 'material/'+r.id) return editRow('material', r, 8); const rc = revCell('material',r); return `<tr class="${rc?'rev':''}"><td class="code">${fmtDate(r.fecha)}</td><td>${esc(r.proveedor)}</td><td class="code">${esc(r.numero)}</td><td>${esc(r.concepto)}</td><td class="n">${eur.format(n(r.importe))}</td>${docCell(r)}<td>${rc}</td><td class="n">${editBtn('material/'+r.id)}${delBtn('material/'+r.id)}</td></tr>`; })
+  }<tr class="tot"><td colspan="4">${ms.length} líneas${ms.length !== S.material.length ? ' (filtradas)' : ''}</td><td class="n">${eur.format(mT)}</td><td colspan="3"></td></tr></tbody>`
+  : `<tbody><tr><td><div class="empty">Todavía no hay material. Importa los albaranes arriba y aparecerán aquí.</div></td></tr></tbody>`;
+
+  // operarios
+  const names = [...new Set(S.manoobra.map(r=>r.operario).filter(Boolean))].sort((a,b)=>a.localeCompare(b,'es'));
+  setOptions($('fOp'), [['*','Todos los operarios'], ...names.map(p=>[p,p])]);
+  const agg = {}; for (const r of S.manoobra){ const k=r.operario||'(sin nombre)'; agg[k]=agg[k]||{h:0,t:0}; agg[k].h+=n(r.horas); agg[k].t+=moImp(r); }
+  const av = Object.entries(agg).sort((a,b)=>b[1].t-a[1].t);
+  $('tblOpRes').innerHTML = av.length ? `<thead><tr><th>Operario</th><th class="n">Horas</th><th class="n">€/h medio</th><th class="n">Coste</th></tr></thead><tbody>${av.map(([k,v])=>`<tr><td>${esc(k)}</td><td class="n">${num.format(v.h)}</td><td class="n">${v.h?eur.format(v.t/v.h):'—'}</td><td class="n">${eur.format(v.t)}</td></tr>`).join('')}<tr class="tot"><td>Total</td><td class="n">${num.format(hrs)}</td><td class="n">${hrs?eur.format(mo/hrs):'—'}</td><td class="n">${eur.format(mo)}</td></tr></tbody>` : '';
+  $('tblOpRes').parentElement.hidden = !av.length;
+  const fo = $('fOp').value;
+  const hs = S.manoobra.filter(r => (!fo || fo==='*' || r.operario===fo) && matches($('qOp').value, r.operario, r.concepto, r.documento, fmtDate(r.fecha))).sort(byFecha);
+  const hT = hs.reduce((s,r)=>s+moImp(r),0), hH = hs.reduce((s,r)=>s+n(r.horas),0);
+  $('tblOp').innerHTML = hs.length ? `<thead><tr><th>Fecha</th><th>Operario</th><th>Trabajo</th><th class="n">Horas</th><th class="n">€/h</th><th class="n">Coste</th><th>Documento</th><th></th><th></th></tr></thead><tbody>${
+    hs.map(r=>{ if (editing === 'manoobra/'+r.id) return editRow('manoobra', r, 9); const rc = revCell('manoobra',r); return `<tr class="${rc?'rev':''}"><td class="code">${fmtDate(r.fecha)}</td><td>${esc(r.operario)}</td><td>${esc(r.concepto)}</td><td class="n">${num.format(n(r.horas))}</td><td class="n">${eur.format(costeH(r))}</td><td class="n">${eur.format(moImp(r))}</td>${docCell(r)}<td>${rc}</td><td class="n">${editBtn('manoobra/'+r.id)}${delBtn('manoobra/'+r.id)}</td></tr>`; }).join('')
+  }<tr class="tot"><td colspan="3">${hs.length} partes</td><td class="n">${num.format(hH)}</td><td></td><td class="n">${eur.format(hT)}</td><td colspan="3"></td></tr></tbody>`
+  : `<tbody><tr><td><div class="empty">Todavía no hay horas de operarios. Importa los partes arriba y aparecerán aquí.</div></td></tr></tbody>`;
+
+  renderResumen();
+
+  // documentos
+  const ds = [...S.documentos].sort((a,b)=>String(b.subido||'').localeCompare(String(a.subido||'')));
+  const est = d => d.estado==='hecho' ? `<span class="pill ok">Analizado</span>` : d.estado==='error' ? `<span class="pill err">Error</span>` : d.estado==='pendiente' ? `<span class="pill rev">Pendiente</span>` : `<span class="pill rev">Analizando</span>`;
+  $('tblDocs').innerHTML = ds.length ? `<thead><tr><th>Subido</th><th>Documento</th><th>Estado</th><th></th><th>Resumen</th><th class="n">Material</th><th class="n">Operarios</th></tr></thead><tbody>${
+    ds.map(d=>`<tr><td class="code">${fmtDate(d.subido)}</td><td>${docLink(d.nombre, d.assetId)}</td><td>${est(d)}${['error','pendiente'].includes(d.estado) ? ` <button class="ghost" data-retry="${esc(d.id)}">Reintentar</button>` : ''}</td><td class="n"><button class="ghost" data-deldoc="${esc(d.id)}">Eliminar</button></td><td>${esc(d.resumen || d.error || '')}</td><td class="n">${d.nMaterial ?? ''}</td><td class="n">${d.nOperarios ?? ''}</td></tr>`).join('')
+  }</tbody>` : `<tbody><tr><td><div class="empty">Aún no has importado ningún documento.</div></td></tr></tbody>`;
+}
+
+// ---------- barra: actualizar, guardar, exportar ----------
+const COLS = ['material','manoobra','preguntas','documentos'];
+function bar(msg, err){ const el = $('barStatus'); el.textContent = msg || ''; el.classList.toggle('err', !!err); }
+const hhmm = () => new Date().toLocaleTimeString('es-ES',{hour:'2-digit',minute:'2-digit'});
+async function reload(){
+  const [o, ...cs] = await Promise.all([db.doc('obra/info').get(), ...COLS.map(c => db.collection(c).get())]);
+  S.obra = o.exists ? o.data() : {};
+  COLS.forEach((c,i) => { S[c] = cs[i].docs.map(d => ({ id:d.id, ...d.data() })); });
+  render();
+}
+$('btnRefresh').onclick = async e => {
+  if (!db) return; const b = e.currentTarget; b.disabled = true; bar('Actualizando…');
+  try { await reload(); bar('Actualizado a las ' + hhmm()); } catch(err){ bar('No se pudo actualizar. Prueba otra vez.', true); }
+  b.disabled = false;
+};
+$('btnSave').onclick = async e => {
+  if (!db) return; const b = e.currentTarget; b.disabled = true; bar(jobs.some(j => !j.cls) ? 'Esperando a que terminen las importaciones…' : 'Guardando…');
+  try { await queue; await reload(); bar(`Guardado a las ${hhmm()}: ${S.material.length} de material y ${S.manoobra.length} de operarios`); }
+  catch(err){ bar('No se pudo confirmar el guardado. Prueba otra vez.', true); }
+  b.disabled = false;
+};
+const totals = () => { const mat = S.material.reduce((s,r)=>s+n(r.importe),0), mo = S.manoobra.reduce((s,r)=>s+moImp(r),0), hrs = S.manoobra.reduce((s,r)=>s+n(r.horas),0); return { mat, mo, hrs, total: mat+mo }; };
+const porOperario = () => { const a = {}; for (const r of S.manoobra){ const k = r.operario || '(sin nombre)'; a[k] = a[k] || { h:0, t:0 }; a[k].h += n(r.horas); a[k].t += moImp(r); } return Object.entries(a).sort((x,y)=>y[1].t-x[1].t); };
+const fileBase = () => 'costes-' + (S.obra.nombre || 'obra').normalize('NFD').replace(/[̀-ͯ]/g,'').replace(/[^\w]+/g,'-').replace(/^-|-$/g,'').toLowerCase() + '-' + today();
+const r2 = v => Math.round(n(v)*100)/100;
+async function deliver(filename, data, btn, label){
+  if (!downloads){ bar('Esta vista no permite descargar archivos.', true); return; }
+  try { await downloads.save({ filename, data }); bar('Exportado ' + filename); }
+  catch(e){ if (!(e && e.code === 'declined')) bar('No se pudo exportar. Prueba otra vez.', true); }
+}
+$('btnXls').onclick = async e => {
+  const b = e.currentTarget; b.disabled = true; bar('Preparando Excel…');
+  try {
+    await ensureXlsx();
+    const t = totals(), wb = XLSX.utils.book_new();
+    const res = [['Obra', S.obra.nombre || ''], ['Cliente', S.obra.cliente || ''], ['Fecha', today()], [], ['Concepto','Importe (€)'], ['Material (base sin IGIC)', r2(t.mat)], ['Operarios', r2(t.mo)], ['Coste total', r2(t.total)], [], ['Horas totales', r2(t.hrs)], ['Pendientes de revisar', openQ().length]];
+    const ws0 = XLSX.utils.aoa_to_sheet(res); ws0['!cols'] = [{wch:28},{wch:16}];
+    XLSX.utils.book_append_sheet(wb, ws0, 'Resumen');
+    const m = [['Fecha','Proveedor','Nº albarán','Concepto','Importe base (€)','Documento','Revisar'], ...[...S.material].sort(byFecha).reverse().map(r=>[fmtDate(r.fecha), r.proveedor||'', r.numero||'', r.concepto||'', r2(r.importe), r.documento||'', r.revisar?'Sí':''])];
+    const ws1 = XLSX.utils.aoa_to_sheet(m); ws1['!cols'] = [{wch:11},{wch:26},{wch:14},{wch:44},{wch:16},{wch:28},{wch:8}];
+    XLSX.utils.book_append_sheet(wb, ws1, 'Material');
+    const h = [['Fecha','Operario','Trabajo','Horas','Coste/hora (€)','Coste (€)','Documento','Revisar'], ...[...S.manoobra].sort(byFecha).reverse().map(r=>[fmtDate(r.fecha), r.operario||'', r.concepto||'', r2(r.horas), r2(costeH(r)), r2(moImp(r)), r.documento||'', r.revisar?'Sí':''])];
+    const ws2 = XLSX.utils.aoa_to_sheet(h); ws2['!cols'] = [{wch:11},{wch:24},{wch:40},{wch:8},{wch:14},{wch:12},{wch:28},{wch:8}];
+    XLSX.utils.book_append_sheet(wb, ws2, 'Operarios');
+    const po = [['Operario','Horas','€/h medio','Coste (€)'], ...porOperario().map(([k,v])=>[k, r2(v.h), v.h?r2(v.t/v.h):'', r2(v.t)])];
+    XLSX.utils.book_append_sheet(wb, XLSX.utils.aoa_to_sheet(po), 'Por operario');
+    await deliver(fileBase() + '.xlsx', XLSX.write(wb, { type:'array', bookType:'xlsx' }));
+  } catch(err){ bar('No se pudo preparar el Excel.', true); }
+  b.disabled = false;
+};
+$('btnPdf').onclick = async e => {
+  const b = e.currentTarget; b.disabled = true; bar('Preparando PDF…');
+  try {
+    if (!window.jspdf) await loadScript('https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js');
+    if (!window.jspdf.jsPDF.API.autoTable) await loadScript('https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.8.2/jspdf.plugin.autotable.min.js');
+    const t = totals(), doc = new window.jspdf.jsPDF({ orientation:'landscape', unit:'mm', format:'a4' });
+    const head = [[60,64,58]], acc = [176,122,0];
+    doc.setFont('helvetica','bold'); doc.setFontSize(16); doc.text('Costes de obra', 14, 16);
+    doc.setFont('helvetica','normal'); doc.setFontSize(10);
+    doc.text([S.obra.nombre, S.obra.cliente].filter(Boolean).join(' · ') || '', 14, 22);
+    doc.text('Fecha: ' + fmtDate(today()), 283, 16, { align:'right' });
+    const base = { styles:{ fontSize:8.5, cellPadding:1.6 }, headStyles:{ fillColor:head[0], textColor:255 }, footStyles:{ fillColor:[236,238,234], textColor:20, fontStyle:'bold' }, margin:{ left:14, right:14 } };
+    doc.autoTable({ ...base, startY:28, head:[['Concepto','Importe']], body:[['Material (base sin IGIC)', eur.format(t.mat)], ['Operarios (' + num.format(t.hrs) + ' h)', eur.format(t.mo)]], foot:[['Coste total', eur.format(t.total)]], tableWidth:110, columnStyles:{ 1:{ halign:'right' } } });
+    doc.setFont('helvetica','bold'); doc.setFontSize(12); doc.text('Material', 14, doc.lastAutoTable.finalY + 10);
+    const ms = [...S.material].sort(byFecha).reverse();
+    doc.autoTable({ ...base, startY:doc.lastAutoTable.finalY + 13, head:[['Fecha','Proveedor','Nº','Concepto','Importe','Documento']], body: ms.length ? ms.map(r=>[fmtDate(r.fecha), r.proveedor||'', r.numero||'', r.concepto||'', eur.format(n(r.importe)), (r.documento||'') + (r.revisar?' (revisar)':'')]) : [['','Sin material','','','','']], foot:[['', ms.length + ' albaranes', '', '', eur.format(t.mat), '']], columnStyles:{ 0:{cellWidth:20}, 2:{cellWidth:22}, 4:{ halign:'right', cellWidth:26 }, 5:{cellWidth:50} } });
+    doc.setFont('helvetica','bold'); doc.setFontSize(12); doc.text('Operarios', 14, doc.lastAutoTable.finalY + 10);
+    const hs = [...S.manoobra].sort(byFecha).reverse();
+    doc.autoTable({ ...base, startY:doc.lastAutoTable.finalY + 13, head:[['Fecha','Operario','Trabajo','Horas','€/h','Coste','Documento']], body: hs.length ? hs.map(r=>[fmtDate(r.fecha), r.operario||'', r.concepto||'', num.format(n(r.horas)), eur.format(costeH(r)), eur.format(moImp(r)), (r.documento||'') + (r.revisar?' (revisar)':'')]) : [['','Sin horas','','','','','']], foot:[['', hs.length + ' partes', '', num.format(t.hrs), '', eur.format(t.mo), '']], columnStyles:{ 0:{cellWidth:20}, 3:{ halign:'right', cellWidth:16 }, 4:{ halign:'right', cellWidth:20 }, 5:{ halign:'right', cellWidth:24 }, 6:{cellWidth:50} } });
+    const po = porOperario();
+    if (po.length) doc.autoTable({ ...base, startY:doc.lastAutoTable.finalY + 8, head:[['Operario','Horas','€/h medio','Coste']], body: po.map(([k,v])=>[k, num.format(v.h), v.h?eur.format(v.t/v.h):'', eur.format(v.t)]), tableWidth:150, columnStyles:{ 1:{halign:'right'}, 2:{halign:'right'}, 3:{halign:'right'} } });
+    const pages = doc.getNumberOfPages();
+    for (let i = 1; i <= pages; i++){ doc.setPage(i); doc.setFont('helvetica','normal'); doc.setFontSize(8); doc.setTextColor(120); doc.text(`Página ${i} de ${pages}`, 283, 203, { align:'right' }); doc.setDrawColor(...acc); doc.setLineWidth(0.6); doc.line(14, 25, 283, 25); }
+    await deliver(fileBase() + '.pdf', doc.output('arraybuffer'));
+  } catch(err){ bar('No se pudo preparar el PDF.', true); }
+  b.disabled = false;
+};
+
+// ---------- informe PDF y Excel ----------
+$('btnXls').onclick = async e => {
+  const b = e.currentTarget; b.disabled = true; bar('Preparando Excel…');
+  try {
+    await ensureXlsx();
+    const t = totals(), wb = XLSX.utils.book_new(), pv = porProveedor(), pm = porMes();
+    const res = [['Informe de costes'], ['Obra', S.obra.nombre || ''], ['Cliente', S.obra.cliente || ''], ['Referencia', S.obra.ref || ''], ['Fecha del informe', fmtDate(today())], [], ['Concepto','Importe (€)','%'], ['Material (base sin IGIC)', r2(t.mat), t.total ? r2(t.mat/t.total*100) : 0], ['Operarios', r2(t.mo), t.total ? r2(t.mo/t.total*100) : 0], ['Coste total', r2(t.total), 100], [], ['Horas totales', r2(t.hrs)], ['Tarifa mano de obra (€/h)', tarifa() ?? ''], ['Líneas de material', S.material.length], ['Partes de horas', S.manoobra.length], ['Pendientes de revisar', openQ().length]];
+    const ws0 = XLSX.utils.aoa_to_sheet(res); ws0['!cols'] = [{wch:30},{wch:16},{wch:8}];
+    XLSX.utils.book_append_sheet(wb, ws0, 'Resumen');
+    const m = [['Fecha','Proveedor','Nº albarán','Concepto','Importe base (€)','Documento','Revisar'], ...[...S.material].sort(byFecha).reverse().map(r=>[fmtDate(r.fecha), r.proveedor||'', r.numero||'', r.concepto||'', r2(r.importe), r.documento||'', r.revisar?'Sí':''])];
+    const ws1 = XLSX.utils.aoa_to_sheet(m); ws1['!cols'] = [{wch:11},{wch:26},{wch:18},{wch:50},{wch:16},{wch:30},{wch:8}]; ws1['!autofilter'] = { ref: `A1:G${m.length}` };
+    XLSX.utils.book_append_sheet(wb, ws1, 'Material');
+    const h = [['Fecha','Operario','Trabajo','Horas','Coste/hora (€)','Coste (€)','Documento','Revisar'], ...[...S.manoobra].sort(byFecha).reverse().map(r=>[fmtDate(r.fecha), r.operario||'', r.concepto||'', r2(r.horas), r2(costeH(r)), r2(moImp(r)), r.documento||'', r.revisar?'Sí':''])];
+    const ws2 = XLSX.utils.aoa_to_sheet(h); ws2['!cols'] = [{wch:11},{wch:22},{wch:40},{wch:8},{wch:14},{wch:12},{wch:30},{wch:8}]; ws2['!autofilter'] = { ref: `A1:H${h.length}` };
+    XLSX.utils.book_append_sheet(wb, ws2, 'Operarios');
+    const po = [['Operario','Horas','Días','€/h medio','Coste (€)'], ...porOperarioAll().map(([k,v])=>[k, r2(v.h), v.dias.size, v.h?r2(v.t/v.h):'', r2(v.t)])];
+    const ws3 = XLSX.utils.aoa_to_sheet(po); ws3['!cols'] = [{wch:22},{wch:8},{wch:6},{wch:12},{wch:12}];
+    XLSX.utils.book_append_sheet(wb, ws3, 'Por operario');
+    const pp = [['Proveedor','Documentos','Líneas','Importe base (€)','% del material'], ...pv.map(([k,v])=>[k, v.docs.size, v.lines, r2(v.t), t.mat ? r2(v.t/t.mat*100) : 0])];
+    const ws4 = XLSX.utils.aoa_to_sheet(pp); ws4['!cols'] = [{wch:30},{wch:11},{wch:8},{wch:16},{wch:14}];
+    XLSX.utils.book_append_sheet(wb, ws4, 'Por proveedor');
+    const mm = [['Mes','Material (€)','Operarios (€)','Horas','Total (€)'], ...pm.map(([k,v])=>[mesLargo(k), r2(v.mat), r2(v.mo), r2(v.h), r2(v.mat+v.mo)]), ['Total', r2(t.mat), r2(t.mo), r2(t.hrs), r2(t.total)]];
+    const ws5 = XLSX.utils.aoa_to_sheet(mm); ws5['!cols'] = [{wch:16},{wch:14},{wch:14},{wch:8},{wch:14}];
+    XLSX.utils.book_append_sheet(wb, ws5, 'Por mes');
+    await deliver(fileBase() + '.xlsx', XLSX.write(wb, { type:'array', bookType:'xlsx' }));
+  } catch(err){ bar('No se pudo preparar el Excel.', true); }
+  b.disabled = false;
+};
+$('btnPdf').onclick = async e => {
+  const b = e.currentTarget; b.disabled = true; bar('Preparando PDF…');
+  try {
+    if (!window.jspdf) await loadScript('https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js');
+    if (!window.jspdf.jsPDF.API.autoTable) await loadScript('https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.8.2/jspdf.plugin.autotable.min.js');
+    const t = totals(), pv = porProveedor(), pm = porMes(), ov = porOperarioAll();
+    const doc = new window.jspdf.jsPDF({ orientation:'portrait', unit:'mm', format:'a4' });
+    const W = 210, M = 14, INK = [29,35,33], MUTED = [95,106,102], LINE = [217,221,216], ACC = [176,122,0], MAT = [74,111,165], SOFT = [243,244,241];
+    const base = { styles:{ fontSize:8.5, cellPadding:1.8, textColor:INK, lineColor:LINE, lineWidth:0.1 }, headStyles:{ fillColor:INK, textColor:255, fontStyle:'bold' }, footStyles:{ fillColor:SOFT, textColor:INK, fontStyle:'bold' }, alternateRowStyles:{ fillColor:[250,250,248] }, margin:{ left:M, right:M, top:22, bottom:16 },
+      didParseCell: d => { const cs = ((d.table.styles && d.table.styles.columnStyles) || {})[d.column.index]; if (d.section !== 'body' && cs && cs.halign && !(d.cell.colSpan > 1)) d.cell.styles.halign = cs.halign; } };
+    const H2 = (txt, yy) => { doc.setFont('helvetica','bold'); doc.setFontSize(11.5); doc.setTextColor(...INK); doc.text(txt.toUpperCase(), M, yy); doc.setDrawColor(...ACC); doc.setLineWidth(0.6); doc.line(M, yy + 1.6, M + 18, yy + 1.6); return yy + 6; };
+    const nextY = (gap) => { let yy = doc.lastAutoTable.finalY + (gap || 11); if (yy > 260){ doc.addPage(); yy = 26; } return yy; };
+    // portada
+    doc.setFillColor(...INK); doc.rect(0, 0, W, 44, 'F');
+    doc.setTextColor(255); doc.setFont('helvetica','normal'); doc.setFontSize(9); doc.text('INFORME DE COSTES DE OBRA', M, 13);
+    doc.setFont('helvetica','bold'); doc.setFontSize(18); doc.text(doc.splitTextToSize(S.obra.nombre || 'Obra', W - 2*M), M, 24);
+    doc.setFont('helvetica','normal'); doc.setFontSize(9.5); doc.text([S.obra.cliente, S.obra.ref].filter(Boolean).join('  ·  '), M, 36);
+    doc.text('Fecha: ' + fmtDate(today()), W - M, 13, { align:'right' });
+    const boxes = [['Coste total', eur.format(t.total), 'base sin IGIC'], ['Material', eur.format(t.mat), (t.total ? Math.round(t.mat/t.total*100) : 0) + ' % · ' + S.material.length + ' líneas'], ['Operarios', eur.format(t.mo), num.format(t.hrs) + ' h' + (tarifa() != null ? ' · ' + eur.format(tarifa()) + '/h' : '')]];
+    const bwid = (W - 2*M - 8) / 3;
+    boxes.forEach(([k, v, s], i) => { const x = M + i * (bwid + 4); doc.setFillColor(...SOFT); doc.setDrawColor(...LINE); doc.roundedRect(x, 52, bwid, 26, 1.5, 1.5, 'FD'); doc.setFillColor(...(i === 1 ? MAT : ACC)); if (i) doc.rect(x, 52, 1.4, 26, 'F'); doc.setTextColor(...MUTED); doc.setFontSize(8); doc.setFont('helvetica','bold'); doc.text(k.toUpperCase(), x + 5, 59); doc.setTextColor(...INK); doc.setFontSize(14); doc.text(v, x + 5, 68); doc.setFont('helvetica','normal'); doc.setFontSize(8); doc.setTextColor(...MUTED); doc.text(s, x + 5, 74); });
+    // reparto material / operarios
+    const bx = M, by = 84, bl = W - 2*M; doc.setFillColor(...LINE); doc.rect(bx, by, bl, 3, 'F'); if (t.total){ doc.setFillColor(...MAT); doc.rect(bx, by, bl * t.mat / t.total, 3, 'F'); doc.setFillColor(...ACC); doc.rect(bx + bl * t.mat / t.total, by, bl * t.mo / t.total, 3, 'F'); }
+    let yy = H2('Coste por mes', 98);
+    doc.autoTable({ ...base, startY:yy, head:[['Mes','Material','Operarios','Horas','Total']], body: pm.map(([k,v]) => [mesLargo(k), eur.format(v.mat), eur.format(v.mo), num.format(v.h), eur.format(v.mat+v.mo)]), foot:[['Total', eur.format(t.mat), eur.format(t.mo), num.format(t.hrs), eur.format(t.total)]], columnStyles:{ 1:{halign:'right'}, 2:{halign:'right'}, 3:{halign:'right'}, 4:{halign:'right', fontStyle:'bold'} } });
+    yy = H2('Material por proveedor', nextY());
+    doc.autoTable({ ...base, startY:yy, head:[['Proveedor','Documentos','Líneas','Importe','%']], body: pv.map(([k,v]) => [k, v.docs.size, v.lines, eur.format(v.t), (t.mat ? Math.round(v.t/t.mat*100) : 0) + ' %']), foot:[['Total material', '', S.material.length, eur.format(t.mat), '100 %']], columnStyles:{ 1:{halign:'right'}, 2:{halign:'right'}, 3:{halign:'right'}, 4:{halign:'right'} } });
+    yy = H2('Operarios', nextY());
+    doc.autoTable({ ...base, startY:yy, head:[['Operario','Días','Horas','€/h medio','Coste']], body: ov.map(([k,v]) => [k, v.dias.size, num.format(v.h), v.h ? eur.format(v.t/v.h) : '', eur.format(v.t)]), foot:[['Total', '', num.format(t.hrs), t.hrs ? eur.format(t.mo/t.hrs) : '', eur.format(t.mo)]], columnStyles:{ 1:{halign:'right'}, 2:{halign:'right'}, 3:{halign:'right'}, 4:{halign:'right'} } });
+    const oq = openQ().length;
+    if (oq){ const y2 = nextY(8); doc.setFontSize(8.5); doc.setTextColor(...ACC); doc.text(`Hay ${oq} ${oq === 1 ? 'punto pendiente' : 'puntos pendientes'} de revisar; las cifras pueden cambiar.`, M, y2); }
+    // detalle material agrupado
+    doc.addPage(); yy = H2('Detalle de material', 26);
+    const body = [];
+    for (const [k] of pv){ const rs = S.material.filter(r => (r.proveedor || '(sin proveedor)') === k).sort(byFecha).reverse(); const st = rs.reduce((s,r)=>s+n(r.importe),0);
+      body.push([{ content:`${k}  ·  ${rs.length} ${rs.length === 1 ? 'línea' : 'líneas'}`, colSpan:3, styles:{ fontStyle:'bold', fillColor:SOFT } }, { content:eur.format(st), styles:{ fontStyle:'bold', fillColor:SOFT, halign:'right' } }]);
+      for (const r of rs) body.push([fmtDate(r.fecha), r.numero || '', (r.concepto || '') + (r.revisar ? '  (revisar)' : ''), eur.format(n(r.importe))]); }
+    doc.autoTable({ ...base, startY:yy, head:[['Fecha','Nº albarán','Concepto','Importe']], body: body.length ? body : [['', '', 'Sin material', '']], foot:[[{ content:'Total material', colSpan:3 }, { content:eur.format(t.mat), styles:{ halign:'right' } }]], alternateRowStyles:{}, columnStyles:{ 0:{cellWidth:20}, 1:{cellWidth:34}, 3:{halign:'right', cellWidth:26} } });
+    // detalle operarios
+    yy = H2('Detalle de horas', nextY(12));
+    const hs = [...S.manoobra].sort(byFecha).reverse();
+    doc.autoTable({ ...base, startY:yy, head:[['Fecha','Operario','Trabajo','Horas','€/h','Coste']], body: hs.length ? hs.map(r => [fmtDate(r.fecha), r.operario || '', (r.concepto || '') + (r.revisar ? '  (revisar)' : ''), num.format(n(r.horas)), eur.format(costeH(r)), eur.format(moImp(r))]) : [['', '', 'Sin horas', '', '', '']], foot:[['', '', hs.length + ' partes', num.format(t.hrs), '', eur.format(t.mo)]], columnStyles:{ 0:{cellWidth:20}, 1:{cellWidth:28}, 3:{halign:'right', cellWidth:14}, 4:{halign:'right', cellWidth:20}, 5:{halign:'right', cellWidth:24} } });
+    const pages = doc.getNumberOfPages();
+    for (let i = 1; i <= pages; i++){ doc.setPage(i); doc.setFont('helvetica','normal'); doc.setFontSize(7.5); doc.setTextColor(...MUTED);
+      if (i > 1){ doc.text((S.obra.nombre || '') + '  ·  Informe de costes', M, 12); doc.setDrawColor(...LINE); doc.setLineWidth(0.2); doc.line(M, 14.5, W - M, 14.5); }
+      doc.text('Importes en euros, base imponible sin IGIC. Generado el ' + fmtDate(today()) + '.', M, 290); doc.text(`Página ${i} de ${pages}`, W - M, 290, { align:'right' }); }
+    await deliver(fileBase() + '.pdf', doc.output('arraybuffer'));
+  } catch(err){ bar('No se pudo preparar el PDF.', true); }
+  b.disabled = false;
+};
+
+// ---------- pregunta a Claude ----------
+const chat = []; let chatCtl = null;
+function renderChat(){
+  if (!chat.length) return;
+  $('chatLog').innerHTML = chat.map(m => `<div class="msg ${m.k}">${esc(m.text)}</div>`).join('');
+  $('chatLog').scrollTop = $('chatLog').scrollHeight;
+}
+function dataDump(){
+  const t = totals();
+  const mat = [...S.material].sort(byFecha).reverse().map(r => [`material/${r.id}`, r.fecha||'', r.proveedor||'', r.numero||'', r.concepto||'', r2(r.importe), r.documento||''].join(' | ')).join('\n');
+  const mo = [...S.manoobra].sort(byFecha).reverse().map(r => [`manoobra/${r.id}`, r.fecha||'', r.operario||'', r.concepto||'', r2(r.horas), r2(costeH(r)), r2(moImp(r))].join(' | ')).join('\n');
+  return `Obra: ${S.obra.nombre||''} (${S.obra.cliente||''}). Importes en euros, base sin IGIC (Canarias). Tarifa mano de obra: ${tarifa() ?? 'sin definir'} €/h.
+Totales: material ${r2(t.mat)}, operarios ${r2(t.mo)} (${r2(t.hrs)} h), total ${r2(t.total)}.
+
+MATERIAL (registro | fecha | proveedor | nº | concepto | importe | documento):
+${mat || '(vacío)'}
+
+OPERARIOS (registro | fecha | operario | trabajo | horas | €/h | coste):
+${mo || '(vacío)'}`;
+}
+const chatTools = () => [
+  { name:'cambiar_registro', description:'Cambia campos de un registro existente. Material: fecha, proveedor, numero, concepto, importe. Operarios: fecha, operario, concepto, horas, costeHora, importe. Devuelve ok.', inputSchema:{ type:'object', properties:{ registro:{ type:'string', description:'material/ID o manoobra/ID' }, campos:{ type:'object' } }, required:['registro','campos'] },
+    async execute(i){ const reg = String(i.registro||''); const [col] = reg.split('/'); if (!findReg(reg)) throw new Error('No existe ' + reg); const F = col === 'material' ? MAT_F : MO_F, upd = {};
+      for (const [k,v] of Object.entries(i.campos||{})) if (F.includes(k)) upd[k] = ['importe','horas','costeHora'].includes(k) ? (has(v) ? n(v) : null) : String(v ?? '');
+      if (!Object.keys(upd).length) throw new Error('Ningún campo válido'); upd.editado = nowIso(); await db.doc(reg).update(upd); chat.push({ k:'t', text:'✓ Cambiado ' + regLabel(reg) }); renderChat(); return 'ok'; } },
+  { name:'anadir_material', description:'Añade un albarán o línea de material. importe = base sin IGIC. Devuelve el registro creado.', inputSchema:{ type:'object', properties:{ fecha:{type:'string', description:'AAAA-MM-DD'}, proveedor:{type:'string'}, numero:{type:'string'}, concepto:{type:'string'}, importe:{type:'number'} }, required:['proveedor','concepto','importe'] },
+    async execute(i){ const ref = db.collection('material').doc(); await ref.set({ fecha:String(i.fecha||''), proveedor:String(i.proveedor||''), numero:String(i.numero||''), concepto:String(i.concepto||''), importe:n(i.importe), documento:'Añadido desde preguntas', revisar:false, creado:nowIso() }); chat.push({ k:'t', text:'✓ Añadido material: ' + i.proveedor + ' ' + eur.format(n(i.importe)) }); renderChat(); return 'material/' + ref.id; } },
+  { name:'anadir_horas', description:'Añade horas de un operario. Si no se indica costeHora se usa la tarifa de la obra. Devuelve el registro creado.', inputSchema:{ type:'object', properties:{ fecha:{type:'string'}, operario:{type:'string'}, concepto:{type:'string'}, horas:{type:'number'}, costeHora:{type:'number'} }, required:['operario','horas'] },
+    async execute(i){ const ref = db.collection('manoobra').doc(); const row = { fecha:String(i.fecha||''), operario:String(i.operario||''), concepto:String(i.concepto||''), horas:n(i.horas), documento:'Añadido desde preguntas', revisar:false, creado:nowIso() }; const c = has(i.costeHora) ? n(i.costeHora) : tarifa(); if (c != null) row.costeHora = c; await ref.set(row); chat.push({ k:'t', text:'✓ Añadidas ' + num.format(row.horas) + ' h de ' + row.operario }); renderChat(); return 'manoobra/' + ref.id; } },
+  { name:'borrar_registro', description:'Borra un registro de material u operarios. Úsalo solo si el usuario lo pide claramente.', inputSchema:{ type:'object', properties:{ registro:{ type:'string' } }, required:['registro'] },
+    async execute(i){ const reg = String(i.registro||''); if (!findReg(reg)) throw new Error('No existe ' + reg); const lab = regLabel(reg); await db.doc(reg).delete(); chat.push({ k:'t', text:'✓ Borrado ' + lab }); renderChat(); return 'ok'; } },
+];
+let canTools = false;
+$('chatForm').addEventListener('submit', async e => {
+  e.preventDefault();
+  const q = $('chatIn').value.trim(); if (!q || !sample || chatCtl) return;
+  $('chatIn').value = '';
+  chat.push({ k:'u', text:q }); const ans = { k:'a', text:'Pensando…' }; chat.push(ans); renderChat();
+  const turns = [{ role:'user', content:`Eres el asistente de control de costes de esta obra. Responde en español, tuteando, breve y con cifras exactas (formato español, 1.234,56 €). Calcula a partir de los datos; no inventes nada. ${canTools ? 'Si te piden cambiar, añadir o borrar datos, usa las herramientas y luego confirma qué has hecho. Si no está claro qué registro cambiar, pregunta antes.' : 'No puedes modificar datos desde aquí: si te lo piden, explica qué habría que cambiar con el botón Editar.'}\n\nDATOS ACTUALES:\n${dataDump()}` }];
+  for (const m of chat.slice(0, -1)) if (m.k === 'u' || (m.k === 'a' && m.text && m.text !== 'Pensando…')) turns.push({ role: m.k === 'u' ? 'user' : 'assistant', content: m.text });
+  chatCtl = new AbortController(); $('chatSend').disabled = true; $('chatStop').hidden = false;
+  try {
+    const opts = { signal:chatCtl.signal, cache:false, onText:({ text }) => { ans.text = text; renderChat(); } };
+    if (canTools) opts.tools = chatTools();
+    const r = await sample(turns, opts); ans.text = r.text; if (r.truncated) ans.text += '\n(Respuesta cortada: pregunta algo más concreto.)';
+  } catch(err){ ans.text = (err && err.text) || ''; if (!(err && err.code === 'cancelled')) ans.text += (ans.text ? '\n' : '') + sampleErr(err); if (!ans.text) ans.text = 'Parado.'; }
+  chatCtl = null; $('chatSend').disabled = false; $('chatStop').hidden = true; renderChat();
+});
+$('chatIn').addEventListener('keydown', e => { if (e.key === 'Enter' && !e.shiftKey){ e.preventDefault(); $('chatForm').requestSubmit(); } });
+$('chatStop').onclick = () => chatCtl && chatCtl.abort();
+$('chatClear').onclick = () => { chat.length = 0; $('chatLog').innerHTML = '<p class="hint">Conversación borrada. Pregunta lo que quieras sobre los costes.</p>'; };
+
+$('tarifaApply').onclick = async e => {
+  if (!db) return; const v = parseNum($('tarifaIn').value);
+  if (v === null){ bar('Escribe la tarifa en €/h.', true); return; }
+  const b = e.currentTarget; b.disabled = true; bar('Aplicando ' + eur.format(v) + '/h…');
+  try {
+    await db.doc('obra/info').set({ ...S.obra, tarifaHora:v });
+    for (const r of S.manoobra) if (!has(r.costeHora) || n(r.costeHora) !== v) await db.doc('manoobra/' + r.id).update({ costeHora:v });
+    bar('Tarifa de ' + eur.format(v) + '/h aplicada a todas las horas.');
+  } catch(err){ bar('No se pudo aplicar la tarifa. Prueba otra vez.', true); }
+  b.disabled = false;
+};
+
+// ---------- boot ----------
+render();
+(async () => {
+  const use = async name => { try { return await window.claude?.use?.(name) ?? null; } catch(e){ return null; } };
+  [db, downloads, sample, assets] = await Promise.all([use('db'), use('downloads'), use('sample'), use('assets')]);
+  if (sample){ try { const lim = await sample.limits(); imgLimits = lim.images || null; canTools = !!lim.tools; } catch(e){ imgLimits = null; } }
+  $('chatCard').hidden = !sample || !db;
+  if (!downloads){ $('btnPdf').hidden = true; $('btnXls').hidden = true; }
+  if (!sample) $('impHint').textContent = 'Esta vista no puede usar Claude: los documentos se guardarán como pendientes y Claude los analizará cuando se lo pidas en el hilo.';
+  if (!db){ $('noDb').hidden = false; $('impCard').hidden = true; return; }
+  db.doc('obra/info').onSnapshot(s => { S.obra = s.exists ? s.data() : {}; render(); }, () => {});
+  for (const c of ['material','manoobra','preguntas','documentos'])
+    db.collection(c).onSnapshot(s => { S[c] = s.docs.map(d=>({ id:d.id, ...d.data() })); render(); }, () => {});
+})();
+})();
+</script>
+
+</body></html>

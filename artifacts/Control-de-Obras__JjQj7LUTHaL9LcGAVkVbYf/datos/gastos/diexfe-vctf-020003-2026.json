@@ -1,0 +1,57 @@
+{
+  "archivoNombre": "Albarán VCTF-020003-2026.pdf",
+  "concepto": "Tubo corrugado D25/D32/D50, cinta aislante y caja de empotrar",
+  "fecha": "2026-10-23",
+  "importe": 1049.48,
+  "lineas": [
+    {
+      "articulo": "AIS-CR25",
+      "cantidad": 1050,
+      "concepto": "TUBO AISCAN-CR CORRUG.DOBLE CAPA D.25 NG",
+      "importe": 336,
+      "precio": 0.32
+    },
+    {
+      "articulo": "AIS-CR32",
+      "cantidad": 1000,
+      "concepto": "TUBO AISCAN-CR CORRUG.DOBLE CAPA D.32 NG",
+      "importe": 498,
+      "precio": 0.498
+    },
+    {
+      "articulo": "AIS-CR50",
+      "cantidad": 175,
+      "concepto": "TUBO AISCAN-CR CORRUG.DOBLE CAPA D.50 NG",
+      "importe": 183.05,
+      "precio": 1.046
+    },
+    {
+      "articulo": "PLY-5248",
+      "cantidad": 7,
+      "concepto": "CINTA ELECT.PVC N-10 25MX25X0,13MM BL.",
+      "importe": 9.91,
+      "precio": 1.416
+    },
+    {
+      "articulo": "PLY-5245",
+      "cantidad": 4,
+      "concepto": "CINTA ELECT.PVC N-10 25MX25X0,13MM NG.",
+      "importe": 5.66,
+      "precio": 1.416
+    },
+    {
+      "articulo": "CMC-350C10",
+      "cantidad": 1,
+      "concepto": "CAJA DE EMPOTRAR PT10 516X200X90 FG10220",
+      "importe": 16.86,
+      "precio": 16.857
+    }
+  ],
+  "numero": "VCTF-020003-2026",
+  "obraId": "edificio-domingo",
+  "obraMencionada": "EDIF DOMINGO EL PASO",
+  "proveedor": "Diexfe",
+  "subido": "2026-10-27T22:45:00Z",
+  "tipo": "albaran",
+  "total": 1082.26
+}

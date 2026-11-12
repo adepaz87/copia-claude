@@ -1,0 +1,19 @@
+{
+  "actualizada": "2026-05-22T09:00:00Z",
+  "aviso": "",
+  "centro": "SPAR Triana",
+  "creada": "2026-05-22T09:00:00Z",
+  "descripcion": "Instalación de enchufe para la báscula nueva.",
+  "estado": "terminada",
+  "fechaAviso": "2026-05-22",
+  "historial": [
+    "22/05/2026 · Importada del correo de Alberto"
+  ],
+  "informado": true,
+  "notas": "Resuelta el 22/05/2026.",
+  "operario": "",
+  "ot": 12,
+  "prioridad": "Sin especificar",
+  "solicitante": "",
+  "tipo": "MANTENIMIENTO"
+}

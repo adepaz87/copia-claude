@@ -1,0 +1,69 @@
+{
+  "empresa": "Instapalma",
+  "fecha": "2026-04-21",
+  "lineas": [
+    {
+      "a": "32.068/003",
+      "d": "FUSIBLE D02 63A Cobr Neozed",
+      "f": "2026-04-17",
+      "fab": "PRO-2212005",
+      "i": 62.88,
+      "o": "42 VIVIENDAS",
+      "pn": 1.048,
+      "pt": 1.048,
+      "q": 60,
+      "r": "2212005"
+    },
+    {
+      "a": "32.068/003",
+      "d": "DOWN SP LD RED.18W BL.40K 22CM",
+      "f": "2026-04-17",
+      "fab": "RBL-LPANELSR18F",
+      "i": 8.76,
+      "o": "42 VIVIENDAS",
+      "pn": 8.76,
+      "pt": 8.68,
+      "q": 1,
+      "r": "59284567"
+    },
+    {
+      "a": "181.831/018",
+      "d": "RELE 24V DC 8A 40.52",
+      "f": "2026-04-17",
+      "fab": "FIN-405290240000PA",
+      "i": 5.14,
+      "o": "OBRA MATEDAREO INSULAR",
+      "pn": 5.14,
+      "pt": 5.14,
+      "q": 1,
+      "r": "37553"
+    },
+    {
+      "a": "181.865/018",
+      "d": "GRAPA DE CONEXIÓN 14.6",
+      "f": "2026-04-21",
+      "fab": "MOR-200000",
+      "i": 1.65,
+      "o": "OBRA TUNEL (CARLOS ACOSTA)",
+      "pn": 1.65,
+      "pt": 1.646,
+      "q": 1,
+      "r": "5035"
+    },
+    {
+      "a": "181.865/018",
+      "d": "KG COBRE DESNUDO 35 1MT=0,32Kg CABLE",
+      "f": "2026-04-21",
+      "i": 53.12,
+      "o": "OBRA TUNEL (CARLOS ACOSTA)",
+      "pn": 17.7067,
+      "pt": 17.708,
+      "q": 3,
+      "r": "1193"
+    }
+  ],
+  "numero": "91690526",
+  "origen": "Gmail",
+  "proveedor": "Coelca",
+  "tipo": "factura"
+}

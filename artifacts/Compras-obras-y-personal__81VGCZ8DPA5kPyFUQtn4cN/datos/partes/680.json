@@ -1,0 +1,50 @@
+{
+  "albs": [
+    "Ayumar 4-1171"
+  ],
+  "cliente": "RAYCO PAZ",
+  "desc": "Instalar, cablear y conectar gateway.\nConectar inversor.\nInstalar diflex.\nInstalar y comprobar conectores RJ45.\nDesmontar aparamenta vieja (meter, toroidales…)",
+  "devol": [],
+  "estado": "TERMINADO",
+  "fecha": "2026-10-13",
+  "horas": 8,
+  "obra": "FV RAYCO",
+  "ops": [
+    {
+      "h": 8,
+      "n": "Jonathan Glez"
+    }
+  ],
+  "stock": [
+    {
+      "d": "cable 1x10mm",
+      "q": 8,
+      "u": "m"
+    },
+    {
+      "d": "conectores RJ45",
+      "q": 2,
+      "u": ""
+    },
+    {
+      "d": "punteras de 1x16mm",
+      "q": 16,
+      "u": ""
+    },
+    {
+      "d": "terminales redondos de 16mm",
+      "q": 4,
+      "u": ""
+    },
+    {
+      "d": "punteras de 1x10mm",
+      "q": 4,
+      "u": ""
+    },
+    {
+      "d": "terminales redondos de 10mm",
+      "q": 2,
+      "u": ""
+    }
+  ]
+}

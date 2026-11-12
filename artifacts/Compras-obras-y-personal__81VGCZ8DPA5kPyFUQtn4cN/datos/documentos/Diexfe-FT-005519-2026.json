@@ -1,0 +1,22 @@
+{
+  "empresa": "Kairos Supply",
+  "fecha": "2026-09-25",
+  "lineas": [
+    {
+      "a": "VCTF-018100-2026",
+      "d": "SAI MASTERYS BC+ 20KVA UPS 3/3 400V PF=1 CON BATERÍA INTEGRADA Y",
+      "dto": "0,00",
+      "f": "2026-09-25",
+      "i": 5411,
+      "o": "HOTEL MONTEREY",
+      "pn": 5411,
+      "pt": 5411,
+      "q": 1,
+      "r": "SOC-U4BC02CB00NY100"
+    }
+  ],
+  "numero": "FT-005519-2026",
+  "origen": "Gmail",
+  "proveedor": "Diexfe",
+  "tipo": "factura"
+}

@@ -1,0 +1,112 @@
+{
+  "albs": [
+    "Sonepar a 309004472",
+    "Diexfe 014310",
+    "Diexfe 012237"
+  ],
+  "cliente": "CONSTRUCCIONES DOMINGO",
+  "desc": "Material obra casa el pollo",
+  "devol": [],
+  "estado": "TERMINADO",
+  "fecha": "2026-09-09",
+  "horas": 0,
+  "obra": "CASA EL POLLO",
+  "ops": [
+    {
+      "h": 0,
+      "n": "Aythami"
+    }
+  ],
+  "stock": [
+    {
+      "d": "cuadro empotrar 54 elementos",
+      "q": 1,
+      "u": ""
+    },
+    {
+      "d": "registros pt8",
+      "q": 2,
+      "u": ""
+    },
+    {
+      "d": "registros pt10",
+      "q": 1,
+      "u": ""
+    },
+    {
+      "d": "registro teleco",
+      "q": 1,
+      "u": ""
+    },
+    {
+      "d": "royos de tubo de 32",
+      "q": 2,
+      "u": ""
+    },
+    {
+      "d": "royo tubo 40",
+      "q": 1,
+      "u": ""
+    },
+    {
+      "d": "royos tubo 20",
+      "q": 2,
+      "u": ""
+    },
+    {
+      "d": "royos tubo de 25",
+      "q": 4,
+      "u": ""
+    },
+    {
+      "d": "cable 6mm",
+      "q": 36,
+      "u": "m"
+    },
+    {
+      "d": "cable 2,5",
+      "q": 1200,
+      "u": "m"
+    },
+    {
+      "d": "cable 1,5",
+      "q": 1400,
+      "u": "m"
+    },
+    {
+      "d": "cable TV",
+      "q": 60,
+      "u": "m"
+    },
+    {
+      "d": "cable datos",
+      "q": 60,
+      "u": "m"
+    },
+    {
+      "d": "tiras fichas de 16mm",
+      "q": 3,
+      "u": ""
+    },
+    {
+      "d": "tiras de fichas de 25mm",
+      "q": 2,
+      "u": ""
+    },
+    {
+      "d": "tiras de fichas de 10mm",
+      "q": 2,
+      "u": ""
+    },
+    {
+      "d": "bornas tierra de 35mm",
+      "q": 2,
+      "u": ""
+    },
+    {
+      "d": "borna tierra de 50mm",
+      "q": 1,
+      "u": ""
+    }
+  ]
+}

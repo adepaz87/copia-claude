@@ -1,0 +1,27 @@
+{
+  "albs": [],
+  "cliente": "TRAGSA",
+  "desc": "Terminar remates de bandeja.\nEnhebrar y enbridar puentes del bornero hasta disyuntor.\nEnhebrar y enbridar puentes desde disyuntor hasta cuadro general.\nInstalar terminales y conectar línea en bornero y disyuntor.\nCortar parte baja de cuadro metálico para pase de la línea.",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-09-28",
+  "horas": 12.5,
+  "obra": "FV JTI",
+  "ops": [
+    {
+      "h": 4.5,
+      "n": "Toño"
+    },
+    {
+      "h": 8,
+      "n": "Jonathan Glez"
+    }
+  ],
+  "stock": [
+    {
+      "d": "terminales plegados de 150-12",
+      "q": 12,
+      "u": ""
+    }
+  ]
+}

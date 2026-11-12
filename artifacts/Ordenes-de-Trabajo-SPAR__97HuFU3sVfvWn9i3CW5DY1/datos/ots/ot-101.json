@@ -1,0 +1,20 @@
+{
+  "actualizada": "2026-11-03T06:29:48.439Z",
+  "aviso": "",
+  "centro": "SPAR Barlovento",
+  "creada": "2026-11-03T10:00:00Z",
+  "descripcion": "A las 3 de la madrugada llamó el sistema de alarma por fallo eléctrico; estaba saltado el diferencial del sistema de seguridad.",
+  "estado": "terminada",
+  "fechaAviso": "2026-10-03",
+  "historial": [
+    "03/11/2026 · Importada de la captura GIM de Raquel",
+    "3/11/2026 06:29 · Estado: Terminada"
+  ],
+  "informado": false,
+  "notas": "GIM: «OT no generada». Comprobar si ya se atendió. Nº OT provisional: confirmar o cambiar.",
+  "operario": "",
+  "ot": 101,
+  "prioridad": "Alta",
+  "solicitante": "Raquel",
+  "tipo": "MANTENIMIENTO"
+}

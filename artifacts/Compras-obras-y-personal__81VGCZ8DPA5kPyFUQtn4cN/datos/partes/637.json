@@ -1,0 +1,63 @@
+{
+  "albs": [],
+  "cliente": "TRAGSA",
+  "desc": "Elaboración en cuadro General del Centro cableado conexionado para diferencial y equipo medida FV.editados",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-10-06",
+  "horas": 5,
+  "obra": "CENTRO VISITANTES FV.",
+  "ops": [
+    {
+      "h": 5,
+      "n": "Toño"
+    }
+  ],
+  "stock": [
+    {
+      "d": "Cable 1x1,5mm",
+      "q": 22,
+      "u": "m"
+    },
+    {
+      "d": "Cable 1x6mm",
+      "q": 7,
+      "u": "m"
+    },
+    {
+      "d": "Punteras simples 6mm",
+      "q": 8,
+      "u": ""
+    },
+    {
+      "d": "Punteras simples 1,5mm",
+      "q": 34,
+      "u": ""
+    },
+    {
+      "d": "Punteras dobles 1,5mm",
+      "q": 2,
+      "u": ""
+    },
+    {
+      "d": "Diferencial Circutor regulable",
+      "q": 1,
+      "u": ""
+    },
+    {
+      "d": "Trafo diferencial Circutor WGC 80",
+      "q": 1,
+      "u": ""
+    },
+    {
+      "d": "Bridas 2,5x100mm",
+      "q": 85,
+      "u": ""
+    },
+    {
+      "d": "bridas 4,5x300mm",
+      "q": 8,
+      "u": ""
+    }
+  ]
+}

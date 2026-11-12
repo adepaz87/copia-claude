@@ -1,0 +1,82 @@
+{
+  "albs": [],
+  "cliente": "CHICHO DOS TUMBOS",
+  "desc": "Entubar para acometida y para tierra \nColocación de registro \nHacer cuadro y rotular \nColocación de pica \nRegistrar",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-09-30",
+  "horas": 16,
+  "obra": "VIVIENDAS EL TANQUE",
+  "ops": [
+    {
+      "h": 8,
+      "n": "Manuel"
+    },
+    {
+      "h": 8,
+      "n": "Juan"
+    }
+  ],
+  "stock": [
+    {
+      "d": "cable tierra de 1x10 rz1",
+      "q": 15,
+      "u": "m"
+    },
+    {
+      "d": "punteras de 25mm",
+      "q": 4,
+      "u": ""
+    },
+    {
+      "d": "punteras dobles de 10mm",
+      "q": 4,
+      "u": ""
+    },
+    {
+      "d": "punteras de 6mm",
+      "q": 36,
+      "u": ""
+    },
+    {
+      "d": "punteras  de 2,5mm",
+      "q": 26,
+      "u": ""
+    },
+    {
+      "d": "bridas de 2,5x 100",
+      "q": 52,
+      "u": ""
+    },
+    {
+      "d": "bridas de 200x3,6",
+      "q": 10,
+      "u": ""
+    },
+    {
+      "d": "triángulo eléctrico de 8x8x8",
+      "q": 1,
+      "u": ""
+    },
+    {
+      "d": "tubo de 40 rígido",
+      "q": 4,
+      "u": "m"
+    },
+    {
+      "d": "racores de 40de tubo  a diflex",
+      "q": 2,
+      "u": ""
+    },
+    {
+      "d": "diflex",
+      "q": 0.5,
+      "u": "m"
+    },
+    {
+      "d": "diflex de 25",
+      "q": 6,
+      "u": "m"
+    }
+  ]
+}

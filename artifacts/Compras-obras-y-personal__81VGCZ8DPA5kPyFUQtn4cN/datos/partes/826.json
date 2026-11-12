@@ -1,0 +1,88 @@
+{
+  "albs": [],
+  "cliente": "COVALLE",
+  "desc": "No",
+  "devol": [],
+  "estado": "TERMINADO",
+  "fecha": "2026-10-28",
+  "horas": 0,
+  "obra": "CUSDRO",
+  "ops": [
+    {
+      "h": 0,
+      "n": "Goyo"
+    }
+  ],
+  "stock": [
+    {
+      "d": "puntera 1x1,5",
+      "q": 6,
+      "u": ""
+    },
+    {
+      "d": "puntera 2,5",
+      "q": 24,
+      "u": ""
+    },
+    {
+      "d": "puntera 4",
+      "q": 28,
+      "u": ""
+    },
+    {
+      "d": "puntera 6",
+      "q": 44,
+      "u": ""
+    },
+    {
+      "d": "puntera 2x6",
+      "q": 8,
+      "u": ""
+    },
+    {
+      "d": "puntera 10",
+      "q": 24,
+      "u": ""
+    },
+    {
+      "d": "puntera16",
+      "q": 8,
+      "u": ""
+    },
+    {
+      "d": "puntera 10",
+      "q": 24,
+      "u": ""
+    },
+    {
+      "d": "puntera 16",
+      "q": 8,
+      "u": ""
+    },
+    {
+      "d": "cable 1x 16",
+      "q": 2,
+      "u": "m"
+    },
+    {
+      "d": "cable 1x10",
+      "q": 7,
+      "u": "m"
+    },
+    {
+      "d": "cable 1x6",
+      "q": 14,
+      "u": "m"
+    },
+    {
+      "d": "cable 1x2,5",
+      "q": 18,
+      "u": "m"
+    },
+    {
+      "d": "bridas 2,5x93",
+      "q": 93,
+      "u": ""
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "albs": [],
+  "cliente": "ALMACEN",
+  "desc": "Colocar material",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-10-28",
+  "horas": 4,
+  "obra": "ALMACEN",
+  "ops": [
+    {
+      "h": 4,
+      "n": "Goyo"
+    }
+  ],
+  "stock": []
+}

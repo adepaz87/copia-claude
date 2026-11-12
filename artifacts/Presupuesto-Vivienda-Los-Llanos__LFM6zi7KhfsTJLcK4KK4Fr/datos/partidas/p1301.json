@@ -1,0 +1,12 @@
+{
+  "cap": "13",
+  "cod": "13.01",
+  "desc": "Instalación eléctrica y de telecomunicaciones según presupuesto aparte.",
+  "med": 1,
+  "nota": "Introducir el importe del presupuesto eléctrico. Si ya incluye beneficio, deja marcado Sin beneficio",
+  "orden": 1,
+  "pre": 6500,
+  "rev": true,
+  "sb": true,
+  "ud": "PA"
+}

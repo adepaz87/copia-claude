@@ -1,0 +1,66 @@
+{
+  "albs": [],
+  "cliente": "HERBANACA",
+  "desc": "Realizado de cuadro de iluminación de Frío. Reestructurado con diferenciales monofásicos, editados.funcionando.",
+  "devol": [],
+  "estado": "TERMINADO",
+  "fecha": "2026-09-01",
+  "horas": 6.5,
+  "obra": "EUROSPAR SAN PEDRO",
+  "ops": [
+    {
+      "h": 6.5,
+      "n": "Toño"
+    }
+  ],
+  "stock": [
+    {
+      "d": "Cable 1x6mm. 10m.",
+      "q": 1,
+      "u": "",
+      "x": 1
+    },
+    {
+      "d": "Cable 1x2,5mm. 25m.",
+      "q": 1,
+      "u": "",
+      "x": 1
+    },
+    {
+      "d": "Punteras simples 25mm. 1",
+      "q": 1,
+      "u": "",
+      "x": 1
+    },
+    {
+      "d": "Punteras simples 6mm. 14",
+      "q": 1,
+      "u": "",
+      "x": 1
+    },
+    {
+      "d": "Punteras simples 2,5mm. 42",
+      "q": 1,
+      "u": "",
+      "x": 1
+    },
+    {
+      "d": "Punteras dobles 6mm. 12",
+      "q": 1,
+      "u": "",
+      "x": 1
+    },
+    {
+      "d": "Punteras dobles 2,5mm. 18",
+      "q": 1,
+      "u": "",
+      "x": 1
+    },
+    {
+      "d": "Bridas 2,5x100mm. 76",
+      "q": 1,
+      "u": "",
+      "x": 1
+    }
+  ]
+}

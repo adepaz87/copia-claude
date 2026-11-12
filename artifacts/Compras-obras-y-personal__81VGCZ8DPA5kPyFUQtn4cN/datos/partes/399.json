@@ -1,0 +1,25 @@
+{
+  "albs": [
+    "Ayumar 2-814"
+  ],
+  "cliente": "CARLOS ACOSTA",
+  "desc": "Entubar derivaciones hasta final de patio\nColocar arqueta en patio",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-09-02",
+  "horas": 1,
+  "obra": "APARTAMENTOS EL REMO",
+  "ops": [
+    {
+      "h": 1,
+      "n": "Aythami"
+    }
+  ],
+  "stock": [
+    {
+      "d": "tubo cuarrugado de 40mm",
+      "q": 50,
+      "u": "m"
+    }
+  ]
+}

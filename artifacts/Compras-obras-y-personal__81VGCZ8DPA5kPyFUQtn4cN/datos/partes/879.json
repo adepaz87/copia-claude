@@ -1,0 +1,27 @@
+{
+  "albs": [],
+  "cliente": "AYTO. BREÑA BAJA",
+  "desc": "Colocar adornos navideños en farolas y conectarlos",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-11-04",
+  "horas": 24,
+  "id": "879",
+  "obra": "ALUMBRADO NAVIDAD",
+  "ops": [
+    {
+      "h": 8,
+      "n": "Jorge"
+    },
+    {
+      "h": 8,
+      "n": "Rafa"
+    },
+    {
+      "h": 8,
+      "n": "Manuel"
+    }
+  ],
+  "origen": "dashboard",
+  "stock": []
+}

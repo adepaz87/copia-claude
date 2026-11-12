@@ -1,0 +1,23 @@
+{
+  "albs": [],
+  "cliente": "DRAGADOS",
+  "desc": "Reparar averia en automatismo de grua por fallo del cable de la botonera en harting del cuadro de la parte alta. Se reconecta y prueba. OK",
+  "devol": [],
+  "estado": "TERMINADO",
+  "fecha": "2026-11-09",
+  "horas": 2,
+  "id": "922",
+  "obra": "34 VIVIENDAS TAZACORTE",
+  "ops": [
+    {
+      "h": 1,
+      "n": "Antonio"
+    },
+    {
+      "h": 1,
+      "n": "Transporte"
+    }
+  ],
+  "origen": "dashboard",
+  "stock": []
+}

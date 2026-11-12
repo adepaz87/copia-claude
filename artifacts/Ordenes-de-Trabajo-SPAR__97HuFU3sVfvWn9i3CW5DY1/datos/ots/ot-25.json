@@ -1,0 +1,19 @@
+{
+  "actualizada": "2026-06-12T09:00:00Z",
+  "aviso": "",
+  "centro": "SPAR El Muelle",
+  "creada": "2026-06-12T09:00:00Z",
+  "descripcion": "Reparación del ventilador mural en la zona de fruta (coordinado con Fernando).",
+  "estado": "terminada",
+  "fechaAviso": "2026-06-12",
+  "historial": [
+    "12/06/2026 · Importada del correo de Alberto"
+  ],
+  "informado": true,
+  "notas": "Resuelta (correo 12/06/2026).",
+  "operario": "",
+  "ot": 25,
+  "prioridad": "Sin especificar",
+  "solicitante": "",
+  "tipo": "MANTENIMIENTO"
+}

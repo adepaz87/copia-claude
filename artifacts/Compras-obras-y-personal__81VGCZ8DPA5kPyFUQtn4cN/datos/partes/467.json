@@ -1,0 +1,17 @@
+{
+  "albs": [],
+  "cliente": "INSTAPALMA",
+  "desc": "Recoger pintura , pintar habitacion principal y habitación pequeña",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-09-14",
+  "horas": 8,
+  "obra": "CASA CAMILA",
+  "ops": [
+    {
+      "h": 8,
+      "n": "Luigi"
+    }
+  ],
+  "stock": []
+}

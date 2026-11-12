@@ -1,0 +1,27 @@
+{
+  "albs": [
+    "Sonepar 309006316"
+  ],
+  "cliente": "CABILDO INSULAR",
+  "desc": "Repara esterilizador de inpeccion porcino.\nSustituir resistencia de envase caldeo de cuernos.\nVer averia de maniobra de escaldado.",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-10-14",
+  "horas": 5,
+  "obra": "MATADERO INSULAR",
+  "ops": [
+    {
+      "h": 2,
+      "n": "Antonio"
+    },
+    {
+      "h": 2,
+      "n": "Iker"
+    },
+    {
+      "h": 1,
+      "n": "Transporte"
+    }
+  ],
+  "stock": []
+}

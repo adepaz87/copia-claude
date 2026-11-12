@@ -1,0 +1,633 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+
+<title>Certificaciones Cercado Manso</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Barlow:wght@400;500;600&display=swap">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.8.2/jspdf.plugin.autotable.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+<style>
+/* Layout: hoja de certificación — cabecera de obra, resumen económico, relación valorada por capítulos */
+:root{
+  --bg:#f5f6f3; --paper:#ffffff; --ink:#1d2621; --muted:#5d6a62; --line:#d9ded8; --soft:#eef1ec;
+  --accent:#2e6b4c; --accent-ink:#ffffff; --accent-soft:#e1eee6;
+  --warn:#a35a00; --warn-soft:#fbefdc; --bad:#b3261e; --bad-soft:#fbe4e2; --ok:#2e6b4c;
+  --f-display:"Barlow Condensed","Arial Narrow",Arial,sans-serif;
+  --f-body:"Barlow",system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#121614; --paper:#1a201d; --ink:#e4ebe6; --muted:#9aa89f; --line:#2e3833; --soft:#222a26;
+  --accent:#6fbf94; --accent-ink:#0d1a13; --accent-soft:#1f3329;
+  --warn:#e3a54f; --warn-soft:#33281a; --bad:#f08a80; --bad-soft:#3a1f1d; --ok:#6fbf94; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#121614; --paper:#1a201d; --ink:#e4ebe6; --muted:#9aa89f; --line:#2e3833; --soft:#222a26;
+  --accent:#6fbf94; --accent-ink:#0d1a13; --accent-soft:#1f3329;
+  --warn:#e3a54f; --warn-soft:#33281a; --bad:#f08a80; --bad-soft:#3a1f1d; --ok:#6fbf94; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:15px;line-height:1.45}
+.wrap{max-width:1280px;margin:0 auto;padding-block:20px 60px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:flex;flex-direction:column;gap:18px}
+h1,h2,h3{font-family:var(--f-display);font-weight:700;margin:0;text-wrap:balance;letter-spacing:.01em}
+h1{font-size:2rem;line-height:1.05}
+h2{font-size:1.35rem}
+.eyebrow{font-size:.75rem;text-transform:uppercase;letter-spacing:.09em;color:var(--muted);font-weight:600}
+.num{font-variant-numeric:tabular-nums;text-align:right;white-space:nowrap}
+.muted{color:var(--muted)}
+header.top{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:12px;border-bottom:2px solid var(--ink);padding-bottom:12px}
+header.top .meta{display:flex;gap:18px;flex-wrap:wrap;font-size:.9rem}
+header.top .meta b{font-family:var(--f-display);font-size:1.1rem}
+.panel{background:var(--paper);border:1px solid var(--line);border-radius:6px;padding:16px}
+.bar{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.certs{display:flex;gap:6px;flex-wrap:wrap}
+button,.btn{font:inherit;font-weight:600;border:1px solid var(--line);background:var(--paper);color:var(--ink);border-radius:4px;padding:6px 12px;cursor:pointer}
+button:hover{border-color:var(--accent)}
+button:focus-visible,input:focus-visible,select:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:1px}
+button.primary{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+button.chip{font-family:var(--f-display);font-size:1rem;padding:4px 12px;display:flex;gap:6px;align-items:center}
+button.chip[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+button.danger{color:var(--bad)}
+button.armed{background:var(--bad);color:#fff;border-color:var(--bad)}
+button:disabled{opacity:.45;cursor:not-allowed}
+.dot{width:7px;height:7px;border-radius:50%;background:var(--warn);display:inline-block}
+.dot.closed{background:var(--ok)}
+.fields{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px 14px}
+label.f{display:flex;flex-direction:column;gap:3px;font-size:.78rem;color:var(--muted);font-weight:600;text-transform:uppercase;letter-spacing:.05em}
+input,select{font:inherit;color:var(--ink);background:var(--paper);border:1px solid var(--line);border-radius:4px;padding:5px 8px;min-width:0}
+input:disabled{background:var(--soft);color:var(--muted)}
+.pill{font-size:.75rem;font-weight:600;padding:2px 8px;border-radius:99px;background:var(--warn-soft);color:var(--warn);white-space:nowrap}
+.pill.closed{background:var(--accent-soft);color:var(--ok)}
+.pill.over{background:var(--bad-soft);color:var(--bad)}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
+.kpi{background:var(--paper);border:1px solid var(--line);border-radius:6px;padding:12px 14px;display:flex;flex-direction:column;gap:4px}
+.kpi .v{font-family:var(--f-display);font-size:1.7rem;font-weight:600;font-variant-numeric:tabular-nums;line-height:1.1}
+.kpi.main{border-color:var(--accent);background:var(--accent-soft)}
+.meter{height:6px;background:var(--soft);border-radius:3px;overflow:hidden}
+.meter>i{display:block;height:100%;background:var(--accent)}
+.grid2{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:18px;align-items:start}
+@media (max-width:900px){.grid2{grid-template-columns:minmax(0,1fr)}}
+.scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+table{border-collapse:collapse;width:100%}
+th{font-size:.72rem;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);font-weight:600;text-align:left;padding:6px 8px;border-bottom:1px solid var(--ink);white-space:nowrap}
+th.num{text-align:right}
+td{padding:5px 8px;border-bottom:1px solid var(--line);vertical-align:top}
+tr.total td{font-weight:700;border-top:2px solid var(--ink);border-bottom:none}
+tr.strong td{font-weight:600}
+tr.liq td{font-family:var(--f-display);font-size:1.15rem;font-weight:700;background:var(--accent-soft)}
+.econ td:first-child{white-space:nowrap}
+.toolbar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between}
+.toolbar .left{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+details.chap{background:var(--paper);border:1px solid var(--line);border-radius:6px}
+details.chap+details.chap{margin-top:8px}
+details.chap>summary{cursor:pointer;list-style:none;padding:10px 14px;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:4px 16px;align-items:center}
+details.chap>summary::-webkit-details-marker{display:none}
+details.chap>summary .t{font-family:var(--f-display);font-weight:600;font-size:1.12rem}
+details.chap>summary .t::before{content:"▸";display:inline-block;width:1em;color:var(--muted);transition:transform .15s}
+details.chap[open]>summary .t::before{transform:rotate(90deg)}
+details.chap>summary .s{display:flex;gap:16px;font-size:.88rem;flex-wrap:wrap;justify-content:flex-end}
+details.chap>summary .s span b{font-variant-numeric:tabular-nums}
+.items{border-top:1px solid var(--line)}
+.items table{min-width:1080px}
+.items td.desc{min-width:260px;max-width:420px;font-size:.88rem}
+.items td.desc .code{font-size:.72rem;color:var(--muted);letter-spacing:.03em}
+.items td.desc .txt{cursor:pointer}
+.items td.desc .txt.clamp{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.items input{width:96px;text-align:right;font-variant-numeric:tabular-nums}
+.items tr.sub td{background:var(--soft);font-family:var(--f-display);font-weight:600;font-size:1rem}
+.items tr.has td{background:color-mix(in srgb,var(--accent-soft) 45%,transparent)}
+.items tr.overrow td{background:var(--bad-soft)}
+.items input:not(:disabled){background:var(--accent-soft);border-color:var(--accent);font-weight:600}
+.pct{min-width:70px}
+@media (max-width:760px){
+  .items table{min-width:0}
+  .items thead{display:none}
+  .items tr[data-k]{display:grid;grid-template-columns:1fr 1fr;gap:4px 12px;padding:10px 12px;border-bottom:1px solid var(--line)}
+  .items tr[data-k] td{border:none;padding:0;display:flex;justify-content:space-between;gap:8px;align-items:center;text-align:right;min-width:0}
+  .items tr[data-k] td[data-l]::before{content:attr(data-l);color:var(--muted);font-size:.78rem;text-align:left}
+  .items tr[data-k] td:first-child{grid-column:1/-1;font-family:var(--f-display);font-weight:700;font-size:1rem;justify-content:flex-start}
+  .items tr[data-k] td.desc{grid-column:1/-1;max-width:none;min-width:0;display:block;text-align:left}
+  .items tr[data-k] td{order:3;font-size:.85rem}
+  .items tr[data-k] td:first-child{order:0}
+  .items tr[data-k] td.desc{order:1}
+  .items tr[data-k] td.in{order:2;grid-column:span 1;flex-direction:column;align-items:stretch;padding-block:4px}
+  .items tr[data-k] td.in::before{font-weight:600;color:var(--ink)}
+  .items tr[data-k] td.in input{width:100%;font-size:16px;padding:8px}
+  .items tr.sub td{display:block}
+}
+.pct .meter{margin-top:3px}
+.notice{font-size:.85rem;padding:8px 12px;border-radius:4px;background:var(--warn-soft);color:var(--warn)}
+.status{font-size:.82rem;color:var(--muted)}
+.foot{font-size:.82rem;color:var(--muted)}
+@media (max-width:560px){h1{font-size:1.6rem}.kpi .v{font-size:1.4rem}details.chap>summary{grid-template-columns:minmax(0,1fr)}details.chap>summary .s{justify-content:flex-start}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+
+<div class="wrap">
+  <header class="top">
+    <div>
+      <div class="eyebrow">Dirección de obra · Relación valorada</div>
+      <h1>Instalaciones MT · ZOI Cercado Manso</h1>
+    </div>
+    <div class="meta">
+      <span><span class="muted">PEM proyecto</span><br><b id="h-pem"></b></span>
+      <span><span class="muted">PEC (con IGIC)</span><br><b id="h-pec"></b></span>
+      <span><span class="muted">Importe adjudicación</span><br><b id="h-adj"></b></span>
+    </div>
+  </header>
+
+  <section class="panel" style="display:flex;flex-direction:column;gap:14px">
+    <div class="toolbar">
+      <div class="left">
+        <span class="eyebrow">Certificaciones</span>
+        <div class="certs" id="certs"></div>
+        <button id="b-new" class="primary">+ Nueva certificación</button>
+      </div>
+      <div class="left">
+        <span id="save" class="status"></span>
+      </div>
+    </div>
+    <div id="storage-note" class="notice" hidden>Esta vista no tiene acceso al almacenamiento compartido. Los cambios se guardan solo en este navegador.</div>
+    <div class="fields">
+      <label class="f">Nº certificación<input id="f-num" type="text" disabled></label>
+      <label class="f">Periodo (mes)<input id="f-periodo" type="month"></label>
+      <label class="f">Fecha de emisión<input id="f-fecha" type="date"></label>
+      <label class="f">Baja de adjudicación (%)<input id="f-baja" type="text" inputmode="decimal" placeholder="0,00"></label>
+      <label class="f">Coef. de adjudicación<input id="f-coef" type="text" inputmode="decimal" placeholder="1,000000" title="Coeficiente = 1 − baja. Por ejemplo, una baja del 12,5 % es un coeficiente de 0,875"></label>
+      <label class="f">Contratista<input id="f-contr" type="text" placeholder="Empresa adjudicataria"></label>
+    </div>
+    <div class="bar">
+      <span id="estado" class="pill"></span>
+      <button id="b-close"></button>
+      <button id="b-del" class="danger">Eliminar esta certificación</button>
+      <button id="b-save" class="primary">Guardar</button>
+      <button id="b-pdf">Descargar PDF</button>
+      <button id="b-xls">Descargar Excel</button>
+    </div>
+  </section>
+
+  <section class="kpis" id="kpis"></section>
+
+  <section class="grid2">
+    <div class="panel">
+      <h2>Resumen económico</h2>
+      <p class="foot" style="margin:4px 0 10px">GG <span id="r-gg"></span>% y BI <span id="r-bi"></span>% sobre PEM, baja sobre PEM+GG+BI, IGIC <span id="r-ig"></span>%.</p>
+      <div class="scroll"><table class="econ" id="econ"></table></div>
+    </div>
+    <div class="panel">
+      <h2>Resumen por capítulos (PEM)</h2>
+      <div class="scroll" style="margin-top:10px"><table id="caps"></table></div>
+    </div>
+  </section>
+
+  <section style="display:flex;flex-direction:column;gap:10px">
+    <div class="toolbar">
+      <h2>Relación valorada por partidas</h2>
+      <div class="left">
+        <input id="q" type="search" placeholder="Buscar partida, código o texto" style="width:240px">
+        <label style="display:flex;gap:6px;align-items:center;font-size:.9rem"><input id="only" type="checkbox"> Solo con medición</label>
+        <button id="b-open">Desplegar todo</button>
+      </div>
+    </div>
+    <p class="foot" style="margin:0">Escribe la medición <b>del periodo</b> o la medición <b>a origen</b>: la otra se calcula sola. La medición anterior es la medición a origen de la certificación previa. Las filas en rojo superan la medición de proyecto.</p>
+    <div id="chapters"></div>
+  </section>
+
+  <p class="foot">Presupuesto del proyecto (Arquímedes): capítulo 1 Red de Media Tensión, 49 partidas, PEM 732.380,71 €. Las partidas de Seguridad y Salud (cap. 3) son las que aparecen en la certificación nº 1, sin medición de proyecto aportada. Coeficiente de adjudicación 0,888856534 (adjudicación 852.739,20 € / licitación 959.366,52 €).</p>
+</div>
+
+<script>
+const DATA = {"chaps": {"1": "RED DE MEDIA TENSIÓN", "3": "SEGURIDAD Y SALUD"}, "subs": {"1.1": "OBRA CIVIL", "1.2": "INSTALACIÓN DE MEDIA TENSIÓN"}, "items": [["1.1.1", "", "M", "Corte de pavimento de aglomerado asfáltico, mediante máquina cortadora de pavimento, y carga manual sobre camión o contenedor.", 1252, 1.61, 2015.72], ["1.1.2", "", "M", "Corte de pavimento de hormigón, mediante máquina cortadora de pavimento, y carga manual sobre camión o contenedor.", 940, 1.93, 1814.2], ["1.1.3", "", "M²", "Demolición de pavimento de aglomerado asfáltico de 15 cm de espesor medio, mediante retroexcavadora con martillo rompedor, y carga mecánica sobre camión o contenedor.", 312.5, 1.75, 546.88], ["1.1.4", "", "M²", "Demolición de solera o pavimento de hormigón en masa de hasta 15 cm de espesor, con martillo neumático, y carga manual sobre camión o contenedor.", 329, 5.08, 1671.32], ["1.1.5", "", "M²", "Fresado de pavimento de aglomerado asfáltico de 10 cm de espesor medio, mediante fresadora en frío compacta, equipada con banda transportadora para la carga directa sobre camión de los restos generados y posterior barrido de la superficie fresada con barredora mecánica.", 70, 6.98, 488.6], ["1.1.6", "ACA010", "M²", "Desbroce y limpieza del terreno, con medios mecánicos. Comprende los trabajos necesarios para retirar de las zonas previstas: pequeñas plantas, maleza, broza, maderas caídas, escombros, basuras o cualquier otro material existente, hasta una profundidad no menor que el espesor de la capa de tierra vegetal, considerando como mínima 25 cm; y carga a camión.", 19.4, 0.46, 8.92], ["1.1.7", "", "M³", "Excavación de pozos en terreno de tránsito duro, de hasta 1,25 m de profundidad máxima, con medios mecánicos, y carga a camión.", 188.465, 26.03, 4905.74], ["1.1.8", "ADE010b", "M³", "Excavación de zanjas para instalaciones hasta una profundidad de 2 m, en cualquier tipo de terreno, con medios mecánicos, y carga a camión. Incluye: Replanteo general y fijación de los puntos y niveles de referencia. Colocación de las camillas en las esquinas y extremos de las alineaciones. Excavación en sucesivas franjas horizontales y extracción de tierras. Refinado de fondos con extracción de las tierras. Carga a camión de los materiales excavados. Criterio de medición de proyecto: Volumen medido sobre las secciones teóricas de la excavación, según documentación gráfica de Proyecto, sin duplicar esquinas ni encuentros. Criterio de medición de obra: Se medirá el volumen teórico ejecutado según especificaciones de Proyecto, sin duplicar esquinas ni encuentros y sin incluir los incrementos por excesos de excavación no autorizados, ni el relleno necesario para reconstruir la sección teórica por defectos imputables al Contratista. Se medirá la excavación una vez realizada y antes de que sobre ella se efectúe ningún tipo de relleno. Si el Contratista cerrase la excavación antes de conformada la medición, se entenderá que se aviene a lo que unilateralmente determine el director de la ejecución de la obra. Criterio de valoración económica: El precio no incluye el transporte de los materiales excavados.", 1284.925, 35.76, 45948.92], ["1.1.9", "", "M³", "Desmonte en terreno de tránsito duro, para dar al terreno la rasante de explanación prevista, con medios mecánicos, y carga a camión.", 20, 2.45, 49], ["1.1.10", "", "M³", "Terraplenado para cimiento de terraplén, mediante el extendido en tongadas de espesor no superior a 30 cm de material de la propia excavación, que cumple los requisitos expuestos en el art. 330.3.1 del PG-3 y posterior compactación con medios mecánicos hasta alcanzar una densidad seca no inferior al 95% de la máxima obtenida en el ensayo Proctor Modificado, realizado según UNE 103501, y ello cuantas veces sea necesario, hasta conseguir la cota de subrasante.", 9.5, 12.43, 118.09], ["1.1.11", "", "M³", "Relleno de zanjas con arena de 0 a 5 mm de diámetro, y compactación en tongadas sucesivas de 25 cm de espesor máximo con medios mecánicos, hasta alcanzar una densidad seca no inferior al 90% de la máxima obtenida en el ensayo Proctor Modificado, realizado según UNE 103501.", 52.7, 19.51, 1028.18], ["1.1.12", "", "M³", "Relleno de zanjas con tierra seleccionada procedente de la propia excavación, y compactación en tongadas sucesivas de 25 cm de espesor máximo con medios mecánicos, hasta alcanzar una densidad seca no inferior al 90% de la máxima obtenida en el ensayo Proctor Modificado, realizado según UNE 103501.", 544.92, 2.5, 1362.3], ["1.1.13", "", "M²", "Compactación de fondo de zanja o pozo, al 90% del Proctor Modificado, con pisón vibrante de guiado manual.", 1054, 3.27, 3446.58], ["1.1.14", "", "M³", "Hormigón HM-20/B/20/I fabricado en central y vertido desde camión, para relleno de zanja.", 547.153, 144.04, 78811.92], ["1.1.15", "", "M³", "Relleno de zanjas con tierra de préstamo.", 175, 5.95, 1041.25], ["1.1.16", "", "M³", "Relleno para nivelación de cimentación de Centro de Transformación con arena de 0 a 5 mm de diámetro.", 12, 18.18, 218.16], ["1.1.17", "", "M³", "Relleno en trasdós de elementos de cimentación, con tierra seleccionada procedente de la propia excavación con medios mecánicos, y compactación en tongadas sucesivas de 30 cm de espesor máximo con pisón vibrante de guiado manual, hasta alcanzar una densidad seca no inferior al 95% de la máxima obtenida en el ensayo Proctor Modificado, realizado según UNE 103501. Incluye: Transporte y descarga del material de relleno a pie de tajo. Extendido del material de relleno en tongadas de espesor uniforme. Humectación o desecación de cada tongada. Compactación. Criterio de medición de proyecto: Volumen medido sobre las secciones teóricas de la excavación, según documentación gráfica de Proyecto. Criterio de medición de obra: Se medirá, en perfil compactado, el volumen realmente ejecutado según especificaciones de Proyecto, sin incluir los incrementos por excesos de excavación no autorizados. Criterio de valoración económica: El precio no incluye la realización del ensayo Proctor Modificado.", 107.963, 5.49, 592.72], ["1.1.18", "", "M³", "Transporte de tierras de los productos procedentes de la excavación de cualquier tipo de terreno dentro de la obra, a una distancia menor de 0,5 km.", 810.15, 0.97, 785.85], ["1.1.19", "", "M³", "Carga de tierras procedentes de excavaciones, con medios mecánicos, sobre camión.", 810.15, 3.34, 2705.9], ["1.1.20", "", "M³", "Hormigón HA-30/B/20/IIa fabricado en central, y vertido con bomba, para formación de losa maciza.", 11.476, 202.21, 2320.56], ["1.1.21", "", "M²", "Malla electrosoldada ME 20x20 Ø 8-8 B 500 T 6x2,20 UNE-EN 10080, colocada en obra, en losa de cimentación. Incluso alambre de atar y separadores.", 153, 5.62, 859.86], ["1.1.22", "", "M³", "Hormigón ciclópeo, realizado con hormigón HM-20/P/40/I fabricado en central y vertido desde camión (60% de volumen) y bolos de piedra de 15 a 30 cm de diámetro (40% de volumen), para formación de muro de contención H<3 m.", 23.37, 124.02, 2898.35], ["1.1.23", "", "M²", "Base de hormigón en masa de 15 cm de espesor, con juntas, realizada con hormigón HM-15/B/20/I fabricado en central y vertido desde camión, extendido y vibrado manual, con acabado maestreado, para su posterior uso como soporte de pavimento.", 282, 19.78, 5577.96], ["1.1.24", "", "M²", "Riego de adherencia con 1,0 kg/m² de emulsión bituminosa catiónica termoadherente C60B3 TER, con un 60% de betún asfáltico como ligante.", 630, 1.15, 724.5], ["1.1.25", "", "M²", "Capa de 6 cm de espesor de mezcla bituminosa continua en caliente AC22 surf D, para capa de rodadura, de composición densa, con árido granítico de 22 mm de tamaño máximo y betún asfáltico de penetración.", 630, 27.73, 17469.9], ["1.1.26", "", "M²", "Solado de losetas de hormigón para uso exterior, de 4 pastillas, resistencia a flexión T, carga de rotura 3, resistencia al desgaste G, 20x20x3 cm, gris, para uso público en exteriores en zona de aceras y paseos, colocadas al tendido sobre capa de arena-cemento; todo ello realizado sobre solera de hormigón no estructural (HNE-20/P/20), de 30 cm de espesor, vertido desde camión con extendido y vibrado manual con regla vibrante de 3 m, con acabado maestreado.", 51.24, 61.71, 3162.02], ["1.1.27", "", "Ud", "Pozo de registro de fábrica / hormigón en armado, de 1,50 m de diámetro interior y 1,8 m de altura útil interior, sobre solera de 25 cm de espesor de hormigón armado HA-30/B/20/IIb+Qb ligeramente armada con malla electrosoldada, con cierre de tapa con bloqueo y marco de fundición clase D-400 según UNE-EN 124, instalado en calzadas de calles, incluyendo las peatonales, o zonas de aparcamiento para todo tipo de vehículos.", 7, 2128.08, 14896.56], ["1.1.28", "", "Ud", "Arqueta de registro tipo AR-1 720x620 mm, incluso cerco y tapade fundición tipo AR1 D400.", 10, 459.32, 4593.2], ["1.1.29", "", "Ud", "Arqueta de registro tipo AR-2 ampliada 1440x1240 mm, incluso cerco y tapade fundición tipo AR2 D400.", 14, 766.53, 10731.42], ["1.1.30", "Replanteo", "Ud", "P.A. a justificar de replanteo de excavación e identificación canalizaciones existentes afectadas.", 1, 1545, 1545], ["1.1.31", "", "Ud", "P.A. a justificar de reposición de servidumbres y servicios afectados.", 1, 2500, 2500], ["1.1.32", "", "Ud", "Gestión y esnsayos de calidad de asfalto", 1, 300, 300], ["1.1.33", "", "Ud", "Gestión y esnsayos de calidad de hormigón", 1, 300, 300], ["1.2.1", "", "M", "Línea subterránea de 20 kV en canalización entubada bajo calzada formada por 3 cables unipolares, con conductor de aluminio, RH5Z1, de 150 mm² de sección; dos tubos protectores de polietileno de doble pared, de 200 mm de diámetro, resistencia a compresión mayor de 450 N, suministrado en barra, colocado sobre solera de hormigón no estructural HNE-15/B/20 de 5 cm de espesor y posterior relleno con el mismo hormigón hasta 10 cm por encima de la generatriz superior de la tubería; y canalización para telecomunicaciones compuesta de tetratubo de polietileno de alta densidad (PEAD/HDPE) libre de halógenos, color verde, de 4x40 mm de diámetro nominal y 3 mm de espesor formado por cuatro tubos iguales, unidos entre sí, con la pared interior estriada longitudinalmente y recubierta con silicona. Incluso hilo guía y cinta de señalización. Incluye empalmes en caso de ser necesario. Relleno envolvente de hormigón no incluido en este precio.", 2489, 71.34, 177565.26], ["1.2.2", "", "Ud", "Centro de transformación prefabricado, monobloque, de hormigón armado, de 4460x2380x3045 mm, apto para contener un transformador y la aparamenta necesaria.Cierres y candados. Incluso transporte y descarga. Totalmente montado.", 1, 24239.44, 24239.44], ["1.2.3", "", "Ud", "Centro de transformación prefabricado, modular de hormigón armado, de 8080x2380x3250 mm, apto para contener hasta dos transformadores y la aparamenta necesaria. Incluso transporte y descarga. Totalmente montado.", 1, 37897.24, 37897.24], ["1.2.4", "", "Ud", "Aparamenta para Centro de Transformación Prefabricado Tipo Ormazabal, normalizado por Endesa.", 1, 84243.69, 84243.69], ["1.2.5", "", "Ud", "Aparamenta para Centro de Transformación Prefabricado Tipo Ormazabal, normalizado por Endesa.", 1, 132928.82, 132928.82], ["1.2.6", "", "Ud", "Puentes de MT con cable 12/20 KV 1x95 mm² AL RH5Z1 y Terminaciones enchufables 250 A - hasta 24kV (borna K152SR, Borna K158LR 25-95 mm²).", 3, 1159.01, 3477.03], ["1.2.7", "", "Ud", "Puentes de BT con conductor 1x240 mm² XZ1-K AL 0,6/1KV", 3, 856.96, 2570.88], ["1.2.8", "", "Ud", "Proteción mecánica del transformador", 3, 288.72, 866.16], ["1.2.9", "", "Ud", "Ud. Borna atornillable k-400 cable 12/20 kv 150/400 mm², Al.", 18, 167.54, 3015.72], ["1.2.10", "", "Ud", "Juego de empalmes universales contráctiles en frío tipo ELASPEED moelo F, o de características equivalentes, para cable 12/20 kV, 95/240 mm², Al; según normas EN 61442:2005, HD 629, IEC 60502-4, IEC 60055.", 4, 3302.13, 13208.52], ["1.2.11", "", "Ud", "Sistema exterior de tierra según descripción de descompuesto.", 5, 2676.74, 13383.7], ["1.2.12", "", "Ud", "Equipo de seguridad y maniobra compuesto por banqueta aislante, parde guantes dieléctricos, pertiga de salvamento, y extintor de 6 Kg eficacia89B.", 1, 414.99, 414.99], ["1.2.13", "", "Ud", "Cuadro de Mando y Protección para servicios auxiliares según esquema unifilar.", 2, 280.08, 560.16], ["1.2.14", "", "Ud", "Instalación interior en CT, de alumbrado y alumbrado de emergencia, según normas de la Cía. Unelco", 2, 534.76, 1069.52], ["1.2.15", "", "Ud", "Inspecciones por organismo de control para puesta en marcha y legalización. Incluye megado del cable.", 1, 3500, 3500], ["1.2.16", "", "Ud", "Partida alzada a justificar en concepto de derechos de supervisión y trabajos de adecuación de compañía suministradora, según solicitud con referencia 0001016057.", 1, 18000, 18000], ["3.1.2.1", "YCB030", "m", "Delimitación de excavaciones abiertas con vallas peatonales de polipropileno 1,10x1,25 m", 0, 4.13, 0], ["3.1.4.1", "YCR030", "m", "Vallado provisional de solar con vallas trasladables 3,50x2,00 m y malla de ocultación", 0, 12.7, 0], ["3.3.1.1", "YMM010", "Ud", "Botiquín de urgencia para caseta de obra", 0, 108.09, 0], ["3.3.2.1", "YMX010", "Ud", "Medicina preventiva y primeros auxilios", 0, 103, 0], ["3.5.1.1", "YSX010", "Ud", "Conjunto de elementos de balizamiento y señalización provisional de obras", 0, 307.56, 0]]};
+const GG = 13, BI = 6, IG = 7;
+const fmt = new Intl.NumberFormat('es-ES',{minimumFractionDigits:2,maximumFractionDigits:2,useGrouping:'always'});
+const fq = new Intl.NumberFormat('es-ES',{minimumFractionDigits:0,maximumFractionDigits:3,useGrouping:'always'});
+const eur = v => fmt.format(v) + ' €';
+const coefOf = b => 1 - (+b||0)/100;
+const fcoef = v => new Intl.NumberFormat('es-ES',{minimumFractionDigits:2,maximumFractionDigits:9}).format(v);
+const r2 = v => Math.round((v + Number.EPSILON) * 100) / 100;
+const $ = id => document.getElementById(id);
+const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+
+const ITEMS = DATA.items.map(([id,code,ud,d,q,p,imp]) => {
+  const parts = id.split('.');
+  return {id, k:id.replace(/\./g,'_'), code, ud, d, q, p, t:(imp!=null?imp:r2(q*p)), cap:parts[0], sub: parts.length===3 ? parts[0]+'.'+parts[1] : ''};
+});
+const CAPS = Object.keys(DATA.chaps).sort((a,b)=>a-b).map(n => ({n, name:DATA.chaps[n], items:ITEMS.filter(i=>i.cap===n)}));
+CAPS.forEach(c => c.t = r2(c.items.reduce((s,i)=>s+i.t,0)));
+const PEM = r2(CAPS.reduce((s,c)=>s+c.t,0));
+
+function econ(pem, baja){
+  const gg = r2(pem*GG/100), bi = r2(pem*BI/100), s = r2(pem+gg+bi);
+  const bj = r2(s*baja/100), sb = r2(s-bj), ig = r2(sb*IG/100);
+  return {pem, gg, bi, s, bj, sb, ig, tot:r2(sb+ig)};
+}
+
+/* ---------- estado ---------- */
+let certs = [];          // [{id,num,periodo,fecha,estado,o:{k:qty}}] ordenadas por num
+let config = {baja:0, contratista:'', adjudicacion:0};
+let selId = null;
+let store = null;
+
+const LS = 'cmanso-cert-v1';
+const local = {
+  read(){ try { return JSON.parse(localStorage.getItem(LS)) || {certs:[],config:null}; } catch(e){ return {certs:[],config:null}; } },
+  write(st){ try { localStorage.setItem(LS, JSON.stringify(st)); } catch(e){} }
+};
+
+function makeLocalStore(){
+  const st = local.read();
+  certs = st.certs || []; if (st.config) config = st.config;
+  const flush = () => { local.write({certs, config}); setSave('Guardado en este navegador a las ' + new Date().toLocaleTimeString('es-ES',{hour:'2-digit',minute:'2-digit'})); return Promise.resolve(); };
+  return { saveCert: flush, saveConfig: flush, deleteCert: flush };
+}
+
+function makeDbStore(db){
+  const queue = new Map(); let busy = false;
+  async function pump(){
+    if (busy) return; busy = true;
+    while (queue.size){
+      const [path, job] = queue.entries().next().value; queue.delete(path);
+      try { setSave('Guardando…'); await job(); setSave((lastCount != null ? lastCount + ' partidas con medición · ' : '') + 'Guardado a las ' + new Date().toLocaleTimeString('es-ES',{hour:'2-digit',minute:'2-digit'})); }
+      catch(e){ setSave('No se pudo guardar: ' + (e && e.message || e.code || 'error') + '. Revisa tus permisos de edición.'); }
+    }
+    busy = false;
+  }
+  const enqueue = (path, job) => { queue.set(path, job); pump(); };
+  db.collection('certs').onSnapshot(snap => {
+    const focused = document.activeElement;
+    certs = snap.docs.map(d => { if (dirty && dirty.id === d.id) return dirty; const x = d.data() || {};
+      const p = pend[d.id]; if (p) { if ((x.rev||0) < p.rev) return p; delete pend[d.id]; } let o = x.o || {}; if (typeof x.oj === 'string') { try { o = JSON.parse(x.oj) || {}; } catch(e){} } return {id:d.id, rev:x.rev||0, num:x.num, periodo:x.periodo, fecha:x.fecha, estado:x.estado, o}; }).sort((a,b)=>a.num-b.num);
+    if (!certs.find(c=>c.id===selId)) selId = certs.length ? certs[certs.length-1].id : null;
+    renderAll(focused);
+  }, e => setSave('Error de lectura: ' + e.message));
+  db.doc('obra/config').onSnapshot(s => {
+    if (s.exists) { config = Object.assign({baja:0,contratista:'',adjudicacion:0}, s.data()); renderAll(document.activeElement); }
+  });
+  return {
+    saveCert(c){ c.rev = (c.rev||0) + 1; pend[c.id] = c; const data = {rev:c.rev, num:c.num, periodo:c.periodo||'', fecha:c.fecha||'', estado:c.estado||'borrador', oj:JSON.stringify(c.o||{})}; const n = Object.keys(c.o||{}).length; enqueue('certs/'+c.id, async () => { await db.doc('certs/'+c.id).set(data); lastCount = n; }); },
+    saveConfig(){ enqueue('obra/config', () => db.doc('obra/config').set({baja:config.baja, contratista:config.contratista, adjudicacion:+config.adjudicacion||0})); },
+    deleteCert(id){ enqueue('certs/'+id, () => db.doc('certs/'+id).delete()); }
+  };
+}
+
+let lastCount = null;
+const pend = {};
+function setSave(t){ $('save').textContent = t; }
+
+/* ---------- certificación seleccionada ---------- */
+const VIRTUAL = () => ({id:'c01', num:1, periodo:new Date().toISOString().slice(0,7), fecha:new Date().toISOString().slice(0,10), estado:'borrador', o:{}, _virtual:true});
+let virtualCert = null;
+function cur(){
+  if (!certs.length){ virtualCert = virtualCert || VIRTUAL(); return virtualCert; }
+  return certs.find(c=>c.id===selId) || certs[certs.length-1];
+}
+function prevOf(c){ const i = certs.findIndex(x=>x.id===c.id); return i>0 ? certs[i-1] : null; }
+const qOrig = (c,k) => (c && c.o && +c.o[k]) || 0;
+function persist(c){
+  if (dirty === c) { dirty = null; clearTimeout(saveTimer); }
+  if (c._virtual){ delete c._virtual; certs = [c]; selId = c.id; virtualCert = null; }
+  store.saveCert(c);
+}
+const locked = c => c.estado === 'cerrada';
+
+function totals(c){
+  const p = prevOf(c);
+  let org = 0, ant = 0; const byCap = {};
+  for (const it of ITEMS){
+    const a = r2(qOrig(c,it.k)*it.p), b = r2(qOrig(p,it.k)*it.p);
+    org += a; ant += b;
+    const bc = byCap[it.cap] ||= {org:0, ant:0}; bc.org += a; bc.ant += b;
+  }
+  return {org:r2(org), ant:r2(ant), byCap};
+}
+
+/* ---------- render ---------- */
+function renderHeader(){
+  const e = econ(PEM, 0), a = econ(PEM, +config.baja||0);
+  $('h-pem').textContent = eur(PEM);
+  $('h-pec').textContent = eur(e.tot);
+  $('h-adj').textContent = (+config.adjudicacion ? eur(+config.adjudicacion) : +config.baja ? eur(a.tot) : 'Sin baja') + (+config.baja ? ' (coef. ' + fcoef(coefOf(config.baja)) + ')' : '');
+  $('r-gg').textContent = GG; $('r-bi').textContent = BI; $('r-ig').textContent = IG;
+}
+
+function renderCerts(){
+  const c = cur();
+  const list = certs.length ? certs : [c];
+  $('certs').innerHTML = list.map(x => `<button class="chip" data-id="${esc(x.id)}" aria-pressed="${x.id===c.id}"><span class="dot ${x.estado==='cerrada'?'closed':''}"></span>C${x.num}</button>`).join('');
+  const lk = locked(c);
+  $('f-num').value = 'Certificación nº ' + c.num;
+  setIfIdle($('f-periodo'), c.periodo || ''); $('f-periodo').disabled = lk;
+  setIfIdle($('f-fecha'), c.fecha || ''); $('f-fecha').disabled = lk;
+  setIfIdle($('f-baja'), fcoef(+config.baja||0).replace(/(,\d\d)0+$/,'$1'));
+  setIfIdle($('f-coef'), fcoef(coefOf(config.baja)));
+  setIfIdle($('f-contr'), config.contratista || '');
+  $('estado').textContent = lk ? 'Cerrada · solo lectura' : 'Borrador · editable';
+  $('estado').className = 'pill' + (lk ? ' closed' : '');
+  $('b-close').textContent = lk ? 'Reabrir certificación' : 'Cerrar certificación';
+  $('b-close').disabled = !!c._virtual;
+  const isLast = !certs.length || certs[certs.length-1].id === c.id;
+  $('b-del').disabled = !!c._virtual || !isLast; $('b-del').title = isLast ? '' : 'Solo se puede eliminar la última certificación';
+  disarm($('b-del'), 'Eliminar esta certificación');
+}
+
+function setIfIdle(el, v){ if (document.activeElement !== el) el.value = v; }
+
+function renderKpis(){
+  const c = cur(), t = totals(c), b = +config.baja || 0;
+  const eo = econ(t.org, b), ea = econ(t.ant, b);
+  const pct = PEM ? t.org/PEM*100 : 0;
+  $('kpis').innerHTML = `
+    <div class="kpi main"><span class="eyebrow">Líquido certificación nº ${c.num}</span><span class="v">${eur(econ(r2(t.org-t.ant), b).tot)}</span><span class="foot">con IGIC, descontada la anterior</span></div>
+    <div class="kpi"><span class="eyebrow">PEM ejecutado en el periodo</span><span class="v">${eur(r2(t.org-t.ant))}</span><span class="foot">${fmt.format(PEM? (t.org-t.ant)/PEM*100:0)} % del PEM</span></div>
+    <div class="kpi"><span class="eyebrow">PEM ejecutado a origen</span><span class="v">${eur(t.org)}</span><div class="meter"><i style="width:${Math.min(100,pct).toFixed(2)}%"></i></div><span class="foot">${fmt.format(pct)} % de ${eur(PEM)}</span></div>
+    <div class="kpi"><span class="eyebrow">Certificado a origen</span><span class="v">${eur(eo.tot)}</span><span class="foot">Pendiente: ${eur(r2((+config.adjudicacion || econ(PEM,b).tot) - eo.tot))}</span></div>`;
+
+  const em = econ(r2(t.org-t.ant), b);
+  const row = (lab, k, cls='') => `<tr class="${cls}"><td>${lab}</td><td class="num">${eur(eo[k])}</td><td class="num">${eur(ea[k])}</td><td class="num">${eur(em[k])}</td></tr>`;
+  $('econ').innerHTML = `<thead><tr><th></th><th class="num">A origen</th><th class="num">Anterior</th><th class="num">Esta cert.</th></tr></thead><tbody>
+    ${row('Ejecución material (PEM)','pem','strong')}
+    ${row(GG+' % Gastos generales','gg')}
+    ${row(BI+' % Beneficio industrial','bi')}
+    ${row('Suma','s','strong')}
+    ${b ? row('Baja '+fmt.format(b)+' % (coef. '+fcoef(coefOf(b))+')','bj') : ''}
+    ${b ? row('Importe tras baja','sb','strong') : ''}
+    ${row(IG+' % IGIC','ig')}
+    ${row('Total','tot','liq')}</tbody>`;
+
+  $('caps').innerHTML = `<thead><tr><th>Capítulo</th><th class="num">Proyecto</th><th class="num">Periodo</th><th class="num">A origen</th><th class="num">%</th></tr></thead><tbody>` +
+    CAPS.map(cp => { const x = t.byCap[cp.n]; const o = r2(x.org), per = r2(x.org-x.ant); const p = cp.t? o/cp.t*100:0;
+      return `<tr><td>${cp.n}. ${esc(cp.name)}</td><td class="num">${fmt.format(cp.t)}</td><td class="num">${per?fmt.format(per):'<span class="muted">–</span>'}</td><td class="num">${o?fmt.format(o):'<span class="muted">–</span>'}</td><td class="num pct">${fmt.format(p)}<div class="meter"><i style="width:${Math.min(100,p).toFixed(1)}%"></i></div></td></tr>`; }).join('') +
+    `<tr class="total"><td>Total</td><td class="num">${fmt.format(PEM)}</td><td class="num">${fmt.format(r2(t.org-t.ant))}</td><td class="num">${fmt.format(t.org)}</td><td class="num">${fmt.format(PEM?t.org/PEM*100:0)}</td></tr></tbody>`;
+}
+
+let builtFor = null;
+function buildChapters(){
+  const c = cur();
+  builtFor = c.id + '|' + c.estado;
+  const lk = locked(c);
+  $('chapters').innerHTML = CAPS.map(cp => {
+    let lastSub = null;
+    const rows = cp.items.map(it => {
+      let h = '';
+      if (it.sub && it.sub !== lastSub){ lastSub = it.sub; h += `<tr class="sub"><td colspan="11">${it.sub} ${esc(DATA.subs[it.sub]||'')}</td></tr>`; }
+      const short = it.d.length > 160;
+      return h + `<tr data-k="${it.k}">
+        <td class="num">${it.id}</td>
+        <td class="desc"><div class="code">${esc(it.code)}</div><div class="txt ${short?'clamp':''}" title="${short?'Pulsa para ver el texto completo':''}">${esc(it.d)}</div></td>
+        <td data-l="Ud">${esc(it.ud)}</td>
+        <td class="num" data-l="Med. proyecto">${fq.format(it.q)}</td>
+        <td class="num" data-l="Precio">${fmt.format(it.p)}</td>
+        <td class="num" data-l="Importe proyecto">${fmt.format(it.t)}</td>
+        <td class="num" data-c="ant" data-l="Med. anterior"></td>
+        <td class="num in" data-l="Med. periodo"><input data-in="per" type="text" inputmode="decimal" autocomplete="off" placeholder="0" aria-label="Medición del periodo ${it.id}" ${lk?'disabled':''}></td>
+        <td class="num in" data-l="Med. a origen"><input data-in="org" type="text" inputmode="decimal" autocomplete="off" placeholder="0" aria-label="Medición a origen ${it.id}" ${lk?'disabled':''}></td>
+        <td class="num" data-c="imp" data-l="Importe origen"></td>
+        <td class="num pct" data-c="pct" data-l="% ejecutado"></td></tr>`;
+    }).join('');
+    return `<details class="chap" data-cap="${cp.n}"><summary><span class="t">${cp.n}. ${esc(cp.name)}</span><span class="s"><span>Proyecto <b>${fmt.format(cp.t)}</b></span><span>Periodo <b data-s="per"></b></span><span>Origen <b data-s="org"></b></span><span><b data-s="pct"></b></span></span></summary>
+      <div class="items scroll"><table><thead><tr><th class="num">Nº</th><th>Partida</th><th>Ud</th><th class="num">Med. proyecto</th><th class="num">Precio</th><th class="num">Importe proyecto</th><th class="num">Med. anterior</th><th class="num">Med. periodo</th><th class="num">Med. a origen</th><th class="num">Importe origen</th><th class="num">% ejec.</th></tr></thead><tbody>${rows}</tbody></table></div></details>`;
+  }).join('');
+  applyFilter();
+}
+
+const parseQ = s => { s = String(s).trim(); if (!s) return 0; s = s.replace(/\s/g,''); if (s.includes(',')) s = s.replace(/\./g,'').replace(',', '.'); else if (/^-?\d{1,3}(\.\d{3})+$/.test(s)) s = s.replace(/\./g,''); const v = parseFloat(s); return isFinite(v) ? v : NaN; };
+const showQ = v => v ? fq.format(Math.round(v*1000)/1000) : '';
+
+function refreshRows(){
+  const c = cur(), p = prevOf(c), t = totals(c);
+  document.querySelectorAll('#chapters tr[data-k]').forEach(tr => {
+    const it = ITEMS_BY_K[tr.dataset.k];
+    const o = qOrig(c,it.k), a = qOrig(p,it.k), per = r2(o - a);
+    tr.querySelector('[data-c="ant"]').textContent = a ? fq.format(a) : '–';
+    const ip = tr.querySelector('[data-in="per"]'), io = tr.querySelector('[data-in="org"]');
+    if (document.activeElement !== ip) ip.value = showQ(per);
+    if (document.activeElement !== io) io.value = showQ(o);
+    const imp = r2(o*it.p), pct = it.q ? o/it.q*100 : 0;
+    tr.querySelector('[data-c="imp"]').textContent = imp ? fmt.format(imp) : '–';
+    tr.querySelector('[data-c="pct"]').innerHTML = o ? `${fmt.format(pct)}${pct>100.0001?' <span class="pill over">Exceso</span>':''}` : '<span class="muted">–</span>';
+    tr.classList.toggle('has', !!o && pct<=100.0001);
+    tr.classList.toggle('overrow', pct>100.0001);
+  });
+  document.querySelectorAll('#chapters details.chap').forEach(d => {
+    const cp = CAPS.find(x=>x.n===d.dataset.cap), x = t.byCap[cp.n];
+    d.querySelector('[data-s="per"]').textContent = fmt.format(r2(x.org-x.ant));
+    d.querySelector('[data-s="org"]').textContent = fmt.format(r2(x.org));
+    d.querySelector('[data-s="pct"]').textContent = fmt.format(cp.t? x.org/cp.t*100 : 0) + ' %';
+  });
+}
+const ITEMS_BY_K = Object.fromEntries(ITEMS.map(i=>[i.k,i]));
+
+function applyFilter(){
+  const q = $('q').value.trim().toLowerCase(), only = $('only').checked, c = cur();
+  document.querySelectorAll('#chapters details.chap').forEach(d => {
+    let any = false;
+    d.querySelectorAll('tr[data-k]').forEach(tr => {
+      const it = ITEMS_BY_K[tr.dataset.k];
+      const okQ = !q || (it.id+' '+it.code+' '+it.d).toLowerCase().includes(q);
+      const okM = !only || qOrig(c,it.k) || qOrig(prevOf(c),it.k);
+      tr.hidden = !(okQ && okM); if (!tr.hidden) any = true;
+    });
+    d.querySelectorAll('tr.sub').forEach(tr => { tr.hidden = !!(q||only); });
+    d.hidden = !any;
+    if ((q || only) && any) d.open = true;
+  });
+}
+
+function renderAll(){
+  renderHeader(); renderCerts(); renderKpis();
+  const c = cur();
+  if (builtFor !== c.id + '|' + c.estado) buildChapters();
+  refreshRows();
+}
+
+/* ---------- eventos ---------- */
+let saveTimer = null;
+let dirty = null;
+function scheduleSave(c){ dirty = c; clearTimeout(saveTimer); setSave('Cambios sin guardar…'); saveTimer = setTimeout(() => persist(c), 600); }
+
+function commitInput(e){
+  const inp = e.target.closest && e.target.closest('input[data-in]'); if (!inp) return;
+  const c = cur(); if (locked(c)) { setSave('Esta certificación está cerrada. Pulsa «Reabrir certificación» para editarla.'); return; }
+  const tr = inp.closest('tr'), it = ITEMS_BY_K[tr.dataset.k];
+  const v = parseQ(inp.value); if (isNaN(v)) return;
+  const a = qOrig(prevOf(c), it.k);
+  const o = inp.dataset.in === 'per' ? r2(a + v) : v;
+  c.o = c.o || {}; if (o) c.o[it.k] = Math.round(o*1000)/1000; else delete c.o[it.k];
+  refreshRows(); renderKpis(); scheduleSave(c);
+}
+['input','change','keyup'].forEach(ev => $('chapters').addEventListener(ev, commitInput));
+$('chapters').addEventListener('focusout', e => { commitInput(e); setTimeout(refreshRows, 0); });
+$('chapters').addEventListener('click', e => { const t = e.target.closest('.txt'); if (t) t.classList.toggle('clamp'); });
+
+$('certs').addEventListener('click', e => { const b = e.target.closest('button[data-id]'); if (!b) return; selId = b.dataset.id; renderAll(); });
+
+$('b-new').addEventListener('click', () => {
+  const last = certs[certs.length-1] || cur();
+  if (last._virtual) persist(last);
+  const num = (certs.length ? certs[certs.length-1].num : 0) + 1;
+  const pm = (last.periodo || new Date().toISOString().slice(0,7)).split('-').map(Number);
+  const d = new Date(pm[0], pm[1], 1);
+  const c = {id:'c'+String(num).padStart(2,'0'), num, periodo:`${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}`, fecha:new Date().toISOString().slice(0,10), estado:'borrador', o:{...(last.o||{})}};
+  certs.push(c); selId = c.id; store.saveCert(c); renderAll();
+});
+
+function bindMeta(id, key){
+  $(id).addEventListener('change', e => { const c = cur(); if (locked(c)) return; c[key] = e.target.value; persist(c); renderCerts(); });
+}
+bindMeta('f-periodo','periodo'); bindMeta('f-fecha','fecha');
+function setBaja(v){ if (isNaN(v) || v<0 || v>=100){ setSave('La baja debe estar entre 0 y 100 %.'); renderCerts(); return; } config.baja = Math.round(v*1e9)/1e9; store.saveConfig(); renderHeader(); renderCerts(); renderKpis(); }
+$('f-baja').addEventListener('change', e => setBaja(parseQ(e.target.value)));
+$('f-coef').addEventListener('change', e => { const k = parseQ(e.target.value); if (isNaN(k) || k<=0 || k>1){ setSave('El coeficiente debe estar entre 0 y 1.'); renderCerts(); return; } setBaja((1-k)*100); });
+$('b-save').addEventListener('click', () => { const c = cur(); if (document.activeElement && document.activeElement.blur) document.activeElement.blur(); clearTimeout(saveTimer); dirty = null; persist(c); store.saveConfig(); });
+$('f-contr').addEventListener('change', e => { config.contratista = e.target.value; store.saveConfig(); });
+
+$('b-close').addEventListener('click', () => { const c = cur(); c.estado = locked(c) ? 'borrador' : 'cerrada'; persist(c); renderAll(); });
+
+function disarm(b, label){ b.classList.remove('armed'); b.textContent = label; b.dataset.armed = ''; }
+$('b-del').addEventListener('click', e => {
+  const b = e.currentTarget;
+  if (!b.dataset.armed){ b.dataset.armed = '1'; b.classList.add('armed'); b.textContent = 'Pulsa otra vez para eliminar'; setTimeout(() => disarm(b,'Eliminar esta certificación'), 4000); return; }
+  const c = cur(); certs = certs.filter(x => x.id !== c.id); store.deleteCert(c.id);
+  selId = certs.length ? certs[certs.length-1].id : null; renderAll();
+});
+
+$('q').addEventListener('input', applyFilter);
+$('only').addEventListener('change', applyFilter);
+$('b-open').addEventListener('click', e => {
+  const ds = [...document.querySelectorAll('#chapters details.chap')];
+  const open = !ds.every(d=>d.open); ds.forEach(d => d.open = open);
+  e.currentTarget.textContent = open ? 'Plegar todo' : 'Desplegar todo';
+});
+
+/* ---------- exportación ---------- */
+const ECON_ROWS = () => { const b = +config.baja||0; return [['Ejecución material (PEM)','pem'],[GG+' % Gastos generales','gg'],[BI+' % Beneficio industrial','bi'],['Suma','s']].concat(b ? [['Baja '+fmt.format(b)+' % (coef. '+fcoef(coefOf(b))+')','bj'],['Importe tras baja','sb']] : []).concat([[IG+' % IGIC','ig'],['Total','tot']]); };
+const mesTxt = p => { if (!p) return ''; const [y,m] = p.split('-').map(Number); return new Date(y,m-1,1).toLocaleDateString('es-ES',{month:'long',year:'numeric'}); };
+const fechaTxt = f => f ? new Date(f+'T12:00:00').toLocaleDateString('es-ES') : '';
+const baseName = c => `Certificacion_${String(c.num).padStart(2,'0')}_Cercado_Manso_${c.periodo||''}`;
+
+async function offer(filename, data){
+  try {
+    const dl = await claude.use('downloads');
+    if (!dl) { setSave('La descarga no está disponible en esta vista.'); return; }
+    await dl.save({filename, data});
+  } catch(e){ setSave(e && e.code === 'declined' ? 'Descarga cancelada.' : 'No se pudo descargar: ' + (e && (e.message || e.code) || 'error')); }
+}
+
+function itemRows(c){
+  const p = prevOf(c);
+  return ITEMS.map(it => { const o = qOrig(c,it.k), a = qOrig(p,it.k); return {it, a, o, per:r2(o-a), ia:r2(a*it.p), io:r2(o*it.p)}; });
+}
+
+$('b-xls').addEventListener('click', async () => {
+  if (!window.XLSX){ setSave('No se pudo cargar el generador de Excel. Recarga la página.'); return; }
+  const c = cur(), t = totals(c), b = +config.baja||0, eo = econ(t.org,b), ea = econ(t.ant,b);
+  const wb = XLSX.utils.book_new();
+  const N = '#,##0.00', Q = '#,##0.000';
+  // Hoja 1: resumen
+  const R = [
+    ['INSTALACIONES ELÉCTRICAS EN MEDIA TENSIÓN · ZOI CERCADO MANSO (PUNTALLANA)'],
+    ['Certificación nº ' + c.num, '', 'Periodo', mesTxt(c.periodo)],
+    ['Fecha', fechaTxt(c.fecha), 'Contratista', config.contratista||''],
+    ['Baja %', b, 'Coeficiente de adjudicación', coefOf(b)],
+    [],
+    ['RESUMEN ECONÓMICO', 'A origen', 'Anterior', 'Esta certificación'],
+    ...ECON_ROWS().map(([l,k]) => { const em = econ(r2(t.org-t.ant), b); return [l, eo[k], ea[k], em[k]]; }),
+    [],
+    ['CAPÍTULO', 'Presupuesto', 'Anterior', 'Periodo', 'A origen', '% ejecutado'],
+    ...CAPS.map(cp => { const x = t.byCap[cp.n]; return [cp.n+'. '+cp.name, cp.t, r2(x.ant), r2(x.org-x.ant), r2(x.org), cp.t ? x.org/cp.t : 0]; }),
+    ['TOTAL PEM', PEM, t.ant, r2(t.org-t.ant), t.org, PEM ? t.org/PEM : 0]
+  ];
+  const ws1 = XLSX.utils.aoa_to_sheet(R);
+  const r1 = XLSX.utils.decode_range(ws1['!ref']);
+  for (let r=0;r<=r1.e.r;r++) for (let cc=1;cc<=5;cc++){ const a = ws1[XLSX.utils.encode_cell({r,c:cc})]; if (a && a.t==='n') a.z = (cc===5 && r>6+ECON_ROWS().length) ? '0.00%' : N; }
+  ws1['B4'].z = '0.00'; ws1['D4'].z = '0.000000';
+  ws1['!cols'] = [{wch:44},{wch:16},{wch:16},{wch:18},{wch:16},{wch:12}];
+  XLSX.utils.book_append_sheet(wb, ws1, 'Resumen');
+  // Hoja 2: relación valorada con fórmulas
+  const H = ['Nº','Código','Ud','Descripción','Med. proyecto','Precio','Importe proyecto','Med. anterior','Med. periodo','Med. a origen','Importe anterior','Importe periodo','Importe a origen','% ejec.'];
+  const rows = [H]; const rowsMeta = [];
+  let cap = null;
+  for (const r of itemRows(c)){
+    if (r.it.cap !== cap){ cap = r.it.cap; rows.push([cap, '', '', DATA.chaps[cap]]); rowsMeta.push('cap'); }
+    rows.push([r.it.id, r.it.code, r.it.ud, r.it.d, r.it.q, r.it.p, r.it.t, r.a, r.per, r.o, r.ia, r2(r.io-r.ia), r.io, r.it.q ? r.o/r.it.q : 0]); rowsMeta.push('it');
+  }
+  const ws2 = XLSX.utils.aoa_to_sheet(rows);
+  rowsMeta.forEach((m,i) => {
+    if (m !== 'it') return; const R1 = i+2, E = XLSX.utils.encode_cell, row = i+1;
+    const set = (col, f, z) => { const cell = ws2[E({r:row,c:col})]; cell.f = f; cell.z = z; };
+    ['E','H','I','J'].forEach(L => { const cell = ws2[L+R1]; cell.z = Q; });
+    ws2['F'+R1].z = N;
+    set(6, `ROUND(E${R1}*F${R1},2)`, N);
+    set(8, `J${R1}-H${R1}`, Q);
+    set(10, `ROUND(H${R1}*F${R1},2)`, N);
+    set(11, `M${R1}-K${R1}`, N);
+    set(12, `ROUND(J${R1}*F${R1},2)`, N);
+    set(13, `IF(E${R1}=0,0,J${R1}/E${R1})`, '0.00%');
+  });
+  ws2['!cols'] = [{wch:8},{wch:13},{wch:5},{wch:70},{wch:12},{wch:11},{wch:14},{wch:12},{wch:12},{wch:12},{wch:14},{wch:14},{wch:14},{wch:8}];
+  ws2['!autofilter'] = {ref: 'A1:N1'};
+  XLSX.utils.book_append_sheet(wb, ws2, 'Relación valorada');
+  const buf = XLSX.write(wb, {bookType:'xlsx', type:'array'});
+  await offer(baseName(c) + '.xlsx', new Blob([buf]));
+});
+
+$('b-pdf').addEventListener('click', async () => {
+  const J = window.jspdf && window.jspdf.jsPDF;
+  if (!J){ setSave('No se pudo cargar el generador de PDF. Recarga la página.'); return; }
+  const c = cur(), t = totals(c), b = +config.baja||0, eo = econ(t.org,b), ea = econ(t.ant,b);
+  const doc = new J({orientation:'landscape', unit:'mm', format:'a4'});
+  const W = doc.internal.pageSize.getWidth(), ink = [29,38,33], green = [46,107,76];
+  const head = { fillColor: green, textColor: 255, fontStyle:'bold', fontSize:8 };
+  const nf = v => fmt.format(v), qf = v => v ? fq.format(v) : '';
+  doc.setFont('helvetica','bold'); doc.setFontSize(15); doc.setTextColor(...ink);
+  doc.text('CERTIFICACIÓN DE OBRA Nº ' + c.num, 14, 16);
+  doc.setFontSize(10); doc.setFont('helvetica','normal');
+  doc.text('Obra: INSTALACIONES ELÉCTRICAS EN MEDIA TENSIÓN · ZOI CERCADO MANSO (PUNTALLANA)', 14, 23);
+  doc.text('Periodo: ' + mesTxt(c.periodo) + '      Fecha: ' + fechaTxt(c.fecha), 14, 28);
+  doc.text('Contratista: ' + (config.contratista || '—'), 14, 33);
+  doc.text('Baja: ' + nf(b) + ' %   ·   Coeficiente de adjudicación: ' + fcoef(coefOf(b)) + '   ·   Estado: ' + (locked(c) ? 'Cerrada' : 'Borrador'), 14, 38);
+  doc.autoTable({ startY: 43, margin:{left:14, right:W/2+4}, head:[['Resumen económico','A origen','Anterior','Esta cert.']],
+    body: ECON_ROWS().map(([l,k]) => { const em = econ(r2(t.org-t.ant), b); return [l, nf(eo[k]), nf(ea[k]), nf(em[k])]; }),
+    styles:{fontSize:8, cellPadding:1.4}, headStyles:head, columnStyles:{1:{halign:'right'},2:{halign:'right'},3:{halign:'right'}},
+    didParseCell: d => { if (d.section==='body' && d.row.index === ECON_ROWS().length-1) { d.cell.styles.fontStyle='bold'; d.cell.styles.fillColor=[225,238,230]; } } });
+  const yEcon = doc.lastAutoTable.finalY;
+  doc.autoTable({ startY: 43, margin:{left:W/2+2, right:14}, head:[['Capítulo','Presupuesto','Periodo','A origen','%']],
+    body: CAPS.map(cp => { const x = t.byCap[cp.n]; return [cp.n+'. '+cp.name, nf(cp.t), nf(r2(x.org-x.ant)), nf(r2(x.org)), nf(cp.t? x.org/cp.t*100:0)]; }).concat([['TOTAL PEM', nf(PEM), nf(r2(t.org-t.ant)), nf(t.org), nf(PEM? t.org/PEM*100:0)]]),
+    styles:{fontSize:7, cellPadding:1}, headStyles:head, columnStyles:{1:{halign:'right'},2:{halign:'right'},3:{halign:'right'},4:{halign:'right'}},
+    didParseCell: d => { if (d.section==='body' && d.row.index === CAPS.length) d.cell.styles.fontStyle='bold'; } });
+  // firmas
+  let y = Math.max(yEcon, doc.lastAutoTable.finalY) + 14;
+  if (y > 180) { doc.addPage(); y = 30; }
+  doc.setFontSize(9);
+  doc.text('El Director de Obra', 40, y); doc.text('El Contratista', W-90, y);
+  doc.text('Fdo.:', 40, y+22); doc.text('Fdo.:', W-90, y+22);
+  // relación valorada
+  doc.addPage();
+  doc.setFont('helvetica','bold'); doc.setFontSize(12); doc.text('Relación valorada · Certificación nº ' + c.num, 14, 14);
+  const body = []; let cap = null;
+  for (const r of itemRows(c)){
+    if (!r.o && !r.a) continue;
+    if (r.it.cap !== cap){ cap = r.it.cap; body.push([{content: cap + '. ' + DATA.chaps[cap], colSpan: 11, styles:{fontStyle:'bold', fillColor:[238,241,236]}}]); }
+    const d = r.it.d.length > 140 ? r.it.d.slice(0,137) + '…' : r.it.d;
+    body.push([r.it.id, r.it.code + '\n' + d, r.it.ud, qf(r.it.q), nf(r.it.p), qf(r.a), qf(r.per), qf(r.o), nf(r2(r.io-r.ia)), nf(r.io), nf(r.it.q? r.o/r.it.q*100:0)]);
+  }
+  if (!body.length) body.push([{content:'Sin mediciones en esta certificación.', colSpan:11}]);
+  doc.autoTable({ startY: 19, margin:{left:10,right:10}, head:[['Nº','Partida','Ud','Med. proy.','Precio','Med. ant.','Med. periodo','Med. origen','Imp. periodo','Imp. origen','%']],
+    body, styles:{fontSize:6.8, cellPadding:1, valign:'top'}, headStyles:head,
+    columnStyles:{0:{cellWidth:13},1:{cellWidth:100},2:{cellWidth:9},3:{halign:'right'},4:{halign:'right'},5:{halign:'right'},6:{halign:'right'},7:{halign:'right'},8:{halign:'right'},9:{halign:'right'},10:{halign:'right'}} });
+  const n = doc.getNumberOfPages();
+  for (let i=1;i<=n;i++){ doc.setPage(i); doc.setFont('helvetica','normal'); doc.setFontSize(7); doc.setTextColor(110); doc.text(`ZOI Cercado Manso · Certificación nº ${c.num} · ${mesTxt(c.periodo)} · Página ${i} de ${n}`, 14, doc.internal.pageSize.getHeight()-7); }
+  await offer(baseName(c) + '.pdf', doc.output('blob'));
+});
+
+/* ---------- arranque ---------- */
+store = makeLocalStore();
+renderAll();
+(async () => {
+  let db = null;
+  try { db = window.claude && await claude.use('db'); } catch(e){}
+  if (db){ certs = []; store = makeDbStore(db); setSave('Conectado al almacenamiento compartido'); }
+  else { $('storage-note').hidden = false; }
+})();
+</script>
+
+
+</body></html>

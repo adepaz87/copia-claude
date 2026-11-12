@@ -1,0 +1,15 @@
+{
+  "alias": [
+    "ALUMBRADO NAVIDAD"
+  ],
+  "cliente": "AYTO. BREÑA BAJA",
+  "creado": "2026-10-30",
+  "estado": "aprobada",
+  "fact": {
+    "igic": 7,
+    "mg": 0,
+    "ph": 30,
+    "tr": 0
+  },
+  "nombre": "Alumbrado Navidad"
+}

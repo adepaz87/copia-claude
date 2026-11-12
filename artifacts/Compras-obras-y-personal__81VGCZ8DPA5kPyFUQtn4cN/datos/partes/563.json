@@ -1,0 +1,17 @@
+{
+  "albs": [],
+  "cliente": "TOMÁS BARRETO",
+  "desc": "Revisar cargador eléctrico \nSe verifica protecciones,se encuentra un cargador con automático saltado,se repone automático y reset equipo \nSe deja con servicio",
+  "devol": [],
+  "estado": "TERMINADO",
+  "fecha": "2026-09-28",
+  "horas": 1,
+  "obra": "SPAR TRIANA",
+  "ops": [
+    {
+      "h": 1,
+      "n": "Jonathan Rodríguez"
+    }
+  ],
+  "stock": []
+}

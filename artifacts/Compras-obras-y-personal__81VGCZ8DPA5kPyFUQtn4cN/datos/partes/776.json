@@ -1,0 +1,75 @@
+{
+  "albs": [
+    "Ayumar 4-1191"
+  ],
+  "cliente": "?",
+  "desc": "Elaboración cuadros cargador . Sellado. Limpieza.edirados.coloxacion triangulos.",
+  "devol": [],
+  "estado": "TERMINADO",
+  "fecha": "2026-10-23",
+  "horas": 8,
+  "obra": "CARGADOR EL PASO",
+  "ops": [
+    {
+      "h": 8,
+      "n": "Toño"
+    }
+  ],
+  "stock": [
+    {
+      "d": "Cable 1x35mm",
+      "q": 4,
+      "u": "m"
+    },
+    {
+      "d": "Cable 1x10mm",
+      "q": 7,
+      "u": "m"
+    },
+    {
+      "d": "Cable 1x6mm",
+      "q": 6,
+      "u": "m"
+    },
+    {
+      "d": "Cable 1x1,5mm",
+      "q": 2,
+      "u": "m"
+    },
+    {
+      "d": "punteras simples 35mm",
+      "q": 12,
+      "u": ""
+    },
+    {
+      "d": "punteras simples 50mm",
+      "q": 8,
+      "u": ""
+    },
+    {
+      "d": "punteras simples 10mm",
+      "q": 12,
+      "u": ""
+    },
+    {
+      "d": "punteras simples 6mm",
+      "q": 18,
+      "u": ""
+    },
+    {
+      "d": "punteras simples 1,5mm",
+      "q": 4,
+      "u": ""
+    },
+    {
+      "d": "Bridas 2,5x100mm",
+      "q": 26,
+      "u": ""
+    },
+    {
+      "d": "bridas 4'8x300mm",
+      "q": 8,
+      "u": ""
+    }
+  ]
+}

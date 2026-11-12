@@ -1,0 +1,12 @@
+{
+  "cap": "04",
+  "cod": "04.03",
+  "desc": "Impermeabilización de zona de ducha con lámina líquida y banda de refuerzo en encuentros.",
+  "med": 5.5,
+  "nota": "Plato 1,40 × 0,80 = 1,12 + paredes de ducha (1,40 + 0,80) × 2,00 m = 4,40",
+  "orden": 3,
+  "pre": 22,
+  "rev": false,
+  "sb": false,
+  "ud": "m²"
+}

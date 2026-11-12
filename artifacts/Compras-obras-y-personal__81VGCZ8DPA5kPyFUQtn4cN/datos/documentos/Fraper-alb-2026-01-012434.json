@@ -1,0 +1,47 @@
+{
+  "empresa": "Instapalma",
+  "fecha": "2026-10-05",
+  "lineas": [
+    {
+      "a": "2026/01/012434",
+      "d": "CUTTER AUTOMATICO 8 CUCHILLAS REF. 908",
+      "dto": "10",
+      "f": "2026-10-05",
+      "i": 3.34,
+      "o": "",
+      "pn": 3.34,
+      "pt": 3.71,
+      "q": 1,
+      "r": "170518"
+    },
+    {
+      "a": "2026/01/012434",
+      "d": "SARG.DE EXTEN.Y SUJECIÓN 120MM 2PZAS",
+      "dto": "",
+      "f": "2026-10-05",
+      "i": 9.23,
+      "o": "",
+      "pn": 9.23,
+      "pt": 9.23,
+      "q": 1,
+      "r": "165735"
+    },
+    {
+      "a": "2026/01/012434",
+      "d": "TECHO REGISTRABLE MINERVAL LUX BLANCO 60",
+      "dto": "10",
+      "f": "2026-10-05",
+      "i": 60.66,
+      "o": "",
+      "pn": 3.033,
+      "pt": 3.37,
+      "q": 20,
+      "r": "80002"
+    }
+  ],
+  "numero": "2026/01/012434",
+  "obra": "",
+  "origen": "Gmail",
+  "proveedor": "Fraper",
+  "tipo": "albaran"
+}

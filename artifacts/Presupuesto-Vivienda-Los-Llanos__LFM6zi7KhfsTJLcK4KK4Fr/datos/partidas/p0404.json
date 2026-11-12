@@ -1,0 +1,12 @@
+{
+  "cap": "04",
+  "cod": "04.04",
+  "desc": "Trasdosado autoportante de placa de yeso laminado estándar de 15 mm sobre perfilería de acero galvanizado de 48 mm, con lana mineral de 45 mm, en todos los muros perimetrales de la vivienda, hasta 10 cm por encima del falso techo. Incluye remates en jambas de huecos y juntas tratadas.",
+  "med": 75.78,
+  "nota": "Calle 8,30 + propiedad 9,80 + trasero 6,50 (sin baños) + lateral 7,90 = 32,50 ml × 2,70 m = 87,75 − 6 ventanas × 1,68 − puerta de entrada 1,89 = 75,78 m²",
+  "orden": 4,
+  "pre": 32,
+  "rev": true,
+  "sb": false,
+  "ud": "m²"
+}

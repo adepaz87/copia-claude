@@ -1,0 +1,63 @@
+{
+  "empresa": "Instapalma",
+  "fecha": "2026-10-21",
+  "lineas": [
+    {
+      "a": "112.610.086",
+      "d": "TORNILLO INOX.316 8X 30 DIN933",
+      "dto": "25%",
+      "f": "2026-10-21",
+      "i": 2.74,
+      "igic": 7,
+      "o": "VIVIENDA HACIENDA EL CURA",
+      "pn": 0.2743,
+      "pt": 0.3657,
+      "q": 10,
+      "r": "25409"
+    },
+    {
+      "a": "112.610.086",
+      "d": "ARANDELA INOX.316 ANCHA M- 8 DIN 9021",
+      "dto": "25%",
+      "f": "2026-10-21",
+      "i": 1.01,
+      "igic": 7,
+      "o": "VIVIENDA HACIENDA EL CURA",
+      "pn": 0.1013,
+      "pt": 0.1351,
+      "q": 10,
+      "r": "25477"
+    },
+    {
+      "a": "112.610.086",
+      "d": "TUERCA INOX.316 M- 8 DIN 934 ZN",
+      "dto": "25%",
+      "f": "2026-10-21",
+      "i": 1.46,
+      "igic": 7,
+      "o": "VIVIENDA HACIENDA EL CURA",
+      "pn": 0.146,
+      "pt": 0.1947,
+      "q": 10,
+      "r": "19032"
+    },
+    {
+      "a": "112.610.086",
+      "d": "AGUA DESIONIZADA 5 LT.",
+      "dto": "25%",
+      "f": "2026-10-21",
+      "i": 2.84,
+      "igic": 3,
+      "o": "VIVIENDA HACIENDA EL CURA",
+      "pn": 2.8394,
+      "pt": 3.7858,
+      "q": 1,
+      "r": "17726"
+    }
+  ],
+  "numero": "112.610.086",
+  "obra": "VIVIENDA HACIENDA EL CURA",
+  "origen": "Gmail",
+  "proveedor": "BAP",
+  "tipo": "albaran"
+}

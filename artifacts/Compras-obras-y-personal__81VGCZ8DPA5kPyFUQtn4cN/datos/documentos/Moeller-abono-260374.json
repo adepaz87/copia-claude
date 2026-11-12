@@ -1,0 +1,24 @@
+{
+  "abono": true,
+  "empresa": "Instapalma",
+  "fecha": "2026-09-15",
+  "lineas": [
+    {
+      "a": "202608009",
+      "d": "DEVOLUCION CONTACTORES Y GUARDAMOTORES (entrega 202608009)",
+      "dto": "",
+      "f": "2026-09-15",
+      "i": -767.9,
+      "igic": 7,
+      "o": "ARIDOS RIACHUELO",
+      "pn": 767.9,
+      "pt": 767.9,
+      "q": -1,
+      "r": ""
+    }
+  ],
+  "numero": "A-260374",
+  "origen": "Gmail",
+  "proveedor": "Moeller",
+  "tipo": "factura"
+}

@@ -1,0 +1,20 @@
+{
+  "actualizada": "2026-10-28T09:29:00Z",
+  "aviso": "",
+  "centro": "SPAR Puntallana",
+  "creada": "2026-10-22T09:33:00Z",
+  "descripcion": "Caja 02: los enchufes del circuito estabilizado no dan corriente; se pasó temporalmente a los no estabilizados. Al repararlo, avisar a Fernando para reconectar los cables.",
+  "estado": "terminada",
+  "fechaAviso": "2026-10-22",
+  "historial": [
+    "22/10/2026 10:33 · Asignada a Toño Guardia",
+    "28/10/2026 09:29 · Estado: Terminada"
+  ],
+  "informado": true,
+  "notas": "Resuelto; Raquel confirma que vio el aviso de resuelto (28/10).",
+  "operario": "Toño Guardia",
+  "ot": 94,
+  "prioridad": "Sin especificar",
+  "solicitante": "Raquel",
+  "tipo": "MANTENIMIENTO"
+}

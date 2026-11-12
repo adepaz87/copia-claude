@@ -1,0 +1,17 @@
+{
+  "albs": [],
+  "cliente": "ALMACEN",
+  "desc": "Revisar herramienta  comprobarla",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-09-22",
+  "horas": 6,
+  "obra": "ALMACEN",
+  "ops": [
+    {
+      "h": 6,
+      "n": "Goyo"
+    }
+  ],
+  "stock": []
+}

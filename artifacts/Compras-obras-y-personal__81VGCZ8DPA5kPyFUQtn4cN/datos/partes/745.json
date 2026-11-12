@@ -1,0 +1,17 @@
+{
+  "albs": [],
+  "cliente": "CASA LA VERADA",
+  "desc": "Desmontar parte del entubado, modificarlo",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-10-20",
+  "horas": 4,
+  "obra": "CASA",
+  "ops": [
+    {
+      "h": 4,
+      "n": "Goyo"
+    }
+  ],
+  "stock": []
+}

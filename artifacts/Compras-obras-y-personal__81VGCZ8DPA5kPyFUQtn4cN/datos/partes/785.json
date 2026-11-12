@@ -1,0 +1,23 @@
+{
+  "albs": [],
+  "cliente": "TOMÁS BARRETO SA",
+  "desc": "Avería en cargador exterior, salto esporádico de diferencial, limpieza y sellado de modulo y toma auxiliar en cargador, no aprecia fuga",
+  "devol": [],
+  "estado": "TERMINADO",
+  "fecha": "2026-10-26",
+  "horas": 1.5,
+  "obra": "SPAR EL PASO",
+  "ops": [
+    {
+      "h": 1.5,
+      "n": "Toño"
+    }
+  ],
+  "stock": [
+    {
+      "d": "bote sicaflex",
+      "q": 1,
+      "u": ""
+    }
+  ]
+}

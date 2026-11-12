@@ -1,0 +1,60 @@
+{
+  "albs": [
+    "Sonepar 309005758",
+    "Sonepar 309005755",
+    "Coelca 184.495/018"
+  ],
+  "cliente": "CABILDO INSULAR",
+  "desc": "Cambiar tubos fluorescentes fundidos. \nCambiar ubicacacion de interruptores de salas.\nVer averia alumbrado.\nSanear caja suelta en la pared.\nRevisar cuadro parte alta.",
+  "devol": [],
+  "estado": "TERMINADO",
+  "fecha": "2026-09-18",
+  "horas": 17,
+  "obra": "MATADERO",
+  "ops": [
+    {
+      "h": 8,
+      "n": "Antonio"
+    },
+    {
+      "h": 8,
+      "n": "Iker"
+    },
+    {
+      "h": 1,
+      "n": "Transporte"
+    }
+  ],
+  "stock": [
+    {
+      "d": "tubo rigido blanco 25 mm",
+      "q": 3,
+      "u": "m"
+    },
+    {
+      "d": "registro sobre pared 10x10",
+      "q": 2,
+      "u": "cajas"
+    },
+    {
+      "d": "cable flexible 1x1,5 mm",
+      "q": 48,
+      "u": "m"
+    },
+    {
+      "d": "cinta aislante blanca",
+      "q": 1,
+      "u": ""
+    },
+    {
+      "d": "regleta empalme de 10 mm",
+      "q": 1,
+      "u": ""
+    },
+    {
+      "d": "curvas de pvc de 25 mm",
+      "q": 2,
+      "u": ""
+    }
+  ]
+}

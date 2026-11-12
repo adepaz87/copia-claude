@@ -1,0 +1,17 @@
+{
+  "albs": [],
+  "cliente": "AYUNTAMIENTO EL PASO",
+  "desc": "Colocar enchufes en almacen escalera sur S-1.\nColocar tarjeteros en 3 planta.\nDesmontar cabeceros en 3 planta para hacer armarios y fichar.\nMarcar techos con arquitectos en planta baja, salones chimenea, recepcion, etc, alumbrado, emergencias, datos y altavoces.\nVer con instalador puerta necesidades de cableado.",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-10-01",
+  "horas": 8,
+  "obra": "HOTEL MONTERREY",
+  "ops": [
+    {
+      "h": 8,
+      "n": "Antonio"
+    }
+  ],
+  "stock": []
+}

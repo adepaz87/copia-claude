@@ -1,0 +1,26 @@
+{
+  "albs": [],
+  "cliente": "TOMÁS BARRETO",
+  "desc": "Regular relojes en cuadro general supermercado y subcuadro servicios auxiliares…. Horario encendido y apagado según encargada",
+  "devol": [],
+  "editado": "2026-11-05",
+  "estado": "TERMINADO",
+  "fecha": "2026-11-04",
+  "horas": 1,
+  "obra": "Spar Triana",
+  "obraId": "spar-triana",
+  "ops": [
+    {
+      "h": 0.5,
+      "n": "Carlos Jonathan Rodríguez Luis",
+      "pid": "carlos-jonathan-rodriguez-luis"
+    },
+    {
+      "h": 0.5,
+      "n": "Petter",
+      "pid": "petter"
+    }
+  ],
+  "origen": "dashboard",
+  "stock": []
+}

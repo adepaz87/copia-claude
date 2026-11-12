@@ -1,0 +1,27 @@
+{
+  "albs": [],
+  "cliente": "TRAGSA",
+  "desc": "Picar para descubrir el tubo de la acometida. Enhebrar fibra óptica desde cuarto del inversor hasta cuarto de cuadro general. Conectar comunicación en cuarto del inversor.",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-10-28",
+  "horas": 10,
+  "obra": "FV CENTRO DE VISITANTES",
+  "ops": [
+    {
+      "h": 5,
+      "n": "Eloy"
+    },
+    {
+      "h": 5,
+      "n": "Jonathan Glez"
+    }
+  ],
+  "stock": [
+    {
+      "d": "fibra óptica",
+      "q": 100,
+      "u": "m"
+    }
+  ]
+}

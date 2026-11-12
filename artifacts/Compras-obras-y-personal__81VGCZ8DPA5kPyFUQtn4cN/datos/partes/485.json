@@ -1,0 +1,27 @@
+{
+  "albs": [
+    "Ningún"
+  ],
+  "cliente": "CONSTRUCCIONES DOMINGO",
+  "desc": "Modificar cajas de cabecero\nModificar cajas TV\nSubir altura caja armario baño",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-09-16",
+  "horas": 3,
+  "obra": "CASA CRISTINA",
+  "ops": [
+    {
+      "h": 1,
+      "n": "Riki"
+    },
+    {
+      "h": 1,
+      "n": "Joel"
+    },
+    {
+      "h": 1,
+      "n": "Aythami"
+    }
+  ],
+  "stock": []
+}

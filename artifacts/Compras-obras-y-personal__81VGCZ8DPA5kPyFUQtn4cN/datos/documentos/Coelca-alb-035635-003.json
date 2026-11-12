@@ -1,0 +1,47 @@
+{
+  "empresa": "Instapalma",
+  "fecha": "2026-10-21",
+  "lineas": [
+    {
+      "a": "035.635/003",
+      "d": "TUBO PVC FLEX.DIFLEX GRIS M20",
+      "f": "2026-10-21",
+      "fab": "GEW-DX30020",
+      "i": 46.53,
+      "o": "GARAJES BELLIDO",
+      "pn": 1.551,
+      "pt": 1.551,
+      "q": 30,
+      "r": "9300209"
+    },
+    {
+      "a": "035.635/003",
+      "d": "RACOR RGM RIGIDO/FLEX IP65 M20",
+      "f": "2026-10-21",
+      "fab": "GEW-DX43420",
+      "i": 1.49,
+      "o": "GARAJES BELLIDO",
+      "pn": 1.49,
+      "pt": 1.494,
+      "q": 1,
+      "r": "9434209"
+    },
+    {
+      "a": "035.635/003",
+      "d": "CABLE UTP CAT6 LSZH CAJA 100MT",
+      "f": "2026-10-21",
+      "fab": "404521",
+      "i": 43.21,
+      "o": "GARAJES BELLIDO",
+      "pn": 43.21,
+      "pt": 43.206,
+      "q": 1,
+      "r": "39642"
+    }
+  ],
+  "numero": "035.635/003",
+  "obra": "GARAJES BELLIDO",
+  "origen": "Gmail",
+  "proveedor": "Coelca",
+  "tipo": "albaran"
+}

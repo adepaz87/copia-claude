@@ -1,0 +1,20 @@
+{
+  "actualizada": "2026-11-03T16:11:56.608Z",
+  "aviso": "25960",
+  "centro": "SPAR El Paso",
+  "creada": "2026-11-03T16:30:00Z",
+  "descripcion": "Colocar cable de datos y corriente estabilizada a 2 m a la izquierda del fregadero para la nueva balanza de charcutería.",
+  "estado": "terminada",
+  "fechaAviso": "2026-07-16",
+  "historial": [
+    "03/11/2026 · Importada del correo GIM",
+    "3/11/2026 16:11 · Estado: Terminada"
+  ],
+  "informado": false,
+  "notas": "Aviso de Goretti; Fernando dice que Toño sabe dónde es. Puede ser la OT 42 (El Paso, 18/07). Comprobar. Nº OT provisional: confirmar o cambiar.",
+  "operario": "",
+  "ot": 122,
+  "prioridad": "Sin especificar",
+  "solicitante": "Fernando",
+  "tipo": "MANTENIMIENTO"
+}

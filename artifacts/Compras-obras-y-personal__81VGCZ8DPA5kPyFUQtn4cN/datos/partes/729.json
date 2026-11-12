@@ -1,0 +1,21 @@
+{
+  "albs": [],
+  "cliente": "COVALLE",
+  "desc": "Colocación proyectores emergencia en almacaen \nRealizar entubado visto para proyectores emergencia,enhebrar y conexionar \nLimpiar zonas de trabajo",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-10-19",
+  "horas": 22,
+  "obra": "NAVE COOPERATIVA COVALLE",
+  "ops": [
+    {
+      "h": 11,
+      "n": "Petter"
+    },
+    {
+      "h": 11,
+      "n": "Jonathan Rodríguez"
+    }
+  ],
+  "stock": []
+}

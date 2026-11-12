@@ -1,0 +1,22 @@
+{
+  "empresa": "Instapalma",
+  "fecha": "2026-04-30",
+  "lineas": [
+    {
+      "a": "2026/01/005241",
+      "d": "CV TORNILLO DIN-7504-K+ARVUL 5,5X25P16",
+      "dto": "10",
+      "f": "2026-04-29",
+      "i": 19.87,
+      "o": "FV-JTI",
+      "pn": 4.9675,
+      "pt": 5.52,
+      "q": 4,
+      "r": "142339"
+    }
+  ],
+  "numero": "2026/21/1564",
+  "origen": "Gmail",
+  "proveedor": "Fraper",
+  "tipo": "factura"
+}

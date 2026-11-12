@@ -1,0 +1,153 @@
+{
+  "albs": [],
+  "cliente": "JOSÉ BARRETO",
+  "desc": "Entubar Colocación  de registros\nEnebrar acometida\nRealización de cuadro y subcuadro\nColocación  de pantallas",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-10-16",
+  "horas": 16,
+  "obra": "GARAJES BELLIDO",
+  "ops": [
+    {
+      "h": 8,
+      "n": "Manuel"
+    },
+    {
+      "h": 8,
+      "n": "Juan"
+    }
+  ],
+  "stock": [
+    {
+      "d": "cable de 1x6mm",
+      "q": 98,
+      "u": "m"
+    },
+    {
+      "d": "cable  de 1x2,5 mm",
+      "q": 70,
+      "u": "m"
+    },
+    {
+      "d": "cable  de 1x1,5 mm",
+      "q": 62,
+      "u": "m"
+    },
+    {
+      "d": "10x10 GW",
+      "q": 3,
+      "u": "cajas"
+    },
+    {
+      "d": "15x20 GW",
+      "q": 2,
+      "u": "cajas"
+    },
+    {
+      "d": "zócalo de 1 elemento",
+      "q": 1,
+      "u": ""
+    },
+    {
+      "d": "interruptor  GW",
+      "q": 1,
+      "u": ""
+    },
+    {
+      "d": "pantallas",
+      "q": 3,
+      "u": ""
+    },
+    {
+      "d": "tubo rígido  de 25",
+      "q": 20,
+      "u": "m"
+    },
+    {
+      "d": "tubo rígido  de 20",
+      "q": 8,
+      "u": "m"
+    },
+    {
+      "d": "curvas rígidas de 25",
+      "q": 3,
+      "u": ""
+    },
+    {
+      "d": "curvas flexibles  de 25",
+      "q": 1,
+      "u": ""
+    },
+    {
+      "d": "curvas rígidas de 20",
+      "q": 3,
+      "u": ""
+    },
+    {
+      "d": "punteras de 6mm",
+      "q": 20,
+      "u": ""
+    },
+    {
+      "d": "punteras de 2,5",
+      "q": 8,
+      "u": ""
+    },
+    {
+      "d": "dobles de 10mm",
+      "q": 2,
+      "u": ""
+    },
+    {
+      "d": "automáticos de 2x25 schneider",
+      "q": 2,
+      "u": ""
+    },
+    {
+      "d": "dif de 2x40 schneider",
+      "q": 1,
+      "u": ""
+    },
+    {
+      "d": "automatico  de 2x16 schneider",
+      "q": 1,
+      "u": ""
+    },
+    {
+      "d": "automáticos de 2x10 schneider",
+      "q": 2,
+      "u": ""
+    },
+    {
+      "d": "Material traído de Coelca",
+      "q": 1,
+      "u": "",
+      "x": 1
+    },
+    {
+      "d": "cuadro sp de 12 ele",
+      "q": 1,
+      "u": ""
+    },
+    {
+      "d": "puestos de trabajo de tres filas schneider",
+      "q": 2,
+      "u": ""
+    },
+    {
+      "d": "zukos  schneider",
+      "q": 8,
+      "u": ""
+    },
+    {
+      "d": "Rj45",
+      "q": 4,
+      "u": ""
+    },
+    {
+      "d": "cable 1x1,5 azul",
+      "q": 100,
+      "u": "m"
+    }
+  ]
+}

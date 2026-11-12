@@ -1,0 +1,50 @@
+{
+  "albs": [],
+  "cliente": "TRAGSA",
+  "desc": "Montaje de bandeja de 400x60. Enebrar cable por bandeja y enbridarlos hasta cuadro.",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-11-03",
+  "horas": 8,
+  "id": "858",
+  "obra": "HOSPITAL (MOD G)",
+  "ops": [
+    {
+      "h": 8,
+      "n": "Juan"
+    }
+  ],
+  "origen": "dashboard",
+  "stock": [
+    {
+      "d": "carriles perforados",
+      "q": 3,
+      "u": ""
+    },
+    {
+      "d": "varillas roscada M8",
+      "q": 4,
+      "u": ""
+    },
+    {
+      "d": "tuercas M8",
+      "q": 12,
+      "u": ""
+    },
+    {
+      "d": "arandelas",
+      "q": 12,
+      "u": ""
+    },
+    {
+      "d": "dado cincado M8x30",
+      "q": 12,
+      "u": ""
+    },
+    {
+      "d": "cable 2x1,5mm rojo",
+      "q": 68,
+      "u": "m"
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "albs": [],
+  "cliente": "AYUNTAMIENTO EL PASO",
+  "desc": "Terminar lámparas, emergencias y sensores de 1ª planta. Emergencias y sensores de baños PMR. Emergencias de habitaciones, cuarto rack y almacén. Limpieza de obra y retirada de cartones.",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-11-06",
+  "horas": 14,
+  "id": "908",
+  "obra": "HOTEL MONTERREY",
+  "ops": [
+    {
+      "h": 6,
+      "n": "Antonio"
+    },
+    {
+      "h": 8,
+      "n": "Iker"
+    }
+  ],
+  "origen": "dashboard",
+  "restante": "Indefinido",
+  "stock": []
+}

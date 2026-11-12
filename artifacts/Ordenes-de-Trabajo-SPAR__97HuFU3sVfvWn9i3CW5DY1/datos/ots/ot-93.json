@@ -1,0 +1,20 @@
+{
+  "actualizada": "2026-11-03T06:29:59.840Z",
+  "aviso": "27145",
+  "centro": "Central Distribuidora (Breña Baja)",
+  "creada": "2026-10-22T09:00:00Z",
+  "descripcion": "Comprobar que el grupo electrógeno arranca bien durante el corte de suministro del 25/10/2026, de 09:30 a 14:00.",
+  "estado": "terminada",
+  "fechaAviso": "2026-10-22",
+  "historial": [
+    "22/10/2026 · Importada del correo de Alberto",
+    "3/11/2026 06:29 · Estado: Terminada"
+  ],
+  "informado": false,
+  "notas": "No hay correo de cierre: confirmar con Goyo si se hizo el 25/10.",
+  "operario": "Goyo Hernández",
+  "ot": 93,
+  "prioridad": "Sin especificar",
+  "solicitante": "",
+  "tipo": "MANTENIMIENTO"
+}

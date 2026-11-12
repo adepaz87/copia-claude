@@ -1,0 +1,25 @@
+{
+  "albs": [],
+  "cliente": "CONSTRUCCIONES DOMINGO",
+  "desc": "Abrir huecos para cajas de mecanismos\nColocar cajas de mecanismos",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-09-08",
+  "horas": 9.5,
+  "obra": "CASA CRISTINA",
+  "ops": [
+    {
+      "h": 4,
+      "n": "Riki"
+    },
+    {
+      "h": 4,
+      "n": "Aythami"
+    },
+    {
+      "h": 1.5,
+      "n": "Joel"
+    }
+  ],
+  "stock": []
+}

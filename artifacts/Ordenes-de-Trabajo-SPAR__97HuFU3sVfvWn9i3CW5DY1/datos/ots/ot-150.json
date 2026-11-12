@@ -1,0 +1,21 @@
+{
+  "actualizada": "2026-11-12T12:14:00Z",
+  "aviso": "",
+  "centro": "SPAR Triana",
+  "creada": "2026-11-12T10:47:00Z",
+  "descripcion": "Colocación de luces LED en la zona de vinos (cabecera).",
+  "empresa": "Tomás Barreto",
+  "estado": "pendiente",
+  "fechaAviso": "2026-11-12",
+  "historial": [
+    "12/11/2026 11:15 · Registrada desde la captura GIM de Raquel (correo «TRIANA»)",
+    "12/11/2026 11:49 · Fernando responde: verlo con Nieves (encargada)"
+  ],
+  "informado": false,
+  "notas": "Captura GIM enviada por Raquel (correo «TRIANA», 12/11 10:47, cc Fernando). Solicitud del jefe de tienda SPAR Triana, 12/11 11:06, tipo MATERIAL NUEVO, prioridad Alta, E.S.M. «posible reparación» (sin nº de aviso visible). Alberto pidió aclaración (12/11 11:04) y Fernando respondió (12/11 11:49): «verlo con Nieves (encargada)».",
+  "operario": "",
+  "ot": 150,
+  "prioridad": "Alta",
+  "solicitante": "Raquel",
+  "tipo": "MANTENIMIENTO"
+}

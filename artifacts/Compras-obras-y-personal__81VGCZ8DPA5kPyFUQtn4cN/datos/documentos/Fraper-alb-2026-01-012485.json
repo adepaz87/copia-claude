@@ -1,0 +1,35 @@
+{
+  "empresa": "Instapalma",
+  "fecha": "2026-10-06",
+  "lineas": [
+    {
+      "a": "2026/01/012485",
+      "d": "GUANTE PROYTAC TALLA L (9) NARANJA/NEGRO",
+      "dto": "10",
+      "f": "2026-10-06",
+      "i": 4.28,
+      "o": "",
+      "pn": 2.14,
+      "pt": 2.38,
+      "q": 2,
+      "r": "225805"
+    },
+    {
+      "a": "2026/01/012485",
+      "d": "MARCADOR PERMANENTE AZUL",
+      "dto": "10",
+      "f": "2026-10-06",
+      "i": 2.19,
+      "o": "",
+      "pn": 2.19,
+      "pt": 2.43,
+      "q": 1,
+      "r": "223155"
+    }
+  ],
+  "numero": "2026/01/012485",
+  "obra": "",
+  "origen": "Gmail",
+  "proveedor": "Fraper",
+  "tipo": "albaran"
+}

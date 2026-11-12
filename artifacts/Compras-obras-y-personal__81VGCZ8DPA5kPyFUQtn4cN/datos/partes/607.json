@@ -1,0 +1,39 @@
+{
+  "albs": [
+    "Moeller canarias 202608280"
+  ],
+  "cliente": "TRAGSA",
+  "desc": "Instalar tubo visto en cuarto de cuadro general para fibra óptica.\nAbrir pase en base de hormigón para entrada en cuadro general.\nCortar y tapar bandeja de 300 en cuarto del inversor.\nAdaptación de interruptor general en cuadro existente.\nAdaptar equipo de medidas y aparamenta de protección en cuadro general.\nRotular cuadro.",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-10-01",
+  "horas": 16,
+  "obra": "FV CENTRO DE VISITANTES",
+  "ops": [
+    {
+      "h": 8,
+      "n": "Toño"
+    },
+    {
+      "h": 8,
+      "n": "Jonathan Glez"
+    }
+  ],
+  "stock": [
+    {
+      "d": "carril din",
+      "q": 1,
+      "u": "m"
+    },
+    {
+      "d": "automático de 2x10A",
+      "q": 1,
+      "u": ""
+    },
+    {
+      "d": "automático de 4x10A",
+      "q": 1,
+      "u": ""
+    }
+  ]
+}

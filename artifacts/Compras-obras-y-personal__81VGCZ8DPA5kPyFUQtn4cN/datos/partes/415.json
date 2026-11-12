@@ -1,0 +1,21 @@
+{
+  "albs": [],
+  "cliente": "CHICHO 2 TUMBOS",
+  "desc": "- En planta 3: Preparación del tubo extracción del aire\ny colocación de extractores de aire y conexionado.\n- colocación y conexionado de luminarias y emergencia\n en zona comunes planta 3",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-09-04",
+  "horas": 16,
+  "obra": "EDIFICIO SABINO",
+  "ops": [
+    {
+      "h": 8,
+      "n": "Petter"
+    },
+    {
+      "h": 8,
+      "n": "Rafa"
+    }
+  ],
+  "stock": []
+}

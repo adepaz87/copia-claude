@@ -1,0 +1,21 @@
+{
+  "albs": [],
+  "cliente": "TRAGSA",
+  "desc": "Enebrar cable por bandeja",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-10-08",
+  "horas": 4,
+  "obra": "HOSPITAL (MOD G)",
+  "ops": [
+    {
+      "h": 2,
+      "n": "Manuel"
+    },
+    {
+      "h": 2,
+      "n": "Juan"
+    }
+  ],
+  "stock": []
+}

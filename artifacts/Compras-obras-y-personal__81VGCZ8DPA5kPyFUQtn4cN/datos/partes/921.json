@@ -1,0 +1,24 @@
+{
+  "albs": [],
+  "cliente": "AYUNTAMIENTO EL PASO",
+  "desc": "Probar alumbrado de ZC de las 3 plantas de habitaciones. Reparar averias encontradas. Mover emergencias en habitaciones por conducto segun cambios del ingeniero. Terminar emergencias de 1 planta.",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-11-09",
+  "horas": 15,
+  "id": "921",
+  "obra": "HOTEL MONTERREY",
+  "ops": [
+    {
+      "h": 7,
+      "n": "Antonio"
+    },
+    {
+      "h": 8,
+      "n": "Iker"
+    }
+  ],
+  "origen": "dashboard",
+  "restante": "Indefinido",
+  "stock": []
+}

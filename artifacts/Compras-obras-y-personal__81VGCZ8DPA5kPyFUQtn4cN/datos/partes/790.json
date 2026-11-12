@@ -1,0 +1,17 @@
+{
+  "albs": [],
+  "cliente": "COOP. COVALLE",
+  "desc": "Elaboración cuadros eléctricos: Subcuadro Nave 1",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-10-26",
+  "horas": 6.5,
+  "obra": "CUADROS NAVES COVALLE",
+  "ops": [
+    {
+      "h": 6.5,
+      "n": "Toño"
+    }
+  ],
+  "stock": []
+}

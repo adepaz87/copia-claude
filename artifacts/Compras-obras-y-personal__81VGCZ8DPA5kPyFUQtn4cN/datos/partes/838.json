@@ -1,0 +1,28 @@
+{
+  "albs": [],
+  "cliente": "CONSTRUCCIONES DOS TUMBOS",
+  "desc": "Enhebrado de habitaciones y zonas comunes de planta 1 (alumbrado, emergencia, fuerza, datos y TV), colocación de cajas de mecanismo en habitaciones y limpieza de zonas de trabajo.",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-10-29",
+  "horas": 22,
+  "obra": "RESIDENCIA TERCERA EDAD EL PASO",
+  "ops": [
+    {
+      "h": 11,
+      "n": "Petter"
+    },
+    {
+      "h": 11,
+      "n": "Jonathan Rodríguez"
+    }
+  ],
+  "origen": "dashboard",
+  "stock": [
+    {
+      "d": "cable 1x2,5 mm",
+      "q": 200,
+      "u": "m"
+    }
+  ]
+}

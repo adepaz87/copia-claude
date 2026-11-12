@@ -1,0 +1,47 @@
+{
+  "albs": [],
+  "cliente": "CHICHO DOS TUMBOS",
+  "desc": "Entubar\nHabrir huecos para pasar tubos\nColocación de registros \nEnebrar  líneas para unidades exteriores",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-09-24",
+  "horas": 16,
+  "obra": "VIVIENDAS EL TANQUE",
+  "ops": [
+    {
+      "h": 8,
+      "n": "Manuel"
+    },
+    {
+      "h": 8,
+      "n": "Juan"
+    }
+  ],
+  "stock": [
+    {
+      "d": "cable  1x2,5mm",
+      "q": 800,
+      "u": "m"
+    },
+    {
+      "d": "zocalo de 4 elementos",
+      "q": 1,
+      "u": ""
+    },
+    {
+      "d": "tubo de 32",
+      "q": 12,
+      "u": "m"
+    },
+    {
+      "d": "curvas flexibles  de 32",
+      "q": 5,
+      "u": ""
+    },
+    {
+      "d": "cable  de 4x2,5mm",
+      "q": 14,
+      "u": "m"
+    }
+  ]
+}

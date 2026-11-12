@@ -1,0 +1,24 @@
+{
+  "albs": [],
+  "cliente": "EXTINPALMA S.L.",
+  "desc": "Ejecución del tendido de cableado específico para el sistema de detección y alarma de incendios, correspondiente a los circuitos de sirenas y bucle de detección de los aparcamientos P1 y P2, mediante canalización por bandeja hasta la central de detección de incendio. Preparación, acondicionamiento e identificación de los conductores para su posterior conexionado a los distintos elementos de la instalación. Montaje e instalación de sirena interior, pulsadores manuales de alarma y bases para detectores de incendio, realizando el conexionado eléctrico de los dispositivos conforme a la distribución prevista en la instalación. Colocación y acoplamiento de los detectores de incendio sobre sus respectivas bases, completando los trabajos de montaje y conexionado de los elementos del sistema PCI.",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-11-10",
+  "horas": 16,
+  "id": "937",
+  "obra": "HIPERDINO EL PUENTE",
+  "ops": [
+    {
+      "h": 8,
+      "n": "Eloy"
+    },
+    {
+      "h": 8,
+      "n": "Rafa"
+    }
+  ],
+  "origen": "dashboard",
+  "restante": "Indefinido",
+  "stock": []
+}

@@ -1,0 +1,26 @@
+{
+  "actualizada": "2026-11-12T12:14:00Z",
+  "asignadaEn": "2026-11-11T18:40:41.131Z",
+  "avisadoWa": "2026-11-11T18:40:44.540Z",
+  "aviso": "",
+  "centro": "Central Logística Los Guinchos",
+  "creada": "2026-11-03T16:46:41.350Z",
+  "descripcion": "Revisión Conmutación GE",
+  "estado": "terminada",
+  "fechaAviso": "2026-11-03",
+  "historial": [
+    "3/11/2026 16:46 · Registrada (aviso de )",
+    "11/11/2026 18:40 · Asignada a Toño Guardia",
+    "11/11/2026 18:40 · Asignación: Correo enviado a TBSA · WhatsApp a Toño Guardia programado · WhatsApp a Fernando programado",
+    "12/11/2026 11:27 · Toño avisa por WhatsApp: «OT 128 resuelto» · Estado: Terminada",
+    "12/11/2026 12:14 · Cierre: correo enviado a TBSA · WhatsApp a Fernando programado"
+  ],
+  "informado": true,
+  "notas": "Resuelta por Toño Guardia el 12/11 a las 11:27 (WhatsApp «OT 128 resuelto»).",
+  "operario": "Toño Guardia",
+  "ot": 128,
+  "prioridad": "Sin especificar",
+  "solicitante": "",
+  "terminadaEn": "2026-11-12T11:27:00Z",
+  "tipo": "MANTENIMIENTO"
+}

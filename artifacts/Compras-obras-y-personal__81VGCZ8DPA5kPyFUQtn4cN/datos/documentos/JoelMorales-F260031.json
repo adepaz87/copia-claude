@@ -1,0 +1,75 @@
+{
+  "empresa": "Instapalma",
+  "fecha": "2026-09-03",
+  "lineas": [
+    {
+      "a": "P0801",
+      "d": "MANO DE OBRA ELECTRICIDAD (15 h según hoja mensual)",
+      "dto": "",
+      "f": "2026-08-07",
+      "i": 300,
+      "igic": 7,
+      "o": "CARPA FERIA TAZACORTE",
+      "pn": 20,
+      "pt": 20,
+      "q": 15,
+      "r": ""
+    },
+    {
+      "a": "P0802",
+      "d": "MANO DE OBRA ELECTRICIDAD (81 h según hoja mensual)",
+      "dto": "",
+      "f": "2026-08-31",
+      "i": 1620,
+      "igic": 7,
+      "o": "EDIFICIO DOMINGO EL PASO",
+      "pn": 20,
+      "pt": 20,
+      "q": 81,
+      "r": ""
+    },
+    {
+      "a": "P0803",
+      "d": "MANO DE OBRA ELECTRICIDAD (8 h según hoja mensual)",
+      "dto": "",
+      "f": "2026-08-13",
+      "i": 160,
+      "igic": 7,
+      "o": "MENSAJERO GIMNASIO",
+      "pn": 20,
+      "pt": 20,
+      "q": 8,
+      "r": ""
+    },
+    {
+      "a": "P0804",
+      "d": "MANO DE OBRA ELECTRICIDAD (1 h según hoja mensual)",
+      "dto": "",
+      "f": "2026-08-27",
+      "i": 20,
+      "igic": 7,
+      "o": "CASA MEDINA",
+      "pn": 20,
+      "pt": 20,
+      "q": 1,
+      "r": ""
+    },
+    {
+      "a": "",
+      "d": "MATERIAL",
+      "dto": "",
+      "f": "2026-09-03",
+      "i": 100,
+      "igic": 7,
+      "o": "",
+      "pn": 100,
+      "pt": 100,
+      "q": 1,
+      "r": ""
+    }
+  ],
+  "numero": "F260031",
+  "origen": "Gmail",
+  "proveedor": "Joel Morales",
+  "tipo": "factura"
+}

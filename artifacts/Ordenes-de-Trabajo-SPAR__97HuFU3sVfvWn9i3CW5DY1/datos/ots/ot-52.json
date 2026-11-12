@@ -1,0 +1,19 @@
+{
+  "actualizada": "2026-07-29T09:00:00Z",
+  "aviso": "",
+  "centro": "SPAR Tagomago",
+  "creada": "2026-07-29T09:00:00Z",
+  "descripcion": "Al encender las luces de la tienda se encienden otras que no deben.",
+  "estado": "terminada",
+  "fechaAviso": "2026-07-29",
+  "historial": [
+    "29/07/2026 · Importada del correo de Alberto"
+  ],
+  "informado": true,
+  "notas": "Resuelta (correo 29/07/2026).",
+  "operario": "",
+  "ot": 52,
+  "prioridad": "Sin especificar",
+  "solicitante": "",
+  "tipo": "MANTENIMIENTO"
+}

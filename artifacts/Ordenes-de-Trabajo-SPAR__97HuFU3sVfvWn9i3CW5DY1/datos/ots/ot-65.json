@@ -1,0 +1,19 @@
+{
+  "actualizada": "2026-08-26T09:00:00Z",
+  "aviso": "26413",
+  "centro": "SPAR El Muelle",
+  "creada": "2026-08-26T09:00:00Z",
+  "descripcion": "Colocar corriente estabilizada para la balanza de la carnicería.",
+  "estado": "terminada",
+  "fechaAviso": "2026-08-26",
+  "historial": [
+    "26/08/2026 · Importada del correo de Alberto"
+  ],
+  "informado": true,
+  "notas": "Resuelta el 26/08/2026.",
+  "operario": "",
+  "ot": 65,
+  "prioridad": "Alta",
+  "solicitante": "",
+  "tipo": "MANTENIMIENTO"
+}

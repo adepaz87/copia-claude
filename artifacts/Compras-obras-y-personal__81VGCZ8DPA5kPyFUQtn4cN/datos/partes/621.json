@@ -1,0 +1,21 @@
+{
+  "albs": [],
+  "cliente": "EXTINPALMA S.L.",
+  "desc": "tendido de cableado del sistema de protección contra incendios mediante la canalización \nexistente de tubo de PVC visto, fijado al techo de los aparcamientos de planta -1  según el recorrido.",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-10-02",
+  "horas": 16,
+  "obra": "HIPERDINO EL PUENTE  (CONTRAINCENDIO)",
+  "ops": [
+    {
+      "h": 8,
+      "n": "Eloy"
+    },
+    {
+      "h": 8,
+      "n": "Rafa"
+    }
+  ],
+  "stock": []
+}

@@ -1,0 +1,47 @@
+{
+  "albs": [],
+  "cliente": "CONSTRUCCIONES DOMINGO",
+  "desc": "Entubar cuarto lavadora",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-09-28",
+  "horas": 2,
+  "obra": "CASA DOMINGO ARGUAL",
+  "ops": [
+    {
+      "h": 1,
+      "n": "Joel"
+    },
+    {
+      "h": 1,
+      "n": "Aythami"
+    }
+  ],
+  "stock": [
+    {
+      "d": "tubo cuarrutado de 25",
+      "q": 30,
+      "u": "m"
+    },
+    {
+      "d": "tubo cuarrugado de 20",
+      "q": 20,
+      "u": "m"
+    },
+    {
+      "d": "enlazables",
+      "q": 5,
+      "u": "cajas"
+    },
+    {
+      "d": "registro pt5",
+      "q": 1,
+      "u": ""
+    },
+    {
+      "d": "ás tubo 32",
+      "q": 6,
+      "u": "m"
+    }
+  ]
+}

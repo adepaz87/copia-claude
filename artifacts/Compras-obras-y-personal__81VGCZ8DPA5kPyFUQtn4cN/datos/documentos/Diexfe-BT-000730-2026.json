@@ -1,0 +1,71 @@
+{
+  "abono": true,
+  "empresa": "Instapalma",
+  "fecha": "2026-06-30",
+  "lineas": [
+    {
+      "a": "VCTF-009961-2026",
+      "d": "ABONO SOP.HORIZ.PVC-M1 P/66070/1 66100/1 GRIS",
+      "dto": "Neto",
+      "f": "2026-06-23",
+      "i": -136.77,
+      "o": "VIV PTO NAOS",
+      "pn": 4.559,
+      "pt": 4.559,
+      "q": -30,
+      "r": "UNE-66103"
+    },
+    {
+      "a": "VCTF-009978-2026",
+      "d": "ABONO SOP.HORIZ.PVC-M1 P/66070/1 66100/1 GRIS",
+      "dto": "Neto",
+      "f": "2026-06-23",
+      "i": -36.47,
+      "o": "VIV PTO NAOS",
+      "pn": 4.5587,
+      "pt": 4.559,
+      "q": -8,
+      "r": "UNE-66103"
+    },
+    {
+      "a": "VCTF-011430-2026",
+      "d": "ABONO CAJA MOD.ESTANCA IP65 1X18 MOD.",
+      "dto": "60,00",
+      "f": "2026-06-25",
+      "i": -63.92,
+      "o": "VIV PTO NAOS",
+      "pn": 63.92,
+      "pt": 159.8,
+      "q": -1,
+      "r": "LEG-601835"
+    },
+    {
+      "a": "VCTF-011420-2026",
+      "d": "ABONO CAJA MOD.ESTANCA IP65 1X18 MOD.",
+      "dto": "60,00",
+      "f": "2026-06-25",
+      "i": -63.92,
+      "o": "VIV PTO NAOS",
+      "pn": 63.92,
+      "pt": 159.8,
+      "q": -1,
+      "r": "LEG-601835"
+    },
+    {
+      "a": "VCTF-011420-2026",
+      "d": "ABONO GENERAL                                  301,08",
+      "dto": "0,00",
+      "f": "2026-06-25",
+      "i": 0,
+      "o": "VIV PTO NAOS",
+      "pn": 0,
+      "pt": 21.08,
+      "q": -7,
+      "r": "IGIC"
+    }
+  ],
+  "numero": "BT-000730-2026",
+  "origen": "Gmail",
+  "proveedor": "Diexfe",
+  "tipo": "factura"
+}

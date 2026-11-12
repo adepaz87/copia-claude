@@ -1,0 +1,27 @@
+{
+  "albs": [],
+  "cliente": "EXTINPALMA S.L.",
+  "desc": "- Zona parking -2 : Modificación del trazado del tubo visto de PVC, conforme a los cambios efectuados en \nel recorrido delcableado de contraincendio. Tendido de cableado del j de detección de incendios por canalización de tubo \nvisto de PVC y enhebrado de cable en tubos empotrados. Colocación de bases y detectores y conexionados.\n\n- Zona rampa mecánicas: de Desmontaje de las bases y los detectores",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-10-07",
+  "horas": 19,
+  "obra": "HIPERDINO EL PUENTE (CONTRAINCENDIO)",
+  "ops": [
+    {
+      "h": 8,
+      "n": "Eloy"
+    },
+    {
+      "h": 11,
+      "n": "Rafa"
+    }
+  ],
+  "stock": [
+    {
+      "d": "sobre pared con tetones de 100x100",
+      "q": 1,
+      "u": "caja"
+    }
+  ]
+}

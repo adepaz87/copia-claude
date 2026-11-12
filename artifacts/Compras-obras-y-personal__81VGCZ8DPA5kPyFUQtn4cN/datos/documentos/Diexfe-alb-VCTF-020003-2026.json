@@ -1,0 +1,83 @@
+{
+  "empresa": "Instapalma",
+  "fecha": "2026-10-23",
+  "lineas": [
+    {
+      "a": "VCTF-020003-2026",
+      "d": "TUBO AISCAN-CR CORRUG.DOBLE CAPA D.25 NG",
+      "dto": "Neto",
+      "f": "2026-10-23",
+      "i": 336,
+      "o": "EDIF DOMINGO EL PASO",
+      "pn": 0.32,
+      "pt": 0.32,
+      "q": 1050,
+      "r": "AIS-CR25"
+    },
+    {
+      "a": "VCTF-020003-2026",
+      "d": "TUBO AISCAN-CR CORRUG,DOBLE CAPA D.32 NG",
+      "dto": "Neto",
+      "f": "2026-10-23",
+      "i": 498,
+      "o": "EDIF DOMINGO EL PASO",
+      "pn": 0.498,
+      "pt": 0.498,
+      "q": 1000,
+      "r": "AIS-CR32"
+    },
+    {
+      "a": "VCTF-020003-2026",
+      "d": "TUBO AISCAN-CR CORRUG.DOBLE CAPA D.50 NG",
+      "dto": "Neto",
+      "f": "2026-10-23",
+      "i": 183.05,
+      "o": "EDIF DOMINGO EL PASO",
+      "pn": 1.046,
+      "pt": 1.046,
+      "q": 175,
+      "r": "AIS-CR50"
+    },
+    {
+      "a": "VCTF-020003-2026",
+      "d": "CINTA ELECT.PVC N-10 25MX25X0,13MM BL.",
+      "dto": "40,00",
+      "f": "2026-10-23",
+      "i": 9.91,
+      "o": "EDIF DOMINGO EL PASO",
+      "pn": 1.4157,
+      "pt": 2.36,
+      "q": 7,
+      "r": "PLY-5248"
+    },
+    {
+      "a": "VCTF-020003-2026",
+      "d": "CINTA ELECT.PVC N-10 25MX25X0,13MM NG.",
+      "dto": "40,00",
+      "f": "2026-10-23",
+      "i": 5.66,
+      "o": "EDIF DOMINGO EL PASO",
+      "pn": 1.415,
+      "pt": 2.36,
+      "q": 4,
+      "r": "PLY-5245"
+    },
+    {
+      "a": "VCTF-020003-2026",
+      "d": "CAJA DE EMPOTRAR PT10 516X200X90 FG10220",
+      "dto": "Neto",
+      "f": "2026-10-23",
+      "i": 16.86,
+      "o": "EDIF DOMINGO EL PASO",
+      "pn": 16.86,
+      "pt": 16.857,
+      "q": 1,
+      "r": "CMC-350C10"
+    }
+  ],
+  "numero": "VCTF-020003-2026",
+  "obra": "EDIF DOMINGO EL PASO",
+  "origen": "Gmail",
+  "proveedor": "Diexfe",
+  "tipo": "albaran"
+}

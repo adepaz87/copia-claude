@@ -1,0 +1,27 @@
+{
+  "albs": [],
+  "cliente": "AYTO. BREÑA BAJA",
+  "desc": "Colocar y conectar adornos navideños en farolas por las calles de los cancajos.",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-11-03",
+  "horas": 24,
+  "id": "859",
+  "obra": "ALUMBRADO NAVIDAD",
+  "ops": [
+    {
+      "h": 8,
+      "n": "Jorge"
+    },
+    {
+      "h": 8,
+      "n": "Rafa"
+    },
+    {
+      "h": 8,
+      "n": "Manuel"
+    }
+  ],
+  "origen": "dashboard",
+  "stock": []
+}

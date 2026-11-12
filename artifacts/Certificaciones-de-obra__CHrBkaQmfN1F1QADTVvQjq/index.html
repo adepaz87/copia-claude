@@ -1,0 +1,1337 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Certificaciones de obra</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: cabecera de obra + pestañas; cada vista es una hoja de mediciones con tabla ancha que desplaza en su propio contenedor. */
+:root {
+  --bg: #f5f6f8;
+  --surface: #ffffff;
+  --sunk: #eceef2;
+  --line: #d6dae2;
+  --fg: #1b2230;
+  --muted: #5d6779;
+  --accent: #1f5a8c;
+  --accent-soft: #e2ecf6;
+  --actual: #9a5b10;
+  --actual-soft: #fbf0df;
+  --good: #2f7a4b;
+  --warn: #b3261e;
+  --warn-soft: #fbe5e3;
+  --font-display: "IBM Plex Sans Condensed", "Arial Narrow", system-ui, sans-serif;
+  --font-body: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-num: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #12161d; --surface: #1a2029; --sunk: #222935; --line: #323b49; --fg: #e5e9f0; --muted: #9aa5b6;
+    --accent: #7fb2e3; --accent-soft: #1f3247; --actual: #e5a85a; --actual-soft: #3a2c19;
+    --good: #6cc48e; --warn: #f2867d; --warn-soft: #3d2121; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #12161d; --surface: #1a2029; --sunk: #222935; --line: #323b49; --fg: #e5e9f0; --muted: #9aa5b6;
+  --accent: #7fb2e3; --accent-soft: #1f3247; --actual: #e5a85a; --actual-soft: #3a2c19;
+  --good: #6cc48e; --warn: #f2867d; --warn-soft: #3d2121; color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--fg); font-family: var(--font-body); font-size: 14px; line-height: 1.45; }
+.wrap { max-width: 1320px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+header.top { background: var(--surface); border-bottom: 1px solid var(--line); }
+header.top .wrap { padding-block: 18px 0; display: grid; gap: 14px; }
+.obra-line { display: flex; flex-wrap: wrap; gap: 8px 24px; align-items: baseline; justify-content: space-between; }
+.eyebrow { font-family: var(--font-display); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+h1 { font-family: var(--font-display); font-weight: 700; font-size: 26px; line-height: 1.15; margin: 2px 0 0; text-wrap: balance; }
+h2 { font-family: var(--font-display); font-weight: 600; font-size: 19px; margin: 0; text-wrap: balance; }
+h3 { font-family: var(--font-display); font-weight: 600; font-size: 15px; margin: 0; }
+.meta { color: var(--muted); font-size: 13px; }
+nav.tabs { display: flex; gap: 4px; overflow-x: auto; }
+nav.tabs button { font: 600 14px var(--font-display); letter-spacing: .02em; background: none; border: 0; border-bottom: 3px solid transparent; color: var(--muted); padding: 8px 12px 10px; cursor: pointer; white-space: nowrap; }
+nav.tabs button[aria-selected="true"] { color: var(--fg); border-bottom-color: var(--accent); }
+nav.tabs button:hover { color: var(--fg); }
+main .wrap { padding-block: 20px 48px; display: grid; gap: 18px; }
+.bar { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+.bar .grow { flex: 1 1 auto; }
+button, .btn { font: 500 13px var(--font-body); border: 1px solid var(--line); background: var(--surface); color: var(--fg); border-radius: 6px; padding: 7px 12px; cursor: pointer; }
+button:hover { border-color: var(--accent); }
+button.primary { background: var(--accent); border-color: var(--accent); color: var(--surface); }
+button.danger { color: var(--warn); }
+button.armed { background: var(--warn); border-color: var(--warn); color: var(--surface); }
+button:disabled { opacity: .5; cursor: not-allowed; }
+button.icon { padding: 3px 8px; font-size: 12px; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+select, input[type="text"], input[type="date"], textarea { font: 14px var(--font-body); color: var(--fg); background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 6px 8px; }
+textarea { width: 100%; min-height: 140px; font-family: var(--font-num); font-size: 12px; }
+.panel { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 16px; display: grid; gap: 12px; min-width: 0; }
+.chip { display: inline-flex; align-items: center; gap: 6px; font: 600 12px var(--font-display); letter-spacing: .05em; text-transform: uppercase; padding: 3px 9px; border-radius: 999px; background: var(--sunk); color: var(--muted); }
+.chip.open { background: var(--actual-soft); color: var(--actual); }
+.chip.closed { background: var(--accent-soft); color: var(--accent); }
+.chip.ex { background: var(--warn-soft); color: var(--warn); }
+.totals > .tot.good .v { color: var(--good); }
+.totals > .tot.bad { border-color: var(--warn); background: var(--warn-soft); }
+.totals > .tot.bad .v { color: var(--warn); }
+td.neg { color: var(--warn); font-weight: 600; }
+td.pos { color: var(--good); font-weight: 600; }
+.cmp { display: grid; gap: 10px; }
+.cmp-r { display: grid; grid-template-columns: 96px minmax(0, 1fr) auto; gap: 10px; align-items: center; }
+.cmp-l { font-size: 13px; color: var(--muted); }
+.cmp-t { display: flex; height: 18px; background: var(--sunk); border-radius: 3px; overflow: hidden; }
+.cmp-b { display: block; height: 100%; }
+.cmp-b + .cmp-b { border-left: 2px solid var(--surface); }
+.cmp-v { font: 500 13px var(--font-num); font-variant-numeric: tabular-nums; min-width: 92px; text-align: right; }
+.pres { background: var(--line); } .cert { background: var(--accent); } .mat { background: var(--actual); } .ope { background: color-mix(in srgb, var(--actual) 55%, var(--surface)); }
+details.upd > summary { font: 600 15px var(--font-display); }
+details.upd .steps { margin: 0; padding-left: 20px; display: grid; gap: 4px; }
+label.btn.primary { background: var(--accent); border-color: var(--accent); color: var(--surface); cursor: pointer; }
+.legend { display: flex; flex-wrap: wrap; gap: 6px 16px; font-size: 12px; color: var(--muted); }
+.legend .sw { display: inline-block; width: 10px; height: 10px; border-radius: 2px; margin-right: 6px; vertical-align: -1px; }
+@media (max-width: 560px) { .cmp-r { grid-template-columns: 1fr auto; } .cmp-t { grid-column: 1 / -1; grid-row: 2; } }
+.chip.nueva { background: var(--accent-soft); color: var(--accent); font-size: 10px; padding: 1px 6px; margin-left: 4px; }
+.nf-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; align-items: end; }
+.nf-grid label { display: grid; gap: 4px; font-size: 12px; color: var(--muted); min-width: 0; }
+.nf-grid label.wide { grid-column: span 2; }
+.nf-grid input, .nf-grid select { width: 100%; }
+@media (max-width: 560px) { .nf-grid label.wide { grid-column: auto; } }
+
+/* Resumen económico */
+.totals { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 12px; }
+.totals > .tot { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 12px 14px; display: grid; gap: 2px; }
+.totals > .tot .v { font: 500 20px var(--font-num); font-variant-numeric: tabular-nums; }
+.totals > .tot.hl { border-color: var(--actual); background: var(--actual-soft); }
+.totals > .tot.hl .v { color: var(--actual); }
+.progress { height: 6px; background: var(--sunk); border-radius: 3px; overflow: hidden; margin-top: 6px; }
+.progress span { display: block; height: 100%; background: var(--accent); }
+.progress span.over { background: var(--warn); }
+
+/* Tablas */
+.scroll { overflow-x: auto; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); }
+table { border-collapse: collapse; width: 100%; font-size: 13px; }
+th, td { padding: 6px 8px; border-bottom: 1px solid var(--line); text-align: left; vertical-align: middle; }
+thead th { position: sticky; top: 0; background: var(--sunk); font: 600 11.5px var(--font-display); letter-spacing: .05em; text-transform: uppercase; color: var(--muted); white-space: nowrap; z-index: 1; }
+thead tr.grp th { text-align: center; border-bottom: 0; padding-bottom: 0; }
+th.g-orig, td.g-orig { background: color-mix(in srgb, var(--accent-soft) 45%, transparent); }
+th.g-act, td.g-act { background: var(--actual-soft); }
+td.n, th.n { text-align: right; font-family: var(--font-num); font-variant-numeric: tabular-nums; white-space: nowrap; }
+td.code { font-family: var(--font-num); font-size: 12px; color: var(--muted); white-space: nowrap; }
+td.desc { min-width: 240px; max-width: 420px; }
+td.act { color: var(--actual); font-weight: 500; }
+tr.cap td { background: var(--sunk); font-family: var(--font-display); font-weight: 600; font-size: 14px; }
+tr.cap td.n { font-family: var(--font-num); font-weight: 500; font-size: 13px; }
+tr.tot td { font-weight: 600; border-top: 2px solid var(--fg); border-bottom: 0; }
+tr.over td.g-orig { color: var(--warn); }
+input.cell { width: 100%; min-width: 70px; font: 13px var(--font-num); text-align: right; border: 1px solid var(--line); border-radius: 4px; padding: 4px 6px; background: var(--surface); color: var(--fg); font-variant-numeric: tabular-nums; }
+input.cell.txt { text-align: left; font-family: var(--font-body); }
+input.cell:focus { border-color: var(--accent); outline: none; box-shadow: 0 0 0 2px var(--accent-soft); }
+input.cell[readonly] { border-color: transparent; background: transparent; }
+tr.cap input.cell { font-family: var(--font-display); font-weight: 600; font-size: 14px; background: transparent; }
+
+.form-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 12px; }
+.form-grid label { display: grid; gap: 4px; font-size: 12px; color: var(--muted); }
+.form-grid input { width: 100%; }
+.empty { text-align: center; padding: 40px 16px; display: grid; gap: 10px; justify-items: center; color: var(--muted); }
+.empty h2 { color: var(--fg); }
+.note { font-size: 12.5px; color: var(--muted); }
+.toast { position: fixed; left: 50%; transform: translateX(-50%); bottom: calc(16px + env(safe-area-inset-bottom, 0px)); background: var(--fg); color: var(--bg); padding: 10px 16px; border-radius: 8px; font-size: 13px; z-index: 20; max-width: calc(100% - 32px); }
+.banner { background: var(--warn-soft); color: var(--warn); border-radius: 8px; padding: 10px 14px; font-size: 13px; }
+details summary { cursor: pointer; font: 600 15px var(--font-display); }
+.cols { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px; }
+.cols > * { min-width: 0; }
+code { font-family: var(--font-num); font-size: 12px; background: var(--sunk); padding: 1px 4px; border-radius: 3px; }
+@media (max-width: 560px) { h1 { font-size: 21px; } .totals > .tot .v { font-size: 17px; } }
+/* Móvil: tarjetas por partida y capítulos plegables */
+.mlist { display: grid; gap: 10px; }
+.busca { width: 100%; font-size: 16px !important; padding: 9px 10px !important; }
+details.capd { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; min-width: 0; }
+details.capd > summary { list-style: none; padding: 12px 14px; display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 2px 10px; cursor: pointer; }
+details.capd > summary::-webkit-details-marker { display: none; }
+details.capd > summary .cn { font: 600 15px var(--font-display); }
+details.capd > summary .cn::before { content: "▸"; display: inline-block; width: 1em; color: var(--muted); transition: transform .15s; }
+details.capd[open] > summary .cn::before { transform: rotate(90deg); }
+details.capd > summary .cs { font-size: 12px; color: var(--muted); grid-column: 1; }
+details.capd > summary .ca { font: 500 13px var(--font-num); color: var(--actual); grid-row: 1 / span 2; grid-column: 2; align-self: center; text-align: right; }
+details.capd[open] > summary { border-bottom: 1px solid var(--line); }
+.pc { padding: 12px 14px; border-bottom: 1px solid var(--line); display: grid; gap: 6px; min-width: 0; }
+.pc:last-child { border-bottom: 0; }
+.pc-h { display: flex; gap: 8px; align-items: center; justify-content: space-between; font: 12px var(--font-num); color: var(--muted); }
+.pc-d { font-size: 14px; overflow-wrap: anywhere; }
+.pc-m { font: 12px var(--font-num); color: var(--muted); font-variant-numeric: tabular-nums; }
+.pc-in { display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 1fr); gap: 8px; }
+.pc-in.three { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr); }
+.pc-in label { display: grid; gap: 3px; font-size: 11.5px; color: var(--muted); min-width: 0; }
+.pc input.cell, .capd input.cell { font-size: 16px; padding: 8px; min-width: 0; }
+.pc-r { display: flex; justify-content: space-between; gap: 4px 10px; flex-wrap: wrap; font: 12.5px var(--font-num); color: var(--muted); font-variant-numeric: tabular-nums; }
+.pc-r .act { color: var(--actual); font-weight: 500; }
+.pc.over .pc-m, .pc.over input[data-q] { color: var(--warn); }
+.mtot { display: flex; justify-content: space-between; gap: 10px; flex-wrap: wrap; padding: 12px 14px; background: var(--surface); border: 1px solid var(--line); border-radius: 8px; font-weight: 600; font-variant-numeric: tabular-nums; }
+.mtot .act { color: var(--actual); }
+.capd-edit { display: grid; grid-template-columns: 70px minmax(0, 1fr); gap: 8px; padding: 12px 14px; border-bottom: 1px solid var(--line); }
+.capd-edit .bar { grid-column: 1 / -1; }
+@media (max-width: 720px) {
+  .hm { display: none; }
+  .totals { grid-template-columns: 1fr 1fr; gap: 8px; }
+  .totals > .tot { padding: 10px 12px; }
+  .totals > .tot .v { font-size: 16px; }
+  .totals > .tot .eyebrow { font-size: 10.5px; }
+  #certPicker { width: 100%; }
+  #certPicker select { flex: 1 1 100%; font-size: 16px; }
+  h1 { font-size: 21px; }
+  .panel { padding: 14px; }
+  main .wrap { gap: 14px; }
+  .bar button { flex: 1 1 auto; }
+}
+.of-head { grid-template-columns: minmax(0, 1fr) auto; align-items: start; }
+.of-logo { width: 170px; max-width: 40vw; background: #fff; border-radius: 4px; padding: 4px; justify-self: end; }
+.of-who { display: grid; gap: 1px; font-size: 13px; color: var(--muted); min-width: 0; overflow-wrap: anywhere; }
+.of-who strong { color: var(--fg); }
+@media (max-width: 560px) { .of-head { grid-template-columns: 1fr; } .of-logo { justify-self: start; grid-row: 1; } }
+.of-estado { font-size: 12.5px; color: var(--muted); }
+.of-estado[data-e="pend"] { color: var(--actual); font-weight: 600; }
+.of-estado[data-e="error"] { color: var(--warn); font-weight: 600; }
+.of-estado[data-e="ok"] { color: var(--good); }
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+
+<header class="top">
+  <div class="wrap">
+    <div class="obra-line">
+      <div>
+        <div class="eyebrow">Certificación de obra</div>
+        <h1 id="obraNombre">Cargando…</h1>
+        <div class="meta" id="obraMeta"></div>
+      </div>
+      <div class="bar" id="certPicker"></div>
+    </div>
+    <nav class="tabs" role="tablist" id="tabs">
+      <button role="tab" data-view="cert" id="tab-cert">Certificación</button>
+      <button role="tab" data-view="resumen" id="tab-resumen">Resumen</button>
+      <button role="tab" data-view="costes" id="tab-costes">Coste vs certificado</button>
+      <button role="tab" data-view="pres" id="tab-pres">Presupuesto</button>
+      <button role="tab" data-view="obra" id="tab-obra">Datos de obra</button>
+      <button role="tab" data-view="oferta" id="tab-oferta">Ofertas</button>
+    </nav>
+  </div>
+</header>
+<main><div class="wrap" id="view"></div></main>
+<div class="toast" id="toast" hidden></div>
+
+<script>
+(() => {
+  // ---------- utilidades ----------
+  const $ = (s) => document.querySelector(s);
+  const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+  const f2 = new Intl.NumberFormat("es-ES", { useGrouping: "always", minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  const f3 = new Intl.NumberFormat("es-ES", { useGrouping: "always", minimumFractionDigits: 0, maximumFractionDigits: 3 });
+  const f1 = new Intl.NumberFormat("es-ES", { useGrouping: "always", minimumFractionDigits: 1, maximumFractionDigits: 1 });
+  const eur = (v) => f2.format(v || 0) + " €";
+  const qty = (v) => (v ? f3.format(v) : "");
+  const pct = (v) => f1.format(v || 0) + " %";
+  const r2 = (v) => Math.round((v + Number.EPSILON) * 100) / 100;
+  const r3 = (v) => Math.round((v + Number.EPSILON) * 1000) / 1000;
+  const uid = () => Math.random().toString(36).slice(2, 10);
+  const today = () => new Date().toISOString().slice(0, 10);
+  const fecha = (iso) => (iso ? iso.split("-").reverse().join("/") : "");
+  // Acepta "1.234,56", "1234,56", "1234.56"
+  function num(s) {
+    if (typeof s === "number") return isFinite(s) ? s : 0;
+    s = String(s ?? "").trim().replace(/[\s€%]/g, "");
+    if (!s) return 0;
+    if (s.includes(",")) s = s.replace(/\./g, "").replace(",", ".");
+    const n = parseFloat(s);
+    return isFinite(n) ? n : 0;
+  }
+
+  const OBRA_DEF = { nombre: "", cliente: "", direccion: "", contrato: "", gg: 0, bi: 0, baja: 0, iva: 21, impuesto: "IVA", retencion: 0 };
+  const S = {
+    db: null, downloads: null, loaded: { obra: false, pres: false, certs: false, ofertas: false }, ofertas: [], ofSel: null,
+    obra: { ...OBRA_DEF }, pres: { capitulos: [], partidas: [] }, certs: [],
+    sel: null, view: "cert", readOnly: false, offline: false, nf: {}, open: new Set(), busca: "", costes: null, syncPedida: null, syncDesde: "",
+  };
+
+  // ---------- persistencia ----------
+  let chain = Promise.resolve();
+  function write(fn) {
+    chain = chain.then(fn).catch((e) => {
+      if (e && e.code === "invalid_argument" && !S.readOnly) { S.readOnly = true; toast("No tienes permiso para modificar esta obra. Se muestra en solo lectura."); render(); }
+      else if (e && e.code === "quota_exceeded") toast("El almacenamiento está lleno: " + (e.message || ""));
+      else toast("No se pudo guardar. Revisa la conexión y vuelve a intentarlo.");
+    });
+    return chain;
+  }
+  const savePres = () => { const body = JSON.parse(JSON.stringify(S.pres)); if (S.db) write(() => S.db.doc("obra/presupuesto").set(body)); };
+  const saveObra = () => { const body = { ...S.obra }; if (S.db) write(() => S.db.doc("obra/datos").set(body)); };
+  const updCert = (id, patch) => { if (S.db) write(() => S.db.doc("certificaciones/" + id).update(patch)); };
+  const setCert = (id, body) => { if (S.db) write(() => S.db.doc("certificaciones/" + id).set(body)); };
+  const delCert = (id) => { if (S.db) write(() => S.db.doc("certificaciones/" + id).delete()); };
+
+  let toastT;
+  function toast(msg) { const t = $("#toast"); t.textContent = msg; t.hidden = false; clearTimeout(toastT); toastT = setTimeout(() => (t.hidden = true), 3600); }
+
+  // ---------- cálculos ----------
+  const capOf = (id) => S.pres.capitulos.find((c) => c.id === id);
+  const partidasDe = (capId) => S.pres.partidas.filter((p) => p.cap === capId);
+  const certSel = () => S.certs.find((c) => c.id === S.sel) || null;
+  const prevCert = (c) => (c ? S.certs.filter((x) => x.numero < c.numero).sort((a, b) => b.numero - a.numero)[0] : null);
+  const lastCert = () => S.certs[S.certs.length - 1] || null;
+
+  function calc(c) {
+    const o = (c && c.origen) || {}, prev = prevCert(c), a = (prev && prev.origen) || {};
+    const rows = {}, caps = {};
+    const T = { pres: 0, orig: 0, ant: 0, act: 0 };
+    for (const cap of S.pres.capitulos) caps[cap.id] = { pres: 0, orig: 0, ant: 0, act: 0 };
+    for (const p of S.pres.partidas) {
+      const pr = num(p.precio), med = num(p.med);
+      const qO = num(o[p.id]), qA = num(a[p.id]);
+      const iP = r2(med * pr), iO = r2(qO * pr), iA = r2(qA * pr);
+      const row = { qO, qA, qC: r3(qO - qA), iP, iO, iA, iC: r2(iO - iA), pc: med ? (qO / med) * 100 : 0, over: med > 0 && qO > med + 1e-9 };
+      rows[p.id] = row;
+      const k = caps[p.cap] || (caps[p.cap] = { pres: 0, orig: 0, ant: 0, act: 0 });
+      k.pres += iP; k.orig += iO; k.ant += iA; k.act += row.iC;
+      T.pres += iP; T.orig += iO; T.ant += iA; T.act += row.iC;
+    }
+    return { rows, caps, T };
+  }
+  function econ(pem) {
+    const o = S.obra, gg = r2(pem * num(o.gg) / 100), bi = r2(pem * num(o.bi) / 100);
+    const pec = r2(pem + gg + bi), baja = r2(pec * num(o.baja) / 100), base = r2(pec - baja);
+    return { pem, gg, bi, pec, baja, base };
+  }
+  function liquidacion(T) {
+    const eO = econ(T.orig), eA = econ(T.ant);
+    const base = r2(eO.base - eA.base), iva = r2(base * num(S.obra.iva) / 100), ret = r2(base * num(S.obra.retencion) / 100);
+    return { eO, eA, base, iva, ret, liquido: r2(base + iva - ret) };
+  }
+
+  // ---------- render ----------
+  function render() {
+    const ae = document.activeElement, keep = ae && ae.id && ae.tagName === "INPUT" ? { id: ae.id, v: ae.value, s: ae.selectionStart, e: ae.selectionEnd } : null;
+    renderHeader();
+    const v = $("#view");
+    const loaded = S.loaded.obra && S.loaded.pres && S.loaded.certs;
+    if (!S.db && S.offline) v.innerHTML = `<div class="panel empty"><h2>Sin conexión con el almacén de datos</h2><p>Abre esta página con tu sesión iniciada en claude.ai para ver y guardar las certificaciones.</p></div>`;
+    else if (!loaded) v.innerHTML = `<div class="panel empty"><h2>Cargando la obra…</h2></div>`;
+    else ({ cert: viewCert, resumen: viewResumen, costes: viewCostes, pres: viewPres, obra: viewObra, oferta: viewOferta }[S.view] || viewCert)(v);
+    if (keep) { const el = document.getElementById(keep.id); if (el) { el.value = keep.v; el.focus(); try { el.setSelectionRange(keep.s, keep.e); } catch (_) {} } }
+  }
+
+  function renderHeader() {
+    const o = S.obra;
+    $("#obraNombre").textContent = o.nombre || "Obra sin nombre";
+    $("#obraMeta").textContent = [o.cliente && "Cliente: " + o.cliente, o.direccion, o.contrato && "Contrato " + o.contrato].filter(Boolean).join(" · ");
+    for (const b of document.querySelectorAll("#tabs button")) b.setAttribute("aria-selected", b.dataset.view === S.view ? "true" : "false");
+    const c = certSel();
+    const opts = S.certs.map((x) => `<option value="${esc(x.id)}" ${x.id === S.sel ? "selected" : ""}>Certificación nº ${x.numero} · ${fecha(x.fecha)}</option>`).join("");
+    $("#certPicker").innerHTML = S.certs.length
+      ? `<select id="selCert" aria-label="Certificación">${opts}</select>${c ? `<span class="chip ${c.estado === "cerrada" ? "closed" : "open"}">${c.estado === "cerrada" ? "Cerrada" : "En curso"}</span>` : ""}
+         <button id="btnNueva" class="primary" ${S.readOnly || !S.pres.partidas.length ? "disabled" : ""}>Nueva certificación</button>`
+      : `<button id="btnNueva" class="primary" ${S.readOnly || !S.pres.partidas.length ? "disabled" : ""}>Crear certificación nº 1</button>`;
+  }
+
+  function emptyPres(v) {
+    v.innerHTML = `<div class="panel empty"><h2>Esta obra aún no tiene presupuesto</h2>
+      <p>Importa un archivo BC3 de Presto o Arquímedes, pega las partidas desde Excel o créalas a mano.</p>
+      <button class="primary" data-go="pres">Ir a Presupuesto</button></div>`;
+  }
+
+  function viewCert(v) {
+    if (!S.pres.partidas.length) return emptyPres(v);
+    const c = certSel();
+    if (!c) {
+      v.innerHTML = `<div class="panel empty"><h2>No hay certificaciones todavía</h2><p>Crea la certificación nº 1 para empezar a medir lo ejecutado sobre el presupuesto.</p>
+        <button class="primary" id="btnNueva2" ${S.readOnly ? "disabled" : ""}>Crear certificación nº 1</button></div>`;
+      return;
+    }
+    const { rows, caps, T } = calc(c), L = liquidacion(T);
+    const ro = S.readOnly || c.estado === "cerrada";
+    const prev = prevCert(c);
+    const avance = T.pres ? (T.orig / T.pres) * 100 : 0;
+    let body = "";
+    for (const cap of S.pres.capitulos) {
+      const ps = partidasDe(cap.id); if (!ps.length) continue;
+      const k = caps[cap.id];
+      body += `<tr class="cap"><td class="code">${esc(cap.codigo)}</td><td colspan="4">${esc(cap.nombre)}</td><td class="n">${f2.format(k.pres)}</td>
+        <td class="n g-orig" colspan="2">${pct(k.pres ? (k.orig / k.pres) * 100 : 0)}</td><td class="n g-orig">${f2.format(k.orig)}</td>
+        <td class="n"></td><td class="n">${f2.format(k.ant)}</td><td class="n g-act"></td><td class="n g-act act">${f2.format(k.act)}</td></tr>`;
+      for (const p of ps) {
+        const r = rows[p.id];
+        body += `<tr class="${r.over ? "over" : ""}"><td class="code">${esc(p.codigo)}${p.nueva ? '<span class="chip nueva">Nueva</span>' : ""}</td><td class="desc">${esc(p.desc)}</td><td>${esc(p.ud)}</td>
+          <td class="n">${qty(num(p.med))}</td><td class="n">${f2.format(num(p.precio))}</td><td class="n">${f2.format(r.iP)}</td>
+          <td class="n g-orig"><input class="cell" id="q-${esc(p.id)}" data-q="${esc(p.id)}" inputmode="decimal" value="${r.qO ? f3.format(r.qO) : ""}" ${ro ? "readonly" : ""} aria-label="Cantidad a origen ${esc(p.codigo)}"></td>
+          <td class="n g-orig"><input class="cell" id="p-${esc(p.id)}" data-p="${esc(p.id)}" inputmode="decimal" value="${r.qO && num(p.med) ? f1.format(r.pc) : ""}" ${ro || !num(p.med) ? "readonly" : ""} style="min-width:58px" aria-label="Porcentaje a origen ${esc(p.codigo)}"></td>
+          <td class="n g-orig">${r.iO ? f2.format(r.iO) : ""}</td>
+          <td class="n">${qty(r.qA)}</td><td class="n">${r.iA ? f2.format(r.iA) : ""}</td>
+          <td class="n g-act act">${r.qC ? f3.format(r.qC) : ""}</td><td class="n g-act act">${r.iC ? f2.format(r.iC) : ""}</td></tr>`;
+      }
+    }
+    body += `<tr class="tot"><td></td><td colspan="4">Total ejecución material</td><td class="n">${f2.format(T.pres)}</td><td class="n g-orig" colspan="2">${pct(avance)}</td>
+      <td class="n g-orig">${f2.format(T.orig)}</td><td></td><td class="n">${f2.format(T.ant)}</td><td class="g-act"></td><td class="n g-act act">${f2.format(T.act)}</td></tr>`;
+    const overN = Object.values(rows).filter((r) => r.over).length;
+
+    v.innerHTML = `
+      <div class="totals">
+        <div class="tot"><span class="eyebrow">A origen (PEM)</span><span class="v">${eur(T.orig)}</span><div class="progress"><span style="width:${Math.min(100, avance).toFixed(1)}%"></span></div><span class="note">${pct(avance)} del presupuesto</span></div>
+        <div class="tot"><span class="eyebrow">Anterior (PEM)</span><span class="v">${eur(T.ant)}</span><span class="note">${prev ? "Certificación nº " + prev.numero : "Primera certificación"}</span></div>
+        <div class="tot hl"><span class="eyebrow">Esta certificación (PEM)</span><span class="v">${eur(T.act)}</span><span class="note">Nº ${c.numero} · ${fecha(c.fecha)}</span></div>
+        <div class="tot"><span class="eyebrow">Líquido a percibir</span><span class="v">${eur(L.liquido)}</span><span class="note">Base ${eur(L.base)} + ${esc(S.obra.impuesto || "IVA")}${num(S.obra.retencion) ? " − retención" : ""}</span></div>
+      </div>
+      ${overN ? `<div class="banner">${overN === 1 ? "Una partida supera" : overN + " partidas superan"} la medición del presupuesto (marcadas en rojo). Revisa si son excesos de medición.</div>` : ""}
+      <div class="bar">
+        <label class="meta" for="certFecha">Fecha</label><input type="date" id="certFecha" value="${esc(c.fecha || "")}" ${ro ? "disabled" : ""}>
+        <span class="grow"></span>
+        ${S.downloads ? `<button id="btnPdf">Descargar PDF</button><button id="btnXlsx">Descargar Excel</button>` : ""}
+        ${S.readOnly ? "" : c.estado === "cerrada"
+          ? (c.id === lastCert().id ? `<button id="btnReabrir">Reabrir</button>` : "")
+          : `<button id="btnCerrar" class="primary">Cerrar certificación</button>`}
+        ${!S.readOnly && c.id === lastCert().id ? `<button id="btnBorrarCert" class="danger">Eliminar nº ${c.numero}</button>` : ""}
+      </div>
+      <p class="note">Escribe la cantidad ejecutada <strong>a origen</strong> (todo lo hecho desde el inicio) o su porcentaje. Lo anterior viene de la certificación nº ${prev ? prev.numero : "—"} y lo actual es la diferencia.${c.estado === "cerrada" ? " Esta certificación está cerrada y no admite cambios." : ""}</p>
+      ${isMob() ? certMobileHTML(rows, caps, T, ro, avance) : `<div class="scroll"><table>
+        <thead>
+          <tr class="grp"><th colspan="6">Presupuesto</th><th colspan="3" class="g-orig">A origen</th><th colspan="2">Anterior</th><th colspan="2" class="g-act">Actual</th></tr>
+          <tr><th>Código</th><th>Descripción</th><th>Ud</th><th class="n">Medición</th><th class="n">Precio</th><th class="n">Importe</th>
+          <th class="n g-orig">Cantidad</th><th class="n g-orig">%</th><th class="n g-orig">Importe</th><th class="n">Cantidad</th><th class="n">Importe</th><th class="n g-act">Cantidad</th><th class="n g-act">Importe</th></tr>
+        </thead>
+        <tbody>${body}</tbody></table></div>`}
+      ${ro ? "" : nuevaPartidaHTML()}
+      ${liquidacionHTML(L)}`;
+  }
+
+  // Partidas no previstas en el presupuesto (precios contradictorios)
+  function nuevaPartidaHTML() {
+    const v = (k, d = "") => esc(S.nf[k] ?? d);
+    const caps = S.pres.capitulos.map((k) => `<option value="${esc(k.id)}" ${S.nf["nf-cap"] === k.id ? "selected" : ""}>${esc(k.codigo)} ${esc(k.nombre)}</option>`).join("");
+    const hasPN = S.pres.capitulos.some((k) => k.codigo === "PN");
+    return `<div class="panel"><h2>Añadir partida nueva</h2>
+      <p class="note">Para unidades de obra que no estaban en el presupuesto. Se certifican igual que las demás, quedan marcadas como «Nueva» y no cambian el importe del presupuesto original.</p>
+      <div class="nf-grid">
+        <label class="wide">Capítulo<select id="nf-cap">${hasPN ? "" : `<option value="__pn" ${!S.nf["nf-cap"] || S.nf["nf-cap"] === "__pn" ? "selected" : ""}>PN Partidas nuevas (capítulo aparte)</option>`}${caps}</select></label>
+        <label>Código<input type="text" id="nf-cod" value="${v("nf-cod")}" placeholder="Automático"></label>
+        <label class="wide">Descripción<input type="text" id="nf-desc" value="${v("nf-desc")}" placeholder="Ej.: Toma de corriente adicional en almacén"></label>
+        <label>Ud<input type="text" id="nf-ud" value="${v("nf-ud", "ud")}"></label>
+        <label>Precio (€)<input type="text" id="nf-precio" inputmode="decimal" value="${v("nf-precio")}"></label>
+        <label>Cantidad a origen<input type="text" id="nf-q" inputmode="decimal" value="${v("nf-q")}"></label>
+        <button id="btnAddNueva" class="primary">Añadir partida</button>
+      </div></div>`;
+  }
+  function addNueva() {
+    const c = certSel(); if (!c || c.estado === "cerrada" || S.readOnly) return;
+    const desc = (S.nf["nf-desc"] || "").trim(), precio = num(S.nf["nf-precio"]), q = num(S.nf["nf-q"]);
+    if (!desc) return toast("Escribe la descripción de la partida nueva.");
+    if (!precio) return toast("Indica el precio unitario de la partida nueva.");
+    let capId = S.nf["nf-cap"] || "__pn", cap;
+    if (capId === "__pn" || !capOf(capId)) {
+      cap = S.pres.capitulos.find((k) => k.codigo === "PN");
+      if (!cap) { cap = { id: uid(), codigo: "PN", nombre: "PARTIDAS NUEVAS" }; S.pres.capitulos.push(cap); }
+    } else cap = capOf(capId);
+    const n = partidasDe(cap.id).length + 1;
+    const p = { id: uid(), cap: cap.id, codigo: (S.nf["nf-cod"] || "").trim() || `${cap.codigo}.${cap.codigo === "PN" ? "" : "N"}${String(n).padStart(2, "0")}`, desc, ud: (S.nf["nf-ud"] || "ud").trim(), med: 0, precio, nueva: true };
+    const idx = S.pres.partidas.map((x) => x.cap).lastIndexOf(cap.id);
+    S.pres.partidas.splice(idx < 0 ? S.pres.partidas.length : idx + 1, 0, p);
+    savePres();
+    S.nf = { "nf-cap": S.nf["nf-cap"] };
+    if (q > 0) setOrigen(p.id, q); else render();
+    toast(`Partida ${p.codigo} añadida.`);
+  }
+
+  function liquidacionHTML(L) {
+    const o = S.obra;
+    const row = (lbl, a, b, act, strong) => `<tr${strong ? ' class="tot"' : ""}><td>${lbl}</td><td class="n hm">${a == null ? "" : f2.format(a)}</td><td class="n hm">${b == null ? "" : f2.format(b)}</td><td class="n g-act act">${f2.format(act)}</td></tr>`;
+    return `<div class="panel"><h2>Liquidación</h2><div class="scroll"><table>
+      <thead><tr><th>Concepto</th><th class="n hm">A origen</th><th class="n hm">Anterior</th><th class="n g-act">Esta certificación</th></tr></thead><tbody>
+      ${row("Presupuesto de ejecución material", L.eO.pem, L.eA.pem, r2(L.eO.pem - L.eA.pem))}
+      ${num(o.gg) ? row(`Gastos generales (${f3.format(num(o.gg))} %)`, L.eO.gg, L.eA.gg, r2(L.eO.gg - L.eA.gg)) : ""}
+      ${num(o.bi) ? row(`Beneficio industrial (${f3.format(num(o.bi))} %)`, L.eO.bi, L.eA.bi, r2(L.eO.bi - L.eA.bi)) : ""}
+      ${num(o.baja) ? row(`Baja de adjudicación (−${f3.format(num(o.baja))} %)`, -L.eO.baja, -L.eA.baja, -r2(L.eO.baja - L.eA.baja)) : ""}
+      ${row("Base imponible", L.eO.base, L.eA.base, L.base, true)}
+      ${row(`${esc(o.impuesto || "IVA")} (${f3.format(num(o.iva))} %)`, null, null, L.iva)}
+      ${num(o.retencion) ? row(`Retención de garantía (−${f3.format(num(o.retencion))} %)`, null, null, -L.ret) : ""}
+      ${row("Líquido a percibir", null, null, L.liquido, true)}
+      </tbody></table></div><p class="note">Porcentajes editables en Datos de obra.</p></div>`;
+  }
+
+  function viewResumen(v) {
+    if (!S.pres.partidas.length) return emptyPres(v);
+    const presT = calc(null).T.pres;
+    const certRows = S.certs.map((c) => {
+      const { T } = calc(c), L = liquidacion(T);
+      return `<tr><td><button class="icon" data-open="${esc(c.id)}">Nº ${c.numero}</button></td><td>${fecha(c.fecha)}</td>
+        <td><span class="chip ${c.estado === "cerrada" ? "closed" : "open"}">${c.estado === "cerrada" ? "Cerrada" : "En curso"}</span></td>
+        <td class="n">${f2.format(T.orig)}</td><td class="n hm">${pct(presT ? (T.orig / presT) * 100 : 0)}</td><td class="n g-act act">${f2.format(T.act)}</td>
+        <td class="n hm">${f2.format(L.base)}</td><td class="n">${f2.format(L.liquido)}</td></tr>`;
+    }).join("");
+    const c = certSel(), { caps, T } = calc(c);
+    const capRows = S.pres.capitulos.filter((k) => partidasDe(k.id).length).map((k) => {
+      const x = caps[k.id], p = x.pres ? (x.orig / x.pres) * 100 : 0;
+      return `<tr><td class="code">${esc(k.codigo)}</td><td>${esc(k.nombre)}</td><td class="n hm">${f2.format(x.pres)}</td><td class="n hm">${f2.format(x.orig)}</td>
+        <td style="min-width:90px"><div class="progress" style="margin:0"><span class="${p > 100.0001 ? "over" : ""}" style="width:${Math.min(100, p).toFixed(1)}%"></span></div></td><td class="n">${pct(p)}</td></tr>`;
+    }).join("");
+    v.innerHTML = `
+      <div class="totals">
+        <div class="tot"><span class="eyebrow">Presupuesto (PEM)</span><span class="v">${eur(presT)}</span></div>
+        <div class="tot"><span class="eyebrow">Ejecutado a origen</span><span class="v">${eur(T.orig)}</span><span class="note">${c ? "Hasta la certificación nº " + c.numero : "Sin certificaciones"}</span></div>
+        <div class="tot"><span class="eyebrow">Pendiente de ejecutar</span><span class="v">${eur(presT - T.orig)}</span></div>
+        <div class="tot"><span class="eyebrow">Certificaciones</span><span class="v">${S.certs.length}</span></div>
+      </div>
+      <div class="panel"><h2>Certificaciones emitidas</h2>
+        ${S.certs.length ? `<div class="scroll"><table><thead><tr><th>Nº</th><th>Fecha</th><th>Estado</th><th class="n">PEM a origen</th><th class="n hm">Avance</th><th class="n g-act">PEM del periodo</th><th class="n hm">Base imponible</th><th class="n">Líquido</th></tr></thead><tbody>${certRows}</tbody></table></div>`
+        : `<p class="note">Todavía no hay certificaciones. Crea la primera con el botón de arriba.</p>`}
+      </div>
+      <div class="panel"><h2>Avance por capítulo${c ? " · certificación nº " + c.numero : ""}</h2>
+        <div class="scroll"><table><thead><tr><th>Cap.</th><th>Capítulo</th><th class="n hm">Presupuesto</th><th class="n hm">A origen</th><th>Avance</th><th class="n">%</th></tr></thead><tbody>${capRows}</tbody></table></div>
+      </div>`;
+  }
+
+  // ---------- coste vs certificado ----------
+  function costesData(K) {
+    const mat = (K.material || []).map((x) => ({ ...x, tipo: "m", imp: num(x.importe) }));
+    const mo = (K.manoobra || []).map((x) => ({ ...x, tipo: "o", imp: x.importe != null && x.importe !== "" ? num(x.importe) : r2(num(x.horas) * num(x.costeHora)) }));
+    const all = [...mat, ...mo];
+    const cM = r2(mat.reduce((s, x) => s + x.imp, 0)), cO = r2(mo.reduce((s, x) => s + x.imp, 0)), cT = r2(cM + cO);
+    const horas = mo.reduce((s, x) => s + num(x.horas), 0);
+    const last = lastCert(), base = (c) => (c ? liquidacion(calc(c).T).eO.base : 0);
+    const presBase = econ(calc(null).T.pres).base, cert = base(last);
+    const marg = r2(cert - cT), margPct = cert ? (marg / cert) * 100 : 0;
+    const sum = (arr, t) => r2(arr.filter((x) => x.tipo === t).reduce((s, x) => s + x.imp, 0));
+    // Reparto por periodos de certificación (según la fecha de cada albarán o parte)
+    const per = []; let prevF = "";
+    for (const c of S.certs) {
+      const f = c.fecha || "", cs = all.filter((x) => x.fecha && x.fecha > prevF && x.fecha <= f);
+      per.push({ lbl: `Nº ${c.numero}`, rango: `${prevF ? fecha(prevF) : "Inicio"} – ${fecha(f)}`, cert: r2(base(c) - base(prevCert(c))), m: sum(cs, "m"), o: sum(cs, "o") });
+      prevF = f;
+    }
+    const after = all.filter((x) => x.fecha && x.fecha > prevF), sinF = all.filter((x) => !x.fecha);
+    if (after.length) per.push({ lbl: "Sin certificar", rango: `Desde ${prevF ? fecha(prevF) : "el inicio"}`, cert: 0, m: sum(after, "m"), o: sum(after, "o") });
+    if (sinF.length) per.push({ lbl: "Sin fecha", rango: `${sinF.length} documentos sin fecha`, cert: 0, m: sum(sinF, "m"), o: sum(sinF, "o") });
+    const group = (arr, key) => { const g = {}; for (const x of arr) { const k = String(x[key] || "Sin indicar").trim(); (g[k] = g[k] || { imp: 0, h: 0, n: 0 }); g[k].imp += x.imp; g[k].h += num(x.horas); g[k].n++; } return Object.entries(g).sort((a, b) => b[1].imp - a[1].imp); };
+    return { mat, mo, cM, cO, cT, horas, last, presBase, cert, marg, margPct, per, prov: group(mat, "proveedor"), ops: group(mo, "operario") };
+  }
+
+  function actualizarHTML() {
+    if (S.readOnly) return "";
+    return `<details class="panel upd" id="updBox" ${S.costes ? "" : "open"}><summary>Actualizar costes</summary>
+      <ol class="note steps"><li>Abre <a href="https://claude.ai/artifact/GpG3J8aU1LyPDGyyoBbHHh" target="_blank" rel="noopener">Costes de obra</a> y pulsa <strong>Exportar Excel</strong>.</li><li>Elige aquí ese archivo. Se sustituyen los costes de esta pantalla por los del Excel.</li></ol>
+      <div class="bar"><label class="btn primary" for="fileCostes">Elegir Excel de costes</label><input type="file" id="fileCostes" accept=".xlsx,.xls" hidden></div></details>`;
+  }
+
+  function viewCostes(v) {
+    const K = S.costes;
+    if (!K) {
+      v.innerHTML = `<div class="panel empty"><h2>Todavía no hay costes enlazados</h2><p>Trae los costes de material y operarios desde la herramienta de costes con su Excel.</p></div>${actualizarHTML()}`;
+      return;
+    }
+    const D = costesData(K), { cM, cO, cT, cert, marg, presBase, last } = D;
+    const mx = Math.max(presBase, cert, cT) || 1, w = (x) => Math.max(0, Math.min(100, (x / mx) * 100)).toFixed(2);
+    const perRows = D.per.map((p) => { const c = r2(p.m + p.o), d = r2(p.cert - c);
+      return `<tr><td><strong>${p.lbl}</strong><div class="note">${p.rango}</div></td><td class="n">${f2.format(p.cert)}</td><td class="n hm">${f2.format(p.m)}</td><td class="n hm">${f2.format(p.o)}</td><td class="n">${f2.format(c)}</td><td class="n ${d < 0 ? "neg" : "pos"}">${f2.format(d)}</td></tr>`; }).join("");
+    const provRows = D.prov.map(([k, x]) => `<tr><td>${esc(k)}</td><td class="n hm">${x.n}</td><td class="n">${f2.format(x.imp)}</td><td class="n">${cM ? f1.format((x.imp / cM) * 100) : "0"} %</td></tr>`).join("");
+    const opRows = D.ops.map(([k, x]) => `<tr><td>${esc(k)}</td><td class="n">${f1.format(x.h)}</td><td class="n">${f2.format(x.imp)}</td><td class="n hm">${x.h ? f2.format(x.imp / x.h) : ""}</td></tr>`).join("");
+    const act = K.actualizado ? new Date(K.actualizado) : null;
+
+    v.innerHTML = `
+      <div class="bar"><span class="note grow">Costes actualizados ${act ? "el " + act.toLocaleDateString("es-ES") + " a las " + act.toLocaleTimeString("es-ES", { hour: "2-digit", minute: "2-digit" }) : "—"} · ${D.mat.length} albaranes y ${D.mo.length} partes de horas</span>
+        ${S.downloads ? `<button id="btnCostPdf">Informe PDF</button><button id="btnCostXlsx">Informe Excel</button>` : ""}
+        ${S.readOnly ? "" : `<button id="btnAskSync" class="primary" ${S.syncPedida ? "disabled" : ""}>${S.syncPedida ? "Actualizando…" : "Actualizar costes"}</button>`}</div>
+      ${S.syncPedida ? `<p class="note">Claude está leyendo Costes de obra (pedido a las ${S.syncPedida}). Esta pantalla se actualizará sola en cuanto termine.</p>` : ""}
+      ${S.readOnly ? "" : `<details class="note"><summary>Otra forma: subir el Excel de costes</summary><p>En <a href="https://claude.ai/artifact/GpG3J8aU1LyPDGyyoBbHHh" target="_blank" rel="noopener">Costes de obra</a> pulsa <strong>Exportar Excel</strong> y elige aquí ese archivo. <label class="btn" for="fileCostes">Elegir Excel</label><input type="file" id="fileCostes" accept=".xlsx,.xls" hidden></p></details>`}
+      <div class="totals">
+        <div class="tot"><span class="eyebrow">Certificado a origen</span><span class="v">${eur(cert)}</span><span class="note">${last ? "Hasta la nº " + last.numero + " · sin " + esc(S.obra.impuesto || "IVA") : "Sin certificaciones"}</span></div>
+        <div class="tot"><span class="eyebrow">Coste real</span><span class="v">${eur(cT)}</span><span class="note">Material ${eur(cM)} · Operarios ${eur(cO)}</span></div>
+        <div class="tot ${marg < 0 ? "bad" : "good"}"><span class="eyebrow">Margen</span><span class="v">${eur(marg)}</span><span class="note">${cert ? f1.format(D.margPct) + " % sobre lo certificado" : "Aún no hay nada certificado"}</span></div>
+        <div class="tot"><span class="eyebrow">Coste sobre presupuesto</span><span class="v">${presBase ? pct((cT / presBase) * 100) : "—"}</span><span class="note">Presupuesto ${eur(presBase)}</span></div>
+      </div>
+      <div class="panel"><h2>Comparativa</h2>
+        <div class="cmp">
+          <div class="cmp-r"><span class="cmp-l">Presupuesto</span><div class="cmp-t"><span class="cmp-b pres" style="width:${w(presBase)}%"></span></div><span class="cmp-v">${f2.format(presBase)}</span></div>
+          <div class="cmp-r"><span class="cmp-l">Certificado</span><div class="cmp-t"><span class="cmp-b cert" style="width:${w(cert)}%"></span></div><span class="cmp-v">${f2.format(cert)}</span></div>
+          <div class="cmp-r"><span class="cmp-l">Coste real</span><div class="cmp-t"><span class="cmp-b mat" style="width:${w(cM)}%"></span><span class="cmp-b ope" style="width:${w(cO)}%"></span></div><span class="cmp-v">${f2.format(cT)}</span></div>
+        </div>
+        <div class="legend"><span><i class="sw pres"></i>Presupuesto</span><span><i class="sw cert"></i>Certificado</span><span><i class="sw mat"></i>Material</span><span><i class="sw ope"></i>Operarios (${f1.format(D.horas)} h)</span></div>
+      </div>
+      <div class="panel"><h2>Por periodo de certificación</h2>
+        <p class="note">Cada albarán y parte de horas se asigna a la certificación cuyo periodo incluye su fecha.</p>
+        <div class="scroll"><table><thead><tr><th>Periodo</th><th class="n">Certificado</th><th class="n hm">Material</th><th class="n hm">Operarios</th><th class="n">Coste</th><th class="n">Diferencia</th></tr></thead>
+        <tbody>${perRows}<tr class="tot"><td>Total</td><td class="n">${f2.format(cert)}</td><td class="n hm">${f2.format(cM)}</td><td class="n hm">${f2.format(cO)}</td><td class="n">${f2.format(cT)}</td><td class="n ${marg < 0 ? "neg" : "pos"}">${f2.format(marg)}</td></tr></tbody></table></div>
+      </div>
+      <div class="cols">
+        <div class="panel"><h2>Material por proveedor</h2><div class="scroll"><table><thead><tr><th>Proveedor</th><th class="n hm">Docs</th><th class="n">Importe</th><th class="n">%</th></tr></thead><tbody>${provRows || '<tr><td colspan="4" class="note">Sin albaranes</td></tr>'}</tbody></table></div></div>
+        <div class="panel"><h2>Operarios</h2><div class="scroll"><table><thead><tr><th>Operario</th><th class="n">Horas</th><th class="n">Coste</th><th class="n hm">€/h</th></tr></thead><tbody>${opRows || '<tr><td colspan="4" class="note">Sin partes de horas</td></tr>'}</tbody></table></div></div>
+      </div>
+      <p class="note">Importes sin impuestos.</p>`;
+  }
+
+  // Lee el Excel exportado desde Costes de obra (hojas Material y Operarios)
+  async function importarCostes(file) {
+    S.syncPedida = null;
+    await loadLibs("xlsx");
+    const X = window.XLSX, wb = X.read(await file.arrayBuffer(), { type: "array", cellDates: true });
+    const rows = (name) => { const ws = wb.Sheets[name]; if (!ws) return null; const a = X.utils.sheet_to_json(ws, { header: 1, raw: true, defval: "" }); const i = a.findIndex((r) => String(r[0]).trim().toLowerCase() === "fecha"); return i < 0 ? null : a.slice(i + 1).filter((r) => r.some((c) => c !== "")); };
+    const iso = (v) => {
+      if (v instanceof Date && !isNaN(v)) return new Date(v.getTime() - v.getTimezoneOffset() * 60000).toISOString().slice(0, 10);
+      if (typeof v === "number" && v > 20000) { const d = new Date(Math.round((v - 25569) * 86400000)); return d.toISOString().slice(0, 10); }
+      const s = String(v || "").trim(), m = s.match(/^(\d{1,2})\/(\d{1,2})\/(\d{4})$/);
+      return m ? `${m[3]}-${m[2].padStart(2, "0")}-${m[1].padStart(2, "0")}` : /^\d{4}-\d{2}-\d{2}/.test(s) ? s.slice(0, 10) : "";
+    };
+    const M = rows("Material"), O = rows("Operarios");
+    if (!M || !O) throw new Error("Este Excel no tiene las hojas Material y Operarios. Usa el que genera «Exportar Excel» en Costes de obra.");
+    const doc = {
+      actualizado: new Date().toISOString(), fuente: "https://claude.ai/artifact/GpG3J8aU1LyPDGyyoBbHHh", origen: file.name,
+      material: M.map((r) => ({ fecha: iso(r[0]), proveedor: String(r[1] || ""), numero: String(r[2] || ""), concepto: String(r[3] || ""), importe: num(r[4]) })),
+      manoobra: O.map((r) => ({ fecha: iso(r[0]), operario: String(r[1] || ""), horas: num(r[3]), costeHora: num(r[4]), importe: num(r[5]) })),
+    };
+    S.costes = doc; render();
+    await write(() => S.db.doc("costes/resumen").set(doc));
+    const D = costesData(doc);
+    toast(`Costes actualizados: ${doc.material.length} albaranes (${eur(D.cM)}) y ${doc.manoobra.length} partes (${eur(D.cO)}).`);
+  }
+
+  // El botón avisa a Claude con un comentario; Claude lee Costes de obra y reescribe costes/resumen
+  async function pedirSync(btn) {
+    btn.disabled = true;
+    const fallo = (msg) => { toast(msg); btn.disabled = false; };
+    try {
+      const cm = window.claude && window.claude.use ? await window.claude.use("comments") : null;
+      if (!cm) return fallo("Desde esta vista no se puede avisar a Claude. Usa «Subir el Excel de costes» o pídelo en el chat del proyecto.");
+      const st = await cm.canSendToClaude().catch(() => "off");
+      if (st !== "available") return fallo(st === "no_session" ? "Ahora mismo no hay ninguna sesión de Claude escuchando. Pídelo en el chat del proyecto o sube el Excel de costes." : "Desde esta vista no se puede avisar a Claude. Usa «Subir el Excel de costes».");
+      const anchor = await cm.anchorFor(btn);
+      await cm.sendToClaude({ anchor, text: "Actualizar costes: lee material, manoobra y obra/info de Costes de obra (https://claude.ai/artifact/GpG3J8aU1LyPDGyyoBbHHh) y reescribe costes/resumen de esta página." });
+      S.syncPedida = new Date().toLocaleTimeString("es-ES", { hour: "2-digit", minute: "2-digit" }); S.syncDesde = (S.costes && S.costes.actualizado) || "";
+      render(); toast("Pedido enviado a Claude. La comparativa se actualizará sola en cuanto termine.");
+    } catch (e) {
+      fallo(e && e.code === "consent_required" ? "Hace falta que permitas a la página comentar en tu nombre para avisar a Claude." : e && e.code === "rate_limited" ? "Has pedido varias actualizaciones seguidas. Espera un poco." : "No se pudo avisar a Claude. Prueba otra vez o sube el Excel de costes.");
+    }
+  }
+
+  async function exportCostes(kind, btn) {
+    const K = S.costes; if (!K || !S.downloads) return;
+    btn.disabled = true;
+    try {
+      const D = costesData(K), o = S.obra, hoy = fecha(today());
+      const name = `Coste-vs-certificado-${(o.nombre || "obra").normalize("NFD").replace(/[̀-ͯ]/g, "").replace(/[^A-Za-z0-9]+/g, "-").replace(/^-|-$/g, "").slice(0, 40)}-${today()}.${kind === "pdf" ? "pdf" : "xlsx"}`;
+      const resumen = [["Presupuesto (base)", D.presBase], [`Certificado a origen${D.last ? " (nº " + D.last.numero + ")" : ""}`, D.cert], ["Coste material", D.cM], ["Coste operarios", D.cO], ["Coste real total", D.cT], ["Margen", D.marg]];
+      const perRows = D.per.map((p) => { const c = r2(p.m + p.o); return [p.lbl, p.rango, p.cert, p.m, p.o, c, r2(p.cert - c)]; });
+      perRows.push(["Total", "", D.cert, D.cM, D.cO, D.cT, D.marg]);
+      if (kind === "xlsx") {
+        await loadLibs("xlsx");
+        const X = window.XLSX, wb = X.utils.book_new();
+        const fmt = (ws, from, cols, z) => { const rg = X.utils.decode_range(ws["!ref"]); for (let R = from; R <= rg.e.r; R++) for (const C of cols) { const c = ws[X.utils.encode_cell({ r: R, c: C })]; if (c && c.t === "n") c.z = z; } };
+        const r0 = [[o.nombre || "Obra"], ["Informe coste vs certificado", "", hoy], ["Cliente", o.cliente || ""], [], ["Concepto", "Importe (€)"], ...resumen, ["Margen sobre certificado", D.cert ? D.marg / D.cert : 0], ["Coste sobre presupuesto", D.presBase ? D.cT / D.presBase : 0], ["Horas de operarios", r2(D.horas)]];
+        const ws0 = X.utils.aoa_to_sheet(r0); ws0["!cols"] = [{ wch: 34 }, { wch: 16 }, { wch: 12 }];
+        fmt(ws0, 5, [1], "#,##0.00 €"); [r0.length - 3, r0.length - 2].forEach((R) => { ws0[X.utils.encode_cell({ r: R, c: 1 })].z = "0.0%"; }); ws0[X.utils.encode_cell({ r: r0.length - 1, c: 1 })].z = "#,##0.0";
+        X.utils.book_append_sheet(wb, ws0, "Resumen");
+        const ws1 = X.utils.aoa_to_sheet([["Periodo", "Fechas", "Certificado", "Material", "Operarios", "Coste", "Diferencia"], ...perRows]); ws1["!cols"] = [{ wch: 14 }, { wch: 26 }, ...Array(5).fill({ wch: 14 })]; fmt(ws1, 1, [2, 3, 4, 5, 6], "#,##0.00 €");
+        X.utils.book_append_sheet(wb, ws1, "Por periodo");
+        const ws2 = X.utils.aoa_to_sheet([["Proveedor", "Documentos", "Importe", "%"], ...D.prov.map(([k, x]) => [k, x.n, r2(x.imp), D.cM ? x.imp / D.cM : 0])]); ws2["!cols"] = [{ wch: 44 }, { wch: 12 }, { wch: 14 }, { wch: 8 }]; fmt(ws2, 1, [2], "#,##0.00 €"); fmt(ws2, 1, [3], "0.0%");
+        X.utils.book_append_sheet(wb, ws2, "Material por proveedor");
+        const ws3 = X.utils.aoa_to_sheet([["Operario", "Horas", "Coste", "€/h"], ...D.ops.map(([k, x]) => [k, r2(x.h), r2(x.imp), x.h ? r2(x.imp / x.h) : ""])]); ws3["!cols"] = [{ wch: 24 }, { wch: 10 }, { wch: 14 }, { wch: 10 }]; fmt(ws3, 1, [2, 3], "#,##0.00 €");
+        X.utils.book_append_sheet(wb, ws3, "Operarios");
+        const ws4 = X.utils.aoa_to_sheet([["Fecha", "Proveedor", "Nº albarán", "Concepto", "Importe"], ...D.mat.map((x) => [fecha(x.fecha), x.proveedor, x.numero, x.concepto, r2(x.imp)])]); ws4["!cols"] = [{ wch: 11 }, { wch: 30 }, { wch: 16 }, { wch: 50 }, { wch: 14 }]; fmt(ws4, 1, [4], "#,##0.00 €");
+        X.utils.book_append_sheet(wb, ws4, "Detalle material");
+        const buf = X.write(wb, { bookType: "xlsx", type: "array" });
+        await guardar(name, new Blob([buf], { type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" }));
+      } else {
+        await loadLibs("pdf");
+        const { jsPDF } = window.jspdf, doc = new jsPDF({ unit: "mm", format: "a4" }), W = doc.internal.pageSize.getWidth(), Mg = 14;
+        const ink = [27, 34, 48], grey = [93, 103, 121], blue = [31, 90, 140], ochre = [154, 91, 16], green = [47, 122, 75], red = [179, 38, 30];
+        doc.setFont("helvetica", "bold"); doc.setFontSize(15); doc.setTextColor(...ink); doc.text("COSTE VS CERTIFICADO", Mg, 18);
+        doc.setFontSize(11); doc.text(o.nombre || "", Mg, 25);
+        doc.setFont("helvetica", "normal"); doc.setFontSize(9); doc.setTextColor(...grey);
+        doc.text([o.cliente && "Cliente: " + o.cliente, o.contrato && "Contrato: " + o.contrato].filter(Boolean), Mg, 30.5);
+        doc.text(`Fecha: ${hoy}`, W - Mg, 18, { align: "right" });
+        const act = K.actualizado ? new Date(K.actualizado) : null;
+        if (act) doc.text(`Costes a ${act.toLocaleDateString("es-ES")}`, W - Mg, 23, { align: "right" });
+        // Cifras clave
+        let y = 42; const bw = (W - 2 * Mg - 9) / 4;
+        [["Certificado a origen", D.cert, blue], ["Coste real", D.cT, ochre], ["Margen", D.marg, D.marg < 0 ? red : green], ["Margen %", null, D.marg < 0 ? red : green]].forEach(([l, val, col], i) => {
+          const x = Mg + i * (bw + 3); doc.setDrawColor(214, 218, 226); doc.roundedRect(x, y, bw, 18, 1.5, 1.5);
+          doc.setFontSize(7.5); doc.setTextColor(...grey); doc.text(l.toUpperCase(), x + 3, y + 5.5);
+          doc.setFont("helvetica", "bold"); doc.setFontSize(12); doc.setTextColor(...col);
+          doc.text(val == null ? (D.cert ? f1.format(D.margPct) + " %" : "—") : f2.format(val) + " €", x + 3, y + 13); doc.setFont("helvetica", "normal");
+        });
+        // Barras
+        y += 28; const mx = Math.max(D.presBase, D.cert, D.cT) || 1, bx = Mg + 30, bwMax = W - Mg - 32 - bx;
+        doc.setFont("helvetica", "bold"); doc.setFontSize(11); doc.setTextColor(...ink); doc.text("Comparativa", Mg, y); y += 6; doc.setFont("helvetica", "normal");
+        [["Presupuesto", [[D.presBase, [214, 218, 226]]], D.presBase], ["Certificado", [[D.cert, blue]], D.cert], ["Coste real", [[D.cM, ochre], [D.cO, [205, 165, 110]]], D.cT]].forEach(([l, segs, tot]) => {
+          doc.setFontSize(9); doc.setTextColor(...grey); doc.text(l, Mg, y + 3.6);
+          let x = bx; for (const [val, col] of segs) { const ww = (val / mx) * bwMax; if (ww > 0) { doc.setFillColor(...col); doc.rect(x, y, ww, 5, "F"); x += ww; } }
+          doc.setTextColor(...ink); doc.text(f2.format(tot) + " €", W - Mg, y + 3.6, { align: "right" }); y += 8;
+        });
+        doc.setFontSize(7.5); doc.setTextColor(...grey); doc.text(`Material ${f2.format(D.cM)} € · Operarios ${f2.format(D.cO)} € (${f1.format(D.horas)} h) · Coste sobre presupuesto ${D.presBase ? f1.format((D.cT / D.presBase) * 100) : "0"} %`, bx, y + 1);
+        const right = { halign: "right" }, tbl = (title, head, body, colStyles, foot) => {
+          let sy = (doc.lastAutoTable ? doc.lastAutoTable.finalY : y) + 10;
+          if (sy > doc.internal.pageSize.getHeight() - 40) { doc.addPage(); sy = 18; }
+          doc.setFont("helvetica", "bold"); doc.setFontSize(11); doc.setTextColor(...ink); doc.text(title, Mg, sy);
+          doc.autoTable({ startY: sy + 3, margin: { left: Mg, right: Mg, bottom: 16 }, theme: "grid", head: [head], body, foot: foot ? [foot] : undefined,
+            styles: { fontSize: 8, cellPadding: 1.5, lineColor: [214, 218, 226], lineWidth: 0.1, textColor: ink }, headStyles: { fillColor: blue, textColor: 255 },
+            footStyles: { fillColor: [236, 238, 242], textColor: ink, fontStyle: "bold" }, columnStyles: colStyles,
+            didParseCell: (d) => { if (d.section !== "head" && d.column.index === head.length - 1 && head[head.length - 1] === "Diferencia") { const raw = d.cell.raw; if (typeof raw === "string" && raw.startsWith("-")) d.cell.styles.textColor = red; } } });
+        };
+        const F = (v) => f2.format(v);
+        tbl("Por periodo de certificación", ["Periodo", "Fechas", "Certificado", "Material", "Operarios", "Coste", "Diferencia"],
+          perRows.slice(0, -1).map((r) => [r[0], r[1], F(r[2]), F(r[3]), F(r[4]), F(r[5]), F(r[6])]),
+          { 2: right, 3: right, 4: right, 5: right, 6: right }, ["Total", "", F(D.cert), F(D.cM), F(D.cO), F(D.cT), F(D.marg)]);
+        tbl("Material por proveedor", ["Proveedor", "Docs", "Importe", "%"], D.prov.map(([k, x]) => [k, x.n, F(x.imp), D.cM ? f1.format((x.imp / D.cM) * 100) + " %" : ""]), { 1: right, 2: right, 3: right }, ["Total", D.mat.length, F(D.cM), ""]);
+        tbl("Operarios", ["Operario", "Horas", "Coste", "€/h"], D.ops.map(([k, x]) => [k, f1.format(x.h), F(x.imp), x.h ? F(x.imp / x.h) : ""]), { 1: right, 2: right, 3: right }, ["Total", f1.format(D.horas), F(D.cO), ""]);
+        const pages = doc.getNumberOfPages();
+        for (let i = 1; i <= pages; i++) { doc.setPage(i); doc.setFontSize(7.5); doc.setTextColor(...grey); const h = doc.internal.pageSize.getHeight();
+          doc.text(`${o.nombre || ""} · Coste vs certificado · importes sin impuestos`, Mg, h - 8); doc.text(`Página ${i} de ${pages}`, W - Mg, h - 8, { align: "right" }); }
+        await guardar(name, doc.output("blob"));
+      }
+    } catch (err) { toast(err.message || "No se pudo generar el informe."); }
+    finally { btn.disabled = false; }
+  }
+
+  function viewPres(v) {
+    const ro = S.readOnly;
+    const T = calc(null).T;
+    let body = "";
+    for (const cap of S.pres.capitulos) {
+      const ps = partidasDe(cap.id), sub = ps.reduce((s, p) => s + r2(num(p.med) * num(p.precio)), 0);
+      body += `<tr class="cap"><td><input class="cell txt" id="cc-${esc(cap.id)}" data-cap="${esc(cap.id)}" data-f="codigo" value="${esc(cap.codigo)}" ${ro ? "readonly" : ""} style="min-width:60px"></td>
+        <td colspan="4"><input class="cell txt" id="cn-${esc(cap.id)}" data-cap="${esc(cap.id)}" data-f="nombre" value="${esc(cap.nombre)}" ${ro ? "readonly" : ""}></td>
+        <td class="n">${f2.format(sub)}</td><td style="white-space:nowrap">${ro ? "" : `<button class="icon" data-addp="${esc(cap.id)}">+ Partida</button> <button class="icon danger" data-delcap="${esc(cap.id)}">Quitar</button>`}</td></tr>`;
+      for (const p of ps) {
+        const inp = (f, cls, extra = "") => `<input class="cell ${cls}" id="pf-${f}-${esc(p.id)}" data-pid="${esc(p.id)}" data-f="${f}" value="${esc(f === "med" ? (p.med === "" || p.med == null ? "" : f3.format(num(p.med))) : f === "precio" ? f2.format(num(p.precio)) : p[f])}" ${ro ? "readonly" : ""} ${extra}>`;
+        body += `<tr><td style="white-space:nowrap">${inp("codigo", "txt", 'style="min-width:70px"')}${p.nueva ? '<span class="chip nueva">Nueva</span>' : ""}</td><td class="desc">${inp("desc", "txt", 'style="min-width:240px"')}</td>
+          <td>${inp("ud", "txt", 'style="min-width:44px;width:56px"')}</td><td>${inp("med", "", 'inputmode="decimal"')}</td><td>${inp("precio", "", 'inputmode="decimal"')}</td>
+          <td class="n">${f2.format(r2(num(p.med) * num(p.precio)))}</td><td>${ro ? "" : `<button class="icon danger" data-delp="${esc(p.id)}">Quitar</button>`}</td></tr>`;
+      }
+    }
+    v.innerHTML = `
+      ${S.pres.partidas.length ? "" : `<div class="panel empty"><h2>Esta obra aún no tiene presupuesto</h2><p>Importa un BC3, pega desde Excel o añade el primer capítulo a mano.</p></div>`}
+      ${ro ? "" : `<div class="cols">
+        <div class="panel"><h3>Importar archivo BC3</h3>
+          <p class="note">Formato FIEBDC‑3 exportado desde Presto, Arquímedes, TCQ u otros. Se leen capítulos, partidas, unidades, mediciones y precios.</p>
+          <input type="file" id="fileBc3" accept=".bc3,.BC3,text/plain"></div>
+        <div class="panel"><h3>Pegar desde Excel</h3>
+          <p class="note">Columnas en este orden: <code>Código · Descripción · Ud · Medición · Precio</code>. Una fila sin unidad ni precio se toma como capítulo.</p>
+          <textarea id="pasteArea" placeholder="01\tMOVIMIENTO DE TIERRAS&#10;01.01\tExcavación en zanja\tm3\t120,5\t18,40"></textarea>
+          <div class="bar"><button id="btnPaste">Importar filas pegadas</button></div></div>
+      </div>
+      ${S.pres.partidas.length ? `<p class="note">Al importar se sustituye el presupuesto actual. Las partidas con el mismo código conservan lo ya certificado.</p>` : ""}`}
+      ${S.pres.capitulos.length && isMob() ? presMobileHTML(ro, T) : ""}
+      ${S.pres.capitulos.length && !isMob() ? `<div class="scroll"><table>
+        <thead><tr><th>Código</th><th>Descripción</th><th>Ud</th><th class="n">Medición</th><th class="n">Precio</th><th class="n">Importe</th><th></th></tr></thead>
+        <tbody>${body}<tr class="tot"><td></td><td colspan="4">Total ejecución material</td><td class="n">${f2.format(T.pres)}</td><td></td></tr></tbody></table></div>` : ""}
+      ${ro ? "" : `<div class="bar"><button id="btnAddCap">+ Capítulo</button><span class="grow"></span>${S.pres.capitulos.length ? `<button class="danger" id="btnVaciar">Vaciar presupuesto</button>` : ""}</div>`}`;
+  }
+
+  function viewObra(v) {
+    const o = S.obra, ro = S.readOnly ? "readonly" : "";
+    const fld = (k, lbl, mode) => `<label>${lbl}<input type="text" id="ob-${k}" data-ob="${k}" value="${esc(mode === "n" ? f3.format(num(o[k])) : o[k])}" ${mode === "n" ? 'inputmode="decimal"' : ""} ${ro}></label>`;
+    v.innerHTML = `<div class="panel"><h2>Datos de la obra</h2><div class="form-grid">
+        ${fld("nombre", "Nombre de la obra")}${fld("cliente", "Cliente / promotor")}${fld("direccion", "Emplazamiento")}${fld("contrato", "Nº de contrato o expediente")}
+      </div></div>
+      <div class="panel"><h2>Condiciones económicas</h2><div class="form-grid">
+        ${fld("gg", "Gastos generales (%)", "n")}${fld("bi", "Beneficio industrial (%)", "n")}${fld("baja", "Baja de adjudicación (%)", "n")}${fld("impuesto", "Impuesto (IVA, IGIC…)")}${fld("iva", "Tipo del impuesto (%)", "n")}${fld("retencion", "Retención de garantía (%)", "n")}
+      </div><p class="note">Se aplican sobre el PEM en cada certificación. Pon 0 en lo que no corresponda; las líneas a 0 no aparecen en la liquidación.</p></div>`;
+  }
+
+
+  // ---------- ofertas (presupuestos para el cliente) ----------
+  const LOGO_DELEDCAN = "data:image/png;base64,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";
+  const EMISOR_DELEDCAN = { logo: "deledcan", emisor: "DELEDCAN SLU", emisorCif: "B76802859", emisorDir: "Avd. Enrique Mederos 17, 38760 Los Llanos de Aridane, S/C Tenerife", emisorTel: "+34 676 704 328", emisorEmail: "info@dled.es", emisorWeb: "http://dled.es" };
+  const OF_DEF = { numero: "", titulo: "", fecha: "", validez: 30, logo: "", emisor: "", emisorCif: "", emisorDir: "", emisorTel: "", emisorEmail: "", emisorWeb: "", cliente: "", clienteCif: "", clienteDir: "", condiciones: "", impuesto: "IGIC", iva: 0, origen: "", partidas: [] };
+  const logoOf = (of) => (of.logo === "deledcan" ? LOGO_DELEDCAN : "");
+  const vence = (of) => { if (!of.fecha) return ""; const d = new Date(of.fecha + "T12:00:00Z"); d.setUTCDate(d.getUTCDate() + (num(of.validez) || 30)); return d.toISOString().slice(0, 10); };
+  const ofSel = () => S.ofertas.find((x) => x.id === S.ofSel) || null;
+  // patch: solo los campos cambiados (update), para no pisar lo que otra pestaña haya guardado
+  const saveOf = (of, patch) => {
+    const { id, ...body } = JSON.parse(JSON.stringify(of)); if (!S.db) return Promise.resolve();
+    S.ofEstado = "guardando"; ofEstadoUI();
+    const ref = S.db.doc("ofertas/" + id);
+    return write(() => (patch ? ref.update(JSON.parse(JSON.stringify(patch))) : ref.set(body)).then(() => { S.ofEstado = "ok"; S.ofHora = new Date().toLocaleTimeString("es-ES", { hour: "2-digit", minute: "2-digit" }); }, (e) => { S.ofEstado = "error"; throw e; })).then(ofEstadoUI);
+  };
+  function ofEstadoHTML() {
+    const e = S.ofEstado;
+    return e === "guardando" ? "Guardando…" : e === "pend" ? "Cambios sin guardar" : e === "error" ? "No se pudo guardar" : e === "ok" ? `Guardado a las ${S.ofHora}` : "Todo guardado";
+  }
+  function ofEstadoUI() { const el = document.getElementById("ofEstado"); if (el) { el.textContent = ofEstadoHTML(); el.dataset.e = S.ofEstado || ""; } }
+  async function guardarOferta(btn) {
+    const ae = document.activeElement;
+    if (ae && (ae.dataset.of || ae.dataset.ofp)) { ae.dispatchEvent(new Event("change", { bubbles: true })); }
+    const of = ofSel(); if (!of || S.readOnly) return;
+    btn.disabled = true;
+    await saveOf(of, { partidas: of.partidas });
+    btn.disabled = false;
+    toast(S.ofEstado === "error" ? "No se pudo guardar la oferta. Revisa la conexión." : `Oferta${of.numero ? " nº " + of.numero : ""} guardada.`);
+  }
+  function ofTotales(of) {
+    const rows = (of.partidas || []).map((p) => ({ ...p, imp: r2(num(p.cant) * num(p.precio)) }));
+    const base = r2(rows.reduce((s, p) => s + p.imp, 0)), iva = r2(base * num(of.iva) / 100);
+    return { rows, base, iva, total: r2(base + iva) };
+  }
+  const nombreOf = (of, ext) => `Oferta-${of.numero ? of.numero.replace(/[^A-Za-z0-9]+/g, "-") + "-" : ""}${(of.cliente || "cliente").normalize("NFD").replace(/[̀-ͯ]/g, "").replace(/[^A-Za-z0-9]+/g, "-").replace(/^-|-$/g, "").slice(0, 30)}.${ext}`;
+
+  function viewOferta(v) {
+    if (!S.loaded.ofertas) { v.innerHTML = `<div class="panel empty"><h2>Cargando ofertas…</h2></div>`; return; }
+    const ro = S.readOnly, of = ofSel();
+    const picker = `<div class="bar">
+      ${S.ofertas.length ? `<label class="meta" for="selOf">Oferta</label><select id="selOf">${S.ofertas.map((x) => `<option value="${esc(x.id)}" ${x.id === S.ofSel ? "selected" : ""}>${x.numero ? "Nº " + esc(x.numero) + " · " : ""}${esc(x.titulo || x.cliente || "Sin título")}</option>`).join("")}</select>` : ""}
+      <span class="grow"></span>
+      ${of && S.downloads ? `<button id="btnOfPdf">Descargar PDF</button><button id="btnOfXlsx">Descargar Excel</button>` : ""}
+      ${ro ? "" : `${of ? `<span class="of-estado" id="ofEstado" data-e="${S.ofEstado || ""}">${ofEstadoHTML()}</span><button id="btnOfGuardar" class="primary">Guardar</button><button id="btnOfDup">Duplicar</button>` : ""}<button id="btnOfNueva"${of ? "" : ' class="primary"'}>Nueva oferta</button>`}
+    </div>`;
+    if (!of) { v.innerHTML = picker + `<div class="panel empty"><h2>No hay ofertas todavía</h2><p>Crea una oferta para preparar un presupuesto al cliente con sus partidas, impuesto y condiciones.</p></div>`; return; }
+    const R = ro ? "readonly" : "";
+    const fld = (k, lbl, mode, wide) => `<label${wide ? ' class="wide"' : ""}>${lbl}<input type="${mode === "d" ? "date" : "text"}" id="of-${k}" data-of="${k}" value="${esc(mode === "n" ? f3.format(num(of[k])) : of[k] ?? "")}" ${mode === "n" ? 'inputmode="decimal"' : ""} ${R}></label>`;
+    const T = ofTotales(of);
+    const rowsHTML = T.rows.map((p, i) => {
+      const inp = (f, cls, extra = "") => `<input class="cell ${cls}" id="ofp-${f}-${esc(p.id)}" data-ofp="${esc(p.id)}" data-f="${f}" value="${esc(f === "cant" ? f3.format(num(p.cant)) : f === "precio" ? f2.format(num(p.precio)) : p[f] ?? "")}" ${R} ${extra}>`;
+      return isMob()
+        ? `<div class="pc"><div class="pc-in"><label>Partida${inp("codigo", "txt")}</label><label>Ud${inp("ud", "txt")}</label></div>
+            <label class="pc-in" style="grid-template-columns:1fr"><span class="note">Denominación</span>${inp("desc", "txt")}</label>
+            <div class="pc-in three"><label>Cantidad${inp("cant", "", 'inputmode="decimal"')}</label><label>Precio${inp("precio", "", 'inputmode="decimal"')}</label><label>Importe<span class="pc-m" style="padding:9px 0;text-align:right">${f2.format(p.imp)}</span></label></div>
+            ${ro ? "" : `<div class="pc-r"><span></span><button class="icon danger" data-ofdelp="${esc(p.id)}">Quitar partida</button></div>`}</div>`
+        : `<tr><td>${inp("codigo", "txt", 'style="min-width:50px;width:64px"')}</td><td class="desc">${inp("desc", "txt", 'style="min-width:300px"')}</td>
+            <td>${inp("ud", "txt", 'style="min-width:44px;width:56px"')}</td><td>${inp("cant", "", 'inputmode="decimal"')}</td><td>${inp("precio", "", 'inputmode="decimal"')}</td>
+            <td class="n">${f2.format(p.imp)}</td><td>${ro ? "" : `<button class="icon danger" data-ofdelp="${esc(p.id)}">Quitar</button>`}</td></tr>`;
+    }).join("");
+    v.innerHTML = picker + `
+      <div class="totals">
+        <div class="tot"><span class="eyebrow">Total sin ${esc(of.impuesto || "impuesto")}</span><span class="v">${eur(T.base)}</span><span class="note">${T.rows.length} partidas</span></div>
+        <div class="tot"><span class="eyebrow">${esc(of.impuesto || "Impuesto")} ${f3.format(num(of.iva))} %</span><span class="v">${eur(T.iva)}</span></div>
+        <div class="tot hl"><span class="eyebrow">Total oferta</span><span class="v">${eur(T.total)}</span><span class="note">${of.numero ? "Nº " + esc(of.numero) + " · " : ""}${fecha(of.fecha)}</span></div>
+      </div>
+      ${of.origen ? `<p class="note">Origen: ${esc(of.origen)}</p>` : ""}
+      <div class="panel of-head">
+        <div><h2>Presupuesto${of.numero ? " " + esc(of.numero) : ""}</h2><div class="note">Fecha ${fecha(of.fecha) || "—"} · Vencimiento ${fecha(vence(of)) || "—"}</div></div>
+        ${logoOf(of) ? `<img class="of-logo" src="${logoOf(of)}" alt="${esc(of.emisor)}">` : ""}
+        <div class="of-who"><strong>${esc(of.cliente)}</strong><span>${esc(of.clienteCif)}</span><span>${esc(of.clienteDir)}</span></div>
+        <div class="of-who"><strong>${esc(of.emisor)}</strong><span>${esc(of.emisorCif)}</span><span>${esc(of.emisorDir)}</span><span>${esc([of.emisorEmail, of.emisorWeb].filter(Boolean).join(" "))}</span><span>${esc(of.emisorTel)}</span></div>
+      </div>
+      <div class="panel"><h2>Datos de la oferta</h2><div class="nf-grid">
+        ${fld("numero", "Nº de presupuesto (opcional)")}${fld("fecha", "Fecha", "d")}${fld("validez", "Validez (días)", "n")}${fld("titulo", "Título / obra", "", true)}
+        ${fld("cliente", "Cliente", "", true)}${fld("clienteCif", "CIF del cliente")}${fld("clienteDir", "Dirección del cliente", "", true)}
+        ${fld("impuesto", "Impuesto")}${fld("iva", "Tipo (%)", "n")}
+      </div>
+      <details><summary>Empresa que oferta${of.emisor ? ": " + esc(of.emisor) : ""}</summary><div class="nf-grid" style="margin-top:10px">
+        ${fld("emisor", "Empresa")}${fld("emisorCif", "CIF")}${fld("emisorDir", "Dirección", "", true)}${fld("emisorTel", "Teléfono")}${fld("emisorEmail", "Email")}${fld("emisorWeb", "Web")}
+        <label>Logo<select id="of-logo" data-of="logo" ${ro ? "disabled" : ""}><option value="deledcan" ${of.logo === "deledcan" ? "selected" : ""}>DELEDCAN</option><option value="" ${of.logo !== "deledcan" ? "selected" : ""}>Sin logo</option></select></label>
+        ${ro ? "" : `<button id="btnOfDeledcan" type="button">Poner datos de DELEDCAN</button>`}
+      </div></details>
+      <label class="note" for="of-condiciones">Condiciones de pago y observaciones</label>
+      <textarea id="of-condiciones" data-of="condiciones" style="min-height:70px;font-family:var(--font-body);font-size:13px" ${R}>${esc(of.condiciones || "")}</textarea></div>
+      <div class="panel"><h2>Partidas</h2>
+      ${isMob() ? `<div class="mlist">${rowsHTML}<div class="mtot"><span>Total sin ${esc(of.impuesto || "impuesto")}</span><span>${f2.format(T.base)} €</span></div></div>`
+        : `<div class="scroll"><table><thead><tr><th>Partida</th><th>Denominación</th><th>Ud</th><th class="n">Cantidad</th><th class="n">Precio</th><th class="n">Importe</th><th></th></tr></thead>
+        <tbody>${rowsHTML}<tr class="tot"><td></td><td colspan="4">Total sin ${esc(of.impuesto || "impuesto")}</td><td class="n">${f2.format(T.base)}</td><td></td></tr></tbody></table></div>`}
+      ${ro ? "" : `<div class="bar"><button id="btnOfAddP">+ Partida</button><span class="grow"></span><button id="btnOfBorrar" class="danger">Eliminar oferta</button></div>`}
+      </div>
+      <p class="note">Las ofertas van aparte del presupuesto de obra: editarlas no cambia las certificaciones.</p>`;
+  }
+
+  function nuevaOferta(base) {
+    if (S.readOnly) return;
+    const id = "o" + Date.now().toString(36);
+    const of = base ? { ...JSON.parse(JSON.stringify(base)), id, numero: base.numero ? base.numero + "-copia" : "", fecha: today(), origen: "Copia de la oferta " + (base.numero ? "nº " + base.numero : base.titulo || "") }
+      : { ...OF_DEF, ...EMISOR_DELEDCAN, id, fecha: today(), cliente: S.obra.cliente || "", impuesto: S.obra.impuesto || "IGIC", iva: num(S.obra.iva), partidas: [{ id: uid(), codigo: "1", desc: "", ud: "ud", cant: 1, precio: 0 }] };
+    if (base) of.partidas = of.partidas.map((p) => ({ ...p, id: uid() }));
+    S.ofertas.push(of); S.ofSel = id; saveOf(of); render(); toast(base ? "Oferta duplicada." : "Oferta creada.");
+  }
+
+  async function exportOferta(kind, btn) {
+    const of = ofSel(); if (!of || !S.downloads) return;
+    btn.disabled = true;
+    try {
+      const T = ofTotales(of), imp = of.impuesto || "IGIC";
+      if (kind === "xlsx") {
+        await loadLibs("xlsx");
+        const X = window.XLSX;
+        const aoa = [[of.emisor || "", "", "", "CIF", of.emisorCif || ""], [of.emisorDir || ""], [[of.emisorTel && "Tlf: " + of.emisorTel, of.emisorEmail, of.emisorWeb].filter(Boolean).join(" · ")], [],
+          ["PRESUPUESTO" + (of.numero ? " Nº " + of.numero : ""), "", "", "Fecha", fecha(of.fecha)], [of.titulo || "", "", "", "Vencimiento", fecha(vence(of))], ["Cliente", of.cliente || "", "", "CIF", of.clienteCif || ""], ["Dirección", of.clienteDir || ""], [],
+          ["Partida", "Denominación", "Ud", "Cantidad", "Precio sin " + imp, "Importe"]];
+        const h0 = aoa.length;
+        for (const p of T.rows) aoa.push([p.codigo, p.desc, p.ud, num(p.cant), num(p.precio), p.imp]);
+        aoa.push([], ["", "", "", "", "TOTAL SIN " + imp.toUpperCase(), T.base], ["", "", "", "", `${imp} ${f3.format(num(of.iva))} %`, T.iva], ["", "", "", "", "TOTAL", T.total], [],
+          ["Condiciones", of.condiciones || ""], ["Validez", `${num(of.validez) || 30} días`]);
+        const ws = X.utils.aoa_to_sheet(aoa);
+        ws["!cols"] = [{ wch: 10 }, { wch: 70 }, { wch: 6 }, { wch: 10 }, { wch: 18 }, { wch: 14 }];
+        for (let Rr = h0; Rr < aoa.length; Rr++) for (const C of [3, 4, 5]) { const c = ws[X.utils.encode_cell({ r: Rr, c: C })]; if (c && c.t === "n") c.z = C === 3 ? "#,##0.###" : "#,##0.00 €"; }
+        const wb = X.utils.book_new(); X.utils.book_append_sheet(wb, ws, "Oferta");
+        await guardar(nombreOf(of, "xlsx"), new Blob([X.write(wb, { bookType: "xlsx", type: "array" })], { type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" }));
+      } else {
+        await loadLibs("pdf");
+        const { jsPDF } = window.jspdf, doc = new jsPDF({ unit: "mm", format: "a4" }), W = doc.internal.pageSize.getWidth(), H = doc.internal.pageSize.getHeight(), M = 16;
+        const ink = [27, 34, 48], grey = [93, 103, 121], blue = [31, 90, 140];
+        // Cabecera al estilo de los presupuestos de la empresa: título y fechas a la izquierda, logo a la derecha
+        doc.setFont("helvetica", "bold"); doc.setFontSize(16); doc.setTextColor(...ink); doc.text(`Presupuesto${of.numero ? " " + of.numero : ""}`, M, 20);
+        doc.setFontSize(9); doc.text("Fecha", M, 29); doc.text("Vencimiento", M, 35);
+        doc.setFont("helvetica", "normal"); doc.setTextColor(...grey); doc.text(fecha(of.fecha), M + 11, 29); doc.text(fecha(vence(of)), M + 21, 35);
+        const lg = logoOf(of); if (lg) doc.addImage(lg, "PNG", W - M - 52, 12, 52, 52 * 153 / 500);
+        let y = 46; const half = (W - 2 * M) / 2, ex = M + half + 4;
+        const bloque = (x, nombre, lineas) => {
+          doc.setFont("helvetica", "bold"); doc.setFontSize(9); doc.setTextColor(...ink); let yy = y;
+          for (const l of doc.splitTextToSize(nombre || "", half - 6)) { doc.text(l, x, yy); yy += 4.2; }
+          doc.setFont("helvetica", "normal"); doc.setFontSize(8.5); doc.setTextColor(...grey); yy += 1.2;
+          for (const t of lineas.filter(Boolean)) for (const l of doc.splitTextToSize(t, half - 6)) { doc.text(l, x, yy); yy += 4; }
+          return yy;
+        };
+        const y1 = bloque(M, of.cliente, [of.clienteCif, of.clienteDir]);
+        const y2 = bloque(ex, of.emisor, [of.emisorCif, of.emisorDir, [of.emisorEmail, of.emisorWeb].filter(Boolean).join(" "), of.emisorTel]);
+        y = Math.max(y1, y2) + 4;
+        if (of.titulo) { doc.setFont("helvetica", "bold"); doc.setFontSize(10.5); doc.setTextColor(...ink); const tl = doc.splitTextToSize(of.titulo, W - 2 * M); doc.text(tl, M, y + 2); y += tl.length * 5 + 2; doc.setFont("helvetica", "normal"); }
+        const right = { halign: "right" };
+        doc.autoTable({ startY: y, margin: { left: M, right: M, bottom: 18 }, theme: "grid",
+          head: [["Partida", "Denominación", "Ud", "Cantidad", "Precio s/ " + imp, "Importe"]],
+          body: T.rows.map((p) => [p.codigo, p.desc, p.ud, f3.format(num(p.cant)), f2.format(num(p.precio)) + " €", f2.format(p.imp) + " €"]),
+          styles: { fontSize: 8.5, cellPadding: 1.8, lineColor: [214, 218, 226], lineWidth: 0.1, textColor: ink, valign: "middle" },
+          headStyles: { fillColor: blue, textColor: 255 },
+          columnStyles: { 0: { cellWidth: 15, halign: "center" }, 1: { cellWidth: "auto" }, 2: { cellWidth: 10 }, 3: { ...right, cellWidth: 18 }, 4: { ...right, cellWidth: 26 }, 5: { ...right, cellWidth: 26 } } });
+        y = doc.lastAutoTable.finalY + 6;
+        if (y > H - 70) { doc.addPage(); y = 20; }
+        doc.autoTable({ startY: y, margin: { left: W - M - 80 }, tableWidth: 80, theme: "plain",
+          body: [["Total sin " + imp, f2.format(T.base) + " €"], [`${imp} ${f3.format(num(of.iva))} %`, f2.format(T.iva) + " €"], ["TOTAL", f2.format(T.total) + " €"]],
+          styles: { fontSize: 10, cellPadding: 1.6, textColor: ink }, columnStyles: { 1: right },
+          didParseCell: (d) => { if (d.row.index === 2) { d.cell.styles.fontStyle = "bold"; d.cell.styles.fontSize = 11.5; d.cell.styles.textColor = blue; } },
+          didDrawCell: (d) => { if (d.row.index === 2 && d.column.index === 0) { doc.setDrawColor(...ink); doc.setLineWidth(0.4); doc.line(W - M - 80, d.cell.y, W - M, d.cell.y); } } });
+        y = doc.lastAutoTable.finalY + 10;
+        const cond = [of.condiciones, `Validez de la oferta: ${num(of.validez) || 30} días.`].filter(Boolean).join("\n");
+        doc.setFontSize(8.5); doc.setTextColor(...grey); const lines = doc.splitTextToSize(cond, W - 2 * M);
+        if (y + lines.length * 4 + 36 > H - 18) { doc.addPage(); y = 20; }
+        doc.setFont("helvetica", "bold"); doc.setTextColor(...ink); doc.text("Condiciones", M, y); doc.setFont("helvetica", "normal"); doc.setTextColor(...grey);
+        doc.text(lines, M, y + 5); y += 5 + lines.length * 4 + 12;
+        doc.text("Aceptado, el cliente:", M, y); doc.setDrawColor(...grey); doc.setLineWidth(0.2); doc.line(M, y + 20, M + 75, y + 20); doc.text("Fdo.:", M, y + 24);
+        const pages = doc.getNumberOfPages();
+        for (let i = 1; i <= pages; i++) { doc.setPage(i); doc.setFontSize(7.5); doc.setTextColor(...grey); doc.text(`${of.emisor || ""} · Presupuesto${of.numero ? " nº " + of.numero : ""}`, M, H - 8); doc.text(`Página ${i} de ${pages}`, W - M, H - 8, { align: "right" }); }
+        await guardar(nombreOf(of, "pdf"), doc.output("blob"));
+      }
+    } catch (err) { toast(err.message || "No se pudo generar el archivo."); }
+    finally { btn.disabled = false; }
+  }
+
+  // ---------- vistas para móvil ----------
+  const MQ = window.matchMedia ? window.matchMedia("(max-width: 720px)") : null;
+  const isMob = () => !!(MQ && MQ.matches);
+  const matchBusca = (p) => { const q = S.busca.trim().toLowerCase(); return !q || (p.codigo + " " + p.desc).toLowerCase().includes(q); };
+
+  function certMobileHTML(rows, caps, T, ro, avance) {
+    let h = "";
+    for (const cap of S.pres.capitulos) {
+      const ps = partidasDe(cap.id).filter(matchBusca); if (!ps.length) continue;
+      const k = caps[cap.id], open = S.busca.trim() || S.open.has(cap.id);
+      h += `<details class="capd" data-capd="${esc(cap.id)}" ${open ? "open" : ""}><summary>
+        <span class="cn">${esc(cap.codigo)} ${esc(cap.nombre)}</span><span class="cs">${pct(k.pres ? (k.orig / k.pres) * 100 : 0)} a origen · ${f2.format(k.orig)} €</span>
+        <span class="ca">${k.act ? f2.format(k.act) + " €" : "—"}</span></summary>`;
+      for (const p of ps) {
+        const r = rows[p.id], u = esc(p.ud);
+        h += `<div class="pc ${r.over ? "over" : ""}">
+          <div class="pc-h"><span>${esc(p.codigo)}${p.nueva ? '<span class="chip nueva">Nueva</span>' : ""}</span>${r.over ? '<span class="chip ex">Exceso</span>' : ""}</div>
+          <div class="pc-d">${esc(p.desc)}</div>
+          <div class="pc-m">${num(p.med) ? `${qty(num(p.med))} ${u} × ${f2.format(num(p.precio))} € = ${f2.format(r.iP)} €` : `Precio ${f2.format(num(p.precio))} €/${u} · fuera de presupuesto`}</div>
+          <div class="pc-in"><label>A origen (${u})<input class="cell" id="q-${esc(p.id)}" data-q="${esc(p.id)}" inputmode="decimal" value="${r.qO ? f3.format(r.qO) : ""}" ${ro ? "readonly" : ""}></label>
+            <label>%<input class="cell" id="p-${esc(p.id)}" data-p="${esc(p.id)}" inputmode="decimal" value="${r.qO && num(p.med) ? f1.format(r.pc) : ""}" ${ro || !num(p.med) ? "readonly" : ""}></label></div>
+          <div class="pc-r"><span>Anterior ${r.qA ? f3.format(r.qA) + " " + u : "—"}</span><span class="act">Actual ${r.qC ? `${f3.format(r.qC)} ${u} · ${f2.format(r.iC)} €` : "—"}</span></div>
+        </div>`;
+      }
+      h += `</details>`;
+    }
+    if (!h) h = `<p class="note">Ninguna partida coincide con «${esc(S.busca)}».</p>`;
+    return `<div class="mlist">
+      <input type="search" class="busca" id="busca" placeholder="Buscar partida por código o descripción" value="${esc(S.busca)}" aria-label="Buscar partida">
+      ${h}
+      <div class="mtot"><span>Total a origen ${f2.format(T.orig)} € (${pct(avance)})</span><span class="act">Actual ${f2.format(T.act)} €</span></div></div>`;
+  }
+
+  function presMobileHTML(ro, T) {
+    let h = "";
+    for (const cap of S.pres.capitulos) {
+      const ps = partidasDe(cap.id).filter(matchBusca);
+      if (!ps.length && S.busca.trim()) continue;
+      const sub = partidasDe(cap.id).reduce((s, p) => s + r2(num(p.med) * num(p.precio)), 0);
+      h += `<details class="capd" data-capd="${esc(cap.id)}" ${S.busca.trim() || S.open.has(cap.id) ? "open" : ""}><summary>
+        <span class="cn">${esc(cap.codigo)} ${esc(cap.nombre)}</span><span class="cs">${partidasDe(cap.id).length} partidas</span><span class="ca" style="color:var(--fg)">${f2.format(sub)} €</span></summary>
+        ${ro ? "" : `<div class="capd-edit"><input class="cell txt" id="cc-${esc(cap.id)}" data-cap="${esc(cap.id)}" data-f="codigo" value="${esc(cap.codigo)}" aria-label="Código del capítulo">
+          <input class="cell txt" id="cn-${esc(cap.id)}" data-cap="${esc(cap.id)}" data-f="nombre" value="${esc(cap.nombre)}" aria-label="Nombre del capítulo">
+          <div class="bar"><button class="icon" data-addp="${esc(cap.id)}">+ Partida</button><button class="icon danger" data-delcap="${esc(cap.id)}">Quitar capítulo</button></div></div>`}`;
+      for (const p of ps) {
+        const inp = (f, cls, extra = "") => `<input class="cell ${cls}" id="pf-${f}-${esc(p.id)}" data-pid="${esc(p.id)}" data-f="${f}" value="${esc(f === "med" ? (p.med === "" || p.med == null ? "" : f3.format(num(p.med))) : f === "precio" ? f2.format(num(p.precio)) : p[f])}" ${ro ? "readonly" : ""} ${extra}>`;
+        h += `<div class="pc">
+          <div class="pc-in"><label>Código${p.nueva ? ' <span class="chip nueva">Nueva</span>' : ""}${inp("codigo", "txt")}</label><label>Ud${inp("ud", "txt")}</label></div>
+          <label class="pc-in" style="grid-template-columns:1fr"><span class="note">Descripción</span>${inp("desc", "txt")}</label>
+          <div class="pc-in three"><label>Medición${inp("med", "", 'inputmode="decimal"')}</label><label>Precio${inp("precio", "", 'inputmode="decimal"')}</label>
+            <label>Importe<span class="pc-m" style="padding:9px 0;text-align:right">${f2.format(r2(num(p.med) * num(p.precio)))}</span></label></div>
+          ${ro ? "" : `<div class="pc-r"><span></span><button class="icon danger" data-delp="${esc(p.id)}">Quitar partida</button></div>`}
+        </div>`;
+      }
+      h += `</details>`;
+    }
+    return `<div class="mlist">
+      <input type="search" class="busca" id="busca" placeholder="Buscar partida por código o descripción" value="${esc(S.busca)}" aria-label="Buscar partida">
+      ${h}<div class="mtot"><span>Total ejecución material</span><span>${f2.format(T.pres)} €</span></div></div>`;
+  }
+
+  if (MQ) { try { MQ.addEventListener("change", () => render()); } catch (_) { MQ.addListener(() => render()); } }
+  document.addEventListener("toggle", (e) => {
+    const d = e.target; if (!d.dataset || !d.dataset.capd || S.busca.trim()) return;
+    if (d.open) S.open.add(d.dataset.capd); else S.open.delete(d.dataset.capd);
+  }, true);
+
+  // ---------- acciones ----------
+  function nuevaCert() {
+    if (S.readOnly || !S.pres.partidas.length) return;
+    const last = lastCert(), n = last ? last.numero + 1 : 1, id = "c" + String(n).padStart(3, "0");
+    const body = { numero: n, fecha: today(), estado: "borrador", origen: { ...((last && last.origen) || {}) } };
+    S.certs.push({ id, ...body }); S.certs.sort((a, b) => a.numero - b.numero); S.sel = id; S.view = "cert";
+    if (last && last.estado !== "cerrada") { last.estado = "cerrada"; updCert(last.id, { estado: "cerrada" }); }
+    setCert(id, body); render(); toast(`Certificación nº ${n} creada a partir de la anterior.`);
+  }
+
+  function setOrigen(pid, q) {
+    const c = certSel(); if (!c || c.estado === "cerrada" || S.readOnly) return;
+    q = r3(Math.max(0, q));
+    c.origen = { ...(c.origen || {}), [pid]: q };
+    updCert(c.id, { origen: { [pid]: q } });
+    render();
+  }
+
+  // Confirmación en dos pulsaciones (los diálogos del navegador no están disponibles)
+  function armed(btn) {
+    if (btn.classList.contains("armed")) return true;
+    const t = btn.textContent; btn.classList.add("armed"); btn.textContent = "¿Seguro? Pulsa otra vez";
+    setTimeout(() => { if (btn.isConnected) { btn.classList.remove("armed"); btn.textContent = t; } }, 3500);
+    return false;
+  }
+
+  document.addEventListener("click", (e) => {
+    const b = e.target.closest("button"); if (!b) return;
+    if (b.dataset.view) { S.view = b.dataset.view; try { history.replaceState(null, "", "#" + S.view); } catch (_) {} render(); return; }
+    if (b.dataset.go) { S.view = b.dataset.go; render(); return; }
+    if (b.dataset.open) { S.sel = b.dataset.open; S.view = "cert"; render(); return; }
+    if (b.id === "btnNueva" || b.id === "btnNueva2") return nuevaCert();
+    if (b.id === "btnOfNueva") return nuevaOferta(null);
+    if (b.id === "btnOfGuardar") return guardarOferta(b);
+    if (b.id === "btnOfDup") return nuevaOferta(ofSel());
+    if (b.id === "btnOfDeledcan") { const of = ofSel(); if (!of || S.readOnly) return; Object.assign(of, EMISOR_DELEDCAN); saveOf(of, EMISOR_DELEDCAN); render(); toast("Datos de DELEDCAN aplicados."); return; }
+    if (b.id === "btnOfPdf") return exportOferta("pdf", b);
+    if (b.id === "btnOfXlsx") return exportOferta("xlsx", b);
+    if (b.id === "btnOfAddP") { const of = ofSel(); if (!of || S.readOnly) return; const p = { id: uid(), codigo: String((of.partidas || []).length + 1), desc: "", ud: "ud", cant: 1, precio: 0 }; of.partidas = [...(of.partidas || []), p]; saveOf(of, { partidas: of.partidas }); render(); const el = document.getElementById("ofp-desc-" + p.id); if (el) el.focus(); return; }
+    if (b.dataset.ofdelp) { if (!armed(b)) return; const of = ofSel(); if (!of) return; of.partidas = of.partidas.filter((p) => p.id !== b.dataset.ofdelp); saveOf(of, { partidas: of.partidas }); render(); return; }
+    if (b.id === "btnOfBorrar") { if (!armed(b)) return; const of = ofSel(); if (!of) return; S.ofertas = S.ofertas.filter((x) => x.id !== of.id); if (S.db) write(() => S.db.doc("ofertas/" + of.id).delete()); S.ofSel = S.ofertas[0] ? S.ofertas[0].id : null; render(); toast("Oferta eliminada."); return; }
+    const c = certSel();
+    if (b.id === "btnCerrar" && c) { c.estado = "cerrada"; updCert(c.id, { estado: "cerrada" }); render(); toast(`Certificación nº ${c.numero} cerrada.`); return; }
+    if (b.id === "btnReabrir" && c) { c.estado = "borrador"; updCert(c.id, { estado: "borrador" }); render(); return; }
+    if (b.id === "btnBorrarCert" && c) { if (!armed(b)) return; S.certs = S.certs.filter((x) => x.id !== c.id); delCert(c.id); S.sel = lastCert() ? lastCert().id : null; render(); toast(`Certificación nº ${c.numero} eliminada.`); return; }
+    if (b.id === "btnAddNueva") return addNueva();
+    if (b.id === "btnAskSync") return pedirSync(b);
+    if (b.id === "btnCostPdf") return exportCostes("pdf", b);
+    if (b.id === "btnCostXlsx") return exportCostes("xlsx", b);
+    if (b.id === "btnPdf") return exportPdf(b);
+    if (b.id === "btnXlsx") return exportXlsx(b);
+    if (b.id === "btnAddCap") { const n = S.pres.capitulos.length + 1; S.pres.capitulos.push({ id: uid(), codigo: String(n).padStart(2, "0"), nombre: "Nuevo capítulo" }); savePres(); render(); return; }
+    if (b.dataset.addp) {
+      const cap = capOf(b.dataset.addp), n = partidasDe(cap.id).length + 1, p = { id: uid(), cap: cap.id, codigo: `${cap.codigo}.${String(n).padStart(2, "0")}`, desc: "", ud: "ud", med: 0, precio: 0 };
+      const idx = S.pres.partidas.map((x) => x.cap).lastIndexOf(cap.id);
+      S.pres.partidas.splice(idx < 0 ? S.pres.partidas.length : idx + 1, 0, p); S.open.add(cap.id); savePres(); render();
+      const el = document.getElementById("pf-desc-" + p.id); if (el) el.focus(); return;
+    }
+    if (b.dataset.delp) { if (!armed(b)) return; S.pres.partidas = S.pres.partidas.filter((p) => p.id !== b.dataset.delp); savePres(); render(); return; }
+    if (b.dataset.delcap) { if (!armed(b)) return; const id = b.dataset.delcap; S.pres.capitulos = S.pres.capitulos.filter((k) => k.id !== id); S.pres.partidas = S.pres.partidas.filter((p) => p.cap !== id); savePres(); render(); return; }
+    if (b.id === "btnVaciar") { if (!armed(b)) return; S.pres = { capitulos: [], partidas: [] }; savePres(); render(); return; }
+    if (b.id === "btnPaste") {
+      const txt = $("#pasteArea").value; if (!txt.trim()) return toast("Pega primero las filas copiadas desde Excel.");
+      try { aplicarImport(parsePaste(txt)); } catch (err) { toast(err.message); }
+    }
+  });
+
+  // Evita que el botón Guardar se redibuje por el blur antes de recibir el clic
+  document.addEventListener("mousedown", (e) => { if (e.target.closest && e.target.closest("#btnOfGuardar")) e.preventDefault(); });
+  document.addEventListener("input", (e) => {
+    if (e.target.id === "busca") { S.busca = e.target.value; render(); return; }
+    if (e.target.id && e.target.id.startsWith("nf-")) S.nf[e.target.id] = e.target.value;
+    if (e.target.dataset && (e.target.dataset.of || e.target.dataset.ofp) && S.ofEstado !== "pend") { S.ofEstado = "pend"; ofEstadoUI(); }
+  });
+  document.addEventListener("change", async (e) => {
+    if (e.target.id && e.target.id.startsWith("nf-")) { S.nf[e.target.id] = e.target.value; return; }
+    const t = e.target;
+    if (t.id === "selCert") { S.sel = t.value; render(); return; }
+    if (t.id === "selOf") { S.ofSel = t.value; render(); return; }
+    if (t.dataset.of) { const of = ofSel(); if (!of || S.readOnly) return; const k = t.dataset.of; of[k] = ["iva", "validez"].includes(k) ? num(t.value) : k === "condiciones" ? t.value : t.value.trim(); saveOf(of, { [k]: of[k] }); render(); return; }
+    if (t.dataset.ofp) { const of = ofSel(); if (!of || S.readOnly) return; const p = of.partidas.find((x) => x.id === t.dataset.ofp); if (!p) return; const f = t.dataset.f; p[f] = f === "cant" || f === "precio" ? num(t.value) : t.value.trim(); saveOf(of, { partidas: of.partidas }); render(); return; }
+    if (t.id === "certFecha") { const c = certSel(); if (c) { c.fecha = t.value; updCert(c.id, { fecha: t.value }); render(); } return; }
+    if (t.dataset.q) { setOrigen(t.dataset.q, num(t.value)); return; }
+    if (t.dataset.p) { const p = S.pres.partidas.find((x) => x.id === t.dataset.p); if (p) setOrigen(p.id, (num(p.med) * num(t.value)) / 100); return; }
+    if (t.dataset.cap) { const k = capOf(t.dataset.cap); if (k) { k[t.dataset.f] = t.value.trim(); savePres(); render(); } return; }
+    if (t.dataset.pid) {
+      const p = S.pres.partidas.find((x) => x.id === t.dataset.pid); if (!p) return;
+      const f = t.dataset.f; p[f] = f === "med" || f === "precio" ? num(t.value) : t.value.trim(); savePres(); render(); return;
+    }
+    if (t.dataset.ob) { const k = t.dataset.ob; S.obra[k] = ["gg", "bi", "baja", "iva", "retencion"].includes(k) ? num(t.value) : t.value.trim(); saveObra(); render(); return; }
+    if (t.id === "fileCostes" && t.files[0]) {
+      try { await importarCostes(t.files[0]); } catch (err) { toast(err.message || "No se pudo leer el Excel de costes."); }
+      t.value = ""; return;
+    }
+    if (t.id === "fileBc3" && t.files[0]) {
+      try {
+        const buf = await t.files[0].arrayBuffer();
+        aplicarImport(parseBC3(new TextDecoder("windows-1252").decode(buf)));
+      } catch (err) { toast(err.message || "No se pudo leer el archivo BC3."); }
+      t.value = "";
+    }
+  });
+  // Enter en una celda pasa a la siguiente fila
+  document.addEventListener("keydown", (e) => {
+    if (e.key !== "Enter" || !e.target.classList.contains("cell")) return;
+    e.preventDefault();
+    const all = [...document.querySelectorAll(`input.cell[data-${e.target.dataset.q ? "q" : e.target.dataset.p ? "p" : "f"}]`)];
+    const i = all.indexOf(e.target); e.target.blur(); e.target.dispatchEvent(new Event("change", { bubbles: true }));
+    const next = all[i + 1] && document.getElementById(all[i + 1].id); if (next) { next.focus(); next.select(); }
+  });
+
+  // ---------- importación ----------
+  function aplicarImport(res) {
+    if (!res.partidas.length) throw new Error("No se encontró ninguna partida en los datos importados.");
+    const old = new Map(S.pres.partidas.map((p) => [p.codigo, p.id]));
+    let kept = 0;
+    for (const p of res.partidas) if (old.has(p.codigo)) { p.id = old.get(p.codigo); old.delete(p.codigo); kept++; }
+    S.pres = res; savePres(); render();
+    toast(`Importadas ${res.partidas.length} partidas en ${res.capitulos.length} capítulos${kept && S.certs.length ? ` (${kept} conservan lo certificado)` : ""}.`);
+  }
+
+  function parsePaste(txt) {
+    const out = { capitulos: [], partidas: [] }; let cap = null;
+    for (const line of txt.split(/\r?\n/)) {
+      if (!line.trim()) continue;
+      const c = (line.includes("\t") ? line.split("\t") : line.split(";")).map((x) => x.trim());
+      const [codigo, desc, ud, med, precio] = c;
+      if (/descrip/i.test(desc || "") && /precio/i.test(c.join(" "))) continue; // cabecera
+      if (!ud && !precio) { cap = { id: uid(), codigo: codigo || String(out.capitulos.length + 1).padStart(2, "0"), nombre: desc || codigo }; out.capitulos.push(cap); continue; }
+      if (!cap) { cap = { id: uid(), codigo: "01", nombre: "Capítulo 1" }; out.capitulos.push(cap); }
+      out.partidas.push({ id: uid(), cap: cap.id, codigo: codigo || "", desc: desc || "", ud: ud || "", med: num(med), precio: num(precio) });
+    }
+    return out;
+  }
+
+  // Lector FIEBDC-3 (registros ~C, ~D, ~M)
+  function parseBC3(text) {
+    const C = {}, D = {}, M = {}; let root = null;
+    const clean = (s) => String(s || "").trim().replace(/#+$/, "");
+    const nd = (s) => { const n = parseFloat(String(s || "").trim()); return isFinite(n) ? n : 0; };
+    for (const rec of text.split("~").slice(1)) {
+      const type = rec[0], f = rec.slice(2).split("|").map((x) => x.replace(/[\r\n]+/g, ""));
+      if (type === "C") {
+        const raw = (f[0] || "").split("\\")[0].trim(); if (!raw) continue;
+        const code = clean(raw);
+        C[code] = { chap: /#$/.test(raw), ud: (f[1] || "").trim(), res: (f[2] || "").trim(), precio: nd((f[3] || "").split("\\")[0]) };
+        if (/##$/.test(raw)) root = code;
+      } else if (type === "D") {
+        const parts = (f[1] || "").split("\\"), ch = [];
+        for (let i = 0; i + 2 < parts.length + 1; i += 3) { const k = clean(parts[i]); if (!k) continue; ch.push({ code: k, factor: parts[i + 1] ? nd(parts[i + 1]) : 1, rend: nd(parts[i + 2]) }); }
+        D[clean(f[0])] = ch;
+      } else if (type === "M") {
+        const [pa, hi] = (f[0] || "").split("\\");
+        if (f[2] !== undefined && f[2].trim() !== "") M[clean(pa) + "\\" + clean(hi)] = nd(f[2]);
+      }
+    }
+    if (!root) throw new Error("El archivo no parece un BC3 válido: falta el concepto raíz (código terminado en ##).");
+    const out = { capitulos: [], partidas: [] }, seen = new Set();
+    const walk = (code, cap) => {
+      for (const d of D[code] || []) {
+        const c = C[d.code]; if (!c) continue;
+        if (c.chap) {
+          if (seen.has(d.code)) continue; seen.add(d.code);
+          const k = { id: uid(), codigo: d.code, nombre: c.res }; out.capitulos.push(k); walk(d.code, k);
+        } else {
+          if (!cap) { cap = { id: uid(), codigo: "00", nombre: "Sin capítulo" }; out.capitulos.push(cap); }
+          const m = M[code + "\\" + d.code];
+          out.partidas.push({ id: uid(), cap: cap.id, codigo: d.code, desc: c.res, ud: c.ud, med: r3(m !== undefined ? m : d.rend * (d.factor || 1)), precio: c.precio });
+        }
+      }
+    };
+    walk(root, null);
+    out.capitulos = out.capitulos.filter((k) => out.partidas.some((p) => p.cap === k.id));
+    if (C[root] && C[root].res && !S.obra.nombre) { S.obra.nombre = C[root].res; saveObra(); }
+    return out;
+  }
+
+  // ---------- exportación (PDF y Excel) ----------
+  const LIBS = {
+    xlsx: ["https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"],
+    pdf: ["https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js", "https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.8.2/jspdf.plugin.autotable.min.js"],
+  };
+  const loaded = {};
+  function loadScript(src) {
+    return loaded[src] || (loaded[src] = new Promise((res, rej) => {
+      const s = document.createElement("script"); s.src = src; s.onload = res;
+      s.onerror = () => { delete loaded[src]; rej(new Error("No se pudo cargar el generador de archivos. Revisa la conexión.")); };
+      document.head.appendChild(s);
+    }));
+  }
+  async function loadLibs(k) { for (const src of LIBS[k]) await loadScript(src); }
+
+  // Filas comunes a PDF y Excel
+  function certTabla(c) {
+    const { rows, caps, T } = calc(c), L = liquidacion(T), out = [];
+    for (const k of S.pres.capitulos) {
+      const ps = partidasDe(k.id); if (!ps.length) continue;
+      const x = caps[k.id];
+      out.push({ cap: true, codigo: k.codigo, desc: k.nombre, iP: x.pres, iO: x.orig, iA: x.ant, iC: x.act });
+      for (const p of ps) { const r = rows[p.id]; out.push({ codigo: p.codigo, desc: p.nueva ? p.desc + " [partida nueva]" : p.desc, ud: p.ud, med: num(p.med), precio: num(p.precio), ...r }); }
+    }
+    return { out, T, L };
+  }
+  function liqFilas(L) {
+    const o = S.obra, imp = o.impuesto || "IVA", f = [["Presupuesto de ejecución material", L.eO.pem, L.eA.pem, r2(L.eO.pem - L.eA.pem)]];
+    if (num(o.gg)) f.push([`Gastos generales (${f3.format(num(o.gg))} %)`, L.eO.gg, L.eA.gg, r2(L.eO.gg - L.eA.gg)]);
+    if (num(o.bi)) f.push([`Beneficio industrial (${f3.format(num(o.bi))} %)`, L.eO.bi, L.eA.bi, r2(L.eO.bi - L.eA.bi)]);
+    if (num(o.baja)) f.push([`Baja de adjudicación (−${f3.format(num(o.baja))} %)`, -L.eO.baja, -L.eA.baja, -r2(L.eO.baja - L.eA.baja)]);
+    f.push(["Base imponible", L.eO.base, L.eA.base, L.base]);
+    f.push([`${imp} (${f3.format(num(o.iva))} %)`, null, null, L.iva]);
+    if (num(o.retencion)) f.push([`Retención de garantía (−${f3.format(num(o.retencion))} %)`, null, null, -L.ret]);
+    f.push(["Líquido a percibir", null, null, L.liquido]);
+    return f;
+  }
+  const nombreArchivo = (c, ext) => `Certificacion-${String(c.numero).padStart(2, "0")}-${(S.obra.nombre || "obra").normalize("NFD").replace(/[̀-ͯ]/g, "").replace(/[^A-Za-z0-9]+/g, "-").replace(/^-|-$/g, "").slice(0, 40)}.${ext}`;
+
+  async function guardar(filename, data) {
+    try { await S.downloads.save({ filename, data }); toast("Archivo preparado: " + filename); }
+    catch (err) { if (err && err.code !== "declined") toast("No se pudo descargar el archivo."); }
+  }
+
+  async function exportXlsx(btn) {
+    const c = certSel(); if (!c || !S.downloads) return;
+    btn.disabled = true;
+    try {
+      await loadLibs("xlsx");
+      const X = window.XLSX, { out, T, L } = certTabla(c), o = S.obra;
+      const aoa = [
+        [o.nombre || "Obra"], [`Certificación nº ${c.numero}`, "", "Fecha", fecha(c.fecha)],
+        ["Cliente", o.cliente || ""], ["Contrato", o.contrato || ""], [],
+        ["", "", "", "PRESUPUESTO", "", "", "A ORIGEN", "", "", "ANTERIOR", "", "ACTUAL", ""],
+        ["Código", "Descripción", "Ud", "Medición", "Precio", "Importe", "Cantidad", "%", "Importe", "Cantidad", "Importe", "Cantidad", "Importe"],
+      ];
+      const head = aoa.length, capRows = [];
+      for (const r of out) {
+        if (r.cap) { capRows.push(aoa.length); aoa.push([r.codigo, r.desc, "", "", "", r2(r.iP), "", "", r2(r.iO), "", r2(r.iA), "", r2(r.iC)]); }
+        else aoa.push([r.codigo, r.desc, r.ud, r.med, r.precio, r.iP, r.qO || null, r.qO ? r2(r.pc) / 100 : null, r.iO || null, r.qA || null, r.iA || null, r.qC || null, r.iC || null]);
+      }
+      const totRow = aoa.length;
+      aoa.push(["", "TOTAL EJECUCIÓN MATERIAL", "", "", "", r2(T.pres), "", T.pres ? T.orig / T.pres : 0, r2(T.orig), "", r2(T.ant), "", r2(T.act)], []);
+      const liqStart = aoa.length;
+      aoa.push(["", "LIQUIDACIÓN", "", "", "", "", "", "", "A origen", "", "Anterior", "", "Esta certificación"]);
+      for (const [lbl, a, b, act] of liqFilas(L)) aoa.push(["", lbl, "", "", "", "", "", "", a, "", b, "", act]);
+      const ws = X.utils.aoa_to_sheet(aoa);
+      ws["!cols"] = [{ wch: 12 }, { wch: 60 }, { wch: 6 }, { wch: 11 }, { wch: 11 }, { wch: 13 }, { wch: 11 }, { wch: 8 }, { wch: 13 }, { wch: 11 }, { wch: 13 }, { wch: 11 }, { wch: 13 }];
+      ws["!merges"] = [{ s: { r: 5, c: 3 }, e: { r: 5, c: 5 } }, { s: { r: 5, c: 6 }, e: { r: 5, c: 8 } }, { s: { r: 5, c: 9 }, e: { r: 5, c: 10 } }, { s: { r: 5, c: 11 }, e: { r: 5, c: 12 } }];
+      const money = new Set([4, 5, 8, 10, 12]), qtyC = new Set([3, 6, 9, 11]);
+      for (let R = head; R < aoa.length; R++) for (let C = 0; C < 13; C++) {
+        const cell = ws[X.utils.encode_cell({ r: R, c: C })]; if (!cell || cell.t !== "n") continue;
+        cell.z = C === 7 ? "0.0%" : money.has(C) || R >= liqStart ? "#,##0.00 €" : qtyC.has(C) ? "#,##0.###" : "General";
+      }
+      ws["!autofilter"] = undefined; void capRows; void totRow;
+      const wb = X.utils.book_new();
+      X.utils.book_append_sheet(wb, ws, `Certificación ${c.numero}`);
+      const buf = X.write(wb, { bookType: "xlsx", type: "array" });
+      await guardar(nombreArchivo(c, "xlsx"), new Blob([buf], { type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" }));
+    } catch (err) { toast(err.message || "No se pudo generar el Excel."); }
+    finally { btn.disabled = false; }
+  }
+
+  async function exportPdf(btn) {
+    const c = certSel(); if (!c || !S.downloads) return;
+    btn.disabled = true;
+    try {
+      await loadLibs("pdf");
+      const { jsPDF } = window.jspdf, doc = new jsPDF({ orientation: "landscape", unit: "mm", format: "a4" });
+      const { out, T, L } = certTabla(c), o = S.obra, W = doc.internal.pageSize.getWidth(), M = 12;
+      const n2 = (v) => (v ? f2.format(v) : ""), n3 = (v) => (v ? f3.format(v) : "");
+      const ink = [27, 34, 48], blue = [31, 90, 140], ochre = [154, 91, 16], grey = [93, 103, 121];
+      doc.setFont("helvetica", "bold"); doc.setFontSize(15); doc.setTextColor(...ink);
+      doc.text(`CERTIFICACIÓN Nº ${c.numero}`, M, 16);
+      doc.setFontSize(11); doc.text(o.nombre || "", M, 23);
+      doc.setFont("helvetica", "normal"); doc.setFontSize(9); doc.setTextColor(...grey);
+      const meta = [o.cliente && "Cliente: " + o.cliente, o.direccion, o.contrato && "Contrato: " + o.contrato].filter(Boolean);
+      meta.forEach((t, i) => doc.text(t, M, 28.5 + i * 4.5));
+      doc.setFont("helvetica", "bold"); doc.setTextColor(...ink); doc.setFontSize(10);
+      doc.text(`Fecha: ${fecha(c.fecha)}`, W - M, 16, { align: "right" });
+      doc.setFont("helvetica", "normal"); doc.setFontSize(9); doc.setTextColor(...grey);
+      doc.text(c.estado === "cerrada" ? "Certificación cerrada" : "Borrador", W - M, 21, { align: "right" });
+      const startY = 30 + meta.length * 4.5;
+
+      const body = out.map((r) => r.cap
+        ? [{ content: r.codigo, styles: { fontStyle: "bold" } }, { content: r.desc, colSpan: 4, styles: { fontStyle: "bold" } }, n2(r.iP), "", "", n2(r.iO), "", n2(r.iA), "", n2(r.iC)].map((x) => (typeof x === "string" ? { content: x, styles: { fontStyle: "bold", fillColor: [236, 238, 242] } } : { ...x, styles: { ...x.styles, fillColor: [236, 238, 242] } }))
+        : [r.codigo, r.desc, r.ud, n3(r.med), n2(r.precio), n2(r.iP), n3(r.qO), r.qO ? f1.format(r.pc) : "", n2(r.iO), n3(r.qA), n2(r.iA), n3(r.qC), n2(r.iC)]);
+      body.push(["", { content: "TOTAL EJECUCIÓN MATERIAL", colSpan: 4 }, f2.format(T.pres), "", T.pres ? f1.format((T.orig / T.pres) * 100) : "", f2.format(T.orig), "", f2.format(T.ant), "", f2.format(T.act)].map((x) => (typeof x === "string" ? { content: x, styles: { fontStyle: "bold" } } : { ...x, styles: { fontStyle: "bold" } })));
+
+      const right = { halign: "right" };
+      doc.autoTable({
+        startY, margin: { left: M, right: M, bottom: 16 }, theme: "grid",
+        head: [[{ content: "PRESUPUESTO", colSpan: 6 }, { content: "A ORIGEN", colSpan: 3 }, { content: "ANTERIOR", colSpan: 2 }, { content: "ACTUAL", colSpan: 2 }],
+          ["Código", "Descripción", "Ud", "Medición", "Precio", "Importe", "Cant.", "%", "Importe", "Cant.", "Importe", "Cant.", "Importe"]],
+        body,
+        styles: { font: "helvetica", fontSize: 7, cellPadding: 1.2, lineColor: [214, 218, 226], lineWidth: 0.1, textColor: ink, valign: "middle" },
+        headStyles: { fillColor: blue, textColor: 255, halign: "center", fontSize: 7 },
+        columnStyles: { 0: { cellWidth: 18 }, 1: { cellWidth: "auto" }, 2: { cellWidth: 9 }, 3: { ...right, cellWidth: 15 }, 4: { ...right, cellWidth: 16 }, 5: { ...right, cellWidth: 19 },
+          6: { ...right, cellWidth: 14 }, 7: { ...right, cellWidth: 12 }, 8: { ...right, cellWidth: 19 }, 9: { ...right, cellWidth: 14 }, 10: { ...right, cellWidth: 19 },
+          11: { ...right, cellWidth: 14, textColor: ochre }, 12: { ...right, cellWidth: 19, textColor: ochre, fontStyle: "bold" } },
+      });
+
+      let y = doc.lastAutoTable.finalY + 8;
+      if (y > doc.internal.pageSize.getHeight() - 80) { doc.addPage(); y = 16; }
+      doc.setFont("helvetica", "bold"); doc.setFontSize(11); doc.setTextColor(...ink); doc.text("LIQUIDACIÓN", M, y);
+      const liq = liqFilas(L).map(([lbl, a, b, act], i, arr) => {
+        const strong = lbl === "Base imponible" || i === arr.length - 1;
+        return [lbl, a == null ? "" : f2.format(a), b == null ? "" : f2.format(b), f2.format(act) + " €"].map((t) => ({ content: t, styles: strong ? { fontStyle: "bold" } : {} }));
+      });
+      doc.autoTable({
+        startY: y + 3, margin: { left: M }, tableWidth: 150, theme: "plain",
+        head: [["Concepto", "A origen", "Anterior", "Esta certificación"]], body: liq,
+        styles: { fontSize: 8.5, cellPadding: 1.4, textColor: ink }, headStyles: { textColor: grey, fontStyle: "bold" },
+        columnStyles: { 1: right, 2: right, 3: { ...right, textColor: ochre } },
+        didDrawCell: (d) => { if (d.section === "body" && d.row.index === liq.length - 1 && d.column.index === 0) { doc.setDrawColor(...ink); doc.setLineWidth(0.4); doc.line(M, d.cell.y, M + 150, d.cell.y); } },
+      });
+
+      // Firmas
+      y = doc.lastAutoTable.finalY + 14;
+      if (y > doc.internal.pageSize.getHeight() - 32) { doc.addPage(); y = 24; }
+      doc.setFont("helvetica", "normal"); doc.setFontSize(8.5); doc.setTextColor(...grey);
+      const bw = 80, gap = (W - 2 * M - 2 * bw);
+      [["El contratista", M], ["Conforme, la propiedad / dirección facultativa", M + bw + gap]].forEach(([t, x]) => {
+        doc.text(t, x, y); doc.setDrawColor(...grey); doc.setLineWidth(0.2); doc.line(x, y + 20, x + bw, y + 20); doc.text("Fdo.:", x, y + 24);
+      });
+
+      const pages = doc.getNumberOfPages();
+      for (let i = 1; i <= pages; i++) {
+        doc.setPage(i); doc.setFontSize(7.5); doc.setTextColor(...grey);
+        const h = doc.internal.pageSize.getHeight();
+        doc.text(`${o.nombre || ""} · Certificación nº ${c.numero} · ${fecha(c.fecha)}`, M, h - 8);
+        doc.text(`Página ${i} de ${pages}`, W - M, h - 8, { align: "right" });
+      }
+      await guardar(nombreArchivo(c, "pdf"), doc.output("blob"));
+    } catch (err) { toast(err.message || "No se pudo generar el PDF."); }
+    finally { btn.disabled = false; }
+  }
+
+  // ---------- arranque ----------
+  const h = (location.hash || "").slice(1); if (["cert", "resumen", "costes", "pres", "obra", "oferta"].includes(h)) S.view = h;
+  render();
+  (async () => {
+    const claude = window.claude;
+    const db = claude && claude.use ? await claude.use("db") : null;
+    if (!db) { S.offline = true; render(); return; }
+    S.db = db;
+    try { S.downloads = await claude.use("downloads"); } catch (_) {}
+    const onErr = () => { S.offline = true; S.db = null; render(); };
+    db.doc("obra/datos").onSnapshot((s) => { S.obra = { ...OBRA_DEF, ...(s.exists ? s.data() : {}) }; S.loaded.obra = true; render(); }, onErr);
+    db.doc("obra/presupuesto").onSnapshot((s) => {
+      const d = s.exists ? s.data() : null;
+      S.pres = d ? JSON.parse(JSON.stringify({ capitulos: d.capitulos || [], partidas: d.partidas || [] })) : { capitulos: [], partidas: [] };
+      S.loaded.pres = true; render();
+    }, onErr);
+    db.doc("costes/resumen").onSnapshot((s) => { S.costes = s.exists ? s.data() : null; if (S.syncPedida && S.costes && S.costes.actualizado !== S.syncDesde) { S.syncPedida = null; toast("Costes actualizados."); } render(); }, () => {});
+    db.collection("ofertas").onSnapshot((snap) => {
+      S.ofertas = snap.docs.map((d) => ({ ...OF_DEF, id: d.id, ...JSON.parse(JSON.stringify(d.data())) })).sort((a, b) => String(a.fecha).localeCompare(String(b.fecha)) || String(a.numero).localeCompare(String(b.numero)));
+      if (!S.ofertas.some((x) => x.id === S.ofSel)) S.ofSel = S.ofertas.length ? S.ofertas[S.ofertas.length - 1].id : null;
+      S.loaded.ofertas = true; render();
+    }, () => { S.loaded.ofertas = true; render(); });
+    db.collection("certificaciones").onSnapshot((snap) => {
+      S.certs = snap.docs.map((d) => ({ id: d.id, ...JSON.parse(JSON.stringify(d.data())) })).sort((a, b) => a.numero - b.numero);
+      if (!S.certs.some((c) => c.id === S.sel)) S.sel = lastCert() ? lastCert().id : null;
+      S.loaded.certs = true; render();
+    }, onErr);
+  })();
+})();
+</script>
+
+</body></html>

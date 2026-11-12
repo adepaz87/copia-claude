@@ -1,0 +1,14 @@
+{
+  "alias": [
+    "NUEVO ALMACEN 1"
+  ],
+  "cliente": "",
+  "creado": "2026-11-09",
+  "estado": "aprobada",
+  "fact": {
+    "igic": 7,
+    "mg": 35,
+    "ph": 0
+  },
+  "nombre": "Nuevo Almacén 1"
+}

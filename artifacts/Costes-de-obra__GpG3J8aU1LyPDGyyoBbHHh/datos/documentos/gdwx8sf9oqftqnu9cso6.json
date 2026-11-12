@@ -1,0 +1,12 @@
+{
+  "assetId": "91f3f179e14797c948edd754eb3526dc",
+  "estado": "hecho",
+  "nMaterial": 0,
+  "nOperarios": 42,
+  "nPreguntas": 6,
+  "nombre": "NAVE COOPERATIVA COVALLE .pdf",
+  "resumen": "Es un resumen de facturación de Instapalma a DELEDCAN para la obra COVALLE: materiales 4.934,66 €, mano de obra 5.416,50 € (235,5 h × 23 €), suma 10.351,16 € y total con IGIC 11.075,74 €. A la derecha trae un parte de horas de 335,5 h entre PETTER, JONI, TOÑO y RAFA. No hay albaranes de proveedor, así que no registro material, y las horas van sin coste/hora.",
+  "subido": "2026-10-27T22:21:24.876Z",
+  "tipo": "resumen_costes",
+  "tipoArchivo": "application/pdf"
+}

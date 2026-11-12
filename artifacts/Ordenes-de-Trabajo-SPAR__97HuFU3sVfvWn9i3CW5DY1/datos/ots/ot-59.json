@@ -1,0 +1,19 @@
+{
+  "actualizada": "2026-10-20T09:00:00Z",
+  "aviso": "26374",
+  "centro": "Central Logística y Oficinas (Breña Baja)",
+  "creada": "2026-10-20T09:00:00Z",
+  "descripcion": "Instalar una luminaria, una toma de corriente y una toma para puerta eléctrica, coordinando con José Gabriel.",
+  "estado": "terminada",
+  "fechaAviso": "2026-10-20",
+  "historial": [
+    "20/10/2026 · Importada del correo de Alberto"
+  ],
+  "informado": true,
+  "notas": "Confirmada como resuelta el 20/10/2026.",
+  "operario": "",
+  "ot": 59,
+  "prioridad": "Sin especificar",
+  "solicitante": "",
+  "tipo": "MANTENIMIENTO"
+}

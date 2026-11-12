@@ -1,0 +1,25 @@
+{
+  "albs": [],
+  "cliente": "CONSTRUCCIONES DOMINGO",
+  "desc": "Entubar zonas comunes planta baja",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-09-08",
+  "horas": 9,
+  "obra": "EDIFICIO EL PASO",
+  "ops": [
+    {
+      "h": 3,
+      "n": "Riki"
+    },
+    {
+      "h": 3,
+      "n": "Joel"
+    },
+    {
+      "h": 3,
+      "n": "Aythami"
+    }
+  ],
+  "stock": []
+}

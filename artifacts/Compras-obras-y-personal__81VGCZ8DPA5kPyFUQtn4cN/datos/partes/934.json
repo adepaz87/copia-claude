@@ -1,0 +1,55 @@
+{
+  "albs": [],
+  "cliente": "TOMÁS BARRETO SA",
+  "desc": "Instalación linea para condensadora en sala ventas. Instalado canaletas pases huecos, cableado y fijaciones, creación circuitos mecanizado en cuadro conexionado y puesta en servicio, editados de cuadros ordenamiento murales. Funcionando.",
+  "devol": [],
+  "estado": "TERMINADO",
+  "fecha": "2026-11-10",
+  "horas": 8,
+  "id": "934",
+  "obra": "SPAR SALINAS",
+  "ops": [
+    {
+      "h": 8,
+      "n": "Toño"
+    }
+  ],
+  "origen": "dashboard",
+  "stock": [
+    {
+      "d": "Cable 1x10mm.",
+      "q": 2,
+      "u": "m"
+    },
+    {
+      "d": "Cable 1x6mm.",
+      "q": 2,
+      "u": "m"
+    },
+    {
+      "d": "punteras simples 10mm.",
+      "q": 2,
+      "u": ""
+    },
+    {
+      "d": "terminal 10mm.",
+      "q": 2,
+      "u": ""
+    },
+    {
+      "d": "Punteras simples 6mm.",
+      "q": 4,
+      "u": ""
+    },
+    {
+      "d": "punteras simples 2,5mm.",
+      "q": 6,
+      "u": ""
+    },
+    {
+      "d": "bridas 2,5x100mm.",
+      "q": 12,
+      "u": ""
+    }
+  ]
+}

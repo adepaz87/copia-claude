@@ -1,0 +1,17 @@
+{
+  "albs": [],
+  "cliente": "INSTAPALMA",
+  "desc": "Pintar salón , baño y cocina",
+  "devol": [],
+  "estado": "TERMINADO",
+  "fecha": "2026-09-15",
+  "horas": 8,
+  "obra": "CASA CAMILA",
+  "ops": [
+    {
+      "h": 8,
+      "n": "Luigi"
+    }
+  ],
+  "stock": []
+}

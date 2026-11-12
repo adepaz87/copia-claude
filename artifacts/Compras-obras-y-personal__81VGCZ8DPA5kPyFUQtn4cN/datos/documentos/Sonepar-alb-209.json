@@ -1,0 +1,28 @@
+{
+  "abono": true,
+  "empresa": "Instapalma",
+  "fecha": "2026-09-18",
+  "lineas": [
+    {
+      "a": "209",
+      "d": "CAJA IDROBOX-M IP55 4MOD.MATIX LEGR 25504",
+      "dto": "45",
+      "f": "2026-09-18",
+      "fab": "BTICINO",
+      "i": -22.83,
+      "o": "MATADERO INSULAR",
+      "pn": 11.415,
+      "pt": 20.75,
+      "q": -2,
+      "r": "127329"
+    }
+  ],
+  "msg": "1a1829bb6e142f2f",
+  "nota": "Abono del albarán 309005755",
+  "numero": "209",
+  "obra": "MATADERO INSULAR",
+  "origen": "Gmail (escaneo)",
+  "proveedor": "Sonepar",
+  "tipo": "albaran",
+  "total": -22.83
+}

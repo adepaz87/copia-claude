@@ -1,0 +1,25 @@
+{
+  "albs": [],
+  "cliente": "TRAGSA",
+  "desc": "Cortar tramel para huecos de entrada del cable a la cabina de MT por la parte baja. \n\nColocar cabina de MT en su ubicación definitiva.\n\nCortar tiradas de cable de MT .\n\nMeter cable de MT por canalización subterránea desde las cabinas hasta el trafo.\n\nHacer bornas de MT del lado del trafo y conectarlas.\n\nColocar cable  de MT por la bandeja y embridarlo.",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-10-02",
+  "horas": 16,
+  "obra": "CT.PLAZA GAZMIRA",
+  "ops": [
+    {
+      "h": 8,
+      "n": "Jorge"
+    },
+    {
+      "h": 4,
+      "n": "Toño"
+    },
+    {
+      "h": 4,
+      "n": "Jonathan González"
+    }
+  ],
+  "stock": []
+}

@@ -1,0 +1,29 @@
+{
+  "albs": [],
+  "cliente": "CHICHO 2 TUMBOS",
+  "desc": "Terminar de entubar bajadas centralizaciones\nEnebrar derivaciones\nMecanizar zonas comunes\nEntubar cuarto riti\nColocar registro para portero y alimentación\nEnmascarar mecanismos planta 4",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-09-25",
+  "horas": 32,
+  "obra": "EDIFICIO SABINO",
+  "ops": [
+    {
+      "h": 8,
+      "n": "Aythami"
+    },
+    {
+      "h": 8,
+      "n": "Riki"
+    },
+    {
+      "h": 8,
+      "n": "Joel"
+    },
+    {
+      "h": 8,
+      "n": "Junior"
+    }
+  ],
+  "stock": []
+}

@@ -1,0 +1,23 @@
+{
+  "empresa": "Instapalma",
+  "fecha": "2026-10-21",
+  "lineas": [
+    {
+      "a": "VCTF-019762-2026",
+      "d": "CABLE UC500 S23 CATEGORÍA 6A U/UTP 4P AWG 23 500MHZ DCA",
+      "dto": "0,00",
+      "f": "2026-10-21",
+      "i": 706,
+      "o": "RESIDENCIA TERCERA E",
+      "pn": 0.706,
+      "pt": 0.706,
+      "q": 1000,
+      "r": "PRY-60095448"
+    }
+  ],
+  "numero": "VCTF-019762-2026",
+  "obra": "RESIDENCIA TERCERA E",
+  "origen": "Gmail",
+  "proveedor": "Diexfe",
+  "tipo": "albaran"
+}

@@ -1,0 +1,29 @@
+{
+  "albs": [],
+  "cliente": "CHICHO 2 TUMBOS",
+  "desc": "Hacer pases para bandejas y tubos de derivaciones\nColocar barrillas y carriles para bandejas\nColocar bandejas",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-09-15",
+  "horas": 39,
+  "obra": "EDIFICIO SABINO",
+  "ops": [
+    {
+      "h": 11,
+      "n": "Riki"
+    },
+    {
+      "h": 11,
+      "n": "Aythami"
+    },
+    {
+      "h": 9,
+      "n": "Joel"
+    },
+    {
+      "h": 8,
+      "n": "Junior"
+    }
+  ],
+  "stock": []
+}

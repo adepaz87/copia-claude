@@ -1,0 +1,49 @@
+{
+  "albs": [
+    "Diexfe 017360"
+  ],
+  "cliente": "CONSTRUCCIONES DOS TUMBOS",
+  "desc": "Colocar y fijar centralización contadores \nColocar bandeja 400x100 sobre centralización para derivaciones individuales,pasar tubos con derivaciones hasta centralización contadores \nLimpiar zonas de trabajo",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-09-16",
+  "horas": 6,
+  "obra": "APARTAMENTOS TAZACORTE",
+  "ops": [
+    {
+      "h": 3,
+      "n": "Aythami"
+    },
+    {
+      "h": 3,
+      "n": "Jonathan Rodríguez"
+    }
+  ],
+  "stock": [
+    {
+      "d": "Bandeja legrand 400x100 gris",
+      "q": 2.5,
+      "u": "m"
+    },
+    {
+      "d": "Tacos 6x30",
+      "q": 15,
+      "u": "ud"
+    },
+    {
+      "d": "Tornillos 4,5x100",
+      "q": 15,
+      "u": "ud"
+    },
+    {
+      "d": "arandela 6mm ala ancha",
+      "q": 10,
+      "u": "ud"
+    },
+    {
+      "d": "Bridas 4,8x280 negras",
+      "q": 20,
+      "u": "ud"
+    }
+  ]
+}

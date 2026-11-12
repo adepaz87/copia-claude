@@ -1,0 +1,21 @@
+{
+  "albs": [],
+  "cliente": "SONIA DRAGADOS",
+  "desc": "Ver averia sistema fotovoltaico y tomar datos para reparaciones.",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-10-20",
+  "horas": 2,
+  "obra": "VIVIENDA HACIENDA EL CURA",
+  "ops": [
+    {
+      "h": 1,
+      "n": "Antonio"
+    },
+    {
+      "h": 1,
+      "n": "Transporte"
+    }
+  ],
+  "stock": []
+}

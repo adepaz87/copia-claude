@@ -1,0 +1,42 @@
+{
+  "albs": [],
+  "cliente": "TRAGSA",
+  "desc": "Entubar\nColocación  de registros",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-09-01",
+  "horas": 16,
+  "obra": "HOSPITAL (MOD G)",
+  "ops": [
+    {
+      "h": 8,
+      "n": "Manuel"
+    },
+    {
+      "h": 8,
+      "n": "Juan"
+    }
+  ],
+  "stock": [
+    {
+      "d": "pt9",
+      "q": 4,
+      "u": "cajas"
+    },
+    {
+      "d": "tubo coarrugado  de 20",
+      "q": 150,
+      "u": "m"
+    },
+    {
+      "d": "tubo coarrugado  de 25",
+      "q": 150,
+      "u": "m"
+    },
+    {
+      "d": "bolsas bridas de 300x4,8",
+      "q": 2,
+      "u": ""
+    }
+  ]
+}

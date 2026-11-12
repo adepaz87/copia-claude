@@ -1,0 +1,17 @@
+{
+  "albs": [],
+  "cliente": "-- ?",
+  "desc": "Avería, Mal conexionado de conmutaciones mecanismos de alumbrado. Funcionando.",
+  "devol": [],
+  "estado": "TERMINADO",
+  "fecha": "2026-09-21",
+  "horas": 1,
+  "obra": "APPTOS. FINCA AMADO N°22",
+  "ops": [
+    {
+      "h": 1,
+      "n": "Toño"
+    }
+  ],
+  "stock": []
+}

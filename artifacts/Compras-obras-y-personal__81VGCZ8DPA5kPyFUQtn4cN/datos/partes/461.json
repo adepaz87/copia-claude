@@ -1,0 +1,80 @@
+{
+  "albs": [
+    "Fraper 2026/01/011501"
+  ],
+  "cliente": "TRAGSA",
+  "desc": "Elaboración cuadros eléctricos:\nCuadro CA.\nInst.Montaje bandejas",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-09-14",
+  "horas": 8,
+  "obra": "CENTRO VISITANTES FV",
+  "ops": [
+    {
+      "h": 8,
+      "n": "Toño"
+    }
+  ],
+  "stock": [
+    {
+      "d": "Cable 1x35mm",
+      "q": 3,
+      "u": "m"
+    },
+    {
+      "d": "Cable 1x10mm",
+      "q": 19,
+      "u": "m"
+    },
+    {
+      "d": "Cable 1x6mm",
+      "q": 12,
+      "u": "m"
+    },
+    {
+      "d": "Cable 1x1,5mm",
+      "q": 21,
+      "u": "m"
+    },
+    {
+      "d": "Punteras simples 35mm",
+      "q": 16,
+      "u": ""
+    },
+    {
+      "d": "Punteras simples 10mm",
+      "q": 62,
+      "u": ""
+    },
+    {
+      "d": "Punteras simples 6mm",
+      "q": 12,
+      "u": ""
+    },
+    {
+      "d": "Punteras simples 1,5mm",
+      "q": 24,
+      "u": ""
+    },
+    {
+      "d": "Bridas 2,5x100mm",
+      "q": 108,
+      "u": ""
+    },
+    {
+      "d": "Obturadores eaton",
+      "q": 3,
+      "u": "m"
+    },
+    {
+      "d": "Carrete brother 12mm",
+      "q": 1,
+      "u": ""
+    },
+    {
+      "d": "Triángulos peligro 100mm",
+      "q": 3,
+      "u": ""
+    }
+  ]
+}

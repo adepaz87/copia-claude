@@ -1,0 +1,39 @@
+{
+  "albs": [
+    "Bap 112.610.066"
+  ],
+  "cliente": "TRAGSA",
+  "desc": "Terminar de enhebrar tubo de 50.\nEnhebrar fibra óptica desde rack hasta cuarto de inversores.\nInstalar y cablear puesto de trabajo.\nEnbridar fibra óptica por bandeja.\nTapar bandejas.\nSellar con espuma los tubos en las arquetas.\nDevolver rollos de tubo sobrantes a Ayumar.\nRecoger y tirar basura",
+  "devol": [],
+  "estado": "TERMINADO",
+  "fecha": "2026-10-20",
+  "horas": 16,
+  "obra": "FV TÚNEL DE LA CUMBRE",
+  "ops": [
+    {
+      "h": 8,
+      "n": "Eloy"
+    },
+    {
+      "h": 8,
+      "n": "Jonathan Glez"
+    }
+  ],
+  "stock": [
+    {
+      "d": "cable 2.5mm",
+      "q": 15,
+      "u": "m"
+    },
+    {
+      "d": "punteras de 2x2.5mm",
+      "q": 4,
+      "u": ""
+    },
+    {
+      "d": "fibra óptica",
+      "q": 180,
+      "u": "m"
+    }
+  ]
+}

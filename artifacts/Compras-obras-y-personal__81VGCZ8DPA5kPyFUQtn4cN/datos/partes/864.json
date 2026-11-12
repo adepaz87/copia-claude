@@ -1,0 +1,50 @@
+{
+  "albs": [
+    "Diexfe 020315"
+  ],
+  "cliente": "CONSTRUCCIONES DOMINGO",
+  "desc": "Entubar fuerza, alumbrado, fuerzas,teleco y cámaras apartamento 1. Colocar registros y cuadros apartamento 1. Hacer pasamuros para puntos de luz, tc exteriores y cámaras. Entubar, colocar registros y cuadro apartamento 2. Entubar datos, alumbrado y TC apartamento 2. Hacer pasamuros alumbrado exterior y TC exterior apartamento 2",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-11-03",
+  "horas": 33,
+  "id": "864",
+  "obra": "CASAS BENEDICTO",
+  "ops": [
+    {
+      "h": 11,
+      "n": "Riki"
+    },
+    {
+      "h": 11,
+      "n": "Joel"
+    },
+    {
+      "h": 11,
+      "n": "Aythami"
+    }
+  ],
+  "origen": "dashboard",
+  "stock": [
+    {
+      "d": "bridas 4,8x300",
+      "q": 600,
+      "u": ""
+    },
+    {
+      "d": "tacos brida celo",
+      "q": 400,
+      "u": ""
+    },
+    {
+      "d": "clavos celo",
+      "q": 400,
+      "u": ""
+    },
+    {
+      "d": "caja doble de teleco ref 5504/2 solera",
+      "q": 1,
+      "u": ""
+    }
+  ]
+}

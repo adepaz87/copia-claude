@@ -1,0 +1,25 @@
+{
+  "empresa": "Instapalma",
+  "fecha": "2026-11-03",
+  "lineas": [
+    {
+      "a": "309006653",
+      "d": "TEMPO INTERM 24VDC/24..240VAC RELÉ SCHN RE17RLMU",
+      "dto": "45",
+      "f": "2026-11-03",
+      "i": 88.24,
+      "o": "MATADERO INSULAR",
+      "pn": 88.24,
+      "pt": 160.44,
+      "q": 1,
+      "r": "98155"
+    }
+  ],
+  "msg": "1a1a712d8ccb538c",
+  "numero": "309006653",
+  "obra": "MATADERO INSULAR",
+  "origen": "Gmail (escaneo)",
+  "proveedor": "Sonepar",
+  "tipo": "albaran",
+  "total": 88.24
+}

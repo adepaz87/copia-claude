@@ -1,0 +1,32 @@
+{
+  "albs": [],
+  "cliente": "TRAGSA",
+  "desc": "Instalar tubo visto, diflex y cajas de registros para PCI del parking.\nDesmontar entubado en mal estado.\nIdentificar líneas cortadas.\nVolver a instalar tubos colgando.",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-10-22",
+  "horas": 16,
+  "obra": "PCI PLAZA GAZMIRA (ADMINISTRACIÓN)",
+  "ops": [
+    {
+      "h": 8,
+      "n": "Eloy"
+    },
+    {
+      "h": 8,
+      "n": "Jonathan Glez"
+    }
+  ],
+  "stock": [
+    {
+      "d": "taco+tornillos de 6mm",
+      "q": 3,
+      "u": "cajas"
+    },
+    {
+      "d": "clavos de 2,6x19mm",
+      "q": 300,
+      "u": ""
+    }
+  ]
+}

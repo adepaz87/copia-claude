@@ -1,0 +1,27 @@
+{
+  "actualizada": "2026-11-11T12:15:00Z",
+  "asignadaEn": "2026-11-11T10:50:00.595Z",
+  "avisadoWa": "2026-11-11T10:50:04.487Z",
+  "aviso": "27422",
+  "centro": "Nuevo Almacén II (Los Llanos)",
+  "creada": "2026-11-11T09:12:00Z",
+  "descripcion": "La parte alta del Nuevo Almacén está sin luz. Subieron el diferencial pero vuelve a saltar.",
+  "empresa": "Tomás Barreto",
+  "estado": "terminada",
+  "fechaAviso": "2026-11-11",
+  "historial": [
+    "11/11/2026 · Registrada desde el reenvío de Fernando (aviso GIM 27422)",
+    "11/11/2026 10:50 · Asignada a Aythami",
+    "11/11/2026 10:50 · Asignación: Correo enviado a TBSA · WhatsApp a Aythami programado · WhatsApp a Fernando programado",
+    "11/11/2026 11:32 · Aythami avisa por WhatsApp: «Ot 144 resuelta» · Estado: Terminada",
+    "11/11/2026 12:15 · Cierre: correo enviado a TBSA · WhatsApp a Fernando programado"
+  ],
+  "informado": true,
+  "notas": "Reenvío de Fernando «Gim: Creación de Aviso» 27422 (11/11 09:09, usuario NALOSLLANOS). Trabajo realizado (Aythami, 11/11): la avería estaba en una condensadora del aire acondicionado; la tapa de las conexiones estaba sellada con cinta ya pasada, entró agua y la placa estaba mojada, lo que hacía saltar el general del subcuadro. Resuelta 11/11 11:32.",
+  "operario": "Aythami",
+  "ot": 144,
+  "prioridad": "Sin especificar",
+  "solicitante": "Fernando",
+  "terminadaEn": "2026-11-11T11:32:00Z",
+  "tipo": "MANTENIMIENTO"
+}

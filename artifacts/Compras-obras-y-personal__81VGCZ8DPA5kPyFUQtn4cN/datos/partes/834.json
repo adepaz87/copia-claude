@@ -1,0 +1,22 @@
+{
+  "albs": [],
+  "cliente": "TRAGSA",
+  "desc": "Abrir pasamuros para canalización exterior de Starlink. Pasar cable de datos y alimentación para Starlink. Instalar y comprobar conectores RJ45. Cortar y tapar bandejas. Cerrar maderas y registros del techo. Recoger y limpiar cuarto de inversor y baterías. Tirar basura.",
+  "devol": [],
+  "estado": "TERMINADO",
+  "fecha": "2026-10-29",
+  "horas": 12,
+  "obra": "FV RIACHUELO",
+  "ops": [
+    {
+      "h": 6,
+      "n": "Eloy"
+    },
+    {
+      "h": 6,
+      "n": "Jonathan Glez"
+    }
+  ],
+  "origen": "dashboard",
+  "stock": []
+}

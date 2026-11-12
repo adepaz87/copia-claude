@@ -1,0 +1,12 @@
+{
+  "cap": "01",
+  "cod": "01.05",
+  "desc": "Picado y saneado de revestimiento deteriorado en paramentos (desconchones en pared del salón).",
+  "med": 20,
+  "nota": "Comprobar origen de la humedad antes de reparar",
+  "orden": 5,
+  "pre": 7.5,
+  "rev": true,
+  "sb": false,
+  "ud": "m²"
+}

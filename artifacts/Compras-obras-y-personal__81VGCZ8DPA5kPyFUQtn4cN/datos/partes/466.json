@@ -1,0 +1,29 @@
+{
+  "albs": [
+    "Coelca"
+  ],
+  "cliente": "CHICHO 2 TUMBOS",
+  "desc": "Buscar cable escachado en escombro\nSanear cable, colocar fichas y aislarlas con cinta vulcanizada\nProteger zona de cable saneada con tubo PVC\nCambiar fusible quemado en contador \nRearmar cuadro grúa\nComprobar máquinas de corte hierro y dobladoras",
+  "devol": [],
+  "estado": "TERMINADO",
+  "fecha": "2026-09-14",
+  "horas": 4,
+  "obra": "CAMPO LUCHA LAS MANCHAS",
+  "ops": [
+    {
+      "h": 2,
+      "n": "Aythami"
+    },
+    {
+      "h": 2,
+      "n": "Riki"
+    }
+  ],
+  "stock": [
+    {
+      "d": "fichas de 25mm",
+      "q": 5,
+      "u": ""
+    }
+  ]
+}

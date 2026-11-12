@@ -1,0 +1,42 @@
+{
+  "albs": [],
+  "cliente": "CHICHO DOS TUMBOS",
+  "desc": "Colocación cuadro\nEntubar\nColocación de registros y zócalos",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-09-22",
+  "horas": 16,
+  "obra": "VIVIENDAS  EL TANQUE",
+  "ops": [
+    {
+      "h": 8,
+      "n": "Manuel"
+    },
+    {
+      "h": 8,
+      "n": "Juan"
+    }
+  ],
+  "stock": [
+    {
+      "d": "anguitos de 20",
+      "q": 15,
+      "u": "m"
+    },
+    {
+      "d": "registros de 10x15",
+      "q": 5,
+      "u": ""
+    },
+    {
+      "d": "clavos Wurth",
+      "q": 1,
+      "u": ""
+    },
+    {
+      "d": "curvas rígidas de 32",
+      "q": 3,
+      "u": ""
+    }
+  ]
+}

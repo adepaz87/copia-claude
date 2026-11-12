@@ -1,0 +1,89 @@
+{
+  "empresa": "Kairos Supply",
+  "fecha": "2026-02-25",
+  "lineas": [
+    {
+      "a": "309001096",
+      "d": "MODULO FV TRINA TSM-NEG18C.20 144C 590W N-TYPE BIF",
+      "dto": "2,00",
+      "f": "2026-02-24",
+      "i": 3546.14,
+      "o": "FUENCALIENTE FOTOVOLTAICA",
+      "pn": 63.3239,
+      "pt": 64.616236,
+      "q": 56,
+      "r": "1147783"
+    },
+    {
+      "a": "309001097",
+      "d": "MAGNETOT.P/DC 1000V 4P 63A CV.C",
+      "dto": "2,00",
+      "f": "2026-02-24",
+      "fab": "10005269",
+      "i": 94.86,
+      "m": "TOSCANO",
+      "o": "FUENCALIENTE FOTOVOLTAICA",
+      "pn": 23.715,
+      "pt": 24.200471,
+      "q": 4,
+      "r": "1177084"
+    },
+    {
+      "a": "309001097",
+      "d": "PTR.SBT.TTA.FV-1000/3 SISTEMAS FOTOVOLTAICOS,1000V",
+      "dto": "2,00",
+      "f": "2026-02-24",
+      "fab": "10003476",
+      "i": 221.12,
+      "m": "TOSCANO",
+      "o": "FUENCALIENTE FOTOVOLTAICA",
+      "pn": 27.64,
+      "pt": 28.203785,
+      "q": 8,
+      "r": "783283"
+    },
+    {
+      "a": "309001097",
+      "d": "KAEDRA CAJA ESTANCA 3FILAS 54 MÓD 610X448X160 IP65",
+      "dto": "2,00",
+      "f": "2026-02-24",
+      "fab": "13986",
+      "i": 181.29,
+      "m": "Schneider Electric",
+      "o": "FUENCALIENTE FOTOVOLTAICA",
+      "pn": 181.29,
+      "pt": 184.987001,
+      "q": 1,
+      "r": "41312"
+    },
+    {
+      "a": "309001098",
+      "d": "FRONIUS VERTO 33.3 - (SPD 1+2) 4,210,406",
+      "dto": "2,00",
+      "f": "2026-02-24",
+      "i": 2617.57,
+      "o": "FUENCALIENTE FOTOVOLTAICA",
+      "pn": 2617.57,
+      "pt": 2670.989773,
+      "q": 1,
+      "r": "1263558"
+    },
+    {
+      "a": "309001158",
+      "d": "TRANSFORMADOR NPART.TP58 100/5A CL.3",
+      "f": "2026-02-25",
+      "fab": "M7012D15",
+      "i": 366.3,
+      "m": "ZURC",
+      "o": "FUENCALIENTE FOTOVOLTAICA",
+      "pn": 122.1,
+      "pt": 122.1,
+      "q": 3,
+      "r": "1144954"
+    }
+  ],
+  "numero": "F03000R-2498",
+  "origen": "Gmail",
+  "proveedor": "Sonepar",
+  "tipo": "factura"
+}

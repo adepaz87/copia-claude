@@ -1,0 +1,29 @@
+{
+  "albs": [],
+  "cliente": "CHICHOS 2 TUMBOS",
+  "desc": "Entubar bajadas centralizaciones\nEnebrar derivaciones",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-09-24",
+  "horas": 34,
+  "obra": "EDIFICIO SABINO",
+  "ops": [
+    {
+      "h": 9,
+      "n": "Riki"
+    },
+    {
+      "h": 9,
+      "n": "Aythami"
+    },
+    {
+      "h": 8,
+      "n": "Joel"
+    },
+    {
+      "h": 8,
+      "n": "Junior"
+    }
+  ],
+  "stock": []
+}

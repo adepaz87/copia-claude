@@ -1,0 +1,17 @@
+{
+  "albs": [],
+  "cliente": "SASTRE",
+  "desc": "Se car cuadro\nCambiar diferencial \nAnular línea que esta sin servicio \nDejarlo  con servicio",
+  "devol": [],
+  "estado": "TERMINADO",
+  "fecha": "2026-10-22",
+  "horas": 3,
+  "obra": "COMERCIAL SASTRE",
+  "ops": [
+    {
+      "h": 3,
+      "n": "Goyo"
+    }
+  ],
+  "stock": []
+}

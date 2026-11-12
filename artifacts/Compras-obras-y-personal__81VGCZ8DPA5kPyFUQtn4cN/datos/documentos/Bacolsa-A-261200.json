@@ -1,0 +1,36 @@
+{
+  "empresa": "Kairos Supply",
+  "fecha": "2026-09-09",
+  "lineas": [
+    {
+      "a": "A261659",
+      "d": "COLUMNA CE.08000 8M",
+      "dto": "",
+      "f": "2026-09-09",
+      "i": 26208,
+      "igic": 7,
+      "o": "NUEVA CARRETERA P-211 LOS LLANOS DE ARIDANE",
+      "pn": 273,
+      "pt": 273,
+      "q": 96,
+      "r": ""
+    },
+    {
+      "a": "A261659",
+      "d": "COLUMNA CE.06000 6M",
+      "dto": "",
+      "f": "2026-09-09",
+      "i": 5310,
+      "igic": 7,
+      "o": "NUEVA CARRETERA P-211 LOS LLANOS DE ARIDANE",
+      "pn": 177,
+      "pt": 177,
+      "q": 30,
+      "r": ""
+    }
+  ],
+  "numero": "A/261.200",
+  "origen": "Gmail",
+  "proveedor": "Báculos y Columnas",
+  "tipo": "factura"
+}

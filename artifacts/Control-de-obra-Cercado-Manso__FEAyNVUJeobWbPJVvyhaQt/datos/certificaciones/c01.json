@@ -1,0 +1,46 @@
+{
+  "estado": "Firmada",
+  "fecha": "2026-10-19",
+  "lineas": [
+    {
+      "n": "1.1.6",
+      "origen": 19.4
+    },
+    {
+      "n": "1.1.8",
+      "nota": "Canalización en vía de tierra con 2 tubos, 50 m",
+      "origen": 30
+    },
+    {
+      "n": "1.1.30",
+      "origen": 1
+    },
+    {
+      "n": "3.1.2.1",
+      "origen": 150
+    },
+    {
+      "n": "3.1.4.1",
+      "origen": 10
+    },
+    {
+      "n": "3.3.1.1",
+      "origen": 1
+    },
+    {
+      "n": "3.3.2.1",
+      "origen": 1
+    },
+    {
+      "n": "3.5.1.1",
+      "origen": 1
+    }
+  ],
+  "mes": "2026-09",
+  "n": 1,
+  "pemMes": 3891.87,
+  "pemOrigen": 3891.87,
+  "periodo": "Septiembre 2026",
+  "sincronizado": "2026-10-28",
+  "total": 4404.74
+}

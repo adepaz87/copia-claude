@@ -1,0 +1,19 @@
+{
+  "albs": [
+    "Sastre 26/1-3222"
+  ],
+  "cliente": "ALMACEN",
+  "desc": "Colocar material contabilizar",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-09-16",
+  "horas": 6,
+  "obra": "ALMACEN",
+  "ops": [
+    {
+      "h": 6,
+      "n": "Goyo"
+    }
+  ],
+  "stock": []
+}

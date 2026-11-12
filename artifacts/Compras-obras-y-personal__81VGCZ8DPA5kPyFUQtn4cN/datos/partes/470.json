@@ -1,0 +1,37 @@
+{
+  "albs": [],
+  "cliente": "TRAGSA",
+  "desc": "Enebrar líneas de fuerza,alumbrado y dali\nOrganización de cables",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-09-15",
+  "horas": 16,
+  "obra": "HOSPITAL (MOD G)",
+  "ops": [
+    {
+      "h": 8,
+      "n": "Manuel"
+    },
+    {
+      "h": 8,
+      "n": "Juan"
+    }
+  ],
+  "stock": [
+    {
+      "d": "cable 1x1,5 rz1",
+      "q": 800,
+      "u": "m"
+    },
+    {
+      "d": "cable 1x2,5 rz1",
+      "q": 600,
+      "u": "m"
+    },
+    {
+      "d": "cinta aislante",
+      "q": 4,
+      "u": "rollos"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "albs": [
+    "Sonepar 309005692"
+  ],
+  "cliente": "CABILDO",
+  "desc": "Colocar bandeja.\n\nHacer entubado con diflex desde bandeja hasta paneles.\n\nEnebrar strings por bandeja.\n\nColocar conectores mc-4 y conectar los paneles nuevos a strings ya existentes.\n\nTirar cable de tierra, conectar a tierra general y dar tierra a estructuras.\n\nComprobar  y tensiones en cuadro de CC.\n\nRecoger y tirar basura.",
+  "devol": [],
+  "estado": "TERMINADO",
+  "fecha": "2026-09-17",
+  "horas": 8,
+  "obra": "FV. CECOPIN",
+  "ops": [
+    {
+      "h": 8,
+      "n": "Jorge"
+    }
+  ],
+  "stock": [
+    {
+      "d": "conectores mc-4 macho",
+      "q": 4,
+      "u": ""
+    },
+    {
+      "d": "conectores mc-4 hembra",
+      "q": 4,
+      "u": ""
+    },
+    {
+      "d": "bridas 4,6x30mm",
+      "q": 1,
+      "u": "paquete"
+    },
+    {
+      "d": "terminales de 26mm",
+      "q": 2,
+      "u": ""
+    },
+    {
+      "d": "tornillos autoroscantes 6x30mm",
+      "q": 50,
+      "u": ""
+    }
+  ]
+}

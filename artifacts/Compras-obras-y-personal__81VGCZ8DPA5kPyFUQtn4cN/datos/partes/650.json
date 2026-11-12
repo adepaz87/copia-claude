@@ -1,0 +1,23 @@
+{
+  "albs": [],
+  "cliente": "TRAGSA",
+  "desc": "Elaboración cuadro CC. Cableado a inversor fijación por bandeja conexionado. Editados",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-10-07",
+  "horas": 8,
+  "obra": "RIACHUELO FV.",
+  "ops": [
+    {
+      "h": 8,
+      "n": "Toño"
+    }
+  ],
+  "stock": [
+    {
+      "d": "Obturador eaton",
+      "q": 0.5,
+      "u": "m"
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "abono": true,
+  "empresa": "Instapalma",
+  "fecha": "2026-01-15",
+  "lineas": [
+    {
+      "a": "VCTF-028189-2025",
+      "d": "ABONO PORTES CLIENTES CANARIAS",
+      "dto": "Neto",
+      "f": "2026-01-12",
+      "i": -250,
+      "o": "SPAR SAN PEDRO",
+      "pn": 250,
+      "pt": 250,
+      "q": -1,
+      "r": ""
+    },
+    {
+      "a": "VCTF-028189-2025",
+      "d": "ABONO GENERAL                                 250,00",
+      "dto": "0,00",
+      "f": "2026-01-12",
+      "i": 0,
+      "o": "SPAR SAN PEDRO",
+      "pn": 0,
+      "pt": 17.5,
+      "q": -7,
+      "r": "IGIC"
+    }
+  ],
+  "numero": "BT-000052-2026",
+  "origen": "Gmail",
+  "proveedor": "Diexfe",
+  "tipo": "factura"
+}

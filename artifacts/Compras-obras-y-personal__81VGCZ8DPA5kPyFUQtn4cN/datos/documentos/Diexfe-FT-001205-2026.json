@@ -1,0 +1,58 @@
+{
+  "empresa": "Instapalma",
+  "fecha": "2026-02-25",
+  "lineas": [
+    {
+      "a": "VCTF-003582-2026",
+      "d": "CABLE AFIRENAX-X RZ1-K 0,6/1KV 5G4MM2",
+      "dto": "Neto",
+      "f": "2026-02-25",
+      "i": 444.8,
+      "o": "HOTEL MONTERREY",
+      "pn": 2.78,
+      "pt": 2.78,
+      "q": 160,
+      "r": "MIG-84038"
+    },
+    {
+      "a": "VCTF-003582-2026",
+      "d": "CABLE AFIRENAX-X RZ1-K 0,6/1KV 5G6MM2",
+      "dto": "Neto",
+      "f": "2026-02-25",
+      "i": 616,
+      "o": "HOTEL MONTERREY",
+      "pn": 4.4,
+      "pt": 4.4,
+      "q": 140,
+      "r": "MIG-84039"
+    },
+    {
+      "a": "VCTF-003582-2026",
+      "d": "CABLE AFIRENAX-X RZ1-K 0,6/1KV 5G16MM2",
+      "dto": "Neto",
+      "f": "2026-02-25",
+      "i": 219.8,
+      "o": "HOTEL MONTERREY",
+      "pn": 10.99,
+      "pt": 10.99,
+      "q": 20,
+      "r": "MIG-84041"
+    },
+    {
+      "a": "VCTF-003582-2026",
+      "d": "CABLE AFIRENAX-X RZ1-K 0,6/1KV 3G2,5MM2 BOBINA",
+      "dto": "Neto",
+      "f": "2026-02-25",
+      "i": 351,
+      "o": "HOTEL MONTERREY",
+      "pn": 1.17,
+      "pt": 1.17,
+      "q": 300,
+      "r": "MIG-84022"
+    }
+  ],
+  "numero": "FT-001205-2026",
+  "origen": "Gmail",
+  "proveedor": "Diexfe",
+  "tipo": "factura"
+}

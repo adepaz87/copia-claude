@@ -1,0 +1,19 @@
+{
+  "albs": [],
+  "cliente": "TOMÁS BARRETO SA",
+  "desc": "Reglaje ajustes relojes horarios comprobaciones",
+  "devol": [],
+  "estado": "TERMINADO",
+  "fecha": "2026-11-04",
+  "horas": 0.5,
+  "id": "870",
+  "obra": "SPAR SAN ANTONIO",
+  "ops": [
+    {
+      "h": 0.5,
+      "n": "Toño"
+    }
+  ],
+  "origen": "dashboard",
+  "stock": []
+}

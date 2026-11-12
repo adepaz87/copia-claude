@@ -1,0 +1,23 @@
+{
+  "empresa": "Kairos Supply",
+  "fecha": "2026-09-15",
+  "lineas": [
+    {
+      "a": "80860899",
+      "d": "PILONA HOSPITALET 1000XØ95",
+      "dto": "",
+      "f": "2026-09-15",
+      "i": 49,
+      "igic": 7,
+      "o": "",
+      "pn": 24.5,
+      "pt": 24.5,
+      "q": 2,
+      "r": ""
+    }
+  ],
+  "numero": "310023381",
+  "origen": "Gmail",
+  "proveedor": "Benito Urban",
+  "tipo": "factura"
+}

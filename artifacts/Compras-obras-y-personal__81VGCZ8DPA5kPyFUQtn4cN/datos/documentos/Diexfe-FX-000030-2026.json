@@ -1,0 +1,34 @@
+{
+  "empresa": "Kairos Supply",
+  "fecha": "2026-05-13",
+  "lineas": [
+    {
+      "a": "VCNA-000138-2026",
+      "d": "VENTILADOR TECHO 1020M³/H 230V AC IP54",
+      "dto": "45,00",
+      "f": "2026-05-13",
+      "i": 489.71,
+      "o": "",
+      "pn": 244.855,
+      "pt": 445.19,
+      "q": 2,
+      "r": "IDE-VT1020"
+    },
+    {
+      "a": "VCNA-000138-2026",
+      "d": "PORTES CLIENTES PENINSULA",
+      "dto": "Neto",
+      "f": "2026-05-13",
+      "i": 60,
+      "o": "",
+      "pn": 60,
+      "pt": 60,
+      "q": 1,
+      "r": "PORTES"
+    }
+  ],
+  "numero": "FX-000030-2026",
+  "origen": "Gmail",
+  "proveedor": "Diexfe",
+  "tipo": "factura"
+}

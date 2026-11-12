@@ -1,0 +1,18 @@
+{
+  "albs": [],
+  "cliente": "COOP.COVALLE",
+  "desc": "Elaboración cuadros eléctricos: Modificaciones Su cuadro Almacén",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-10-30",
+  "horas": 8,
+  "obra": "MODIFICACIONES CUADROS NAVES",
+  "ops": [
+    {
+      "h": 8,
+      "n": "Toño"
+    }
+  ],
+  "origen": "dashboard",
+  "stock": []
+}

@@ -1,0 +1,33 @@
+{
+  "albs": [
+    "Diexfe- 020547"
+  ],
+  "cliente": "CONSTRUCCIONES DOMINGO",
+  "desc": "Terminar Enebrar fuerza y alumbrado vivienda 4 planta 0. Enebrar alumbrado y fuerza viviendas, 1,2y 3 planta 0",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-11-05",
+  "horas": 33,
+  "id": "903",
+  "obra": "EDIFICIO DOMINGO",
+  "ops": [
+    {
+      "h": 9,
+      "n": "Riki"
+    },
+    {
+      "h": 8,
+      "n": "Joel"
+    },
+    {
+      "h": 8,
+      "n": "Junior"
+    },
+    {
+      "h": 8,
+      "n": "Aythami"
+    }
+  ],
+  "origen": "dashboard",
+  "stock": []
+}

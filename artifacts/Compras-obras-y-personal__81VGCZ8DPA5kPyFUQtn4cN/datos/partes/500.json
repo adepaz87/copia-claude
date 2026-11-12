@@ -1,0 +1,29 @@
+{
+  "albs": [],
+  "cliente": "CHICHO 2 TUMBOS",
+  "desc": "Desmontar contador \nColocar contador en módulo nueva hubicacion\nDesmontar cuadro luz de obra y colocarlo en nueva ubicación\nMedir derivaciones centralización 1\nColocar chasis\nColocar tubos en pases hasta centralizaciones",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-09-17",
+  "horas": 36,
+  "obra": "EDIFICIO SABINO",
+  "ops": [
+    {
+      "h": 10,
+      "n": "Aythami"
+    },
+    {
+      "h": 9,
+      "n": "Riki"
+    },
+    {
+      "h": 9,
+      "n": "Joel"
+    },
+    {
+      "h": 8,
+      "n": "Junior"
+    }
+  ],
+  "stock": []
+}

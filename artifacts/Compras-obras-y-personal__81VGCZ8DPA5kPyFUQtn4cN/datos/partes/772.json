@@ -1,0 +1,25 @@
+{
+  "albs": [],
+  "cliente": "CONSTRUCCIONES DOMINGO",
+  "desc": "Fijar cuadro y registros en vivienda planta 3.\nEntubar vivienda planta 3.\nLimpiar zona trabajo",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-10-22",
+  "horas": 31,
+  "obra": "EDIFICIO DOMINGO EL PASO",
+  "ops": [
+    {
+      "h": 9,
+      "n": "Junior"
+    },
+    {
+      "h": 11,
+      "n": "Joel"
+    },
+    {
+      "h": 11,
+      "n": "Ricky"
+    }
+  ],
+  "stock": []
+}

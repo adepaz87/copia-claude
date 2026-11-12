@@ -1,0 +1,83 @@
+{
+  "empresa": "Instapalma",
+  "fecha": "2026-07-31",
+  "lineas": [
+    {
+      "a": "26/1-2305",
+      "d": "Ud. Pino Gallego 25x200mm VAP/MPG",
+      "dto": "",
+      "f": "2026-07-06",
+      "i": 6.56,
+      "o": "FERIA ARTESANIA TAZACORTE",
+      "pn": 6.56,
+      "pt": 6.5602,
+      "q": 1,
+      "r": "201014"
+    },
+    {
+      "a": "26/1-2305",
+      "d": "Hora de Trabajo (oficial)",
+      "dto": "",
+      "f": "2026-07-06",
+      "i": 14.98,
+      "o": "FERIA ARTESANIA TAZACORTE",
+      "pn": 29.96,
+      "pt": 29.9533,
+      "q": 0.5,
+      "r": "1701001"
+    },
+    {
+      "a": "26/1-2651",
+      "d": "Combo Profesional BOSCH",
+      "dto": "",
+      "f": "2026-07-31",
+      "i": 570.64,
+      "o": "FERIA ARTESANIA TAZACORTE",
+      "pn": 570.64,
+      "pt": 570.6403,
+      "q": 1,
+      "r": "4053423619461"
+    },
+    {
+      "a": "26/1-2653",
+      "d": "Combo Profesional BOSCH",
+      "dto": "",
+      "f": "2026-07-31",
+      "i": 570.64,
+      "o": "FERIA ARTESANIA TAZACORTE",
+      "pn": 570.64,
+      "pt": 570.6403,
+      "q": 1,
+      "r": "4053423619461"
+    },
+    {
+      "a": "26/1-2656",
+      "d": "Brida Nylon Blanca 300x4,8 (100ud) C88",
+      "dto": "",
+      "f": "2026-07-31",
+      "i": 86.67,
+      "o": "FERIA ARTESANIA TAZACORTE",
+      "pn": 2.1667,
+      "pt": 2.1668,
+      "q": 40,
+      "r": "8424027140051"
+    },
+    {
+      "a": "26/1-2656",
+      "d": "Brida Nylon Blanca 360x4,8mm (100ud) C88",
+      "dto": "",
+      "f": "2026-07-31",
+      "i": 16.48,
+      "o": "FERIA ARTESANIA TAZACORTE",
+      "pn": 3.296,
+      "pt": 3.2968,
+      "q": 5,
+      "r": "8412372778029"
+    }
+  ],
+  "numero": "26/1-4317",
+  "obra": "FERIA ARTESANIA TAZACORTE",
+  "origen": "Gmail",
+  "proveedor": "Comercial Sastre",
+  "tipo": "factura"
+}

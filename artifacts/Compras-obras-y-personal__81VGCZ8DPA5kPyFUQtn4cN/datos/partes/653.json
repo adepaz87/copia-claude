@@ -1,0 +1,32 @@
+{
+  "albs": [],
+  "cliente": "CONSTRUCCIONES DOMINGO",
+  "desc": "Entubar derivaciones y exteriores de las dos viviendas ya que van hacer aceras viviendas",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-10-07",
+  "horas": 2,
+  "obra": "CASAS BENEDICTO",
+  "ops": [
+    {
+      "h": 1,
+      "n": "Joel"
+    },
+    {
+      "h": 1,
+      "n": "Aythami"
+    }
+  ],
+  "stock": [
+    {
+      "d": "tubo cuarrugado de 50",
+      "q": 10,
+      "u": "m"
+    },
+    {
+      "d": "tubo cuarruhado de 32",
+      "q": 50,
+      "u": "m"
+    }
+  ]
+}

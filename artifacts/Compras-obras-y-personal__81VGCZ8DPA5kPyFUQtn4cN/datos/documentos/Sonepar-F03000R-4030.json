@@ -1,0 +1,43 @@
+{
+  "empresa": "Kairos Supply",
+  "fecha": "2026-03-23",
+  "lineas": [
+    {
+      "a": "309001656",
+      "d": "INVERSOR NO HÍBRIDO TRIFÁSICO SIGEN PV 80.0 KW M1",
+      "f": "2026-03-23",
+      "i": 3423.6,
+      "o": "COLEGIO VELHOCO",
+      "pn": 3423.6,
+      "pt": 3423.6023,
+      "q": 1,
+      "r": "1131865"
+    },
+    {
+      "a": "309001656",
+      "d": "SIGEN POWER SENSOR 3F TPX-DH SIN TRAFOS DE MEDIDA",
+      "f": "2026-03-23",
+      "i": 192.22,
+      "o": "COLEGIO VELHOCO",
+      "pn": 192.22,
+      "pt": 192.2159,
+      "q": 1,
+      "r": "1201342"
+    },
+    {
+      "a": "309001658",
+      "d": "OPTIMIZADOR TIGO ENERGY TS4-A-0 700W MC4 V2",
+      "f": "2026-03-23",
+      "i": 6300,
+      "o": "COLEGIO VELHOCO",
+      "pn": 40.9091,
+      "pt": 40.9091,
+      "q": 154,
+      "r": "1196339"
+    }
+  ],
+  "numero": "F03000R-4030",
+  "origen": "Gmail",
+  "proveedor": "Sonepar",
+  "tipo": "factura"
+}

@@ -1,0 +1,19 @@
+{
+  "albs": [],
+  "cliente": "INSTAPALMA",
+  "desc": "Cavar zanja , descubrir piedras con guataca",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-11-05",
+  "horas": 8,
+  "id": "899",
+  "obra": "ZANJA COVALLE",
+  "ops": [
+    {
+      "h": 8,
+      "n": "Luigi"
+    }
+  ],
+  "origen": "dashboard",
+  "stock": []
+}

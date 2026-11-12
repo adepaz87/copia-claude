@@ -1,0 +1,23 @@
+{
+  "empresa": "Instapalma",
+  "fecha": "2026-10-01",
+  "lineas": [
+    {
+      "a": "VCTF-018542-2026",
+      "d": "CABLE AFIRENAX-L 05Z1-K/07Z1-K 1,5MM2 AZ",
+      "dto": "Neto",
+      "f": "2026-10-01",
+      "i": 446,
+      "o": "HOSPITAL",
+      "pn": 0.223,
+      "pt": 0.223,
+      "q": 2000,
+      "r": "MIG-84100082"
+    }
+  ],
+  "numero": "VCTF-018542-2026",
+  "obra": "HOSPITAL",
+  "origen": "Gmail",
+  "proveedor": "Diexfe",
+  "tipo": "albaran"
+}

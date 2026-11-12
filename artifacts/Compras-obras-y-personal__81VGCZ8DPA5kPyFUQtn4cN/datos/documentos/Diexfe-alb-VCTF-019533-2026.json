@@ -1,0 +1,23 @@
+{
+  "empresa": "Instapalma",
+  "fecha": "2026-10-19",
+  "lineas": [
+    {
+      "a": "VCTF-019533-2026",
+      "d": "LUMINARIA MODULAR 729.50 60X60 4000K",
+      "dto": "4,00",
+      "f": "2026-10-19",
+      "i": 408,
+      "o": "HORTOFRUTICOLA",
+      "pn": 20.4,
+      "pt": 21.25,
+      "q": 20,
+      "r": "SIM-72950033-884"
+    }
+  ],
+  "numero": "VCTF-019533-2026",
+  "obra": "HORTOFRUTICOLA",
+  "origen": "Gmail",
+  "proveedor": "Diexfe",
+  "tipo": "albaran"
+}

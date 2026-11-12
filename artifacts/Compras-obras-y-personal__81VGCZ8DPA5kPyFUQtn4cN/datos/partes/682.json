@@ -1,0 +1,21 @@
+{
+  "albs": [],
+  "cliente": "EXTINPALMA S.L.",
+  "desc": "- Reposición de canalización de tubo visto de PVC debido a rotura de tramo existente.\n- Modificación y ampliación de canalización de tubo visto de PVC, \n para adaptación a nuevo recorrido de la línea de cableado del sistema de protección contra incendios.\n- Tendido y enhebrado de cableado a través de las canalizaciones instaladas.\n- Preparación, identificación y adecuación de conductores para su p",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-10-13",
+  "horas": 18,
+  "obra": "HIPERDINO EL PUENTE (CONTRAINCENDIO)",
+  "ops": [
+    {
+      "h": 8,
+      "n": "Eloy"
+    },
+    {
+      "h": 10,
+      "n": "Rafa"
+    }
+  ],
+  "stock": []
+}

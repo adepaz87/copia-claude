@@ -1,0 +1,30 @@
+{
+  "albs": [],
+  "cliente": "CONSTRUCCIONES DOS TUMBOS",
+  "desc": "Buscar avería alimentación grúa. Identificación de avería (cable desconectado en antiguo empalme al votarle encima paneles de encofrar), se repara empalmes y se deja en funcionamiento",
+  "devol": [],
+  "estado": "TERMINADO",
+  "fecha": "2026-11-10",
+  "horas": 1.5,
+  "id": "931",
+  "obra": "CAMPO LUCHA LAS MANCHAS",
+  "ops": [
+    {
+      "h": 1.5,
+      "n": "Jonathan Rodríguez"
+    }
+  ],
+  "origen": "dashboard",
+  "stock": [
+    {
+      "d": "cinta aislante negra",
+      "q": 1,
+      "u": "rollo"
+    },
+    {
+      "d": "Cinta vulcanizada",
+      "q": 0.5,
+      "u": ""
+    }
+  ]
+}

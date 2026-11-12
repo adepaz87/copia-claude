@@ -1,0 +1,24 @@
+{
+  "albs": [
+    "Sonepar 309006019",
+    "Sonepar 309006046"
+  ],
+  "cliente": "CHICHO DOS TUMBOS",
+  "desc": "Mecanizando \nRegistrando\nColocación iluminación",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-10-01",
+  "horas": 16,
+  "obra": "VIVIENDAS EL TANQUE",
+  "ops": [
+    {
+      "h": 8,
+      "n": "Manuel"
+    },
+    {
+      "h": 8,
+      "n": "Juan"
+    }
+  ],
+  "stock": []
+}

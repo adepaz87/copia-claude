@@ -1,0 +1,19 @@
+{
+  "actualizada": "2026-09-08T09:00:00Z",
+  "aviso": "26611",
+  "centro": "CPF (Almacén Fruta y Cocina)",
+  "creada": "2026-09-08T09:00:00Z",
+  "descripcion": "Huele a cable quemado y no se sabe dónde.",
+  "estado": "terminada",
+  "fechaAviso": "2026-09-08",
+  "historial": [
+    "08/09/2026 · Importada del correo de Alberto"
+  ],
+  "informado": true,
+  "notas": "Resuelta el 08/09/2026.",
+  "operario": "Toño Guardia",
+  "ot": 75,
+  "prioridad": "Sin especificar",
+  "solicitante": "",
+  "tipo": "MANTENIMIENTO"
+}

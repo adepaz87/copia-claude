@@ -1,0 +1,17 @@
+{
+  "albs": [],
+  "cliente": "INSTAPALMA",
+  "desc": "Recoger valla , instalar vallado",
+  "devol": [],
+  "estado": "TERMINADO",
+  "fecha": "2026-10-27",
+  "horas": 8,
+  "obra": "FV EL TÚNEL",
+  "ops": [
+    {
+      "h": 8,
+      "n": "Luigi"
+    }
+  ],
+  "stock": []
+}

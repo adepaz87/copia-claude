@@ -1,0 +1,12 @@
+{
+  "cap": "01",
+  "cod": "01.02",
+  "desc": "Desmontaje de aparatos sanitarios, griferías, puertas de madera e instalaciones existentes (eléctrica y fontanería), con retirada.",
+  "med": 1,
+  "nota": "2 aseos existentes con ducha, lavabo e inodoro",
+  "orden": 2,
+  "pre": 400,
+  "rev": false,
+  "sb": false,
+  "ud": "PA"
+}

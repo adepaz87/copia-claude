@@ -1,0 +1,102 @@
+{
+  "albs": [],
+  "cliente": "CONSTRUCCIONES DOS TUMBOS",
+  "desc": "Colocación caja registro,entubar,enhebrar,,, conexionar cajas registro zonas comunes \nColocación y conexionado lámparas emergencia y Downlight \nPicar limpiar y recoger escombro para tubos portero,entubar para portero \nLimpiar zonas de trabajo",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-09-14",
+  "horas": 22,
+  "obra": "APARTAMENTOS TAZACORTE",
+  "ops": [
+    {
+      "h": 11,
+      "n": "Petter"
+    },
+    {
+      "h": 11,
+      "n": "Jonathan Rodríguez"
+    }
+  ],
+  "stock": [
+    {
+      "d": "Cable 3x10mm 1kv-Rz1",
+      "q": 7,
+      "u": "m"
+    },
+    {
+      "d": "Caja registro S/p 310x240x125solera ref:100888",
+      "q": 1,
+      "u": "ud"
+    },
+    {
+      "d": "Magnetotermico 2x16A Eaton",
+      "q": 2,
+      "u": "ud"
+    },
+    {
+      "d": "cable 1x6mm 750v",
+      "q": 2,
+      "u": "m"
+    },
+    {
+      "d": "tacos 6x30",
+      "q": 4,
+      "u": "ud"
+    },
+    {
+      "d": "-Tornillo 4,5x40",
+      "q": 4,
+      "u": ""
+    },
+    {
+      "d": "bridas 4,8x280",
+      "q": 20,
+      "u": "ud"
+    },
+    {
+      "d": "Base brida pistola",
+      "q": 10,
+      "u": "ud"
+    },
+    {
+      "d": "clavo pistola Wurth",
+      "q": 10,
+      "u": "ud"
+    },
+    {
+      "d": "cable 1x2,5 mm",
+      "q": 50,
+      "u": "m"
+    },
+    {
+      "d": "cable 1x1,5 mm",
+      "q": 60,
+      "u": "ud"
+    },
+    {
+      "d": "bornas 16 mm",
+      "q": 20,
+      "u": "ud"
+    },
+    {
+      "d": "bornas 10mm",
+      "q": 10,
+      "u": "ud"
+    },
+    {
+      "d": "Bornas 25mm",
+      "q": 6,
+      "u": "ud"
+    },
+    {
+      "d": "tubo rígido 25",
+      "q": 3,
+      "u": "m"
+    },
+    {
+      "d": "curva 25",
+      "q": 1,
+      "u": "ud"
+    }
+  ]
+}

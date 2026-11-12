@@ -1,0 +1,61 @@
+{
+  "empresa": "Instapalma",
+  "fecha": "2026-11-10",
+  "lineas": [
+    {
+      "a": "309006847",
+      "d": "RESI9 COMBI SPU 1PN C 40A CAN SCHN R9L20640CAN",
+      "dto": "NETO",
+      "f": "2026-11-10",
+      "i": 67.42,
+      "o": "CASA CRISTINA",
+      "pn": 67.42,
+      "pt": 67.423,
+      "q": 1,
+      "r": "719694"
+    },
+    {
+      "a": "309006847",
+      "d": "PUNTA HUECA CORTA APF-6,0 VERDE TRIM 245160",
+      "dto": "30",
+      "f": "2026-11-10",
+      "i": 4.54,
+      "o": "CASA CRISTINA",
+      "pn": 0.0454,
+      "pt": 0.0648,
+      "q": 100,
+      "r": "21320"
+    },
+    {
+      "a": "309006847",
+      "d": "PUNTERA HUECA AISLADA DOBLE APF/D-6,0 AMARILLO TRIM 255160",
+      "dto": "30",
+      "f": "2026-11-10",
+      "i": 17.66,
+      "o": "CASA CRISTINA",
+      "pn": 0.1766,
+      "pt": 0.2523,
+      "q": 100,
+      "r": "21330"
+    },
+    {
+      "a": "309006847",
+      "d": "PUNTERA HUECA AIS.CORTA APF 2,5MM GR TRIM 245140",
+      "dto": "30",
+      "f": "2026-11-10",
+      "i": 1.87,
+      "o": "CASA CRISTINA",
+      "pn": 0.0187,
+      "pt": 0.0267,
+      "q": 100,
+      "r": "21318"
+    }
+  ],
+  "msg": "1a1caa23c3b25915",
+  "numero": "309006847",
+  "obra": "CASA CRISTINA",
+  "origen": "Gmail (escaneo)",
+  "proveedor": "Sonepar",
+  "tipo": "albaran",
+  "total": 91.49
+}

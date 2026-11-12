@@ -1,0 +1,78 @@
+{
+  "base": 13.04,
+  "empresa": "Instapalma",
+  "fecha": "2026-10-31",
+  "lineas": [
+    {
+      "a": "2026/01/013036",
+      "d": "BOLSA BASURA NEG 90X120 XX",
+      "dto": "20",
+      "f": "2026-10-19",
+      "i": 3.94,
+      "igic": 7,
+      "o": "FV JTI",
+      "pn": 1.97,
+      "pt": 2.46,
+      "q": 2,
+      "r": "210171"
+    },
+    {
+      "a": "2026/01/013036",
+      "d": "GUANTE NYLON NARANJA GALGA T9",
+      "dto": "10",
+      "f": "2026-10-19",
+      "i": 2.55,
+      "igic": 3,
+      "o": "FV JTI",
+      "pn": 2.55,
+      "pt": 2.83,
+      "q": 1,
+      "r": "200401"
+    },
+    {
+      "a": "2026/01/013327",
+      "d": "GUANTE PROYTAC TALLA L (9) NARANJA/NEGRO",
+      "dto": "10",
+      "f": "2026-10-26",
+      "i": 2.14,
+      "igic": 3,
+      "o": "CT. PINO DE LA VIRGEN",
+      "pn": 2.14,
+      "pt": 2.38,
+      "q": 1,
+      "r": "225805"
+    },
+    {
+      "a": "2026/01/013327",
+      "d": "GUANTE PROYTAC TALLA L (9) NARANJA/NEGRO",
+      "dto": "10",
+      "f": "2026-10-26",
+      "i": 2.14,
+      "igic": 3,
+      "o": "CT. PINO DE LA VIRGEN",
+      "pn": 2.14,
+      "pt": 2.38,
+      "q": 1,
+      "r": "225805"
+    },
+    {
+      "a": "2026/01/013327",
+      "d": "CP ABRAZADERA AB-6I 22(M6) 100UD",
+      "dto": "10",
+      "f": "2026-10-26",
+      "i": 2.27,
+      "igic": 7,
+      "o": "CT. PINO DE LA VIRGEN",
+      "pn": 0.227,
+      "pt": 0.2524,
+      "q": 10,
+      "r": "45894"
+    }
+  ],
+  "msg": "1a1a0803a7027391",
+  "numero": "2026/21/004235",
+  "origen": "Gmail",
+  "proveedor": "Fraper",
+  "tipo": "factura",
+  "total": 13.67
+}

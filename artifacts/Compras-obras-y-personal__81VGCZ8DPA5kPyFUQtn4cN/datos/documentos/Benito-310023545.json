@@ -1,0 +1,23 @@
+{
+  "empresa": "Kairos Supply",
+  "fecha": "2026-10-13",
+  "lineas": [
+    {
+      "a": "80863914",
+      "d": "TAPA+MARCO ENDESA A2 1365X825 D400",
+      "dto": "",
+      "f": "2026-10-13",
+      "i": 1251,
+      "igic": 7,
+      "o": "NAVE COVALLE",
+      "pn": 250.2,
+      "pt": 250.2,
+      "q": 5,
+      "r": ""
+    }
+  ],
+  "numero": "310023545",
+  "origen": "Gmail",
+  "proveedor": "Benito Urban",
+  "tipo": "factura"
+}

@@ -1,0 +1,62 @@
+{
+  "empresa": "Instapalma",
+  "fecha": "2026-10-31",
+  "lineas": [
+    {
+      "a": "9665/2026",
+      "d": "HORMIGON HL-150/B/20",
+      "dto": "",
+      "f": "2026-10-19",
+      "i": 810,
+      "igic": 7,
+      "o": "LOS LLANOS DE ARIDANE - ZANJA",
+      "pn": 135,
+      "pt": 135,
+      "q": 6,
+      "r": ""
+    },
+    {
+      "a": "9667/2026",
+      "d": "HORMIGON HL-150/B/20",
+      "dto": "",
+      "f": "2026-10-19",
+      "i": 810,
+      "igic": 7,
+      "o": "LOS LLANOS DE ARIDANE - ZANJA",
+      "pn": 135,
+      "pt": 135,
+      "q": 6,
+      "r": ""
+    },
+    {
+      "a": "9670/2026",
+      "d": "HORMIGON HL-150/B/20",
+      "dto": "",
+      "f": "2026-10-19",
+      "i": 810,
+      "igic": 7,
+      "o": "LOS LLANOS DE ARIDANE - ZANJA",
+      "pn": 135,
+      "pt": 135,
+      "q": 6,
+      "r": ""
+    },
+    {
+      "a": "9674/2026",
+      "d": "HORMIGON HL-150/B/20",
+      "dto": "",
+      "f": "2026-10-19",
+      "i": 810,
+      "igic": 7,
+      "o": "LOS LLANOS DE ARIDANE - ZANJA",
+      "pn": 135,
+      "pt": 135,
+      "q": 6,
+      "r": ""
+    }
+  ],
+  "numero": "2600001081",
+  "origen": "Gmail",
+  "proveedor": "Áridos El Riachuelo",
+  "tipo": "factura"
+}

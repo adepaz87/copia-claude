@@ -1,0 +1,93 @@
+{
+  "actualizado": "2026-10-27T13:43:03.744Z",
+  "base": 771.2,
+  "cliente": {
+    "cp": "38700",
+    "direccion": "C/ Real, 12",
+    "email": "",
+    "municipio": "Santa Cruz de La Palma",
+    "nif": "42XXXXXXA",
+    "nombre": "María Pérez Rodríguez",
+    "telefono": ""
+  },
+  "condiciones": "Forma de pago: 50 % a la aceptación del presupuesto y 50 % a la finalización de los trabajos.\nCualquier trabajo no incluido en este presupuesto se valorará aparte.\nNo incluye obra civil (rozas, tapado y pintura) salvo que se indique expresamente.\nGarantía de 1 año en mano de obra; los materiales tienen la garantía del fabricante.\nInstalación realizada conforme al Reglamento Electrotécnico para Baja Tensión (REBT).",
+  "creado": "2026-10-27T13:43:03.744Z",
+  "descuento": 0,
+  "ejemplo": false,
+  "estado": "borrador",
+  "fecha": "2026-10-27",
+  "igic": 7,
+  "lineas": [
+    {
+      "cantidad": 1,
+      "concepto": "Cuadro general de mando y protección 24 módulos, empotrar",
+      "dto": 0,
+      "lid": "80djsbnd",
+      "precio": 68,
+      "tipo": "mat",
+      "unidad": "ud"
+    },
+    {
+      "cantidad": 2,
+      "concepto": "Interruptor diferencial 2P 40 A 30 mA clase A",
+      "dto": 0,
+      "lid": "wqez3pqv",
+      "precio": 52,
+      "tipo": "mat",
+      "unidad": "ud"
+    },
+    {
+      "cantidad": 4,
+      "concepto": "Magnetotérmico 1P+N 16 A curva C",
+      "dto": 0,
+      "lid": "yzvgvdot",
+      "precio": 11.5,
+      "tipo": "mat",
+      "unidad": "ud"
+    },
+    {
+      "cantidad": 120,
+      "concepto": "Cable H07Z1-K 2,5 mm² libre de halógenos",
+      "dto": 0,
+      "lid": "7999omfv",
+      "precio": 0.62,
+      "tipo": "mat",
+      "unidad": "m"
+    },
+    {
+      "cantidad": 6,
+      "concepto": "Base de enchufe schuko 16 A con mecanismo y marco",
+      "dto": 0,
+      "lid": "uyimnkxi",
+      "precio": 9.8,
+      "tipo": "mat",
+      "unidad": "ud"
+    },
+    {
+      "cantidad": 10,
+      "concepto": "Oficial electricista",
+      "dto": 0,
+      "lid": "n0j0u1lg",
+      "precio": 30,
+      "tipo": "mo",
+      "unidad": "h"
+    },
+    {
+      "cantidad": 1,
+      "concepto": "Certificado de instalación eléctrica (CIE) y tramitación",
+      "dto": 0,
+      "lid": "dgn9fbth",
+      "precio": 120,
+      "tipo": "otro",
+      "unidad": "ud"
+    }
+  ],
+  "notas": "Precios de ejemplo: ajústalos a tus tarifas.",
+  "numero": "P-2026-001",
+  "obra": {
+    "direccion": "",
+    "titulo": "Ampliación de circuitos y cambio de cuadro en vivienda"
+  },
+  "total": 825.18,
+  "validezDias": 30
+}

@@ -1,0 +1,19 @@
+{
+  "actualizada": "2026-09-08T09:00:00Z",
+  "aviso": "",
+  "centro": "SPAR Salinas",
+  "creada": "2026-09-08T09:00:00Z",
+  "descripcion": "La UPS no funciona («OT no generada» en el aviso).",
+  "estado": "terminada",
+  "fechaAviso": "2026-09-08",
+  "historial": [
+    "08/09/2026 · Importada del correo de Alberto"
+  ],
+  "informado": true,
+  "notas": "Resuelta el 08/09/2026.",
+  "operario": "",
+  "ot": 74,
+  "prioridad": "Sin especificar",
+  "solicitante": "",
+  "tipo": "MANTENIMIENTO"
+}

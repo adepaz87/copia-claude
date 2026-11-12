@@ -1,0 +1,81 @@
+{
+  "beneficio": 35,
+  "capitulos": [
+    {
+      "c": "01",
+      "n": "Actuaciones previas y demoliciones"
+    },
+    {
+      "c": "02",
+      "n": "Red de saneamiento"
+    },
+    {
+      "c": "03",
+      "n": "Albañilería y revestimientos"
+    },
+    {
+      "c": "04",
+      "n": "Aislamientos e impermeabilizaciones"
+    },
+    {
+      "c": "05",
+      "n": "Falsos techos"
+    },
+    {
+      "c": "06",
+      "n": "Solados y alicatados"
+    },
+    {
+      "c": "07",
+      "n": "Carpintería exterior"
+    },
+    {
+      "c": "08",
+      "n": "Carpintería interior"
+    },
+    {
+      "c": "09",
+      "n": "Fontanería y aparatos sanitarios"
+    },
+    {
+      "c": "10",
+      "n": "Ventilación (DB-HS3)"
+    },
+    {
+      "c": "11",
+      "n": "Pinturas"
+    },
+    {
+      "c": "12",
+      "n": "Cocina"
+    },
+    {
+      "c": "13",
+      "n": "Instalación eléctrica y telecomunicaciones"
+    },
+    {
+      "c": "14",
+      "n": "Gestión de residuos"
+    },
+    {
+      "c": "15",
+      "n": "Seguridad y salud"
+    },
+    {
+      "c": "16",
+      "n": "Varios y limpieza"
+    }
+  ],
+  "cliente": "",
+  "emisor": {
+    "direccion": "Calle Velázquez, 41",
+    "localidad": "38760 Los Llanos de Aridane",
+    "nif": "42191313K",
+    "nombre": "Carlos Acosta Acosta",
+    "provincia": "Santa Cruz de Tenerife, España"
+  },
+  "emplazamiento": "Los Llanos de Aridane, La Palma",
+  "fecha": "Octubre 2026",
+  "igic": 7,
+  "titulo": "Adecuación de local comercial a vivienda"
+}

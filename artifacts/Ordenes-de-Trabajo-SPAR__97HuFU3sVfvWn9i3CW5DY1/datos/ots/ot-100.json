@@ -1,0 +1,20 @@
+{
+  "actualizada": "2026-11-03T06:29:04.451Z",
+  "aviso": "27212",
+  "centro": "CPF (Los Llanos)",
+  "creada": "2026-10-28T09:00:00Z",
+  "descripcion": "Reforma de la instalación eléctrica; comentar con Daniel.",
+  "estado": "asignada",
+  "fechaAviso": "2026-10-28",
+  "historial": [
+    "28/10/2026 · Importada del correo de Alberto",
+    "3/11/2026 06:29 · Marcado como no informado"
+  ],
+  "informado": false,
+  "notas": "Sin correo de cierre todavía.",
+  "operario": "Toño Guardia",
+  "ot": 100,
+  "prioridad": "Sin especificar",
+  "solicitante": "",
+  "tipo": "MANTENIMIENTO"
+}

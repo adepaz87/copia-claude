@@ -1,0 +1,21 @@
+{
+  "d": [
+    "10.17",
+    "10.18",
+    "O.1",
+    "O.2",
+    "O.3"
+  ],
+  "guardado": "2026-11-04T17:00:01.695Z",
+  "m": {
+    "10.1": 39,
+    "10.3": 26
+  },
+  "o": {
+    "10.2": "Incluye la envolvente, la aparamenta interior y su conexionado (ver O.3). Incluye contactores ni maniobra de encendido (ver O.1). Salida en cuadro para extractores: magnetotérmico 4P 16 A, diferencial 4P 25 A/30 mA e interruptor de mando. Instalada y conexionada."
+  },
+  "p": {
+    "10.15": 400,
+    "10.2": 1850
+  }
+}

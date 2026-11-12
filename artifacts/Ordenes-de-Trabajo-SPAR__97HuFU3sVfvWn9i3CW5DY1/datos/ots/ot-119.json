@@ -1,0 +1,20 @@
+{
+  "actualizada": "2026-11-03T16:08:48.079Z",
+  "aviso": "26189",
+  "centro": "SPAR El Paso",
+  "creada": "2026-11-03T16:30:00Z",
+  "descripcion": "Tendido de cable UTP cat5 para las nuevas antenas wifi de etiquetas electrónicas.",
+  "estado": "terminada",
+  "fechaAviso": "2026-08-04",
+  "historial": [
+    "03/11/2026 · Importada del correo GIM",
+    "3/11/2026 16:08 · Estado: Terminada"
+  ],
+  "informado": false,
+  "notas": "Lo pidió Goretti (Informática). Parte 343 del 26/08: entubado y cable UTP a 5 antenas, sin terminar. Comprobar si se terminó. Nº OT provisional: confirmar o cambiar.",
+  "operario": "",
+  "ot": 119,
+  "prioridad": "Sin especificar",
+  "solicitante": "Otro",
+  "tipo": "OBRA"
+}

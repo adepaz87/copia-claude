@@ -1,0 +1,27 @@
+{
+  "albs": [],
+  "cliente": "TRAGSA",
+  "desc": "Enhebrar y enbridar por bandeja cables de cargadores.\nConectar en cuadro líneas de cargadores.\nCerrar bandejas en la parte de CA.",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-09-29",
+  "horas": 6,
+  "obra": "FV CENTRO DE VISITANTES",
+  "ops": [
+    {
+      "h": 3,
+      "n": "Toño"
+    },
+    {
+      "h": 3,
+      "n": "Jonathan Glez"
+    }
+  ],
+  "stock": [
+    {
+      "d": "punteras de 1x16mm",
+      "q": 8,
+      "u": ""
+    }
+  ]
+}

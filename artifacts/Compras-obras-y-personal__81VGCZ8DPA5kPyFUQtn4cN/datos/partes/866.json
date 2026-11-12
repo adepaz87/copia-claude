@@ -1,0 +1,19 @@
+{
+  "albs": [],
+  "cliente": "SUPERMERCADOS EN CADENA",
+  "desc": "Reglaje ajuste relojes horarios, avería luces entradas parking, funcionando",
+  "devol": [],
+  "estado": "TERMINADO",
+  "fecha": "2026-11-04",
+  "horas": 1,
+  "id": "866",
+  "obra": "SPAR EL PUENTE",
+  "ops": [
+    {
+      "h": 1,
+      "n": "Toño"
+    }
+  ],
+  "origen": "dashboard",
+  "stock": []
+}

@@ -1,0 +1,19 @@
+{
+  "albs": [],
+  "cliente": "CABILDO",
+  "desc": "Buscar avería en alumbrado exterior: se desconectan farolas antiguas en desuso ya que hacían saltar el magnetotérmico",
+  "devol": [],
+  "estado": "TERMINADO",
+  "fecha": "2026-11-10",
+  "horas": 1.5,
+  "id": "932",
+  "obra": "BOMBEROS PARQUE DE LA GRAMA",
+  "ops": [
+    {
+      "h": 1.5,
+      "n": "Jorge"
+    }
+  ],
+  "origen": "dashboard",
+  "stock": []
+}

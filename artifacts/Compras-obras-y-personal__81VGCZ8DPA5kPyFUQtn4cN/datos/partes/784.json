@@ -1,0 +1,17 @@
+{
+  "albs": [],
+  "cliente": "TBSA",
+  "desc": "Comprobar  que grupo arranque , con mutación funcione",
+  "devol": [],
+  "estado": "TERMINADO",
+  "fecha": "2026-10-25",
+  "horas": 4,
+  "obra": "CENTRAL",
+  "ops": [
+    {
+      "h": 4,
+      "n": "Goyo"
+    }
+  ],
+  "stock": []
+}

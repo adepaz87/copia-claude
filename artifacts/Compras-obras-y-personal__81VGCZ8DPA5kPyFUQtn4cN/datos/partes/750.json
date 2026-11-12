@@ -1,0 +1,50 @@
+{
+  "albs": [
+    "Coelca 35635"
+  ],
+  "cliente": "JOSE BARRETO",
+  "desc": "Entubar desde cubierta por muro hasta registro en oficina \nEnebrar cable de datos \nIr a casa de José y enebrar cable de datos  desde azotea a registro principal",
+  "devol": [],
+  "editado": "2026-11-02T21:00:00Z",
+  "estado": "TERMINADO",
+  "fecha": "2026-10-21",
+  "horas": 13,
+  "obra": "GARAJE BELLIDO",
+  "ops": [
+    {
+      "h": 6.5,
+      "n": "Manuel"
+    },
+    {
+      "h": 6.5,
+      "n": "Juan"
+    }
+  ],
+  "stock": [
+    {
+      "d": "tubo rígido de 20",
+      "q": 2,
+      "u": "m"
+    },
+    {
+      "d": "curvas flexible de 20",
+      "q": 1,
+      "u": ""
+    },
+    {
+      "d": "bases bridas",
+      "q": 125,
+      "u": ""
+    },
+    {
+      "d": "bolsa de bridas de 300x4,8",
+      "q": 1,
+      "u": ""
+    },
+    {
+      "d": "cinta aislante",
+      "q": 1,
+      "u": "rollo"
+    }
+  ]
+}

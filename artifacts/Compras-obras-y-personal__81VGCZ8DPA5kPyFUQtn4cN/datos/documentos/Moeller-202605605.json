@@ -1,0 +1,36 @@
+{
+  "empresa": "Instapalma",
+  "fecha": "2026-09-30",
+  "lineas": [
+    {
+      "a": "202608781",
+      "d": "PLZ6-C40/1N MAGNETOTERMICO 40A 1P+N",
+      "dto": "",
+      "f": "2026-09-30",
+      "i": 8.75,
+      "igic": 7,
+      "o": "APARTAMENTOS SPAR TRIANA",
+      "pn": 8.75,
+      "pt": 8.75,
+      "q": 1,
+      "r": "242815"
+    },
+    {
+      "a": "202608781",
+      "d": "PFIM-40/2/03 DIFERENCIAL 2P 40A 300MA",
+      "dto": "",
+      "f": "2026-09-30",
+      "i": 62.52,
+      "igic": 7,
+      "o": "APARTAMENTOS SPAR TRIANA",
+      "pn": 31.26,
+      "pt": 31.26,
+      "q": 2,
+      "r": "235396"
+    }
+  ],
+  "numero": "202605605",
+  "origen": "Gmail",
+  "proveedor": "Moeller",
+  "tipo": "factura"
+}

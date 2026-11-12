@@ -1,0 +1,27 @@
+{
+  "albs": [
+    "Instapalma 2026-0141"
+  ],
+  "cliente": "COVALLE",
+  "desc": "Replanteo instalación tubo visto almacén \nColocación cajas registro,entubado,colocar campanas iluminación,etc…almacén \nConexionado cajas registro nave\nLimpiar y recoger zonas de trabajo",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-09-16",
+  "horas": 24,
+  "obra": "NAVE COOPERATIVA COVALLE",
+  "ops": [
+    {
+      "h": 8,
+      "n": "Petter"
+    },
+    {
+      "h": 8,
+      "n": "Rafael"
+    },
+    {
+      "h": 8,
+      "n": "Jonathan Rodríguez"
+    }
+  ],
+  "stock": []
+}

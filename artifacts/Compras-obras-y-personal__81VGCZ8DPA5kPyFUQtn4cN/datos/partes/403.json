@@ -1,0 +1,21 @@
+{
+  "albs": [],
+  "cliente": "TRAGSA",
+  "desc": "Instalar conectores MC4 en marquesinas y cubierta\nAbrir pases entre bandejas en cuarto del inversor\nEnhebrar y enbridar cables de CC por bandeja\nInstalar y conectar caja de seccionamiento de tierra",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-09-03",
+  "horas": 13,
+  "obra": "FV CENTRO DE VISITANTES",
+  "ops": [
+    {
+      "h": 6.5,
+      "n": "Adán"
+    },
+    {
+      "h": 6.5,
+      "n": "Jonathan Glez"
+    }
+  ],
+  "stock": []
+}

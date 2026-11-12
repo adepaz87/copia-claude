@@ -1,0 +1,23 @@
+{
+  "empresa": "Instapalma",
+  "fecha": "2026-10-06",
+  "lineas": [
+    {
+      "a": "VCTF-018782-2026",
+      "d": "SISTEMA DE ALIMENTACIÓN ININTERRUMPIDA SPS 900 ONE (SAI/UPS) 900VA",
+      "dto": "35,00",
+      "f": "2026-10-06",
+      "i": 116.35,
+      "o": "MATADERO",
+      "pn": 116.35,
+      "pt": 179,
+      "q": 1,
+      "r": "SAL-662AF000003"
+    }
+  ],
+  "numero": "VCTF-018782-2026",
+  "obra": "MATADERO",
+  "origen": "Gmail",
+  "proveedor": "Diexfe",
+  "tipo": "albaran"
+}

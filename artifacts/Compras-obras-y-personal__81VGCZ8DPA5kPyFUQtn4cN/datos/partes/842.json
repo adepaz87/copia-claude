@@ -1,0 +1,30 @@
+{
+  "albs": [],
+  "cliente": "CONSTRUCCIONES DOMINGO",
+  "desc": "Terminar de entubar zonas comunes planta 1. Entubar derivaciones hasta patinillos planta 2. Entubar teleco planta 2 hasta patinillos. Entubar zonas comunes planta 2. Entubar derivaciones planta 3 hasta patinillos. Entubar teleco planta 3 hasta patinillos. Entubar zonas comunes planta 3.",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-10-30",
+  "horas": 32,
+  "obra": "EDIFICIO DOMINGO EL PASO",
+  "ops": [
+    {
+      "h": 8,
+      "n": "Junior"
+    },
+    {
+      "h": 8,
+      "n": "Riki"
+    },
+    {
+      "h": 8,
+      "n": "Joel"
+    },
+    {
+      "h": 8,
+      "n": "Aythami"
+    }
+  ],
+  "origen": "dashboard",
+  "stock": []
+}

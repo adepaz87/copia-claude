@@ -1,0 +1,21 @@
+{
+  "albs": [],
+  "cliente": "DRAGADOS",
+  "desc": "Terminar de cortar techos de 3 planta para reubicar alumbrado y teleco ordenado por la jefa de obra.",
+  "devol": [],
+  "estado": "TERMINADO",
+  "fecha": "2026-10-28",
+  "horas": 8,
+  "obra": "HOTEL MONTERREY",
+  "ops": [
+    {
+      "h": 4,
+      "n": "Antonio"
+    },
+    {
+      "h": 4,
+      "n": "Iker"
+    }
+  ],
+  "stock": []
+}

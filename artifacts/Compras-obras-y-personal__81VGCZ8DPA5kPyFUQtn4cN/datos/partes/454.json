@@ -1,0 +1,29 @@
+{
+  "albs": [
+    "Bolsa de agua 312.614.197",
+    "Bolsa de agua 312.614.316",
+    "Diexfe 017159"
+  ],
+  "cliente": "CHICHO 2 TUMBOS",
+  "desc": "Cargar centralizaciones en almacén\nDescargar en obra \nFijar centralizaciones \nFijar bandeja de centralizaciones\nFijar cd1\nColocar varillas y carril para bandejas",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-09-11",
+  "horas": 20,
+  "obra": "EDIFICIO SABINO",
+  "ops": [
+    {
+      "h": 8,
+      "n": "Riki"
+    },
+    {
+      "h": 6,
+      "n": "Aythami"
+    },
+    {
+      "h": 6,
+      "n": "Joel"
+    }
+  ],
+  "stock": []
+}

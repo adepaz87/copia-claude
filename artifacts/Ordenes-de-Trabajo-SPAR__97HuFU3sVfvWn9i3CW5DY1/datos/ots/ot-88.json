@@ -1,0 +1,22 @@
+{
+  "actualizada": "2026-11-03T06:29:43.239Z",
+  "aviso": "27065",
+  "centro": "SPAR Santo Domingo (Garafía)",
+  "creada": "2026-10-15T13:25:00Z",
+  "descripcion": "Problemas con el UPS de la tienda. La TPV se apagó dos veces (25/10).",
+  "estado": "terminada",
+  "fechaAviso": "2026-10-15",
+  "historial": [
+    "15/10/2026 14:25 · Asignada a Toño Guardia",
+    "22/10/2026 11:40 · Visitada: UPS muerta",
+    "26/10/2026 10:16 · Estado: Espera presupuesto / material",
+    "3/11/2026 06:29 · Estado: Terminada"
+  ],
+  "informado": false,
+  "notas": "UPS muerta (22/10). Raquel pide presupuesto de UPS nueva para Tomás Barreto. Presupuesto pedido al proveedor, no ha llegado (26/10).",
+  "operario": "Toño Guardia",
+  "ot": 88,
+  "prioridad": "Sin especificar",
+  "solicitante": "Raquel",
+  "tipo": "MANTENIMIENTO"
+}

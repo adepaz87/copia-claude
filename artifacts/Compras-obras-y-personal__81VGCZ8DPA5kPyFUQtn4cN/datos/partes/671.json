@@ -1,0 +1,17 @@
+{
+  "albs": [],
+  "cliente": "ÁRIDOS RIACHUELO SAU.",
+  "desc": "Avería en planta arenero cónico. Ajustes parámetros por revestimiento nuevo, avería salto y calado de generador motor diesel, mantenimiento filtros. Puesta en funcionamiento y funcionando.",
+  "devol": [],
+  "estado": "TERMINADO",
+  "fecha": "2026-10-13",
+  "horas": 3,
+  "obra": "AVERÍAS PLANTA ARIDOS",
+  "ops": [
+    {
+      "h": 3,
+      "n": "Toño"
+    }
+  ],
+  "stock": []
+}

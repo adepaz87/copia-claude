@@ -1,0 +1,17 @@
+{
+  "albs": [],
+  "cliente": "INSTAPALMA",
+  "desc": "Recoger plantilla para señalizar cargador , píntale señal de cargador ,  recoger pintura agromar , devolver plantilla reveton , recoger escalera en almacén , limpiar sotea",
+  "devol": [],
+  "estado": "TERMINADO",
+  "fecha": "2026-09-07",
+  "horas": 8,
+  "obra": "CARGADOR EL PASO",
+  "ops": [
+    {
+      "h": 8,
+      "n": "Luigi"
+    }
+  ],
+  "stock": []
+}

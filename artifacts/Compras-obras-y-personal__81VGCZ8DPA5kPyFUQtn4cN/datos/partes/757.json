@@ -1,0 +1,38 @@
+{
+  "albs": [
+    "Bap 112.610.104"
+  ],
+  "cliente": "TRAGSA",
+  "desc": "Enhebrar y enbridar por bandeja cables de baterías.\nEnhebrar, enbridar y conectar tierra para chasis del inversor.\nInstalar diflex para cable de comunicación entre baterías e inversor.\nTapar bandejas.\nBuscar bases y cargadores en garaje del centro de visitantes.\nInstalar y nivelar bases de cargadores.\nEnhebrar y conectar cargadores.",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-10-21",
+  "horas": 19,
+  "obra": "FV CENTRO DE VISITANTES",
+  "ops": [
+    {
+      "h": 8,
+      "n": "Eloy"
+    },
+    {
+      "h": 3,
+      "n": "Toño"
+    },
+    {
+      "h": 8,
+      "n": "Jonathan Glez"
+    }
+  ],
+  "stock": [
+    {
+      "d": "punteras de 16mm",
+      "q": 12,
+      "u": ""
+    },
+    {
+      "d": "terminales redondos de 10mm",
+      "q": 2,
+      "u": ""
+    }
+  ]
+}

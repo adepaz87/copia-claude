@@ -1,0 +1,19 @@
+{
+  "actualizada": "2026-10-16T09:00:00Z",
+  "aviso": "",
+  "centro": "Central Logística y Oficinas (Breña Baja)",
+  "creada": "2026-10-16T09:00:00Z",
+  "descripcion": "Cámaras y pasillo central de servicios sin iluminación; todo en el mismo diferencial.",
+  "estado": "terminada",
+  "fechaAviso": "2026-10-16",
+  "historial": [
+    "16/10/2026 · Importada del correo de Alberto"
+  ],
+  "informado": true,
+  "notas": "Resuelta según Toño por WhatsApp el 19/10/2026.",
+  "operario": "Toño Guardia",
+  "ot": 89,
+  "prioridad": "Sin especificar",
+  "solicitante": "",
+  "tipo": "MANTENIMIENTO"
+}

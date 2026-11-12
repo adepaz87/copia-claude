@@ -1,0 +1,17 @@
+{
+  "albs": [],
+  "cliente": "TOMAS BARRETO SA",
+  "desc": "Revisión de grupo ver niveles,mediciones arranque manual",
+  "devol": [],
+  "estado": "TERMINADO",
+  "fecha": "2026-10-15",
+  "horas": 1,
+  "obra": "SPAR TRIANA",
+  "ops": [
+    {
+      "h": 1,
+      "n": "Toño"
+    }
+  ],
+  "stock": []
+}

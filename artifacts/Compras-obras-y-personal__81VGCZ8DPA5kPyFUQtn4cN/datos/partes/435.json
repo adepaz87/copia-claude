@@ -1,0 +1,17 @@
+{
+  "albs": [],
+  "cliente": "TRAGSA",
+  "desc": "Revisión OCA",
+  "devol": [],
+  "estado": "TERMINADO",
+  "fecha": "2026-09-09",
+  "horas": 1,
+  "obra": "FV JTI",
+  "ops": [
+    {
+      "h": 1,
+      "n": "Jonathan Glez"
+    }
+  ],
+  "stock": []
+}

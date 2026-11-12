@@ -1,0 +1,19 @@
+{
+  "actualizada": "2026-07-21T09:00:00Z",
+  "aviso": "25990",
+  "centro": "SPAR El Paso",
+  "creada": "2026-07-21T09:00:00Z",
+  "descripcion": "Se fue la luz y el motor no arrancó; revisar el grupo electrógeno.",
+  "estado": "terminada",
+  "fechaAviso": "2026-07-21",
+  "historial": [
+    "21/07/2026 · Importada del correo de Alberto"
+  ],
+  "informado": true,
+  "notas": "Resuelta (correo 21/07/2026).",
+  "operario": "",
+  "ot": 45,
+  "prioridad": "Sin especificar",
+  "solicitante": "",
+  "tipo": "MANTENIMIENTO"
+}

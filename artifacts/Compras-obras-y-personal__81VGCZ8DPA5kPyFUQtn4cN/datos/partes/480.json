@@ -1,0 +1,58 @@
+{
+  "albs": [],
+  "cliente": "CONSTRUCCIONES DOS TUMBOS",
+  "desc": "Elaboración cuadros zonas comunes \nSe empiezan a rotular cuadros apartamentos \nLimpiar zonas de trabajo",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-09-15",
+  "horas": 3,
+  "obra": "APARTAMENTOS TAZACORTE",
+  "ops": [
+    {
+      "h": 3,
+      "n": "Jonathan Rodríguez"
+    }
+  ],
+  "stock": [
+    {
+      "d": "punteras dobles 6mm",
+      "q": 2,
+      "u": "ud"
+    },
+    {
+      "d": "punteras 6mm",
+      "q": 5,
+      "u": "ud"
+    },
+    {
+      "d": "punteras dobles 2,5mm",
+      "q": 2,
+      "u": "ud"
+    },
+    {
+      "d": "punteras dobles 1,5mm",
+      "q": 2,
+      "u": "ud"
+    },
+    {
+      "d": "punteras 1,5mm",
+      "q": 6,
+      "u": "ud"
+    },
+    {
+      "d": "punteras 2,5mm",
+      "q": 6,
+      "u": "ud"
+    },
+    {
+      "d": "Borna 35mm",
+      "q": 1,
+      "u": "ud"
+    },
+    {
+      "d": "Rollo cinta dymo brother 12mm",
+      "q": 1,
+      "u": "ud"
+    }
+  ]
+}

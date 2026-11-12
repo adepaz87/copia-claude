@@ -1,0 +1,21 @@
+{
+  "albs": [],
+  "cliente": "CABILDO INSULAR",
+  "desc": "Reparar avería en linea de boya entrada de agua general a deposito.",
+  "devol": [],
+  "estado": "TERMINADO",
+  "fecha": "2026-10-02",
+  "horas": 2,
+  "obra": "MATADERO",
+  "ops": [
+    {
+      "h": 1,
+      "n": "Antonio"
+    },
+    {
+      "h": 1,
+      "n": "Transporte"
+    }
+  ],
+  "stock": []
+}

@@ -1,0 +1,23 @@
+{
+  "empresa": "Kairos Supply",
+  "fecha": "2026-08-31",
+  "lineas": [
+    {
+      "a": "163895",
+      "d": "KITS DE FIBRA Y TRANSCEPTORES",
+      "dto": "",
+      "f": "2026-08-31",
+      "i": 1088.12,
+      "igic": 7,
+      "o": "",
+      "pn": 1088.12,
+      "pt": 1088.12,
+      "q": 1,
+      "r": ""
+    }
+  ],
+  "numero": "Z26_262906",
+  "origen": "Gmail",
+  "proveedor": "Electtronics",
+  "tipo": "factura"
+}

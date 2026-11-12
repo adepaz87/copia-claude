@@ -1,0 +1,23 @@
+{
+  "albs": [
+    "M.P. Lightcan 01 2600613"
+  ],
+  "cliente": "AYUNTAMIENTO EL PASO",
+  "desc": "Recibir material. Organizar almacen y bajar iluminacion. Ver con fontanero acometida a cuadro de bombas.",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-10-27",
+  "horas": 4,
+  "obra": "HOTEL MONTERREY",
+  "ops": [
+    {
+      "h": 2,
+      "n": "Antonio"
+    },
+    {
+      "h": 2,
+      "n": "Iker"
+    }
+  ],
+  "stock": []
+}

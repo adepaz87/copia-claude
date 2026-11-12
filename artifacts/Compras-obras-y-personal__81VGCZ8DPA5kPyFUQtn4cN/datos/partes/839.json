@@ -1,0 +1,20 @@
+{
+  "albs": [
+    "Diexfe 403696"
+  ],
+  "cliente": "VIVIENDA LA VERADA",
+  "desc": "Colocar caja",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-10-29",
+  "horas": 2,
+  "obra": "VIVIENDA",
+  "ops": [
+    {
+      "h": 2,
+      "n": "Goyo"
+    }
+  ],
+  "origen": "dashboard",
+  "stock": []
+}

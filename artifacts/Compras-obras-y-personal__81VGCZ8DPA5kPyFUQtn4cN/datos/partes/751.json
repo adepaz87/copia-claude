@@ -1,0 +1,30 @@
+{
+  "albs": [
+    "Coelca 35651"
+  ],
+  "cliente": "APIMET",
+  "desc": "Ir a buscar focos \nComprar material \nConectar focos",
+  "devol": [],
+  "editado": "2026-11-02T21:00:00Z",
+  "estado": "EN CURSO",
+  "fecha": "2026-10-21",
+  "horas": 3,
+  "obra": "COLEGIO SAN ANTONIO",
+  "ops": [
+    {
+      "h": 1.5,
+      "n": "MANUEL"
+    },
+    {
+      "h": 1.5,
+      "n": "Juan"
+    }
+  ],
+  "stock": [
+    {
+      "d": "cable de 3x2,5",
+      "q": 5,
+      "u": "m"
+    }
+  ]
+}

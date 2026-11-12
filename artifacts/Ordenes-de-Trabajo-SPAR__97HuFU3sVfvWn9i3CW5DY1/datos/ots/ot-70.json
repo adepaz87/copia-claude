@@ -1,0 +1,19 @@
+{
+  "actualizada": "2026-08-28T09:00:00Z",
+  "aviso": "26487",
+  "centro": "SPAR San Antonio",
+  "creada": "2026-08-28T09:00:00Z",
+  "descripcion": "3 o 4 tomas normales en la columna de la entrada (arcón de Kalise).",
+  "estado": "terminada",
+  "fechaAviso": "2026-08-28",
+  "historial": [
+    "28/08/2026 · Importada del correo de Alberto"
+  ],
+  "informado": true,
+  "notas": "Resuelta el 28/08/2026.",
+  "operario": "Toño Guardia",
+  "ot": 70,
+  "prioridad": "Sin especificar",
+  "solicitante": "",
+  "tipo": "MANTENIMIENTO"
+}

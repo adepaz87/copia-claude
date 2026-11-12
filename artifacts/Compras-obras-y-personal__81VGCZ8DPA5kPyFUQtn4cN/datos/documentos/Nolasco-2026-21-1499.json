@@ -1,0 +1,22 @@
+{
+  "empresa": "Instapalma",
+  "fecha": "2026-10-01",
+  "lineas": [
+    {
+      "a": "2026/02/005257",
+      "d": "BOLSA GRANDE",
+      "dto": "",
+      "f": "2026-09-17",
+      "i": 8.55,
+      "o": "EDIFICIO SABINO",
+      "pn": 8.55,
+      "pt": 8.55,
+      "q": 1,
+      "r": "CELO 9BCG"
+    }
+  ],
+  "numero": "2026/21/1499",
+  "origen": "Gmail",
+  "proveedor": "Nolasco",
+  "tipo": "factura"
+}

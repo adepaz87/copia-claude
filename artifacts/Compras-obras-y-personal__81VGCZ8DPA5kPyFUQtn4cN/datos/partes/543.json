@@ -1,0 +1,21 @@
+{
+  "albs": [],
+  "cliente": "AYUNTAMIENTO EL PASO",
+  "desc": "Colocar tarjeteros en 2 planta. Fichar registro alumbrado exterior A014 y probar.",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-09-24",
+  "horas": 2,
+  "obra": "HOTEL MONTERREY",
+  "ops": [
+    {
+      "h": 1,
+      "n": "Antonio"
+    },
+    {
+      "h": 1,
+      "n": "Iker"
+    }
+  ],
+  "stock": []
+}

@@ -1,0 +1,17 @@
+{
+  "albs": [],
+  "cliente": "ARIDOS RIACHUELO SAU",
+  "desc": "Regular guardamotor a potencia de arranque de cinta 3 ya que saltaba por mala regulación\nRearmar automático de ventilador de hidráulico \nComprobación de arranque y funcionamiento cinta 3 ok",
+  "devol": [],
+  "estado": "TERMINADO",
+  "fecha": "2026-09-04",
+  "horas": 1,
+  "obra": "PLANTA ARIDOS CINTA 3 AVERÍA",
+  "ops": [
+    {
+      "h": 1,
+      "n": "Aythami"
+    }
+  ],
+  "stock": []
+}

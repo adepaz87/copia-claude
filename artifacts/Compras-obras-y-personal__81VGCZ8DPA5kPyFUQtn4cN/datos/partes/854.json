@@ -1,0 +1,23 @@
+{
+  "albs": [],
+  "cliente": "TOMÁS BARRETO SA",
+  "desc": "Avería en zona cámaras frío alumbrados, sustitución interruptor y zócalo fijación y conexionado. Funcionando",
+  "devol": [],
+  "estado": "TERMINADO",
+  "fecha": "2026-11-03",
+  "horas": 2,
+  "id": "854",
+  "obra": "CENTRAL TBSA",
+  "ops": [
+    {
+      "h": 1,
+      "n": "Toño"
+    },
+    {
+      "h": 1,
+      "n": "Junior"
+    }
+  ],
+  "origen": "dashboard",
+  "stock": []
+}

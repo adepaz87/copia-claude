@@ -1,0 +1,17 @@
+{
+  "albs": [],
+  "cliente": "TRAGSA",
+  "desc": "Elaboración cuadros eléctricos: Su cuadro VE2.\nCuadro C.C.",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-09-11",
+  "horas": 8,
+  "obra": "CENTRO VISITANTES FV.",
+  "ops": [
+    {
+      "h": 8,
+      "n": "Toño"
+    }
+  ],
+  "stock": []
+}

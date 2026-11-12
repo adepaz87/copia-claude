@@ -1,0 +1,47 @@
+{
+  "empresa": "Instapalma",
+  "fecha": "2026-10-31",
+  "lineas": [
+    {
+      "a": "26/1-3705",
+      "d": "Brida Nylon Blanca 300x4,8 (100ud) C88",
+      "dto": "",
+      "f": "2026-10-22",
+      "i": 198.9,
+      "o": "ALMACEN",
+      "pn": 2.21,
+      "pt": 2.21,
+      "q": 90,
+      "r": "8412372778197"
+    },
+    {
+      "a": "26/1-3705",
+      "d": "Brida Nylon Negra 300x4,8 (100ud) C88",
+      "dto": "",
+      "f": "2026-10-22",
+      "i": 81.77,
+      "o": "ALMACEN",
+      "pn": 2.21,
+      "pt": 2.21,
+      "q": 37,
+      "r": "8412372778234"
+    },
+    {
+      "a": "26/1-3705",
+      "d": "Brida Nylon Color Gris 4,8x300mm (100 uds.) CELO",
+      "dto": "",
+      "f": "2026-10-22",
+      "i": 399.13,
+      "o": "ALMACEN",
+      "pn": 2.8509,
+      "pt": 2.8509,
+      "q": 140,
+      "r": "4250438934668"
+    }
+  ],
+  "numero": "26/1-6237",
+  "obra": "ALMACEN",
+  "origen": "Gmail",
+  "proveedor": "Comercial Sastre",
+  "tipo": "factura"
+}

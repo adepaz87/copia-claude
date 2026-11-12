@@ -1,0 +1,21 @@
+{
+  "albs": [],
+  "cliente": "CABILDO INSULAR",
+  "desc": "Ver funcionamiento de aturdidores nuevos e instalacion a realizar.",
+  "devol": [],
+  "estado": "TERMINADO",
+  "fecha": "2026-09-25",
+  "horas": 2,
+  "obra": "MATADERO INSULAR",
+  "ops": [
+    {
+      "h": 1,
+      "n": "Antonio"
+    },
+    {
+      "h": 1,
+      "n": "Transporte"
+    }
+  ],
+  "stock": []
+}

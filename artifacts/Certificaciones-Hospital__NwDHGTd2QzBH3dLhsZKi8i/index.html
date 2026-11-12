@@ -1,0 +1,1107 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Certificaciones Hospital</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.8.2/jspdf.plugin.autotable.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/exceljs/4.4.0/exceljs.min.js"></script>
+<style>
+/* Layout: oficina de obra. Cabecera con el logo, cifras a origen, pestañas por certificación, ficha + resumen, y la relación valorada como hoja de medición. */
+:root{
+  --bg:#F2F2F7; --surface:#FFFFFF; --sunk:#F7F7FB; --ink:#17162C; --muted:#5D5B78; --line:#DDDCE9; --line-strong:#C3C1D6;
+  --accent:#340AEA; --accent-ink:#FFFFFF; --accent-soft:#ECE8FE; --input:#FFFFFF;
+  --ok:#17744A; --ok-soft:#E3F4EB; --warn:#A44D06; --warn-soft:#FDF0E2; --bad:#B42318; --bad-soft:#FDE9E7;
+  --f-display:"Barlow Condensed","Arial Narrow",Arial,sans-serif;
+  --f-body:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --f-num:"IBM Plex Mono",ui-monospace,"SFMono-Regular",Menlo,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0F0E1B; --surface:#191830; --sunk:#141327; --ink:#ECEBF7; --muted:#A4A2C0; --line:#2C2A48; --line-strong:#3E3B60;
+  --accent:#A08CFF; --accent-ink:#120F2A; --accent-soft:#251F52; --input:#100F20;
+  --ok:#5FCB97; --ok-soft:#173326; --warn:#F2A55B; --warn-soft:#3A2614; --bad:#F2806F; --bad-soft:#3D1A17; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0F0E1B; --surface:#191830; --sunk:#141327; --ink:#ECEBF7; --muted:#A4A2C0; --line:#2C2A48; --line-strong:#3E3B60;
+  --accent:#A08CFF; --accent-ink:#120F2A; --accent-soft:#251F52; --input:#100F20;
+  --ok:#5FCB97; --ok-soft:#173326; --warn:#F2A55B; --warn-soft:#3A2614; --bad:#F2806F; --bad-soft:#3D1A17; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:14px;line-height:1.45}
+#app{max-width:1320px;margin:0 auto;padding-block:20px 48px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:flex;flex-direction:column;gap:18px}
+h1,h2,h3{font-family:var(--f-display);font-weight:600;letter-spacing:.01em;margin:0;text-wrap:balance}
+.num,td.n,th.n{font-family:var(--f-num);font-variant-numeric:tabular-nums}
+button,input,select{font:inherit;color:inherit}
+button{cursor:pointer}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.btn{border:1px solid var(--line-strong);background:var(--surface);border-radius:6px;padding:7px 12px;font-weight:500;white-space:nowrap}
+.btn:hover{border-color:var(--accent)}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.btn.ghost{background:transparent}
+.btn.danger{color:var(--bad)}
+.btn.danger.armed{background:var(--bad);border-color:var(--bad);color:var(--surface)}
+.btn:disabled{opacity:.5;cursor:not-allowed}
+.eyebrow{font-size:11px;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);font-weight:600}
+
+/* cabecera */
+.mast{display:flex;flex-wrap:wrap;align-items:center;gap:16px 24px;justify-content:space-between}
+.mast-l{display:flex;align-items:center;gap:18px;min-width:0;flex-wrap:wrap}
+.logo-chip{background:#FFFFFF;border-radius:8px;padding:10px 14px;display:flex;align-items:center;border:1px solid var(--line)}
+.logo-chip img{height:30px;width:auto;display:block;max-width:220px;object-fit:contain}
+.mast h1{font-size:30px;line-height:1.05}
+.mast p{margin:2px 0 0;color:var(--muted);font-size:13px}
+.status{font-size:12px;color:var(--muted);display:flex;align-items:center;gap:6px}
+.status::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--ok)}
+.status.busy::before{background:var(--warn)}
+.status.err::before,.status.local::before{background:var(--bad)}
+
+/* cifras */
+.kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:10px;overflow:hidden}
+.kpi{background:var(--surface);padding:14px 16px;display:flex;flex-direction:column;gap:4px;min-width:0}
+.kpi b{font-family:var(--f-display);font-size:26px;font-weight:600;font-variant-numeric:tabular-nums;line-height:1.1}
+.kpi small{color:var(--muted);font-size:12px}
+.bar{height:6px;border-radius:3px;background:var(--line);overflow:hidden;margin-top:4px}
+.bar i{display:block;height:100%;background:var(--accent)}
+@media (max-width:820px){.kpis{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+/* pestañas */
+.tabs{display:flex;flex-wrap:wrap;gap:8px;align-items:stretch}
+.tab{border:1px solid var(--line-strong);background:var(--surface);border-radius:8px;padding:8px 12px;text-align:left;display:flex;flex-direction:column;gap:1px;min-width:132px}
+.tab strong{font-family:var(--f-display);font-size:17px;font-weight:600}
+.tab span{font-size:12px;color:var(--muted)}
+.tab[aria-selected="true"]{border-color:var(--accent);box-shadow:inset 0 0 0 1px var(--accent);background:var(--accent-soft)}
+.tab-new{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.pill{display:inline-block;font-size:11px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;padding:2px 7px;border-radius:99px;vertical-align:middle}
+.pill.borrador{background:var(--warn-soft);color:var(--warn)}
+.pill.emitida,.pill.cerrada{background:var(--ok-soft);color:var(--ok)}
+.btn.close.armed{background:var(--ok);border-color:var(--ok);color:var(--surface)}
+
+/* exportar */
+.export{display:flex;flex-wrap:wrap;align-items:center;gap:10px 14px;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:12px 16px}
+.export .tb-label{font-weight:600;color:var(--ink);font-size:13px}
+.export .hint{font-size:12px;color:var(--muted);flex:1 1 220px}
+@media (max-width:760px){.export .seg{flex:1 1 100%}.export .seg button{flex:1}.export .btn{flex:1 1 auto}}
+
+/* lotes */
+.lotes{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px}
+.lote{border:1px solid var(--line-strong);background:var(--surface);border-radius:10px;padding:12px 14px;text-align:left;display:flex;flex-direction:column;gap:3px;min-width:0}
+.lote strong{font-family:var(--f-display);font-size:20px;font-weight:600}
+.lote span{font-size:12.5px;color:var(--ink)}
+.lote span.muted{color:var(--muted)}
+.lote[aria-selected="true"]{border-color:var(--accent);box-shadow:inset 0 0 0 1px var(--accent);background:var(--accent-soft)}
+.lote:hover{border-color:var(--accent)}
+
+/* ficha */
+.sheet{background:var(--surface);border:1px solid var(--line);border-radius:10px;display:flex;flex-direction:column}
+.sheet-head{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:0;border-bottom:1px solid var(--line)}
+@media (max-width:900px){.sheet-head{grid-template-columns:minmax(0,1fr)}}
+.fields{padding:18px;display:flex;flex-direction:column;gap:14px;min-width:0}
+.fields h2{font-size:26px}
+.frow{display:flex;flex-wrap:wrap;gap:12px}
+.f{display:flex;flex-direction:column;gap:4px;min-width:0}
+.f label{font-size:12px;color:var(--muted);font-weight:500}
+.f input,.f select,.f textarea{border:1px solid var(--line-strong);background:var(--input);border-radius:6px;padding:7px 9px;min-width:0}
+.f textarea{font:inherit;color:inherit;resize:vertical;min-height:38px}
+.f.grow{flex:1 1 220px}
+.actions{display:flex;flex-wrap:wrap;gap:8px}
+.ledger{padding:18px;background:var(--sunk);border-left:1px solid var(--line);display:flex;flex-direction:column;gap:2px;min-width:0}
+@media (max-width:900px){.ledger{border-left:0;border-top:1px solid var(--line)}}
+.ledger h3{font-size:18px;margin-bottom:6px}
+.lrow{display:flex;justify-content:space-between;gap:12px;padding:5px 0;border-bottom:1px dashed var(--line)}
+.lrow span:last-child{font-family:var(--f-num);font-variant-numeric:tabular-nums;white-space:nowrap}
+.lrow.sub{color:var(--muted)}
+.lrow.strong{font-weight:600;border-bottom:1px solid var(--line-strong)}
+.lrow.total{border:0;padding-top:10px;font-family:var(--f-display);font-size:22px;font-weight:600}
+.lrow.total span:last-child{font-family:var(--f-display)}
+.note{font-size:12px;color:var(--muted);margin:8px 0 0}
+
+/* barra de herramientas */
+.toolbar{display:flex;flex-wrap:wrap;gap:10px 18px;align-items:center;padding:12px 18px;border-bottom:1px solid var(--line)}
+.seg{display:inline-flex;border:1px solid var(--line-strong);border-radius:7px;overflow:hidden}
+.seg button{border:0;background:transparent;padding:6px 11px;font-size:13px}
+.seg button[aria-pressed="true"]{background:var(--accent);color:var(--accent-ink)}
+.apply{display:inline-flex;align-items:center;gap:6px;font-size:13px}
+.pct-in{width:68px;border:1px solid var(--line-strong);background:var(--input);border-radius:6px;padding:6px 8px;text-align:right;font-family:var(--f-num)}
+.tb-label{font-size:12px;color:var(--muted);font-weight:500}
+
+/* relación valorada */
+.scroll{overflow-x:auto}
+table.grid{border-collapse:collapse;width:100%;min-width:1180px;font-size:13px}
+.grid th{font-size:11px;letter-spacing:.04em;text-transform:uppercase;color:var(--muted);font-weight:600;text-align:left;padding:8px 8px;border-bottom:1px solid var(--line-strong);background:var(--surface);position:sticky;top:0;vertical-align:bottom}
+.grid th.n{text-align:right;font-family:var(--f-body)}
+.grid th.grp{text-align:center;border-bottom:1px solid var(--line);padding-bottom:4px}
+.grid td{padding:5px 8px;border-bottom:1px solid var(--line);vertical-align:middle}
+.grid td.n{text-align:right;white-space:nowrap}
+.grid td.d{min-width:240px;max-width:340px}
+.grid td.id{font-family:var(--f-num);color:var(--muted);white-space:nowrap}
+.grid .edit{background:var(--accent-soft)}
+.grid input.cell{width:84px;border:1px solid var(--line-strong);background:var(--input);border-radius:5px;padding:4px 6px;text-align:right;font-family:var(--f-num);font-size:13px}
+.grid input.cell:disabled{border-color:transparent;background:transparent;color:var(--ink)}
+.grid tr.cap td{background:var(--sunk);padding:10px 8px;border-bottom:1px solid var(--line-strong)}
+.cap-wrap{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px 16px}
+.cap-wrap h3{font-size:18px}
+.grid tr.subt td{font-weight:600;border-bottom:2px solid var(--line-strong)}
+.grid tr.over td.flag,.grid tr.over input.cell{color:var(--bad)}
+.grid tr.over td.d::after{content:"Supera la medición del presupuesto";display:block;font-size:11px;color:var(--bad)}
+.grid tr.neg td.neg{color:var(--warn)}
+.grid tfoot td{font-weight:600;font-size:14px;padding:10px 8px}
+.m-id,.m-ud{display:none}
+.doc .tw{overflow-x:auto}
+.muted{color:var(--muted)}
+
+/* documento */
+.docwrap{padding:18px;background:var(--sunk);overflow-x:auto}
+.doc{background:#FFFFFF;color:#1B1A2E;max-width:1060px;min-width:760px;margin:0 auto;padding:36px 40px;border:1px solid var(--line);box-shadow:0 2px 14px rgba(20,16,60,.08);font-size:12px}
+.doc .dh{display:flex;justify-content:space-between;align-items:flex-start;gap:24px;border-bottom:2px solid #340AEA;padding-bottom:14px;margin-bottom:16px}
+.doc .dh img{height:40px;width:auto;max-width:280px;object-fit:contain}
+.doc .dh .t{text-align:right}
+.doc .dh .t h2{font-family:var(--f-display);font-size:26px;color:#1B1A2E}
+.doc .dh .t p{margin:2px 0 0;color:#55536E}
+.doc h4{font-family:var(--f-display);font-size:15px;letter-spacing:.06em;text-transform:uppercase;margin:18px 0 6px;color:#340AEA}
+.doc table{border-collapse:collapse;width:100%}
+.doc td,.doc th{border:1px solid #D4D3E2;padding:4px 6px;text-align:left;vertical-align:top}
+.doc th{background:#F0EEFB;font-weight:600;font-size:11px}
+.doc td.n,.doc th.n{text-align:right;white-space:nowrap;font-family:var(--f-num);font-variant-numeric:tabular-nums}
+.doc .kv td:first-child{width:200px;background:#F7F7FB;font-weight:600}
+.doc tr.st td{font-weight:600;background:#F7F7FB}
+.doc tr.tt td{font-weight:700;background:#ECE8FE;font-size:13px}
+.doc .sig{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:10px}
+.doc .sig div{border:1px solid #D4D3E2;padding:10px 12px;min-height:110px;display:flex;flex-direction:column;justify-content:space-between}
+.doc .obs{color:#55536E;margin:8px 0 0}
+
+/* ajustes */
+details.settings{background:var(--surface);border:1px solid var(--line);border-radius:10px}
+details.settings summary{padding:14px 18px;cursor:pointer;font-family:var(--f-display);font-size:18px;font-weight:600}
+.set-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:18px;padding:0 18px 18px}
+@media (max-width:820px){.set-grid{grid-template-columns:minmax(0,1fr)}}
+.set-box{display:flex;flex-direction:column;gap:12px;min-width:0}
+.logo-prev{background:#FFFFFF;border:1px dashed var(--line-strong);border-radius:8px;padding:14px;display:flex;align-items:center;justify-content:center;min-height:80px}
+.logo-prev img{max-height:56px;max-width:100%;object-fit:contain}
+.check{display:flex;gap:8px;align-items:flex-start;font-size:13px}
+.empty{background:var(--surface);border:1px dashed var(--line-strong);border-radius:10px;padding:28px;display:flex;flex-direction:column;gap:10px;align-items:flex-start}
+.empty h2{font-size:24px}
+.banner{background:var(--warn-soft);color:var(--warn);border-radius:8px;padding:10px 14px;font-size:13px}
+.toast{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(18px + env(safe-area-inset-bottom,0px));background:var(--ink);color:var(--bg);padding:9px 14px;border-radius:8px;font-size:13px;z-index:20;max-width:calc(100% - 32px)}
+/* móvil: cada partida es una ficha */
+@media (max-width:760px){
+  #app{gap:14px;padding-block:14px 40px}
+  .mast h1{font-size:25px}
+  .logo-chip{padding:8px 10px}.logo-chip img{height:22px}
+  .kpi{padding:12px}.kpi b{font-size:20px}
+  .tab{min-width:0;flex:1 1 140px}
+  .tab-new{flex:1 1 100%}.tab-new .btn{flex:1 1 auto}
+  .fields,.ledger{padding:14px}
+  .fields h2{font-size:23px}
+  .frow .f{flex:1 1 140px}
+  .actions .btn,.actions .seg{flex:1 1 auto}
+  .actions .seg button{flex:1}
+  .toolbar{padding:12px 14px}
+  .toolbar .seg{flex:1 1 100%}.toolbar .seg button{flex:1}
+  .apply{flex:1 1 100%}.apply label{flex:1}
+  .scroll{overflow-x:visible}
+  table.grid{min-width:0;font-size:14px}
+  .grid thead{display:none}
+  .grid,.grid tbody,.grid tfoot{display:block}
+  .grid tr{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:8px 12px;padding:12px 14px;border-bottom:1px solid var(--line)}
+  .grid td{display:flex;flex-direction:column;align-items:stretch;gap:2px;padding:0;border:0;min-width:0}
+  .grid td.n{text-align:left;white-space:normal}
+  .grid td[data-l]::before{content:attr(data-l);font-family:var(--f-body);font-size:10.5px;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);font-weight:600}
+  .grid td.id,.grid td.ud,.grid td.sp{display:none}
+  .grid td.d,.grid td.lbl,.grid td.ant{grid-column:1/-1;max-width:none;min-width:0}
+  .grid td.d{display:block;font-weight:500}
+  .m-id{display:inline;font-family:var(--f-num);color:var(--muted);margin-right:8px;font-weight:400}
+  .m-ud{display:inline;color:var(--muted);font-weight:400}
+  .grid td.edit{background:var(--accent-soft);border-radius:8px;padding:6px 8px}
+  .grid input.cell{width:100%;font-size:16px;padding:7px 8px}
+  .grid tr.over td.d::after{margin-top:2px}
+  .grid tr.cap{display:block;padding:0}
+  .grid tr.cap td{display:block;padding:12px 14px}
+  .cap-wrap{flex-direction:column;align-items:stretch}
+  .cap-wrap h3{font-size:19px}
+  .grid tr.subt,.grid tfoot tr{background:var(--sunk);border-bottom:2px solid var(--line-strong)}
+  .grid tr.subt td,.grid tfoot td{border:0;padding:0}
+  .docwrap{padding:10px}
+  .doc{min-width:0;padding:16px 14px;font-size:11px}
+  .doc .dh{flex-wrap:wrap}.doc .dh img{height:30px}.doc .dh .t{text-align:left}.doc .dh .t h2{font-size:22px}
+  .doc .kv td:first-child{width:auto}
+  .doc .tw table{min-width:640px}
+  .doc .sig{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion:no-preference){.btn,.tab{transition:border-color .15s,background .15s}}
+</style>
+
+<div id="app"><div class="empty"><h2>Cargando certificaciones…</h2><p class="muted">Leyendo las certificaciones guardadas del hospital.</p></div></div>
+<div class="toast" id="toast" hidden></div>
+
+<script>
+const DEFAULT_LOGO="";
+/* Datos de cabecera por defecto: se pueden cambiar en Ajustes y se guardan con la herramienta. */
+const OBRA_DEF={
+  titulo:"Instalación eléctrica de baja tensión · Hospital Nuestra Señora de los Dolores",
+  emplazamiento:"Santa Cruz de La Palma (La Palma) · Contrato Tragsa nº 787.462",
+  promotor:"",
+  contratista:"Tragsa",
+  certifica:"Instalaciones Eléctricas José Carlos S.L.U.",
+  firmante:"Alberto de Paz Bethencourt"
+};
+/* Lotes. Para añadir uno nuevo basta con otra entrada con sus capítulos y partidas [nº, ud, descripción, precio, medición]. */
+const LOTES=[
+ {id:"1",nombre:"Lote 1",desc:"Planta baja, alumbrado exterior y módulos A, B, C",
+  previo:{hasta:6,importe:172065},
+  caps:[{id:"1",nombre:"Instalación iluminación interior"},{id:"2",nombre:"Instalación electrificación"},{id:"3",nombre:"Instalación de alumbrado exterior"}],
+  P:[
+  ["1.1", "ud", "Instalación de luminaria empotrada polivalente, IPXX, según prescripciones técnicas del PPTP. (Luminaria suministrada por Tragsa).", 20.0, 103.0],
+  ["1.2", "ud", "Instalación de Downlight empotrado, IP44, según prescripciones técnicas del PPTP. (Luminaria suministrada por Tragsa).", 20.0, 207.0],
+  ["1.3", "ud", "Instalación de Downlight empotrado, IPXX, según prescripciones técnicas del PPTP. (Luminaria suministrada por Tragsa).", 20.0, 215.0],
+  ["1.4", "ud", "Instalación de luminaria estanca LED empotrada, IP65, según prescripciones técnicas del PPTP. (Luminaria suministrada por Tragsa).", 20.0, 90.0],
+  ["1.5", "m", "Instalación incluyendo suministro de Cable eléctrico para transmisión de datos DALI, según prescripciones técnicas del PPTP.", 2.5, 2843.5],
+  ["1.6", "ud", "Instalación de Luminaria de señalización, adosada a techo y placa de señalización 220x220mm, según prescripciones técnicas del PPTP. (Luminaria suministrada por Tragsa).", 20.0, 82.0],
+  ["1.7", "ud", "Instalación de Luminaria de señalización, adosada a techo y placa de señalización 220x110mm, según prescripciones técnicas del PPTP. (Luminaria suministrada por Tragsa).", 20.0, 14.0],
+  ["1.8", "ud", "Instalación de bloque autónomo de emergencia IP42 IK04, enrasado en pared o techo, según prescripciones técnicas del PPTP. (Luminaria suministrada por Tragsa).", 20.0, 344.0],
+  ["1.9", "ud", "Instalación de bloque autónomo de emergencia IP66 IK10, enrasado en pared o techo, según prescripciones técnicas del PPTP. (Luminaria suministrada por Tragsa).", 20.0, 5.0],
+  ["1.10", "ud", "Instalación de baliza IP64 IK07, según prescripciones técnicas del PPTP. (Luminaria suministrada por Tragsa).", 30.0, 125.0],
+  ["1.11", "ud", "Instalación de bañador de pared, según prescripciones técnicas del PPTP. (Luminaria suministrada por Tragsa).", 20.0, 85.0],
+  ["1.12", "ud", "Instalación de luminaria, en muro de hormigón armado de urbanización, IP67, según prescripciones técnicas del PPTP. (Luminaria suministrada por Tragsa).", 100.0, 52.0],
+  ["2.1", "ud", "Instalación incluyendo suministro de EQUIPOTENCIAL MAQUINAS, Cu 750 V 6mm², según prescripciones técnicas del PPTP.", 15.0, 15.0],
+  ["2.2", "ud", "Instalación incluyendo suministro de EQUIPOTENCIAL BAÑOS, Cu 750 V 4mm², según prescripciones técnicas del PPTP.", 30.0, 80.0],
+  ["2.3", "ud", "Instalación incluyendo suministro de Arqueta de puesta o conexión a tierra, metálica, 30x30 cm con tapa, según prescripciones técnicas del PPTP.", 50.0, 40.0],
+  ["2.4", "ud", "Instalación incluyendo suministro de Puesto de Trabajo en caja de empotrar, según prescripciones técnicas del PPTP.", 150.0, 112.0],
+  ["2.5", "ud", "Instalación incluyendo conexionado de Cuadro de Telecomunicaciones (Suministrado por Tragsa (*)), según prescripciones técnicas del PPTP.", 56.0, 1.0],
+  ["2.6", "m", "Instalación incluyendo suministro de Bandeja perforada de PVC, color gris RAL 7035, de 100x600 mm, según prescripciones técnicas del PPTP.", 109.0, 60.0],
+  ["2.7", "m", "Instalación incluyendo suministro de bandeja de rejilla, alambre de acero cincado, 60x500 mm, RF 90 a 1.000°C E9, según prescripciones técnicas del PPTP.", 49.0, 425.0],
+  ["2.8", "m", "Instalación incluyendo suministro de bandeja de rejilla, alambre de acero cincado, 60x400 mm, RF 90 a 1.000°C E9, según prescripciones técnicas del PPTP.", 42.0, 223.0],
+  ["2.9", "m", "Instalación incluyendo suministro de bandeja de rejilla, alambre de acero cincado, 60x200 mm, RF 90 minutos a 1.000°C E9, según prescripciones técnicas del PPTP.", 35.0, 61.0],
+  ["2.10", "m", "Instalación incluyendo suministro de tubo rígido de policarbonato, ø nominal 20 mm, según prescripciones técnicas del PPTP.", 6.9, 175.0],
+  ["2.11", "m", "Instalación incluyendo suministro de tubo rígido de policarbonato, ø nominal 25 mm, según prescripciones técnicas del PPTP.", 7.8, 1095.0],
+  ["2.12", "m", "Instalación incluyendo suministro de tubo rígido de policarbonato, ø nominal 32 mm, según prescripciones técnicas del PPTP.", 9.5, 330.0],
+  ["2.13", "m", "Instalación incluyendo suministro de tubo rígido de policarbonato, ø nominal 40 mm, según prescripciones técnicas del PPTP.", 11.0, 570.0],
+  ["2.14", "m", "Instalación incluyendo suministro de tubo rígido de policarbonato, ø nominal 50 mm, según prescripciones técnicas del PPTP.", 18.0, 70.0],
+  ["2.15", "m", "Instalación incluyendo suministro de tubo rígido de policarbonato, ø nominal 63 mm, según prescripciones técnicas del PPTP.", 22.5, 50.0],
+  ["2.16", "ud", "Ampliación de punto de luz: instalación incluyendo suministro de materiales, según prescripciones técnicas del PPTP.", 20.0, 834.0],
+  ["2.17", "ud", "Instalación incluyendo suministro de Punto de luz de alumbrado de emergencia y señalización, según prescripciones técnicas del PPTP.", 25.0, 448.0],
+  ["2.18", "ud", "Instalación incluyendo suministro de Punto de luz sencillo mediante pulsador con piloto luminoso, según prescripciones técnicas del PPTP.", 40.0, 237.0],
+  ["2.19", "ud", "Instalación incluyendo suministro de Punto de luz sencillo mediante sensor de movimiento, según prescripciones técnicas del PPTP.", 50.0, 105.0],
+  ["2.20", "ud", "Instalación incluyendo suministro de Toma de corriente sencilla empotrada Schuko de 16 A, según prescripciones técnicas del PPTP.", 45.0, 284.0],
+  ["2.21", "ud", "Instalación incluyendo suministro de Toma de corriente doble empotrada Schuko de 16 A, según prescripciones técnicas del PPTP.", 55.0, 73.0],
+  ["2.22", "ud", "Instalación incluyendo suministro de Toma de corriente Trifásica 16 A - 400V, según prescripciones técnicas del PPTP.", 60.0, 8.0],
+  ["2.23", "ud", "Instalación incluyendo suministro de Toma de corriente sobrepared trifásica de 63 A, según prescripciones técnicas del PPTP.", 190.0, 12.0],
+  ["2.24", "ud", "Instalación incluyendo suministro de Toma de corriente estanca de superficie 10/16A, según prescripciones técnicas del PPTP.", 65.0, 95.0],
+  ["2.25", "m", "Instalación incluyendo suministro de Línea de distribución eléctrica, conductores de cobre de 1,5 mm2, según prescripciones técnicas del PPTP.", 4.5, 783.0],
+  ["2.26", "m", "Instalación incluyendo suministro de Línea de distribución eléctrica, conductores de cobre de 2,5 mm2, según prescripciones técnicas del PPTP.", 5.0, 4050.0],
+  ["2.27", "m", "Instalación incluyendo suministro de Línea de distribución eléctrica, conductores de cobre de 6 mm2, según prescripciones técnicas del PPTP.", 7.0, 378.0],
+  ["2.28", "m", "Instalación incluyendo suministro de Línea de distribución eléctrica, conductores de cobre RZ1-K (AS), de 3G1,5 mm2, según prescripciones técnicas del PPTP.", 3.0, 2253.0],
+  ["2.29", "m", "Instalación incluyendo suministro de Línea de distribución eléctrica, conductores de cobre RZ1-K (AS), de 3G2,5 mm2, según prescripciones técnicas del PPTP.", 3.5, 1738.0],
+  ["2.30", "m", "Instalación y suministro de Línea de distribución eléctrica, formada por conductores de cobre (3 fases + neutro + T) H07Z1-K (AS), de 2,5mm2", 4.85, 472.0],
+  ["2.31", "m", "Instalación incluyendo suministro de Línea de distribución eléctrica monofásica, cobre RZ1-K (AS) 3G10mm2, según prescripciones técnicas del PPTP.", 10.0, 551.0],
+  ["2.32", "m", "Instalación incluyendo suministro de Línea de distribución eléctrica monofásica, cobre RZ1-K (AS), 3G16 mm², según prescripciones técnicas del PPTP.", 13.0, 272.0],
+  ["2.33", "m", "Instalación incluyendo suministro de Línea de distribución eléctrica trifásica, cobre, RZ1-K (AS) Cca-s1b,d1,a1 5G10 mm2, según prescripciones técnicas del PPTP.", 14.0, 140.0],
+  ["2.34", "m", "Instalación incluyendo suministro de Línea de distribución eléctrica trifásica, cobre, RZ1-K (AS) 5G16 mm2, según prescripciones técnicas del PPTP.", 18.0, 212.0],
+  ["2.35", "m", "Instalación incluyendo suministro de Línea de distribución eléctrica trifásica, cobre, RZ1-K (AS) 4x25+1G16mm2, según prescripciones técnicas del PPTP.", 25.0, 60.0],
+  ["2.36", "m", "Instalación incluyendo suministro de Línea de distribución eléctrica trifásica, cobre, RZ1-K (AS) 4x35+1G16mm2, según prescripciones técnicas del PPTP.", 32.0, 60.0],
+  ["2.37", "ud", "Instalación de Sistema de Alimentación Ininterrumpida (SAI) On-Line, de 30 kVA, según prescripciones técnicas del PPTP. (Suministrado por Tragsa).", 55.0, 1.0],
+  ["2.38", "ud", "Instalación de Sistema de Alimentación Ininterrumpida (SAI) On-Line, de 10 kVA, según prescripciones técnicas del PPTP. (Suministrado por Tragsa).", 55.0, 3.0],
+  ["2.39", "ud", "Instalación y conexionado de Subcuadro General de Mando y Protección Planta 0, según prescripciones técnicas del PPTP. (Suministrado por Tragsa (*)).", 850.0, 1.0],
+  ["2.40", "ud", "Instalación y conexionado de Subcuadro General de Mando y Protección Farmacia, según prescripciones técnicas del PPTP. (Suministrado por Tragsa (*)).", 850.0, 1.0],
+  ["2.41", "ud", "Instalación y conexionado de Subcuadro General de Mando y Protección Gases Medicinales, según prescripciones técnicas del PPTP. (Suministrado por Tragsa (*)).", 300.0, 1.0],
+  ["2.42", "ud", "Instalación y conexionado de Subcuadro General de Mando y Protección Alumbrado Exterior, según prescripciones técnicas del PPTP. (Suministrado por Tragsa (*)).", 600.0, 1.0],
+  ["2.43", "ud", "Instalación y conexionado de Subcuadro General de Mando y Protección Módulo A, según prescripciones técnicas del PPTP. (Suministrado por Tragsa (*)).", 900.0, 1.0],
+  ["2.44", "ud", "Instalación y conexionado de Subcuadro General de Mando y Protección Módulo B, según prescripciones técnicas del PPTP. (Suministrado por Tragsa (*)).", 850.0, 1.0],
+  ["2.45", "ud", "Instalación y conexionado de Subcuadro General de Mando y Protección Módulo C, según prescripciones técnicas del PPTP. (Suministrado por Tragsa (*)).", 700.0, 1.0],
+  ["2.46", "ud", "Instalación y conexionado de Subcuadro General de Mando y Protección Taller, según prescripciones técnicas del PPTP. (Suministrado por Tragsa (*)).", 300.0, 1.0],
+  ["2.47", "ud", "Instalación y conexionado de Subcuadro General de Mando y Protección Lavandería, según prescripciones técnicas del PPTP. (Suministrado por Tragsa (*)).", 850.0, 1.0],
+  ["2.48", "ud", "Instalación y conexionado de Subcuadro General de Mando y Protección ACS, según prescripciones técnicas del PPTP. (Suministrado por Tragsa (*)).", 850.0, 1.0],
+  ["3.1", "m", "Instalación incluyendo suministro de Canalización con 1 tubo de PE, ø 110 mm, según prescripciones técnicas del PPTP.", 20.0, 360.0],
+  ["3.2", "ud", "Instalación incluyendo suministro de Arqueta prefabricada de registro, de PP, 40x40x55 cm, según prescripciones técnicas del PPTP.", 60.0, 32.0],
+  ["3.3", "ud", "Instalación incluyendo suministro de Base de hormigón para cimentación de báculo, según prescripciones técnicas del PPTP.", 70.0, 15.0],
+  ["3.4", "ud", "Instalación de luminaria sobre columna, de perfil rectangular de 200x100mm, según prescripciones técnicas del PPTP. (Suministrados por Tragsa).", 50.0, 15.0],
+  ["3.5", "ud", "Instalación de luminaria instalada en pared, de perfil rectangular de 200mm x 100mm, según prescripciones técnicas del PPTP. (Luminaria suministrada por Tragsa).", 50.0, 2.0],
+  ["3.6", "ud", "Instalación de baliza LED 9W y 2700K, según prescripciones técnicas del PPTP. (Luminaria suministrada por Tragsa).", 30.0, 24.0],
+  ["3.7", "m", "Instalación incluyendo suministro de Circuito de alimentación para alumbrado, RV-K (AS) 4x6 mm² + TT 16mm2, según prescripciones técnicas del PPTP.", 10.5, 880.0],
+  ["3.8", "m", "Instalación incluyendo suministro de Línea de distribución eléctrica, cobre H07Z1-K (AS), según prescripciones técnicas del PPTP.", 3.0, 750.0],
+  ["3.9", "ud", "Instalación incluyendo suministro de Arqueta metálica de puesta a tierra, 30x30 cm con tapa, según prescripciones técnicas del PPTP.", 50.0, 10.0]
+ ]},
+ {id:"2",nombre:"Lote 2",desc:"Módulo G",
+  caps:[{id:"1",nombre:"Instalación iluminación interior"},{id:"2",nombre:"Instalación electrificación"}],
+  P:[
+  ["1.1", "ud", "Instalación de luminaria empotrada polivalente, IPXX, según prescripciones técnicas del PPTP. (Luminaria suministrada por Tragsa).", 20, 297],
+  ["1.2", "ud", "Instalación de Downlight empotrado, IP44, según prescripciones técnicas del PPTP. (Luminaria suministrada por Tragsa).", 20, 183],
+  ["1.3", "ud", "Instalación de Downlight empotrado, IPXX, según prescripciones técnicas del PPTP. (Luminaria suministrada por Tragsa).", 20, 223],
+  ["1.4", "m", "Instalación incluyendo suministro de Cable eléctrico para transmisión de datos DALI, según prescripciones técnicas del PPTP.", 2.5, 2843.5],
+  ["1.5", "ud", "Instalación de Luminaria de señalización, adosada a techo y placa de señalización 220x220mm, según prescripciones técnicas del PPTP. (Luminaria suministrada por Tragsa).", 20, 120],
+  ["1.6", "ud", "Instalación de Luminaria de señalización, adosada a techo y placa de señalización 220x110mm, según prescripciones técnicas del PPTP. (Luminaria suministrada por Tragsa).", 20, 68],
+  ["1.7", "ud", "Instalación de bloque autónomo de emergencia IP42 IK04, enrasado en pared o techo, según prescripciones técnicas del PPTP. (Luminaria suministrada por Tragsa).", 20, 371],
+  ["1.8", "ud", "Instalación de bloque autónomo de emergencia IP66 IK10 ,enrasado en pared o techo, según prescripciones técnicas del PPTP. (Luminaria suministrada por Tragsa).", 20, 8],
+  ["1.9", "ud", "Instalación de baliza IP64 IK07, según prescripciones técnicas del PPTP. (Luminaria suministrada por Tragsa).", 30, 160],
+  ["1.10", "ud", "Instalación de bañador de pared, según prescripciones técnicas del PPTP. (Luminaria suministrada por Tragsa).", 20, 105],
+  ["2.1", "ud", "Instalación incluyendo suministro de EQUIPOTENCIAL MAQUINAS, Cu 750 V 6mm², según prescripciones técnicas del PPTP.", 15, 15],
+  ["2.2", "ud", "Instalación incluyendo suministro de EQUIPOTENCIAL BAÑOS, Cu 750 V 4mm², según prescripciones técnicas del PPTP.", 30, 84],
+  ["2.3", "ud", "Instalación incluyendo suministro de Puesto de Trabajo en caja de empotrar, según prescripciones técnicas del PPTP.", 150, 101],
+  ["2.4", "ud", "Instalación de Sistema de Alimentación Ininterrumpida (SAI) On-Line, de 20 kVA, según prescripciones técnicas del PPTP. (Suministrado por Tragsa).", 55, 7],
+  ["2.5", "m", "Instalación incluyendo suministro de bandeja de rejilla, alambre de acero cincado, 60x500 mm, RF 90 a 1.000°C E9, según prescripciones técnicas del PPTP.", 49, 75],
+  ["2.6", "m", "Instalación incluyendo suministro de bandeja de rejilla, alambre de acero cincado, 60x400 mm, RF 90 a 1.000°C E9, según prescripciones técnicas del PPTP.", 42, 397],
+  ["2.7", "m", "Instalación incluyendo suministro de bandeja de rejilla, alambre de acero cincado, 60x200 mm, RF 90 minutos a 1.000°C E9, según prescripciones técnicas del PPTP.", 35, 159],
+  ["2.8", "m", "Instalación incluyendo suministro de tubo rígido de policarbonato, ø nominal 20 mm, según prescripciones técnicas del PPTP.", 6.9, 175],
+  ["2.9", "m", "Instalación incluyendo suministro de tubo rígido de policarbonato, ø nominal 25 mm, según prescripciones técnicas del PPTP.", 7.8, 1095],
+  ["2.10", "m", "Instalación incluyendo suministro de tubo rígido de policarbonato, ø nominal 32 mm, según prescripciones técnicas del PPTP.", 9.5, 260],
+  ["2.11", "m", "Instalación incluyendo suministro de tubo rígido de policarbonato, ø nominal 40 mm, según prescripciones técnicas del PPTP.", 11, 320],
+  ["2.12", "m", "Instalación incluyendo suministro de tubo rígido de policarbonato, ø nominal 50 mm, según prescripciones técnicas del PPTP.", 18, 10],
+  ["2.13", "m", "Instalación incluyendo suministro de tubo rígido de policarbonato,ø nominal 63 mm, según prescripciones técnicas del PPTP.", 22.5, 10],
+  ["2.14", "ud", "Ampliación de punto de luz: instalación incluyendo suministro de materiales, según prescripciones técnicas del PPTP.", 20, 1066],
+  ["2.15", "ud", "Instalación incluyendo suministro de Punto de luz de alumbrado de emergencia y señalización, según prescripciones técnicas del PPTP.", 25, 892],
+  ["2.16", "ud", "Instalación incluyendo suministro de Punto de luz sencillo mediante pulsador con piloto luminoso, según prescripciones técnicas del PPTP.", 40, 237],
+  ["2.17", "ud", "Instalación incluyendo suministro de Punto de luz sencillo mediante sensor de movimiento, según prescripciones técnicas del PPTP.", 50, 105],
+  ["2.18", "ud", "Instalación incluyendo suministro de Toma de corriente sencilla empotrada Schuko de 16 A, según prescripciones técnicas del PPTP.", 45, 266],
+  ["2.19", "ud", "Instalación incluyendo suministro de Toma de corriente doble empotrada Schuko de 16 A, según prescripciones técnicas del PPTP.", 55, 62],
+  ["2.20", "ud", "Instalación incluyendo suministro de Toma de corriente Trifásica 16 A - 400V, según prescripciones técnicas del PPTP.", 55, 4],
+  ["2.21", "ud", "Instalación incluyendo suministro de Toma de corriente sobrepared trifásica de 63 A, según prescripciones técnicas del PPTP.", 125, 3],
+  ["2.22", "ud", "Instalación incluyendo suministro de Toma de corriente estanca de superficie 10/16A, según prescripciones técnicas del PPTP.", 65, 25],
+  ["2.23", "m", "Instalación incluyendo suministro de Línea de distribución eléctrica, conductores de cobre de 1,5 mm2, según prescripciones técnicas del PPTP.", 4.5, 1460],
+  ["2.24", "m", "Instalación incluyendo suministro de Línea de distribución eléctrica, conductores de cobre de 2,5 mm2, según prescripciones técnicas del PPTP.", 5, 4794],
+  ["2.25", "m", "Instalación incluyendo suministro de Línea de distribución eléctrica, conductores de cobre RZ1-K (AS), de 3G1,5 mm2, según prescripciones técnicas del PPTP.", 3, 10255],
+  ["2.26", "m", "Instalación incluyendo suministro de Línea de distribución eléctrica, conductores de cobre RZ1-K (AS), de 3G2,5 mm2, según prescripciones técnicas del PPTP.", 3.5, 10271],
+  ["2.27", "m", "Instalación incluyendo suministro de Línea de distribución eléctrica monofásica, cobre RZ1-K (AS) 3G10mm2, según prescripciones técnicas del PPTP.", 10, 487],
+  ["2.28", "m", "Instalación incluyendo suministro de Línea de distribución eléctrica monofásica, cobre RZ1-K (AS), 3G16 mm², según prescripciones técnicas del PPTP.", 13, 35],
+  ["2.29", "m", "Instalación incluyendo suministro de Línea de distribución eléctrica trifásica, cobre, RZ1-K (AS) 5G16 mm2, según prescripciones técnicas del PPTP.", 18, 66],
+  ["2.30", "ud", "Instalación y conexionado de subcuadro General de Mando y Protección Planta 1, según prescripciones técnicas del PPTP. (Suministrado por Tragsa (*)).", 1980, 1],
+  ["2.31", "ud", "Instalación y conexionado de Subcuadro General de Mando y Protección Rayos X, según prescripciones técnicas del PPTP. (Suministrado por Tragsa (*)).", 700, 1],
+  ["2.32", "ud", "Instalación y conexionado de Subcuadro General de Mando y Protección Módulo D, según prescripciones técnicas del PPTP. (Suministrado por Tragsa (*)).", 850, 1],
+  ["2.33", "ud", "Instalación y conexionado de Subcuadro General de Mando y Protección Módulo E, según prescripciones técnicas del PPTP. (Suministrado por Tragsa (*)).", 850, 1],
+  ["2.34", "ud", "Instalación y conexionado de Subcuadro General de Mando y Protección Módulo F, según prescripciones técnicas del PPTP. (Suministrado por Tragsa (*)).", 850, 1]
+ ]}
+];
+for(const L of LOTES){L.P=L.P.map(([n,ud,d,p,q])=>({n,ud,d,p,q,cap:n.split(".")[0],k:"p"+n.replace(".","_")}))}
+let OBRA={...OBRA_DEF}, CAPS=[], P=[], PEM=0, CAP_PEM={}, loteId=null, PREV=null;
+const r2=x=>Math.round((x+Math.sign(x)*1e-9)*100)/100;
+const r4=x=>Math.round((x+Math.sign(x)*1e-12)*10000)/10000;
+const lotePEM=L=>r2(L.P.reduce((s,p)=>s+r2(p.p*p.q),0));
+const curLote=()=>LOTES.find(l=>l.id===loteId);
+function setLote(id){
+  const L=LOTES.find(l=>l.id===id)||LOTES.find(l=>l.P.length)||LOTES[0];
+  loteId=L.id;CAPS=L.caps;P=L.P;PEM=lotePEM(L);PREV=L.previo||null;
+  CAP_PEM=Object.fromEntries(CAPS.map(c=>[c.id,r2(P.filter(p=>p.cap===c.id).reduce((s,p)=>s+r2(p.p*p.q),0))]));
+  try{localStorage.setItem("hosp-lote",loteId)}catch(e){}
+}
+let _lsLote=null;try{_lsLote=localStorage.getItem("hosp-lote")}catch(e){}
+setLote(_lsLote||"2");
+function prevFiscal(){if(!PREV)return null;const f=fiscal(PREV.importe);return {base:PREV.importe,...f}}
+const prevLabel=()=>PREV?(PREV.hasta>1?`nº 1 a ${PREV.hasta}`:"nº 1"):"";
+const loteTag=()=>{const L=curLote();return L.nombre+(L.desc?" · "+L.desc:"")};
+
+function grp(intStr){return intStr.replace(/\B(?=(\d{3})+(?!\d))/g,".")}
+function eu(v){const t=eur(v);return t==="—"?t:t+" €"}
+function eur(v){if(v==null||!isFinite(v))return "—";if(Math.abs(v)<0.005)v=0;const [i,d]=Math.abs(v).toFixed(2).split(".");return (v<0?"−":"")+grp(i)+","+d}
+function qf(v){if(v==null||!isFinite(v))return "—";if(Math.abs(v)<0.00005)v=0;let s=Math.abs(v).toFixed(2).replace(/0+$/,"").replace(/\.$/,"");const [i,d]=s.split(".");return (v<0?"−":"")+grp(i)+(d?","+d:"")}
+function pf(v){if(!isFinite(v))return "—";if(Math.abs(v)<0.005)v=0;return (Math.round(v*100)/100).toFixed(2).replace(/\.?0+$/,"").replace(".",",")}
+function parseNum(s){s=String(s??"").trim().replace(/\s/g,"").replace("−","-");if(!s)return 0;if(s.includes(","))s=s.replace(/\./g,"").replace(",",".");const v=parseFloat(s);return isFinite(v)?v:NaN}
+function esc(s){return String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]))}
+function fechaES(iso){if(!iso)return "";const [y,m,d]=iso.split("-");return d&&m&&y?`${d}/${m}/${y}`:iso}
+function todayISO(){const d=new Date();return d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0")}
+
+/* ---------- estado ---------- */
+let certs=[], cfg={igic:7,isp:false,ret:0,logo:"",obra:{}}, selId=null, view="medir", modo="origen";
+let db=null, dl=null, localMode=false, loaded=false;
+const dirty=new Set(), writing={}, again={}, timers={};
+let cfgTimer=null;
+
+const loteCerts=id=>certs.filter(c=>(c.lote||"")===id);
+const sorted=()=>loteCerts(loteId).slice().sort((a,b)=>a.num-b.num);
+const sel=()=>certs.find(c=>c.id===selId)||null;
+const logoSrc=()=>cfg.logo||DEFAULT_LOGO;
+function syncObra(){OBRA={...OBRA_DEF,...(cfg.obra||{})}}
+function prevObra(c){return sorted().filter(x=>x.tipo==="obra"&&x.num<c.num).pop()||null}
+function qO(c,p){return c&&c.qty&&c.qty[p.k]!=null?+c.qty[p.k]:0}
+function anticipoImporte(c){return r2(P.reduce((s,p)=>s+r2(p.q*(+c.pct||0)/100*p.p),0))}
+function antHasta(num){return r2(sorted().filter(x=>x.tipo==="anticipo"&&x.num<=num).reduce((s,x)=>s+anticipoImporte(x),0))}
+function fiscal(base){const igic=cfg.isp?0:r2(base*(+cfg.igic||0)/100);return {igic,total:r2(base+igic)}}
+
+function calc(c){
+  if(c.tipo==="anticipo"){
+    const rows=P.map(p=>{const qo=p.q*(+c.pct||0)/100;const io=r2(qo*p.p);return {p,qa:0,qo,qt:qo,ia:0,io,it:io}});
+    const caps=capTotals(rows);const base=anticipoImporte(c);
+    return {tipo:"anticipo",rows,caps,O:base,A:0,T:base,base,...fiscal(base)};
+  }
+  const prev=prevObra(c);
+  const nd=!prev&&!!PREV;
+  const rows=P.map(p=>{const qa=nd?NaN:qO(prev,p),qo=qO(c,p);const ia=nd?NaN:r2(qa*p.p),io=r2(qo*p.p);return {p,qa,qo,qt:qo-qa,ia,io,it:nd?NaN:r2(io-ia)}});
+  const caps=capTotals(rows);
+  const O=r2(rows.reduce((s,r)=>s+r.io,0)),A=nd?PREV.importe:r2(rows.reduce((s,r)=>s+r.ia,0)),T=r2(O-A);
+  const ant=antHasta(c.num),rate=PEM?ant/PEM:0;
+  const amortO=Math.min(ant,Math.max(0,r2(O*rate)));
+  const amortPrev=prev?calc(prev).amortO:0;
+  const amort=r2(amortO-amortPrev);
+  const ret=r2(T*(+cfg.ret||0)/100);
+  const base=r2(T-amort-ret);
+  return {tipo:"obra",nd,rows,caps,O,A,T,ant,rate,amortO,amort,ret,base,pend:r2(ant-amortO),...fiscal(base)};
+}
+function capTotals(rows){const o={};for(const c of CAPS){const rs=rows.filter(r=>r.p.cap===c.id);o[c.id]={O:r2(rs.reduce((s,r)=>s+r.io,0)),A:r2(rs.reduce((s,r)=>s+r.ia,0)),T:r2(rs.reduce((s,r)=>s+r.it,0))}}return o}
+function loteStats(L){
+  const prevL=loteId;setLote(L.id);
+  const last=sorted().filter(x=>x.tipo==="obra").pop();
+  const ejec=last?calc(last).O:0;const n=sorted().length;const pem=PEM;
+  setLote(prevL);return {ejec,pem,n};
+}
+function stats(c){
+  const lastObra=c.tipo==="obra"?c:prevObra(c);
+  const k=lastObra?calc(lastObra):null;
+  const ejec=k?k.O:0;
+  const ant=antHasta(c.num);
+  const liq=r2((PREV?PREV.importe:0)+sorted().filter(x=>x.num<=c.num).reduce((s,x)=>s+calc(x).base,0));
+  return {ejec,pct:ejec/PEM*100,ant,pend:r2(ant-(k?k.amortO:0)),liq};
+}
+function tituloCert(c){return c.tipo==="anticipo"?`Anticipo al inicio de obra · ${pf(+c.pct||0)} %`:(c.periodo?`Obra ejecutada · ${c.periodo}`:"Obra ejecutada")}
+
+/* ---------- guardado ---------- */
+function strip(c){const o={...c};delete o.id;return JSON.parse(JSON.stringify(o))}
+function setStatus(t,cls=""){const el=document.getElementById("status");if(el){el.textContent=t;el.className="status "+cls}}
+function scheduleSave(c){dirty.add(c.id);setStatus("Guardando…","busy");clearTimeout(timers[c.id]);timers[c.id]=setTimeout(()=>flush(c.id),700)}
+async function flush(id){
+  if(writing[id]){again[id]=true;return}
+  writing[id]=true;
+  const c=certs.find(x=>x.id===id);
+  try{ if(c&&db) await db.doc("certs/"+id).set(strip(c)); setStatus(localMode?"Sin guardar (vista local)":"Guardado",localMode?"local":""); }
+  catch(e){ setStatus("No se ha podido guardar. Revisa la conexión y vuelve a editar.","err"); }
+  writing[id]=false;
+  if(again[id]){again[id]=false;flush(id)}else dirty.delete(id);
+}
+function saveCfg(){clearTimeout(cfgTimer);setStatus("Guardando…","busy");cfgTimer=setTimeout(async()=>{try{if(db)await db.doc("config/obra").set(JSON.parse(JSON.stringify(cfg)));setStatus(localMode?"Sin guardar (vista local)":"Guardado",localMode?"local":"")}catch(e){setStatus("No se han podido guardar los ajustes.","err")}cfgTimer=null},500)}
+function toast(t){const el=document.getElementById("toast");el.textContent=t;el.hidden=false;clearTimeout(toast._t);toast._t=setTimeout(()=>el.hidden=true,2800)}
+
+/* ---------- render ---------- */
+const app=document.getElementById("app");
+function render(){
+  const c=sel();
+  let h=`<header class="mast"><div class="mast-l">${logoSrc()?`<div class="logo-chip"><img src="${logoSrc()}" alt="Logo"></div>`:""}<div><div class="eyebrow">${esc(OBRA.titulo)}</div><h1>Certificaciones de obra</h1><p>${esc(OBRA.certifica)}${OBRA.contratista?" para "+esc(OBRA.contratista):""} · ${esc(loteTag())}${PEM?" · presupuesto "+eur(PEM)+" € sin IGIC":""}</p></div></div><div id="status" class="status ${localMode?"local":""}">${localMode?"Sin guardar (vista local)":"Guardado"}</div></header>`;
+  if(localMode)h+=`<div class="banner">Esta vista no puede guardar en el servidor. Puedes probar la herramienta, pero los cambios se pierden al cerrar. Ábrela desde claude.ai con tu sesión iniciada para guardar.</div>`;
+  h+=lotesHTML();
+  if(!P.length){
+    h+=`<section class="empty"><h2>${esc(loteTag())}: falta el presupuesto</h2><p class="muted">Este lote aparecerá en cuanto se cargue su presupuesto aceptado (partidas con unidad, precio y medición). Las certificaciones de los otros lotes no se ven afectadas.</p></section>`;
+    h+=settingsHTML();const os=document.querySelector("details.settings")?.open;app.innerHTML=h;if(os)document.querySelector("details.settings").open=true;return;
+  }
+  if(c)h+=kpisHTML(c);
+  h+=`<nav class="tabs" aria-label="Certificaciones">${sorted().map(x=>`<button class="tab" data-act="sel" data-id="${x.id}" aria-selected="${x.id===selId}"><strong>Nº ${x.num} <span class="pill ${x.estado}">${x.estado==="borrador"?"abierta":"cerrada"}</span></strong><span class="tab-sub">${esc(x.tipo==="anticipo"?`Anticipo ${pf(+x.pct||0)} %`:(x.periodo||"Obra ejecutada"))} · ${eur(calc(x).total)} €</span></button>`).join("")}
+    <div class="tab-new"><button class="btn primary" data-act="new-obra">+ Nueva certificación de obra</button><button class="btn ghost" data-act="new-ant">+ Anticipo</button></div></nav>`;
+  if(c)h+=exportBarHTML(c);
+  if(!c){
+    h+=`<section class="empty"><h2>Aún no hay certificaciones</h2><p class="muted">Crea la primera. Una certificación de obra recoge lo medido a origen; un anticipo certifica un % del presupuesto que se descuenta después.</p><div class="actions"><button class="btn primary" data-act="new-obra">Crear certificación de obra</button><button class="btn" data-act="new-ant">Crear anticipo</button></div></section>`;
+  } else {
+    h+=sheetHTML(c);
+  }
+  h+=settingsHTML();
+  const openSettings=document.querySelector("details.settings")?.open;
+  app.innerHTML=h;
+  if(openSettings)document.querySelector("details.settings").open=true;
+}
+function lotesHTML(){
+  return `<nav class="lotes" aria-label="Lotes">${LOTES.map(L=>{
+    if(!L.P.length)return `<button class="lote" data-act="lote" data-id="${L.id}" aria-selected="${L.id===loteId}"><strong>${esc(L.nombre)}</strong><span>${esc(L.desc||"Presupuesto pendiente")}</span><span class="muted">Sin presupuesto cargado</span></button>`;
+    const s=loteStats(L);const pct=s.pem?s.ejec/s.pem*100:0;
+    return `<button class="lote" data-act="lote" data-id="${L.id}" aria-selected="${L.id===loteId}"><strong>${esc(L.nombre)}</strong><span>${esc(L.desc)}</span><span class="num">${eur(s.ejec)} € de ${eur(s.pem)} € · ${pf(pct)} %</span><div class="bar"><i style="width:${Math.max(0,Math.min(100,pct))}%"></i></div><span class="muted">${s.n} certificaci${s.n===1?"ón":"ones"}</span></button>`}).join("")}</nav>`;
+}
+function kpisHTML(c){
+  const s=stats(c);
+  return `<section class="kpis" id="kpis">
+   <div class="kpi"><span class="eyebrow">Obra ejecutada a origen</span><b>${eur(s.ejec)} €</b><div class="bar"><i style="width:${Math.max(0,Math.min(100,s.pct))}%"></i></div><small>${pf(s.pct)} % del presupuesto aceptado</small></div>
+   <div class="kpi"><span class="eyebrow">Pendiente de ejecutar</span><b>${eur(r2(PEM-s.ejec))} €</b><small>de ${eur(PEM)} €</small></div>
+   <div class="kpi"><span class="eyebrow">Anticipo por amortizar</span><b>${eur(s.pend)} €</b><small>de ${eur(s.ant)} € anticipados</small></div>
+   <div class="kpi"><span class="eyebrow">Certificado a origen (base)</span><b>${eur(s.liq)} €</b><small>suma de las certificaciones hasta la nº ${c.num}, sin IGIC</small></div>
+  </section>`;
+}
+function sheetHTML(c){
+  const k=calc(c), locked=c.estado!=="borrador", last=sorted().pop()?.id===c.id;
+  let h=`<section class="sheet"><div class="sheet-head"><div class="fields">
+    <div><div class="eyebrow">${c.tipo==="anticipo"?"Anticipo":"Certificación de obra"}</div><h2>Certificación nº ${c.num}</h2></div>
+    <div class="frow">
+      <div class="f"><label for="f-fecha">Fecha</label><input id="f-fecha" type="date" value="${esc(c.fecha||"")}" ${locked?"disabled":""} data-field="fecha"></div>
+      ${c.tipo==="obra"?`<div class="f grow"><label for="f-periodo">Periodo / concepto</label><input id="f-periodo" type="text" placeholder="p. ej. Noviembre 2026" value="${esc(c.periodo||"")}" ${locked?"disabled":""} data-field="periodo"></div>`
+      :`<div class="f"><label for="f-pct">% del presupuesto</label><input id="f-pct" class="pct-in" type="text" inputmode="decimal" value="${pf(+c.pct||0)}" ${locked?"disabled":""} data-field="pct"></div>`}
+    </div>
+    <div class="f"><label for="f-notas">Observaciones (salen en el documento)</label><textarea id="f-notas" rows="2" ${locked?"disabled":""} data-field="notas">${esc(c.notas||"")}</textarea></div>
+    <div class="actions">
+      <div class="seg" role="group" aria-label="Vista"><button data-act="view" data-v="medir" aria-pressed="${view==="medir"}">${c.tipo==="anticipo"?"Detalle":"Medición"}</button><button data-act="view" data-v="doc" aria-pressed="${view==="doc"}">Documento</button></div>
+      ${c.tipo==="obra"?`<div class="seg" role="group" aria-label="Columnas del documento"><button data-act="cols" data-v="origen" aria-pressed="${certCols==="origen"}">Solo a origen</button><button data-act="cols" data-v="detalle" aria-pressed="${certCols==="detalle"}">Con anterior y actual</button></div>`:""}
+      <button class="btn primary" data-act="pdf">Descargar PDF</button>
+      <button class="btn" data-act="xlsx">Excel</button>
+      ${locked?`<button class="btn" data-act="estado" data-v="borrador">Reabrir para editar</button>`:`<button class="btn primary" data-act="guardar">Guardar cambios</button><button class="btn close" data-act="cerrar">Cerrar certificación</button>`}
+      ${last?`<button class="btn danger" data-act="del">Eliminar</button>`:""}
+    </div>
+    ${locked?`<p class="note">${last?"Cerrada: las mediciones e importes quedan bloqueados. Pulsa «Reabrir para editar» si necesitas corregirla.":"Cerrada. Si la reabres y cambias mediciones, las certificaciones posteriores se recalculan solas (su «anterior» parte de esta)."}</p>`:""}
+  </div><div class="ledger" id="ledger">${ledgerHTML(c,k)}</div></div>`;
+  h+=`<div id="body-area">`;
+  if(view==="doc") h+=`<div class="docwrap">${docHTML(c,k)}</div>`;
+  else h+= c.tipo==="obra"?obraTableHTML(c,k,locked):antTableHTML(c,k);
+  return h+`</div></section>`;
+}
+function ledgerHTML(c,k){
+  const ig=cfg.isp?`<div class="lrow sub"><span>IGIC: inversión del sujeto pasivo</span><span>0,00</span></div>`:`<div class="lrow"><span>IGIC ${pf(+cfg.igic)} %</span><span>${eur(k.igic)}</span></div>`;
+  if(c.tipo==="anticipo") return `<h3>Resumen</h3>
+    <div class="lrow"><span>Anticipo (${pf(+c.pct||0)} % de ${eur(PEM)} €)</span><span>${eur(k.base)}</span></div>${ig}
+    <div class="lrow total"><span>Total nº ${c.num}</span><span>${eur(k.total)} €</span></div>
+    <p class="note">Se amortiza en las certificaciones de obra siguientes, en proporción a lo ejecutado: cada una descuenta el ${pf(antHasta(c.num)/PEM*100)} % de su obra.</p>`;
+  return `<h3>Resumen</h3>
+    <div class="lrow sub"><span>Obra ejecutada a origen</span><span>${eur(k.O)}</span></div>
+    <div class="lrow sub"><span>Menos certificado anterior${k.nd?` (${prevLabel()})`:""}</span><span>${eur(-k.A)}</span></div>
+    <div class="lrow strong"><span>Obra de esta certificación</span><span>${eur(k.T)}</span></div>
+    ${k.ant>0?`<div class="lrow"><span>Amortización del anticipo (${pf(k.rate*100)} %)</span><span>${eur(-k.amort)}</span></div>`:""}
+    ${+cfg.ret>0?`<div class="lrow"><span>Retención de garantía ${pf(+cfg.ret)} %</span><span>${eur(-k.ret)}</span></div>`:""}
+    <div class="lrow strong"><span>Base imponible</span><span>${eur(k.base)}</span></div>${ig}
+    <div class="lrow total"><span>Total nº ${c.num}</span><span>${eur(k.total)} €</span></div>
+    ${k.ant>0?`<p class="note">Anticipo pendiente de amortizar tras esta certificación: ${eur(k.pend)} €.</p>`:""}`;
+}
+function obraTableHTML(c,k,locked){
+  const prev=prevObra(c);if(k.nd)modo="origen";
+  const dis=locked?"disabled":"";
+  let h=`<div class="toolbar">
+    <span class="tb-label">Introducir</span>
+    <div class="seg" role="group" aria-label="Modo de medición"><button data-act="modo" data-v="origen" aria-pressed="${modo==="origen"}">A origen</button><button data-act="modo" data-v="actual" aria-pressed="${modo==="actual"}" ${k.nd?"disabled title=\"Sin desglose de las certificaciones anteriores: mide a origen\"":""}>En esta certificación</button></div>
+    <span class="apply"><label for="pct-obra">${modo==="origen"?"Toda la obra al":"Sumar a toda la obra"}</label><input id="pct-obra" class="pct-in" type="text" inputmode="decimal" placeholder="%" ${dis}><span>%</span><button class="btn" data-act="apply" data-cap="" ${dis}>Aplicar</button></span>
+    <button class="btn ghost" data-act="copyprev" ${dis}>${prev?"Igualar a la nº "+prev.num+" (esta cert. a cero)":"Poner todo a cero"}</button>${k.nd?`<span class="tb-label">Anterior sin desglose (${prevLabel()}): ${eur(PREV.importe)} €</span>`:""}
+  </div>
+  <div class="scroll"><table class="grid" id="grid"><thead>
+  <tr><th rowspan="2">Nº</th><th rowspan="2">Descripción</th><th rowspan="2">Ud</th><th class="n" rowspan="2">Precio €</th><th class="n" rowspan="2">Presup.</th><th class="grp" colspan="1">Anterior</th><th class="grp" colspan="2">A origen</th><th class="grp" colspan="2">Esta certificación</th><th class="grp" colspan="2">Importe €</th></tr>
+  <tr><th class="n">Cant.</th><th class="n ${modo==="origen"?"edit":""}">Cant.</th><th class="n ${modo==="origen"?"edit":""}">%</th><th class="n ${modo==="actual"?"edit":""}">Cant.</th><th class="n ${modo==="actual"?"edit":""}">%</th><th class="n">Esta cert.</th><th class="n">A origen</th></tr></thead><tbody>`;
+  for(const cap of CAPS){
+    h+=`<tr class="cap"><td colspan="12"><div class="cap-wrap"><h3>Capítulo ${cap.id} · ${esc(cap.nombre)} <span class="muted num" style="font-size:13px">(${eur(CAP_PEM[cap.id])} €)</span></h3>
+      <span class="apply"><label for="pct-cap-${cap.id}">${modo==="origen"?"Capítulo al":"Sumar al capítulo"}</label><input id="pct-cap-${cap.id}" class="pct-in" type="text" inputmode="decimal" placeholder="%" ${dis}><span>%</span><button class="btn" data-act="apply" data-cap="${cap.id}" ${dis}>Aplicar</button></span></div></td></tr>`;
+    for(const r of k.rows.filter(r=>r.p.cap===cap.id)){
+      const p=r.p;
+      const editO=modo==="origen";
+      h+=`<tr id="r-${p.k}" class="pr"><td class="id">${p.n}</td><td class="d"><span class="m-id">${p.n}</span>${esc(p.d)}<span class="m-ud"> · ${p.ud}</span></td><td class="ud">${p.ud}</td><td class="n" data-l="Precio €">${eur(p.p)}</td><td class="n" data-l="Presupuesto">${qf(p.q)}</td>
+        <td class="n muted ant" data-l="Anterior" data-c="qa">${qf(r.qa)}</td>
+        <td class="n ${editO?"edit":"flag"}" data-l="A origen · cant.">${editO?`<input class="cell" id="qo-${p.k}" data-k="${p.k}" data-in="qo" inputmode="decimal" value="${qf(r.qo)}" ${dis} aria-label="Cantidad a origen ${p.n}">`:`<span data-c="qo">${qf(r.qo)}</span>`}</td>
+        <td class="n ${editO?"edit":"flag"}" data-l="A origen · %">${editO?`<input class="cell" id="po-${p.k}" data-k="${p.k}" data-in="po" inputmode="decimal" value="${pf(r.qo/p.q*100)}" ${dis} aria-label="% a origen ${p.n}">`:`<span data-c="po">${pf(r.qo/p.q*100)}</span>`}</td>
+        <td class="n neg ${!editO?"edit":""}" data-l="Esta cert. · cant.">${!editO?`<input class="cell" id="qt-${p.k}" data-k="${p.k}" data-in="qt" inputmode="decimal" value="${qf(r.qt)}" ${dis} aria-label="Cantidad en esta certificación ${p.n}">`:`<span data-c="qt">${qf(r.qt)}</span>`}</td>
+        <td class="n neg ${!editO?"edit":""}" data-l="Esta cert. · %">${!editO?`<input class="cell" id="pt-${p.k}" data-k="${p.k}" data-in="pt" inputmode="decimal" value="${pf(r.qt/p.q*100)}" ${dis} aria-label="% en esta certificación ${p.n}">`:`<span data-c="pt">${pf(r.qt/p.q*100)}</span>`}</td>
+        <td class="n neg" data-l="Importe esta cert. €" data-c="it">${eur(r.it)}</td><td class="n" data-l="Importe a origen €" data-c="io">${eur(r.io)}</td></tr>`;
+    }
+    h+=`<tr class="subt" id="s-${cap.id}"><td colspan="7" class="lbl">Total capítulo ${cap.id}</td><td class="n" data-l="% a origen" data-c="cpo">${pf(k.caps[cap.id].O/CAP_PEM[cap.id]*100)} %</td><td class="sp"></td><td class="n" data-l="% esta cert." data-c="cpt">${pf(k.caps[cap.id].T/CAP_PEM[cap.id]*100)} %</td><td class="n" data-l="Esta cert. €" data-c="ct">${eur(k.caps[cap.id].T)}</td><td class="n" data-l="A origen €" data-c="co">${eur(k.caps[cap.id].O)}</td></tr>`;
+  }
+  h+=`</tbody><tfoot><tr id="s-all"><td colspan="7" class="lbl">Total obra</td><td class="n" data-l="% a origen" data-c="cpo">${pf(k.O/PEM*100)} %</td><td class="sp"></td><td class="n" data-l="% esta cert." data-c="cpt">${pf(k.T/PEM*100)} %</td><td class="n" data-l="Esta cert. €" data-c="ct">${eur(k.T)}</td><td class="n" data-l="A origen €" data-c="co">${eur(k.O)}</td></tr></tfoot></table></div>`;
+  return h;
+}
+function antTableHTML(c,k){
+  let h=`<div class="toolbar"><span class="tb-label">Base de cálculo: el ${pf(+c.pct||0)} % de la medición de cada partida del presupuesto aceptado.</span></div><div class="scroll"><table class="grid"><thead><tr><th>Nº</th><th>Descripción</th><th>Ud</th><th class="n">Precio €</th><th class="n">Presup.</th><th class="n">Med. cert.</th><th class="n">Importe €</th></tr></thead><tbody>`;
+  for(const cap of CAPS){
+    h+=`<tr class="cap"><td colspan="7"><h3>Capítulo ${cap.id} · ${esc(cap.nombre)}</h3></td></tr>`;
+    for(const r of k.rows.filter(r=>r.p.cap===cap.id))h+=`<tr class="pr"><td class="id">${r.p.n}</td><td class="d"><span class="m-id">${r.p.n}</span>${esc(r.p.d)}<span class="m-ud"> · ${r.p.ud}</span></td><td class="ud">${r.p.ud}</td><td class="n" data-l="Precio €">${eur(r.p.p)}</td><td class="n" data-l="Presupuesto">${qf(r.p.q)}</td><td class="n" data-l="Med. cert.">${qf(r.qo)}</td><td class="n" data-l="Importe €">${eur(r.io)}</td></tr>`;
+    h+=`<tr class="subt"><td colspan="6" class="lbl">Total capítulo ${cap.id}</td><td class="n">${eur(k.caps[cap.id].O)}</td></tr>`;
+  }
+  return h+`</tbody><tfoot><tr><td colspan="6" class="lbl">Total anticipo</td><td class="n">${eur(k.base)}</td></tr></tfoot></table></div>`;
+}
+
+/* ---------- documento ---------- */
+function docModel(c,k){
+  const datos=[["Obra",OBRA.titulo],["Lote",loteTag()]];
+  if(OBRA.emplazamiento)datos.push(["Emplazamiento",OBRA.emplazamiento]);
+  if(OBRA.promotor)datos.push(["Promotor",OBRA.promotor]);
+  if(OBRA.contratista)datos.push(["Contratista",OBRA.contratista]);
+  datos.push(["Empresa que certifica",OBRA.certifica],["Presupuesto del lote (sin IGIC)",eu(PEM)]);
+  if(c.tipo==="obra"&&c.periodo)datos.push(["Periodo",c.periodo]);
+  datos.push(["Fecha",c.fecha?fechaES(c.fecha):"[pendiente]"]);
+  const resumen=[];
+  if(c.tipo==="anticipo"){
+    for(const cap of CAPS)resumen.push([`Capítulo ${cap.id} · ${cap.nombre}`,eu(k.caps[cap.id].O),""]);
+    resumen.push([`Importe certificado (${pf(+c.pct||0)} % de ${eu(PEM)})`,eu(k.base),"st"]);
+  } else {
+    resumen.push(["Obra ejecutada a origen",eu(k.O),""],[`Obra certificada anteriormente${k.nd?` (certificaciones ${prevLabel()})`:""}`,eu(-k.A),""],["Obra ejecutada en esta certificación",eu(k.T),"st"]);
+    if(k.ant>0)resumen.push([`Amortización del anticipo (${pf(k.rate*100)} % de la obra de esta certificación)`,eu(-k.amort),""]);
+    if(+cfg.ret>0)resumen.push([`Retención de garantía ${pf(+cfg.ret)} %`,eu(-k.ret),""]);
+    resumen.push(["Base imponible",eu(k.base),"st"]);
+  }
+  resumen.push(cfg.isp?["IGIC: operación con inversión del sujeto pasivo","0,00",""]:[`IGIC ${pf(+cfg.igic)} %`,eu(k.igic),""]);
+  resumen.push([`TOTAL CERTIFICACIÓN Nº ${c.num}`,eu(k.total),"tt"]);
+  let obs=[];
+  if(c.tipo==="anticipo")obs.push(`A cuenta del presupuesto aceptado. Este anticipo se descontará de las certificaciones siguientes según lo pactado${OBRA.contratista?" con "+OBRA.contratista:""}.`);
+  if(c.tipo==="obra"&&k.ant>0)obs.push(`Anticipo pendiente de amortizar tras esta certificación: ${eu(k.pend)} €.`);
+  if(c.notas)obs.push(c.notas);
+  return {datos,resumen,obs,titulo:tituloCert(c)};
+}
+function docHTML(c,k){
+  const m=docModel(c,k);
+  let h=`<div class="doc"><div class="dh">${logoSrc()?`<img src="${logoSrc()}" alt="Logo">`:`<strong style="font-family:var(--f-display);font-size:18px">${esc(OBRA.certifica)}</strong>`}<div class="t"><h2>CERTIFICACIÓN Nº ${c.num}</h2><p>${esc(loteTag())}</p><p>${esc(m.titulo)}</p></div></div>
+  <h4>Datos de la obra</h4><table class="kv">${m.datos.map(([a,b])=>`<tr><td>${esc(a)}</td><td>${esc(b)}</td></tr>`).join("")}</table>
+  <h4>Relación valorada</h4>`;
+  for(const cap of CAPS){
+    const rs=k.rows.filter(r=>r.p.cap===cap.id);
+    h+=`<p style="margin:10px 0 4px;font-weight:600">Capítulo ${cap.id} · ${esc(cap.nombre)}</p><div class="tw"><table>`;
+    if(c.tipo==="anticipo"){
+      h+=`<tr><th>Nº</th><th>Ud</th><th>Descripción</th><th class="n">Precio</th><th class="n">Med. presup.</th><th class="n">Med. cert.</th><th class="n">Importe</th></tr>`;
+      h+=rs.map(r=>`<tr><td>${r.p.n}</td><td>${r.p.ud}</td><td>${esc(r.p.d)}</td><td class="n">${eu(r.p.p)}</td><td class="n">${qf(r.p.q)}</td><td class="n">${qf(r.qo)}</td><td class="n">${eu(r.io)}</td></tr>`).join("");
+      h+=`<tr class="st"><td colspan="6">Total capítulo ${cap.id}</td><td class="n">${eu(k.caps[cap.id].O)}</td></tr>`;
+    } else {
+    if(certCols==="detalle"){
+      h+=`<tr><th>Nº</th><th>Ud</th><th>Descripción</th><th class="n">Precio</th><th class="n">Med. presup.</th><th class="n">Med. anterior</th><th class="n">Med. actual</th><th class="n">Med. origen</th><th class="n">Importe actual</th><th class="n">Importe origen</th></tr>`;
+      h+=rs.map(r=>`<tr><td>${r.p.n}</td><td>${r.p.ud}</td><td>${esc(r.p.d)}</td><td class="n">${eu(r.p.p)}</td><td class="n">${qf(r.p.q)}</td><td class="n">${qf(r.qa)}</td><td class="n">${qf(r.qt)}</td><td class="n">${qf(r.qo)}</td><td class="n">${eu(r.it)}</td><td class="n">${eu(r.io)}</td></tr>`).join("");
+      h+=`<tr class="st"><td colspan="8">Total capítulo ${cap.id}</td><td class="n">${eu(k.caps[cap.id].T)}</td><td class="n">${eu(k.caps[cap.id].O)}</td></tr>`;
+    } else {
+      h+=`<tr><th>Nº</th><th>Ud</th><th>Descripción</th><th class="n">Precio</th><th class="n">Med. presup.</th><th class="n">Med. origen</th><th class="n">Importe origen</th></tr>`;
+      h+=rs.map(r=>`<tr><td>${r.p.n}</td><td>${r.p.ud}</td><td>${esc(r.p.d)}</td><td class="n">${eu(r.p.p)}</td><td class="n">${qf(r.p.q)}</td><td class="n">${qf(r.qo)}</td><td class="n">${eu(r.io)}</td></tr>`).join("");
+      h+=`<tr class="st"><td colspan="6">Total capítulo ${cap.id}</td><td class="n">${eu(k.caps[cap.id].O)}</td></tr>`;
+    }
+    }
+    h+=`</table></div>`;
+  }
+  h+=`<h4>Resumen</h4><table>${m.resumen.map(([a,b,cl])=>`<tr class="${cl}"><td>${esc(a)}</td><td class="n" style="width:160px">${esc(b)}</td></tr>`).join("")}</table>`;
+  if(m.obs.length)h+=m.obs.map(o=>`<p class="obs">${esc(o)}</p>`).join("");
+  h+=`</div>`;
+  return h;
+}
+
+/* ---------- ajustes ---------- */
+function settingsHTML(){
+  return `<details class="settings"><summary>Ajustes: datos de la obra, IGIC, retención y logo</summary><div class="set-grid">
+   <div class="set-box" style="grid-column:1/-1">
+     <div class="frow">${[["titulo","Obra"],["emplazamiento","Emplazamiento"],["promotor","Promotor"],["contratista","Contratista (recibe la certificación)"],["certifica","Empresa que certifica"],["firmante","Firmante"]].map(([k,l])=>`<div class="f grow"><label for="o-${k}">${l}</label><input id="o-${k}" type="text" value="${esc(OBRA[k]||"")}" data-obra="${k}"></div>`).join("")}</div>
+     <p class="note">Salen en la cabecera, en el documento y en el PDF de todos los lotes.</p>
+   </div>
+   <div class="set-box">
+     <div class="frow"><div class="f"><label for="s-igic">IGIC %</label><input id="s-igic" class="pct-in" type="text" inputmode="decimal" value="${pf(+cfg.igic)}" data-cfg="igic"></div>
+     <div class="f"><label for="s-ret">Retención de garantía %</label><input id="s-ret" class="pct-in" type="text" inputmode="decimal" value="${pf(+cfg.ret)}" data-cfg="ret"></div></div>
+     <label class="check"><input id="s-isp" type="checkbox" ${cfg.isp?"checked":""} data-cfg="isp"><span>Inversión del sujeto pasivo del IGIC (las certificaciones salen sin IGIC). Pendiente de confirmar con la asesoría.</span></label>
+     <p class="note">Estos ajustes se aplican a todas las certificaciones, también a las ya emitidas, al volver a generar su documento.</p>
+   </div>
+   <div class="set-box">
+     <span class="f"><label>Logo de la certificación</label></span>
+     <div class="logo-prev">${logoSrc()?`<img src="${logoSrc()}" alt="Logo actual">`:`<span class="muted">Sin logo: se usa el nombre de la empresa que certifica</span>`}</div>
+     <div class="actions"><label class="btn" for="s-logo" style="display:inline-block">Cambiar logo…</label><input id="s-logo" type="file" accept="image/png,image/jpeg,image/webp,image/svg+xml" hidden>
+     ${cfg.logo?`<button class="btn ghost" data-act="logo-reset">Quitar logo</button>`:""}</div>
+     <p class="note">PNG o JPG. Se ajusta a 800 px de ancho y sale en la cabecera de la herramienta, del documento y del PDF.</p>
+   </div></div></details>`;
+}
+
+/* ---------- actualización en vivo ---------- */
+function refreshNumbers(){
+  const c=sel();if(!c)return;const k=calc(c);
+  const ae=document.activeElement;
+  for(const r of k.rows){
+    const tr=document.getElementById("r-"+r.p.k);if(!tr)continue;
+    const vals={qa:qf(r.qa),qo:qf(r.qo),po:pf(r.qo/r.p.q*100),qt:qf(r.qt),pt:pf(r.qt/r.p.q*100),it:eur(r.it),io:eur(r.io)};
+    tr.querySelectorAll("[data-c]").forEach(el=>el.textContent=vals[el.dataset.c]);
+    tr.querySelectorAll("input[data-in]").forEach(el=>{if(el!==ae)el.value=vals[el.dataset.in]});
+    tr.classList.toggle("over",r.qo>r.p.q+1e-6);
+    tr.classList.toggle("neg",r.qt<-1e-6);
+  }
+  for(const cap of CAPS){const s=document.getElementById("s-"+cap.id);if(!s)continue;const t=k.caps[cap.id];
+    s.querySelector('[data-c="cpo"]').textContent=pf(t.O/CAP_PEM[cap.id]*100)+" %";s.querySelector('[data-c="cpt"]').textContent=pf(t.T/CAP_PEM[cap.id]*100)+" %";s.querySelector('[data-c="ct"]').textContent=eur(t.T);s.querySelector('[data-c="co"]').textContent=eur(t.O)}
+  const a=document.getElementById("s-all");if(a){a.querySelector('[data-c="cpo"]').textContent=pf(k.O/PEM*100)+" %";a.querySelector('[data-c="cpt"]').textContent=pf(k.T/PEM*100)+" %";a.querySelector('[data-c="ct"]').textContent=eur(k.T);a.querySelector('[data-c="co"]').textContent=eur(k.O)}
+  const l=document.getElementById("ledger");if(l)l.innerHTML=ledgerHTML(c,k);
+  if(view==="doc"){const ba=document.getElementById("body-area");if(ba)ba.innerHTML=`<div class="docwrap">${docHTML(c,k)}</div>`}
+  const kp=document.getElementById("kpis");if(kp)kp.outerHTML=kpisHTML(c);
+  document.querySelectorAll(".tab").forEach(t=>{const x=certs.find(y=>y.id===t.dataset.id);if(x)t.querySelector(".tab-sub").textContent=`${x.tipo==="anticipo"?`Anticipo ${pf(+x.pct||0)} %`:(x.periodo||"Obra ejecutada")} · ${eur(calc(x).total)} €`});
+}
+
+app.addEventListener("input",e=>{
+  const t=e.target,c=sel();
+  if(t.dataset.in&&c){
+    const v=parseNum(t.value);if(isNaN(v))return;
+    const p=P.find(x=>x.k===t.dataset.k);const prev=prevObra(c);const qa=qO(prev,p);
+    let qo;
+    if(t.dataset.in==="qo")qo=v;else if(t.dataset.in==="po")qo=p.q*v/100;else if(t.dataset.in==="qt")qo=qa+v;else qo=qa+p.q*v/100;
+    c.qty={...(c.qty||{}),[p.k]:r4(qo)};
+    refreshNumbers();scheduleSave(c);return;
+  }
+  if(t.dataset.field&&c){
+    if(t.dataset.field==="pct"){const v=parseNum(t.value);if(isNaN(v))return;c.pct=v;}
+    else c[t.dataset.field]=t.value;
+    refreshNumbers();
+    if(t.dataset.field==="pct"||view==="doc"){const ba=document.getElementById("body-area");if(ba)ba.innerHTML=view==="doc"?`<div class="docwrap">${docHTML(c,calc(c))}</div>`:antTableHTML(c,calc(c))}
+    scheduleSave(c);return;
+  }
+  if(t.dataset.obra){cfg.obra={...(cfg.obra||{}),[t.dataset.obra]:t.value};syncObra();saveCfg();return}
+  if(t.dataset.cfg&&t.type!=="checkbox"){const v=parseNum(t.value);if(isNaN(v))return;cfg[t.dataset.cfg]=v;refreshNumbers();saveCfg()}
+});
+app.addEventListener("change",async e=>{
+  const t=e.target;
+  if(t.dataset.cfg==="isp"){cfg.isp=t.checked;refreshNumbers();saveCfg();return}
+  if(t.id==="s-logo"&&t.files&&t.files[0]){
+    try{cfg.logo=await shrinkImage(t.files[0]);saveCfg();render();toast("Logo actualizado")}catch(err){toast("No se ha podido leer la imagen. Prueba con un PNG o JPG.")}
+  }
+  if(t.dataset.in){const c=sel();if(c)refreshNumbers()}
+});
+app.addEventListener("focusout",e=>{if(e.target.dataset&&e.target.dataset.obra){render();return}if(e.target.dataset&&e.target.dataset.in){const c=sel();if(!c)return;const k=calc(c);const r=k.rows.find(r=>r.p.k===e.target.dataset.k);const vals={qo:qf(r.qo),po:pf(r.qo/r.p.q*100),qt:qf(r.qt),pt:pf(r.qt/r.p.q*100)};e.target.value=vals[e.target.dataset.in]}});
+app.addEventListener("keydown",e=>{
+  const t=e.target;
+  if(t.classList&&t.classList.contains("pct-in")&&e.key==="Enter"){const b=t.parentElement.querySelector('[data-act="apply"]');if(b){e.preventDefault();b.click()}}
+  if(t.dataset&&t.dataset.in&&(e.key==="Enter"||e.key==="ArrowDown"||e.key==="ArrowUp")){
+    const all=[...document.querySelectorAll(`input[data-in="${t.dataset.in}"]`)];const i=all.indexOf(t);const n=all[i+(e.key==="ArrowUp"?-1:1)];if(n){e.preventDefault();n.focus();n.select()}
+  }
+});
+let delArmed=null, closeArmed=null, expScope="origen", certCols="origen";
+try{certCols=localStorage.getItem("hosp-cols")||"origen"}catch(e){}
+app.addEventListener("click",e=>{
+  const b=e.target.closest("[data-act]");if(!b)return;const act=b.dataset.act;const c=sel();
+  if(act==="lote"){setLote(b.dataset.id);selId=sorted().pop()?.id||null;view="medir";render();return}
+  if(act==="sel"){selId=b.dataset.id;view="medir";render();return}
+  if(act==="view"){view=b.dataset.v;render();return}
+  if(act==="modo"){modo=b.dataset.v;render();return}
+  if(act==="new-obra"||act==="new-ant"){newCert(act==="new-ant"?"anticipo":"obra");return}
+  if(act==="logo-reset"){cfg.logo="";saveCfg();render();toast("Logo quitado");return}
+  if(!c)return;
+  if(act==="apply"){
+    const inp=b.parentElement.querySelector("input");const v=parseNum(inp.value);if(isNaN(v)||inp.value.trim()===""){toast("Escribe un % antes de aplicar");inp.focus();return}
+    const prev=prevObra(c);const q={...(c.qty||{})};
+    for(const p of P){if(b.dataset.cap&&p.cap!==b.dataset.cap)continue;q[p.k]=r4(modo==="origen"?p.q*v/100:qO(prev,p)+p.q*v/100)}
+    c.qty=q;scheduleSave(c);render();toast(`${b.dataset.cap?"Capítulo "+b.dataset.cap:"Toda la obra"}: ${modo==="origen"?"a origen al":"sumado"} ${pf(v)} %`);return;
+  }
+  if(act==="copyprev"){const prev=prevObra(c);const q={};for(const p of P)q[p.k]=qO(prev,p);c.qty=q;scheduleSave(c);render();return}
+  if(act==="cerrar"){
+    if(closeArmed!==c.id){closeArmed=c.id;b.classList.add("armed");b.textContent="Pulsa otra vez para cerrar";setTimeout(()=>{if(closeArmed===c.id){closeArmed=null;b.classList.remove("armed");b.textContent="Cerrar certificación"}},4000);return}
+    closeArmed=null;c.estado="cerrada";c.cerrada=new Date().toISOString();if(!c.fecha)c.fecha=todayISO();scheduleSave(c);render();toast(`Certificación nº ${c.num} cerrada`);return;
+  }
+  if(act==="estado"){c.estado=b.dataset.v;scheduleSave(c);render();toast(`Certificación nº ${c.num} reabierta`);return}
+  if(act==="del"){
+    if(delArmed!==c.id){delArmed=c.id;b.classList.add("armed");b.textContent="Pulsa otra vez para eliminar";setTimeout(()=>{if(delArmed===c.id){delArmed=null;b.classList.remove("armed");b.textContent="Eliminar"}},4000);return}
+    delArmed=null;deleteCert(c);return;
+  }
+  if(act==="pdf"){makePdf(c);return}
+  if(act==="xlsx"){makeXlsxCert(c);return}
+  if(act==="cols"){certCols=b.dataset.v;try{localStorage.setItem("hosp-cols",certCols)}catch(e){}render();return}
+  if(act==="guardar"){clearTimeout(timers[c.id]);dirty.add(c.id);setStatus("Guardando…","busy");flush(c.id).then(()=>toast(localMode?"Esta vista no puede guardar en el servidor":`Certificación nº ${c.num} guardada`));if(cfgTimer){clearTimeout(cfgTimer);cfgTimer=null;if(db)db.doc("config/obra").set(JSON.parse(JSON.stringify(cfg))).catch(()=>{})}return}
+  if(act==="exp-scope"){expScope=b.dataset.v;render();return}
+  if(act==="exp"){exportLote(b.dataset.v,c);return}
+});
+
+async function newCert(tipo){
+  const num=(sorted().pop()?.num||PREV?.hasta||0)+1;
+  const id="l"+loteId+"-c"+String(num).padStart(2,"0");
+  const c={id,lote:loteId,num,tipo,fecha:todayISO(),periodo:"",estado:"borrador",notas:"",creada:new Date().toISOString()};
+  if(tipo==="anticipo")c.pct=10;
+  else{const prev=sorted().filter(x=>x.tipo==="obra").pop();const q={};for(const p of P)q[p.k]=qO(prev,p);c.qty=q;}
+  certs.push(c);selId=id;view="medir";render();scheduleSave(c);
+  toast(tipo==="anticipo"?`Anticipo nº ${num} creado al 10 %`:`Certificación nº ${num} creada. Mide a origen o aplica un %.`);
+}
+async function deleteCert(c){
+  certs=certs.filter(x=>x.id!==c.id);clearTimeout(timers[c.id]);dirty.delete(c.id);
+  selId=sorted().pop()?.id||null;render();
+  try{if(db)await db.doc("certs/"+c.id).delete();toast(`Certificación nº ${c.num} eliminada`)}catch(e){toast("No se ha podido eliminar en el servidor")}
+}
+
+/* ---------- logo ---------- */
+function shrinkImage(file){
+  return new Promise((res,rej)=>{const fr=new FileReader();fr.onerror=rej;fr.onload=()=>{const img=new Image();img.onerror=rej;img.onload=()=>{
+    const w=Math.min(800,img.naturalWidth||800),h=Math.round((img.naturalHeight||200)*w/(img.naturalWidth||800));
+    const cv=document.createElement("canvas");cv.width=w;cv.height=h;const x=cv.getContext("2d");x.fillStyle="#FFFFFF";x.fillRect(0,0,w,h);x.drawImage(img,0,0,w,h);
+    let out=cv.toDataURL("image/png");if(out.length>180000)out=cv.toDataURL("image/jpeg",0.9);res(out)};img.src=fr.result};fr.readAsDataURL(file)});
+}
+function imgSize(src){return new Promise(res=>{const i=new Image();i.onload=()=>res([i.naturalWidth,i.naturalHeight]);i.onerror=()=>res([4,1]);i.src=src})}
+
+/* ---------- exportar ---------- */
+const pdfTxt=s=>String(s).replace(/−/g,"-").replace(/–/g,"-").replace(/·/g,"·");
+async function saveFile(filename,data){
+  if(!dl){toast("Esta vista no permite descargar archivos");return}
+  try{await dl.save({filename,data});toast("Archivo guardado")}
+  catch(e){if(e&&e.code==="declined")return;toast(e&&e.code==="rate_limited"?"Ya hay una descarga pendiente de confirmar":"No se ha podido descargar el archivo")}
+}
+async function makePdf(c){
+  if(!window.jspdf||!window.jspdf.jsPDF){toast("No se ha cargado el generador de PDF. Recarga la página.");return}
+  const k=calc(c),m=docModel(c,k);
+  const doc=new window.jspdf.jsPDF({orientation:"portrait",unit:"mm",format:"a4"});
+  const W=210,H=297,M=14,ACC=[52,10,234];
+  const src=logoSrc();
+  if(src){const [iw,ih]=await imgSize(src);const lh=11,lw=Math.min(62,lh*iw/ih);try{doc.addImage(src,src.startsWith("data:image/jpeg")?"JPEG":"PNG",M,10,lw,lw*ih/iw)}catch(e){}}
+  else{doc.setFont("helvetica","bold");doc.setFontSize(11);doc.setTextColor(27,26,46);doc.text(pdfTxt(OBRA.certifica),M,17)}
+  doc.setFont("helvetica","bold");doc.setFontSize(16);doc.setTextColor(27,26,46);doc.text(`CERTIFICACIÓN Nº ${c.num}`,W-M,16,{align:"right"});
+  doc.setFont("helvetica","normal");doc.setFontSize(10);doc.setTextColor(85,83,110);doc.text(pdfTxt(loteTag()+" · "+m.titulo),W-M,22,{align:"right"});
+  doc.setDrawColor(...ACC);doc.setLineWidth(0.6);doc.line(M,26,W-M,26);
+  const head={fillColor:[240,238,251],textColor:[27,26,46],fontStyle:"bold",fontSize:8};
+  const base={font:"helvetica",fontSize:8,cellPadding:1.4,lineColor:[212,211,226],lineWidth:0.2,textColor:[27,26,46]};
+  const sect=(t,y)=>{doc.setFont("helvetica","bold");doc.setFontSize(10);doc.setTextColor(...ACC);doc.text(t,M,y);return y+2};
+  let y=sect("DATOS DE LA OBRA",33);
+  doc.autoTable({startY:y,margin:{left:M,right:M},theme:"grid",styles:base,body:m.datos.map(r=>r.map(pdfTxt)),columnStyles:{0:{cellWidth:46,fontStyle:"bold",fillColor:[247,247,251]}}});
+  y=sect("RELACIÓN VALORADA",doc.lastAutoTable.finalY+8);
+  for(const cap of CAPS){
+    const rs=k.rows.filter(r=>r.p.cap===cap.id);
+    let hd,body,foot,cs;
+    if(c.tipo==="anticipo"){
+      hd=[["Nº","Ud","Descripción","Precio","Med. presup.","Med. cert.","Importe"]];
+      body=rs.map(r=>[r.p.n,r.p.ud,r.p.d,eu(r.p.p),qf(r.p.q),qf(r.qo),eu(r.io)]);
+      foot=[[{content:`Total capítulo ${cap.id}`,colSpan:6},eu(k.caps[cap.id].O)]];cs={3:{halign:"right"},4:{halign:"right"},5:{halign:"right"},6:{halign:"right"}};
+    } else {
+      if(certCols==="detalle"){
+        hd=[["Nº","Ud","Descripción","Precio","Presup.","Anterior","Actual","Origen","Imp. actual","Imp. origen"]];
+        body=rs.map(r=>[r.p.n,r.p.ud,r.p.d,eu(r.p.p),qf(r.p.q),qf(r.qa),qf(r.qt),qf(r.qo),eu(r.it),eu(r.io)]);
+        foot=[[{content:`Total capítulo ${cap.id}`,colSpan:8},eu(k.caps[cap.id].T),eu(k.caps[cap.id].O)]];
+        cs={};for(let i=3;i<=9;i++)cs[i]={halign:"right"};
+      } else {
+        hd=[["Nº","Ud","Descripción","Precio","Med. presup.","Med. origen","Importe origen"]];
+        body=rs.map(r=>[r.p.n,r.p.ud,r.p.d,eu(r.p.p),qf(r.p.q),qf(r.qo),eu(r.io)]);
+        foot=[[{content:`Total capítulo ${cap.id}`,colSpan:6},eu(k.caps[cap.id].O)]];
+        cs={3:{halign:"right"},4:{halign:"right"},5:{halign:"right"},6:{halign:"right"}};
+      }
+    }
+    const wide=c.tipo==="obra"&&certCols==="detalle";
+    cs[0]={cellWidth:wide?8.5:10};cs[1]={cellWidth:wide?6.5:8};cs[2]={cellWidth:wide?52:78};
+    const sm=wide?{fontSize:6.6,cellPadding:0.9}:{};
+    doc.autoTable({startY:y+1,margin:{left:M,right:M},theme:"grid",styles:{...base,...sm},headStyles:head,footStyles:{fillColor:[247,247,251],textColor:[27,26,46],fontStyle:"bold",fontSize:8,halign:"right"},
+      head:[[{content:pdfTxt(`Capítulo ${cap.id} · ${cap.nombre}`),colSpan:hd[0].length,styles:{halign:"left",fillColor:[236,232,254],fontSize:9}}],...hd],
+      rowPageBreak:"avoid",body:body.map(r=>r.map(pdfTxt)),foot:foot.map(r=>r.map(x=>typeof x==="string"?pdfTxt(x):{...x,content:pdfTxt(x.content)})),columnStyles:cs,showFoot:"lastPage"});
+    y=doc.lastAutoTable.finalY+4;
+  }
+  if(y>215){doc.addPage();y=16}
+  y=sect("RESUMEN",y+4);
+  doc.autoTable({startY:y,margin:{left:M,right:M},theme:"grid",styles:{...base,fontSize:9},body:m.resumen.map(([a,b])=>[pdfTxt(a),pdfTxt(b)]),columnStyles:{1:{halign:"right",cellWidth:45}},
+    didParseCell:d=>{const cl=m.resumen[d.row.index][2];if(cl==="st"){d.cell.styles.fontStyle="bold";d.cell.styles.fillColor=[247,247,251]}if(cl==="tt"){d.cell.styles.fontStyle="bold";d.cell.styles.fillColor=[236,232,254];d.cell.styles.fontSize=10}}});
+  y=doc.lastAutoTable.finalY+5;
+  doc.setFont("helvetica","normal");doc.setFontSize(8.5);doc.setTextColor(85,83,110);
+  for(const o of m.obs){const lines=doc.splitTextToSize(pdfTxt(o),W-2*M);if(y+lines.length*4>282){doc.addPage();y=16}doc.text(lines,M,y);y+=lines.length*4+1}
+  const n=doc.getNumberOfPages();for(let i=1;i<=n;i++){doc.setPage(i);doc.setFontSize(7.5);doc.setTextColor(120,118,140);doc.text(pdfTxt(`${OBRA.titulo} · ${curLote().nombre} · Cert. nº ${c.num}`),M,H-7);doc.text(`Página ${i} de ${n}`,W-M,H-7,{align:"right"})}
+  await saveFile(`Certificacion_${c.num}_Hospital_Lote_${loteId}.pdf`,doc.output("arraybuffer"));
+}
+async function makeCsv(c){
+  const k=calc(c);const q=s=>`"${String(s).replace(/"/g,'""')}"`;const n=v=>String(r4(v)).replace(".",",");
+  const L=[["Lote",loteTag()].map(q).join(";"),["Certificación",c.num,tituloCert(c)].map(q).join(";"),["Fecha",fechaES(c.fecha)].map(q).join(";"),"",
+    ["Capítulo","Nº","Ud","Descripción","Precio","Med. presup.","Med. anterior","Med. actual","Med. origen","% origen","Importe anterior","Importe actual","Importe origen"].map(q).join(";")];
+  for(const r of k.rows)L.push([r.p.cap,q(r.p.n),r.p.ud,q(r.p.d),n(r.p.p),n(r.p.q),n(r.qa),n(r.qt),n(r.qo),n(r.qo/r.p.q*100),n(r.ia),n(r.it),n(r.io)].join(";"));
+  L.push("",[q("Obra a origen"),n(k.O)].join(";"),[q("Anterior"),n(k.A)].join(";"),[q("Esta certificación"),n(k.T)].join(";"));
+  if(k.amort)L.push([q("Amortización anticipo"),n(-k.amort)].join(";"));
+  if(k.ret)L.push([q("Retención"),n(-k.ret)].join(";"));
+  L.push([q("Base imponible"),n(k.base)].join(";"),[q(cfg.isp?"IGIC (ISP)":"IGIC "+pf(+cfg.igic)+" %"),n(k.igic)].join(";"),[q("Total"),n(k.total)].join(";"));
+  await saveFile(`Certificacion_${c.num}_Hospital_Lote_${loteId}.csv`,"﻿"+L.join("\r\n"));
+}
+
+
+/* ---------- exportar el lote: a origen o detalle de todas ---------- */
+function exportBarHTML(c){
+  const obras=sorted().filter(x=>x.tipo==="obra");
+  const hint=expScope==="origen"
+    ?`Situación acumulada hasta la nº ${c.num}: presupuesto, ejecutado a origen y pendiente por partida.`
+    :`Una columna por certificación (${sorted().length}), con cantidad e importe de cada una y el total a origen.`;
+  return `<section class="export" aria-label="Exportar el lote"><span class="tb-label">Exportar ${esc(curLote().nombre)}</span>
+    <div class="seg" role="group" aria-label="Contenido"><button data-act="exp-scope" data-v="origen" aria-pressed="${expScope==="origen"}">A origen</button><button data-act="exp-scope" data-v="detalle" aria-pressed="${expScope==="detalle"}">Detalle de todas</button></div>
+    <button class="btn primary" data-act="exp" data-v="pdf" ${obras.length||expScope==="detalle"?"":"disabled"}>PDF</button><button class="btn" data-act="exp" data-v="xlsx">Excel</button>
+    <span class="hint">${hint}</span></section>`;
+}
+function origenModel(c){
+  const upto=sorted().filter(x=>x.num<=c.num);
+  const last=upto.filter(x=>x.tipo==="obra").pop();
+  const k=last?calc(last):null;
+  const rows=P.map(p=>{const qo=k?k.rows.find(r=>r.p.k===p.k).qo:0;const ip=r2(p.p*p.q),io=r2(qo*p.p);return {p,ip,qo,io,pend:r2(ip-io)}});
+  const caps=CAPS.map(cp=>{const rs=rows.filter(r=>r.p.cap===cp.id);return {cap:cp,ip:CAP_PEM[cp.id],io:r2(rs.reduce((s,r)=>s+r.io,0))}});
+  const O=r2(rows.reduce((s,r)=>s+r.io,0));
+  const ks=upto.map(x=>calc(x));
+  const pv=prevFiscal()||{base:0,igic:0,total:0};
+  const base=r2(pv.base+ks.reduce((s,x)=>s+x.base,0)),igic=r2(pv.igic+ks.reduce((s,x)=>s+x.igic,0)),total=r2(pv.total+ks.reduce((s,x)=>s+x.total,0));
+  const ant=antHasta(c.num),amort=k?k.amortO:0,ret=r2(ks.reduce((s,x)=>s+(x.ret||0),0));
+  return {upto,rows,caps,O,base,igic,total,ant,amort,ret,hasta:c.num};
+}
+function detalleModel(){
+  const all=sorted();const obras=all.filter(x=>x.tipo==="obra");
+  const ks=new Map(all.map(x=>[x.id,calc(x)]));
+  const rows=P.map(p=>{const per=obras.map(x=>{const r=ks.get(x.id).rows.find(r=>r.p.k===p.k);return {qt:r.qt,it:r.it}});const lastK=obras.length?ks.get(obras[obras.length-1].id).rows.find(r=>r.p.k===p.k):null;return {p,per,qo:lastK?lastK.qo:0,io:lastK?lastK.io:0}});
+  return {all,obras,ks,rows};
+}
+const resumenCols=["Nº","Tipo","Fecha","Periodo","Estado","Obra","Amort. anticipo","Retención","Base","IGIC","Total"];
+function resumenRows(list,ks){
+  const pv=prevFiscal();const pre=pv?[[prevLabel().replace("nº ",""),"Anteriores","","Sin desglose por partida","Cerrada",pv.base,0,0,pv.base,pv.igic,pv.total]]:[];
+  return pre.concat(list.map(x=>{const k=ks.get(x.id);return [x.num,x.tipo==="anticipo"?`Anticipo ${pf(+x.pct||0)} %`:"Obra",fechaES(x.fecha),x.periodo||"",x.estado==="borrador"?"Abierta":"Cerrada",x.tipo==="anticipo"?0:k.T,-(k.amort||0),-(k.ret||0),k.base,k.igic,k.total]}));
+}
+function fileTag(){return `Hospital_Lote_${loteId}`}
+
+async function exportLote(fmt,c){
+  if(fmt==="xlsx")return expScope==="origen"?xlsxOrigen(c):xlsxDetalle();
+  if(!window.jspdf||!window.jspdf.jsPDF){toast("No se ha cargado el generador de PDF. Recarga la página.");return}
+  return expScope==="origen"?pdfOrigen(c):pdfDetalle();
+}
+async function pdfHead(doc,titulo,sub,W,M){
+  const src=logoSrc();
+  if(src){const [iw,ih]=await imgSize(src);const lh=11,lw=Math.min(62,lh*iw/ih);try{doc.addImage(src,src.startsWith("data:image/jpeg")?"JPEG":"PNG",M,10,lw,lw*ih/iw)}catch(e){}}
+  else{doc.setFont("helvetica","bold");doc.setFontSize(11);doc.setTextColor(27,26,46);doc.text(pdfTxt(OBRA.certifica),M,17)}
+  doc.setFont("helvetica","bold");doc.setFontSize(15);doc.setTextColor(27,26,46);doc.text(pdfTxt(titulo),W-M,16,{align:"right"});
+  doc.setFont("helvetica","normal");doc.setFontSize(9.5);doc.setTextColor(85,83,110);doc.text(pdfTxt(sub),W-M,22,{align:"right"});
+  doc.setDrawColor(52,10,234);doc.setLineWidth(0.6);doc.line(M,26,W-M,26);
+}
+function pdfFoot(doc,txt,W,H,M){const n=doc.getNumberOfPages();for(let i=1;i<=n;i++){doc.setPage(i);doc.setFontSize(7.5);doc.setTextColor(120,118,140);doc.text(pdfTxt(txt),M,H-7);doc.text(`Página ${i} de ${n}`,W-M,H-7,{align:"right"})}}
+const PDF_BASE={font:"helvetica",fontSize:7.2,cellPadding:1,lineColor:[212,211,226],lineWidth:0.2,textColor:[27,26,46]};
+const PDF_HEAD={fillColor:[240,238,251],textColor:[27,26,46],fontStyle:"bold",fontSize:6.8};
+const PDF_FOOT={fillColor:[247,247,251],textColor:[27,26,46],fontStyle:"bold",halign:"right"};
+
+async function pdfOrigen(c){
+  const m=origenModel(c);
+  const doc=new window.jspdf.jsPDF({orientation:"portrait",unit:"mm",format:"a4"});const W=210,H=297,M=12;
+  await pdfHead(doc,"SITUACIÓN A ORIGEN",`${loteTag()} · hasta la certificación nº ${m.hasta}`,W,M);
+  doc.autoTable({startY:30,margin:{left:M,right:M},theme:"grid",styles:{...PDF_BASE,fontSize:8},body:[["Obra",OBRA.titulo],["Lote",loteTag()],["Empresa que certifica",OBRA.certifica],...(OBRA.contratista?[["Contratista",OBRA.contratista]]:[])].map(r=>r.map(pdfTxt)),columnStyles:{0:{cellWidth:42,fontStyle:"bold",fillColor:[247,247,251]}}});
+  let y=doc.lastAutoTable.finalY+4;
+  for(const cp of m.caps){
+    const rs=m.rows.filter(r=>r.p.cap===cp.cap.id);
+    const cs={0:{cellWidth:9},1:{cellWidth:7},2:{cellWidth:76}};for(let i=3;i<=8;i++)cs[i]={halign:"right"};
+    doc.autoTable({startY:y,margin:{left:M,right:M},theme:"grid",styles:PDF_BASE,headStyles:PDF_HEAD,footStyles:PDF_FOOT,rowPageBreak:"avoid",showFoot:"lastPage",
+      head:[[{content:pdfTxt(`Capítulo ${cp.cap.id} · ${cp.cap.nombre}`),colSpan:9,styles:{halign:"left",fillColor:[236,232,254],fontSize:8.5}}],["Nº","Ud","Descripción","Precio","Med. presup.","Imp. presupuesto","Med. origen","Importe origen","Pendiente"]],
+      body:rs.map(r=>[r.p.n,r.p.ud,r.p.d,eu(r.p.p),qf(r.p.q),eu(r.ip),qf(r.qo),eu(r.io),eu(r.pend)].map(pdfTxt)),
+      foot:[[{content:`Total capítulo ${cp.cap.id}`,colSpan:5},eu(cp.ip),"",eu(cp.io),eu(r2(cp.ip-cp.io))].map(x=>typeof x==="string"?pdfTxt(x):x)],columnStyles:cs});
+    y=doc.lastAutoTable.finalY+4;
+  }
+  if(y>220){doc.addPage();y=16}
+  const res=[["Presupuesto del lote (sin IGIC)",eu(PEM)],["Obra ejecutada a origen",eu(m.O)],["Pendiente de ejecutar",eu(r2(PEM-m.O))]];
+  if(m.ant>0)res.push(["Anticipos certificados",eu(m.ant)],["Anticipo amortizado",eu(-m.amort)]);
+  if(m.ret)res.push(["Retenciones de garantía",eu(-m.ret)]);
+  res.push(["Certificado a origen · base imponible",eu(m.base)],[cfg.isp?"IGIC (inversión del sujeto pasivo)":"IGIC certificado",eu(m.igic)],[`TOTAL CERTIFICADO A ORIGEN (nº 1 a ${m.hasta})`,eu(m.total)]);
+  doc.setFont("helvetica","bold");doc.setFontSize(10);doc.setTextColor(52,10,234);doc.text("RESUMEN A ORIGEN",M,y+4);
+  doc.autoTable({startY:y+6,margin:{left:M,right:M},theme:"grid",styles:{...PDF_BASE,fontSize:9,cellPadding:1.4},body:res.map(r=>r.map(pdfTxt)),columnStyles:{1:{halign:"right",cellWidth:55}},
+    didParseCell:d=>{if(d.row.index===res.length-1){d.cell.styles.fontStyle="bold";d.cell.styles.fillColor=[236,232,254]}}});
+  pdfFoot(doc,`${OBRA.titulo} · ${curLote().nombre} · A origen hasta nº ${m.hasta}`,W,H,M);
+  await saveFile(`A_origen_${fileTag()}_hasta_${m.hasta}.pdf`,doc.output("arraybuffer"));
+}
+async function pdfDetalle(){
+  const m=detalleModel();
+  if(!m.all.length){toast("No hay certificaciones en este lote");return}
+  const doc=new window.jspdf.jsPDF({orientation:"landscape",unit:"mm",format:"a4"});const W=297,H=210,M=10;
+  await pdfHead(doc,"DETALLE DE CERTIFICACIONES",`${loteTag()} · ${m.all.length} certificaci${m.all.length===1?"ón":"ones"}`,W,M);
+  let y=30;const nC=m.obras.length;
+  for(const cp of CAPS){
+    const rs=m.rows.filter(r=>r.p.cap===cp.id);
+    const head2=["Nº","Ud","Descripción","Precio","Med. presup."];for(const x of m.obras)head2.push(`Nº${x.num} cant.`,`Nº${x.num} importe`);head2.push("Med. origen","Importe origen");
+    const cs={0:{cellWidth:8},1:{cellWidth:6},2:{cellWidth:nC>4?42:60}};for(let i=3;i<head2.length;i++)cs[i]={halign:"right"};
+    const capT=m.obras.map(x=>m.ks.get(x.id).caps[cp.id].T);const capO=nC?m.ks.get(m.obras[nC-1].id).caps[cp.id].O:0;
+    const foot=[{content:`Total capítulo ${cp.id}`,colSpan:5}];for(const t of capT)foot.push("",eu(t));foot.push("",eu(capO));
+    doc.autoTable({startY:y,margin:{left:M,right:M},theme:"grid",styles:{...PDF_BASE,fontSize:nC>4?5.8:6.6},headStyles:{...PDF_HEAD,fontSize:nC>4?5.6:6.4},footStyles:PDF_FOOT,rowPageBreak:"avoid",showFoot:"lastPage",
+      head:[[{content:pdfTxt(`Capítulo ${cp.id} · ${cp.nombre}`),colSpan:head2.length,styles:{halign:"left",fillColor:[236,232,254],fontSize:8.5}}],head2],
+      body:rs.map(r=>{const row=[r.p.n,r.p.ud,r.p.d,eu(r.p.p),qf(r.p.q)];for(const v of r.per)row.push(qf(v.qt),eu(v.it));row.push(qf(r.qo),eu(r.io));return row.map(pdfTxt)}),
+      foot:[foot.map(x=>typeof x==="string"?pdfTxt(x):x)],columnStyles:cs});
+    y=doc.lastAutoTable.finalY+4;
+  }
+  if(y>150){doc.addPage();y=16}
+  doc.setFont("helvetica","bold");doc.setFontSize(10);doc.setTextColor(52,10,234);doc.text("RESUMEN POR CERTIFICACIÓN",M,y+4);
+  const rr=resumenRows(m.all,m.ks);const tot=[5,6,7,8,9,10].map(i=>r2(rr.reduce((s,r)=>s+r[i],0)));
+  const cs={};for(let i=5;i<=10;i++)cs[i]={halign:"right"};
+  doc.autoTable({startY:y+6,margin:{left:M,right:M},theme:"grid",styles:{...PDF_BASE,fontSize:8},headStyles:PDF_HEAD,footStyles:PDF_FOOT,columnStyles:cs,head:[resumenCols],
+    body:rr.map(r=>r.map((v,i)=>pdfTxt(i>=5?eu(v):String(v)))),foot:[[{content:"Total",colSpan:5},...tot.map(eur)]]});
+  pdfFoot(doc,`${OBRA.titulo} · ${curLote().nombre} · Detalle de certificaciones`,W,H,M);
+  await saveFile(`Detalle_certificaciones_${fileTag()}.pdf`,doc.output("arraybuffer"));
+}
+
+/* Excel con formato (ExcelJS) */
+const XL={acc:"FF340AEA",accSoft:"FFECE8FE",head:"FFF0EEFB",sunk:"FFF7F7FB",line:"FFD4D3E2",ink:"FF1B1A2E",muted:"FF55536E",eur:'#,##0.00 "€";[Red]-#,##0.00 "€"',qty:'#,##0.##;[Red]-#,##0.##'};
+function xlsxReady(){if(!window.ExcelJS){toast("No se ha cargado el generador de Excel. Recarga la página.");return false}return true}
+const xlBorder=()=>{const s={style:"thin",color:{argb:XL.line}};return {top:s,left:s,bottom:s,right:s}};
+const xlFill=argb=>({type:"pattern",pattern:"solid",fgColor:{argb}});
+/* spec: {name,title,sub,cols:[{h,w,f:"eur"|"qty"|"txt"|"wrap"}],rows:[{t:"cap"|"item"|"sub"|"total",v:[]}],summary:[[label,value,"st"|"tt"|""]],landscape} */
+function xlSheet(wb,s){
+  const ws=wb.addWorksheet(s.name,{views:[{state:"frozen",ySplit:0}],pageSetup:{paperSize:9,orientation:s.landscape?"landscape":"portrait",fitToPage:true,fitToWidth:1,fitToHeight:0,margins:{left:.4,right:.4,top:.5,bottom:.6,header:.3,footer:.3}}});
+  const n=s.cols.length;
+  ws.columns=s.cols.map(c=>({width:c.w}));
+  let r=1;
+  ws.mergeCells(r,1,r,n);const t=ws.getCell(r,1);t.value=s.title;t.font={name:"Calibri",size:15,bold:true,color:{argb:XL.acc}};ws.getRow(r).height=22;r++;
+  if(s.sub){ws.mergeCells(r,1,r,n);const c=ws.getCell(r,1);c.value=s.sub;c.font={size:10,color:{argb:XL.muted}};r++}
+  const info=[["Obra",OBRA.titulo],["Lote",loteTag()],["Empresa que certifica",OBRA.certifica],...(OBRA.contratista?[["Contratista",OBRA.contratista]]:[]),...(OBRA.promotor?[["Promotor",OBRA.promotor]]:[]),...(s.info||[])];
+  r++;
+  for(const [k,v] of info){ws.mergeCells(r,1,r,n);const a=ws.getCell(r,1);a.value={richText:[{text:k+": ",font:{bold:true,size:10}},{text:String(v),font:{size:10}}]};r++}
+  r++;
+  const hr=ws.getRow(r);s.cols.forEach((c,i)=>{const cell=hr.getCell(i+1);cell.value=c.h;cell.font={bold:true,size:9.5,color:{argb:XL.ink}};cell.fill=xlFill(XL.head);cell.border=xlBorder();cell.alignment={vertical:"middle",horizontal:c.f==="eur"||c.f==="qty"?"right":"left",wrapText:true}});
+  hr.height=30;ws.views=[{state:"frozen",ySplit:r}];ws.pageSetup.printTitlesRow=`${r}:${r}`;r++;
+  for(const row of s.rows){
+    const R=ws.getRow(r);
+    if(row.t==="cap"){ws.mergeCells(r,1,r,n);const c=R.getCell(1);c.value=row.v[0];c.font={bold:true,size:11,color:{argb:XL.ink}};c.fill=xlFill(XL.accSoft);c.border=xlBorder();R.height=18;r++;continue}
+    row.v.forEach((v,i)=>{const c=R.getCell(i+1),f=s.cols[i].f;c.value=(v===""||(typeof v==="number"&&!isFinite(v)))?null:v;c.border=xlBorder();c.font={size:9.5,bold:row.t!=="item"};
+      if(f==="eur")c.numFmt=XL.eur;else if(f==="qty")c.numFmt=XL.qty;
+      c.alignment={vertical:"top",wrapText:f==="wrap",horizontal:f==="eur"||f==="qty"?"right":"left"};
+      if(row.t==="sub")c.fill=xlFill(XL.sunk);if(row.t==="total")c.fill=xlFill(XL.accSoft)});
+    if(row.t!=="item"&&row.span){ws.mergeCells(r,1,r,row.span)}
+    r++;
+  }
+  if(s.summary&&s.summary.length){
+    r++;const lc=Math.max(2,n-2);
+    ws.mergeCells(r,1,r,n);const h=ws.getCell(r,1);h.value=s.summaryTitle||"Resumen";h.font={bold:true,size:11,color:{argb:XL.acc}};r++;
+    for(const [l,v,cl] of s.summary){ws.mergeCells(r,1,r,lc);const a=ws.getCell(r,1);a.value=l;ws.mergeCells(r,lc+1,r,n);const b=ws.getCell(r,lc+1);b.value=v;b.numFmt=XL.eur;b.alignment={horizontal:"right"};
+      for(const c of [a,b]){c.border=xlBorder();c.font={size:cl==="tt"?11:10,bold:!!cl};if(cl==="st")c.fill=xlFill(XL.sunk);if(cl==="tt")c.fill=xlFill(XL.accSoft)}r++}
+  }
+  ws.headerFooter.oddFooter=`&L&8${(OBRA.titulo+" · "+curLote().nombre).replace(/&/g,"&&")}&R&8Página &P de &N`;
+  return ws;
+}
+function xlResumen(wb,list,ks){
+  const rr=resumenRows(list,ks);const tot=[5,6,7,8,9,10].map(i=>r2(rr.reduce((s,r)=>s+r[i],0)));
+  const cols=resumenCols.map((h,i)=>({h,w:[6,15,11,22,10,14,14,13,14,12,14][i],f:i>=5?"eur":"txt"}));
+  xlSheet(wb,{name:"Certificaciones",title:"Resumen por certificación",cols,landscape:true,
+    rows:[...rr.map(v=>({t:"item",v})),{t:"total",span:5,v:["Total","","","","",...tot]}]});
+}
+async function saveWb(wb,name){
+  try{const buf=await wb.xlsx.writeBuffer();await saveFile(name,buf)}catch(e){toast("No se ha podido generar el Excel")}
+}
+const cDesc={h:"Descripción",w:62,f:"wrap"};
+async function xlsxOrigen(c){
+  if(!xlsxReady())return;const m=origenModel(c);
+  const cols=[{h:"Nº",w:7,f:"txt"},{h:"Ud",w:5,f:"txt"},cDesc,{h:"Precio",w:11,f:"eur"},{h:"Med. presupuesto",w:12,f:"qty"},{h:"Importe presupuesto",w:15,f:"eur"},{h:"Med. origen",w:12,f:"qty"},{h:"Importe origen",w:15,f:"eur"},{h:"Pendiente",w:15,f:"eur"}];
+  const rows=[];
+  for(const cp of m.caps){
+    rows.push({t:"cap",v:[`Capítulo ${cp.cap.id} · ${cp.cap.nombre}`]});
+    for(const r of m.rows.filter(r=>r.p.cap===cp.cap.id))rows.push({t:"item",v:[r.p.n,r.p.ud,r.p.d,r.p.p,r.p.q,r.ip,r4(r.qo),r.io,r.pend]});
+    rows.push({t:"sub",span:5,v:[`Total capítulo ${cp.cap.id}`,"","","","",cp.ip,"",cp.io,r2(cp.ip-cp.io)]});
+  }
+  rows.push({t:"total",span:5,v:["Total lote","","","","",PEM,"",m.O,r2(PEM-m.O)]});
+  const sum=[["Presupuesto del lote (sin IGIC)",PEM,""],["Obra ejecutada a origen",m.O,""],["Pendiente de ejecutar",r2(PEM-m.O),""]];
+  if(m.ant>0)sum.push(["Anticipos certificados",m.ant,""],["Anticipo amortizado",-m.amort,""]);
+  if(m.ret)sum.push(["Retenciones de garantía",-m.ret,""]);
+  sum.push(["Certificado a origen · base imponible",m.base,"st"],[cfg.isp?"IGIC (inversión del sujeto pasivo)":"IGIC certificado",m.igic,""],[`Total certificado a origen (nº 1 a ${m.hasta})`,m.total,"tt"]);
+  const wb=new ExcelJS.Workbook();
+  xlSheet(wb,{name:"A origen",title:"Situación a origen",sub:`Hasta la certificación nº ${m.hasta}`,cols,rows,summary:sum,summaryTitle:"Resumen a origen",landscape:true});
+  xlResumen(wb,m.upto,new Map(m.upto.map(x=>[x.id,calc(x)])));
+  await saveWb(wb,`A_origen_${fileTag()}_hasta_${m.hasta}.xlsx`);
+}
+async function xlsxDetalle(){
+  if(!xlsxReady())return;const m=detalleModel();
+  if(!m.all.length){toast("No hay certificaciones en este lote");return}
+  const cols=[{h:"Nº",w:7,f:"txt"},{h:"Ud",w:5,f:"txt"},cDesc,{h:"Precio",w:11,f:"eur"},{h:"Med. presupuesto",w:12,f:"qty"}];
+  for(const x of m.obras)cols.push({h:`Nº ${x.num} cantidad`,w:11,f:"qty"},{h:`Nº ${x.num} importe`,w:14,f:"eur"});
+  cols.push({h:"Med. origen",w:12,f:"qty"},{h:"Importe origen",w:15,f:"eur"});
+  const rows=[];const nC=m.obras.length;
+  for(const cp of CAPS){
+    rows.push({t:"cap",v:[`Capítulo ${cp.id} · ${cp.nombre}`]});
+    for(const r of m.rows.filter(r=>r.p.cap===cp.id)){const v=[r.p.n,r.p.ud,r.p.d,r.p.p,r.p.q];for(const x of r.per)v.push(r4(x.qt),x.it);v.push(r4(r.qo),r.io);rows.push({t:"item",v})}
+    const v=[`Total capítulo ${cp.id}`,"","","",""];for(const x of m.obras)v.push("",m.ks.get(x.id).caps[cp.id].T);v.push("",nC?m.ks.get(m.obras[nC-1].id).caps[cp.id].O:0);rows.push({t:"sub",span:5,v});
+  }
+  const v=["Total lote","","","",""];for(const x of m.obras)v.push("",m.ks.get(x.id).T);v.push("",nC?m.ks.get(m.obras[nC-1].id).O:0);rows.push({t:"total",span:5,v});
+  const wb=new ExcelJS.Workbook();
+  xlSheet(wb,{name:"Detalle",title:"Detalle de certificaciones",sub:`${m.all.length} certificaci${m.all.length===1?"ón":"ones"}`,cols,rows,landscape:true});
+  xlResumen(wb,m.all,m.ks);
+  await saveWb(wb,`Detalle_certificaciones_${fileTag()}.xlsx`);
+}
+async function makeXlsxCert(c){
+  if(!xlsxReady())return;const k=calc(c),dm=docModel(c,k);
+  const rows=[];let cols;
+  if(c.tipo==="anticipo"){
+    cols=[{h:"Nº",w:7,f:"txt"},{h:"Ud",w:5,f:"txt"},cDesc,{h:"Precio",w:11,f:"eur"},{h:"Med. presupuesto",w:12,f:"qty"},{h:"Med. certificada",w:12,f:"qty"},{h:"Importe",w:15,f:"eur"}];
+    for(const cp of CAPS){rows.push({t:"cap",v:[`Capítulo ${cp.id} · ${cp.nombre}`]});for(const r of k.rows.filter(r=>r.p.cap===cp.id))rows.push({t:"item",v:[r.p.n,r.p.ud,r.p.d,r.p.p,r.p.q,r4(r.qo),r.io]});rows.push({t:"sub",span:6,v:[`Total capítulo ${cp.id}`,"","","","","",k.caps[cp.id].O]})}
+  } else {
+    if(certCols==="detalle"){
+      cols=[{h:"Nº",w:7,f:"txt"},{h:"Ud",w:5,f:"txt"},cDesc,{h:"Precio",w:11,f:"eur"},{h:"Med. presupuesto",w:12,f:"qty"},{h:"Med. anterior",w:11,f:"qty"},{h:"Med. actual",w:11,f:"qty"},{h:"Med. origen",w:11,f:"qty"},{h:"Importe actual",w:15,f:"eur"},{h:"Importe origen",w:16,f:"eur"}];
+      for(const cp of CAPS){rows.push({t:"cap",v:[`Capítulo ${cp.id} · ${cp.nombre}`]});for(const r of k.rows.filter(r=>r.p.cap===cp.id))rows.push({t:"item",v:[r.p.n,r.p.ud,r.p.d,r.p.p,r.p.q,r4(r.qa),r4(r.qt),r4(r.qo),r.it,r.io]});rows.push({t:"sub",span:8,v:[`Total capítulo ${cp.id}`,"","","","","","","",k.caps[cp.id].T,k.caps[cp.id].O]})}
+    } else {
+      cols=[{h:"Nº",w:7,f:"txt"},{h:"Ud",w:5,f:"txt"},cDesc,{h:"Precio",w:11,f:"eur"},{h:"Med. presupuesto",w:12,f:"qty"},{h:"Med. origen",w:12,f:"qty"},{h:"Importe origen",w:16,f:"eur"}];
+      for(const cp of CAPS){rows.push({t:"cap",v:[`Capítulo ${cp.id} · ${cp.nombre}`]});for(const r of k.rows.filter(r=>r.p.cap===cp.id))rows.push({t:"item",v:[r.p.n,r.p.ud,r.p.d,r.p.p,r.p.q,r4(r.qo),r.io]});rows.push({t:"sub",span:6,v:[`Total capítulo ${cp.id}`,"","","","","",k.caps[cp.id].O]})}
+    }
+  }
+  const sum=dm.resumen.map(([l,v,cl])=>[l,parseNum(String(v).replace(/\s*€/,"")),cl]);
+  const info=[["Fecha",c.fecha?fechaES(c.fecha):""],...(c.tipo==="obra"&&c.periodo?[["Periodo",c.periodo]]:[])];
+  const wb=new ExcelJS.Workbook();
+  const ws=xlSheet(wb,{name:`Certificación ${c.num}`,title:`Certificación nº ${c.num}`,sub:dm.titulo,info,cols,rows,summary:sum,landscape:true});
+  if(dm.obs.length){let r=ws.rowCount+2;for(const o of dm.obs){ws.mergeCells(r,1,r,cols.length);const cell=ws.getCell(r,1);cell.value=o;cell.font={size:9.5,italic:true,color:{argb:XL.muted}};cell.alignment={wrapText:true};r++}}
+  await saveWb(wb,`Certificacion_${c.num}_${fileTag()}.xlsx`);
+}
+
+/* ---------- arranque ---------- */
+function applySnapshot(snap){
+  const remote=snap.docs.map(d=>({id:d.id,...JSON.parse(JSON.stringify(d.data()))}));
+  let changed=remote.length!==certs.length;
+  const next=remote.map(r=>{const l=certs.find(x=>x.id===r.id);if(l&&dirty.has(r.id))return l;if(!l||JSON.stringify(strip(l))!==JSON.stringify(strip(r)))changed=true;return r});
+  for(const l of certs)if(dirty.has(l.id)&&!next.find(x=>x.id===l.id))next.push(l);
+  certs=next;
+  if(!loaded){loaded=true;selId=sorted().pop()?.id||null;render();return}
+  if(selId&&!sorted().find(x=>x.id===selId))selId=sorted().pop()?.id||null;
+  if(!certs.find(x=>x.id===selId))selId=sorted().pop()?.id||null;
+  if(changed){const ae=document.activeElement;if(ae&&app.contains(ae)&&ae.matches("input,textarea"))refreshNumbers();else render()}
+}
+function startLocal(){
+  localMode=true;loaded=true;
+  certs=[];
+  selId=null;render();
+}
+(async()=>{
+  try{dl=await window.claude?.use?.("downloads")}catch(e){dl=null}
+  let d=null;try{d=await window.claude?.use?.("db")}catch(e){d=null}
+  if(!d){startLocal();return}
+  db=d;
+  db.doc("config/obra").onSnapshot(s=>{if(s.exists){const v=s.data();const nc={igic:7,isp:false,ret:0,logo:"",obra:{},...JSON.parse(JSON.stringify(v))};if(JSON.stringify(nc)!==JSON.stringify(cfg)&&!cfgTimer){cfg=nc;syncObra();const ae=document.activeElement;if(loaded&&!(ae&&ae.dataset&&ae.dataset.obra))render()}}},()=>{});
+  db.collection("certs").onSnapshot(applySnapshot,()=>{setStatus("Se ha perdido la conexión con el guardado. Recarga la página.","err")});
+  setTimeout(()=>{if(!loaded){loaded=true;render()}},8000);
+})();
+</script>
+
+
+</body></html>

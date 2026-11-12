@@ -1,0 +1,17 @@
+{
+  "albs": [],
+  "cliente": "TOMÁS BARRETO SA",
+  "desc": "Revisiones de grupos pruebas mediciones limpiezas \n.",
+  "devol": [],
+  "estado": "TERMINADO",
+  "fecha": "2026-10-15",
+  "horas": 2,
+  "obra": "SPAR MEDEROS",
+  "ops": [
+    {
+      "h": 2,
+      "n": "Toño"
+    }
+  ],
+  "stock": []
+}

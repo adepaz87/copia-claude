@@ -1,0 +1,17 @@
+{
+  "albs": [],
+  "cliente": "INSTAPALMA",
+  "desc": "Cambiar placas de el techo en baño, cocina y comedor , armar mueble Ikea",
+  "devol": [],
+  "estado": "TERMINADO",
+  "fecha": "2026-10-05",
+  "horas": 8,
+  "obra": "CAFÉ DON MANUEL EL PASO",
+  "ops": [
+    {
+      "h": 8,
+      "n": "Luigi"
+    }
+  ],
+  "stock": []
+}

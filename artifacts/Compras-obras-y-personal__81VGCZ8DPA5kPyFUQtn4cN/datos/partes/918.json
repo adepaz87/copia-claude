@@ -1,0 +1,24 @@
+{
+  "albs": [],
+  "cliente": "EXTINPALMA S.L.",
+  "desc": "Ejecución de instalación de tubo PVC visto, tendido y enhebrado de cableado de protección contra incendios a través de bandejas, tubo visto y canalizaciones empotradas existentes. Instalación y fijación de sirena acústica interior. Montaje de bases para detectores de incendio, colocación de detectores, pulsadores y realización del conexionado eléctrico de los distintos dispositivos a la instalación de detección y alarma de incendios. (Zona parking 1 y escaleras/ascensores)",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-11-09",
+  "horas": 16,
+  "id": "918",
+  "obra": "HIPERDINO EL PUENTE",
+  "ops": [
+    {
+      "h": 8,
+      "n": "Eloy"
+    },
+    {
+      "h": 8,
+      "n": "Rafa"
+    }
+  ],
+  "origen": "dashboard",
+  "restante": "Indefinido",
+  "stock": []
+}

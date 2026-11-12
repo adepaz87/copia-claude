@@ -1,0 +1,94 @@
+{
+  "empresa": "Instapalma",
+  "fecha": "2026-02-23",
+  "lineas": [
+    {
+      "a": "VCTF-003347-2026",
+      "d": "TUBO AISCAN-CR CORRUG.DOBLE CAPA D.20 NG",
+      "dto": "Neto",
+      "f": "2026-02-23",
+      "i": 69.3,
+      "o": "TEATRO MONTERREY",
+      "pn": 0.231,
+      "pt": 0.231,
+      "q": 300,
+      "r": "AIS-CR20"
+    },
+    {
+      "a": "VCTF-003347-2026",
+      "d": "TUBO AISCAN-CR CORRUG.DOBLE CAPA D.25 NG",
+      "dto": "Neto",
+      "f": "2026-02-23",
+      "i": 22.28,
+      "o": "TEATRO MONTERREY",
+      "pn": 0.2971,
+      "pt": 0.297,
+      "q": 75,
+      "r": "AIS-CR25"
+    },
+    {
+      "a": "VCTF-003347-2026",
+      "d": "CAJA UNIVERSAL ENLAZ.2 CARAS (500 UD)",
+      "dto": "0,00",
+      "f": "2026-02-23",
+      "i": 8.04,
+      "o": "TEATRO MONTERREY",
+      "pn": 0.134,
+      "pt": 0.134,
+      "q": 60,
+      "r": "SOL-6625"
+    },
+    {
+      "a": "VCTF-003347-2026",
+      "d": "CAJA PT5 160X130X70 FG10213",
+      "dto": "Neto",
+      "f": "2026-02-23",
+      "i": 7.72,
+      "o": "TEATRO MONTERREY",
+      "pn": 1.93,
+      "pt": 1.929,
+      "q": 4,
+      "r": "CMC-350C5"
+    },
+    {
+      "a": "VCTF-003347-2026",
+      "d": "CAJA PT7 294X152X70 FG10215",
+      "dto": "Neto",
+      "f": "2026-02-23",
+      "i": 15.48,
+      "o": "TEATRO MONTERREY",
+      "pn": 3.87,
+      "pt": 3.871,
+      "q": 4,
+      "r": "CMC-350C7"
+    },
+    {
+      "a": "VCTF-003347-2026",
+      "d": "CAJA PT8 392X152X70 FG10216",
+      "dto": "Neto",
+      "f": "2026-02-23",
+      "i": 42,
+      "o": "TEATRO MONTERREY",
+      "pn": 7,
+      "pt": 7,
+      "q": 6,
+      "r": "CMC-350C8"
+    },
+    {
+      "a": "VCTF-003347-2026",
+      "d": "CINTA ELECT.PVC N-10 25MX25X0,13MM BL.",
+      "dto": "40,00",
+      "f": "2026-02-23",
+      "i": 13.5,
+      "o": "TEATRO MONTERREY",
+      "pn": 1.35,
+      "pt": 2.25,
+      "q": 10,
+      "r": "PLY-5248"
+    }
+  ],
+  "numero": "FT-001210-2026",
+  "origen": "Gmail",
+  "proveedor": "Diexfe",
+  "tipo": "factura"
+}

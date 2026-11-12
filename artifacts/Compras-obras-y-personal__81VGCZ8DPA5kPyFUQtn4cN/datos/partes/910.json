@@ -1,0 +1,23 @@
+{
+  "albs": [],
+  "cliente": "CABILDO INSULAR",
+  "desc": "Reparar avería en luz de aviso del presostato de baja del compresor de cámara. Revisar avería en térmico de maniobra de cámara. Fallo en interruptor de frío de cámaras (mala conexión del frigorista). Comprobar tensión en cuadros.",
+  "devol": [],
+  "estado": "TERMINADO",
+  "fecha": "2026-11-06",
+  "horas": 3,
+  "id": "910",
+  "obra": "HORTOFRUTICOLA",
+  "ops": [
+    {
+      "h": 2,
+      "n": "Antonio"
+    },
+    {
+      "h": 1,
+      "n": "Transporte"
+    }
+  ],
+  "origen": "dashboard",
+  "stock": []
+}

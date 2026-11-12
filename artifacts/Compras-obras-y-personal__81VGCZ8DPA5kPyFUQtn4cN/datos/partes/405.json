@@ -1,0 +1,19 @@
+{
+  "albs": [
+    "Fraper 212601011049"
+  ],
+  "cliente": "INSTAPALMA",
+  "desc": "Colocar cinta para pintar aparcamientos , pintar aparcamietos",
+  "devol": [],
+  "estado": "TERMINADO",
+  "fecha": "2026-09-03",
+  "horas": 8,
+  "obra": "CARGADOR EL PASO",
+  "ops": [
+    {
+      "h": 8,
+      "n": "Luigi"
+    }
+  ],
+  "stock": []
+}

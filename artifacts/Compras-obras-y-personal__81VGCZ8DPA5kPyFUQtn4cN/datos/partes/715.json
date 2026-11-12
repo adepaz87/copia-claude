@@ -1,0 +1,84 @@
+{
+  "albs": [
+    "Sonepar 309006348",
+    "Sonepar 309006354"
+  ],
+  "cliente": "CABILDO INSULAR",
+  "desc": "Pasar cables por bandeja para aturdidores de porcino y conectar tomas.\nColocar cuadro de aturdidores y darle servicio del cuadro general.\nEntubar y enebrar lineas de aturdidores de bovino.\nComprobar lineas, marcar cuadro y probar. \nConectar esterilizador nuevo de corte esternon de bovino.",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-10-16",
+  "horas": 14,
+  "obra": "MATADERO INSULAR",
+  "ops": [
+    {
+      "h": 6,
+      "n": "Antonio"
+    },
+    {
+      "h": 7,
+      "n": "Iker"
+    },
+    {
+      "h": 1,
+      "n": "Transporte"
+    }
+  ],
+  "stock": [
+    {
+      "d": "cable 3x2,5 mm RZ1-K",
+      "q": 93,
+      "u": "m"
+    },
+    {
+      "d": "tubo rigido de 25 mm",
+      "q": 12,
+      "u": "m"
+    },
+    {
+      "d": "registro sobre pared 10x10",
+      "q": 4,
+      "u": "cajas"
+    },
+    {
+      "d": "duo power 6x30",
+      "q": 2,
+      "u": "ud"
+    },
+    {
+      "d": "bridas celo grises 4,8x200",
+      "q": 1,
+      "u": "paquete"
+    },
+    {
+      "d": "diferencial eaton 2x40A 30mA",
+      "q": 1,
+      "u": ""
+    },
+    {
+      "d": "contactor eaton modular 2x20A",
+      "q": 1,
+      "u": ""
+    },
+    {
+      "d": "cinta aislante blanca",
+      "q": 1,
+      "u": ""
+    },
+    {
+      "d": "regletas de empalme de 10 mm",
+      "q": 2,
+      "u": ""
+    },
+    {
+      "d": "cable flexible 1x2,5mm libre halogenos",
+      "q": 96,
+      "u": "m"
+    },
+    {
+      "d": "bridas ratio blancas 4,8x300",
+      "q": 1,
+      "u": "paquete"
+    }
+  ]
+}

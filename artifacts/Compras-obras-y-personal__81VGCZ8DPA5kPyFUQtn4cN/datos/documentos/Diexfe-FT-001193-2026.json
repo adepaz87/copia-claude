@@ -1,0 +1,82 @@
+{
+  "empresa": "Instapalma",
+  "fecha": "2026-02-24",
+  "lineas": [
+    {
+      "a": "VCTF-003480-2026",
+      "d": "TUBO AISCAN-B BLIND.D.20 ENCHUFABLE GR",
+      "dto": "Neto",
+      "f": "2026-02-24",
+      "i": 124.62,
+      "o": "CANCHA VELHOCO",
+      "pn": 0.62,
+      "pt": 0.62,
+      "q": 201,
+      "r": "AIS-BGE20"
+    },
+    {
+      "a": "VCTF-003480-2026",
+      "d": "ABRAZADERA M-QUICK ME20-M25 GR.",
+      "dto": "Neto",
+      "f": "2026-02-24",
+      "i": 77,
+      "o": "CANCHA VELHOCO",
+      "pn": 0.385,
+      "pt": 0.385,
+      "q": 200,
+      "r": "OBO-2153726"
+    },
+    {
+      "a": "VCTF-003480-2026",
+      "d": "CURVA AISCAN-CF FLEXIBLE D.20 GR.",
+      "dto": "Neto",
+      "f": "2026-02-24",
+      "i": 20.7,
+      "o": "CANCHA VELHOCO",
+      "pn": 1.035,
+      "pt": 1.035,
+      "q": 20,
+      "r": "AIS-CFG20"
+    },
+    {
+      "a": "VCTF-003480-2026",
+      "d": "CJ.ETCA.CX.YBOX Y715 IP55 IK08 TORN.1/4\"",
+      "dto": "0,00",
+      "f": "2026-02-24",
+      "i": 17.71,
+      "o": "CANCHA VELHOCO",
+      "pn": 1.4758,
+      "pt": 1.476,
+      "q": 12,
+      "r": "SOL-Y715"
+    },
+    {
+      "a": "VCTF-003480-2026",
+      "d": "BLQ.EMERG.GS 325LM 252X100X40MM IP44 BAT",
+      "dto": "Neto",
+      "f": "2026-02-24",
+      "i": 190.36,
+      "o": "CANCHA VELHOCO",
+      "pn": 19.036,
+      "pt": 19.036,
+      "q": 10,
+      "r": "NLU-G-300L"
+    },
+    {
+      "a": "VCTF-003480-2026",
+      "d": "CAJA ESTANCA GS",
+      "dto": "Neto",
+      "f": "2026-02-24",
+      "i": 82.16,
+      "o": "CANCHA VELHOCO",
+      "pn": 8.216,
+      "pt": 8.216,
+      "q": 10,
+      "r": "NLU-G-MS"
+    }
+  ],
+  "numero": "FT-001193-2026",
+  "origen": "Gmail",
+  "proveedor": "Diexfe",
+  "tipo": "factura"
+}

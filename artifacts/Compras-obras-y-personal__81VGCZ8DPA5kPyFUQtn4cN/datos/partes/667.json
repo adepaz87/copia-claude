@@ -1,0 +1,23 @@
+{
+  "albs": [
+    "INSTAPALMA ALB-202610-184"
+  ],
+  "cliente": "EXTINPALMA S.L.",
+  "desc": "- Zona parking -2.\nColocación de bases , preparación de puntas del\ncableado, \nconexionado y colocación detectores de incendio.\n\n- zona  Rampa Mecanica.\n enhebrado de cable por tubo visto , colocación de bases, preparación de\npuntas cableado y conexionado , colocación detectores.\n\n- zona escaleras/ascensor.\n Desmonte cableado antiguo y enhebrado de cable nuevo contraincendio,\n instalación de bases ",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-10-08",
+  "horas": 19,
+  "obra": "HIPERDINO EL PUENTE (CONTRAINCENDIO)",
+  "ops": [
+    {
+      "h": 8,
+      "n": "Eloy"
+    },
+    {
+      "h": 11,
+      "n": "Rafa"
+    }
+  ],
+  "stock": []
+}

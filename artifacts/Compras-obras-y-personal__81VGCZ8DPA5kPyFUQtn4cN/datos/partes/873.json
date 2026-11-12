@@ -1,0 +1,113 @@
+{
+  "albs": [
+    "Coelca 185.250 /018",
+    "Instapalma 202611-0231"
+  ],
+  "cliente": "TOMÁS BARRETO",
+  "desc": "Hacer entubado para línea nueva Tc trifásica almacén. Enhebrar línea 5x10 1kv Rz1 desde toma hasta cuadro. Colocación toma trifásica 32A 3P+N+T y conexionar. Colocación automático 4x32 para toma trifásica cablear hacer puentes y conexionado líneas. Dejar toma con servicio. Rotular cuadro y Tc en almacén. Limpiar zonas de trabajo",
+  "devol": [
+    {
+      "d": "Magnetotermico 4x16 Eaton Spar Triana",
+      "q": 1,
+      "u": ""
+    },
+    {
+      "d": "Bornas carril din 6mm",
+      "q": 4,
+      "u": ""
+    }
+  ],
+  "estado": "TERMINADO",
+  "fecha": "2026-11-04",
+  "horas": 8,
+  "id": "873",
+  "obra": "SPAR TRIANA (OT 125)",
+  "ops": [
+    {
+      "h": 4,
+      "n": "Petter"
+    },
+    {
+      "h": 4,
+      "n": "Jonathan Rodríguez"
+    }
+  ],
+  "origen": "dashboard",
+  "stock": [
+    {
+      "d": "Magnetotermico 4x32A Eaton",
+      "q": 1,
+      "u": ""
+    },
+    {
+      "d": "Punteras 10mm",
+      "q": 20,
+      "u": ""
+    },
+    {
+      "d": "Bornas carril Din 10mm",
+      "q": 4,
+      "u": ""
+    },
+    {
+      "d": "Terminal 10/8",
+      "q": 1,
+      "u": ""
+    },
+    {
+      "d": "Cable 1x10mm 750v",
+      "q": 8,
+      "u": "m"
+    },
+    {
+      "d": "Tubo rígido 32mm",
+      "q": 1,
+      "u": "m"
+    },
+    {
+      "d": "Racor tubo diflex32 a Tubo rígido 32",
+      "q": 1,
+      "u": ""
+    },
+    {
+      "d": "Tubo diflex 32",
+      "q": 0.5,
+      "u": "m"
+    },
+    {
+      "d": "Base brida gris",
+      "q": 3,
+      "u": ""
+    },
+    {
+      "d": "Tacos 6x30",
+      "q": 3,
+      "u": ""
+    },
+    {
+      "d": "Tornillos 4,5x40",
+      "q": 3,
+      "u": ""
+    },
+    {
+      "d": "Bridas 4,8x200 gris",
+      "q": 10,
+      "u": ""
+    },
+    {
+      "d": "Tacos 10x50",
+      "q": 4,
+      "u": ""
+    },
+    {
+      "d": "Tornillos barraqueros 8x60",
+      "q": 4,
+      "u": ""
+    },
+    {
+      "d": "Arandelas 6 ala ancha",
+      "q": 4,
+      "u": ""
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "albs": [],
+  "cliente": "COVALLE",
+  "desc": "Prepara  puentes  conectar",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-10-15",
+  "horas": 2,
+  "obra": "CUADRO",
+  "ops": [
+    {
+      "h": 2,
+      "n": "Goyo"
+    }
+  ],
+  "stock": []
+}

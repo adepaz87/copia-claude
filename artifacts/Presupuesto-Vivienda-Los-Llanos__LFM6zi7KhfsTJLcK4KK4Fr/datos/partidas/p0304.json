@@ -1,0 +1,12 @@
+{
+  "cap": "03",
+  "cod": "03.04",
+  "desc": "Regularización y repaso de paramentos existentes (fachada y medianeras) con mortero.",
+  "med": 30,
+  "nota": "Paredes en buen estado salvo zonas puntuales",
+  "orden": 4,
+  "pre": 9,
+  "rev": true,
+  "sb": false,
+  "ud": "m²"
+}

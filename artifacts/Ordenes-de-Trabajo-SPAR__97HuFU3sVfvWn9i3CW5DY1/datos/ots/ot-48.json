@@ -1,0 +1,19 @@
+{
+  "actualizada": "2026-07-23T09:00:00Z",
+  "aviso": "25930",
+  "centro": "Nuevo Almacén II",
+  "creada": "2026-07-23T09:00:00Z",
+  "descripcion": "Colocar interruptor de bypass para pasar a corriente sin UPS.",
+  "estado": "terminada",
+  "fechaAviso": "2026-07-23",
+  "historial": [
+    "23/07/2026 · Importada del correo de Alberto"
+  ],
+  "informado": true,
+  "notas": "Resuelta (correo 23/07/2026).",
+  "operario": "",
+  "ot": 48,
+  "prioridad": "Sin especificar",
+  "solicitante": "",
+  "tipo": "MANTENIMIENTO"
+}

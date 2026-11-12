@@ -1,0 +1,19 @@
+{
+  "actualizada": "2026-05-26T09:00:00Z",
+  "aviso": "",
+  "centro": "SPAR El Paso Nuevo",
+  "creada": "2026-05-26T09:00:00Z",
+  "descripcion": "Revisión del montacargas: placa, corriente y UPS.",
+  "estado": "terminada",
+  "fechaAviso": "2026-05-26",
+  "historial": [
+    "26/05/2026 · Importada del correo de Alberto"
+  ],
+  "informado": true,
+  "notas": "Resuelta el 26/05/2026.",
+  "operario": "",
+  "ot": 14,
+  "prioridad": "Sin especificar",
+  "solicitante": "",
+  "tipo": "MANTENIMIENTO"
+}

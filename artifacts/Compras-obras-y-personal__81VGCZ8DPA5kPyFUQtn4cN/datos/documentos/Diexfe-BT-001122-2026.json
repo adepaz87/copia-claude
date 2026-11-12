@@ -1,0 +1,47 @@
+{
+  "abono": true,
+  "empresa": "Instapalma",
+  "fecha": "2026-09-30",
+  "lineas": [
+    {
+      "a": "VCTF-018070-2026",
+      "d": "ABONO PULS.1P 10A 250VCA NO ILUMINABLE 2 MOD",
+      "dto": "53,00",
+      "f": "2026-09-29",
+      "i": -40.53,
+      "o": "EDF SABINO",
+      "pn": 2.895,
+      "pt": 6.16,
+      "q": -14,
+      "r": "BTI-RW4005M2P"
+    },
+    {
+      "a": "VCTF-013281-2026",
+      "d": "ABONO TELÉFONO T-ART LITE/G2+",
+      "dto": "65,00",
+      "f": "2026-09-29",
+      "i": -37.1,
+      "o": "EDF SABINO",
+      "pn": 18.55,
+      "pt": 53,
+      "q": -2,
+      "r": "GOL-12210101"
+    },
+    {
+      "a": "VCTF-013281-2026",
+      "d": "ABONO GENERAL                                    77,63",
+      "dto": "0,00",
+      "f": "2026-09-29",
+      "i": 0,
+      "o": "EDF SABINO",
+      "pn": 0,
+      "pt": 5.43,
+      "q": -7,
+      "r": "IGIC"
+    }
+  ],
+  "numero": "BT-001122-2026",
+  "origen": "Gmail",
+  "proveedor": "Diexfe",
+  "tipo": "factura"
+}

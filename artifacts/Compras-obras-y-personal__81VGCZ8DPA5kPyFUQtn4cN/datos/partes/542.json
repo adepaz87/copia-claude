@@ -1,0 +1,25 @@
+{
+  "albs": [
+    "Fraper 212601012026"
+  ],
+  "cliente": "TRAGSA",
+  "desc": "Hacer soportes para pértigas de maniobra y salvamento, soportes para guantes y fusibles de MT. \nColocar carteles de primeros auxilios y 5 reglas de oro.\n\nHacer puentes de BT desde el cbt hasta el trafo (cable 240mm cobre) . Prensar terminales y conectar.",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-09-24",
+  "horas": 8,
+  "obra": "CT. PLAZA GAZMIRA",
+  "ops": [
+    {
+      "h": 8,
+      "n": "Jorge"
+    }
+  ],
+  "stock": [
+    {
+      "d": "pletina de cobre perforada de 160A",
+      "q": 1,
+      "u": "m"
+    }
+  ]
+}

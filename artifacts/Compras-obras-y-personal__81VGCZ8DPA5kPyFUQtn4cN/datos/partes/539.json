@@ -1,0 +1,38 @@
+{
+  "albs": [
+    "Instapalma 202609-0150"
+  ],
+  "cliente": "CONSTRUCCIONES DOS TUMBOS",
+  "desc": "Realizar entubado en segunda planta …(entubar aires hasta azotea,,,)\nEntubar primera planta alimentación subcuadros ,telecomunicaciones,fuerza,alumbrado,aires hasta la azotea ,etc…\nPicar en pared pase en primera planta a la obra antigua (alimentación subcuadro,telecomunicaciones etc,,,)\nLimpiar zonas de trabajo",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-09-23",
+  "horas": 30,
+  "obra": "RESIDENCIA TERCERA EDAD EL PASO",
+  "ops": [
+    {
+      "h": 8,
+      "n": "Junior"
+    },
+    {
+      "h": 11,
+      "n": "Petter"
+    },
+    {
+      "h": 11,
+      "n": "Jonathan Rodríguez"
+    }
+  ],
+  "stock": [
+    {
+      "d": "Tubo cuarrugado 40 (negro)",
+      "q": 75,
+      "u": "m"
+    },
+    {
+      "d": "Base Brida pistola Gris Celo",
+      "q": 300,
+      "u": "ud"
+    }
+  ]
+}

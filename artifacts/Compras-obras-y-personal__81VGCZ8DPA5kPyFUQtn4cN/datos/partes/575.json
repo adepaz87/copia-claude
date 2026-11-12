@@ -1,0 +1,17 @@
+{
+  "albs": [],
+  "cliente": "INSTAPALMA",
+  "desc": "Pintar canal de aguas lluvias , empastar chimenea y pintar chimenea",
+  "devol": [],
+  "estado": "TERMINADO",
+  "fecha": "2026-09-28",
+  "horas": 8,
+  "obra": "CASA PUNTA GORDA",
+  "ops": [
+    {
+      "h": 8,
+      "n": "Luigi"
+    }
+  ],
+  "stock": []
+}

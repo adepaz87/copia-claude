@@ -1,0 +1,25 @@
+{
+  "albs": [
+    "Bolsa de aguas 312.613.756"
+  ],
+  "cliente": "CHICHO 2 TUMBOS",
+  "desc": "En planta 2 . Preparación del tubo extracción del aire, para acoplar al extractor y colocación de extractores de aire y conexionado",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-09-02",
+  "horas": 8,
+  "obra": "EDIFICIO SABINO",
+  "ops": [
+    {
+      "h": 8,
+      "n": "Rafa"
+    }
+  ],
+  "stock": [
+    {
+      "d": "bridas de 30x4.8",
+      "q": 100,
+      "u": ""
+    }
+  ]
+}

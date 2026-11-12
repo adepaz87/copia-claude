@@ -1,0 +1,27 @@
+{
+  "albs": [
+    "Sonepar 309006423"
+  ],
+  "cliente": "CABILDO INSULAR",
+  "desc": "Sustituir cable sierra de porcino y probar funcionamiento.\nVer averia alumbrado exterior.\nVer alumbrado de almacenes de planta baja.\nReprogramar reloj horario digital de caldera y comprobar funcionamiento.\nVer fallo de internet en ordenador de control de temperaturas. Reprogramar accseo.",
+  "devol": [],
+  "estado": "TERMINADO",
+  "fecha": "2026-10-23",
+  "horas": 11,
+  "obra": "MATADERO INSULAR",
+  "ops": [
+    {
+      "h": 5,
+      "n": "Antonio"
+    },
+    {
+      "h": 5,
+      "n": "Iker"
+    },
+    {
+      "h": 1,
+      "n": "Transporte"
+    }
+  ],
+  "stock": []
+}

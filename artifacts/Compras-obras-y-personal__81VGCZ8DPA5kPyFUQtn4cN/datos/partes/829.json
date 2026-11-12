@@ -1,0 +1,28 @@
+{
+  "albs": [],
+  "cliente": "BALCON TABURIENTE",
+  "desc": "Reparar averia en TC aparcamientos por fallo de diferencial del cargador.",
+  "devol": [],
+  "estado": "TERMINADO",
+  "fecha": "2026-10-28",
+  "horas": 2,
+  "obra": "RESTAURANTE BALCON TABURIENTE",
+  "ops": [
+    {
+      "h": 1,
+      "n": "Antonio"
+    },
+    {
+      "h": 1,
+      "n": "Transporte"
+    }
+  ],
+  "origen": "dashboard",
+  "stock": [
+    {
+      "d": "Diferencial Legrand 2x40A/300mA",
+      "q": 1,
+      "u": "ud"
+    }
+  ]
+}

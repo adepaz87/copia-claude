@@ -1,0 +1,17 @@
+{
+  "albs": [],
+  "cliente": "VIVIENDA LA VERADA",
+  "desc": "Revisar ranurado",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-10-28",
+  "horas": 1,
+  "obra": "VIVIENDA",
+  "ops": [
+    {
+      "h": 1,
+      "n": "Goyo"
+    }
+  ],
+  "stock": []
+}

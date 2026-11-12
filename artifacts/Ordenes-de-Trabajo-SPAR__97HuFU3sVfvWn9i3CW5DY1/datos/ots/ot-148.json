@@ -1,0 +1,24 @@
+{
+  "actualizada": "2026-11-12T15:13:57.816Z",
+  "asignadaEn": "2026-11-12T15:13:50.758Z",
+  "avisadoWa": "2026-11-12T15:13:57.816Z",
+  "aviso": "",
+  "centro": "SPAR Mederos",
+  "creada": "2026-11-12T09:13:00Z",
+  "descripcion": "Colocar urgente un enchufe trifásico para la cortadora de pan.",
+  "empresa": "Tomás Barreto",
+  "estado": "asignada",
+  "fechaAviso": "2026-11-11",
+  "historial": [
+    "12/11/2026 10:12 · Registrada desde la captura GIM de Raquel (correo «MEDEROS»)",
+    "12/11/2026 15:13 · Asignada a Toño Guardia",
+    "12/11/2026 15:13 · Asignación: Correo enviado a TBSA · WhatsApp a Toño Guardia programado · WhatsApp a Fernando programado"
+  ],
+  "informado": true,
+  "notas": "Captura GIM enviada por Raquel (correo «MEDEROS», 12/11 09:13, cc Fernando). Solicitud del jefe de tienda EUROSPAR Mederos (Los Llanos de Aridane), 11/11 20:11, DPTO MANTENIMIENTO, prioridad Alta (sin nº de aviso visible).",
+  "operario": "Toño Guardia",
+  "ot": 148,
+  "prioridad": "Alta",
+  "solicitante": "Raquel",
+  "tipo": "MANTENIMIENTO"
+}

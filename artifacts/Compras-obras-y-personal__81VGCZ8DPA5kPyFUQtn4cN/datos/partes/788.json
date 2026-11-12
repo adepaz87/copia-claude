@@ -1,0 +1,25 @@
+{
+  "albs": [],
+  "cliente": "DRAGADOS",
+  "desc": "Desconectar grupo electrogeno. Medir tensiones de unelco endesa. Conectar derivacion individual a disyuntor. Probar giro de maquinaria. Todo ok",
+  "devol": [],
+  "estado": "TERMINADO",
+  "fecha": "2026-10-26",
+  "horas": 3,
+  "obra": "34 VIVIENDAS TAZACORTE",
+  "ops": [
+    {
+      "h": 1,
+      "n": "Antonio"
+    },
+    {
+      "h": 1,
+      "n": "Iker"
+    },
+    {
+      "h": 1,
+      "n": "persona no identificada)"
+    }
+  ],
+  "stock": []
+}

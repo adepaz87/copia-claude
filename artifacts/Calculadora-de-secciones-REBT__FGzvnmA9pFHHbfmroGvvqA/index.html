@@ -1,0 +1,862 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Calculadora de secciones REBT</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@500;600;700&family=Public+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+/* Layout: two-column workbench — datos de la línea a la izquierda, dictamen fijo a la derecha; una columna en móvil */
+:root{
+  --bg:#eef1f4; --panel:#ffffff; --ink:#18212b; --muted:#5a6673; --line:#d5dbe2; --soft:#f5f7f9;
+  --copper:#a8501f; --copper-ink:#ffffff; --copper-soft:#f6e7dd;
+  --ok:#1f7a4a; --ok-soft:#e1f2e8; --warn:#9a6a00; --warn-soft:#fbf0d6; --bad:#b3261e; --bad-soft:#fbe4e2;
+  --c-marron:#7b4a2a; --c-negro:#1b1b1b; --c-gris:#8d949b; --c-azul:#2f7fd0; --c-verde:#3fa34d; --c-amarillo:#e8c425;
+  --f-display:"Barlow Semi Condensed","Arial Narrow",system-ui,sans-serif;
+  --f-body:"Public Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --f-mono:"JetBrains Mono",ui-monospace,"SFMono-Regular",Menlo,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#12171d; --panel:#1a2129; --ink:#e6ebf0; --muted:#9aa6b2; --line:#2e3843; --soft:#202832;
+  --copper:#e08a55; --copper-ink:#1a1008; --copper-soft:#3a2518;
+  --ok:#5cc98c; --ok-soft:#173326; --warn:#e7b443; --warn-soft:#352a10; --bad:#f08178; --bad-soft:#3b1c1a;
+  --c-negro:#000000; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#12171d; --panel:#1a2129; --ink:#e6ebf0; --muted:#9aa6b2; --line:#2e3843; --soft:#202832;
+  --copper:#e08a55; --copper-ink:#1a1008; --copper-soft:#3a2518;
+  --ok:#5cc98c; --ok-soft:#173326; --warn:#e7b443; --warn-soft:#352a10; --bad:#f08178; --bad-soft:#3b1c1a;
+  --c-negro:#000000; color-scheme:dark}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+.lbl{font-size:12px;font-weight:600;color:var(--muted);letter-spacing:.2px}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:14px;line-height:1.5}
+.wrap{max-width:1240px;margin:0 auto;padding-block:20px 48px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+header.top{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:8px 24px;margin-bottom:18px}
+h1{font-family:var(--f-display);font-weight:700;font-size:30px;letter-spacing:.2px;margin:0;line-height:1.1;text-wrap:balance}
+.sub{color:var(--muted);margin:4px 0 0;max-width:70ch}
+.toplinks{display:flex;gap:14px;flex-wrap:wrap;font-size:13px}
+a{color:var(--copper)}
+.grid{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:20px;align-items:start}
+@media (max-width:900px){.grid{grid-template-columns:minmax(0,1fr)}}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:10px}
+fieldset{border:0;margin:0;padding:16px 18px;border-top:1px solid var(--line)}
+fieldset:first-of-type{border-top:0}
+legend{float:left;width:100%;padding:0;margin:0 0 10px;font-family:var(--f-display);font-weight:600;font-size:17px;letter-spacing:.3px;display:flex;align-items:baseline;gap:10px}
+legend .ref{font-family:var(--f-body);font-weight:400;font-size:12px;color:var(--muted)}
+.row{clear:both;display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px 12px}
+.row + .row{margin-top:10px}
+label.f{display:flex;flex-direction:column;gap:4px;font-size:12px;font-weight:600;color:var(--muted);letter-spacing:.2px;min-width:0}
+input,select{font:inherit;font-size:14px;color:var(--ink);background:var(--soft);border:1px solid var(--line);border-radius:6px;padding:7px 9px;width:100%;min-width:0}
+input[type=number]{font-family:var(--f-mono);font-size:13.5px}
+input:focus-visible,select:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid var(--copper);outline-offset:1px}
+.seg{display:flex;border:1px solid var(--line);border-radius:6px;overflow:hidden;background:var(--soft)}
+.seg label{flex:1;text-align:center;cursor:pointer;font-size:13px;font-weight:600;color:var(--ink);padding:7px 6px;position:relative}
+.seg input{position:absolute;opacity:0;width:1px;height:1px}
+.seg label:has(input:checked){background:var(--copper);color:var(--copper-ink)}
+.seg label:has(input:focus-visible){outline:2px solid var(--copper);outline-offset:-2px}
+.chk{display:flex;gap:8px;align-items:flex-start;font-size:13px;color:var(--ink);font-weight:500;cursor:pointer}
+.chk input{width:auto;margin-top:3px;accent-color:var(--copper)}
+.hint{clear:both;font-size:12.5px;color:var(--muted);margin:8px 0 0}
+.hint b{color:var(--ink);font-weight:600}
+.fac{clear:both;display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.fac span{font-family:var(--f-mono);font-size:12px;background:var(--soft);border:1px solid var(--line);border-radius:4px;padding:2px 7px}
+/* results */
+.res{position:sticky;top:calc(env(safe-area-inset-top,0px) + 12px)}
+@media (max-width:900px){.res{position:static}}
+.verdict{padding:18px 18px 16px;border-bottom:1px solid var(--line)}
+.vlabel{font-size:11.5px;font-weight:600;letter-spacing:.9px;text-transform:uppercase;color:var(--muted)}
+.vmain{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 16px;margin-top:4px}
+.big{font-family:var(--f-display);font-weight:700;font-size:44px;line-height:1;letter-spacing:-.5px}
+.big small{font-size:20px;font-weight:600;margin-left:4px}
+.formula{font-family:var(--f-mono);font-size:14px;color:var(--ink)}
+.status{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:600;border-radius:99px;padding:3px 10px}
+.status.ok{background:var(--ok-soft);color:var(--ok)} .status.bad{background:var(--bad-soft);color:var(--bad)} .status.warn{background:var(--warn-soft);color:var(--warn)}
+.strip{display:flex;gap:6px;margin-top:14px;flex-wrap:wrap}
+.cond{display:flex;align-items:center;gap:7px;font-size:12px;color:var(--muted)}
+.cond i{display:block;width:30px;height:10px;border-radius:5px;border:1px solid rgba(0,0,0,.15)}
+.cond b{font-family:var(--f-mono);font-weight:600;color:var(--ink);font-size:12px}
+.i-marron{background:var(--c-marron)} .i-negro{background:var(--c-negro)} .i-gris{background:var(--c-gris)} .i-azul{background:var(--c-azul)}
+.i-pe{background:repeating-linear-gradient(90deg,var(--c-verde) 0 6px,var(--c-amarillo) 6px 12px)}
+.checks{list-style:none;margin:0;padding:6px 18px 10px}
+.checks li{display:grid;grid-template-columns:22px minmax(0,1fr) auto;gap:4px 8px;padding:9px 0;border-bottom:1px dashed var(--line);align-items:start}
+.checks li:last-child{border-bottom:0}
+.dot{width:18px;height:18px;border-radius:50%;display:grid;place-items:center;font-size:11px;font-weight:700;margin-top:1px}
+.dot.ok{background:var(--ok-soft);color:var(--ok)} .dot.bad{background:var(--bad-soft);color:var(--bad)} .dot.warn{background:var(--warn-soft);color:var(--warn)} .dot.na{background:var(--soft);color:var(--muted)}
+.ct{font-weight:600}
+.cd{grid-column:2 / 4;font-size:12.5px;color:var(--muted)}
+.cv{font-family:var(--f-mono);font-size:13px;white-space:nowrap;text-align:right}
+.block{padding:14px 18px;border-top:1px solid var(--line)}
+.block h3{font-family:var(--f-display);font-weight:600;font-size:16px;margin:0 0 8px;letter-spacing:.3px}
+.tbl{overflow-x:auto;margin:0 -2px}
+table{border-collapse:collapse;width:100%;font-size:12.5px;font-variant-numeric:tabular-nums}
+th,td{padding:5px 7px;text-align:right;border-bottom:1px solid var(--line);white-space:nowrap}
+th{font-weight:600;color:var(--muted);font-size:11.5px;letter-spacing:.3px}
+th:first-child,td:first-child{text-align:left}
+td{font-family:var(--f-mono)}
+tr.sel td{background:var(--copper-soft);font-weight:600}
+td.no{color:var(--bad)} td.yes{color:var(--ok)}
+.kv{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:4px 12px;font-size:13px}
+.kv dt{color:var(--muted)} .kv dd{margin:0;font-family:var(--f-mono);text-align:right}
+.cable{display:flex;flex-direction:column;gap:8px}
+.cable p{margin:0}
+.tag{display:inline-block;font-family:var(--f-mono);font-size:12.5px;font-weight:600;background:var(--soft);border:1px solid var(--line);border-radius:4px;padding:1px 7px;margin:0 4px 4px 0}
+.src{font-size:11.5px;color:var(--muted)}
+.notes{margin:8px 0 0;padding-left:18px;font-size:12.5px;color:var(--muted)}
+.notes li{margin:3px 0}
+button.copy{font:inherit;font-size:13px;font-weight:600;background:var(--copper);color:var(--copper-ink);border:0;border-radius:6px;padding:7px 12px;cursor:pointer}
+button.ghost{font:inherit;font-size:12.5px;background:transparent;color:var(--copper);border:1px solid var(--line);border-radius:6px;padding:6px 10px;cursor:pointer}
+pre.mem{white-space:pre-wrap;font-family:var(--f-mono);font-size:12px;background:var(--soft);border:1px solid var(--line);border-radius:6px;padding:10px;margin:8px 0 0;max-height:260px;overflow:auto}
+details summary{cursor:pointer;font-family:var(--f-display);font-weight:600;font-size:16px;letter-spacing:.3px}
+.foot{margin-top:22px;padding:16px 18px}
+.foot h2{font-family:var(--f-display);font-size:19px;margin:0 0 8px}
+.foot ul{margin:0;padding-left:18px;font-size:13px;color:var(--muted);columns:2 320px;column-gap:28px}
+.foot li{margin:3px 0;break-inside:avoid}
+.only-lsbt,.only-gen{}
+@media (prefers-reduced-motion:no-preference){.big{transition:color .2s}}
+</style>
+
+<div class="wrap">
+  <header class="top">
+    <div>
+      <h1>Calculadora de secciones REBT</h1>
+      <p class="sub">Sección por intensidad admisible, caída de tensión y protección, con las tablas de las guías técnicas del REBT y de la NRZ002 de e-distribución. Cada valor indica de qué tabla sale.</p>
+    </div>
+    <div class="toplinks">
+      <button class="ghost" id="reset" type="button">Restablecer ejemplo</button>
+    </div>
+  </header>
+
+  <div class="grid">
+    <!-- ============ ENTRADAS ============ -->
+    <form class="panel" id="frm" autocomplete="off" onsubmit="return false">
+      <fieldset>
+        <legend>Tramo <span class="ref">fija límites de caída, sección mínima y tipo de cable</span></legend>
+        <div class="row">
+          <label class="f">Tipo de línea
+            <select id="tramo">
+              <optgroup label="Instalación interior (ITC-BT-19)">
+                <option value="viv">Circuito interior de vivienda (ITC-BT-25)</option>
+                <option value="int_alum">Interior, alumbrado (otros usos)</option>
+                <option value="int_fuerza">Interior, fuerza y demás usos</option>
+                <option value="trafo_alum">Interior con trafo propio, alumbrado</option>
+                <option value="trafo_fuerza">Interior con trafo propio, demás usos</option>
+              </optgroup>
+              <optgroup label="Instalaciones de enlace">
+                <option value="di_unico">Derivación individual, único usuario sin LGA</option>
+                <option value="di_total">Derivación individual, contadores totalmente concentrados</option>
+                <option value="di_parcial">Derivación individual, contadores en más de un lugar</option>
+                <option value="lga_total">LGA, contadores totalmente centralizados</option>
+                <option value="lga_parcial">LGA, centralizaciones parciales</option>
+              </optgroup>
+              <optgroup label="Instalaciones particulares">
+                <option value="motor">Motor (ITC-BT-47)</option>
+                <option value="gen">Generador, conexión a red o interior (ITC-BT-40)</option>
+                <option value="ve">Recarga de vehículo eléctrico (ITC-BT-52)</option>
+                <option value="aext">Alumbrado exterior (ITC-BT-09)</option>
+              </optgroup>
+              <optgroup label="Red de distribución">
+                <option value="lsbt">Red subterránea BT e-distribución (NRZ002)</option>
+              </optgroup>
+              <option value="custom">Personalizado</option>
+            </select>
+          </label>
+          <label class="f" id="w-circ">Circuito ITC-BT-25
+            <select id="circ">
+              <option value="C1">C1 Iluminación</option>
+              <option value="C2">C2 Tomas de uso general</option>
+              <option value="C3">C3 Cocina y horno</option>
+              <option value="C4">C4 Lavadora, lavavajillas, termo</option>
+              <option value="C5">C5 Baño y cuarto de cocina</option>
+              <option value="C8">C8 Calefacción</option>
+              <option value="C9">C9 Aire acondicionado</option>
+              <option value="C10">C10 Secadora</option>
+              <option value="C11">C11 Automatización</option>
+              <option value="C13">C13 Recarga VE</option>
+            </select>
+          </label>
+        </div>
+        <div class="row">
+          <label class="f">Caída máxima en este tramo (%)
+            <input type="number" id="dulim" step="0.1" min="0.1">
+          </label>
+          <label class="f">Sección mínima reglamentaria (mm²)
+            <input type="number" id="smin" step="0.5" min="0">
+          </label>
+        </div>
+        <p class="hint" id="tramoHint"></p>
+        <div class="row" style="margin-top:8px">
+          <label class="chk"><input type="checkbox" id="pc"> Local de pública concurrencia (ITC-BT-28)</label>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Carga</legend>
+        <div class="row">
+          <div class="f"><span class="lbl">Sistema</span>
+            <div class="seg" role="radiogroup" aria-label="Sistema">
+              <label><input type="radio" name="fase" value="1" id="f1">Monofásico</label>
+              <label><input type="radio" name="fase" value="3" id="f3">Trifásico</label>
+            </div>
+          </div>
+          <label class="f">Tensión (V)
+            <input type="number" id="u" step="1" min="1">
+          </label>
+        </div>
+        <div class="row">
+          <label class="f">Dato de partida
+            <select id="modo">
+              <option value="p">Potencia activa (W)</option>
+              <option value="i">Intensidad (A)</option>
+            </select>
+          </label>
+          <label class="f" id="w-p">Potencia (W)
+            <input type="number" id="p" step="10" min="0">
+          </label>
+          <label class="f" id="w-i">Intensidad (A)
+            <input type="number" id="i" step="0.1" min="0">
+          </label>
+          <label class="f">cos φ
+            <input type="number" id="cos" step="0.01" min="0.1" max="1">
+          </label>
+          <label class="f">Longitud (m)
+            <input type="number" id="len" step="1" min="0.1">
+          </label>
+        </div>
+        <div class="row" style="margin-top:10px">
+          <label class="chk" id="w-k18"><input type="checkbox" id="k18"> Lámparas de descarga: carga 1,8 × W (ITC-BT-09 / ITC-BT-44)</label>
+          <label class="chk" id="w-useIn"><input type="checkbox" id="useIn"> Calcular la caída con la In del interruptor (ITC-BT-25 ap. 3)</label>
+        </div>
+        <p class="hint" id="cargaHint"></p>
+      </fieldset>
+
+      <fieldset class="no-lsbt">
+        <legend>Cable e instalación <span class="ref">Guía BT-19 tablas A, B y D · ITC-BT-07</span></legend>
+        <div class="row">
+          <div class="f"><span class="lbl">Conductor</span>
+            <div class="seg" role="radiogroup" aria-label="Material">
+              <label><input type="radio" name="mat" value="Cu" id="mCu">Cobre</label>
+              <label><input type="radio" name="mat" value="Al" id="mAl">Aluminio</label>
+            </div>
+          </div>
+          <label class="f">Aislamiento
+            <select id="ais">
+              <option value="PVC">Termoplástico PVC o Z1 (70 °C)</option>
+              <option value="XLPE">Polietileno reticulado XLPE (90 °C)</option>
+              <option value="EPR">Etileno propileno EPR (90 °C)</option>
+            </select>
+          </label>
+        </div>
+        <div class="row">
+          <label class="f">Método de instalación
+            <select id="met">
+              <optgroup label="No enterrado (Guía BT-19, tabla A, 40 °C)">
+                <option value="A1">A1 · unipolares en tubo en pared aislante</option>
+                <option value="A2">A2 · multiconductor en tubo en pared aislante</option>
+                <option value="B1">B1 · unipolares en tubo empotrado o sobre pared</option>
+                <option value="B2">B2 · multiconductor en tubo empotrado o sobre pared</option>
+                <option value="C">C · sobre pared, bandeja no perforada, empotrado directo</option>
+                <option value="E">E · multiconductor al aire o bandeja perforada</option>
+                <option value="F">F · unipolares en contacto al aire (S &gt; 25 mm²)</option>
+              </optgroup>
+              <optgroup label="Enterrado">
+                <option value="TUBO">Enterrado bajo tubo (Guía BT-19, tabla D)</option>
+                <option value="DIR">Directamente enterrado (ITC-BT-07, tablas 4 y 5)</option>
+              </optgroup>
+              <optgroup label="Al aire en galería">
+                <option value="GAL">Galería ventilada (ITC-BT-07, tablas 11 y 12)</option>
+              </optgroup>
+            </select>
+          </label>
+          <label class="f" id="w-conf">Formación
+            <select id="conf">
+              <option value="uni">Cables unipolares (terna)</option>
+              <option value="multi">Cable multipolar</option>
+            </select>
+          </label>
+        </div>
+        <p class="hint" id="metHint"></p>
+      </fieldset>
+
+      <fieldset>
+        <legend>Factores de corrección</legend>
+        <div class="row" id="g-air">
+          <label class="f">Temperatura ambiente (°C)
+            <input type="number" id="tamb" step="1">
+          </label>
+          <label class="f">Agrupamiento
+            <select id="agr">
+              <option value="none">Sin agrupamiento</option>
+              <option value="E">Circuitos contiguos (Guía BT-19, tabla E)</option>
+              <option value="G">Tubos en contacto al aire (Guía BT-19, tabla G)</option>
+            </select>
+          </label>
+        </div>
+        <div class="row" id="g-agrE" style="margin-top:10px">
+          <label class="f">Disposición
+            <select id="eref">
+              <option value="1">1 · Empotrados o embutidos</option>
+              <option value="2">2 · Capa única sobre pared o suelo</option>
+              <option value="3">3 · Capa única bajo techo</option>
+              <option value="4">4 · Bandeja perforada</option>
+              <option value="5">5 · Bandeja escalera o abrazaderas</option>
+            </select>
+          </label>
+          <label class="f">Nº de circuitos o cables
+            <input type="number" id="en" step="1" min="1" max="20">
+          </label>
+          <label class="f">Nº de capas (tabla F)
+            <input type="number" id="ecap" step="1" min="1" max="12">
+          </label>
+        </div>
+        <div class="row" id="g-agrG" style="margin-top:10px">
+          <label class="f">Tubos en horizontal
+            <input type="number" id="gt" step="1" min="1" max="6">
+          </label>
+          <label class="f">Capas en vertical
+            <input type="number" id="gc" step="1" min="1" max="6">
+          </label>
+        </div>
+        <div class="row" id="g-ground">
+          <label class="f">Temperatura del terreno (°C)
+            <input type="number" id="tter" step="1">
+          </label>
+          <label class="f">Resistividad térmica (K·m/W)
+            <input type="number" id="rter" step="0.05" min="0.4" max="3">
+          </label>
+          <label class="f">Profundidad (m)
+            <input type="number" id="prof" step="0.05" min="0.4" max="1.25">
+          </label>
+        </div>
+        <div class="row" id="g-gtubo" style="margin-top:10px">
+          <label class="f" id="w-nt">Nº de tubos o ternas agrupados
+            <input type="number" id="nt" step="1" min="1" max="12">
+          </label>
+          <label class="f">Separación
+            <select id="dt"></select>
+          </label>
+        </div>
+        <div class="row" style="margin-top:10px">
+          <label class="f">Otro factor (manual)
+            <input type="number" id="fman" step="0.01" min="0.1" max="1.5">
+          </label>
+        </div>
+        <div class="fac" id="facs"></div>
+        <p class="hint" id="facHint"></p>
+      </fieldset>
+
+      <fieldset>
+        <legend>Protección <span class="ref">ITC-BT-22 · Guía BT-22</span></legend>
+        <div class="row">
+          <label class="f">Dispositivo
+            <select id="prot">
+              <option value="pia">Magnetotérmico UNE-EN 60898 / 61009 (I2 = 1,45 In)</option>
+              <option value="ind">Interruptor automático UNE-EN 60947-2 (I2 = 1,30 In)</option>
+              <option value="gg">Fusible gG (If = 1,6 In si In ≥ 16 A)</option>
+            </select>
+          </label>
+          <label class="f">Intensidad asignada In (A)
+            <select id="inSel"></select>
+          </label>
+        </div>
+        <div class="row" style="margin-top:10px">
+          <label class="chk"><input type="checkbox" id="ccOn"> Comprobar cortocircuito (I²t ≤ k²S²)</label>
+        </div>
+        <div class="row" id="g-cc" style="margin-top:10px">
+          <label class="f">Icc en el origen del tramo (kA)
+            <input type="number" id="icc" step="0.1" min="0">
+          </label>
+          <label class="f">Tiempo de corte (s)
+            <input type="number" id="tcc" step="0.01" min="0.01" max="5">
+          </label>
+        </div>
+        <p class="hint" id="protHint"></p>
+      </fieldset>
+
+      <fieldset>
+        <legend>Caída de tensión <span class="ref">Guía BT, Anexo 2</span></legend>
+        <div class="row">
+          <label class="f">Temperatura del conductor para R
+            <select id="tcond">
+              <option value="est">Estimada según la carga (fórmula 17)</option>
+              <option value="max">Máxima del aislamiento (70 / 90 °C)</option>
+            </select>
+          </label>
+        </div>
+        <p class="hint">R = c·ρθ·L/S con c = 1,02 y ρθ = ρ20·[1 + α(θ − 20)] (tablas 2 y fórmulas 8 a 12). Reactancia según tabla 1: despreciable hasta 120 mm², 0,15 R en 150, 0,20 R en 185 y 0,25 R en 240 mm².</p>
+      </fieldset>
+    </form>
+
+    <!-- ============ RESULTADOS ============ -->
+    <aside class="panel res" id="res" aria-live="polite">
+      <div class="verdict">
+        <div class="vlabel">Sección recomendada</div>
+        <div class="vmain">
+          <div class="big" id="vS">–</div>
+          <div class="formula" id="vF"></div>
+        </div>
+        <div style="margin-top:8px;display:flex;gap:8px;flex-wrap:wrap" id="vStatus"></div>
+        <div class="strip" id="strip"></div>
+      </div>
+      <ul class="checks" id="checks"></ul>
+      <div class="block">
+        <h3>Datos del cálculo</h3>
+        <dl class="kv" id="kv"></dl>
+      </div>
+      <div class="block">
+        <h3>Cable y canalización</h3>
+        <div class="cable" id="cable"></div>
+      </div>
+      <div class="block">
+        <h3>Secciones comparadas</h3>
+        <div class="tbl"><table id="cmp"></table></div>
+        <ul class="notes" id="notes"></ul>
+      </div>
+      <div class="block">
+        <details>
+          <summary>Texto para la memoria técnica</summary>
+          <pre class="mem" id="mem"></pre>
+          <div style="margin-top:8px;display:flex;gap:8px;align-items:center">
+            <button class="copy" type="button" id="copyBtn">Copiar texto</button>
+            <span class="src" id="copyMsg"></span>
+          </div>
+        </details>
+      </div>
+    </aside>
+  </div>
+
+  <section class="panel foot">
+    <h2>Fuentes utilizadas</h2>
+    <ul>
+      <li><b>Guía BT-19</b> (feb 09 R2): ap. 2.2.2 caídas de tensión; tabla A (intensidades admisibles Cu, no enterrado, 40 °C, tabla A.52-1 bis UNE 20460-5-523:2004); tabla B métodos; tabla D (bajo tubo enterrado); tablas E, F, G, H factores de agrupamiento; tabla 2 conductor de protección.</li>
+      <li><b>REBT, ITC-BT-07</b> (BOE consolidado): tablas 4 y 5 (enterrado directo), 6 (temperatura del terreno), 7 (resistividad), 8 (agrupación), 9 (profundidad), 11 y 12 (galerías), 13 (temperatura ambiente); tabla 1 neutro; sección mínima 6 mm² Cu / 16 mm² Al.</li>
+      <li><b>ITC-BT-14</b>: caída 0,5 % / 1 %; sección mínima 10 mm² Cu / 16 mm² Al; tabla 1 neutro y diámetro de tubo. <b>ITC-BT-15</b>: caída 0,5 % / 1 % / 1,5 %; sección mínima 6 mm²; tubo ≥ 32 mm.</li>
+      <li><b>ITC-BT-25</b> tabla 1: circuitos C1 a C13, interruptor, sección mínima y caída calculada con la In del interruptor. <b>Guía BT-26</b> 6.1.1: cables H07V.</li>
+      <li><b>Guía BT-22</b> (oct 05 R1): IB ≤ In ≤ Iz, I2 ≤ 1,45 Iz; valores de I2 e If; constante k (UNE 20460-4-43).</li>
+      <li><b>Guía BT, Anexo 2</b> (feb 2026 R2): fórmulas [1] a [17], tablas 1 (reactancia), 2 (resistividad) y temperatura estimada del conductor.</li>
+      <li><b>Guía BT-21</b>: tablas 2, 5 y 9 diámetros mínimos de tubo. <b>Guía BT-28</b> (mar 15 R3): cables ES07Z1-K (AS), RZ1-K (AS), DZ1-K (AS), AS+.</li>
+      <li><b>ITC-BT-09</b> (carga 1,8 × W, caída 3 %, sección mínima 6 mm²), <b>ITC-BT-40</b> (125 % y 1,5 %), <b>ITC-BT-47</b> (125 %), <b>ITC-BT-52</b> (5 %, 2,5 mm² Cu / 4 mm² Al).</li>
+      <li><b>NRZ002</b> e-distribución (guía ed. 5.2 nov 2025): cables XZ1 Al, tablas 4 (acometidas), 6 y 7 (R90, X), 9 a 14 (intensidad y factores), 16 (fusibles gG); caída ≤ 5 % del CT a la CGP. <b>NRZ103</b> 7.2: cables 750 V Cca-s1b,d1,a1.</li>
+      <li>Para leer los textos completos: <a href="https://claude.ai/artifact/2M4nCeyC8QUJUHyFHe7tnj" target="_blank" rel="noopener">Consulta de normativa</a>.</li>
+    </ul>
+  </section>
+</div>
+
+<script>
+"use strict";
+/* ================= DATOS (transcritos de los documentos del proyecto) ================= */
+const SECS=[1.5,2.5,4,6,10,16,25,35,50,70,95,120,150,185,240,300,400,500,630];
+const n_=null;
+// Guía BT-19 tabla A: columnas 2..13 (Cu, no enterrado, 40 °C)
+const TA={
+1.5:[11,11.5,13,13.5,15,16,16.5,19,20,21,24,n_],
+2.5:[15,16,17.5,18.5,21,22,23,26,26.5,29,33,n_],
+4:[20,21,23,24,27,30,31,34,36,38,45,n_],
+6:[25,27,30,32,36,37,40,44,46,49,57,n_],
+10:[34,37,40,44,50,52,54,60,65,68,76,n_],
+16:[45,49,54,59,66,70,73,81,87,91,105,n_],
+25:[59,64,70,77,84,88,95,103,110,116,123,140],
+35:[n_,77,86,96,104,110,119,127,137,144,154,174],
+50:[n_,94,103,117,125,133,145,155,167,175,188,210],
+70:[n_,n_,n_,149,160,171,185,199,214,224,244,269],
+95:[n_,n_,n_,180,194,207,224,241,259,271,296,327],
+120:[n_,n_,n_,208,225,240,260,280,301,314,348,380],
+150:[n_,n_,n_,236,260,278,299,322,343,363,404,438],
+185:[n_,n_,n_,268,297,317,341,368,391,415,464,500],
+240:[n_,n_,n_,315,350,374,401,435,468,490,552,590],
+300:[n_,n_,n_,361,401,430,461,500,538,563,638,678],
+400:[n_,n_,n_,431,480,515,552,599,645,674,770,812], // la guía imprime 699 en la col. 9: incoherente con la serie
+500:[n_,n_,n_,493,551,592,633,687,741,774,889,931],
+630:[n_,n_,n_,565,632,681,728,790,853,890,1028,1071]};
+// columna (2..13) por método: [3xPVC, 2xPVC, 3xXLPE, 2xXLPE]
+const TA_COL={A1:[3,4,6,7],A2:[2,3,5,6],B1:[5,6,8,10],B2:[4,5,7,8],C:[6,8,9,11],E:[7,9,10,12],F:[8,10,11,13]};
+// Guía BT-19 tabla D (bajo tubo enterrado, XLPE, 1,5 K·m/W, 25 °C, 0,70 m): [Cu3, Al3, Cu2, Al2]
+const TD={1.5:[23,n_,27,n_],2.5:[30,23,36,27],4:[39,30,46,36],6:[48,37,58,44],10:[64,49,77,58],16:[82,62,100,77],25:[105,82,130,98],35:[130,98,155,120],50:[155,115,183,139],70:[190,145,225,170],95:[225,175,265,205],120:[260,200,305,230],150:[300,230,340,265],185:[335,260,385,295],240:[400,305,440,340],300:[455,350,500,385],400:[530,405,570,445],500:[610,465,660,510],630:[710,530,735,575]};
+// ITC-BT-07: [terna XLPE, EPR, PVC, tripolar XLPE, EPR, PVC]
+const T5={6:[72,70,63,66,64,56],10:[96,94,85,88,85,75],16:[125,120,110,115,110,97],25:[160,155,140,150,140,125],35:[190,185,170,180,175,150],50:[230,225,200,215,205,180],70:[280,270,245,260,250,220],95:[335,325,290,310,305,265],120:[380,375,335,355,350,305],150:[425,415,370,400,390,340],185:[480,470,420,450,440,385],240:[550,540,485,520,505,445],300:[620,610,550,590,565,505],400:[705,690,615,665,645,570],500:[790,775,685,n_,n_,n_],630:[885,870,770,n_,n_,n_]};
+const T4={16:[97,94,86,90,86,76],25:[125,120,110,115,110,98],35:[150,145,130,140,135,120],50:[180,175,155,165,160,140],70:[220,215,190,205,220,170],95:[260,255,225,240,235,210],120:[295,290,260,275,270,235],150:[330,325,290,310,305,265],185:[375,365,325,350,345,300],240:[430,420,380,405,395,350],300:[485,475,430,460,445,395],400:[550,540,480,520,500,445],500:[615,605,525,n_,n_,n_],630:[690,680,600,n_,n_,n_]};
+const T12={6:[46,45,38,44,43,36],10:[64,62,53,61,60,50],16:[86,83,71,82,80,65],25:[120,115,96,110,105,87],35:[145,140,115,135,130,105],50:[180,175,145,165,160,130],70:[230,225,185,210,220,165],95:[285,280,235,260,250,205],120:[335,325,275,300,290,240],150:[385,375,315,350,335,275],185:[450,440,365,400,385,315],240:[535,515,435,475,460,370],300:[615,595,500,545,520,425],400:[720,700,585,645,610,495],500:[825,800,665,n_,n_,n_],630:[950,915,765,n_,n_,n_]};
+const T11={16:[67,65,55,64,63,51],25:[93,90,75,85,82,68],35:[115,110,90,105,100,82],50:[140,135,115,130,125,100],70:[180,175,145,165,155,130],95:[220,215,180,205,195,160],120:[260,255,215,235,225,185],150:[300,290,245,275,260,215],185:[350,345,285,315,300,245],240:[420,400,340,370,360,290],300:[480,465,390,425,405,335],400:[560,545,455,505,475,385],500:[645,625,520,n_,n_,n_],630:[740,715,600,n_,n_,n_]};
+// ITC-BT-07 tabla 7 (resistividad, base 1 K·m/W)
+const T7={x:[0.8,0.85,0.9,1,1.1,1.2,1.4,1.65,2,2.5,2.8],uni:[1.09,1.06,1.04,1,0.96,0.93,0.87,0.81,0.75,0.68,0.66],tri:[1.07,1.05,1.03,1,0.97,0.94,0.89,0.84,0.78,0.71,0.69]};
+// ITC-BT-07 tabla 8 (agrupación enterrada directa)
+const T8={n:[2,3,4,5,6,8,10,12],d:{"0":[.80,.70,.64,.60,.56,.53,.50,.47],"0.07":[.85,.75,.68,.64,.60,.56,.53,.50],"0.1":[.85,.76,.69,.65,.62,.58,.55,.53],"0.15":[.87,.77,.72,.68,.66,.62,.59,.57],"0.2":[.88,.79,.74,.70,.68,.64,.62,.60],"0.25":[.89,.80,.76,.72,.70,.66,.64,.62]}};
+// ITC-BT-07 tabla 9 (profundidad, enterrado directo)
+const T9={x:[0.4,0.5,0.6,0.7,0.8,0.9,1.0,1.2],f:[1.03,1.02,1.01,1,0.99,0.98,0.97,0.95]};
+// Guía BT-19 tabla E y F
+const TE={n:[1,2,3,4,6,9,12,16,20],r:{1:[1,.8,.7,.7,.55,.5,.45,.4,.4],2:[1,.85,.8,.75,.7,.7],3:[.95,.8,.7,.7,.65,.6],4:[1,.9,.8,.75,.75,.7],5:[1,.85,.8,.8,.8,.8]}};
+function tF(c){return c<=1?1:c==2?.8:c==3?.73:c<=5?.70:c<=8?.68:.66}
+// Guía BT-19 tabla G (capas x tubos)
+const TG=[[1,.94,.91,.88,.87,.86],[.92,.87,.84,.81,.80,.79],[.85,.81,.78,.76,.75,.74],[.82,.78,.74,.73,.72,.72],[.80,.76,.72,.71,.70,.70],[.79,.75,.71,.70,.69,.68]];
+// Guía BT-19 tabla H (tubos enterrados, un cable por tubo)
+const TH={n:[2,3,4,5,6],d:{"0":[.85,.75,.70,.65,.60],"0.25":[.90,.85,.80,.80,.80],"0.5":[.95,.90,.85,.85,.80],"1":[.95,.95,.90,.90,.90]}};
+// NRZ002 (UNE 211435): tablas 11, 12, 14
+const N11={n:[2,3,4,5,6],d:{"0":[.87,.77,.71,.67,.64],"0.2":[.90,.82,.77,.74,.71],"0.4":[.94,.87,.84,.81,.79]}};
+const N12={x:[0.8,0.9,1,1.5,2,2.5,3],s:{50:[1.13,1.11,1.09,1,.93,.87,.83],95:[1.14,1.12,1.09,1,.93,.87,.82],150:[1.14,1.12,1.10,1,.93,.87,.82],240:[1.15,1.12,1.10,1,.92,.86,.81]}};
+const N14={x:[0.5,0.6,0.7,0.8,1.0,1.25],f:[1.03,1.01,1,0.99,0.97,0.96]};
+const NRZ={secs:[50,95,150,240],iz:{50:125,95:191,150:253,240:336},r90:{50:.822,95:.410,150:.264,240:.160},x:{50:.095,95:.089,150:.087,240:.085},fus:{50:100,95:160,150:200,240:250},neu:{50:50,95:50,150:95,240:150}};
+const ACOM=[[50,50,20],[95,75,30],[150,100,50],[240,180,100]];
+// ITC-BT-25 tabla 1
+const CIRC={C1:{in:10,s:1.5,p:200,n:30,fs:.75,fu:.5,tubo:16},C2:{in:16,s:2.5,p:3450,n:20,fs:.2,fu:.25,tubo:20},C3:{in:25,s:6,p:5400,n:2,fs:.5,fu:.75,tubo:25},C4:{in:20,s:4,p:3450,n:3,fs:.66,fu:.75,tubo:20},C5:{in:16,s:2.5,p:3450,n:6,fs:.4,fu:.5,tubo:20},C8:{in:25,s:6,pmax:5750,tubo:25},C9:{in:25,s:6,pmax:5750,tubo:25},C10:{in:16,s:2.5,p:3450,n:1,fs:1,fu:.75,tubo:20},C11:{in:10,s:1.5,pmax:2300,tubo:16},C13:{in:null,s:2.5,tubo:20}};
+// ITC-BT-14 tabla 1 (fase -> [neutro, tubo]) e ITC-BT-07 tabla 1 (neutro)
+const LGA_T={"10Cu":[10,75],"16Cu":[10,75],"16Al":[16,75],25:[16,110],35:[16,110],50:[25,125],70:[35,140],95:[50,140],120:[70,160],150:[70,160],185:[95,180],240:[120,200]};
+const N07={"6Cu":6,"10Cu":10,"16Cu":10,"16Al":16,25:16,35:16,50:25,70:35,95:50,120:70,150:70,185:95,240:120,300:150,400:185};
+// Guía BT-21 tablas 2 (superficie), 5 (empotrado), 9 (enterrado)
+const TUBO={
+ sup:{s:[1.5,2.5,4,6,10,16,25,35,50,70,95,120,150,185,240],d:[[12,12,16,16,16],[12,12,16,16,20],[12,16,20,20,20],[12,16,20,20,25],[16,20,25,32,32],[16,25,32,32,32],[20,32,32,40,40],[25,32,40,40,50],[25,40,50,50,50],[32,40,50,63,63],[32,50,63,63,75],[40,50,63,75,75],[40,63,75,75,n_],[50,63,75,n_,n_],[50,75,n_,n_,n_]]},
+ emp:{s:[1.5,2.5,4,6,10,16,25,35,50,70,95,120,150,185,240],d:[[12,12,16,16,20],[12,16,20,20,20],[12,16,20,20,25],[12,16,25,25,25],[16,25,25,32,32],[20,25,32,32,40],[25,32,40,40,50],[25,40,40,50,50],[32,40,50,50,63],[32,50,63,63,63],[40,50,63,75,75],[40,63,75,75,n_],[50,63,75,n_,n_],[50,75,n_,n_,n_],[63,75,n_,n_,n_]]},
+ ent:{s:[1.5,2.5,4,6,10,16,25,35,50,70,95,120,150,185,240],d:[[25],[32],[40],[50],[63],[63],[90],[90],[110],[125],[140],[160],[180],[180],[225]]}};
+const IN_STD=[2,4,6,10,13,16,20,25,32,40,50,63,80,100,125,160,200,250,315,400,500,630,800,1000,1250];
+// Guía BT-22: constante k
+function kCC(mat,ais,S){ if(mat==="Cu"){ if(ais==="PVC") return S<=300?115:103; return 143;} if(ais==="PVC") return S<=300?76:68; return 94;}
+// Anexo 2 tabla 2
+const RHO20={Cu:0.018,Al:0.029}, ALPHA={Cu:0.00392,Al:0.00403};
+
+/* ================= PRESETS DE TRAMO ================= */
+const TRAMOS={
+ viv:{du:3,smin:1.5,ref:"ITC-BT-19 ap. 2.2.2 e ITC-BT-25 ap. 3: caída ≤ 3 % en cualquier circuito interior de vivienda, calculada con la In del interruptor y hasta el punto más alejado. Sección mínima y calibre según tabla 1 de la ITC-BT-25."},
+ int_alum:{du:3,smin:1.5,ref:"ITC-BT-19 ap. 2.2.2: 3 % para alumbrado en instalaciones interiores o receptoras distintas de vivienda."},
+ int_fuerza:{du:5,smin:1.5,ref:"ITC-BT-19 ap. 2.2.2: 5 % para los demás usos."},
+ trafo_alum:{du:4.5,smin:1.5,ref:"ITC-BT-19 ap. 2.2.2: con transformador propio el origen está en su salida; 4,5 % para alumbrado."},
+ trafo_fuerza:{du:6.5,smin:1.5,ref:"ITC-BT-19 ap. 2.2.2: con transformador propio, 6,5 % para los demás usos."},
+ di_unico:{du:1.5,smin:6,ref:"ITC-BT-15 ap. 3: 1,5 % en suministros para un único usuario sin LGA. Sección mínima 6 mm² para polares, neutro y protección (hilo de mando 1,5 mm², rojo)."},
+ di_total:{du:1,smin:6,ref:"ITC-BT-15 ap. 3: 1 % con contadores totalmente concentrados. Sección mínima 6 mm²."},
+ di_parcial:{du:0.5,smin:6,ref:"ITC-BT-15 ap. 3: 0,5 % con contadores concentrados en más de un lugar. Sección mínima 6 mm²."},
+ lga_total:{du:0.5,smin:10,sminAl:16,ref:"ITC-BT-14 ap. 3: 0,5 % para contadores totalmente centralizados. Sección mínima 10 mm² Cu o 16 mm² Al; cables unipolares 0,6/1 kV, tres fases y neutro."},
+ lga_parcial:{du:1,smin:10,sminAl:16,ref:"ITC-BT-14 ap. 3: 1 % para centralizaciones parciales de contadores. Sección mínima 10 mm² Cu o 16 mm² Al."},
+ motor:{du:5,smin:1.5,k:1.25,ref:"ITC-BT-47 ap. 3.1: conductores dimensionados para el 125 % de la intensidad a plena carga del motor. Caída según ITC-BT-19 (5 % fuerza)."},
+ gen:{du:1.5,smin:1.5,k:1.25,ref:"ITC-BT-40 ap. 5: cables para ≥ 125 % de la intensidad máxima del generador y caída ≤ 1,5 % hasta el punto de interconexión, a intensidad nominal."},
+ ve:{du:5,smin:2.5,sminAl:4,ref:"ITC-BT-52: caída ≤ 5 % desde el origen del circuito hasta el punto de recarga; sección ≥ 2,5 mm² Cu (4 mm² si Al, no permitido en viviendas ni aparcamientos colectivos de viviendas)."},
+ aext:{du:3,smin:6,ref:"ITC-BT-09 ap. 3 y 5.2.1: carga mínima 1,8 × W de lámparas de descarga, cos φ ≥ 0,90 y caída ≤ 3 %. Red subterránea con sección mínima 6 mm² incluido el neutro."},
+ lsbt:{du:5,smin:50,ref:"NRZ002 ap. 6: caída ≤ 5 % desde el CT hasta cualquier CGP en líneas nuevas. Cables XZ1 de Al 0,6/1 kV en 50, 95, 150 o 240 mm²; neutro como mínimo la sección inmediatamente inferior."},
+ custom:{du:5,smin:1.5,ref:"Introduzca el límite de caída y la sección mínima que correspondan."}};
+
+/* ================= UTILIDADES ================= */
+const $=id=>document.getElementById(id);
+const fmt=(x,d=2)=>x==null||!isFinite(x)?"–":x.toLocaleString("es-ES",{minimumFractionDigits:d,maximumFractionDigits:d});
+const fS=s=>String(s).replace(".",",");
+function interp(xs,ys,x){ if(x<=xs[0]) return ys[0]; if(x>=xs[xs.length-1]) return ys[ys.length-1];
+  for(let k=1;k<xs.length;k++){ if(x<=xs[k]){const t=(x-xs[k-1])/(xs[k]-xs[k-1]); return ys[k-1]+t*(ys[k]-ys[k-1]);} } }
+function stepUp(ns,n){ for(let k=0;k<ns.length;k++) if(n<=ns[k]) return k; return ns.length-1; }
+function num(id,def){ const v=parseFloat($(id).value); return isFinite(v)?v:def; }
+function radio(name){ const r=document.querySelector(`input[name=${name}]:checked`); return r?r.value:null; }
+
+/* ================= ESTADO ================= */
+const DEF={tramo:"di_unico",circ:"C1",dulim:1.5,smin:6,pc:false,fase:"1",u:230,modo:"p",p:9200,i:40,cos:1,len:18,k18:false,useIn:false,
+ mat:"Cu",ais:"PVC",met:"B1",conf:"uni",tamb:40,agr:"none",eref:"1",en:2,ecap:1,gt:2,gc:1,tter:25,rter:1.5,prof:0.7,nt:1,dt:"0",fman:1,
+ prot:"pia",inSel:"auto",ccOn:false,icc:6,tcc:0.1,tcond:"est"};
+const FIELDS=Object.keys(DEF);
+function setVal(k,v){ if(k==="fase"||k==="mat"){ const r=document.querySelector(`input[name=${k}][value="${v}"]`); if(r) r.checked=true; return;}
+  const el=$(k); if(!el) return; if(el.type==="checkbox") el.checked=!!v; else el.value=v; }
+function getState(){ const s={}; for(const k of FIELDS){ if(k==="fase"||k==="mat") s[k]=radio(k); else { const el=$(k); s[k]= el.type==="checkbox"?el.checked:el.value; } } return s; }
+function save(){ try{ localStorage.setItem("calc-secc-v1",JSON.stringify(getState())); }catch(e){} }
+function load(){ try{ const t=localStorage.getItem("calc-secc-v1"); return t?JSON.parse(t):null; }catch(e){ return null; } }
+
+/* ================= LÓGICA ================= */
+function isAir(m){ return ["A1","A2","B1","B2","C","E","F","GAL"].includes(m); }
+function baseIz(st,S){
+  const tri=st.fase==="3", mat=st.mat, ais=st.ais, m=st.met;
+  if(TA_COL[m]){ if(mat!=="Cu") return null; const row=TA[S]; if(!row) return null;
+    const ci=TA_COL[m][(ais==="PVC"?0:2)+(tri?0:1)]; return row[ci-2]; }
+  if(m==="TUBO"){ if(ais==="PVC") return null; const row=TD[S]; if(!row) return null; return row[(tri?0:2)+(mat==="Cu"?0:1)]; }
+  const ai={XLPE:0,EPR:1,PVC:2}[ais]+(st.conf==="multi"?3:0);
+  if(m==="DIR"){ const row=(mat==="Cu"?T5:T4)[S]; if(!row||row[ai]==null) return null; return row[ai]*(tri?1:1.225); }
+  if(m==="GAL"){ const row=(mat==="Cu"?T12:T11)[S]; if(!row||row[ai]==null) return null; return row[ai]; }
+  return null;
+}
+function factors(st,S){
+  const out=[]; const ts=st.ais==="PVC"?70:90; const m=st.met;
+  if(st.tramo==="lsbt"){
+    const tt=num("tter",25); out.push(["Temperatura terreno "+fmt(tt,0)+" °C",Math.sqrt((90-tt)/(90-25)),"NRZ002 tabla 10"]);
+    const n=Math.round(num("nt",1)); if(n>1){ const d=$("dt").value; const k=Math.min(stepUp(N11.n,n),N11.n.length-1); out.push([n+" circuitos agrupados",N11.d[d][k],"NRZ002 tabla 11"]); }
+    const r=num("rter",1); const row=N12.s[S]; out.push(["Resistividad "+fmt(r,2)+" K·m/W",interp(N12.x,row,r)/interp(N12.x,row,1),"NRZ002 tabla 12 (referida a 1 K·m/W)"]);
+    const p=num("prof",0.7); out.push(["Profundidad "+fmt(p,2)+" m",interp(N14.x,N14.f,p),"NRZ002 tabla 14"]);
+  } else if(isAir(m)){
+    const ta=num("tamb",40); out.push(["Temperatura ambiente "+fmt(ta,0)+" °C",ta>=ts?0:Math.sqrt((ts-ta)/(ts-40)),"ITC-BT-07 tabla 13"]);
+    if(m!=="GAL"){
+      if(st.agr==="E"){ const n=Math.max(1,Math.round(num("en",1))); const r=TE.r[st.eref]; let k=stepUp(TE.n,n); if(k>=r.length) k=r.length-1;
+        out.push(["Agrupamiento: "+n+" circuitos, disposición "+st.eref,r[k],"Guía BT-19 tabla E"]);
+        const c=Math.max(1,Math.round(num("ecap",1))); if(c>1) out.push([c+" capas",tF(c),"Guía BT-19 tabla F"]); }
+      if(st.agr==="G"){ const t=Math.min(6,Math.max(1,Math.round(num("gt",1)))), c=Math.min(6,Math.max(1,Math.round(num("gc",1)))); out.push([t+" tubos × "+c+" capas",TG[c-1][t-1],"Guía BT-19 tabla G"]); }
+    }
+  } else if(m==="TUBO"){
+    const tt=num("tter",25); out.push(["Temperatura terreno "+fmt(tt,0)+" °C",tt>=ts?0:Math.sqrt((ts-tt)/(ts-25)),"ITC-BT-07 tabla 6"]);
+    const r=num("rter",1.5); const key=S<=50?50:S<=95?95:S<=150?150:240; out.push(["Resistividad "+fmt(r,2)+" K·m/W",interp(N12.x,N12.s[key],r),"NRZ002 tabla 12 (base 1,5, aprox.)"]);
+    const p=num("prof",0.7); out.push(["Profundidad "+fmt(p,2)+" m",interp(N14.x,N14.f,p),"NRZ002 tabla 14"]);
+    const n=Math.round(num("nt",1)); if(n>1){ const d=$("dt").value; const k=stepUp(TH.n,n); out.push([n+" tubos agrupados",TH.d[d][k],"Guía BT-19 tabla H"]); }
+  } else if(m==="DIR"){
+    const tt=num("tter",25); out.push(["Temperatura terreno "+fmt(tt,0)+" °C",tt>=ts?0:Math.sqrt((ts-tt)/(ts-25)),"ITC-BT-07 tabla 6"]);
+    const r=num("rter",1); out.push(["Resistividad "+fmt(r,2)+" K·m/W",interp(T7.x,st.conf==="multi"?T7.tri:T7.uni,r),"ITC-BT-07 tabla 7"]);
+    const p=num("prof",0.7); out.push(["Profundidad "+fmt(p,2)+" m",interp(T9.x,T9.f,p),"ITC-BT-07 tabla 9"]);
+    const n=Math.round(num("nt",1)); if(n>1){ const d=$("dt").value; const k=stepUp(T8.n,n); out.push([n+" ternas o cables",T8.d[d][k],"ITC-BT-07 tabla 8"]); }
+  }
+  const fm=num("fman",1); if(fm!==1) out.push(["Factor manual",fm,"usuario"]);
+  return out;
+}
+function i2of(prot,In){ if(prot==="pia") return 1.45*In; if(prot==="ind") return 1.30*In; return (In>=16?1.6:In>4?1.9:2.1)*In; }
+function sectionsFor(st){
+  if(st.tramo==="lsbt") return NRZ.secs.slice();
+  return SECS.filter(S=>baseIz(st,S)!=null);
+}
+function compute(){
+  const st=getState(); const lsbt=st.tramo==="lsbt";
+  if(lsbt){ st.mat="Al"; st.ais="XLPE"; st.fase="3"; }
+  const tri=st.fase==="3"; const U=num("u",tri?400:230); const cos=Math.min(1,Math.max(0.1,num("cos",1))); const sin=Math.sqrt(1-cos*cos);
+  const pre=TRAMOS[st.tramo]; const notes=[];
+  // intensidad de cálculo
+  let Ib0, P;
+  if(st.modo==="p"){ P=num("p",0); Ib0=P/((tri?Math.sqrt(3):1)*U*cos); } else { Ib0=num("i",0); P=Ib0*(tri?Math.sqrt(3):1)*U*cos; }
+  let kmul=1, kwhy="";
+  if(st.k18 && st.modo==="p"){ Ib0=1.8*P/((tri?Math.sqrt(3):1)*U); kwhy="carga 1,8 × W (VA)"; }
+  if(pre.k){ kmul=pre.k; kwhy=(kwhy?kwhy+" · ":"")+"× 1,25"; }
+  const Ib=Ib0*kmul;
+  // protección
+  let InFixed=null;
+  if(st.tramo==="viv" && CIRC[st.circ].in && st.inSel==="auto") InFixed=CIRC[st.circ].in;
+  if(st.inSel!=="auto") InFixed=parseFloat(st.inSel);
+  const InAuto=IN_STD.find(x=>x>=Ib-1e-9)||IN_STD[IN_STD.length-1];
+  const In=InFixed!=null?InFixed:InAuto;
+  const I2=i2of(st.prot,In);
+  // corriente para la caída
+  const Idu=(st.useIn && st.tramo==="viv")?In:Ib0*(pre.k&&st.tramo==="gen"?1:1);
+  const L=num("len",0);
+  const dulim=num("dulim",pre.du); const smin=num("smin",pre.smin);
+  const secs=sectionsFor(st);
+  const rows=[];
+  for(const S of secs){
+    let Iz0, fac, ftot=1;
+    if(lsbt){ Iz0=NRZ.iz[S]; if(S===240 && st.prot==="gg" && In>=250) Iz0=312; }
+    else Iz0=baseIz(st,S);
+    fac=factors(st,S); for(const f of fac) ftot*=f[1];
+    const Iz=Iz0*ftot;
+    // resistencia
+    let R,X,theta;
+    if(lsbt){ R=NRZ.r90[S]*L/1000; X=NRZ.x[S]*L/1000; theta=90; }
+    else{
+      const tmax=st.ais==="PVC"?70:90; const T0=isAir(st.met)?num("tamb",40):num("tter",25);
+      theta= st.tcond==="max"?tmax: Math.min(tmax, T0+(tmax-T0)*Math.pow(Idu/Math.max(Iz,1e-9),2));
+      const rho=RHO20[st.mat]*(1+ALPHA[st.mat]*(theta-20));
+      R=1.02*rho*L/S; X= S<=120?0: S<=150?0.15*R: S<=185?0.20*R:0.25*R;
+    }
+    const kd=tri?Math.sqrt(3):2;
+    const dU=kd*Idu*(R*cos+X*sin); const dUp=100*dU/U;
+    const okI=Iz>=Ib; const okIn=Ib<=In && In<=Iz; const okI2=I2<=1.45*Iz; const okDU=dUp<=dulim+1e-9; const okMin=S>=smin-1e-9;
+    let okFus=true; if(lsbt && st.prot==="gg") okFus=In<=NRZ.fus[S];
+    let okCC=true, sCC=null; if(st.ccOn){ const icc=num("icc",0)*1000, t=num("tcc",0.1); sCC=icc*Math.sqrt(t)/kCC(st.mat,st.ais,S); okCC=S>=sCC; }
+    rows.push({S,Iz0,ftot,fac,Iz,R,X,theta,dU,dUp,okI,okIn,okI2,okDU,okMin,okFus,okCC,sCC,all:okI&&okIn&&okI2&&okDU&&okMin&&okFus&&okCC});
+  }
+  const pick=rows.find(r=>r.all)||null;
+  return {st,tri,U,cos,P,Ib0,Ib,kwhy,In,InAuto,InFixed,I2,Idu,L,dulim,smin,rows,pick,lsbt,pre};
+}
+
+/* ================= RENDER ================= */
+function chk(ok,title,detail,val,warn){ const c=ok==null?"na":ok?(warn?"warn":"ok"):"bad"; const g=ok==null?"·":ok?(warn?"!":"✓"):"✕";
+  return `<li><span class="dot ${c}">${g}</span><span class="ct">${title}</span><span class="cv">${val||""}</span><span class="cd">${detail}</span></li>`; }
+function neutralPE(R,S){
+  const st=R.st, tri=R.tri; let N=S, Nsrc="igual a fase", PE=null, PEsrc="ITC-BT-19 tabla 2";
+  if(R.lsbt){ N=NRZ.neu[S]; Nsrc="NRZ002 ap. 2.1 (sección inmediatamente inferior)"; return {N,Nsrc,PE:null}; }
+  if(!tri){ Nsrc="monofásico: igual a fase"; }
+  else if(st.tramo.startsWith("lga")){ const key=(S===10||S===16)?S+st.mat:S; const t=LGA_T[key]; if(t){N=t[0]; Nsrc="ITC-BT-14 tabla 1";} }
+  else if(st.tramo==="aext" || st.met==="DIR" || (st.met==="TUBO" && !st.tramo.startsWith("di") && !["viv","int_alum","int_fuerza","trafo_alum","trafo_fuerza"].includes(st.tramo))){
+    const key=(S===6||S===10||S===16)?S+st.mat:S; if(N07[key]!=null){N=N07[key]; Nsrc="ITC-BT-07 tabla 1 (mínimo)";} }
+  else Nsrc="igual a fase (ITC-BT-19 ap. 2.2.2, armónicos y desequilibrios)";
+  const pe = S<=16?S: S<=35?16: SECS.find(x=>x>=S/2);
+  PE=st.tramo==="di_unico"||st.tramo.startsWith("di")||true? Math.max(pe, st.tramo.startsWith("di")?6:0):pe;
+  return {N,Nsrc,PE,PEsrc};
+}
+function tuboDia(R,S,ncond){
+  const st=R.st;
+  if(R.lsbt) return null;
+  if(st.tramo.startsWith("lga")){ const key=(S===10||S===16)?S+st.mat:S; const t=LGA_T[key]; return t?{d:t[1],src:"ITC-BT-14 tabla 1"}:null; }
+  let tab=null, src="";
+  if(st.met==="TUBO"){ tab=TUBO.ent; src="Guía BT-21 tabla 9 (enterrado)"; }
+  else if(["A1","A2","B1","B2"].includes(st.met)){ const emp=st.met==="B1"||st.met==="A1"||st.met==="A2"; tab=emp?TUBO.emp:TUBO.sup; src=emp?"Guía BT-21 tabla 5 (empotrado)":"Guía BT-21 tabla 2 (superficie)"; }
+  else return null;
+  const k=tab.s.indexOf(S); if(k<0) return null;
+  let d = tab===TUBO.ent? tab.d[k][0] : tab.d[k][Math.min(5,ncond)-1];
+  if(d==null) return {d:null,src};
+  if(st.tramo.startsWith("di")) { d=Math.max(d,32); src+=" · ITC-BT-15: ≥ 32 mm"; }
+  if(st.tramo==="viv"){ const t=CIRC[st.circ].tubo; if(t && t>d){ d=t; src+=" · ITC-BT-25 tabla 1"; } }
+  return {d,src};
+}
+function cableText(R,S){
+  const st=R.st, m=st.met, t=st.tramo; const pc=st.pc; let tags=[], txt="", src="";
+  const buried= m==="TUBO"||m==="DIR";
+  if(R.lsbt){ tags=["XZ1 (S) 0,6/1 kV Al"]; txt="Cables unipolares de aluminio, aislamiento XLPE y cubierta de poliolefina (DMO1), según UNE-HD 603-5X. Cuatro unipolares: tres fases y neutro."; src="NRZ002 ap. 2.1, tabla 2"; }
+  else if(t.startsWith("lga")){ tags=[st.mat==="Cu"?"RZ1-K (AS) 0,6/1 kV":"Unipolar Al 0,6/1 kV (AS)"]; txt="Unipolares aislados 0,6/1 kV, no propagadores del incendio y con emisión de humos y opacidad reducida (UNE 21123-4 o 5). Sección uniforme y sin empalmes."; src="ITC-BT-14 ap. 3"; }
+  else if(t.startsWith("di")){ if(buried||st.conf==="multi"){ tags=["RZ1-K (AS) 0,6/1 kV"]; txt="En tubo enterrado o con cable multiconductor el aislamiento será de 0,6/1 kV, no propagador del incendio y de humos y opacidad reducida (UNE 21123-4 o 5)."; }
+    else { tags=["ES07Z1-K (AS) 450/750 V"]; txt="Unipolares 450/750 V, no propagadores del incendio y con emisión de humos y opacidad reducida (UNE 211002). Incluye neutro, protección e hilo de mando rojo de 1,5 mm²."; }
+    src="ITC-BT-15 ap. 3"; txt+=" Con e-distribución, el tramo hasta el equipo de medida en CPM será de 750 V (UNE 211002 o UNE-EN 50525-3-11) y clase Cca-s1b,d1,a1 como mínimo (NRZ103 ap. 7.2)."; }
+  else if(t==="aext"){ tags=["RV-K 0,6/1 kV","VV-K 0,6/1 kV"]; txt="Cables 0,6/1 kV de cobre clase 5 en tubo enterrado o en canal o tubo protector."; src="Guía BT-09"; }
+  else if(buried){ tags=[st.ais==="PVC"?"VV-K 0,6/1 kV":"RV-K 0,6/1 kV", st.ais==="PVC"?"":"RZ1-K (AS) 0,6/1 kV"].filter(Boolean); txt="En instalación enterrada, cables de tensión asignada no inferior a 0,6/1 kV (UNE-HD 603)."; src="ITC-BT-07 ap. 1 · Guía BT-09"; }
+  else if(pc){
+    if(["A1","B1"].includes(m)){ tags=["ES07Z1-K (AS) 450/750 V"]; txt="Empotrado bajo tubo no propagador de la llama: unipolar 450/750 V con aislamiento de poliolefina (Z1), UNE 211002."; }
+    else { tags=["RZ1-K (AS) 0,6/1 kV","DZ1-K (AS) 0,6/1 kV"]; txt="En superficie, bandeja o canal: cables 0,6/1 kV con cubierta de poliolefina (UNE 21123-4 o 5)."; }
+    txt+=" Los circuitos de servicios de seguridad usarán cables resistentes al fuego (UNE-EN 50200, se recomienda PH 90) con humos y opacidad reducida: siglas AS+."; src="Guía BT-28 ap. 4 e) y f)"; }
+  else if(t==="viv" || ["A1","B1"].includes(m)){ tags=["H07V-K 450/750 V","ES07Z1-K (AS) 450/750 V"]; txt="Bajo tubo empotrado: conductor unipolar 450/750 V de cobre clase 5. H07V-K (PVC) es el tipo habitual en viviendas; ES07Z1-K (AS) si se exige baja emisión de humos."; src="Guía BT-26 ap. 6.1.1 · Guía BT-28"; }
+  else if(["E","F","C"].includes(m)||m==="GAL"){ tags=[st.ais==="PVC"?"VV-K 0,6/1 kV":"RZ1-K (AS) 0,6/1 kV"]; txt="Al aire, en bandeja o fijado a pared: cables de tensión asignada 0,6/1 kV con cubierta."; src="ITC-BT-20 ap. 2.2.9 (citado en Guía BT-28)"; }
+  else { tags=["RZ1-K (AS) 0,6/1 kV"]; txt="Cable multiconductor con cubierta."; src="Guía BT-28"; }
+  if(st.ais==="PVC" && tags.some(x=>/RZ1|RV-K|XZ1|DZ1/.test(x))) txt+=" Atención: el tipo propuesto tiene aislamiento termoestable (90 °C); el cálculo se ha hecho con PVC/Z1 (70 °C), lo que queda del lado de la seguridad.";
+  return {tags,txt,src};
+}
+function render(){
+  const R=compute(); const st=R.st;
+  const pick=R.pick;
+  // veredicto
+  const sEl=$("vS"), fEl=$("vF"), stEl=$("vStatus"), strip=$("strip");
+  if(!R.rows.length){ sEl.textContent="–"; fEl.textContent=""; stEl.innerHTML=`<span class="status bad">Combinación sin tabla en los documentos</span>`; strip.innerHTML=""; }
+  else if(!pick){ sEl.textContent="Ninguna"; fEl.textContent=""; stEl.innerHTML=`<span class="status bad">Ninguna sección de la tabla cumple todas las condiciones</span>`; strip.innerHTML=""; }
+  else {
+    const np=neutralPE(R,pick.S);
+    sEl.innerHTML=fS(pick.S)+"<small>mm²</small>";
+    const mat=st.mat==="Cu"?"Cu":"Al";
+    const form= R.tri? `3×${fS(pick.S)} + N ${fS(np.N)}${np.PE?` + TT ${fS(np.PE)}`:""} mm² ${mat}` : `2×${fS(pick.S)}${np.PE?` + TT ${fS(np.PE)}`:""} mm² ${mat}`;
+    fEl.textContent=form;
+    const det=R.rows.map(r=>({S:r.S,why:[!r.okI&&"I",!r.okIn&&"In",!r.okI2&&"I2",!r.okDU&&"ΔU",!r.okMin&&"mín",!r.okFus&&"fus",!r.okCC&&"Icc"].filter(Boolean)}));
+    const byI=R.rows.find(r=>r.okI&&r.okIn&&r.okI2&&r.okFus), byU=R.rows.find(r=>r.okDU);
+    let crit="mínima reglamentaria"; if(byU && pick.S===byU.S && (!byI||byU.S>byI.S)) crit="caída de tensión"; else if(byI && pick.S===byI.S && pick.S>R.smin) crit="intensidad y protección"; if(R.st.ccOn && pick.sCC && pick.S===SECS.find(x=>x>=pick.sCC) && (!byI||pick.S>byI.S)&&(!byU||pick.S>byU.S)) crit="cortocircuito";
+    stEl.innerHTML=`<span class="status ok">Cumple</span><span class="status warn" title="Criterio que fija la sección">Determina: ${crit}</span>`;
+    const ph=R.tri?[["L1","i-marron"],["L2","i-negro"],["L3","i-gris"]]:[["L","i-marron"]];
+    strip.innerHTML=ph.map(p=>`<span class="cond"><i class="${p[1]}"></i><b>${fS(pick.S)}</b></span>`).join("")+
+      `<span class="cond"><i class="i-azul"></i><b>N ${fS(np.N)}</b></span>`+(np.PE?`<span class="cond"><i class="i-pe"></i><b>PE ${fS(np.PE)}</b></span>`:"");
+  }
+  // checks
+  const C=$("checks"); const p=pick;
+  const In=R.In;
+  if(p){
+    const np=neutralPE(R,p.S);
+    C.innerHTML=[
+      chk(p.okI,"Intensidad admisible",`Iz = ${fmt(p.Iz0,1)} A × ${fmt(p.ftot,3)} = ${fmt(p.Iz,1)} A ≥ IB = ${fmt(R.Ib,1)} A`,`${fmt(p.Iz,1)} A`),
+      chk(p.okIn&&p.okI2,"Protección contra sobrecargas",`IB ${fmt(R.Ib,1)} ≤ In ${In} ≤ Iz ${fmt(p.Iz,1)} A · I2 = ${fmt(R.I2,1)} ≤ 1,45 Iz = ${fmt(1.45*p.Iz,1)} A`,`In ${In} A`),
+      chk(p.okDU,"Caída de tensión",`${fmt(p.dU,2)} V con I = ${fmt(R.Idu,1)} A, L = ${fmt(R.L,0)} m, θ = ${fmt(p.theta,0)} °C · límite ${fmt(R.dulim,1)} %`,`${fmt(p.dUp,2)} %`),
+      chk(p.okMin,"Sección mínima",`${fS(p.S)} ≥ ${fS(R.smin)} mm²`,`${fS(R.smin)} mm²`),
+      st.ccOn?chk(p.okCC,"Cortocircuito",`S ≥ Icc·√t / k = ${fmt(num("icc",0)*1000,0)}·√${fmt(num("tcc",0.1),2)} / ${kCC(st.mat,st.ais,p.S)} = ${fmt(p.sCC,1)} mm²`,`${fmt(p.sCC,1)} mm²`):"",
+      R.lsbt&&st.prot==="gg"?chk(p.okFus,"Calibre máximo de fusible",`NRZ002 tabla 16: ${fS(p.S)} mm² → gG ≤ ${NRZ.fus[p.S]} A`,`${NRZ.fus[p.S]} A`):""
+    ].join("");
+  } else {
+    const best=R.rows[R.rows.length-1];
+    if(best && R.Ib>R.In) C.innerHTML=chk(false,"La intensidad de diseño supera la In",`IB = ${fmt(R.Ib,1)} A > In = ${R.In} A. Suba el calibre del interruptor o reduzca la carga; ITC-BT-22 exige IB ≤ In ≤ Iz.`,"");
+    else C.innerHTML= best? chk(false,"Revise los datos",`La mayor sección disponible (${fS(best.S)} mm²) da Iz = ${fmt(best.Iz,1)} A y ΔU = ${fmt(best.dUp,2)} %. Reduzca la longitud o la carga, cambie el método de instalación o reparta en conductores en paralelo.`,"") :
+      chk(false,"Sin tabla aplicable",metNote(st)||"No hay valores para esta combinación.","");
+  }
+  // datos
+  const kv=[];
+  kv.push(["Intensidad de diseño IB",fmt(R.Ib,2)+" A"+(R.kwhy?" ("+R.kwhy+")":"")]);
+  if(R.st.modo==="p") kv.push(["Potencia",fmt(R.P,0)+" W"]);
+  kv.push(["Tensión · cos φ",`${fmt(R.U,0)} V · ${fmt(R.cos,2)}`]);
+  kv.push(["Protección",`${{pia:"Magnetotérmico",ind:"Automático UNE-EN 60947-2",gg:"Fusible gG"}[st.prot]} ${In} A${R.InFixed!=null?"":" (calibre normalizado inmediato)"}`]);
+  if(p){ for(const f of p.fac) kv.push([f[0],fmt(f[1],3)+"  ·  "+f[2]]);
+    kv.push(["Resistencia del tramo (por conductor)",fmt(p.R*1000,1)+" mΩ"+(p.X?` · X ${fmt(p.X*1000,1)} mΩ`:"")]); }
+  if(R.st.tramo==="viv"){ const c=CIRC[st.circ]; if(c.p&&c.n){ const I=c.n*(c.p/230)*c.fs*c.fu; kv.push(["Intensidad prevista ITC-BT-25 (n·Ia·Fs·Fu)",fmt(I,2)+" A"]); } if(c.pmax) kv.push(["Potencia máxima del circuito",fmt(c.pmax,0)+" W"]); }
+  if(R.lsbt && R.st.modo==="p"){ const kW=R.P/1000; const a=ACOM.find(x=>kW<=x[1]); kv.push(["Acometida recomendada (NRZ002 tabla 4)",a?`${a[0]} mm² Al (P ≤ ${a[1]} kW a 400 V)`:"> 180 kW: justificar"]); }
+  $("kv").innerHTML=kv.map(x=>`<dt>${x[0]}</dt><dd>${x[1]}</dd>`).join("");
+  // cable
+  if(p){ const ct=cableText(R,p.S); const np=neutralPE(R,p.S); const ncond=(R.tri?3:1)+1+(np.PE?1:0); const tb=tuboDia(R,p.S,ncond);
+    $("cable").innerHTML=`<p>${ct.tags.map(t=>`<span class="tag">${t}</span>`).join("")}</p><p>${ct.txt}</p><p class="src">${ct.src}</p>`+
+      `<dl class="kv"><dt>Neutro</dt><dd>${fS(np.N)} mm²</dd><dt class="src" style="grid-column:1/3;margin-top:-4px">${np.Nsrc}</dt>`+
+      (np.PE?`<dt>Conductor de protección</dt><dd>${fS(np.PE)} mm²</dd><dt class="src" style="grid-column:1/3;margin-top:-4px">${np.PEsrc}${st.tramo.startsWith("di")?" · ITC-BT-15: ≥ 6 mm²":""}</dt>`:"")+
+      (tb?`<dt>Tubo (${ncond} conductores)</dt><dd>${tb.d?("Ø ≥ "+tb.d+" mm"):"ver nota"}</dd><dt class="src" style="grid-column:1/3;margin-top:-4px">${tb.src}${tb.d?"":": más de la tabla, sección interior ≥ 2,5–4 veces la ocupada"}</dt>`:"")+`</dl>`;
+  } else $("cable").innerHTML=`<p class="src">Sin sección válida.</p>`;
+  // tabla comparada
+  const head=`<thead><tr><th>S mm²</th><th>Iz base</th><th>Iz corr.</th><th>ΔU %</th><th>I</th><th>Prot.</th><th>ΔU</th><th>Mín.</th>${st.ccOn?"<th>Icc</th>":""}</tr></thead>`;
+  const sIdx=p?R.rows.indexOf(p):-1; const from=Math.max(0,(sIdx<0?0:sIdx)-3); const view=R.rows.slice(from,from+8);
+  const yn=b=>`<td class="${b?"yes":"no"}">${b?"sí":"no"}</td>`;
+  $("cmp").innerHTML=head+"<tbody>"+view.map(r=>`<tr class="${r===p?"sel":""}"><td>${fS(r.S)}</td><td>${fmt(r.Iz0,1)}</td><td>${fmt(r.Iz,1)}</td><td>${fmt(r.dUp,2)}</td>${yn(r.okI)}${yn(r.okIn&&r.okI2&&r.okFus)}${yn(r.okDU)}${yn(r.okMin)}${st.ccOn?yn(r.okCC):""}</tr>`).join("")+"</tbody>";
+  // notas
+  const notes=[];
+  const mn=metNote(st); if(mn) notes.push(mn);
+  if(TA_COL[st.met] && st.ais==="EPR") notes.push("La tabla A de la Guía BT-19 da columnas para PVC y XLPE; para EPR (90 °C) se usa la columna XLPE.");
+  if(TA_COL[st.met] && p && p.S===400) notes.push("En 400 mm² la Guía BT-19 imprime 699 A en la columna 9, incoherente con la serie; se usa 599 A.");
+  if(st.met==="DIR" && !R.tri) notes.push("Monofásico enterrado directo: intensidad de la terna o del tripolar × 1,225 (ITC-BT-07, notas 2 y 3 de las tablas 4 y 5).");
+  if(st.met==="GAL" && !R.tri) notes.push("Las tablas 11 y 12 de la ITC-BT-07 son para trifásico; en monofásico se aplican los mismos valores, del lado de la seguridad.");
+  if(st.met==="GAL") notes.push("Los factores de agrupamiento en galería (tablas 14 y 15 de la ITC-BT-07) no están legibles en el texto; introdúzcalos como factor manual.");
+  if(st.met==="TUBO") notes.push("Tabla D de la Guía BT-19 calculada para 1,5 K·m/W, 25 °C y 0,70 m. El factor de resistividad se toma de la tabla 12 de la NRZ002 (UNE 211435), que está normalizada a 1,5 K·m/W.");
+  if(R.lsbt) notes.push("NRZ002: la tabla 9 se da para 1 K·m/W pero su tabla 12 vale 1,00 a 1,5 K·m/W; aquí el factor se refiere a 1 K·m/W (más conservador). Compruebe además la longitud máxima protegida por el fusible (NRZ002 tabla 17).");
+  if(st.tramo==="viv"&&st.circ==="C13") notes.push("C13: potencia por toma e interruptor según la ITC-BT-52; elija la In en el apartado Protección.");
+  if(st.tramo==="viv") notes.push("La caída de las instalaciones interiores puede compensarse con la de la derivación individual siempre que la suma no supere la de ambos límites (ITC-BT-19 ap. 2.2.2).");
+  if(st.tramo.startsWith("di")||st.tramo.startsWith("lga")) notes.push("La caída de la DI puede compensarse con la de la instalación interior en ambos sentidos (Guía BT-19 ap. 2.2.2).");
+  if(st.tramo==="gen") notes.push("La caída del generador se calcula con su intensidad nominal (ITC-BT-40 ap. 5); el 125 % solo dimensiona el cable.");
+  $("notes").innerHTML=notes.map(n=>`<li>${n}</li>`).join("");
+  $("facs").innerHTML= p? p.fac.map(f=>`<span title="${f[2]}">${f[0]}: ${fmt(f[1],3)}</span>`).join("")+`<span><b>Total ${fmt(p.ftot,3)}</b></span>`:"";
+  // memoria
+  if(p){ const np=neutralPE(R,p.S); const ct=cableText(R,p.S);
+    $("mem").textContent=
+`Tramo: ${$("tramo").selectedOptions[0].text}${st.tramo==="viv"?" · "+$("circ").selectedOptions[0].text:""}
+Sistema: ${R.tri?"trifásico":"monofásico"} ${fmt(R.U,0)} V, cos φ ${fmt(R.cos,2)}${R.st.modo==="p"?", P = "+fmt(R.P,0)+" W":""}
+Intensidad de diseño: IB = ${fmt(R.Ib,2)} A${R.kwhy?" ("+R.kwhy+")":""}
+Conductor: ${st.mat==="Cu"?"cobre":"aluminio"}, aislamiento ${st.ais}, ${R.lsbt?"4 unipolares bajo tubo (NRZ002)":$("met").selectedOptions[0].text}
+Sección: ${$("vF").textContent}
+Intensidad admisible: ${fmt(p.Iz0,1)} A × ${fmt(p.ftot,3)} = ${fmt(p.Iz,1)} A (${p.fac.map(f=>f[2]).join(", ")||"sin corrección"})
+Protección: ${{pia:"interruptor magnetotérmico",ind:"interruptor automático",gg:"fusible gG"}[st.prot]} In = ${R.In} A; IB ≤ In ≤ Iz y I2 = ${fmt(R.I2,1)} A ≤ 1,45·Iz = ${fmt(1.45*p.Iz,1)} A (ITC-BT-22)
+Caída de tensión: ${fmt(p.dU,2)} V = ${fmt(p.dUp,2)} % ≤ ${fmt(R.dulim,1)} % (L = ${fmt(R.L,0)} m, I = ${fmt(R.Idu,1)} A, θ = ${fmt(p.theta,0)} °C; Guía BT Anexo 2)
+Cable: ${ct.tags.join(" o ")} (${ct.src})`;
+  } else $("mem").textContent="Sin sección válida.";
+}
+function metNote(st){
+  if(st.tramo==="lsbt") return "";
+  if(TA_COL[st.met] && st.mat==="Al") return "Aluminio no enterrado: la Guía BT-19 remite a la tabla A.52-1 bis de la UNE 20460-5-523, que no está en los documentos del proyecto. Use cobre, galería ventilada (ITC-BT-07 tabla 11) o instalación enterrada.";
+  if(st.met==="TUBO" && st.ais==="PVC") return "La tabla D de la Guía BT-19 solo da valores para XLPE. Para cables de PVC bajo tubo enterrado use la ITC-BT-07 (enterrado directo con factor 0,8 por tubo, como factor manual).";
+  return "";
+}
+
+/* ================= UI ================= */
+function inOptions(){ const sel=$("inSel"); const cur=sel.value||"auto"; sel.innerHTML=`<option value="auto">Automática</option>`+IN_STD.map(x=>`<option value="${x}">${x} A</option>`).join(""); sel.value=[...sel.options].some(o=>o.value===cur)?cur:"auto"; }
+function dtOptions(){ const st=getState(); const sel=$("dt"); const cur=sel.value; let opts;
+  if(st.tramo==="lsbt") opts=[["0","Tubos en contacto"],["0.2","200 mm"],["0.4","400 mm"]];
+  else if(st.met==="DIR") opts=[["0","En contacto"],["0.07","0,07 m"],["0.1","0,10 m"],["0.15","0,15 m"],["0.2","0,20 m"],["0.25","0,25 m"]];
+  else opts=[["0","Tubos en contacto"],["0.25","0,25 m"],["0.5","0,50 m"],["1","1,0 m"]];
+  sel.innerHTML=opts.map(o=>`<option value="${o[0]}">${o[1]}</option>`).join(""); if(opts.some(o=>o[0]===cur)) sel.value=cur; }
+function visibility(){
+  const st=getState(); const lsbt=st.tramo==="lsbt"; const air=isAir(st.met)&&!lsbt;
+  $("w-circ").hidden=st.tramo!=="viv";
+  document.querySelectorAll(".no-lsbt").forEach(e=>e.hidden=lsbt);
+  $("w-p").hidden=st.modo!=="p"; $("w-i").hidden=st.modo!=="i";
+  $("w-useIn").hidden=st.tramo!=="viv"; $("w-k18").hidden=!(st.tramo==="aext"||st.tramo==="int_alum"||st.tramo==="custom");
+  $("g-air").hidden=!air; $("g-agrE").hidden=!(air&&st.agr==="E"&&st.met!=="GAL"); $("g-agrG").hidden=!(air&&st.agr==="G"&&st.met!=="GAL");
+  $("agr").disabled=st.met==="GAL";
+  $("g-ground").hidden=air; $("g-gtubo").hidden=air;
+  $("w-conf").hidden=!(st.met==="DIR"||st.met==="GAL");
+  $("g-cc").hidden=!st.ccOn;
+  $("w-nt").firstChild.textContent= st.met==="DIR"?"Nº de ternas o cables en la zanja ":"Nº de tubos o circuitos agrupados ";
+  document.querySelectorAll('input[name=fase]').forEach(r=>r.disabled=lsbt);
+  $("tramoHint").innerHTML="<b>Base:</b> "+TRAMOS[st.tramo].ref;
+  const mh={A1:"Conductores unipolares en tubo empotrado en pared térmicamente aislante, en molduras o marcos.",A2:"Cable multiconductor en tubo empotrado en pared térmicamente aislante.",B1:"Unipolares en tubo empotrado en obra o sobre pared, en canal, huecos de obra, falsos techos o rodapiés.",B2:"Multiconductor en tubo empotrado o sobre pared, en canal o conducto.",C:"Cables sobre pared o bajo techo de madera, en bandeja no perforada o empotrados directamente.",E:"Multiconductor separado de la pared ≥ 0,3 D, en bandeja perforada, rejilla, escalera o fiador.",F:"Como E con sección > 25 mm², o unipolares en contacto separados de la pared ≥ D.",TUBO:"Bajo tubo enterrado, un circuito por tubo. Condiciones de la tabla: 1,5 K·m/W, 25 °C, 0,70 m.",DIR:"Directamente enterrado a 0,70 m, 1 K·m/W y 25 °C (ITC-BT-07 ap. 3.1.2.1).",GAL:"Al aire en galería ventilada, 40 °C, con renovación eficaz del aire (ITC-BT-07 ap. 3.1.4.1)."};
+  $("metHint").textContent=(mh[st.met]||"")+" (Guía BT-19 tabla B)";
+}
+function applyTramo(){
+  const t=$("tramo").value, pre=TRAMOS[t];
+  $("dulim").value=pre.du;
+  let sm=pre.smin; const mat=radio("mat"); if(pre.sminAl && mat==="Al") sm=pre.sminAl;
+  if(t==="viv"){ const c=CIRC[$("circ").value]; sm=c.s; $("useIn").checked=true; setVal("fase","1"); $("u").value=230; $("inSel").value="auto"; $("cos").value=1;
+    const I= c.p&&c.n? c.n*(c.p/230)*c.fs*c.fu : c.pmax? c.pmax/230 : 16; $("modo").value="i"; $("i").value=Math.round(I*10)/10; }
+  $("smin").value=sm;
+  if(t==="lsbt"){ setVal("fase","3"); $("u").value=400; $("cos").value=0.9; $("prot").value="gg"; $("rter").value=1; $("tter").value=25; $("prof").value=0.7; }
+  if(t==="aext"){ $("k18").checked=true; if(num("cos",1)<0.9) $("cos").value=0.9; }
+  if(t==="gen"||t==="motor"){ $("modo").value="i"; }
+}
+function onMet(){ const m=$("met").value; if(isAir(m)) $("tamb").value=40; if(m==="TUBO"){ $("rter").value=1.5; } if(m==="DIR"){ $("rter").value=1; } if(m==="TUBO"&&$("ais").value==="PVC") $("ais").value="XLPE"; }
+function onFase(){ $("u").value=radio("fase")==="3"?400:230; }
+function refresh(){ visibility(); render(); save(); }
+
+function init(saved){
+  inOptions();
+  const s=Object.assign({},DEF,saved||{});
+  for(const k of FIELDS) if(k!=="dt"&&k!=="inSel") setVal(k,s[k]);
+  dtOptions(); setVal("dt",s.dt); setVal("inSel",s.inSel);
+  refresh();
+}
+document.addEventListener("input",e=>{ if(!e.target.closest("#frm")) return;
+  const id=e.target.id||e.target.name;
+  if(id==="tramo"){ applyTramo(); dtOptions(); }
+  if(id==="circ"){ applyTramo(); }
+  if(id==="met"){ onMet(); dtOptions(); }
+  if(id==="fase"){ onFase(); }
+  if(id==="mat"){ const pre=TRAMOS[$("tramo").value]; if(pre.sminAl) $("smin").value=radio("mat")==="Al"?pre.sminAl:pre.smin; }
+  refresh(); });
+document.addEventListener("change",e=>{ if(e.target.closest("#frm")) refresh(); });
+$("reset").addEventListener("click",()=>{ try{localStorage.removeItem("calc-secc-v1");}catch(e){} init(null); });
+$("copyBtn").addEventListener("click",()=>{ const t=$("mem").textContent;
+  const done=()=>{$("copyMsg").textContent="Copiado";setTimeout(()=>$("copyMsg").textContent="",1800)};
+  const fallback=()=>{ const r=document.createRange(); r.selectNodeContents($("mem")); const s=getSelection(); s.removeAllRanges(); s.addRange(r); $("copyMsg").textContent="Texto seleccionado: pulse Ctrl+C"; };
+  try{ navigator.clipboard.writeText(t).then(done,fallback);}catch(e){fallback();} });
+init(load());
+</script>
+
+</body></html>

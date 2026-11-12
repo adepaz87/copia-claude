@@ -1,0 +1,19 @@
+{
+  "actualizada": "2026-08-21T09:00:00Z",
+  "aviso": "",
+  "centro": "SPAR El Paso",
+  "creada": "2026-08-21T09:00:00Z",
+  "descripcion": "El grupo electrógeno tarda en arrancar; bomba de gasoil.",
+  "estado": "terminada",
+  "fechaAviso": "2026-08-21",
+  "historial": [
+    "21/08/2026 · Importada del correo de Alberto"
+  ],
+  "informado": true,
+  "notas": "Resuelta el 21/08/2026.",
+  "operario": "",
+  "ot": 6,
+  "prioridad": "Sin especificar",
+  "solicitante": "",
+  "tipo": "MANTENIMIENTO"
+}

@@ -1,0 +1,12 @@
+{
+  "cap": "01",
+  "cod": "01.06",
+  "desc": "Picado de enlucido suelto y saneado de fisuras en techo existente.",
+  "med": 15,
+  "nota": "Fisuras visibles en techo del salón",
+  "orden": 6,
+  "pre": 8,
+  "rev": true,
+  "sb": false,
+  "ud": "m²"
+}

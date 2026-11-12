@@ -1,0 +1,43 @@
+{
+  "albs": [
+    "Coelca 184.943/018"
+  ],
+  "cliente": "DRAGADOS",
+  "desc": "Enebrar cable 5x16 RNF desde cuadro general hasta el subcuadro de grua. \nConectar en cuadros.\nPasar lineas para alimentar contenedores de obra y probar.",
+  "devol": [],
+  "estado": "TERMINADO",
+  "fecha": "2026-10-14",
+  "horas": 13,
+  "obra": "34 VIVIENDAS TAZACORTE",
+  "ops": [
+    {
+      "h": 6,
+      "n": "Antonio"
+    },
+    {
+      "h": 6,
+      "n": "Iker"
+    },
+    {
+      "h": 1,
+      "n": "Transporte"
+    }
+  ],
+  "stock": [
+    {
+      "d": "cinta aislante Blanca",
+      "q": 1,
+      "u": "ud"
+    },
+    {
+      "d": "Terminales 16/8",
+      "q": 6,
+      "u": "ud"
+    },
+    {
+      "d": "punteras de 16mm",
+      "q": 8,
+      "u": "ud"
+    }
+  ]
+}

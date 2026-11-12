@@ -1,0 +1,18 @@
+{
+  "albs": [],
+  "cliente": "COVALLE",
+  "desc": "Conectar puentes etiquetar",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-10-08",
+  "horas": 2,
+  "obra": "CUADRO",
+  "ops": [
+    {
+      "h": 2,
+      "n": "Goyo"
+    }
+  ],
+  "origen": "dashboard",
+  "stock": []
+}

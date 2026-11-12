@@ -1,0 +1,47 @@
+{
+  "abono": true,
+  "empresa": "Instapalma",
+  "fecha": "2026-03-31",
+  "lineas": [
+    {
+      "a": "VCTF-003978-2026",
+      "d": "ABONO DERIVADOR 8 DIRECCIONES 22DBS",
+      "dto": "40,00",
+      "f": "2026-03-16",
+      "i": -209.22,
+      "o": "EDIFICIO SABINO",
+      "pn": 19.02,
+      "pt": 31.7,
+      "q": -11,
+      "r": "TVE-5611"
+    },
+    {
+      "a": "VCTF-003310-2026",
+      "d": "ABONO MINI-REPARTIDOR 5 2400MHZ EASYF 2D",
+      "dto": "40,00",
+      "f": "2026-03-16",
+      "i": -49.9,
+      "o": "EDIFICIO SABINO",
+      "pn": 8.3167,
+      "pt": 13.86,
+      "q": -6,
+      "r": "TVE-432803"
+    },
+    {
+      "a": "VCTF-003310-2026",
+      "d": "ABONO GENERAL                                  259,12",
+      "dto": "0,00",
+      "f": "2026-03-16",
+      "i": 0,
+      "o": "EDIFICIO SABINO",
+      "pn": 0,
+      "pt": 18.14,
+      "q": -7,
+      "r": "IGIC"
+    }
+  ],
+  "numero": "BT-000380-2026",
+  "origen": "Gmail",
+  "proveedor": "Diexfe",
+  "tipo": "factura"
+}

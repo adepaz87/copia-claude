@@ -1,0 +1,23 @@
+{
+  "albs": [
+    "Coelca 034.894/003"
+  ],
+  "cliente": "AYUNTAMIENTO EL PASO",
+  "desc": "Fichar registros escalera principal azotea.\nModificar sensor y emergencia escalera principal azotea.\nColocar punto luz en rellano azotea.\nColocar cargadores PR13 y PR14 en garages y probar.\nFichar registro de salida ascensor en garaje.\nColocar punto de luz en rellano garaje. \nComprobar circuitos.\nColocar bandeja desmontada por mola en rellano azotea escalera principal\nColocar tubos rojos de 50mm d",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-09-17",
+  "horas": 16,
+  "obra": "HOTEL MONTERREY",
+  "ops": [
+    {
+      "h": 8,
+      "n": "Antonio"
+    },
+    {
+      "h": 8,
+      "n": "Iker"
+    }
+  ],
+  "stock": []
+}

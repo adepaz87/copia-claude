@@ -1,0 +1,19 @@
+{
+  "actualizada": "2026-05-18T09:00:00Z",
+  "aviso": "",
+  "centro": "SPAR Mercado",
+  "creada": "2026-05-18T09:00:00Z",
+  "descripcion": "Luz de la vitrina de comida fundida.",
+  "estado": "terminada",
+  "fechaAviso": "2026-05-18",
+  "historial": [
+    "18/05/2026 · Importada del correo de Alberto"
+  ],
+  "informado": true,
+  "notas": "Resuelta (correo 18/05/2026).",
+  "operario": "",
+  "ot": 1,
+  "prioridad": "Sin especificar",
+  "solicitante": "",
+  "tipo": "MANTENIMIENTO"
+}

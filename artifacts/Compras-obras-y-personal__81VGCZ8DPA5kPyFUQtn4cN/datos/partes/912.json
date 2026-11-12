@@ -1,0 +1,20 @@
+{
+  "albs": [],
+  "cliente": "COVALLE",
+  "desc": "Elaboración de cuadros eléctricos. Modificaciones del subcuadro de almacén.",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-11-06",
+  "horas": 4.5,
+  "id": "912",
+  "obra": "MODIFICACIONES CUADROS ELÉCTRICOS",
+  "ops": [
+    {
+      "h": 4.5,
+      "n": "Toño"
+    }
+  ],
+  "origen": "dashboard",
+  "restante": "Día",
+  "stock": []
+}

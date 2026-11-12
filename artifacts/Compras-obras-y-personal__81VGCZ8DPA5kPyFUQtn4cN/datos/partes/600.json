@@ -1,0 +1,21 @@
+{
+  "albs": [],
+  "cliente": "TRAGSA",
+  "desc": "Instalar aparamenta de CC.\nCablear y conectar cuadro de CC.\nConectar paneles solares entre sí.\nTerminar de clavar picas de tierra.",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-09-30",
+  "horas": 12,
+  "obra": "FV RIACHUELO",
+  "ops": [
+    {
+      "h": 6,
+      "n": "Toño"
+    },
+    {
+      "h": 6,
+      "n": "Jonathan Glez"
+    }
+  ],
+  "stock": []
+}

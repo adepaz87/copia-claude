@@ -1,0 +1,25 @@
+{
+  "albs": [],
+  "cliente": "TRAGSA",
+  "desc": "Terminar instalación de bandeja.\nCableado entre inversor y cuadro de CA.\nEnbridar cables de CA por bandeja.\nEnhebrar y enbridar por bandeja latiguillos de CC del inversor a cuadro de CC.\nAbrir pases en bandeja para cableado del inversor.\nConectar strings en inversor.\nElaborar cuadro de CC.\nBuscar y resolver avería en cargadores",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-09-16",
+  "horas": 24,
+  "obra": "FV CENTRO DE VISITANTES",
+  "ops": [
+    {
+      "h": 8,
+      "n": "Adán"
+    },
+    {
+      "h": 8,
+      "n": "Toño"
+    },
+    {
+      "h": 8,
+      "n": "Jonathan Glez"
+    }
+  ],
+  "stock": []
+}

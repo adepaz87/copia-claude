@@ -1,0 +1,36 @@
+{
+  "empresa": "Kairos Supply",
+  "fecha": "2026-04-09",
+  "lineas": [
+    {
+      "a": "309002015",
+      "d": "CVS400F TM400D 4P4R",
+      "f": "2026-04-09",
+      "fab": "LV540312",
+      "i": 1267.44,
+      "m": "Schneider Electric",
+      "o": "CANOPALMA",
+      "pn": 1267.44,
+      "pt": 1267.44186,
+      "q": 1,
+      "r": "114697"
+    },
+    {
+      "a": "309002015",
+      "d": "BOBINA MX 220-240V 50/60HZ 208-277V 60HZ",
+      "f": "2026-04-09",
+      "fab": "LV429387",
+      "i": 74.42,
+      "m": "Schneider Electric",
+      "o": "CANOPALMA",
+      "pn": 74.42,
+      "pt": 74.418605,
+      "q": 1,
+      "r": "81807"
+    }
+  ],
+  "numero": "F03000R-4758",
+  "origen": "Gmail",
+  "proveedor": "Sonepar",
+  "tipo": "factura"
+}

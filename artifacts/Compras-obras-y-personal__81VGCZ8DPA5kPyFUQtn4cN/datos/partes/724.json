@@ -1,0 +1,23 @@
+{
+  "albs": [],
+  "cliente": "TOMÁS BARRETO SA",
+  "desc": "Sustitución batería por nueva. Revisión de grupo arranques y pruebas. Verificado avería de calentador calderín aceite fallo magnetotermico.",
+  "devol": [],
+  "estado": "TERMINADO",
+  "fecha": "2026-10-19",
+  "horas": 2.5,
+  "obra": "SPAR EL PASO",
+  "ops": [
+    {
+      "h": 2.5,
+      "n": "Toño"
+    }
+  ],
+  "stock": [
+    {
+      "d": "Batería 12V. 95 Ah",
+      "q": 1,
+      "u": ""
+    }
+  ]
+}

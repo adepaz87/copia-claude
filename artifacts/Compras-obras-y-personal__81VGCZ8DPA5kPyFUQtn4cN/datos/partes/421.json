@@ -1,0 +1,29 @@
+{
+  "albs": [],
+  "cliente": "CONSTRUCCIONES DOMINGO",
+  "desc": "Enebrar vivivienda\nAbrir huecos en Pladul para cajas de mecanismos\nFichar registros de habitaciones",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-09-07",
+  "horas": 27.5,
+  "obra": "CASA CRISTINA",
+  "ops": [
+    {
+      "h": 11,
+      "n": "Riki"
+    },
+    {
+      "h": 8,
+      "n": "Junior"
+    },
+    {
+      "h": 3,
+      "n": "Joel"
+    },
+    {
+      "h": 5.5,
+      "n": "Aythami"
+    }
+  ],
+  "stock": []
+}

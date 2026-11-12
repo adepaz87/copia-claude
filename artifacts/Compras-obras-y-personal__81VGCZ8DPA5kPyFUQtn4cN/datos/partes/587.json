@@ -1,0 +1,24 @@
+{
+  "albs": [],
+  "cliente": "JORGE SASTRE",
+  "desc": "Crear maniobra mediante reloj astronómico en cuadro general para el control del alumbrado nocturno.\n\nConectar reloj y programar.\n\nProbar funcionamiento.",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-09-29",
+  "horas": 4,
+  "obra": "LOCAL EL PUENTE",
+  "ops": [
+    {
+      "h": 4,
+      "n": "Jorge"
+    }
+  ],
+  "stock": [
+    {
+      "d": "Reloj astronómico cogido en Coelca",
+      "q": 1,
+      "u": "",
+      "x": 1
+    }
+  ]
+}

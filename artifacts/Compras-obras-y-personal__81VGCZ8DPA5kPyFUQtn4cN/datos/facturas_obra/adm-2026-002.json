@@ -1,0 +1,53 @@
+{
+  "base": 54,
+  "cliente": "",
+  "creado": "2026-11-09T18:47:01.091Z",
+  "cuota": 3.78,
+  "desde": "2026-10-15",
+  "envios": [
+    {
+      "adj": [
+        "Partes del mes",
+        "Relación valorada",
+        "Factura"
+      ],
+      "asunto": "FACTURA · Spar Mederos · TOMÁS BARRETO SA",
+      "cc": [],
+      "t": "2026-11-09T19:14:20.165Z",
+      "to": [
+        "rbarrera@tomasbarretosa.com",
+        "fconcepcion@tomasbarretosa.com"
+      ]
+    }
+  ],
+  "fecha": "2026-11-09",
+  "hasta": "2026-11-09",
+  "holded": {
+    "id": "5dbacc0d2888ff588b5e1baaf6fe789a",
+    "nombre": "2026-0190 Tomás Barreto SA.pdf",
+    "t": "2026-11-09T19:10:31.240Z",
+    "url": "/_blob/5dbacc0d2888ff588b5e1baaf6fe789a"
+  },
+  "igic": 7,
+  "lineas": [
+    {
+      "d": "Mano de obra",
+      "imp": 54,
+      "ks": [
+        "h|695|TONO|0"
+      ],
+      "pu": 27,
+      "q": 2,
+      "tipo": "horas",
+      "u": "h"
+    }
+  ],
+  "manoObra": 54,
+  "material": 0,
+  "mg": 35,
+  "numero": "ADM-2026-002",
+  "obra": "spar-mederos",
+  "obraNombre": "Spar Mederos",
+  "ph": 27,
+  "total": 57.78
+}

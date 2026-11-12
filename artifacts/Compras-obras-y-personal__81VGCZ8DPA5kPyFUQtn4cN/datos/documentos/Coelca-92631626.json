@@ -1,0 +1,22 @@
+{
+  "empresa": "Instapalma",
+  "fecha": "2026-06-16",
+  "lineas": [
+    {
+      "a": "182.874/018",
+      "d": "LUBRI LIMP/0 AEROSOL 335ml",
+      "f": "2026-06-16",
+      "fab": "LAP-LUBRI LIMP/0",
+      "i": 13.55,
+      "o": "POZO ZONA ALTA",
+      "pn": 6.775,
+      "pt": 6.776,
+      "q": 2,
+      "r": "30040"
+    }
+  ],
+  "numero": "92631626",
+  "origen": "Gmail",
+  "proveedor": "Coelca",
+  "tipo": "factura"
+}

@@ -1,0 +1,27 @@
+{
+  "actualizada": "2026-11-03T16:05:14.576Z",
+  "asignadaEn": "2026-11-03T08:26:23.237Z",
+  "avisadoWa": "2026-11-03T08:58:07.754Z",
+  "aviso": "",
+  "centro": "SPAR San Pedro",
+  "creada": "2026-11-03T08:26:23.237Z",
+  "descripcion": "UPS",
+  "estado": "terminada",
+  "fechaAviso": "2026-11-03",
+  "historial": [
+    "3/11/2026 08:26 · Registrada (aviso de Fernando) · Asignada a Toño Guardia",
+    "3/11/2026 08:27 · Aviso por WhatsApp a Toño Guardia",
+    "3/11/2026 08:27 · Aviso por WhatsApp a Toño Guardia",
+    "3/11/2026 08:46 · WhatsApp enviado a Toño Guardia",
+    "3/11/2026 08:46 · WhatsApp enviado a Toño Guardia",
+    "3/11/2026 08:58 · WhatsApp programado a Toño Guardia",
+    "3/11/2026 16:05 · Estado: Terminada"
+  ],
+  "informado": false,
+  "notas": "",
+  "operario": "Toño Guardia",
+  "ot": 117,
+  "prioridad": "Sin especificar",
+  "solicitante": "Fernando",
+  "tipo": "MANTENIMIENTO"
+}

@@ -1,0 +1,34 @@
+{
+  "empresa": "Instapalma",
+  "fecha": "2026-02-20",
+  "lineas": [
+    {
+      "a": "VCTF-003101-2026",
+      "d": "DERIVADOR 6 DIRECCIONES 20DBS",
+      "dto": "40,00",
+      "f": "2026-02-18",
+      "i": 59.21,
+      "o": "EDIFICIO SABINO",
+      "pn": 14.8025,
+      "pt": 24.67,
+      "q": 4,
+      "r": "TVE-5493"
+    },
+    {
+      "a": "VCTF-003310-2026",
+      "d": "MINI-REPARTIDOR 5 2400MHZ EASYF 2D",
+      "dto": "40,00",
+      "f": "2026-02-20",
+      "i": 66.53,
+      "o": "EDIFICIO SABINO",
+      "pn": 8.3163,
+      "pt": 13.86,
+      "q": 8,
+      "r": "TVE-432803"
+    }
+  ],
+  "numero": "FT-001201-2026",
+  "origen": "Gmail",
+  "proveedor": "Diexfe",
+  "tipo": "factura"
+}

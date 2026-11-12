@@ -1,0 +1,19 @@
+{
+  "actualizada": "2026-05-18T09:00:00Z",
+  "aviso": "25138",
+  "centro": "SPAR El Puente",
+  "creada": "2026-05-18T09:00:00Z",
+  "descripcion": "Sin corriente en enchufes de la oficina (detrás de la mesa y compra online).",
+  "estado": "terminada",
+  "fechaAviso": "2026-05-18",
+  "historial": [
+    "18/05/2026 · Importada del correo de Alberto"
+  ],
+  "informado": true,
+  "notas": "Resuelta (correo 18/05/2026).",
+  "operario": "",
+  "ot": 11,
+  "prioridad": "Sin especificar",
+  "solicitante": "",
+  "tipo": "MANTENIMIENTO"
+}

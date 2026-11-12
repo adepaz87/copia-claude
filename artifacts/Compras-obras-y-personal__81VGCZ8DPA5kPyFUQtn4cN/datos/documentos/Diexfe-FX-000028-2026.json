@@ -1,0 +1,46 @@
+{
+  "empresa": "Kairos Supply",
+  "fecha": "2026-05-04",
+  "lineas": [
+    {
+      "a": "VCNA-000128-2026",
+      "d": "LUMINARIA DE EMERGENCIA ESTÁNDAR GSE GSE-200L NO PERMANENTE",
+      "dto": "58,00",
+      "f": "2026-05-04",
+      "i": 139.15,
+      "o": "TRAGSA EL PASO",
+      "pn": 19.8786,
+      "pt": 47.33,
+      "q": 7,
+      "r": "NLU-GSE-200L"
+    },
+    {
+      "a": "VCNA-000128-2026",
+      "d": "CAJA DE EMPOTRAR EQUIPO PARA SERIE GS",
+      "dto": "Neto",
+      "f": "2026-05-04",
+      "i": 17.55,
+      "o": "TRAGSA EL PASO",
+      "pn": 2.5071,
+      "pt": 2.507,
+      "q": 7,
+      "r": "NLU-G-ME"
+    },
+    {
+      "a": "VCNA-000128-2026",
+      "d": "PORTES CLIENTES PENINSULA",
+      "dto": "Neto",
+      "f": "2026-05-04",
+      "i": 150,
+      "o": "TRAGSA EL PASO",
+      "pn": 150,
+      "pt": 150,
+      "q": 1,
+      "r": "PORTES"
+    }
+  ],
+  "numero": "FX-000028-2026",
+  "origen": "Gmail",
+  "proveedor": "Diexfe",
+  "tipo": "factura"
+}

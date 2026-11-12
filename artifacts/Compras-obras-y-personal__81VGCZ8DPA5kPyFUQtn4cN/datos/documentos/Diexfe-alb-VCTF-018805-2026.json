@@ -1,0 +1,23 @@
+{
+  "empresa": "Instapalma",
+  "fecha": "2026-10-06",
+  "lineas": [
+    {
+      "a": "VCTF-018805-2026",
+      "d": "EXTR.AX.DOM.ABS EOS 100 230V/50HZ 14W",
+      "dto": "Neto",
+      "f": "2026-10-06",
+      "i": 204.8,
+      "o": "EDF DOMINGO",
+      "pn": 10.24,
+      "pt": 10.24,
+      "q": 20,
+      "r": "FEN-1046"
+    }
+  ],
+  "numero": "VCTF-018805-2026",
+  "obra": "EDF DOMINGO",
+  "origen": "Gmail",
+  "proveedor": "Diexfe",
+  "tipo": "albaran"
+}

@@ -1,0 +1,23 @@
+{
+  "albs": [
+    "Instapalma 202610-0197"
+  ],
+  "cliente": "COVALLE",
+  "desc": "Entubado sala reuniones planta alta(alumbrado,fuerza,datos,Hdmi,etc…)\nEntubar datos puestos trabajo oficina planta alta \nLimpiar zonas de trabajo",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-10-22",
+  "horas": 16,
+  "obra": "NAVE COOPERATIVA COVALLE",
+  "ops": [
+    {
+      "h": 8,
+      "n": "Petter"
+    },
+    {
+      "h": 8,
+      "n": "Jonathan Rodríguez"
+    }
+  ],
+  "stock": []
+}

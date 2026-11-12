@@ -1,0 +1,20 @@
+{
+  "actualizada": "2026-11-12T11:15:00Z",
+  "aviso": "",
+  "centro": "Nuevo Almacén II (Los Llanos)",
+  "creada": "2026-11-12T10:45:00Z",
+  "descripcion": "Colocar 2 diferenciales rearmables a las enfriadoras de refrigeración.",
+  "empresa": "Tomás Barreto",
+  "estado": "pendiente",
+  "fechaAviso": "2026-11-12",
+  "historial": [
+    "12/11/2026 11:15 · Registrada desde la captura GIM de Raquel (correo «NUEVO ALMACEN 2»)"
+  ],
+  "informado": false,
+  "notas": "Captura GIM enviada por Raquel (correo «NUEVO ALMACEN 2», 12/11 10:45, cc Fernando). Solicitud creada por Administrador GIM (TBARRETO2) el 12/11 11:43, DPTO MANTENIMIENTO, sin prioridad indicada (sin nº de aviso visible).",
+  "operario": "",
+  "ot": 149,
+  "prioridad": "Sin especificar",
+  "solicitante": "Raquel",
+  "tipo": "MANTENIMIENTO"
+}

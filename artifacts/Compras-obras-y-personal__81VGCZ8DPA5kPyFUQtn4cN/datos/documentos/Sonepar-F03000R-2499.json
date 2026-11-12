@@ -1,0 +1,32 @@
+{
+  "empresa": "Kairos Supply",
+  "fecha": "2026-02-24",
+  "lineas": [
+    {
+      "a": "309001109",
+      "d": "MODULO FV TRINA TSM-NEG18R.28 108C 505W MONO NTYPE",
+      "f": "2026-02-24",
+      "i": 2281.09,
+      "o": "COLEGIO VELHOCO",
+      "pn": 55.6363,
+      "pt": 55.6364,
+      "q": 41,
+      "r": "1146939"
+    },
+    {
+      "a": "309001109",
+      "d": "TRINA 505WP TSM-NEG18R.28",
+      "f": "2026-02-24",
+      "i": 6286.91,
+      "o": "COLEGIO VELHOCO",
+      "pn": 55.6364,
+      "pt": 55.6364,
+      "q": 113,
+      "r": "1208373"
+    }
+  ],
+  "numero": "F03000R-2499",
+  "origen": "Gmail",
+  "proveedor": "Sonepar",
+  "tipo": "factura"
+}

@@ -1,0 +1,36 @@
+{
+  "empresa": "Instapalma",
+  "fecha": "2026-10-30",
+  "lineas": [
+    {
+      "a": "202609640",
+      "d": "BORNA PORCELANA K2X240/4",
+      "dto": "",
+      "f": "2026-10-30",
+      "i": 427.35,
+      "igic": 7,
+      "o": "",
+      "pn": 427.35,
+      "pt": 427.35,
+      "q": 1,
+      "r": "048747"
+    },
+    {
+      "a": "202609640",
+      "d": "TAPA BORNA PORCELANA H-K2X240/5",
+      "dto": "",
+      "f": "2026-10-30",
+      "i": 46.04,
+      "igic": 7,
+      "o": "",
+      "pn": 46.04,
+      "pt": 46.04,
+      "q": 1,
+      "r": "044007"
+    }
+  ],
+  "numero": "202606343",
+  "origen": "Gmail",
+  "proveedor": "Moeller",
+  "tipo": "factura"
+}

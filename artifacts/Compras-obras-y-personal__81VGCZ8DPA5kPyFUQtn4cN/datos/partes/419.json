@@ -1,0 +1,35 @@
+{
+  "albs": [
+    "Bap 312.613.909"
+  ],
+  "cliente": "TRAGSA",
+  "desc": "Retirar materiales, baterías e inversor. Presentar y marcar las bases de las baterías y taladrarlas para fijarlas al suelo. Cargar las bobinas de cable FV y llevarlas al almacén para liberar espacio en el cuarto del inversor. Desmontar el inversor. Devolver todos los palets al cuarto del inversor.",
+  "devol": [
+    {
+      "d": "cable FV negro",
+      "q": 240,
+      "u": "m"
+    },
+    {
+      "d": "cable FV rojo",
+      "q": 260,
+      "u": "m"
+    }
+  ],
+  "estado": "EN CURSO",
+  "fecha": "2026-09-04",
+  "horas": 16,
+  "obra": "FV CENTRO DE VISITANTES",
+  "ops": [
+    {
+      "h": 8,
+      "n": "Adán"
+    },
+    {
+      "h": 8,
+      "n": "Jonathan González"
+    }
+  ],
+  "origen": "dashboard",
+  "stock": []
+}

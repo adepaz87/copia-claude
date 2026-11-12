@@ -1,0 +1,65 @@
+{
+  "albs": [
+    "Diexfe 018807",
+    "Diexfe 018805",
+    "Diexfe 018874",
+    "Ba 312 615 840"
+  ],
+  "cliente": "CHICHO 2 TUMBOS",
+  "desc": "Terminar de conectar derivaciones en centralizaciones\nColocar extractores baños \nAbrir huecos para emergencias y downlig pasillo entrada\nTapar bandejas de bajada centralizaciones",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-10-08",
+  "horas": 36,
+  "obra": "EDIFICIO SABINO",
+  "ops": [
+    {
+      "h": 11,
+      "n": "Aythami"
+    },
+    {
+      "h": 9,
+      "n": "Riki"
+    },
+    {
+      "h": 8,
+      "n": "Joel"
+    },
+    {
+      "h": 8,
+      "n": "Junior"
+    }
+  ],
+  "stock": [
+    {
+      "d": "emergencias normalux 100lm",
+      "q": 10,
+      "u": ""
+    },
+    {
+      "d": "cable tierra 1x50 rz1",
+      "q": 20,
+      "u": "m"
+    },
+    {
+      "d": "cobre desnudo 50mm",
+      "q": 12,
+      "u": "m"
+    },
+    {
+      "d": "tacos y tornillos de 6h",
+      "q": 1,
+      "u": "caja"
+    },
+    {
+      "d": "seccionadora de tierra",
+      "q": 1,
+      "u": "caja"
+    },
+    {
+      "d": "aros emergencia normalux",
+      "q": 3,
+      "u": ""
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "empresa": "Kairos Supply",
+  "fecha": "2026-10-02",
+  "lineas": [
+    {
+      "a": "309006052",
+      "d": "DOWNLIGHT RIO 20W 2000LM 3000K 50000H",
+      "f": "2026-10-02",
+      "fab": "0017440080",
+      "i": 34.5,
+      "m": "LIT BY CARDI",
+      "o": "DON MANUEL EL PASO",
+      "pn": 11.5,
+      "pt": 11.5,
+      "q": 3,
+      "r": "824289"
+    }
+  ],
+  "numero": "F03000R-13280",
+  "origen": "Gmail",
+  "proveedor": "Sonepar",
+  "tipo": "factura"
+}

@@ -1,0 +1,47 @@
+{
+  "albs": [],
+  "cliente": "TRAGSA",
+  "desc": "Instalar tubo visto, diflex y cajas de registro para PCI en cuarto de depósitos, grupo de presión y zonas que faltaban en parking.",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-10-26",
+  "horas": 8,
+  "obra": "PCI PLAZA GAZMIRA",
+  "ops": [
+    {
+      "h": 4,
+      "n": "Eloy"
+    },
+    {
+      "h": 4,
+      "n": "Jonathan Glez"
+    }
+  ],
+  "stock": [
+    {
+      "d": "tubo precableado de incendios",
+      "q": 100,
+      "u": "m"
+    },
+    {
+      "d": "registros de 10x10",
+      "q": 7,
+      "u": ""
+    },
+    {
+      "d": "diflex de 25",
+      "q": 25,
+      "u": "m"
+    },
+    {
+      "d": "registros de 10x15",
+      "q": 4,
+      "u": ""
+    },
+    {
+      "d": "grapas de 25/32",
+      "q": 20,
+      "u": ""
+    }
+  ]
+}

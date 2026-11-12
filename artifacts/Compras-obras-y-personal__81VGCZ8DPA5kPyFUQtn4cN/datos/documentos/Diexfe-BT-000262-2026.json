@@ -1,0 +1,35 @@
+{
+  "abono": true,
+  "empresa": "Instapalma",
+  "fecha": "2026-02-28",
+  "lineas": [
+    {
+      "a": "VCTF-003101-2026",
+      "d": "ABONO DERIVADOR 6 DIRECCIONES 20DBS",
+      "dto": "40,00",
+      "f": "2026-02-23",
+      "i": -59.21,
+      "o": "EDIFICIO SABINO",
+      "pn": 14.8025,
+      "pt": 24.67,
+      "q": -4,
+      "r": "TVE-5493"
+    },
+    {
+      "a": "VCTF-003101-2026",
+      "d": "ABONO GENERAL                                     59,21",
+      "dto": "0,00",
+      "f": "2026-02-23",
+      "i": 0,
+      "o": "EDIFICIO SABINO",
+      "pn": 0,
+      "pt": 4.14,
+      "q": -7,
+      "r": "IGIC"
+    }
+  ],
+  "numero": "BT-000262-2026",
+  "origen": "Gmail",
+  "proveedor": "Diexfe",
+  "tipo": "factura"
+}

@@ -1,0 +1,91 @@
+{
+  "albs": [
+    "Diexfe 010538"
+  ],
+  "cliente": "CARLOS ACOSTA",
+  "desc": "Mecanizar Elaborar cuadros Cerrar registros Comprobar viviendas Comprobar datos Clavar pica de tierra",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-11-09",
+  "horas": 18,
+  "id": "925",
+  "obra": "APARTAMENTOS EL REMO",
+  "ops": [
+    {
+      "h": 6,
+      "n": "Riki"
+    },
+    {
+      "h": 6,
+      "n": "Aythami"
+    },
+    {
+      "h": 6,
+      "n": "Joel"
+    }
+  ],
+  "origen": "dashboard",
+  "restante": "1 día",
+  "stock": [
+    {
+      "d": "cable tierra de 10mm",
+      "q": 28,
+      "u": "m"
+    },
+    {
+      "d": "fase de 10mm",
+      "q": 20,
+      "u": "m"
+    },
+    {
+      "d": "neutro de 10mm",
+      "q": 20,
+      "u": "m"
+    },
+    {
+      "d": "sobre tensión 2x25",
+      "q": 1,
+      "u": ""
+    },
+    {
+      "d": "diferenciales 2x40",
+      "q": 6,
+      "u": ""
+    },
+    {
+      "d": "automáticos 2x25",
+      "q": 2,
+      "u": ""
+    },
+    {
+      "d": "automáticos 2x10",
+      "q": 4,
+      "u": ""
+    },
+    {
+      "d": "automáticos 2x16",
+      "q": 12,
+      "u": ""
+    },
+    {
+      "d": "punteras de 6",
+      "q": 50,
+      "u": ""
+    },
+    {
+      "d": "punteras de 2,5",
+      "q": 24,
+      "u": ""
+    },
+    {
+      "d": "punteras de 1,5",
+      "q": 8,
+      "u": ""
+    },
+    {
+      "d": "punteras dobles de 10",
+      "q": 4,
+      "u": ""
+    }
+  ]
+}

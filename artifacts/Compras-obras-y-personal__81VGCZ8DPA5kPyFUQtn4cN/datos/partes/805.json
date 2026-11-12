@@ -1,0 +1,23 @@
+{
+  "albs": [
+    "Lightcan 01 26000611"
+  ],
+  "cliente": "DRAGADOS",
+  "desc": "Entubarpunto luz y emergencia en entrada teatro. Enebrar puntos. Colocar cajas de lamparas en peto de zona chill out. Colocar tubos en estructura de balizas de escalera. Enebrar línea de 24V para enlazar balizas.",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-10-27",
+  "horas": 10,
+  "obra": "TEATRO MONTERREY",
+  "ops": [
+    {
+      "h": 5,
+      "n": "Antonio"
+    },
+    {
+      "h": 5,
+      "n": "Iker"
+    }
+  ],
+  "stock": []
+}

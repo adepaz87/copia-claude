@@ -1,0 +1,59 @@
+{
+  "empresa": "Instapalma",
+  "fecha": "2026-10-08",
+  "lineas": [
+    {
+      "a": "184.872/018",
+      "d": "INT.SELECTOR 0-1 C/ENCL.",
+      "f": "2026-10-08",
+      "fab": "216867",
+      "i": 21.94,
+      "o": "OBRA MATADERO INSULAR",
+      "pn": 10.97,
+      "pt": 10.97,
+      "q": 2,
+      "r": "76298"
+    },
+    {
+      "a": "184.872/018",
+      "d": "SOPORTE DE FIJACION",
+      "f": "2026-10-08",
+      "fab": "216374",
+      "i": 4.32,
+      "o": "OBRA MATADERO INSULAR",
+      "pn": 2.16,
+      "pt": 2.16,
+      "q": 2,
+      "r": "76308"
+    },
+    {
+      "a": "184.872/018",
+      "d": "CONTACTO AUX. 1NA M22-K10",
+      "f": "2026-10-08",
+      "fab": "216376",
+      "i": 8.3,
+      "o": "OBRA MATADERO INSULAR",
+      "pn": 4.15,
+      "pt": 4.15,
+      "q": 2,
+      "r": "76309"
+    },
+    {
+      "a": "184.872/018",
+      "d": "INT.BIPOLAR LUMINOSO 6A 957",
+      "f": "2026-10-08",
+      "fab": "957",
+      "i": 3.46,
+      "o": "OBRA MATADERO INSULAR",
+      "pn": 1.73,
+      "pt": 1.728,
+      "q": 2,
+      "r": "53049"
+    }
+  ],
+  "numero": "184.872/018",
+  "obra": "OBRA MATADERO INSULAR",
+  "origen": "Gmail",
+  "proveedor": "Coelca",
+  "tipo": "albaran"
+}

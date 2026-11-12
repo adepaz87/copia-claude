@@ -1,0 +1,17 @@
+{
+  "albs": [],
+  "cliente": "ALMACEN",
+  "desc": "Sacar basura colocar material",
+  "devol": [],
+  "estado": "TERMINADO",
+  "fecha": "2026-09-29",
+  "horas": 1,
+  "obra": "ALMACEN",
+  "ops": [
+    {
+      "h": 1,
+      "n": "Goyo"
+    }
+  ],
+  "stock": []
+}

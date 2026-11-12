@@ -1,0 +1,71 @@
+{
+  "empresa": "Instapalma",
+  "fecha": "2026-10-19",
+  "lineas": [
+    {
+      "a": "VCTF-019509-2026",
+      "d": "CAJA SUPERFICIE 6MOD.500 CIMA BL.",
+      "dto": "45,00",
+      "f": "2026-10-19",
+      "i": 30.73,
+      "o": "HORTOFRUTICOLA",
+      "pn": 30.73,
+      "pt": 55.87,
+      "q": 1,
+      "r": "SIM-51000006-030"
+    },
+    {
+      "a": "VCTF-019509-2026",
+      "d": "BASE DOBLE SCHUKO CORTE 500 CIMA LED BL.",
+      "dto": "45,00",
+      "f": "2026-10-19",
+      "i": 63.74,
+      "o": "HORTOFRUTICOLA",
+      "pn": 12.748,
+      "pt": 23.18,
+      "q": 5,
+      "r": "SIM-50010432-030"
+    },
+    {
+      "a": "VCTF-019509-2026",
+      "d": "PL.-VD PLN.CG 500 CIMA 1 CONECT.BL.",
+      "dto": "45,00",
+      "f": "2026-10-19",
+      "i": 3.71,
+      "o": "HORTOFRUTICOLA",
+      "pn": 3.71,
+      "pt": 6.74,
+      "q": 1,
+      "r": "SIM-50000085-030"
+    },
+    {
+      "a": "VCTF-019509-2026",
+      "d": "PLACA CIEGA INDIVIDUAL 500 CIMA BL.",
+      "dto": "45,00",
+      "f": "2026-10-19",
+      "i": 1.68,
+      "o": "HORTOFRUTICOLA",
+      "pn": 1.68,
+      "pt": 3.06,
+      "q": 1,
+      "r": "SIM-50010800-030"
+    },
+    {
+      "a": "VCTF-019509-2026",
+      "d": "CONECTOR RJ45 CAT 6UTP",
+      "dto": "60,00",
+      "f": "2026-10-19",
+      "i": 5.52,
+      "o": "HORTOFRUTICOLA",
+      "pn": 5.52,
+      "pt": 13.79,
+      "q": 1,
+      "r": "SIM-CJ645U"
+    }
+  ],
+  "numero": "VCTF-019509-2026",
+  "obra": "HORTOFRUTICOLA",
+  "origen": "Gmail",
+  "proveedor": "Diexfe",
+  "tipo": "albaran"
+}

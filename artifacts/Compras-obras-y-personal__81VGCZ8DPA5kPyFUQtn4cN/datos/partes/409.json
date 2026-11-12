@@ -1,0 +1,21 @@
+{
+  "albs": [],
+  "cliente": "CONSTRUCCIONES DOMINGO",
+  "desc": "Conectar motores extracciones cubierta ya que iban a fijarlos a bases para impermeabilizar zoomm",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-09-03",
+  "horas": 6,
+  "obra": "VIVIENDAS PUERTO NAOS",
+  "ops": [
+    {
+      "h": 3,
+      "n": "Aythami"
+    },
+    {
+      "h": 3,
+      "n": "Joel"
+    }
+  ],
+  "stock": []
+}

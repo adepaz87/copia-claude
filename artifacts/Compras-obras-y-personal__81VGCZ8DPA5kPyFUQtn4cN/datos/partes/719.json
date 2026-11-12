@@ -1,0 +1,21 @@
+{
+  "albs": [],
+  "cliente": "CHICHO 2 TUMBOS",
+  "desc": "Mecanizar enchufes en viviendas 2°D\nColocar extractores en baños\nFichar registro z.c acceso a garaje \nInstalar luminaria donwligth pasillos de entrada.\nInstalar emergencia en pasillo de entrada.\nEnebrar linea principales a cuadro cuarto teleco.\nFijar y realizar cuadro en cuarto teleco.\nFijar zócalo y mecanizar enchufes.",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-10-16",
+  "horas": 17,
+  "obra": "EDIFICIO SABINO",
+  "ops": [
+    {
+      "h": 8,
+      "n": "Junior"
+    },
+    {
+      "h": 9,
+      "n": "Ricky"
+    }
+  ],
+  "stock": []
+}

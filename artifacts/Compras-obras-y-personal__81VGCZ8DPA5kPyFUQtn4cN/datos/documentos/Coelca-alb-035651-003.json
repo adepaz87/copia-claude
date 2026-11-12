@@ -1,0 +1,23 @@
+{
+  "empresa": "Instapalma",
+  "fecha": "2026-10-21",
+  "lineas": [
+    {
+      "a": "035.651/003",
+      "d": "CLAVIJA 16A PVC FACIL NEGRO",
+      "f": "2026-10-21",
+      "fab": "SOL-706C",
+      "i": 11.48,
+      "o": "COLEGIO SAN ANTONIO",
+      "pn": 2.87,
+      "pt": 2.871,
+      "q": 4,
+      "r": "867064"
+    }
+  ],
+  "numero": "035.651/003",
+  "obra": "COLEGIO SAN ANTONIO",
+  "origen": "Gmail",
+  "proveedor": "Coelca",
+  "tipo": "albaran"
+}

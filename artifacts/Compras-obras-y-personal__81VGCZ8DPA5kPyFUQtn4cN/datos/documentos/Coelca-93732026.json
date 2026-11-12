@@ -1,0 +1,24 @@
+{
+  "abono": true,
+  "empresa": "Instapalma",
+  "fecha": "2026-09-15",
+  "lineas": [
+    {
+      "a": "34.901/003",
+      "d": "ABONO BATERIA OPTIM (anula albarán 34.894)",
+      "dto": "",
+      "f": "2026-09-15",
+      "i": -925,
+      "igic": 7,
+      "o": "",
+      "pn": 925,
+      "pt": 925,
+      "q": -1,
+      "r": ""
+    }
+  ],
+  "numero": "93732026",
+  "origen": "Gmail",
+  "proveedor": "Coelca",
+  "tipo": "factura"
+}

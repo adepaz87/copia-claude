@@ -1,0 +1,18 @@
+{
+  "albs": [],
+  "cliente": "ALMACEN",
+  "desc": "Recoger muda ropa en yarma entregarla en oficina",
+  "devol": [],
+  "estado": "TERMINADO",
+  "fecha": "2026-09-25",
+  "horas": 2,
+  "obra": "ALMACEN",
+  "ops": [
+    {
+      "h": 2,
+      "n": "Goyo"
+    }
+  ],
+  "origen": "dashboard",
+  "stock": []
+}

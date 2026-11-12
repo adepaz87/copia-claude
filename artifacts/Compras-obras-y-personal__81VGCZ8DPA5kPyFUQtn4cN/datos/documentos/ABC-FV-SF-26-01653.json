@@ -1,0 +1,36 @@
+{
+  "empresa": "Instapalma",
+  "fecha": "2026-10-30",
+  "lineas": [
+    {
+      "a": "",
+      "d": "OCA INICIAL BT ESTACION RECARGA VE",
+      "dto": "",
+      "f": "2026-10-30",
+      "i": 390,
+      "igic": 7,
+      "o": "PRVE APARCAMIENTOS ANTONIO GONZALEZ SUAREZ EL PASO",
+      "pn": 390,
+      "pt": 390,
+      "q": 1,
+      "r": ""
+    },
+    {
+      "a": "",
+      "d": "OCA INICIAL BT ESTACION RECARGA VE",
+      "dto": "",
+      "f": "2026-10-30",
+      "i": 390,
+      "igic": 7,
+      "o": "PRVE MERCADO MUNICIPAL PUNTALLANA",
+      "pn": 390,
+      "pt": 390,
+      "q": 1,
+      "r": ""
+    }
+  ],
+  "numero": "FV-SF-26/01653",
+  "origen": "Gmail",
+  "proveedor": "ABC Inspección",
+  "tipo": "factura"
+}

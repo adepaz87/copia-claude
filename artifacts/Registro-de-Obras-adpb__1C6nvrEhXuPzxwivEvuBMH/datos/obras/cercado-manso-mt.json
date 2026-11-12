@@ -1,0 +1,91 @@
+{
+  "actualizado": "2026-10-19",
+  "adjudicacion": "28/07/2026; contrato firmado el 21/08/2026",
+  "certificaciones": [
+    {
+      "fecha": "2026-10-19",
+      "importe": 4404.74,
+      "n": "1",
+      "periodo": "Septiembre 2026"
+    }
+  ],
+  "cliente": "Cabildo Insular de La Palma, Área de Infraestructuras",
+  "codigo": "MT202200234",
+  "contratista": "Instalaciones Eléctricas Ayumar, S.A. (A-38205373)",
+  "creado": "2026-10-19",
+  "documentos": [
+    {
+      "fecha": "2022-07-21",
+      "nombre": "Condicionado técnico de e-distribución",
+      "nota": "Ref. 0000491807. Informe favorable. Códigos asignados: CT nº1 4296, CT nº2 4297"
+    },
+    {
+      "fecha": "2023-01-27",
+      "nombre": "Requerimiento de subsanación de la DG Energía (Gobierno de Canarias)",
+      "nota": "Pide los permisos y servidumbres del Ayuntamiento de Puntallana y la autorización de aguas (Ley 12/1990) por el cruce del Barranco Los Rodeos-Oropesa"
+    },
+    {
+      "fecha": "",
+      "nombre": "Presupuesto y medición (Arquímedes)",
+      "nota": "Capítulo único Red de Media Tensión: PEM 732.380,71 € (Obra civil 215.439,58 €; Instalación MT 516.941,13 €)"
+    },
+    {
+      "fecha": "2026-10-19",
+      "nombre": "Certificación nº 1 (carátula, detalle y anexo)",
+      "nota": "PEM 3.891,87 € (Red MT 2.626,72 €; Seguridad y Salud 1.265,15 €); líquido 4.404,74 € IGIC incl. Libros de órdenes, incidencias, subcontratación y cartel de obra: sí. El Anexo indica por error Instapalma como contratista; corregir"
+    },
+    {
+      "fecha": "2026-10-19",
+      "nombre": "Fotos del cartel de obra (3)",
+      "nota": "FDCAN / Gobierno de Canarias / Cabildo de La Palma. Inicio 18/09/2026, fin 18/02/2027, adjudicación 852.739,20 €, contrata Instalaciones Eléctricas Ayumar, S.A."
+    }
+  ],
+  "estado": "En ejecución",
+  "expediente": "MT202200234 (autorización AT, DG Energía)",
+  "fechaFinContractual": "2027-02-18",
+  "fechaFinPrevista": "2027-02-18",
+  "fechaInicio": "2026-09-18",
+  "hitos": [
+    {
+      "fecha": "2022-07-05",
+      "texto": "Solicitud de autorización administrativa AT a la DG Energía"
+    },
+    {
+      "fecha": "2022-07-21",
+      "texto": "Informe favorable de e-distribución"
+    },
+    {
+      "fecha": "2023-01-27",
+      "texto": "Requerimiento de subsanación de la DG Energía"
+    },
+    {
+      "fecha": "2026-07-28",
+      "texto": "Adjudicación"
+    },
+    {
+      "fecha": "2026-08-21",
+      "texto": "Firma del contrato"
+    },
+    {
+      "fecha": "2026-09-18",
+      "texto": "Comienzo de las obras"
+    },
+    {
+      "fecha": "2026-10-19",
+      "texto": "Certificación nº 1 (septiembre 2026) firmada"
+    },
+    {
+      "fecha": "2027-02-18",
+      "texto": "Terminación prevista"
+    }
+  ],
+  "importeAdjudicacion": 852739.2,
+  "importeNota": "IGIC 7 % incluido; licitación 959.366,52 €, coeficiente de adjudicación 0,888856534. Financiación: Fondo de Desarrollo de Canarias (FDCAN)",
+  "municipio": "Puntallana",
+  "nombre": "Instalaciones eléctricas en media tensión para el sector de suelo urbanizable sectorizado ordenado de uso industrial (ZOI) Cercado Manso",
+  "notas": "Jefe de obra: Jesús Francisco Rodríguez. Representante de la Administración: Alejandro Morera Felipe. Firma la cert. 1 por el contratista: Manuel Jesús Francisco Rodríguez.\nPresupuesto: un único capítulo, Red de Media Tensión (PEM 732.380,71 €).\nPendiente: corregir el contratista en el Anexo de la cert. 1 (pone Instapalma); aclarar por qué la cert. 1 incluye 1.265,15 € de un \"Presupuesto parcial nº 3 Seguridad y Salud\" y por qué la licitación (959.366,52 €) supera en 26.826,17 € al capítulo 1 con GG, BI e IGIC; coordinador de Seguridad y Salud; estado de la subsanación del requerimiento de la DG Energía.\nBase de datos detallada (partidas, mediciones, certificaciones): Cercado_Manso_base_datos.xlsx en los archivos del proyecto.",
+  "plazo": "5 meses",
+  "procedimiento": "",
+  "rol": "Director de obra (también representante del Cabildo en la tramitación de la autorización administrativa AT)",
+  "situacion": "CL Martín Luis s/n, LP-102, 38715 Puntallana (La Palma)"
+}

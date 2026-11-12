@@ -1,0 +1,86 @@
+{
+  "cliente": "Sociedad Cooperativa del Valle de Aridane \"COOVALLE\"",
+  "clienteCif": "F38005260",
+  "clienteDir": "Crta LP-2132 nº3 Todoque, Los Llanos de Aridane",
+  "condiciones": "Forma de pago: 50 % a la firma del presupuesto y 50 % a la finalización de la instalación.",
+  "emisor": "DELEDCAN SLU",
+  "emisorCif": "B76802859",
+  "emisorDir": "Avd. Enrique Mederos 17, 38760 Los Llanos de Aridane, S/C Tenerife",
+  "emisorEmail": "info@dled.es",
+  "emisorTel": "+34 676 704 328",
+  "emisorWeb": "http://dled.es",
+  "fecha": "2026-11-06",
+  "impuesto": "IGIC",
+  "iva": 0,
+  "logo": "deledcan",
+  "numero": "26080017-copia",
+  "origen": "Copia de la oferta nº 26080017",
+  "partidas": [
+    {
+      "cant": 180,
+      "codigo": "1",
+      "desc": "Módulo fotovoltaico monocristalino alto rendimiento, Longi Solar de 500 W 120 células, con alta eficiencia (23,00 %). 10 años de garantía de fabricante, 25 años de garantía de potencia",
+      "id": "qb39fpvs",
+      "precio": 141.5,
+      "ud": "ud"
+    },
+    {
+      "cant": 1,
+      "codigo": "2",
+      "desc": "Inversor SMA trifásico 80 kW",
+      "id": "n5r0vrl8",
+      "precio": 8000,
+      "ud": "ud"
+    },
+    {
+      "cant": 1,
+      "codigo": "3",
+      "desc": "Estructura en aluminio coplanar de soporte de los módulos fotovoltaicos",
+      "id": "oiwicfyh",
+      "precio": 9000,
+      "ud": "ud"
+    },
+    {
+      "cant": 1,
+      "codigo": "4",
+      "desc": "Material eléctrico diverso (cuadros, cables, tubos, conectores)",
+      "id": "7i5o5kji",
+      "precio": 7500,
+      "ud": "ud"
+    },
+    {
+      "cant": 1,
+      "codigo": "5",
+      "desc": "Seguridad y salud",
+      "id": "hv23erb3",
+      "precio": 0,
+      "ud": "ud"
+    },
+    {
+      "cant": 1,
+      "codigo": "6",
+      "desc": "Puesta a tierra de la instalación",
+      "id": "trjhk6m4",
+      "precio": 420,
+      "ud": "ud"
+    },
+    {
+      "cant": 1,
+      "codigo": "7",
+      "desc": "Proyecto, D.O. y coord. Seguridad y Salud. Incluye OCA",
+      "id": "2gdj6oiy",
+      "precio": 4000,
+      "ud": "ud"
+    },
+    {
+      "cant": 1,
+      "codigo": "8",
+      "desc": "Montaje instalación, mano de obra, transportes",
+      "id": "lpli7ble",
+      "precio": 9100.2,
+      "ud": "ud"
+    }
+  ],
+  "titulo": "Instalación solar fotovoltaica de autoconsumo de un almacén de plátanos",
+  "validez": 30
+}

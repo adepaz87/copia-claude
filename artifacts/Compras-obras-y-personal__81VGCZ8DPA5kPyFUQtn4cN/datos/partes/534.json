@@ -1,0 +1,43 @@
+{
+  "albs": [],
+  "cliente": "TRAGSA",
+  "desc": "Colocar pletina de tierra de herrajes\n\nHacer latiguillos de tierra de cable de 50mm\n\nConectar latiguillos a los herrajes y a la pletina.\n\nMedir tierra de neutro (24ohmios). Falta clavar mas picas \n\nHacer entubado visto y colocar registro y final de carrera para la maniobra de disparo  del trafo.",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-09-23",
+  "horas": 8,
+  "obra": "CT. PLAZA GAZMIRA",
+  "ops": [
+    {
+      "h": 8,
+      "n": "Jorge"
+    }
+  ],
+  "stock": [
+    {
+      "d": "registro sobrepared 10x10",
+      "q": 1,
+      "u": ""
+    },
+    {
+      "d": "curvas flexibles de 20mm",
+      "q": 4,
+      "u": ""
+    },
+    {
+      "d": "tornillos de 8x40mm",
+      "q": 50,
+      "u": ""
+    },
+    {
+      "d": "tuercas de 8mm",
+      "q": 50,
+      "u": ""
+    },
+    {
+      "d": "arandelas de 8mm",
+      "q": 50,
+      "u": ""
+    }
+  ]
+}

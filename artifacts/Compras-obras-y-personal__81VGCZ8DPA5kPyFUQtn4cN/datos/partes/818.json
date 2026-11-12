@@ -1,0 +1,17 @@
+{
+  "albs": [],
+  "cliente": "JORGE SASTRE",
+  "desc": "Buscar averia en circuito de piscina. Bomba de agua averiada (derivada a tierra). Solucionar problema en encendido exterior. Replanteo de alumbrado exterior para futuro cambio de encendidos. Enebrar baño de la zona de garaje. Instalar luminaria exterior.",
+  "devol": [],
+  "estado": "TERMINADO",
+  "fecha": "2026-10-28",
+  "horas": 8,
+  "obra": "VIVIENDA MIRCA",
+  "ops": [
+    {
+      "h": 8,
+      "n": "Jorge"
+    }
+  ],
+  "stock": []
+}

@@ -1,0 +1,21 @@
+{
+  "albs": [],
+  "cliente": "CHICHO 2 TUMBOS",
+  "desc": "Enebrar cuarto zonas comunes.\nInstalar luminaria y emergencia cuarto zonas comunes.\nMover cajas de registros de  escaleras pisos 4 , 3 y 2 por modificaciones con la puerta contraincendios.\nPicar y mover pulsadores de escaleras por modificaciones puerta contraincendios \nEmpezar a poner luminarias y emergencia en zonas comunes bajada de escaleras.",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-10-19",
+  "horas": 19,
+  "obra": "EDIFICIO SABINO",
+  "ops": [
+    {
+      "h": 8,
+      "n": "Júnior"
+    },
+    {
+      "h": 11,
+      "n": "Ricky"
+    }
+  ],
+  "stock": []
+}

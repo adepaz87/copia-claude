@@ -1,0 +1,17 @@
+{
+  "albs": [],
+  "cliente": "AYUNTAMIENTO EL PASO",
+  "desc": "Medir líneas",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-09-07",
+  "horas": 0.5,
+  "obra": "PUNTO DE RECARGA EL PASO",
+  "ops": [
+    {
+      "h": 0.5,
+      "n": "Aythami"
+    }
+  ],
+  "stock": []
+}

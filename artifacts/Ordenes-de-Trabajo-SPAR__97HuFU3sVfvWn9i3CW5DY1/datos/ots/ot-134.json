@@ -1,0 +1,25 @@
+{
+  "actualizada": "2026-11-11T14:14:00Z",
+  "asignadaEn": "2026-11-04T16:11:10.270Z",
+  "avisadoWa": "2026-11-04T16:11:13.891Z",
+  "aviso": "27334",
+  "centro": "SPAR Triana",
+  "creada": "2026-11-04T16:13:00Z",
+  "descripcion": "Pasar cable UTP de datos hasta el portillón de la zona de self check-out.",
+  "estado": "terminada",
+  "fechaAviso": "2026-11-04",
+  "historial": [
+    "04/11/2026 · Importada del reenvío «Gim: Creación de Aviso 27334» de Raquel",
+    "4/11/2026 16:11 · Asignada a Jonathan Rodríguez",
+    "4/11/2026 16:11 · Asignación: Correo enviado a TBSA · WhatsApp a Jonathan Rodríguez programado · WhatsApp a Fernando programado",
+    "11/11/2026 14:13 · Alberto confirma que está hecha · Estado: Terminada · Cierre: correo a TBSA y WhatsApp a Fernando"
+  ],
+  "informado": true,
+  "notas": "Aviso GIM 27334 (04/11 16:14, creado por Goretti). Cable UTP de datos pasado hasta el portillón del self check-out (Jonathan Rodríguez). Cerrada por indicación de Alberto el 11/11/2026.",
+  "operario": "Jonathan Rodríguez",
+  "ot": 134,
+  "prioridad": "Sin especificar",
+  "solicitante": "Raquel",
+  "terminadaEn": "2026-11-11T14:13:00Z",
+  "tipo": "MANTENIMIENTO"
+}

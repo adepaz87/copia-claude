@@ -1,0 +1,22 @@
+{
+  "albs": [],
+  "cliente": "AYUNTAMIENTO EL PASO",
+  "desc": "Plantear alumbrado de oficina de direccion. Cortar techos y colocar lamparas y emergencia. Colocar lamparas, sensores y emergencias en baños de PMR de 2 planta. Probar encendidos. Colocar lamparas de pasillos, sensores y emergencias de pasillos de 2 planta.",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-10-30",
+  "horas": 16,
+  "obra": "HOTEL MONTERREY",
+  "ops": [
+    {
+      "h": 8,
+      "n": "Antonio"
+    },
+    {
+      "h": 8,
+      "n": "Iker"
+    }
+  ],
+  "origen": "dashboard",
+  "stock": []
+}

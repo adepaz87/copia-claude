@@ -1,0 +1,12 @@
+{
+  "cap": "01",
+  "cod": "01.03",
+  "desc": "Demolición de tabiquería existente (tabique de media altura y aseos que no coinciden con la nueva distribución), con retirada de escombros.",
+  "med": 15,
+  "nota": "Confirmar qué muros de los aseos actuales se aprovechan",
+  "orden": 3,
+  "pre": 9,
+  "rev": true,
+  "sb": false,
+  "ud": "m²"
+}

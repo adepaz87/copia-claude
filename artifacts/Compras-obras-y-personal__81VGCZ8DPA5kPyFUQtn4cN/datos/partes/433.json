@@ -1,0 +1,75 @@
+{
+  "albs": [],
+  "cliente": "TOMÁS BARRETO",
+  "desc": "Abrir huecos para focos en apartamento izquierdo \nColocación y conexionado focos en apartamento izquierdo (8)\nColocación y conexionado lámpara mueble baño,mesilla habitación principal,sobre barra cocina,terraza exterior apartamento derecho.\nColocación y conexionado lámpara sobre barra cocina apartamento izquierdo \nColocación portero y conexionado  (fuente alimentación,telefonillos,etc…)\nColocación",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-09-08",
+  "horas": 34,
+  "obra": "APARTAMENTOS SPAR TRIANA",
+  "ops": [
+    {
+      "h": 7,
+      "n": "Rafael"
+    },
+    {
+      "h": 7,
+      "n": "Junior"
+    },
+    {
+      "h": 8,
+      "n": "Petter"
+    },
+    {
+      "h": 12,
+      "n": "Jonathan Rodríguez"
+    }
+  ],
+  "stock": [
+    {
+      "d": "Tornillos 4,5x40",
+      "q": 30,
+      "u": "ud"
+    },
+    {
+      "d": "us Tacos 6x30",
+      "q": 10,
+      "u": ""
+    },
+    {
+      "d": "Tacos 10mm",
+      "q": 4,
+      "u": "ud"
+    },
+    {
+      "d": "Tornillos barraqueros 8x80",
+      "q": 4,
+      "u": "ud"
+    },
+    {
+      "d": "Tacos pladur",
+      "q": 20,
+      "u": "ud"
+    },
+    {
+      "d": "Bornas 10mm",
+      "q": 10,
+      "u": "ud"
+    },
+    {
+      "d": "Bornas 16mm",
+      "q": 10,
+      "u": "ud"
+    },
+    {
+      "d": "cm Carril din",
+      "q": 30,
+      "u": ""
+    },
+    {
+      "d": "Arandelas ala ancha 6mm",
+      "q": 16,
+      "u": "ud"
+    }
+  ]
+}

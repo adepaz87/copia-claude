@@ -1,0 +1,21 @@
+{
+  "albs": [],
+  "cliente": "COVALLE",
+  "desc": "Elaboración cuadros eléctricos: Modificaciones Aparte Subcuadro Almacen",
+  "devol": [],
+  "editado": "2026-10-30",
+  "estado": "EN CURSO",
+  "fecha": "2026-10-29",
+  "horas": 8,
+  "obra": "Nave Cooperativa Covalle",
+  "obraId": "nave-cooperativa-covalle",
+  "ops": [
+    {
+      "h": 8,
+      "n": "Toño Guardia",
+      "pid": "tono-guardia"
+    }
+  ],
+  "origen": "dashboard",
+  "stock": []
+}

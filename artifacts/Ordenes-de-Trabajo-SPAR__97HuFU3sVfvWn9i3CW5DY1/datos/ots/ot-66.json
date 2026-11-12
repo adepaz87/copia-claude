@@ -1,0 +1,19 @@
+{
+  "actualizada": "2026-09-08T09:00:00Z",
+  "aviso": "26434",
+  "centro": "SPAR Triana",
+  "creada": "2026-09-08T09:00:00Z",
+  "descripcion": "Colocar otro altavoz en recepción / bajada de escalera y regular los micrófonos que no se oyen.",
+  "estado": "terminada",
+  "fechaAviso": "2026-09-08",
+  "historial": [
+    "08/09/2026 · Importada del correo de Alberto"
+  ],
+  "informado": true,
+  "notas": "Resuelta el 08/09/2026. Los micrófonos deben verificarse en la mesa de mezcla.",
+  "operario": "Rafa Hernández Cortés",
+  "ot": 66,
+  "prioridad": "Alta",
+  "solicitante": "",
+  "tipo": "MANTENIMIENTO"
+}

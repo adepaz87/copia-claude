@@ -1,0 +1,19 @@
+{
+  "actualizada": "2026-09-22T09:00:00Z",
+  "aviso": "",
+  "centro": "SPAR Tagomago",
+  "creada": "2026-09-22T09:00:00Z",
+  "descripcion": "Reubicar el timbre de proveedores a fruta/caja por el cambio de secciones de carne y charcutería.",
+  "estado": "terminada",
+  "fechaAviso": "2026-09-22",
+  "historial": [
+    "22/09/2026 · Importada del correo de Alberto"
+  ],
+  "informado": true,
+  "notas": "Resuelta el 22/09/2026.",
+  "operario": "",
+  "ot": 76,
+  "prioridad": "Sin especificar",
+  "solicitante": "",
+  "tipo": "MANTENIMIENTO"
+}

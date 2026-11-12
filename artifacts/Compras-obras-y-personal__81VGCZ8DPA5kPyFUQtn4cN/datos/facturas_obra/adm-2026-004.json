@@ -1,0 +1,66 @@
+{
+  "base": 221.78,
+  "cliente": "TOMÁS BARRETO",
+  "creado": "2026-11-09T19:15:52.845Z",
+  "cuota": 15.52,
+  "desde": "2026-10-01",
+  "envios": [
+    {
+      "adj": [
+        "Partes del mes",
+        "Relación valorada",
+        "Factura"
+      ],
+      "asunto": "FACTURA · Apartamentos Spar Triana · TOMÁS BARRETO",
+      "cc": [],
+      "t": "2026-11-09T19:17:15.673Z",
+      "to": [
+        "rbarrera@tomasbarretosa.com",
+        "fconcepcion@tomasbarretosa.com"
+      ]
+    }
+  ],
+  "fecha": "2026-11-09",
+  "hasta": "2026-11-09",
+  "holded": {
+    "id": "45ca7d1ec167f0d85c0072f5b8519e40",
+    "nombre": "2026-0191 Tomás Barreto SA.pdf",
+    "t": "2026-11-09T19:17:06.205Z",
+    "url": "/_blob/45ca7d1ec167f0d85c0072f5b8519e40"
+  },
+  "igic": 7,
+  "lineas": [
+    {
+      "d": "Bornas 10mm",
+      "f": "2026-10-22",
+      "imp": 59.78,
+      "k": "s|773|0|0",
+      "orig": "Stock parte #773",
+      "pu": 1.9926,
+      "q": 30,
+      "ref": "",
+      "tipo": "material",
+      "u": "ud"
+    },
+    {
+      "d": "Mano de obra",
+      "imp": 162,
+      "ks": [
+        "h|773|PETTER|0",
+        "h|773|JONATHAN RODRIGUEZ|0"
+      ],
+      "pu": 27,
+      "q": 6,
+      "tipo": "horas",
+      "u": "h"
+    }
+  ],
+  "manoObra": 162,
+  "material": 59.78,
+  "mg": 35,
+  "numero": "ADM-2026-004",
+  "obra": "apartamentos-spar-triana",
+  "obraNombre": "Apartamentos Spar Triana",
+  "ph": 27,
+  "total": 237.3
+}

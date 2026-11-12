@@ -1,0 +1,60 @@
+{
+  "albs": [
+    "Diexfe 016920",
+    "Ayumar 4-1092",
+    "Ayumar- 4-1091"
+  ],
+  "cliente": "AYUNTAMIENTO EL PASO",
+  "desc": "Colocar módulo contador\nColocar cuadro\nEnebrar derivación individual\nEnebrar cargador \nClavar picas y conectarlas a cobre desnudo\nHacer pasamuro para cobre desnudo\nFijar bandeja derivación\nFijan bandeja alimentación cargador \nColocar paramenta\nRotular cuadro\nPintar contadores eléctricos\nConectar alimentación en cargador \nPoner espuma",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-09-08",
+  "horas": 13,
+  "obra": "PUNTO RECARGA EL PASO",
+  "ops": [
+    {
+      "h": 5,
+      "n": "Aythami"
+    },
+    {
+      "h": 4,
+      "n": "Riki"
+    },
+    {
+      "h": 4,
+      "n": "Joel"
+    }
+  ],
+  "stock": [
+    {
+      "d": "bandeja 100",
+      "q": 3,
+      "u": "m"
+    },
+    {
+      "d": "tapa bandeja 100",
+      "q": 3,
+      "u": "m"
+    },
+    {
+      "d": "borna tierra 35",
+      "q": 1,
+      "u": ""
+    },
+    {
+      "d": "punteras de 25",
+      "q": 5,
+      "u": ""
+    },
+    {
+      "d": "tacos y tornillos de 6mm",
+      "q": 18,
+      "u": ""
+    },
+    {
+      "d": "arandelas",
+      "q": 18,
+      "u": ""
+    }
+  ]
+}

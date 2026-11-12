@@ -1,0 +1,23 @@
+{
+  "albs": [
+    "Instapalma 202609-0158"
+  ],
+  "cliente": "COVALLE",
+  "desc": "Limpiar cuarto eléctrico.\nIdentificar tubos que enteran cuarto eléctrico,organizar tubos de corriente y tubos telecomunicaciones,etc…empatar tubos cortos y llevarlos a su sitio.\nColocar Registros y Entubar planta baja (baños,comedor,zona entrada principal,etc,,,)",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-09-29",
+  "horas": 22,
+  "obra": "NAVE COOPERATIVA COVALLE",
+  "ops": [
+    {
+      "h": 11,
+      "n": "Petter"
+    },
+    {
+      "h": 11,
+      "n": "Jonathan Rodríguez"
+    }
+  ],
+  "stock": []
+}

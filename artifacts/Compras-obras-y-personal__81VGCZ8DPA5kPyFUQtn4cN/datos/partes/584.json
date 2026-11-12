@@ -1,0 +1,49 @@
+{
+  "albs": [
+    "Fraper 2026/01/012181"
+  ],
+  "cliente": "TRAGSA",
+  "desc": "Hacer corte general, agujerar pletinas de cobre y conectar acometida.\nInstalar cablear y conectar protecciones para gestor de energía.\nCortar y tapar bandejas.\nRotular cuadros.",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-09-29",
+  "horas": 10,
+  "obra": "FV JTI",
+  "ops": [
+    {
+      "h": 5,
+      "n": "Toño"
+    },
+    {
+      "h": 5,
+      "n": "Jonathan Glez"
+    }
+  ],
+  "stock": [
+    {
+      "d": "automático de 4x10A eaton",
+      "q": 1,
+      "u": ""
+    },
+    {
+      "d": "diferencial de 4x40A eaton",
+      "q": 1,
+      "u": ""
+    },
+    {
+      "d": "cable de 1x6mm",
+      "q": 10,
+      "u": "m"
+    },
+    {
+      "d": "punteras de 1x6mm",
+      "q": 12,
+      "u": ""
+    },
+    {
+      "d": "terminales redondos de 6mm",
+      "q": 4,
+      "u": ""
+    }
+  ]
+}

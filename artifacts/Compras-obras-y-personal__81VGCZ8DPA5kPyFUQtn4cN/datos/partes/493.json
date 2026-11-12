@@ -1,0 +1,46 @@
+{
+  "albs": [],
+  "cliente": "TRAGSA",
+  "desc": "Cortar y tapar bandejas.\nInstalar seccionador y pletina perforada para tierras.\nTerminar conexionado de CC.\nEnhebrar y enbridar por bandeja tierras.\nInstalar terminales y conectar tierras.\nMedir líneas para cargadores y dejar guías pasadas.\nLimpieza de arquetas para enhebrar acometida.\nLimpieza de cuarto del inversor.",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-09-17",
+  "horas": 24,
+  "obra": "FV CENTRO DE VISITANTES",
+  "ops": [
+    {
+      "h": 8,
+      "n": "Adán"
+    },
+    {
+      "h": 8,
+      "n": "Toño"
+    },
+    {
+      "h": 8,
+      "n": "Jonathan Glez"
+    }
+  ],
+  "stock": [
+    {
+      "d": "cm de pletina de cobre perforada de 160A (para tierras)",
+      "q": 30,
+      "u": ""
+    },
+    {
+      "d": "bornas para carril din de 35mm",
+      "q": 2,
+      "u": ""
+    },
+    {
+      "d": "seccionador (Gave)",
+      "q": 1,
+      "u": ""
+    },
+    {
+      "d": "agnetotérmico de 2x10A (eaton)",
+      "q": 1,
+      "u": "m"
+    }
+  ]
+}

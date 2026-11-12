@@ -1,0 +1,28 @@
+{
+  "albs": [],
+  "cliente": "CONSTRUCCIONES DOMINGO",
+  "desc": "Recoger material en ayumar Enebrar viviendas alumbrado 4,5 y 6 planta 2",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-11-11",
+  "horas": 29.5,
+  "id": "950",
+  "obra": "EDIFICIO DOMINGO EL PASO",
+  "ops": [
+    {
+      "h": 12.5,
+      "n": "Aythami"
+    },
+    {
+      "h": 9,
+      "n": "Riki"
+    },
+    {
+      "h": 8,
+      "n": "Junior"
+    }
+  ],
+  "origen": "dashboard",
+  "restante": "Indefinido",
+  "stock": []
+}

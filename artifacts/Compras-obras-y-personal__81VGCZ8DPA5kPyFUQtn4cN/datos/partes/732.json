@@ -1,0 +1,25 @@
+{
+  "albs": [],
+  "cliente": "TRAGSA",
+  "desc": "Buscar materiales.\nLimpiar arquetas.\nEnhebrar tubo de 50 desde cuarto de cuadro general hasta cuarto de inversores.\nPasar guías.",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-10-19",
+  "horas": 10,
+  "obra": "FV TÚNEL DE LA CUMBRE",
+  "ops": [
+    {
+      "h": 4,
+      "n": "Eloy"
+    },
+    {
+      "h": 2,
+      "n": "Toño"
+    },
+    {
+      "h": 4,
+      "n": "Jonathan Glez"
+    }
+  ],
+  "stock": []
+}

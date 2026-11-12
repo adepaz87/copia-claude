@@ -1,0 +1,47 @@
+{
+  "abono": true,
+  "empresa": "Instapalma",
+  "fecha": "2026-06-15",
+  "lineas": [
+    {
+      "a": "VCTF-010172-2026",
+      "d": "ABONO CANAL METALICA PERF.100X60 GALV.SENZ.",
+      "dto": "Neto",
+      "f": "2026-06-11",
+      "i": -107.84,
+      "o": "MERCADONA",
+      "pn": 5.9911,
+      "pt": 5.991,
+      "q": -18,
+      "r": "AIS-CMPS610"
+    },
+    {
+      "a": "VCTF-010172-2026",
+      "d": "ABONO TAPA UNIVERSAL BAND./CAN.100 GALV.SENZ.",
+      "dto": "Neto",
+      "f": "2026-06-11",
+      "i": -76.06,
+      "o": "MERCADONA",
+      "pn": 3.1692,
+      "pt": 3.169,
+      "q": -24,
+      "r": "AIS-TUBCS10"
+    },
+    {
+      "a": "VCTF-010172-2026",
+      "d": "ABONO GENERAL                                  183,90",
+      "dto": "0,00",
+      "f": "2026-06-11",
+      "i": 0,
+      "o": "MERCADONA",
+      "pn": 0,
+      "pt": 12.87,
+      "q": -7,
+      "r": "IGIC"
+    }
+  ],
+  "numero": "BT-000676-2026",
+  "origen": "Gmail",
+  "proveedor": "Diexfe",
+  "tipo": "factura"
+}

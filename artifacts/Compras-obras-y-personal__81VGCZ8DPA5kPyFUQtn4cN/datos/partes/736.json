@@ -1,0 +1,19 @@
+{
+  "albs": [
+    "Ayumar 8-1063"
+  ],
+  "cliente": "COMERCIAL EL SASTRE",
+  "desc": "Avería de diferencial en circuito de compresor en cuadro general sustitución por nuevo comprobado.funcionando.",
+  "devol": [],
+  "estado": "TERMINADO",
+  "fecha": "2026-10-20",
+  "horas": 2.5,
+  "obra": "AVERÍAS CUADROS GENERAL",
+  "ops": [
+    {
+      "h": 2.5,
+      "n": "Toño"
+    }
+  ],
+  "stock": []
+}

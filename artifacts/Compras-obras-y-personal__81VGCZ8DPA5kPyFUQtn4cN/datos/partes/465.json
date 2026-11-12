@@ -1,0 +1,29 @@
+{
+  "albs": [],
+  "cliente": "CHICHO 2 TUMBOS",
+  "desc": "Colocar varillas y carril perforado para centralizaciones \nColocar bandejas centralizaciones \nHacer pases para derivaciones",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-09-14",
+  "horas": 32,
+  "obra": "EDIFICIO SABINO",
+  "ops": [
+    {
+      "h": 8,
+      "n": "Riki"
+    },
+    {
+      "h": 8,
+      "n": "Joel"
+    },
+    {
+      "h": 8,
+      "n": "Junior"
+    },
+    {
+      "h": 8,
+      "n": "Aythami"
+    }
+  ],
+  "stock": []
+}

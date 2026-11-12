@@ -1,0 +1,47 @@
+{
+  "albs": [],
+  "cliente": "TRAGSA",
+  "desc": "Registrar y tapar registros",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-10-06",
+  "horas": 16,
+  "obra": "HOSPITAL (MOD G)",
+  "ops": [
+    {
+      "h": 8,
+      "n": "Manuel"
+    },
+    {
+      "h": 8,
+      "n": "Juan"
+    }
+  ],
+  "stock": [
+    {
+      "d": "regletas de fichas de 25mm",
+      "q": 4,
+      "u": ""
+    },
+    {
+      "d": "regletas de fichas de 16mm",
+      "q": 4,
+      "u": ""
+    },
+    {
+      "d": "regletas  de fichas  de 10mm",
+      "q": 4,
+      "u": ""
+    },
+    {
+      "d": "cinta aislante",
+      "q": 2,
+      "u": "rollos"
+    },
+    {
+      "d": "bornas  de 50mm",
+      "q": 3,
+      "u": ""
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "albs": [
+    "Coelca 184.955/018",
+    "Ayumar 2-906",
+    "Sonepar 309006331"
+  ],
+  "cliente": "CABILDO INSULAR",
+  "desc": "Cambiar tomas de esterilizadores de porcino, colocar clavijas y lamparas de aturdido.\nCambiar envolvente a aturdidor pasando el automatismo de caja y comprobar funcionamiento.\nBuscar linea para separar esterilizador.\nColocar reloj a esterilizador de cuernos.\nVer averia de maquina de lavado de callos.",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-10-15",
+  "horas": 17,
+  "obra": "MATADERO INSULAR",
+  "ops": [
+    {
+      "h": 8,
+      "n": "Antonio"
+    },
+    {
+      "h": 8,
+      "n": "Iker"
+    },
+    {
+      "h": 1,
+      "n": "Transporte"
+    }
+  ],
+  "stock": []
+}

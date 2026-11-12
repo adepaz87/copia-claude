@@ -1,0 +1,23 @@
+{
+  "albs": [
+    "Ayumar 2-813"
+  ],
+  "cliente": "CLÍNICA DENTAL MANSILLA",
+  "desc": "Abrir arquetas exteriores \nEnebrar sensores de movimiento\nConectar sensores y regularlos\nReparar lámpara habitación\nComprobar funcionamiento lámparas exteriores con sensores",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-09-02",
+  "horas": 11,
+  "obra": "CASA ADRIANA MARTÍN",
+  "ops": [
+    {
+      "h": 5.5,
+      "n": "Aythami"
+    },
+    {
+      "h": 5.5,
+      "n": "Joel"
+    }
+  ],
+  "stock": []
+}

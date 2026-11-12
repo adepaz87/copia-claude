@@ -1,0 +1,21 @@
+{
+  "empresa": "Instapalma",
+  "fecha": "2026-01-22",
+  "lineas": [
+    {
+      "a": "309000463",
+      "d": "ANGULO SUJEECION CON EPDM 120X60X5",
+      "f": "2026-01-22",
+      "i": 210,
+      "o": "VARIOS",
+      "pn": 1.5,
+      "pt": 1.5,
+      "q": 140,
+      "r": "1209381"
+    }
+  ],
+  "numero": "F03000R-1124",
+  "origen": "Gmail",
+  "proveedor": "Sonepar",
+  "tipo": "factura"
+}

@@ -1,0 +1,34 @@
+{
+  "empresa": "Instapalma",
+  "fecha": "2026-08-19",
+  "lineas": [
+    {
+      "a": "VCTS-004516-2026",
+      "d": "PNZ-PUERTA MET. 780 (ALTO) X 680 (ANCHO) ENDESA (336056)",
+      "dto": "0,00",
+      "f": "2026-08-19",
+      "i": 74.12,
+      "o": "PUNTO RECARGA EL PAS",
+      "pn": 74.12,
+      "pt": 74.118,
+      "q": 1,
+      "r": "PIN-41375880680END"
+    },
+    {
+      "a": "VCTS-004516-2026",
+      "d": "PNZ-PUERTA MET 1200X1400 (335489)",
+      "dto": "Neto",
+      "f": "2026-08-19",
+      "i": 341.18,
+      "o": "PUNTO RECARGA EL PAS",
+      "pn": 341.18,
+      "pt": 341.176,
+      "q": 1,
+      "r": "PIN-41375121200T14"
+    }
+  ],
+  "numero": "FS-001742-2026",
+  "origen": "Gmail",
+  "proveedor": "Diexfe",
+  "tipo": "factura"
+}

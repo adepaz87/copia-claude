@@ -1,0 +1,21 @@
+{
+  "albs": [],
+  "cliente": "CABILDO INSULAR",
+  "desc": "Reparar averia en bomba tamix por fallo de boya de nivel de reserva.\nSustituir termostato de esterilizador de caprino.",
+  "devol": [],
+  "estado": "TERMINADO",
+  "fecha": "2026-10-07",
+  "horas": 2.5,
+  "obra": "MATADERO INSULAR",
+  "ops": [
+    {
+      "h": 1.5,
+      "n": "Antonio"
+    },
+    {
+      "h": 1,
+      "n": "Transporte"
+    }
+  ],
+  "stock": []
+}

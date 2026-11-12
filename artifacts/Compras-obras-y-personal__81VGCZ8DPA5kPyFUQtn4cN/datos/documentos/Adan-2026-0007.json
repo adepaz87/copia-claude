@@ -1,0 +1,23 @@
+{
+  "empresa": "Instapalma",
+  "fecha": "2026-10-03",
+  "lineas": [
+    {
+      "a": "",
+      "d": "ASISTENCIA TECNICA EN OBRA NAVE COVALLE (2,25 h)",
+      "dto": "",
+      "f": "2026-10-03",
+      "i": 45,
+      "igic": 7,
+      "o": "NAVE COVALLE",
+      "pn": 20,
+      "pt": 20,
+      "q": 2.25,
+      "r": ""
+    }
+  ],
+  "numero": "2026-0007",
+  "origen": "Gmail",
+  "proveedor": "Adán Piñero",
+  "tipo": "factura"
+}

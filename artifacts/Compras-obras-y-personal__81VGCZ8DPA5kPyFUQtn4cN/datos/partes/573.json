@@ -1,0 +1,21 @@
+{
+  "albs": [],
+  "cliente": "CANASFAL",
+  "desc": "Descargar báculos\nCargar tornilleria y espárragos en fuegos para llevarlo para almacén",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-09-28",
+  "horas": 8,
+  "obra": "AP LP 211",
+  "ops": [
+    {
+      "h": 4,
+      "n": "Riki"
+    },
+    {
+      "h": 4,
+      "n": "Aythami"
+    }
+  ],
+  "stock": []
+}

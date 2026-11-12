@@ -1,0 +1,17 @@
+{
+  "albs": [],
+  "cliente": "TRAGSA",
+  "desc": "Preparar puntas de cable de media tensión, y hacer bornas para los pue tes del trafo a la cabina.\n\nConectar puentes de media tensión a la cabina de protección de trafo.",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-10-06",
+  "horas": 7,
+  "obra": "CT. PLAZA GAZMIRA",
+  "ops": [
+    {
+      "h": 7,
+      "n": "Jorge"
+    }
+  ],
+  "stock": []
+}

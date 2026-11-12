@@ -1,0 +1,19 @@
+{
+  "actualizada": "2026-06-15T09:00:00Z",
+  "aviso": "",
+  "centro": "SPAR San Francisco",
+  "creada": "2026-06-15T09:00:00Z",
+  "descripcion": "Luz fundida en la sala.",
+  "estado": "terminada",
+  "fechaAviso": "2026-06-15",
+  "historial": [
+    "15/06/2026 · Importada del correo de Alberto"
+  ],
+  "informado": true,
+  "notas": "Resuelta el 15/06/2026.",
+  "operario": "",
+  "ot": 23,
+  "prioridad": "Sin especificar",
+  "solicitante": "",
+  "tipo": "MANTENIMIENTO"
+}

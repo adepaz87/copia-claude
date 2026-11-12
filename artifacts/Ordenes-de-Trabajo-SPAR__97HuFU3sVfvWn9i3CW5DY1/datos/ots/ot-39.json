@@ -1,0 +1,19 @@
+{
+  "actualizada": "2026-07-16T09:00:00Z",
+  "aviso": "",
+  "centro": "Central Logística y Oficinas (Breña Baja)",
+  "creada": "2026-07-16T09:00:00Z",
+  "descripcion": "Tomas de corriente estabilizadas en la zona de Marketing.",
+  "estado": "terminada",
+  "fechaAviso": "2026-07-16",
+  "historial": [
+    "16/07/2026 · Importada del correo de Alberto"
+  ],
+  "informado": true,
+  "notas": "Resuelta (correo 16/07/2026).",
+  "operario": "",
+  "ot": 39,
+  "prioridad": "Sin especificar",
+  "solicitante": "",
+  "tipo": "MANTENIMIENTO"
+}

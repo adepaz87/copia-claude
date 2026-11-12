@@ -1,0 +1,22 @@
+{
+  "empresa": "Instapalma",
+  "fecha": "2026-11-03",
+  "lineas": [
+    {
+      "a": "2026/03/000905",
+      "d": "SPRAY COLOR MARCADOR FLUOR.AZUL",
+      "dto": "",
+      "f": "2026-10-27",
+      "i": 5.7,
+      "o": "INSTAPALMA OBRAS Y SERVICIOS S.L.",
+      "pn": 5.7,
+      "pt": 5.7,
+      "q": 1,
+      "r": "SOUD 155988"
+    }
+  ],
+  "numero": "2026/21/1648",
+  "origen": "Gmail",
+  "proveedor": "Nolasco",
+  "tipo": "factura"
+}

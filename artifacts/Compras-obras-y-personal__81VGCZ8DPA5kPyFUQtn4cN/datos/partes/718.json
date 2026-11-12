@@ -1,0 +1,17 @@
+{
+  "albs": [],
+  "cliente": "TRAGSA",
+  "desc": "Instalar terminales y conectar cables en baterías e Inversor.\nInstalar cablear y conectar aparamenta en cuadro de CA en cuarto de cuadro general. \nAbrir pasamuros y enhebrar línea para cuadro general.\nEnhebrar y enbridar cable de comunicación para el meter.\nEnhebrar, enbridar y conectar cable de comunicación entre BMS e inversor.\nCerrar techos, cajas, bandeja, cuadro…\nRecoger y tirar basura.",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-10-16",
+  "horas": 8,
+  "obra": "FV RIACHUELO",
+  "ops": [
+    {
+      "h": 8,
+      "n": "Jonathan Glez"
+    }
+  ],
+  "stock": []
+}

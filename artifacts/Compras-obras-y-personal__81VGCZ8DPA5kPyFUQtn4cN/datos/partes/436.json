@@ -1,0 +1,17 @@
+{
+  "albs": [],
+  "cliente": "CECOPIN",
+  "desc": "Revisión OCA",
+  "devol": [],
+  "estado": "TERMINADO",
+  "fecha": "2026-09-09",
+  "horas": 1.5,
+  "obra": "FV CECOPIN",
+  "ops": [
+    {
+      "h": 1.5,
+      "n": "Jonathan Glez"
+    }
+  ],
+  "stock": []
+}

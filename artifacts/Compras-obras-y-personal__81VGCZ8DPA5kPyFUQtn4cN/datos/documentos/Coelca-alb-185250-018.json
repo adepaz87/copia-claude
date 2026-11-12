@@ -1,0 +1,24 @@
+{
+  "empresa": "Instapalma",
+  "fecha": "2026-11-04",
+  "lineas": [
+    {
+      "a": "185.250/018",
+      "d": "BAS.S/P90 IP44 3P+N+T 32A 400V",
+      "f": "2026-11-04",
+      "fab": "GEW-GW62493",
+      "i": 15.54,
+      "o": "SPAR TRIANA",
+      "pn": 15.54,
+      "pt": 15.54,
+      "q": 1,
+      "r": "962493"
+    }
+  ],
+  "msg": "1a1a58e6d880fc91",
+  "numero": "185.250/018",
+  "obra": "SPAR TRIANA",
+  "origen": "Gmail",
+  "proveedor": "Coelca",
+  "tipo": "albaran"
+}

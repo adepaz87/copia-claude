@@ -1,0 +1,714 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Control de Obras</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: barra superior fija con pestañas; debajo, una sola columna de trabajo (directorio, ficha de obra, subida, preguntas, ajustes) */
+:root{
+  --bg:#f3f5f7; --surface:#ffffff; --sunken:#e8ecf0; --line:#d5dce3;
+  --fg:#16212c; --muted:#5b6876; --navy:#1b3a5c; --navy-fg:#ffffff;
+  --accent:#e05a12; --accent-soft:#fbe6d9;
+  --ok:#1f7a4d; --ok-soft:#dcefe4; --warn:#a86a00; --warn-soft:#fbefd2; --bad:#b3261e; --bad-soft:#f8dcda;
+  --f-display:"Barlow Condensed","Arial Narrow",Arial,sans-serif;
+  --f-body:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#10161d; --surface:#18212b; --sunken:#202b37; --line:#2e3b49;
+  --fg:#e6ebf0; --muted:#97a4b2; --navy:#22476e; --navy-fg:#ffffff;
+  --accent:#ff7a33; --accent-soft:#3d2414;
+  --ok:#5cc28d; --ok-soft:#173326; --warn:#e8b04a; --warn-soft:#3a2d12; --bad:#f2786f; --bad-soft:#3e1b19;
+  color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#10161d; --surface:#18212b; --sunken:#202b37; --line:#2e3b49;
+  --fg:#e6ebf0; --muted:#97a4b2; --navy:#22476e; --navy-fg:#ffffff;
+  --accent:#ff7a33; --accent-soft:#3d2414;
+  --ok:#5cc28d; --ok-soft:#173326; --warn:#e8b04a; --warn-soft:#3a2d12; --bad:#f2786f; --bad-soft:#3e1b19;
+  color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font-family:var(--f-body);font-size:15px;line-height:1.45}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--navy)}
+.wrap{max-width:1120px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+header.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--navy);color:var(--navy-fg)}
+header.top .wrap{display:flex;align-items:center;gap:20px;flex-wrap:wrap;padding-block:10px}
+.brand{font-family:var(--f-display);font-weight:700;font-size:24px;letter-spacing:.02em;text-transform:uppercase;display:flex;align-items:center;gap:10px}
+.brand i{display:inline-block;width:10px;height:22px;background:var(--accent);transform:skewX(-14deg)}
+nav.tabs{display:flex;gap:4px;flex-wrap:wrap}
+nav.tabs a{color:var(--navy-fg);opacity:.75;text-decoration:none;font-weight:500;padding:6px 12px;border-radius:4px;display:flex;align-items:center;gap:6px}
+nav.tabs a:hover{opacity:1;background:rgba(255,255,255,.08)}
+nav.tabs a[aria-current="page"]{opacity:1;background:rgba(255,255,255,.14);box-shadow:inset 0 -2px 0 var(--accent)}
+.badge{font-family:var(--f-mono);font-size:11px;background:var(--accent);color:#fff;border-radius:10px;padding:0 6px;line-height:18px;min-width:18px;text-align:center}
+main.wrap{padding-block:24px 64px;display:flex;flex-direction:column;gap:24px}
+h1,h2,h3{font-family:var(--f-display);font-weight:600;letter-spacing:.01em;text-wrap:balance;margin:0}
+h1{font-size:34px;line-height:1.1}
+h2{font-size:22px;text-transform:uppercase;letter-spacing:.04em}
+h3{font-size:18px}
+.eyebrow{font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:600}
+.muted{color:var(--muted)}
+.num{font-family:var(--f-mono);font-variant-numeric:tabular-nums}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:6px}
+.panel>.hd{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;padding:14px 16px;border-bottom:1px solid var(--line)}
+.panel>.hd h2{font-size:18px}
+.panel>.bd{padding:16px}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px}
+.stat{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:12px 14px;display:flex;flex-direction:column;gap:2px}
+.stat .v{font-family:var(--f-mono);font-size:22px;font-weight:500}
+.tablebox{overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:14px}
+th{text-align:left;font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);font-weight:600;padding:8px 10px;border-bottom:1px solid var(--line);white-space:nowrap}
+td{padding:9px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+tr:last-child td{border-bottom:0}
+td.r,th.r{text-align:right}
+tr.click{cursor:pointer}
+tr.click:hover td{background:var(--sunken)}
+tfoot td{font-weight:600;border-top:2px solid var(--line)}
+.bar{height:8px;background:var(--sunken);border-radius:4px;overflow:hidden;min-width:80px}
+.bar>span{display:block;height:100%;background:var(--ok)}
+.bar.warn>span{background:var(--warn)}
+.bar.bad>span{background:var(--bad)}
+.pill{display:inline-block;font-size:12px;font-weight:600;padding:1px 8px;border-radius:10px;white-space:nowrap}
+.pill.ok{background:var(--ok-soft);color:var(--ok)}
+.pill.warn{background:var(--warn-soft);color:var(--warn)}
+.pill.bad{background:var(--bad-soft);color:var(--bad)}
+.pill.neutral{background:var(--sunken);color:var(--muted)}
+button,.btn{font:inherit;font-weight:500;border:1px solid var(--line);background:var(--surface);color:var(--fg);padding:7px 14px;border-radius:4px;cursor:pointer}
+button:hover{border-color:var(--muted)}
+button.primary{background:var(--accent);border-color:var(--accent);color:#fff}
+button.primary:hover{filter:brightness(1.07)}
+button.link{border:0;background:none;padding:0;color:var(--accent);text-decoration:underline}
+button:disabled{opacity:.5;cursor:default}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+input,select,textarea{font:inherit;color:var(--fg);background:var(--bg);border:1px solid var(--line);border-radius:4px;padding:7px 9px;min-width:0}
+textarea{width:100%;min-height:70px;resize:vertical}
+label.f{display:flex;flex-direction:column;gap:4px;font-size:13px;color:var(--muted);font-weight:500}
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:flex-end}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+.drop{border:2px dashed var(--line);border-radius:6px;padding:28px 16px;text-align:center;display:flex;flex-direction:column;gap:8px;align-items:center;background:var(--surface)}
+.drop.over{border-color:var(--accent);background:var(--accent-soft)}
+.card{border:1px solid var(--line);border-radius:6px;padding:14px;display:flex;flex-direction:column;gap:10px;background:var(--surface);min-width:0}
+.card .top{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;align-items:baseline}
+.q{display:flex;flex-direction:column;gap:8px;padding:14px 16px;border-bottom:1px solid var(--line)}
+.q:last-child{border-bottom:0}
+.q .kind{display:flex;gap:8px;align-items:center}
+.empty{padding:28px 16px;text-align:center;color:var(--muted)}
+.toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--fg);color:var(--bg);padding:9px 16px;border-radius:4px;font-size:14px;z-index:20}
+.notice{padding:10px 14px;border-radius:4px;background:var(--warn-soft);color:var(--fg);font-size:14px}
+ul.plain{margin:0;padding-left:18px}
+.seg{display:inline-flex;align-self:flex-start;border:1px solid var(--line);border-radius:6px;overflow:hidden;background:var(--surface)}
+.seg button{border:0;border-radius:0;padding:8px 18px;font-weight:600;background:transparent;color:var(--muted)}
+.seg button+button{border-left:1px solid var(--line)}
+.seg button[aria-pressed="true"]{background:var(--navy);color:var(--navy-fg)}
+.split{display:grid;grid-template-columns:2fr 1fr;gap:16px}
+@media (max-width:760px){.split{grid-template-columns:1fr}h1{font-size:28px}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+
+<header class="top"><div class="wrap">
+  <div class="brand"><i></i>Control de Obras</div>
+  <nav class="tabs" id="tabs">
+    <a href="#obras" data-v="obras">Obras</a>
+    <a href="#subir" data-v="subir">Subir partes y albaranes</a>
+    <a href="#preguntas" data-v="preguntas">Preguntas <span class="badge" id="qbadge" hidden>0</span></a>
+    <a href="#ajustes" data-v="ajustes">Precios y tarifa</a>
+  </nav>
+</div></header>
+<main class="wrap" id="app"><div class="empty">Cargando datos de obras…</div></main>
+<div class="toast" id="toast" hidden></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.8.2/jspdf.plugin.autotable.min.js"></script>
+<script>
+(() => {
+/* ---------- utilidades ---------- */
+const $ = s => document.querySelector(s);
+const esc = v => String(v ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const eur = n => (Number(n)||0).toLocaleString('es-ES',{style:'currency',currency:'EUR',minimumFractionDigits:2,useGrouping:'always'});
+const eur0 = n => (Number(n)||0).toLocaleString('es-ES',{style:'currency',currency:'EUR',maximumFractionDigits:0,useGrouping:'always'});
+const hrs = n => (Number(n)||0).toLocaleString('es-ES',{maximumFractionDigits:2}) + ' h';
+const fdate = iso => { if(!iso) return '—'; const [y,m,d]=iso.split('-'); return `${d}/${m}/${y}`; };
+const slug = s => String(s||'').normalize('NFD').replace(/[̀-ͯ]/g,'').toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'').slice(0,80) || 'x';
+const norm = s => String(s||'').normalize('NFD').replace(/[̀-ͯ]/g,'').toLowerCase().replace(/\s+/g,' ').trim();
+const today = () => new Date().toISOString().slice(0,10);
+let toastT;
+function toast(msg){ const t=$('#toast'); t.textContent=msg; t.hidden=false; clearTimeout(toastT); toastT=setTimeout(()=>t.hidden=true,3200); }
+
+/* ---------- estado ---------- */
+const S = { obras:{}, partes:{}, gastos:{}, precios:{}, preguntas:{}, config:{tarifaHora:17, tarifaAdmin:25, margenMaterial:35, descartadas:[]}, cola:[], ready:false, dbOk:null, vista:'coste' };
+try{ if(localStorage.getItem('vista')==='admin') S.vista='admin'; }catch(e){}
+let db=null, sample=null, assets=null, downloads=null;
+
+/* ---------- lectura de PDF ---------- */
+async function pdfLines(pdf){
+  const out=[];
+  for(let p=1;p<=pdf.numPages;p++){
+    const page=await pdf.getPage(p);
+    const tc=await page.getTextContent();
+    const rows=new Map();
+    for(const it of tc.items){
+      if(!it.str||!it.str.trim())continue;
+      const y=Math.round(it.transform[5]/3)*3;
+      if(!rows.has(y))rows.set(y,[]);
+      rows.get(y).push({x:it.transform[4],w:it.width||0,s:it.str});
+    }
+    [...rows.keys()].sort((a,b)=>b-a).forEach(y=>{
+      const its=rows.get(y).sort((a,b)=>a.x-b.x);
+      const cells=[];let last=null;
+      for(const it of its){
+        if(last&&it.x-(last.x+last.w)<12){last.s+=(it.x-(last.x+last.w)>1?' ':'')+it.s;last.w=it.x+it.w-last.x;}
+        else{last={x:it.x,w:it.w,s:it.s};cells.push(last);}
+      }
+      out.push(cells.map(c=>c.s.replace(/\s+/g,' ').trim()));
+    });
+  }
+  return out;
+}
+const EMPTY=/^[—–\-]*$/;
+function parseParte(lines){
+  const flat=lines.map(c=>c.join(' '));
+  if(!flat.some(l=>/PARTE DE TRABAJO/i.test(l)))return null;
+  const r={fecha:'',cliente:'',obra:'',operarios:[],albaranes:[],material:[],devolucion:[],trabajos:[],estado:''};
+  let sec='';
+  for(const cells of lines){
+    const l=cells.join(' ');
+    const up=l.toUpperCase();
+    let m;
+    if(m=l.match(/^Fecha\s+(\d{1,2})\/(\d{1,2})\/(\d{4})/i)){r.fecha=`${m[3]}-${m[2].padStart(2,'0')}-${m[1].padStart(2,'0')}`;continue;}
+    if(m=l.match(/^Cliente\s+(.+)/i)){r.cliente=m[1].trim();continue;}
+    if(m=l.match(/^Obra\s+(.+)/i)){r.obra=m[1].trim();continue;}
+    if(up.startsWith('OPERARIOS Y HORAS')){sec='op';continue;}
+    if(up.startsWith('ALBARANES')){sec='alb';continue;}
+    if(up.startsWith('MATERIAL DE STOCK')){sec='mat';continue;}
+    if(up.startsWith('DEVOLUCION')||up.startsWith('DEVOLUCIÓN')){sec='dev';continue;}
+    if(up.startsWith('DESCRIPCION DE TRABAJOS')||up.startsWith('DESCRIPCIÓN DE TRABAJOS')){sec='tr';continue;}
+    if(m=l.match(/^ESTADO:\s*(.+)/i)){r.estado=m[1].trim();sec='';continue;}
+    if(/^Generado el/i.test(l)){sec='';continue;}
+    if(/^(Operario\s+Horas|Albaranes|Cantidad\s+Material)/i.test(l))continue;
+    if(sec==='op'){
+      if(m=l.match(/^(.+?)\s+(\d+(?:[.,]\d+)?)\s*h?$/i))r.operarios.push({nombre:m[1].trim(),horas:parseFloat(m[2].replace(',','.'))});
+    }else if(sec==='alb'){
+      cells.forEach(c=>c.split(/[,;]\s*/).forEach(x=>{x=x.trim();if(x&&!EMPTY.test(x))r.albaranes.push(x);}));
+    }else if(sec==='mat'||sec==='dev'){
+      if(cells.every(c=>EMPTY.test(c)))continue;
+      let cant,concepto;
+      if(cells.length>=2){cant=cells[0];concepto=cells.slice(1).join(' ');}
+      else{m=l.match(/^(\d+(?:[.,]\d+)?)\s*(\S*)\s+(.+)$/);if(m){cant=m[1];concepto=m[3];}else{cant='1';concepto=l;}}
+      const q=parseFloat(String(cant).replace(',','.'));
+      (sec==='mat'?r.material:r.devolucion).push({cantidad:isNaN(q)?1:q,concepto:concepto.trim()});
+    }else if(sec==='tr'){
+      if(!EMPTY.test(l))r.trabajos.push(l);
+    }
+  }
+  return r;
+}
+async function renderPdfImage(pdf){
+  const page=await pdf.getPage(1);
+  const vp=page.getViewport({scale:1.6});
+  const c=document.createElement('canvas'); c.width=vp.width; c.height=vp.height;
+  await page.render({canvasContext:c.getContext('2d'),viewport:vp}).promise;
+  return await new Promise(r=>c.toBlob(r,'image/png'));
+}
+
+/* ---------- cálculo de costes ---------- */
+const tarifa = () => Number(S.config.tarifaHora)||0;
+function precioDe(concepto){ const p=S.precios[slug(concepto)]; return p && p.precio!=null && p.precio!=='' ? Number(p.precio) : null; }
+function costeParte(p){
+  const t = p.tarifa!=null ? Number(p.tarifa) : tarifa();
+  const horas = (p.operarios||[]).reduce((a,o)=>a+(Number(o.horas)||0),0);
+  let material=0, sinPrecio=[];
+  const net={};
+  (p.material||[]).forEach(m=>{ const k=slug(m.concepto); net[k]=net[k]||{concepto:m.concepto,c:0}; net[k].c+=Number(m.cantidad)||0; });
+  (p.devolucion||[]).forEach(m=>{ const k=slug(m.concepto); net[k]=net[k]||{concepto:m.concepto,c:0}; net[k].c-=Number(m.cantidad)||0; });
+  Object.values(net).forEach(n=>{ const pr=precioDe(n.concepto); if(pr==null){ if(n.c) sinPrecio.push(n.concepto); } else material+=pr*n.c; });
+  return { horas, mo: horas*t, material, sinPrecio, tarifa:t };
+}
+function resumenObra(id){
+  const partes=Object.values(S.partes).filter(p=>p.obraId===id).sort((a,b)=>(b.fecha||'').localeCompare(a.fecha||''));
+  const gastos=Object.values(S.gastos).filter(g=>g.obraId===id).sort((a,b)=>(b.fecha||'').localeCompare(a.fecha||''));
+  let horas=0,mo=0,material=0,sinPrecio=0;
+  const porOperario={};
+  partes.forEach(p=>{ const c=costeParte(p); horas+=c.horas; mo+=c.mo; material+=c.material; sinPrecio+=c.sinPrecio.length;
+    (p.operarios||[]).forEach(o=>{ porOperario[o.nombre]=(porOperario[o.nombre]||0)+(Number(o.horas)||0); }); });
+  const albaranes=gastos.filter(g=>g.tipo!=='compra').reduce((a,g)=>a+(Number(g.importe)||0),0);
+  const compras=gastos.filter(g=>g.tipo==='compra').reduce((a,g)=>a+(Number(g.importe)||0),0);
+  const total=mo+material+albaranes+compras;
+  const o=S.obras[id]||{};
+  const pres=Number(o.presupuesto)||0;
+  const tA=Number(S.config.tarifaAdmin)||0, mg=Number(S.config.margenMaterial)||0;
+  const matCoste=material+albaranes+compras;
+  const admin={tarifa:tA,margen:mg,mo:horas*tA,matCoste,mat:matCoste*(1+mg/100)}; admin.total=admin.mo+admin.mat; admin.beneficio=admin.total-total;
+  return {partes,gastos,horas,mo,material,albaranes,compras,total,pres,pct:pres?total/pres:null,porOperario,sinPrecio,ultimo:partes[0]?.fecha||'',admin,esAdmin:S.vista==='admin'};
+}
+
+function materialDetalle(r){
+  const m=new Map(); const n=x=>Number(x)||0;
+  const add=(art,concepto,cant,importe,origen,unidad)=>{ const k=art?'a:'+norm(art):'c:'+slug(concepto); let e=m.get(k); if(!e){ e={articulo:art||'',concepto,cantidad:0,importe:0,sinPrecio:false,origen:new Set()}; m.set(k,e); }
+    e.cantidad+=cant; if(importe==null) e.sinPrecio=true; else e.importe+=importe; if(origen) e.origen.add(origen); };
+  r.partes.forEach(p=>{ const net={}; (p.material||[]).forEach(x=>{ const k=slug(x.concepto); net[k]=net[k]||{c:x.concepto,q:0}; net[k].q+=n(x.cantidad); }); (p.devolucion||[]).forEach(x=>{ const k=slug(x.concepto); net[k]=net[k]||{c:x.concepto,q:0}; net[k].q-=n(x.cantidad); });
+    Object.values(net).forEach(x=>{ if(!x.q) return; const pr=precioDe(x.c); add('',x.c,x.q,pr==null?null:pr*x.q,'Stock'); }); });
+  r.gastos.forEach(g=>{ const org=(g.tipo==='compra'?'Compra ':'Alb. ')+(g.numero||g.proveedor||''); const ls=Array.isArray(g.lineas)?g.lineas:[]; let suma=0;
+    ls.forEach(l=>{ const q=n(l.cantidad)||1; const imp=l.importe!=null&&l.importe!==''?n(l.importe):(l.precio!=null?n(l.precio)*q:null); if(imp!=null) suma+=imp; add(l.articulo||'',l.concepto||'(sin descripción)',q,imp,org); });
+    const resto=Math.round((n(g.importe)-suma)*100)/100;
+    if(!ls.length) add('',g.concepto||(g.tipo==='compra'?'Compra':'Albarán')+' '+(g.numero||''),1,n(g.importe),org);
+    else if(Math.abs(resto)>=0.05) add('','Ajuste '+org+' (portes, redondeos u otros)',1,resto,org); });
+  return [...m.values()].map(e=>({...e,precio:e.cantidad&&!e.sinPrecio?e.importe/e.cantidad:null,origen:[...e.origen].join(', ')})).sort((a,b)=>b.importe-a.importe);
+}
+const fq=q=>(Number(q)||0).toLocaleString('es-ES',{maximumFractionDigits:3});
+const fp=v=>v==null?'—':(Number(v)||0).toLocaleString('es-ES',{style:'currency',currency:'EUR',minimumFractionDigits:2,maximumFractionDigits:4});
+
+/* ---------- preguntas ---------- */
+function preguntasDerivadas(){
+  const out=[]; const desc=new Set(S.config.descartadas||[]);
+  Object.entries(S.obras).forEach(([id,o])=>{
+    if((o.presupuesto==null||o.presupuesto==='') && !o.sinPresupuesto) out.push({key:'pres:'+id,tipo:'presupuesto',obraId:id,texto:`¿Cuál es el presupuesto de ${o.nombre}?`,ayuda:'Coste previsto total de la obra, en euros. Sirve para ver cuánto llevas consumido.'});
+  });
+  const conceptos={};
+  Object.values(S.partes).forEach(p=>[...(p.material||[]),...(p.devolucion||[])].forEach(m=>{ if(precioDe(m.concepto)==null) conceptos[slug(m.concepto)]=m.concepto; }));
+  Object.entries(conceptos).forEach(([k,c])=>out.push({key:'precio:'+k,tipo:'precio',concepto:c,texto:`¿Cuánto cuesta «${c}»?`,ayuda:'Precio de coste por unidad del material de stock. Se usará en todos los partes.'}));
+  Object.entries(S.gastos).forEach(([id,g])=>{ if(!g.obraId) out.push({key:'gobra:'+id,tipo:'gastoObra',gastoId:id,texto:`¿A qué obra va ${g.tipo==='compra'?'la compra':'el albarán'} ${g.numero||''} de ${g.proveedor||'proveedor sin nombre'} (${eur(g.importe)})?`,ayuda:''}); });
+  const numerosGasto=new Set(Object.values(S.gastos).map(g=>norm(g.numero)).filter(Boolean));
+  Object.values(S.partes).forEach(p=>(p.albaranes||[]).forEach(a=>{ if(!numerosGasto.has(norm(a))) out.push({key:'falta:'+slug(a),tipo:'faltaAlbaran',texto:`El parte del ${fdate(p.fecha)} en ${S.obras[p.obraId]?.nombre||p.obraNombre} cita el albarán ${a}, pero aún no está subido.`,ayuda:'Súbelo en «Subir partes y albaranes» para que su importe cuente en la obra.'}); }));
+  return out.filter(q=>!desc.has(q.key));
+}
+function preguntasAbiertas(){ return Object.entries(S.preguntas).filter(([,q])=>!q.respuesta).map(([id,q])=>({id,...q})).sort((a,b)=>(a.creada||'').localeCompare(b.creada||'')); }
+function updateBadge(){ const n=preguntasDerivadas().length+preguntasAbiertas().length; const b=$('#qbadge'); b.textContent=n; b.hidden=!n; }
+
+/* ---------- vistas ---------- */
+function route(){ const h=(location.hash||'#obras').slice(1); if(h.startsWith('obra-')) return {v:'obra',id:h.slice(5)}; return {v:['obras','subir','preguntas','ajustes'].includes(h)?h:'obras'}; }
+function render(){
+  const r=route();
+  document.querySelectorAll('#tabs a').forEach(a=>a.setAttribute('aria-current', (a.dataset.v===r.v||(r.v==='obra'&&a.dataset.v==='obras'))?'page':'false'));
+  updateBadge();
+  const app=$('#app');
+  let html='';
+  if(S.dbOk===false) html+=`<div class="notice">No se puede guardar en este momento: abre la página con tu cuenta de Claude iniciada para que los datos se guarden y se compartan.</div>`;
+  if(!S.ready && S.dbOk!==false){ app.innerHTML=html+'<div class="empty">Cargando datos de obras…</div>'; return; }
+  html += ({obras:vObras,obra:()=>vObra(r.id),subir:vSubir,preguntas:vPreguntas,ajustes:vAjustes})[r.v]();
+  app.innerHTML=html;
+  bind(r);
+}
+function vistaToggle(){ return `<div class="seg" role="group" aria-label="Cálculo"><button data-vista="coste" aria-pressed="${S.vista==='coste'}">Coste</button><button data-vista="admin" aria-pressed="${S.vista==='admin'}">Administración</button></div>`; }
+function barFor(pct){ if(pct==null) return '<span class="pill neutral">Sin presupuesto</span>'; const cls=pct>1?'bad':pct>.85?'warn':''; return `<div style="display:flex;align-items:center;gap:8px"><div class="bar ${cls}" style="flex:1"><span style="width:${Math.min(100,pct*100).toFixed(1)}%"></span></div><span class="num" style="font-size:13px">${Math.round(pct*100)}%</span></div>`; }
+
+function vObras(){
+  const ids=Object.keys(S.obras);
+  const rs=ids.map(id=>({id,o:S.obras[id],r:resumenObra(id)})).sort((a,b)=>(b.r.ultimo||'').localeCompare(a.r.ultimo||'')||a.o.nombre.localeCompare(b.o.nombre));
+  const mes=today().slice(0,7);
+  let hMes=0,cMes=0; Object.values(S.partes).forEach(p=>{ if((p.fecha||'').startsWith(mes)){ const c=costeParte(p); hMes+=c.horas; cMes+=c.mo+c.material; } });
+  Object.values(S.gastos).forEach(g=>{ if((g.fecha||'').startsWith(mes)) cMes+=Number(g.importe)||0; });
+  const activas=rs.filter(x=>(x.o.estado||'activa')==='activa').length;
+  const total=rs.reduce((a,x)=>a+x.r.total,0);
+  return `
+  <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:12px;flex-wrap:wrap">
+    <div><div class="eyebrow">Directorio de obras</div><h1>${S.vista==='admin'?'Importe por administración':'Coste acumulado por obra'}</h1></div>
+    <div class="row">${vistaToggle()}<button data-xls="">Exportar a Excel</button><button data-pdf="">Exportar a PDF</button><button class="primary" id="btnNueva">Nueva obra</button></div>
+  </div>
+  <form class="panel" id="formNueva" hidden><div class="bd"><div class="row">
+    <label class="f" style="flex:2 1 200px">Nombre de la obra<input id="nNombre" required placeholder="EDIFICIO DOMINGO"></label>
+    <label class="f" style="flex:2 1 200px">Cliente<input id="nCliente" placeholder="CONSTRUCCIONES DOMINGO"></label>
+    <label class="f" style="flex:1 1 140px">Presupuesto (€)<input id="nPres" type="number" step="0.01" min="0"></label>
+    <button class="primary" type="submit">Guardar obra</button>
+  </div></div></form>
+  <div class="stats">
+    <div class="stat"><span class="eyebrow">Obras activas</span><span class="v">${activas}</span></div>
+    <div class="stat"><span class="eyebrow">Horas este mes</span><span class="v">${hrs(hMes)}</span></div>
+    <div class="stat"><span class="eyebrow">Coste este mes</span><span class="v">${eur0(cMes)}</span></div>
+    <div class="stat"><span class="eyebrow">Coste total registrado</span><span class="v">${eur0(total)}</span></div>
+    ${S.vista==='admin'?`<div class="stat"><span class="eyebrow">Total por administración</span><span class="v">${eur0(rs.reduce((a,x)=>a+x.r.admin.total,0))}</span></div>`:''}
+  </div>
+  <section class="panel">
+    ${rs.length? `<div class="tablebox"><table>
+      ${S.vista==='admin'?`<thead><tr><th>Obra</th><th>Último parte</th><th class="r">Horas</th><th class="r">Mano de obra a ${eur(S.config.tarifaAdmin)}/h</th><th class="r">Material +${Number(S.config.margenMaterial)||0} %</th><th class="r">A facturar</th><th class="r">Coste real</th><th class="r">Margen</th></tr></thead>`:
+      `<thead><tr><th>Obra</th><th>Último parte</th><th class="r">Horas</th><th class="r">Mano de obra</th><th class="r">Material</th><th class="r">Albaranes y compras</th><th class="r">Total coste</th><th class="r">Por administración</th><th class="r">Presupuesto</th><th style="min-width:140px">Consumido</th></tr></thead>`}
+      <tbody>${rs.map(({id,o,r})=>`<tr class="click" data-go="#obra-${esc(id)}">
+        <td><strong>${esc(o.nombre)}</strong><div class="muted" style="font-size:13px">${esc(o.cliente||'')}${o.estado==='cerrada'?' · <span class="pill neutral">Cerrada</span>':''}</div></td>
+        <td class="num">${fdate(r.ultimo)}</td><td class="r num">${hrs(r.horas)}</td>${r.esAdmin?`<td class="r num">${eur0(r.admin.mo)}</td><td class="r num">${eur0(r.admin.mat)}</td><td class="r num"><strong>${eur0(r.admin.total)}</strong></td><td class="r num">${eur0(r.total)}</td><td class="r"><span class="pill ${r.admin.beneficio>=0?'ok':'bad'}">${eur0(r.admin.beneficio)}</span></td></tr>`:`<td class="r num">${eur0(r.mo)}</td><td class="r num">${eur0(r.material)}${r.sinPrecio?' <span class="pill warn" title="Material sin precio">!</span>':''}</td>
+        <td class="r num">${eur0(r.albaranes+r.compras)}</td><td class="r num"><strong>${eur0(r.total)}</strong></td><td class="r num">${eur0(r.admin.total)}</td><td class="r num">${r.pres?eur0(r.pres):'—'}</td><td>${barFor(r.pct)}</td></tr>`}`).join('')}</tbody>
+    </table></div>` : `<div class="empty">Todavía no hay obras. Sube un parte diario y la obra se crea sola, o pulsa «Nueva obra».</div>`}
+  </section>`;
+}
+
+function vObra(id){
+  const o=S.obras[id];
+  if(!o) return `<div class="empty">No encuentro esa obra. <a href="#obras">Volver al directorio</a></div>`;
+  const r=resumenObra(id);
+  const ops=Object.entries(r.porOperario).sort((a,b)=>b[1]-a[1]);
+  return `
+  <div><a href="#obras" class="muted" style="font-size:14px">← Directorio de obras</a></div>
+  <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:12px;flex-wrap:wrap">
+    <div style="display:flex;flex-direction:column;gap:10px"><div><div class="eyebrow">${esc(o.cliente||'Cliente sin indicar')}</div><h1>${esc(o.nombre)}</h1></div>${vistaToggle()}</div>
+    <div class="row">
+      <label class="f">Presupuesto (€)<input id="oPres" type="number" step="0.01" min="0" value="${o.presupuesto??''}" style="width:150px"></label>
+      <label class="f">Estado<select id="oEstado"><option value="activa"${o.estado!=='cerrada'?' selected':''}>Activa</option><option value="cerrada"${o.estado==='cerrada'?' selected':''}>Cerrada</option></select></label>
+      <button id="oGuardar">Guardar</button>
+      <button data-xls="${esc(id)}">Excel</button><button data-pdf="${esc(id)}">PDF</button>
+    </div>
+  </div>
+  ${r.esAdmin?`<div class="stats">
+    <div class="stat"><span class="eyebrow">A facturar</span><span class="v">${eur(r.admin.total)}</span><span class="muted" style="font-size:13px">sin IGIC</span></div>
+    <div class="stat"><span class="eyebrow">Mano de obra</span><span class="v">${eur(r.admin.mo)}</span><span class="muted num" style="font-size:13px">${hrs(r.horas)} × ${eur(r.admin.tarifa)}</span></div>
+    <div class="stat"><span class="eyebrow">Material</span><span class="v">${eur(r.admin.mat)}</span><span class="muted num" style="font-size:13px">${eur(r.admin.matCoste)} + ${r.admin.margen} %</span></div>
+    <div class="stat"><span class="eyebrow">Coste real</span><span class="v">${eur(r.total)}</span></div>
+    <div class="stat"><span class="eyebrow">Margen</span><span class="v" style="color:var(${r.admin.beneficio>=0?'--ok':'--bad'})">${eur(r.admin.beneficio)}</span></div>
+  </div>`:`<div class="stats">
+    <div class="stat"><span class="eyebrow">Total</span><span class="v">${eur(r.total)}</span><span class="muted" style="font-size:13px">${r.pres?`de ${eur0(r.pres)} presupuestados`:'sin presupuesto'}</span></div>
+    <div class="stat"><span class="eyebrow">Mano de obra</span><span class="v">${eur(r.mo)}</span><span class="muted num" style="font-size:13px">${hrs(r.horas)}</span></div>
+    <div class="stat"><span class="eyebrow">Material de stock</span><span class="v">${eur(r.material)}</span>${r.sinPrecio?`<span class="pill warn">${r.sinPrecio} sin precio</span>`:''}</div>
+    <div class="stat"><span class="eyebrow">Albaranes</span><span class="v">${eur(r.albaranes)}</span></div>
+    <div class="stat"><span class="eyebrow">Compras</span><span class="v">${eur(r.compras)}</span></div>
+  </div>`}
+  ${r.pres&&!r.esAdmin?`<div>${barFor(r.pct)}</div>`:''}
+  ${vComparativo(r)}
+  <div class="split">
+    <section class="panel" style="min-width:0"><div class="hd"><h2>Partes diarios</h2><span class="muted">${r.partes.length}</span></div>
+      ${r.partes.length?`<div class="tablebox"><table><thead><tr><th>Fecha</th><th>Operarios</th><th class="r">Horas</th><th class="r">Coste</th><th>Trabajos</th><th></th></tr></thead><tbody>
+      ${r.partes.map(p=>{const c=costeParte(p);return `<tr><td class="num">${fdate(p.fecha)}</td><td>${(p.operarios||[]).map(x=>`${esc(x.nombre)} <span class="muted num">${x.horas}h</span>`).join('<br>')}</td>
+        <td class="r num">${hrs(c.horas)}</td><td class="r num">${eur(c.mo+c.material)}${c.material?`<div class="muted" style="font-size:12px">mat. ${eur(c.material)}</div>`:''}</td>
+        <td style="min-width:200px">${(p.trabajos||[]).map(esc).join('<br>')}${(p.material||[]).length?`<div class="muted" style="font-size:12px">Material: ${p.material.map(m=>`${m.cantidad} ${esc(m.concepto)}`).join(', ')}</div>`:''}${(p.devolucion||[]).length?`<div class="muted" style="font-size:12px">Devuelto: ${p.devolucion.map(m=>`${m.cantidad} ${esc(m.concepto)}`).join(', ')}</div>`:''}${(p.albaranes||[]).length?`<div class="muted" style="font-size:12px">Albaranes: ${p.albaranes.map(esc).join(', ')}</div>`:''}</td>
+        <td>${p.archivo?`<a href="/_blob/${esc(p.archivo)}" target="_blank" rel="noopener">PDF</a>`:''} <button class="link" data-delparte="${esc(p._id)}">Borrar</button></td></tr>`}).join('')}
+      </tbody></table></div>`:`<div class="empty">Sin partes todavía.</div>`}
+    </section>
+    <section class="panel" style="min-width:0"><div class="hd"><h2>Horas por operario</h2></div>
+      ${ops.length?`<div class="tablebox"><table><tbody>${ops.map(([n,h])=>`<tr><td>${esc(n)}</td><td class="r num">${hrs(h)}</td><td class="r num">${eur0(h*tarifa())}</td></tr>`).join('')}</tbody></table></div>`:`<div class="empty">Sin horas.</div>`}
+    </section>
+  </div>
+  ${(()=>{ const md=materialDetalle(r); const k=1+(Number(S.config.margenMaterial)||0)/100; const tot=md.reduce((a,x)=>a+x.importe,0);
+    return `<section class="panel"><div class="hd"><h2>Material por artículo</h2><span class="muted">${md.length} artículos</span></div>
+    ${md.length?`<div class="tablebox"><table><thead><tr><th>Artículo</th><th>Descripción</th><th class="r">Cantidad</th><th class="r">Precio</th><th class="r">Importe</th><th class="r">Por administración</th><th>Origen</th></tr></thead><tbody>
+    ${md.map(x=>`<tr><td class="num" style="white-space:nowrap">${esc(x.articulo||'—')}</td><td>${esc(x.concepto)}</td><td class="r num">${fq(x.cantidad)}</td><td class="r num">${fp(x.precio)}</td><td class="r num">${x.sinPrecio?'<span class="pill warn">Sin precio</span>':eur(x.importe)}</td><td class="r num">${eur(x.importe*k)}</td><td class="muted" style="font-size:13px">${esc(x.origen)}</td></tr>`).join('')}
+    </tbody><tfoot><tr><td colspan="4">Total material</td><td class="r num">${eur(tot)}</td><td class="r num">${eur(tot*k)}</td><td></td></tr></tfoot></table></div>`:`<div class="empty">Sin material todavía.</div>`}</section>`; })()}
+  <section class="panel"><div class="hd"><h2>Albaranes y compras</h2><a href="#subir">Subir albarán o añadir compra</a></div>
+    ${r.gastos.length?`<div class="tablebox"><table><thead><tr><th>Fecha</th><th>Tipo</th><th>Proveedor</th><th>Número</th><th>Concepto</th><th class="r">Importe</th><th></th></tr></thead><tbody>
+    ${r.gastos.map(g=>`<tr><td class="num">${fdate(g.fecha)}</td><td><span class="pill neutral">${g.tipo==='compra'?'Compra':'Albarán'}</span></td><td>${esc(g.proveedor||'—')}</td><td class="num">${esc(g.numero||'—')}</td><td>${esc(g.concepto||'')}</td><td class="r num">${eur(g.importe)}</td>
+      <td>${g.archivo?`<a href="/_blob/${esc(g.archivo)}" target="_blank" rel="noopener">PDF</a>`:''} <button class="link" data-delgasto="${esc(g._id)}">Borrar</button></td></tr>`).join('')}
+    </tbody><tfoot><tr><td colspan="5">Total</td><td class="r num">${eur(r.albaranes+r.compras)}</td><td></td></tr></tfoot></table></div>`:`<div class="empty">Sin albaranes ni compras imputados.</div>`}
+  </section>`;
+}
+
+function comparativo(r){ const a=r.admin; const matC=r.material+r.albaranes+r.compras;
+  const rows=[['Mano de obra',`${hrs(r.horas)} × ${eur(r.mo&&r.horas?r.mo/r.horas:Number(S.config.tarifaHora)||0)}`,r.mo,`${hrs(r.horas)} × ${eur(a.tarifa)}`,a.mo],
+    ['Material (stock, albaranes y compras)','a coste',matC,`+${a.margen} %`,a.mat]];
+  return {rows,coste:r.total,admin:a.total,dif:a.total-r.total,pct:a.total?(a.total-r.total)/a.total:0}; }
+function vComparativo(r){ const c=comparativo(r); const dif=(x,y)=>`<td class="r num" style="color:var(${y-x>=0?'--ok':'--bad'})">${eur(y-x)}</td>`;
+  return `<section class="panel"><div class="hd"><h2>Comparativo coste / administración</h2><a href="#ajustes" class="muted" style="font-size:13px">Cambiar tarifas</a></div>
+  <div class="tablebox"><table><thead><tr><th>Concepto</th><th class="r">Coste real</th><th class="r">Por administración</th><th class="r">Diferencia</th></tr></thead><tbody>
+  ${c.rows.map(x=>`<tr><td>${x[0]}</td><td class="r num">${eur(x[2])}<div class="muted" style="font-size:12px">${x[1]}</div></td><td class="r num">${eur(x[4])}<div class="muted" style="font-size:12px">${x[3]}</div></td>${dif(x[2],x[4])}</tr>`).join('')}
+  </tbody><tfoot><tr><td>Total (sin IGIC)</td><td class="r num">${eur(c.coste)}</td><td class="r num">${eur(c.admin)}</td>${dif(c.coste,c.admin)}</tr>
+  ${r.pres?`<tr><td>Presupuesto</td><td class="r num">${eur(r.pres)}</td><td class="r num">${eur(r.pres)}</td><td></td></tr><tr><td>Presupuesto − importe</td>${dif(c.coste,r.pres).replace('<td','<td')}<td class="r num" style="color:var(${r.pres-c.admin>=0?'--ok':'--bad'})">${eur(r.pres-c.admin)}</td><td></td></tr>`:''}
+  </tfoot></table></div><div class="bd muted" style="font-size:13px;padding-top:0">Margen por administración: ${eur(c.dif)} (${Math.round(c.pct*100)} % sobre lo facturado).</div></section>`; }
+function obraOptions(sel){ return `<option value="">Elige obra…</option>`+Object.entries(S.obras).sort((a,b)=>a[1].nombre.localeCompare(b[1].nombre)).map(([id,o])=>`<option value="${esc(id)}"${id===sel?' selected':''}>${esc(o.nombre)}</option>`).join(''); }
+
+function vSubir(){
+  return `
+  <div><div class="eyebrow">Entrada de datos</div><h1>Subir partes y albaranes</h1>
+  <p class="muted" style="margin:6px 0 0;max-width:65ch">Arrastra los PDF de los partes diarios y de los albaranes. Los partes se leen al momento. Los albaranes y las fotos los lee Claude y te deja revisar proveedor, número e importe antes de guardar.</p></div>
+  <label class="drop" id="drop" for="fileIn">
+    <strong>Arrastra aquí los PDF o fotos</strong>
+    <span class="muted">o pulsa para elegirlos · puedes subir varios a la vez</span>
+    <input type="file" id="fileIn" accept="application/pdf,image/*" multiple hidden>
+  </label>
+  ${S.cola.length?`<section class="panel"><div class="hd"><h2>Por revisar</h2><div class="row"><button id="clearCola">Descartar todo</button><button class="primary" id="saveAll">Guardar todo</button></div></div><div class="bd" style="display:flex;flex-direction:column;gap:12px">${S.cola.map(colaCard).join('')}</div></section>`:''}
+  <form class="panel" id="formCompra"><div class="hd"><h2>Añadir compra o gasto a mano</h2></div><div class="bd"><div class="row">
+    <label class="f" style="flex:1 1 130px">Fecha<input type="date" id="cFecha" value="${today()}"></label>
+    <label class="f" style="flex:2 1 180px">Obra<select id="cObra" required>${obraOptions('')}</select></label>
+    <label class="f" style="flex:2 1 160px">Proveedor<input id="cProv"></label>
+    <label class="f" style="flex:1 1 120px">Nº factura<input id="cNum"></label>
+    <label class="f" style="flex:3 1 200px">Concepto<input id="cConc"></label>
+    <label class="f" style="flex:1 1 120px">Importe sin impuestos (€)<input type="number" step="0.01" id="cImp" required></label>
+    <button class="primary" type="submit">Añadir compra</button>
+  </div></div></form>`;
+}
+function colaCard(it,i){
+  const head=`<div class="top"><strong>${esc(it.nombre)}</strong><span>${it.estado==='leyendo'?'<span class="pill neutral">Leyendo…</span>':it.estado==='error'?'<span class="pill bad">No se pudo leer</span>':it.kind==='parte'?'<span class="pill ok">Parte diario</span>':'<span class="pill ok">Albarán / factura</span>'} ${it.dup?'<span class="pill warn">Ya estaba guardado: se sobrescribirá</span>':''}</span></div>`;
+  if(it.estado==='leyendo') return `<div class="card">${head}</div>`;
+  if(it.kind==='parte'){ const p=it.data; const c=costeParte({...p,tarifa:tarifa()}); const existe=S.obras[slug(p.obra)];
+    return `<div class="card">${head}
+      <div class="grid2"><div><div class="eyebrow">Obra</div>${esc(p.obra)} ${existe?'':'<span class="pill warn">Obra nueva: se añadirá al directorio</span>'}<div class="muted">${esc(p.cliente)} · ${fdate(p.fecha)}</div></div>
+      <div><div class="eyebrow">Operarios</div>${p.operarios.map(o=>`${esc(o.nombre)} <span class="num">${o.horas}h</span>`).join(' · ')||'—'}<div class="muted num">${hrs(c.horas)} × ${eur(tarifa())} = ${eur(c.mo)}</div></div></div>
+      ${p.material.length||p.devolucion.length||p.albaranes.length?`<div class="muted" style="font-size:13px">${p.material.length?'Material: '+p.material.map(m=>m.cantidad+' '+esc(m.concepto)).join(', ')+'. ':''}${p.devolucion.length?'Devuelto: '+p.devolucion.map(m=>m.cantidad+' '+esc(m.concepto)).join(', ')+'. ':''}${p.albaranes.length?'Albaranes: '+p.albaranes.map(esc).join(', '):''}</div>`:''}
+      <div class="row"><button data-skip="${i}">Descartar</button><button class="primary" data-save="${i}">Guardar parte</button></div></div>`; }
+  if(it.estado==='error') return `<div class="card">${head}<div class="muted">${esc(it.error||'')}</div><div class="row"><button data-skip="${i}">Quitar</button></div></div>`;
+  const g=it.data;
+  return `<div class="card">${head}
+    ${it.aviso?`<div class="notice">${esc(it.aviso)}</div>`:''}
+    <div class="row">
+      <label class="f" style="flex:1 1 110px">Tipo<select data-f="tipo" data-i="${i}"><option value="albaran"${g.tipo!=='compra'?' selected':''}>Albarán</option><option value="compra"${g.tipo==='compra'?' selected':''}>Compra / factura</option></select></label>
+      <label class="f" style="flex:2 1 160px">Proveedor<input data-f="proveedor" data-i="${i}" value="${esc(g.proveedor)}"></label>
+      <label class="f" style="flex:1 1 110px">Número<input data-f="numero" data-i="${i}" value="${esc(g.numero)}"></label>
+      <label class="f" style="flex:1 1 130px">Fecha<input type="date" data-f="fecha" data-i="${i}" value="${esc(g.fecha)}"></label>
+      <label class="f" style="flex:1 1 130px">Importe sin impuestos (€)<input type="number" step="0.01" data-f="importe" data-i="${i}" value="${g.importe??''}"></label>
+      <label class="f" style="flex:2 1 180px">Obra<select data-f="obraId" data-i="${i}">${obraOptions(g.obraId)}</select></label>
+    </div>
+    ${g.concepto?`<div class="muted" style="font-size:13px">${esc(g.concepto)}${g.total?` · Total con impuestos ${eur(g.total)}`:''}${g.obraMencionada?` · Obra que figura en el documento: ${esc(g.obraMencionada)}`:''}</div>`:''}
+    <div class="row"><button data-skip="${i}">Descartar</button><button class="primary" data-save="${i}">Guardar ${g.tipo==='compra'?'compra':'albarán'}</button></div></div>`;
+}
+
+function vPreguntas(){
+  const der=preguntasDerivadas(), ab=preguntasAbiertas();
+  const resp=Object.entries(S.preguntas).filter(([,q])=>q.respuesta).sort((a,b)=>(b[1].respondida||'').localeCompare(a[1].respondida||'')).slice(0,20);
+  const qd=q=>{
+    let ctl='';
+    if(q.tipo==='presupuesto') ctl=`<div class="row"><input type="number" step="0.01" min="0" placeholder="€" id="a_${esc(q.key)}" style="width:160px"><button class="primary" data-ans="${esc(q.key)}">Guardar</button><button data-sinpres="${esc(q.obraId)}">No tiene presupuesto</button></div>`;
+    else if(q.tipo==='precio') ctl=`<div class="row"><input type="number" step="0.0001" min="0" placeholder="€ por unidad" id="a_${esc(q.key)}" style="width:160px"><button class="primary" data-ans="${esc(q.key)}">Guardar</button></div>`;
+    else if(q.tipo==='gastoObra') ctl=`<div class="row"><select id="a_${esc(q.key)}">${obraOptions('')}</select><button class="primary" data-ans="${esc(q.key)}">Asignar</button></div>`;
+    else ctl=`<div class="row"><a href="#subir" class="btn">Subir albarán</a><button data-dismiss="${esc(q.key)}">No hace falta</button></div>`;
+    return `<div class="q" data-q="${esc(q.key)}"><div class="kind"><span class="pill warn">Falta un dato</span></div><strong>${esc(q.texto)}</strong>${q.ayuda?`<span class="muted" style="font-size:14px">${esc(q.ayuda)}</span>`:''}${ctl}</div>`;
+  };
+  const qa=q=>`<div class="q"><div class="kind"><span class="pill ok">Pregunta de Claude</span>${q.obraId&&S.obras[q.obraId]?`<span class="muted" style="font-size:13px">${esc(S.obras[q.obraId].nombre)}</span>`:''}</div><strong>${esc(q.texto)}</strong>${q.contexto?`<span class="muted" style="font-size:14px">${esc(q.contexto)}</span>`:''}
+    <textarea id="r_${esc(q.id)}" placeholder="Tu respuesta"></textarea><div class="row"><button class="primary" data-resp="${esc(q.id)}">Responder</button></div></div>`;
+  return `
+  <div><div class="eyebrow">Para completar los costes</div><h1>Preguntas</h1>
+  <p class="muted" style="margin:6px 0 0;max-width:65ch">Aquí aparece lo que falta para calcular bien cada obra, y las preguntas que te deja Claude. Responde aquí mismo: los datos se aplican al momento y Claude lee tus respuestas.</p></div>
+  <section class="panel"><div class="hd"><h2>Pendientes</h2><span class="muted">${der.length+ab.length}</span></div>
+    ${der.length+ab.length?ab.map(qa).join('')+der.map(qd).join(''):`<div class="empty">No hay nada pendiente. Todo cuadra.</div>`}
+  </section>
+  ${resp.length?`<section class="panel"><div class="hd"><h2>Respondidas</h2></div>${resp.map(([,q])=>`<div class="q"><strong>${esc(q.texto)}</strong><span>${esc(q.respuesta)}</span></div>`).join('')}</section>`:''}`;
+}
+
+function vAjustes(){
+  const precios=Object.entries(S.precios).sort((a,b)=>(a[1].concepto||'').localeCompare(b[1].concepto||''));
+  return `
+  <div><div class="eyebrow">Tablas de coste</div><h1>Precios y tarifa</h1></div>
+  <section class="panel"><div class="hd"><h2>Mano de obra</h2></div><div class="bd"><div class="row">
+    <label class="f">Coste por hora de operario (€)<input type="number" step="0.01" min="0" id="tarifa" value="${tarifa()}" style="width:140px"></label>
+    <label class="f">Por administración: mano de obra (€/h)<input type="number" step="0.01" min="0" id="tarifaAdmin" value="${Number(S.config.tarifaAdmin)||0}" style="width:140px"></label>
+    <label class="f">Por administración: recargo material (%)<input type="number" step="0.1" min="0" id="margenMaterial" value="${Number(S.config.margenMaterial)||0}" style="width:140px"></label>
+    <button class="primary" id="saveTarifa">Guardar tarifas</button></div>
+    <p class="muted" style="font-size:13px;margin:10px 0 0">Cada parte guarda la tarifa vigente el día que se sube, así un cambio de tarifa no altera los costes ya registrados.</p></div></section>
+  <section class="panel"><div class="hd"><h2>Material de stock</h2><span class="muted">precio de coste por unidad</span></div>
+    <div class="bd"><form class="row" id="formPrecio">
+      <label class="f" style="flex:3 1 220px">Material / concepto<input id="pConc" required placeholder="Tubo corrugado 20 mm (m)"></label>
+      <label class="f" style="flex:1 1 120px">Precio (€)<input id="pPrecio" type="number" step="0.0001" min="0" required></label>
+      <button class="primary" type="submit">Añadir</button></form></div>
+    ${precios.length?`<div class="tablebox"><table><thead><tr><th>Material</th><th class="r">Precio</th><th></th></tr></thead><tbody>${precios.map(([k,p])=>`<tr><td>${esc(p.concepto)}</td><td class="r num">${eur(p.precio)}</td><td class="r"><button class="link" data-delprecio="${esc(k)}">Borrar</button></td></tr>`).join('')}</tbody></table></div>`:`<div class="empty">Aún no hay precios. Cuando un parte traiga material de stock, te preguntaré su precio.</div>`}
+  </section>`;
+}
+
+/* ---------- acciones ---------- */
+async function w(fn,ok){ if(!db){ toast('No se puede guardar sin conexión con tu cuenta.'); return false; } try{ await fn(); if(ok) toast(ok); return true; }catch(e){ toast('No se ha guardado: '+(e?.message||e?.code||'error')); return false; } }
+async function ensureObra(nombre,cliente){
+  const id=slug(nombre);
+  if(!S.obras[id]){ const o={nombre:nombre.trim(),cliente:(cliente||'').trim(),estado:'activa',creada:new Date().toISOString()}; await db.doc('obras/'+id).set(o); S.obras[id]=o; }
+  else if(cliente && !S.obras[id].cliente){ await db.doc('obras/'+id).update({cliente}); }
+  return id;
+}
+function parteId(p){ return slug(`${p.fecha}-${p.obra}-${p.operarios.map(o=>o.nombre).sort().join('-')}`); }
+const GENERICAS=new Set(['edif','edificio','obra','obras','calle','viviendas','vivienda','reforma','nave','local','casa']);
+function obraPorReferencia(ref){ const r=norm(ref); const hits=Object.entries(S.obras).filter(([,o])=>{ const t=norm(o.nombre).split(/[^a-z0-9]+/).filter(w=>w.length>=4&&!GENERICAS.has(w)); return t.length&&t.every(w=>r.includes(w)); }); return hits.length===1?hits[0][0]:''; }
+function obraPorAlbaran(numero){ const n=norm(numero); if(!n) return ''; const p=Object.values(S.partes).find(p=>(p.albaranes||[]).some(a=>norm(a)===n)); return p?.obraId||''; }
+
+async function saveCola(i){
+  const it=S.cola[i]; if(!it||it.estado!=='listo') return;
+  if(it.kind==='parte'){
+    const p=it.data;
+    const ok=await w(async()=>{
+      const obraId=await ensureObra(p.obra,p.cliente);
+      let archivo=null; if(assets&&it.file){ try{ archivo=(await assets.upload(it.file)).id; }catch(e){} }
+      const doc={fecha:p.fecha,obraId,obraNombre:p.obra,cliente:p.cliente,operarios:p.operarios,albaranes:p.albaranes,material:p.material,devolucion:p.devolucion,trabajos:p.trabajos,estado:p.estado,tarifa:tarifa(),archivoNombre:it.nombre,subido:new Date().toISOString()};
+      if(archivo) doc.archivo=archivo;
+      await db.doc('partes/'+parteId(p)).set(doc);
+    },'Parte guardado');
+    if(ok){ S.cola.splice(i,1); render(); }
+  } else {
+    const g=it.data;
+    if(g.importe===''||g.importe==null||isNaN(Number(g.importe))){ toast('Falta el importe.'); return; }
+    const ok=await w(async()=>{
+      let archivo=null; if(assets&&it.file){ try{ archivo=(await assets.upload(it.file)).id; }catch(e){} }
+      const doc={tipo:g.tipo==='compra'?'compra':'albaran',proveedor:g.proveedor||'',numero:g.numero||'',fecha:g.fecha||today(),importe:Number(g.importe),total:g.total??null,concepto:g.concepto||'',obraId:g.obraId||'',obraMencionada:g.obraMencionada||'',lineas:(g.lineas||[]).slice(0,60),archivoNombre:it.nombre,subido:new Date().toISOString()};
+      if(archivo) doc.archivo=archivo;
+      const id=g.numero?slug(`${g.proveedor||'prov'}-${g.numero}`):null;
+      if(id) await db.doc('gastos/'+id).set(doc); else await db.collection('gastos').add(doc);
+    }, g.obraId?'Guardado e imputado a la obra':'Guardado. Falta elegir obra: te lo pregunto en «Preguntas»');
+    if(ok){ S.cola.splice(i,1); render(); }
+  }
+}
+
+async function leerArchivo(file){
+  const it={nombre:file.name,file,estado:'leyendo'}; S.cola.push(it); render();
+  try{
+    let lines=[], pdf=null, img=null;
+    if(file.type==='application/pdf'||/\.pdf$/i.test(file.name)){
+      if(!window.pdfjsLib) throw new Error('No se pudo cargar el lector de PDF.');
+      pdf=await pdfjsLib.getDocument({data:new Uint8Array(await file.arrayBuffer())}).promise;
+      lines=await pdfLines(pdf);
+      const parte=parseParte(lines);
+      if(parte){
+        it.kind='parte'; it.data=parte; it.estado='listo';
+        if(!parte.obra||!parte.fecha){ it.estado='error'; it.error='Parece un parte, pero no encuentro la fecha o la obra.'; }
+        it.dup=!!S.partes[parteId(parte)];
+        return;
+      }
+    } else if(file.type.startsWith('image/')) img=file;
+    it.kind='gasto';
+    const texto=lines.map(c=>c.join(' | ')).join('\n').slice(0,24000);
+    const base={tipo:'albaran',proveedor:'',numero:'',fecha:today(),importe:'',obraId:''};
+    if(!sample){ it.data=base; it.estado='listo'; it.aviso='La lectura automática no está disponible aquí: rellena los datos a mano.'; return; }
+    if(!texto.trim()){
+      if(pdf&&!img){ try{ img=await renderPdfImage(pdf); }catch(e){} }
+      const lim=await sample.limits().catch(()=>({}));
+      if(!img||!lim.images){ it.data=base; it.estado='listo'; it.aviso='Este documento no tiene texto legible (parece escaneado). Rellena los datos a mano.'; return; }
+    }
+    const obras=Object.values(S.obras).map(o=>o.nombre).join('; ');
+    const prompt=`Eres un asistente de una empresa de instalaciones eléctricas en Canarias. Extrae los datos de este documento de proveedor (albarán de entrega o factura de compra).
+Devuelve SOLO un objeto JSON con estas claves:
+{"tipo":"albaran" o "compra" (compra si es factura o ticket),"proveedor":nombre comercial del proveedor que emite el documento,"numero":número del albarán o factura,"fecha":"AAAA-MM-DD","base":importe total SIN impuestos (IGIC/IVA) como número o null,"total":importe total CON impuestos como número o null,"obra":referencia de obra, de cliente o dirección de entrega que aparezca, o "","obra_conocida":si esa referencia corresponde a una de las obras conocidas, su nombre EXACTO tal como aparece en la lista; si no, "","concepto":resumen de lo suministrado en menos de 12 palabras,"lineas":[{"articulo":código o referencia del artículo o "","concepto":descripción,"cantidad":número,"precio":precio unitario neto (tras descuento) o null,"importe":importe de la línea sin impuestos o null}]}
+Incluye TODAS las líneas de artículos del documento.
+Si un dato no aparece, usa "" o null. Los números con punto decimal, sin símbolo de moneda.
+Obras conocidas: ${obras||'ninguna'}.
+${texto.trim()?'Texto del documento (columnas separadas por |):\n'+texto:'El documento va en la imagen adjunta.'}`;
+    const res=await sample.json(prompt,{modelTier:'default',images:texto.trim()?undefined:[img]});
+    const num=v=>{ if(v==null||v==='') return null; const n=typeof v==='number'?v:parseFloat(String(v).replace(/[^\d,.-]/g,'').replace(/\.(?=\d{3}(\D|$))/g,'').replace(',','.')); return isNaN(n)?null:n; };
+    const base2=num(res.base), total=num(res.total);
+    const numero=String(res.numero||'').trim();
+    let obraId=obraPorAlbaran(numero);
+    if(!obraId&&res.obra_conocida&&S.obras[slug(res.obra_conocida)]) obraId=slug(res.obra_conocida);
+    if(!obraId&&res.obra) obraId=obraPorReferencia(res.obra);
+    it.data={tipo:res.tipo==='compra'?'compra':'albaran',proveedor:String(res.proveedor||''),numero,fecha:/^\d{4}-\d{2}-\d{2}$/.test(res.fecha||'')?res.fecha:today(),importe:base2??total??'',total,concepto:String(res.concepto||''),obraMencionada:String(res.obra||''),lineas:Array.isArray(res.lineas)?res.lineas:[],obraId};
+    if(base2==null&&total!=null) it.aviso='Solo encuentro el total con impuestos. Revisa el importe y pon la base imponible si la tienes.';
+    it.dup=!!(numero&&S.gastos[slug(`${it.data.proveedor||'prov'}-${numero}`)]);
+    it.estado='listo';
+  }catch(e){
+    if(it.kind==='gasto'&&!it.data){ it.data={tipo:'albaran',proveedor:'',numero:'',fecha:today(),importe:'',obraId:''}; it.estado='listo'; it.aviso='No he podido leerlo automáticamente ('+(e?.message||e?.code||'error')+'). Rellena los datos a mano.'; }
+    else { it.estado='error'; it.error=e?.message||String(e); }
+  }finally{ render(); }
+}
+
+function bind(r){
+  document.querySelectorAll('[data-vista]').forEach(b=>b.onclick=()=>{ S.vista=b.dataset.vista; try{ localStorage.setItem('vista',S.vista); }catch(e){} render(); });
+  document.querySelectorAll('[data-xls]').forEach(b=>b.onclick=()=>exportar('xlsx',b.dataset.xls,b));
+  document.querySelectorAll('[data-pdf]').forEach(b=>b.onclick=()=>exportar('pdf',b.dataset.pdf,b));
+  document.querySelectorAll('[data-go]').forEach(el=>el.addEventListener('click',()=>location.hash=el.dataset.go));
+  const bn=$('#btnNueva'); if(bn) bn.onclick=()=>{ const f=$('#formNueva'); f.hidden=!f.hidden; if(!f.hidden) $('#nNombre').focus(); };
+  const fn=$('#formNueva'); if(fn) fn.onsubmit=async e=>{ e.preventDefault(); const n=$('#nNombre').value.trim(); if(!n) return; const pres=$('#nPres').value;
+    await w(async()=>{ const id=await ensureObra(n,$('#nCliente').value); if(pres!=='') await db.doc('obras/'+id).update({presupuesto:Number(pres)}); },'Obra creada'); };
+  if(r.v==='obra'){
+    $('#oGuardar')?.addEventListener('click',()=>{ const v=$('#oPres').value; w(()=>db.doc('obras/'+r.id).update({presupuesto:v===''?null:Number(v),estado:$('#oEstado').value,sinPresupuesto:false}),'Obra actualizada'); });
+    document.querySelectorAll('[data-delparte]').forEach(b=>b.onclick=()=>confirmar(b,()=>w(()=>db.doc('partes/'+b.dataset.delparte).delete(),'Parte borrado')));
+    document.querySelectorAll('[data-delgasto]').forEach(b=>b.onclick=()=>confirmar(b,()=>w(()=>db.doc('gastos/'+b.dataset.delgasto).delete(),'Borrado')));
+  }
+  if(r.v==='subir'){
+    const drop=$('#drop'), fi=$('#fileIn');
+    fi.onchange=()=>{ [...fi.files].forEach(leerArchivo); fi.value=''; };
+    ['dragenter','dragover'].forEach(ev=>drop.addEventListener(ev,e=>{e.preventDefault();drop.classList.add('over');}));
+    ['dragleave','drop'].forEach(ev=>drop.addEventListener(ev,e=>{e.preventDefault();drop.classList.remove('over');}));
+    drop.addEventListener('drop',e=>[...e.dataTransfer.files].forEach(leerArchivo));
+    document.querySelectorAll('[data-f]').forEach(el=>el.addEventListener('change',()=>{ const it=S.cola[+el.dataset.i]; if(it) it.data[el.dataset.f]=el.value; if(el.dataset.f==='tipo') render(); }));
+    document.querySelectorAll('[data-skip]').forEach(b=>b.onclick=()=>{ S.cola.splice(+b.dataset.skip,1); render(); });
+    document.querySelectorAll('[data-save]').forEach(b=>b.onclick=()=>{ b.disabled=true; saveCola(+b.dataset.save); });
+    $('#saveAll')?.addEventListener('click',async e=>{ e.target.disabled=true; for(let i=S.cola.length-1;i>=0;i--) if(S.cola[i].estado==='listo') await saveCola(i); render(); });
+    $('#clearCola')?.addEventListener('click',()=>{ S.cola=[]; render(); });
+    $('#formCompra').onsubmit=async e=>{ e.preventDefault();
+      const doc={tipo:'compra',fecha:$('#cFecha').value||today(),obraId:$('#cObra').value,proveedor:$('#cProv').value.trim(),numero:$('#cNum').value.trim(),concepto:$('#cConc').value.trim(),importe:Number($('#cImp').value),subido:new Date().toISOString()};
+      await w(()=>db.collection('gastos').add(doc),'Compra añadida'); };
+  }
+  if(r.v==='preguntas'){
+    const der=Object.fromEntries(preguntasDerivadas().map(q=>[q.key,q]));
+    document.querySelectorAll('[data-ans]').forEach(b=>b.onclick=async()=>{ const q=der[b.dataset.ans]; const el=document.getElementById('a_'+q.key); const v=el.value; if(v==='') { el.focus(); return; }
+      if(q.tipo==='presupuesto') await w(()=>db.doc('obras/'+q.obraId).update({presupuesto:Number(v)}),'Presupuesto guardado');
+      else if(q.tipo==='precio') await w(()=>db.doc('precios/'+slug(q.concepto)).set({concepto:q.concepto,precio:Number(v)}),'Precio guardado');
+      else if(q.tipo==='gastoObra') await w(()=>db.doc('gastos/'+q.gastoId).update({obraId:v}),'Asignado a la obra'); });
+    document.querySelectorAll('[data-sinpres]').forEach(b=>b.onclick=()=>w(()=>db.doc('obras/'+b.dataset.sinpres).update({sinPresupuesto:true}),'Anotado'));
+    document.querySelectorAll('[data-dismiss]').forEach(b=>b.onclick=()=>w(()=>db.doc('config/general').set({...S.config,descartadas:[...(S.config.descartadas||[]),b.dataset.dismiss]}),'Anotado'));
+    document.querySelectorAll('[data-resp]').forEach(b=>b.onclick=()=>{ const t=document.getElementById('r_'+b.dataset.resp).value.trim(); if(!t) return; w(()=>db.doc('preguntas/'+b.dataset.resp).update({respuesta:t,respondida:new Date().toISOString()}),'Respuesta enviada'); });
+  }
+  if(r.v==='ajustes'){
+    $('#saveTarifa').onclick=()=>w(()=>db.doc('config/general').set({...S.config,tarifaHora:Number($('#tarifa').value),tarifaAdmin:Number($('#tarifaAdmin').value),margenMaterial:Number($('#margenMaterial').value)}),'Tarifas guardadas');
+    $('#formPrecio').onsubmit=e=>{ e.preventDefault(); const c=$('#pConc').value.trim(); w(()=>db.doc('precios/'+slug(c)).set({concepto:c,precio:Number($('#pPrecio').value)}),'Precio añadido'); };
+    document.querySelectorAll('[data-delprecio]').forEach(b=>b.onclick=()=>confirmar(b,()=>w(()=>db.doc('precios/'+b.dataset.delprecio).delete(),'Precio borrado')));
+  }
+}
+/* ---------- exportación ---------- */
+const r2=n=>Math.round((Number(n)||0)*100)/100;
+function filasExport(ids){
+  const obras=ids.map(id=>({id,o:S.obras[id],r:resumenObra(id)}));
+  const resumen=obras.map(({o,r})=>({'Obra':o.nombre,'Cliente':o.cliente||'','Estado':o.estado==='cerrada'?'Cerrada':'Activa','Cálculo':r.esAdmin?'Administración':'Coste','Horas':r2(r.horas),'Mano de obra (coste)':r2(r.mo),'Material stock':r2(r.material),'Albaranes':r2(r.albaranes),'Compras':r2(r.compras),'Coste total':r2(r.total),'Presupuesto':r.pres||'','Mano de obra (administración)':r2(r.admin.mo),'Material (administración)':r2(r.admin.mat),'Total por administración':r2(r.admin.total),'Diferencia administración − coste':r2(r.admin.beneficio),'Presupuesto − coste':r.pres?r2(r.pres-r.total):''}));
+  const partes=[]; const gastos=[]; const material=[];
+  obras.forEach(({o,r})=>{
+    r.partes.slice().reverse().forEach(p=>{ const c=costeParte(p); (p.operarios||[]).forEach(op=>partes.push({'Fecha':fdate(p.fecha),'Obra':o.nombre,'Operario':op.nombre,'Horas':Number(op.horas)||0,'Tarifa €/h':c.tarifa,'Coste':r2((Number(op.horas)||0)*c.tarifa),'Trabajos':(p.trabajos||[]).join(' / ')})); });
+    r.gastos.slice().reverse().forEach(g=>gastos.push({'Fecha':fdate(g.fecha),'Obra':o.nombre,'Tipo':g.tipo==='compra'?'Compra':'Albarán','Proveedor':g.proveedor||'','Número':g.numero||'','Concepto':g.concepto||'','Importe sin IGIC':r2(g.importe),'Total con IGIC':g.total!=null?r2(g.total):''}));
+  });
+  obras.forEach(({o,r})=>{ const k=1+(Number(S.config.margenMaterial)||0)/100; materialDetalle(r).forEach(x=>{ const row={'Obra':o.nombre,'Artículo':x.articulo,'Descripción':x.concepto,'Cantidad':r2(x.cantidad*1000)/1000,'Precio':x.precio==null?'':Math.round(x.precio*10000)/10000,'Importe':x.sinPrecio?'':r2(x.importe)}; row['Por administración']=x.sinPrecio?'':r2(x.importe*k); row['Origen']=x.origen; material.push(row); }); });
+  return {obras,resumen,partes,gastos,material};
+}
+async function guardarArchivo(filename,data){
+  if(!downloads){ toast('La descarga no está disponible en esta vista.'); return; }
+  try{ await downloads.save({filename,data}); toast('Archivo listo: '+filename); }
+  catch(e){ if(e?.code!=='declined') toast('No se ha podido descargar: '+(e?.message||e?.code||'error')); }
+}
+async function exportar(fmt,obraId,btn){
+  const ids=obraId?[obraId]:Object.keys(S.obras).sort((a,b)=>S.obras[a].nombre.localeCompare(S.obras[b].nombre));
+  if(!ids.length){ toast('No hay obras que exportar.'); return; }
+  const base=(obraId?slug(S.obras[obraId].nombre):'obras')+'-'+today();
+  const d=filasExport(ids);
+  if(btn) btn.disabled=true;
+  try{
+    if(fmt==='xlsx'){
+      if(!window.XLSX){ toast('No se pudo cargar el generador de Excel.'); return; }
+      const wb=XLSX.utils.book_new();
+      const add=(rows,name,cols)=>{ const ws=XLSX.utils.json_to_sheet(rows.length?rows:[{}]); ws['!cols']=cols.map(w=>({wch:w})); XLSX.utils.book_append_sheet(wb,ws,name); };
+      add(d.resumen,'Resumen',[28,26,10,16,8,14,12,12,12,12,12,16,12]);
+      const comp=[]; d.obras.forEach(({o,r})=>{ const c=comparativo(r); c.rows.forEach(x=>comp.push({'Obra':o.nombre,'Concepto':x[0],'Coste real':r2(x[2]),'Base coste':x[1],'Por administración':r2(x[4]),'Base administración':x[3],'Diferencia':r2(x[4]-x[2])})); comp.push({'Obra':o.nombre,'Concepto':'TOTAL','Coste real':r2(c.coste),'Base coste':'','Por administración':r2(c.admin),'Base administración':'','Diferencia':r2(c.dif)}); });
+      add(comp,'Comparativo',[24,36,12,18,16,18,12]);
+      add(d.partes,'Horas',[11,24,16,7,10,10,60]);
+      add(d.material,'Material',[24,16,46,10,10,12,12,26]);
+      add(d.gastos,'Albaranes y compras',[11,24,9,22,18,40,14,14]);
+      const out=XLSX.write(wb,{bookType:'xlsx',type:'array'});
+      await guardarArchivo(base+'.xlsx',new Blob([out],{type:'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'}));
+    } else {
+      const J=window.jspdf?.jsPDF; if(!J){ toast('No se pudo cargar el generador de PDF.'); return; }
+      const doc=new J({orientation:obraId?'portrait':'landscape',unit:'mm',format:'a4'});
+      const W=doc.internal.pageSize.getWidth(); const navy=[27,58,92];
+      doc.setFillColor(...navy); doc.rect(0,0,W,22,'F'); doc.setTextColor(255); doc.setFont('helvetica','bold'); doc.setFontSize(15);
+      doc.text(obraId?S.obras[obraId].nombre:'Control de obras',12,14);
+      doc.setFont('helvetica','normal'); doc.setFontSize(9); doc.text('Instapalma · '+fdate(today()),W-12,14,{align:'right'});
+      doc.setTextColor(20); let y=30;
+      const tbl=(head,body,opts={})=>{ doc.autoTable({startY:y,head:[head],body,theme:'grid',styles:{fontSize:8,cellPadding:1.6},headStyles:{fillColor:navy,textColor:255},margin:{left:12,right:12},...opts}); y=doc.lastAutoTable.finalY+8; };
+      const h2=t=>{ if(y>doc.internal.pageSize.getHeight()-30){ doc.addPage(); y=18; } doc.setFont('helvetica','bold'); doc.setFontSize(11); doc.text(t,12,y); doc.setFont('helvetica','normal'); y+=3; };
+      const num={halign:'right'};
+      if(obraId){
+        const {o,r}=d.obras[0];
+        doc.setFontSize(10); doc.text(`Cliente: ${o.cliente||'—'}    Cálculo: ${r.esAdmin?'Por administración':'A coste'}`,12,y); y+=6;
+        h2('Resumen de costes');
+        tbl(['Concepto','Importe'],[['Mano de obra ('+hrs(r.horas)+')',eur(r.mo)],['Material de stock',eur(r.material)],['Albaranes',eur(r.albaranes)],['Compras',eur(r.compras)],['Coste total',eur(r.total)],...(r.pres?[['Presupuesto',eur(r.pres)],['Diferencia',eur(r.pres-r.total)]]:[])],{columnStyles:{1:num}});
+        { const c=comparativo(r); h2('Comparativo coste / administración');
+          tbl(['Concepto','Coste real','Por administración','Diferencia'],[...c.rows.map(x=>[x[0],eur(x[2])+'\n'+x[1],eur(x[4])+'\n'+x[3],eur(x[4]-x[2])]),[{content:'Total (sin IGIC)',styles:{fontStyle:'bold'}},{content:eur(c.coste),styles:{fontStyle:'bold'}},{content:eur(c.admin),styles:{fontStyle:'bold'}},{content:eur(c.dif),styles:{fontStyle:'bold'}}]],{columnStyles:{1:num,2:num,3:num}}); }
+        h2('Partes diarios');
+        tbl(['Fecha','Operarios','Horas','Trabajos'],r.partes.slice().reverse().map(p=>[fdate(p.fecha),(p.operarios||[]).map(x=>`${x.nombre} ${x.horas}h`).join(', '),hrs(costeParte(p).horas),(p.trabajos||[]).join(' / ')]),{columnStyles:{2:num}});
+        { const md=materialDetalle(r); const k=1+(Number(S.config.margenMaterial)||0)/100; const tot=md.reduce((a,x)=>a+x.importe,0);
+          h2('Material por artículo');
+          tbl(['Artículo','Descripción','Cant.','Precio','Importe','Por administración'],[...md.map(x=>[x.articulo||'—',x.concepto,fq(x.cantidad),fp(x.precio),x.sinPrecio?'Sin precio':eur(x.importe),eur(x.importe*k)]),[{content:'Total material',colSpan:4,styles:{fontStyle:'bold'}},{content:eur(tot),styles:{fontStyle:'bold'}},{content:eur(tot*k),styles:{fontStyle:'bold'}}]],{columnStyles:{0:{cellWidth:24},2:num,3:num,4:num,5:num}}); }
+        h2('Albaranes y compras');
+        tbl(['Fecha','Tipo','Proveedor','Número','Concepto','Importe'],r.gastos.slice().reverse().map(g=>[fdate(g.fecha),g.tipo==='compra'?'Compra':'Albarán',g.proveedor||'',g.numero||'',g.concepto||'',eur(g.importe)]),{columnStyles:{5:num}});
+      } else {
+        h2('Coste por obra');
+        tbl(['Obra','Cliente','Horas','Mano de obra','Material','Albaranes y compras','Coste total','Por administración','Diferencia','Presupuesto'],d.obras.map(({o,r})=>[o.nombre,o.cliente||'',hrs(r.horas),eur(r.mo),eur(r.material),eur(r.albaranes+r.compras),eur(r.total),eur(r.admin.total),eur(r.admin.beneficio),r.pres?eur(r.pres):'—']),{columnStyles:{2:num,3:num,4:num,5:num,6:num,7:num,8:num,9:num}});
+      }
+      const pages=doc.internal.getNumberOfPages();
+      for(let i=1;i<=pages;i++){ doc.setPage(i); doc.setFontSize(8); doc.setTextColor(120); doc.text(`Importes sin IGIC · Página ${i} de ${pages}`,W/2,doc.internal.pageSize.getHeight()-8,{align:'center'}); }
+      await guardarArchivo(base+'.pdf',doc.output('arraybuffer'));
+    }
+  } finally { if(btn) btn.disabled=false; }
+}
+function confirmar(btn,fn){ if(btn.dataset.armed){ fn(); return; } btn.dataset.armed='1'; const t=btn.textContent; btn.textContent='¿Seguro? Pulsa otra vez'; setTimeout(()=>{ if(btn.isConnected){ btn.textContent=t; delete btn.dataset.armed; } },3000); }
+
+/* ---------- arranque ---------- */
+window.addEventListener('hashchange',render);
+render();
+(async()=>{
+  if(!window.claude?.use){ S.dbOk=false; S.ready=true; render(); return; }
+  [db,sample,assets,downloads]=await Promise.all([claude.use('db'),claude.use('sample').catch(()=>null),claude.use('assets').catch(()=>null),claude.use('downloads').catch(()=>null)]);
+  if(!db){ S.dbOk=false; S.ready=true; render(); return; }
+  S.dbOk=true;
+  const pending=new Set(['obras','partes','gastos','precios','preguntas','config']);
+  const done=k=>{ if(pending.delete(k)&&!pending.size){ S.ready=true; } render(); };
+  ['obras','partes','gastos','precios','preguntas'].forEach(col=>{
+    db.collection(col).onSnapshot(snap=>{ const m={}; snap.docs.forEach(d=>{ m[d.id]={...d.data(),_id:d.id}; }); S[col]=m; done(col); }, ()=>done(col));
+  });
+  db.doc('config/general').onSnapshot(s=>{ S.config={tarifaHora:17,tarifaAdmin:25,margenMaterial:35,descartadas:[],...(s.exists?s.data():{})}; done('config'); }, ()=>done('config'));
+})();
+})();
+</script>
+
+</body></html>

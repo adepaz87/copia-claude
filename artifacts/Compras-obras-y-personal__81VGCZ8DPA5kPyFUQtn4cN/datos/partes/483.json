@@ -1,0 +1,17 @@
+{
+  "albs": [],
+  "cliente": "CABILDO",
+  "desc": "Recuento de material y replanteo de la estructura.\n\nArmar estructura fotovoltaica y fijar al techo.\n\nSubir paneles a la cubierta.\n\nColocar paneles en la estructura y fijarlos.",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-09-16",
+  "horas": 8,
+  "obra": "FV. CECOPIN",
+  "ops": [
+    {
+      "h": 8,
+      "n": "Jorge"
+    }
+  ],
+  "stock": []
+}

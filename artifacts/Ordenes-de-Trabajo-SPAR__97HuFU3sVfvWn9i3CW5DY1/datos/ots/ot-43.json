@@ -1,0 +1,19 @@
+{
+  "actualizada": "2026-07-16T09:00:00Z",
+  "aviso": "",
+  "centro": "SPAR San Antonio",
+  "creada": "2026-07-16T09:00:00Z",
+  "descripcion": "Revisión de la UPS tras un apagón que dejó los ordenadores sin respaldo.",
+  "estado": "terminada",
+  "fechaAviso": "2026-07-16",
+  "historial": [
+    "16/07/2026 · Importada del correo de Alberto"
+  ],
+  "informado": true,
+  "notas": "Resuelta (correo 16/07/2026).",
+  "operario": "",
+  "ot": 43,
+  "prioridad": "Sin especificar",
+  "solicitante": "",
+  "tipo": "MANTENIMIENTO"
+}

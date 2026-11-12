@@ -1,0 +1,17 @@
+{
+  "albs": [],
+  "cliente": "TOMÁS BARRETO SA",
+  "desc": "Avería en tomas de Office. Reposición. Verificado. Funcionando",
+  "devol": [],
+  "estado": "TERMINADO",
+  "fecha": "2026-09-01",
+  "horas": 1.5,
+  "obra": "SPAR EL PASO",
+  "ops": [
+    {
+      "h": 1.5,
+      "n": "Toño"
+    }
+  ],
+  "stock": []
+}

@@ -1,0 +1,17 @@
+{
+  "albs": [],
+  "cliente": "COVALLE",
+  "desc": "No",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-10-13",
+  "horas": 6,
+  "obra": "CUADRO",
+  "ops": [
+    {
+      "h": 6,
+      "n": "Goyo"
+    }
+  ],
+  "stock": []
+}

@@ -1,0 +1,24 @@
+{
+  "albs": [
+    "El sastre 26/1-3064",
+    "Bolsa de aguas 312.613.834"
+  ],
+  "cliente": "CHICHO 2 TUMBOS",
+  "desc": "En planta 2 y 3: Preparación del tubo extracción del aire y colocación de extractores de aire y conexionado",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-09-03",
+  "horas": 16,
+  "obra": "EDIFICIO SABINO",
+  "ops": [
+    {
+      "h": 8,
+      "n": "Junior"
+    },
+    {
+      "h": 8,
+      "n": "Rafa"
+    }
+  ],
+  "stock": []
+}

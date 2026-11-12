@@ -1,0 +1,12 @@
+{
+  "cap": "02",
+  "cod": "02.01",
+  "desc": "Corte de solera con radial, apertura de zanja y reposición de solera de hormigón HM-20 tras la instalación.",
+  "med": 25,
+  "nota": "Trazado baño, aseo, cocina y cuarto de limpieza hasta acometida",
+  "orden": 1,
+  "pre": 38,
+  "rev": true,
+  "sb": false,
+  "ud": "ml"
+}

@@ -1,0 +1,24 @@
+{
+  "albs": [],
+  "cliente": "COVALLE",
+  "desc": "Entubar, colocar cajas registro, abrir huecos en pladur para mecanismo en oficinas planta alta. Limpiar zonas de trabajo",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-11-10",
+  "horas": 14.5,
+  "id": "941",
+  "obra": "NAVE COOPERATIVA COVALLE",
+  "ops": [
+    {
+      "h": 8,
+      "n": "Petter"
+    },
+    {
+      "h": 6.5,
+      "n": "Jonathan Rodríguez"
+    }
+  ],
+  "origen": "dashboard",
+  "restante": "Indefinido",
+  "stock": []
+}

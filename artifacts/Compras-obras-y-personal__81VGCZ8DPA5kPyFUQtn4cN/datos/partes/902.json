@@ -1,0 +1,29 @@
+{
+  "albs": [],
+  "cliente": "CONSTRUCCIONES DOS TUMBOS",
+  "desc": "Darle servicio andamio eléctrico (trabajos fachada). Colocación cajas mecanismo. Enhebrar en habitación primera planta. Desmontar toma de corriente vieja en pared (nueva puerta entrada)",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-11-05",
+  "horas": 8,
+  "id": "902",
+  "obra": "RESIDENCIA TERCERA EDAD EL PASO",
+  "ops": [
+    {
+      "h": 2.5,
+      "n": "Petter"
+    },
+    {
+      "h": 5.5,
+      "n": "Jonathan Rodríguez"
+    }
+  ],
+  "origen": "dashboard",
+  "stock": [
+    {
+      "d": "Diferencial 4x40 30mA Schneider",
+      "q": 1,
+      "u": ""
+    }
+  ]
+}

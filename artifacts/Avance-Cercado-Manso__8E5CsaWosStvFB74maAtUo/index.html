@@ -1,0 +1,250 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Avance Cercado Manso</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&family=Barlow+Semi+Condensed:wght@500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: parte de seguimiento; cifras de plazo e importe, Gantt previsto frente a ejecutado, tabla por actividad, reparto mensual de lo pendiente y observaciones */
+:root{
+  --bg:#f2f5f8; --paper:#fbfcfd; --ink:#15202b; --muted:#566373; --line:#d5dde6; --line2:#e6ebf1;
+  --accent:#1f5f99; --accent-soft:#d6e4f2;
+  --civil:#a8742c; --civil-soft:#efe1c9; --mt:#1f5f99; --mt-soft:#d3e2f1; --sys:#5f7068; --sys-soft:#dde4e0;
+  --ok:#2d7a4b; --ok-bg:#dcefe3; --bad:#b23a2a; --bad-bg:#f6dcd7; --warn:#93600a; --warn-bg:#f8ecd3; --idle-bg:#e7ebf0;
+  --f-display:"Barlow Semi Condensed","Arial Narrow",sans-serif;
+  --f-body:"Barlow",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --f-mono:"JetBrains Mono",ui-monospace,Menlo,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0f161d; --paper:#151e27; --ink:#e3e9ef; --muted:#98a6b5; --line:#2a3744; --line2:#202b36;
+  --accent:#6aa8de; --accent-soft:#1d3349;
+  --civil:#d9a65a; --civil-soft:#43341f; --mt:#6aa8de; --mt-soft:#1d3349; --sys:#9db2a7; --sys-soft:#27322d;
+  --ok:#6cc690; --ok-bg:#183326; --bad:#f07b69; --bad-bg:#3d1d18; --warn:#eab45a; --warn-bg:#3a2c12; --idle-bg:#222d38; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0f161d; --paper:#151e27; --ink:#e3e9ef; --muted:#98a6b5; --line:#2a3744; --line2:#202b36;
+  --accent:#6aa8de; --accent-soft:#1d3349;
+  --civil:#d9a65a; --civil-soft:#43341f; --mt:#6aa8de; --mt-soft:#1d3349; --sys:#9db2a7; --sys-soft:#27322d;
+  --ok:#6cc690; --ok-bg:#183326; --bad:#f07b69; --bad-bg:#3d1d18; --warn:#eab45a; --warn-bg:#3a2c12; --idle-bg:#222d38; color-scheme:dark}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:15px;line-height:1.5}
+.wrap{max-width:1240px;margin:0 auto;padding-block:28px 56px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:grid;gap:30px}
+header{display:grid;gap:8px}
+.eyebrow{font-family:var(--f-mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+h1{font-family:var(--f-display);font-weight:700;font-size:clamp(28px,4.4vw,42px);line-height:1.05;margin:0;text-wrap:balance}
+h2{font-family:var(--f-display);font-weight:600;font-size:23px;margin:0;text-wrap:balance}
+.sub{color:var(--muted);max-width:80ch;margin:0}
+.notice{border:1px solid var(--line);background:var(--paper);padding:12px 14px;border-radius:6px;max-width:92ch;font-size:14px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
+.kpi{background:var(--paper);border:1px solid var(--line);border-radius:6px;padding:14px 16px;display:grid;gap:6px;align-content:start;min-width:0}
+.kpi .k{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;font-weight:500}
+.kpi .v{font-family:var(--f-display);font-weight:600;font-size:32px;line-height:1.05;font-variant-numeric:tabular-nums}
+.kpi .n{font-size:13px;color:var(--muted)}
+.cmp{display:grid;gap:4px;font-size:12px;color:var(--muted)}
+.cmp .row{display:grid;grid-template-columns:70px 1fr 52px;gap:8px;align-items:center}
+.cmp .tr{height:7px;background:var(--line2);border-radius:3px;overflow:hidden}
+.cmp .tr i{display:block;height:100%}
+.cmp .row span:last-child{text-align:right;font-family:var(--f-mono);color:var(--ink)}
+section{display:grid;gap:12px;min-width:0}
+.legend{display:flex;flex-wrap:wrap;gap:8px 18px;font-size:13px;color:var(--muted);align-items:center}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.sw{width:22px;height:10px;border-radius:2px;display:inline-block;border:1px solid var(--muted)}
+.sw.plan{background:repeating-linear-gradient(135deg,var(--line) 0 3px,transparent 3px 6px)}
+.sw.done{background:var(--ink);border-color:var(--ink)}
+.sw.today{width:2px;height:14px;background:var(--bad);border:0}
+.gscroll{overflow-x:auto;background:var(--paper);border:1px solid var(--line);border-radius:6px}
+.gantt{position:relative;font-size:13px}
+.grow{display:grid;grid-template-columns:var(--lab) var(--tl);border-bottom:1px solid var(--line2);min-height:44px}
+.glab{position:sticky;left:0;z-index:3;background:var(--paper);border-right:1px solid var(--line);padding:6px 10px;display:grid;gap:1px;align-content:center}
+.glab .t{font-weight:500;line-height:1.25}
+.glab .m{font-family:var(--f-mono);font-size:11px;color:var(--muted)}
+.gtl{position:relative}
+.ghead .glab{font-family:var(--f-mono);font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;align-content:end}
+.months{position:relative;height:26px}
+.months div{position:absolute;top:0;height:100%;border-left:1px solid var(--line);padding-left:5px;white-space:nowrap;font-family:var(--f-display);font-weight:600;font-size:14px;line-height:26px}
+.ggroup,.ggroup .glab,.ggroup .gtl{background:var(--bg)}
+.ggroup{min-height:30px}
+.ggroup .glab .t{font-family:var(--f-display);font-weight:600;font-size:15px;text-transform:uppercase;letter-spacing:.04em}
+.bar{position:absolute;top:9px;height:13px;border-radius:3px;border:1px solid}
+.bar.civil{background:var(--civil-soft);border-color:var(--civil)}
+.bar.mt{background:var(--mt-soft);border-color:var(--mt)}
+.bar.sys{background:var(--sys-soft);border-color:var(--sys)}
+.bar.nopay{background:repeating-linear-gradient(135deg,var(--mt-soft) 0 5px,transparent 5px 9px);border-style:dashed}
+.prog{position:absolute;top:26px;height:7px;border-radius:2px;background:var(--line2);overflow:hidden}
+.prog i{position:absolute;left:0;top:0;bottom:0;background:var(--ink)}
+.prog b{position:absolute;left:0;top:0;bottom:0;border-right:2px solid var(--bad)}
+.blab{position:absolute;top:22px;font-family:var(--f-mono);font-size:10.5px;color:var(--muted);white-space:nowrap;padding-left:6px}
+.vline{position:absolute;top:0;bottom:0;width:0;pointer-events:none;z-index:2}
+.vline.today{border-left:2px solid var(--bad)}
+.vline.today b{position:absolute;top:4px;left:4px;font-family:var(--f-mono);font-size:10px;color:var(--bad);font-weight:500;white-space:nowrap;background:var(--paper);padding:0 3px}
+.vline.cut{border-left:1px dashed var(--muted)}
+.vline.cut b{position:absolute;top:4px;right:4px;font-family:var(--f-mono);font-size:10px;color:var(--muted);font-weight:500;white-space:nowrap;background:var(--paper);padding:0 3px}
+.vline.end{border-left:2px solid var(--ink)}
+.tbl{overflow-x:auto;background:var(--paper);border:1px solid var(--line);border-radius:6px}
+table{border-collapse:collapse;width:100%;font-size:13.5px}
+th,td{padding:8px 10px;text-align:right;border-bottom:1px solid var(--line2);white-space:nowrap;font-variant-numeric:tabular-nums}
+th{font-family:var(--f-mono);font-size:11px;font-weight:500;color:var(--muted);text-transform:uppercase;letter-spacing:.04em;vertical-align:bottom}
+th:first-child,td:first-child{text-align:left}
+td:first-child{white-space:normal;min-width:220px}
+td.num{font-family:var(--f-mono);font-size:12.5px}
+td.pos{color:var(--ok)} td.neg{color:var(--bad)}
+tr.grp td{background:var(--bg);font-family:var(--f-display);font-weight:600;text-transform:uppercase;letter-spacing:.04em;font-size:14px}
+tr.tot td{font-weight:600;border-bottom:0;border-top:1px solid var(--line)}
+.chip{display:inline-block;font-size:11.5px;font-weight:500;padding:2px 8px;border-radius:10px;white-space:nowrap}
+.chip.ok{background:var(--ok-bg);color:var(--ok)} .chip.bad{background:var(--bad-bg);color:var(--bad)}
+.chip.warn{background:var(--warn-bg);color:var(--warn)} .chip.idle{background:var(--idle-bg);color:var(--muted)}
+.chip.done{background:var(--ink);color:var(--paper)}
+.cols{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:28px}
+@media (max-width:900px){.cols{grid-template-columns:1fr}}
+.hb{display:inline-block;height:9px;border-radius:2px;vertical-align:middle;background:var(--accent)}
+.hb.o{background:transparent;border:1px solid var(--muted);height:7px}
+ul.notes{margin:0;padding-left:18px;display:grid;gap:10px;font-size:14.5px;max-width:80ch}
+ul.notes li::marker{color:var(--muted)}
+ul.notes b{font-weight:600}
+.foot{font-size:12px;color:var(--muted);font-family:var(--f-mono);margin:0}
+</style>
+
+<div class="wrap">
+  <header>
+    <div class="eyebrow">Cabildo de La Palma · Instalaciones eléctricas MT · ZOI Cercado Manso · Puntallana</div>
+    <h1>Previsto, ejecutado y pendiente</h1>
+    <p class="sub">Comparación del cronograma de la dirección de obra (19/10/2026) con lo medido a origen en la certificación nº 2 de octubre. Situación a 6 de noviembre de 2026.</p>
+    <div class="notice"><b>Fecha de corte del ejecutado: 31/10/2026.</b> La última medición es la certificación nº 2 (borrador, 134.593,07 € PEM a origen). Lo hecho del 1 al 6 de noviembre aún no está medido, así que la comparación principal se hace a 31/10. El previsto a hoy se da como referencia.</div>
+  </header>
+
+  <div class="kpis" id="kpis"></div>
+
+  <section>
+    <h2>Actividades: plazo previsto y avance real</h2>
+    <div class="legend">
+      <span><i class="sw" style="background:var(--civil-soft);border-color:var(--civil)"></i>Obra civil</span>
+      <span><i class="sw" style="background:var(--mt-soft);border-color:var(--mt)"></i>Instalación MT</span>
+      <span><i class="sw" style="background:var(--sys-soft);border-color:var(--sys)"></i>Seguridad y salud</span>
+      <span><i class="sw done"></i>Ejecutado a 31/10 (% de la actividad)</span>
+      <span><i class="sw" style="border:0;border-right:2px solid var(--bad);border-radius:0;background:var(--line2)"></i>Previsto a 31/10</span>
+      <span><i class="sw today"></i>Hoy, 06/11</span>
+    </div>
+    <div class="gscroll"><div class="gantt" id="gantt"></div></div>
+    <p class="foot">Barra superior: fechas previstas del cronograma. Barra inferior: avance en importe de cada actividad, negro lo ejecutado y marca roja lo que debía llevar a 31/10.</p>
+  </section>
+
+  <section>
+    <h2>Detalle por actividad (PEM, €)</h2>
+    <div class="tbl"><table id="det"></table></div>
+    <p class="foot">Desfase en días laborables: diferencia entre ejecutado y previsto dividida por el ritmo diario previsto de la actividad. Positivo = adelantada.</p>
+  </section>
+
+  <div class="cols">
+    <section>
+      <h2>Certificación por meses</h2>
+      <div class="tbl"><table id="mes"></table></div>
+      <p class="foot">Pendiente: lo que queda de cada actividad repartido por días laborables desde el 1/11 hasta su fecha de fin prevista. Líquido = PEM × 1,19 × 0,888856534 × 1,07.</p>
+    </section>
+    <section>
+      <h2>Lectura de los datos</h2>
+      <ul class="notes" id="notes"></ul>
+    </section>
+  </div>
+  <p class="foot">Fuentes: Cronograma Cercado Manso (DO, 19/10/2026); certificaciones nº 1 y nº 2 del Control de obra; presupuesto Arquímedes cap. 1 en Cercado_Manso_base_datos.xlsx.</p>
+</div>
+
+<script>
+(function(){
+const DATA={"act": [{"g": "civil", "n": "Implantación, desbroce y replanteo", "p": "1.1.6 · 1.1.30", "s": "18/09/2026", "e": "30/09/2026", "imp": 1553.92, "ej": 1553.92, "pl31": 1553.92, "plh": 1553.92}, {"g": "civil", "n": "Corte, demolición y fresado de pavimentos", "p": "1.1.1 · 1.1.2 · 1.1.3 · 1.1.4 · 1.1.5", "s": "20/10/2026", "e": "27/11/2026", "imp": 6536.72, "ej": 0.0, "pl31": 2028.64, "plh": 3155.66, "pend": 6536.72, "desf": -9.0, "wdleft": 20}, {"g": "civil", "n": "Excavación de zanjas y pozos, compactación y transporte", "p": "1.1.7 · 1.1.8 · 1.1.13 · 1.1.18 · 1.1.19", "s": "21/09/2026", "e": "11/12/2026", "imp": 57792.99, "ej": 8765.0, "pl31": 24895.28, "plh": 30567.3, "pend": 49027.99, "desf": -14.2, "wdleft": 29}, {"g": "civil", "n": "Canalización: lecho de arena y hormigonado de zanja", "p": "1.1.11 · 1.1.14", "s": "26/10/2026", "e": "18/12/2026", "imp": 79840.1, "ej": 14404.0, "pl31": 10235.91, "plh": 20471.82, "pend": 65436.1, "desf": 2.0, "wdleft": 34}, {"g": "civil", "n": "Pozos de registro y arquetas", "p": "1.1.27 · 1.1.28 · 1.1.29", "s": "02/11/2026", "e": "18/12/2026", "imp": 30221.18, "ej": 0.0, "pl31": 0.0, "plh": 4444.29, "pend": 30221.18, "desf": 0.0, "wdleft": 34}, {"g": "civil", "n": "Rellenos de zanja y trasdós", "p": "1.1.12 · 1.1.15 · 1.1.17", "s": "02/11/2026", "e": "08/01/2027", "imp": 2996.27, "ej": 845.0, "pl31": 0.0, "plh": 325.68, "pend": 2151.27, "desf": 13.0, "wdleft": 46}, {"g": "civil", "n": "Obra civil de los CT", "p": "1.1.9 · 1.1.10 · 1.1.16 · 1.1.20 · 1.1.21 · 1.1.22 · 1.1.26", "s": "02/11/2026", "e": "04/12/2026", "imp": 9626.04, "ej": 0.0, "pl31": 0.0, "plh": 1925.21, "pend": 9626.04, "desf": 0.0, "wdleft": 25}, {"g": "civil", "n": "Reposición de rodaderas y asfalto, ensayos", "p": "1.1.23 · 1.1.24 · 1.1.25 · 1.1.32 · 1.1.33", "s": "30/11/2026", "e": "22/01/2027", "imp": 24372.36, "ej": 0.0, "pl31": 0.0, "plh": 0.0, "pend": 24372.36, "desf": 0.0, "wdleft": 36}, {"g": "civil", "n": "Reposición de servicios afectados", "p": "1.1.31", "s": "26/10/2026", "e": "22/01/2027", "imp": 2500, "ej": 750.0, "pl31": 204.92, "plh": 409.84, "pend": 1750.0, "desf": 13.3, "wdleft": 56}, {"g": "mt", "n": "Pedido y fabricación de CT y aparamenta", "p": "taller", "s": "05/10/2026", "e": "27/11/2026", "imp": 0, "ej": 0, "pl31": 0, "plh": 0}, {"g": "mt", "n": "Tendido de la línea subterránea 20 kV", "p": "1.2.1", "s": "16/11/2026", "e": "15/01/2027", "imp": 177565.26, "ej": 107010.0, "pl31": 0.0, "plh": 0.0, "pend": 70555.26, "desf": 24.7, "wdleft": 41}, {"g": "mt", "n": "Redes de tierra de los CT", "p": "1.2.11", "s": "23/11/2026", "e": "18/12/2026", "imp": 13383.7, "ej": 0.0, "pl31": 0.0, "plh": 0.0, "pend": 13383.7, "desf": 0.0, "wdleft": 19}, {"g": "mt", "n": "Suministro y colocación de los CT prefabricados", "p": "1.2.2 · 1.2.3", "s": "09/12/2026", "e": "18/12/2026", "imp": 62136.68, "ej": 0.0, "pl31": 0.0, "plh": 0.0, "pend": 62136.68, "desf": 0.0, "wdleft": 8}, {"g": "mt", "n": "Aparamenta MT de los CT", "p": "1.2.4 · 1.2.5", "s": "21/12/2026", "e": "22/01/2027", "imp": 217172.51, "ej": 0.0, "pl31": 0.0, "plh": 0.0, "pend": 217172.51, "desf": 0.0, "wdleft": 22}, {"g": "mt", "n": "Empalmes, bornas, puentes y protecciones", "p": "1.2.6 · 1.2.7 · 1.2.8 · 1.2.9 · 1.2.10", "s": "11/01/2027", "e": "29/01/2027", "imp": 23138.31, "ej": 0.0, "pl31": 0.0, "plh": 0.0, "pend": 23138.31, "desf": 0.0, "wdleft": 15}, {"g": "mt", "n": "Equipamiento interior de los CT", "p": "1.2.12 · 1.2.13 · 1.2.14", "s": "18/01/2027", "e": "29/01/2027", "imp": 2044.67, "ej": 0.0, "pl31": 0.0, "plh": 0.0, "pend": 2044.67, "desf": 0.0, "wdleft": 10}, {"g": "mt", "n": "Pruebas, megado e inspección OCA", "p": "1.2.15", "s": "25/01/2027", "e": "05/02/2027", "imp": 3500, "ej": 0, "pl31": 0, "plh": 0, "pend": 3500, "desf": 0.0, "wdleft": 9}, {"g": "mt", "n": "e-distribución y puesta en tensión", "p": "1.2.16", "s": "01/02/2027", "e": "18/02/2027", "imp": 18000, "ej": 0, "pl31": 0, "plh": 0, "pend": 18000, "desf": 0.0, "wdleft": 13}, {"g": "sys", "n": "Seguridad y salud (y cap. 2 deducido)", "p": "cap. 3", "s": "18/09/2026", "e": "18/02/2027", "imp": 21068.22, "ej": 1265.15, "pl31": 5642.67, "plh": 6684.94, "pend": 19803.07, "desf": -21.0, "wdleft": 74}], "rep": {"2026-11": 140299.1, "2026-12": 259519.15, "2027-01": 196003.13, "2027-02": 23034.47}};
+const A=DATA.act;
+const fmt=(n,d=0)=>{const neg=n<0;let [i,dec]=Math.abs(n).toFixed(d).split('.');i=i.replace(/\B(?=(\d{3})+(?!\d))/g,'.');return (neg&&+Math.abs(n).toFixed(d)!==0?'-':'')+i+(dec?','+dec:'');};
+const eur=(n)=>fmt(n,2);
+const D=(s)=>{const [d,m,y]=s.split('/').map(Number);return Date.UTC(y,m-1,d);};
+const DAY=864e5;
+const START=D('18/09/2026'),END=D('18/02/2027'),CUT=D('31/10/2026'),HOY=D('06/11/2026');
+const PEM=753448.93, ADJ=852739.20, K=1.19*0.888856534*1.07;
+const sum=(k,f=()=>true)=>A.filter(f).reduce((s,o)=>s+o[k],0);
+const EJ=sum('ej'), PL31=sum('pl31'), PLH=sum('plh'), PEND=PEM-EJ;
+const LIQ_ORIG=4404.74+147925.14, LIQ_PEND=ADJ-LIQ_ORIG;
+const GN={civil:'Obra civil',mt:'Instalación de media tensión',sys:'Seguridad y salud'};
+
+// KPIs
+const tot=(END-START)/DAY, el=(HOY-START)/DAY;
+const bar=(lab,v,max,col,txt)=>`<div class="row"><span>${lab}</span><span class="tr"><i style="width:${Math.min(100,v/max*100)}%;background:${col}"></i></span><span>${txt}</span></div>`;
+document.getElementById('kpis').innerHTML=`
+<div class="kpi"><span class="k">Plazo consumido</span><span class="v">${fmt(el/tot*100)} %</span><span class="n">${el} de ${tot} días naturales. Quedan ${(END-HOY)/DAY} días (69 laborables) hasta el 18/02/2027.</span></div>
+<div class="kpi"><span class="k">Ejecutado a 31/10 (PEM)</span><span class="v">${fmt(EJ/PEM*100,1)} %</span>
+ <div class="cmp">${bar('Ejecutado',EJ,PEM,'var(--ink)',fmt(EJ/PEM*100,1)+' %')}${bar('Previsto',PL31,PEM,'var(--muted)',fmt(PL31/PEM*100,1)+' %')}</div>
+ <span class="n">${eur(EJ)} € frente a ${eur(PL31)} € previstos: +${eur(EJ-PL31)} €.</span></div>
+<div class="kpi"><span class="k">Pendiente de ejecutar</span><span class="v">${fmt(PEND)} €</span><span class="n">PEM, el ${fmt(PEND/PEM*100,1)} % de la obra. En líquido con IGIC: ${eur(LIQ_PEND)} € de ${eur(ADJ)} €.</span></div>
+<div class="kpi"><span class="k">Ritmo necesario</span><span class="v">${fmt(PEND/69)} €/día</span><span class="n">PEM por día laborable hasta el fin. Hasta 31/10 se han ejecutado ${fmt(EJ/30)} €/día laborable (30 días).</span></div>`;
+
+// Gantt
+const T0=D('14/09/2026'),T1=D('01/03/2027'),DW=4.6,LAB=300,TL=(T1-T0)/DAY*DW;
+const X=(t)=>(t-T0)/DAY*DW;
+const g=document.getElementById('gantt');
+g.style.setProperty('--lab',LAB+'px');g.style.setProperty('--tl',TL+'px');g.style.width=(LAB+TL)+'px';
+const mn=['ene','feb','mar','abr','may','jun','jul','ago','sep','oct','nov','dic'];
+let mh='';for(let y=2026,m=8;;){const a=Date.UTC(y,m,1),b=Date.UTC(m==11?y+1:y,(m+1)%12,1);const x0=Math.max(X(a),0),x1=Math.min(X(b),TL);if(x0>=TL)break;mh+=`<div style="left:${x0}px;width:${x1-x0}px">${mn[m]} ${String(y).slice(2)}</div>`;m++;if(m==12){m=0;y++;}}
+let h=`<div class="grow ghead" style="min-height:0"><div class="glab">Actividad · PEM</div><div class="gtl"><div class="months">${mh}</div></div></div>`;
+for(const gk of ['civil','mt','sys']){
+  const rows=A.filter(o=>o.g===gk);
+  h+=`<div class="grow ggroup"><div class="glab"><span class="t">${GN[gk]}</span></div><div class="gtl"></div></div>`;
+  for(const o of rows){
+    const a=X(D(o.s)),b=X(D(o.e))+DW, w=b-a;
+    const pe=o.imp?o.ej/o.imp:0, pp=o.imp?o.pl31/o.imp:0;
+    h+=`<div class="grow"><div class="glab"><span class="t">${o.n}</span><span class="m">${o.imp?fmt(o.imp)+' €':'sin importe'} · ${o.s.slice(0,5)}–${o.e.slice(0,5)}</span></div><div class="gtl">
+      <div class="bar ${gk}${o.imp?'':' nopay'}" style="left:${a}px;width:${w}px" title="${o.n}: ${o.s} – ${o.e}"></div>
+      ${o.imp?`<div class="prog" style="left:${a}px;width:${w}px"><i style="width:${Math.min(1,pe)*100}%"></i>${pp>0?`<b style="width:${pp*100}%"></b>`:''}</div><div class="blab" style="left:${b}px">${fmt(pe*100)} %</div>`:''}
+    </div></div>`;
+  }
+}
+h+=`<div class="vline cut" style="left:${LAB+X(CUT)+DW}px"><b>corte 31/10</b></div><div class="vline today" style="left:${LAB+X(HOY)}px"><b>HOY 06/11</b></div><div class="vline end" style="left:${LAB+X(END)+DW}px"></div>`;
+g.innerHTML=h;
+try{g.parentElement.scrollLeft=Math.max(0,X(HOY)-280);}catch(e){}
+
+// Estado
+function estado(o){
+  if(!o.imp) return o.n.startsWith('Pedido')?['warn','Sin constancia']:['idle','—'];
+  if(o.ej>=o.imp-0.01) return ['done','Terminada'];
+  const started=D(o.s)<=CUT;
+  if(o.ej>0 && !started) return ['ok','Adelantada'];
+  if(!started) return ['idle','Aún no toca'];
+  if(o.ej===0) return ['bad','Sin empezar'];
+  const r=o.ej/o.pl31;
+  if(r>=1.05) return ['ok','Adelantada'];
+  if(r>=0.9) return ['ok','En plazo'];
+  return ['bad','Retrasada'];
+}
+let t=`<thead><tr><th>Actividad</th><th>Plazo previsto</th><th>Importe</th><th>Previsto<br>a 31/10</th><th>Ejecutado<br>a 31/10</th><th>Desviación</th><th>% ejecutado</th><th>Desfase<br>(días lab.)</th><th>Pendiente</th><th>Estado</th></tr></thead><tbody>`;
+for(const gk of ['civil','mt','sys']){
+  const f=o=>o.g===gk;
+  t+=`<tr class="grp"><td colspan="10">${GN[gk]}</td></tr>`;
+  for(const o of A.filter(f)){
+    const dv=o.ej-o.pl31, [c,l]=estado(o);
+    const ds=(o.desf===null||o.desf===undefined)?'—':(o.desf===0?'0':(o.desf>0?'+':'')+fmt(o.desf));
+    t+=`<tr><td>${o.n}<br><span class="foot">${o.p}</span></td><td class="num">${o.s.slice(0,5)} – ${o.e.slice(0,5)}</td><td class="num">${eur(o.imp)}</td><td class="num">${eur(o.pl31)}</td><td class="num">${eur(o.ej)}</td><td class="num ${dv>0.5?'pos':dv<-0.5?'neg':''}">${dv>0.5?'+':''}${eur(dv)}</td><td class="num">${o.imp?fmt(o.ej/o.imp*100,1)+' %':'—'}</td><td class="num">${ds}</td><td class="num">${eur(o.imp-o.ej)}</td><td><span class="chip ${c}">${l}</span></td></tr>`;
+  }
+  const i=sum('imp',f),p=sum('pl31',f),e=sum('ej',f);
+  t+=`<tr class="tot"><td>Total ${GN[gk].toLowerCase()}</td><td></td><td class="num">${eur(i)}</td><td class="num">${eur(p)}</td><td class="num">${eur(e)}</td><td class="num ${e-p>0?'pos':'neg'}">${e-p>0?'+':''}${eur(e-p)}</td><td class="num">${fmt(e/i*100,1)} %</td><td></td><td class="num">${eur(i-e)}</td><td></td></tr>`;
+}
+t+=`<tr class="tot"><td>TOTAL OBRA</td><td class="num">18/09 – 18/02</td><td class="num">${eur(PEM)}</td><td class="num">${eur(PL31)}</td><td class="num">${eur(EJ)}</td><td class="num pos">+${eur(EJ-PL31)}</td><td class="num">${fmt(EJ/PEM*100,1)} %</td><td></td><td class="num">${eur(PEND)}</td><td></td></tr></tbody>`;
+document.getElementById('det').innerHTML=t;
+
+// Meses
+const M=[['sep 2026',3891.87,3891.87,'real'],['oct 2026',40669.47,130701.20,'real'],['nov 2026',157222.22,DATA.rep['2026-11']],['dic 2026',310821.00,DATA.rep['2026-12']],['ene 2027',218578.92,DATA.rep['2027-01']],['feb 2027',22265.45,DATA.rep['2027-02']]];
+const mx=Math.max(...M.map(m=>Math.max(m[1],m[2])));let ap=0,ar=0;
+let mt=`<thead><tr><th>Mes</th><th>Cronograma</th><th>Real / pendiente</th><th>Líquido</th><th>% a origen</th><th style="text-align:left">PEM</th></tr></thead><tbody>`;
+for(const [m,p,r,k] of M){ap+=p;ar+=r;
+  mt+=`<tr><td>${m} <span class="chip ${k?'done':'idle'}">${k?'certificado':'pendiente'}</span></td><td class="num">${fmt(p)}</td><td class="num">${fmt(r)}</td><td class="num">${fmt(r*K)}</td><td class="num">${fmt(ar/PEM*100,1)} %</td><td style="text-align:left;min-width:120px"><span class="hb o" style="width:${p/mx*110}px"></span><br><span class="hb" style="width:${Math.max(2,r/mx*110)}px${k?';background:var(--ink)':''}"></span></td></tr>`;}
+mt+=`<tr class="tot"><td>Total</td><td class="num">${fmt(ap)}</td><td class="num">${fmt(ar)}</td><td class="num">${fmt(ar*K)}</td><td class="num">100 %</td><td></td></tr></tbody>`;
+document.getElementById('mes').innerHTML=mt;
+
+// Notas
+const civ=A.filter(o=>o.g==='civil'),cP=civ.reduce((s,o)=>s+o.pl31,0),cE=civ.reduce((s,o)=>s+o.ej,0);
+const lin=A.find(o=>o.p==='1.2.1');
+document.getElementById('notes').innerHTML=`
+<li><b>En importe la obra va por delante:</b> ${fmt(EJ/PEM*100,1)} % ejecutado frente al ${fmt(PL31/PEM*100,1)} % previsto a 31/10 (${fmt(PLH/PEM*100,1)} % a hoy). Pero el plazo consumido es el ${fmt(el/tot*100)} %, y quedan ${fmt(PEND)} € PEM en 69 días laborables.</li>
+<li><b>El adelanto lo explica una sola partida.</b> La línea subterránea 20 kV (1.2.1) tiene certificados 1.500 m de 2.489 (${eur(lin.ej)} €), cuando el cronograma no la empezaba hasta el 16/11. Sin ella, lo ejecutado son ${eur(EJ-lin.ej)} €, el ${fmt((EJ-lin.ej)/PL31*100)} % de lo previsto.</li>
+<li><b>La obra civil va retrasada:</b> ${eur(cE)} € ejecutados frente a ${eur(cP)} € previstos (${fmt(cE/cP*100)} %). La excavación de zanjas lleva 200 m³ de 1.285 (unos 14 días laborables de retraso) y el corte y demolición de pavimentos no ha empezado (debía arrancar el 20/10).</li>
+<li><b>Conviene revisar la medición de la 1.2.1.</b> 200 m³ de zanja y 100 m³ de hormigón equivalen a unos 330–390 m de los 2.108 m de zanja, no 1.500 m de línea entubada. Si lo certificado incluye material acopiado o tramo sin hormigonar, debería ir como acopio.</li>
+<li><b>Desde el 2/11 debían estar en marcha</b> los pozos y arquetas y la obra civil de los CT (39.847 € entre los dos), que siguen a cero. No hay medición de noviembre todavía.</li>
+<li><b>Partida crítica sin cambios:</b> CT prefabricados y aparamenta (279.309 € PEM, el 37 %) se colocan del 09/12 al 22/01. No consta la fecha de pedido, que debía cerrarse en octubre.</li>
+<li><b>Seguridad y salud</b> lleva 1.265,15 € de los 21.068 € que el cronograma reparte en el plazo. Esa cifra incluye la diferencia sin aclarar con la licitación, así que su desviación no es significativa.</li>
+<li>Diciembre concentra el mayor volumen pendiente (${fmt(DATA.rep['2026-12'])} € PEM) con dos festivos y vacaciones de Navidad. Es el mes que más presión pone al fin de obra.</li>`;
+})();
+</script>
+
+</body></html>

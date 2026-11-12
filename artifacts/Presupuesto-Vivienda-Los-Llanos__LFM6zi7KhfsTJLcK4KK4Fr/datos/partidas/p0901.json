@@ -1,0 +1,12 @@
+{
+  "cap": "09",
+  "cod": "09.01",
+  "desc": "Acometida interior de agua desde contador existente, con llave de corte general y tubería multicapa.",
+  "med": 1,
+  "nota": "",
+  "orden": 1,
+  "pre": 250,
+  "rev": false,
+  "sb": false,
+  "ud": "ud"
+}

@@ -1,0 +1,21 @@
+{
+  "albs": [],
+  "cliente": "CONSTRUCCIONES DOS TUMBOS",
+  "desc": "Entubar llamada enfermería habitación segunda planta \nEntubar instalación contra-incendio segunda planta (sensores y pulsadores)\nEnhebrar datos y TV habitaciones segunda planta hasta registro telecomunicaciones \nEnhebrar alumbrado,fuerza y alumbrado emergencia habitación segunda planta \nLimpiar zonas de trabajo",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-10-13",
+  "horas": 19,
+  "obra": "RESIDENCIA TERCERA EDAD EL PASO",
+  "ops": [
+    {
+      "h": 8,
+      "n": "Petter"
+    },
+    {
+      "h": 11,
+      "n": "Jonathan Rodríguez"
+    }
+  ],
+  "stock": []
+}

@@ -1,0 +1,28 @@
+{
+  "albs": [],
+  "cliente": "CONSTRUCCIONES DOMINGO",
+  "desc": "Terminar de Enebrar fuerza y alumbrado vivienda 3 planta 1 Enebrar datos y fuerza vivienda 2 planta 1",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-11-09",
+  "horas": 11,
+  "id": "927",
+  "obra": "EDIFICIO DOMINGO",
+  "ops": [
+    {
+      "h": 4,
+      "n": "Aythami"
+    },
+    {
+      "h": 4,
+      "n": "Joel"
+    },
+    {
+      "h": 3,
+      "n": "Riki"
+    }
+  ],
+  "origen": "dashboard",
+  "restante": "Indefinido",
+  "stock": []
+}

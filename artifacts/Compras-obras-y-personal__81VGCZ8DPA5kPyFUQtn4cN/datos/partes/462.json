@@ -1,0 +1,28 @@
+{
+  "albs": [],
+  "cliente": "JORGE SASTRE",
+  "desc": "Fijar el cuadro de la corradora \"sin fin \" a la estructura de la propia maquina. \n\nHacer entubado de bajada desde la bandeja hasta el cuadro.\n\nMeter linea de fuerza y linea de maniobra por el entubado hasta el cuadro y conectar. \n\nComprobar funcionamiento.\n\nDar servicio a toma de torriente para toma led en exposición de cocinas.\n\nDesmontar pantallas fluorescentes antiguas y montar campanas led.",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-09-14",
+  "horas": 8,
+  "obra": "ASERRADERO MIRCA",
+  "ops": [
+    {
+      "h": 8,
+      "n": "Jorge"
+    }
+  ],
+  "stock": [
+    {
+      "d": "tubo diflex de 40mm",
+      "q": 2,
+      "u": "m"
+    },
+    {
+      "d": "bornas de carril de 35mm",
+      "q": 3,
+      "u": ""
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "actualizada": "2026-07-19T09:00:00Z",
+  "aviso": "",
+  "centro": "SPAR Triana",
+  "creada": "2026-07-19T09:00:00Z",
+  "descripcion": "Fallo en el alumbrado exterior.",
+  "estado": "terminada",
+  "fechaAviso": "2026-07-19",
+  "historial": [
+    "19/07/2026 · Importada del correo de Alberto"
+  ],
+  "informado": true,
+  "notas": "Resuelta (correo 19/07/2026).",
+  "operario": "",
+  "ot": 33,
+  "prioridad": "Sin especificar",
+  "solicitante": "",
+  "tipo": "MANTENIMIENTO"
+}

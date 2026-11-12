@@ -1,0 +1,19 @@
+{
+  "actualizada": "2026-06-01T09:00:00Z",
+  "aviso": "",
+  "centro": "SPAR Puerto Naos",
+  "creada": "2026-06-01T09:00:00Z",
+  "descripcion": "Luminaria (detalle en el correo de cierre).",
+  "estado": "terminada",
+  "fechaAviso": "2026-06-01",
+  "historial": [
+    "01/06/2026 · Importada del correo de Alberto"
+  ],
+  "informado": true,
+  "notas": "Resuelta el 01/06/2026.",
+  "operario": "",
+  "ot": 18,
+  "prioridad": "Sin especificar",
+  "solicitante": "",
+  "tipo": "MANTENIMIENTO"
+}

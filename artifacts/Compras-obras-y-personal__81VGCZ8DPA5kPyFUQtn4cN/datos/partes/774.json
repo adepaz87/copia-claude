@@ -1,0 +1,29 @@
+{
+  "albs": [
+    "Diexfe 019875"
+  ],
+  "cliente": "TRAGSA",
+  "desc": "Mecanizando Mod C\nHabrir huecos  en pladur para Tc y tierras en Mod B(en baños)\nHabrir  huecos en pladur en cuartos telecomunicaciones para pasar tubos alim UPS",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-10-23",
+  "horas": 16,
+  "obra": "HOSPITAL",
+  "ops": [
+    {
+      "h": 8,
+      "n": "Manuel"
+    },
+    {
+      "h": 8,
+      "n": "Juan"
+    }
+  ],
+  "stock": [
+    {
+      "d": "cable 2x1,5mm rojo(Facturar a José Carlos)",
+      "q": 372,
+      "u": "m"
+    }
+  ]
+}

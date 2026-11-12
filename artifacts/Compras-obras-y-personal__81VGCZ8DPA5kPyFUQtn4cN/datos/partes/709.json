@@ -1,0 +1,21 @@
+{
+  "albs": [],
+  "cliente": "CABILDO INSULAR",
+  "desc": "Reparar averia alumbrado vestuario y ver obra.",
+  "devol": [],
+  "estado": "TERMINADO",
+  "fecha": "2026-10-16",
+  "horas": 2,
+  "obra": "HORTOFRUTICOLA",
+  "ops": [
+    {
+      "h": 1,
+      "n": "Antonio"
+    },
+    {
+      "h": 1,
+      "n": "Transporte"
+    }
+  ],
+  "stock": []
+}

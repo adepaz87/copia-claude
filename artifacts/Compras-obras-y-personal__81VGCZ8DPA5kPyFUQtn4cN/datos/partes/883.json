@@ -1,0 +1,19 @@
+{
+  "albs": [],
+  "cliente": "INSTAPALMA",
+  "desc": "Rellenar zanja con escombro",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-11-04",
+  "horas": 8,
+  "id": "883",
+  "obra": "ZANJA COVALLE",
+  "ops": [
+    {
+      "h": 8,
+      "n": "Luigi"
+    }
+  ],
+  "origen": "dashboard",
+  "stock": []
+}

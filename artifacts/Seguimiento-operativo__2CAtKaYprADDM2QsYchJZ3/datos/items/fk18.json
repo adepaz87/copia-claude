@@ -1,0 +1,13 @@
+{
+  "actualizado": "2026-11-03T18:00:00Z",
+  "alta": "2026-11-03",
+  "cat": "facturacion",
+  "estado": "pendiente",
+  "grupo": "Pendiente facturación Kairos",
+  "grupoOrden": 3,
+  "n": 18,
+  "nota": "El informe dice que Kairos está facturado hasta el 31/03/2026.",
+  "origen": "informe 2026-11-03",
+  "prioridad": false,
+  "texto": "Cuadros Hospital"
+}

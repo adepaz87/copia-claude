@@ -1,0 +1,38 @@
+{
+  "empresa": "Instapalma",
+  "fecha": "2026-02-09",
+  "lineas": [
+    {
+      "a": "309000823",
+      "d": "MANGUITO PREAISLADO AML-6 AMARILLO",
+      "dto": "65,00",
+      "f": "2026-02-09",
+      "fab": "300120",
+      "i": 10.22,
+      "m": "SOFAMEL",
+      "o": "ESCUELA MONTERREY",
+      "pn": 0.1022,
+      "pt": 0.2919,
+      "q": 100,
+      "r": "21370"
+    },
+    {
+      "a": "309000824",
+      "d": "SEÑAL ADHESIVA RIESGO ELÉCTRICO AE05ADH 52mm",
+      "dto": "40,00",
+      "f": "2026-02-09",
+      "fab": "725100",
+      "i": 34.56,
+      "m": "SOFAMEL",
+      "o": "ESCUELA MONTERREY",
+      "pn": 0.864,
+      "pt": 1.44,
+      "q": 40,
+      "r": "62170"
+    }
+  ],
+  "numero": "F03000R-1799",
+  "origen": "Gmail",
+  "proveedor": "Sonepar",
+  "tipo": "factura"
+}

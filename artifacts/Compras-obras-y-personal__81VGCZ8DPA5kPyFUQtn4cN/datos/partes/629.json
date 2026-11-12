@@ -1,0 +1,68 @@
+{
+  "albs": [],
+  "cliente": "CONSTRUCCIONES DOS TUMBOS",
+  "desc": "Colocación cajas registro,cajas mecanismo,cuadro eléctrico habitación y entubar habitaciones segunda planta \nEnhebrar habitación en segunda planta (alumbrado,fuerza,alumbrado emergencia,etc..)\nLimpiar zonas de trabajo",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-10-05",
+  "horas": 11,
+  "obra": "RESIDENCIA TERCERA EDAD EL PASO",
+  "ops": [
+    {
+      "h": 11,
+      "n": "Jonathan Rodríguez"
+    }
+  ],
+  "stock": [
+    {
+      "d": "Cable 1x1,5mm azul",
+      "q": 200,
+      "u": "m"
+    },
+    {
+      "d": "Cable 1x1,5mm negro",
+      "q": 200,
+      "u": "m"
+    },
+    {
+      "d": "Cable 1x1,5mm marrón",
+      "q": 200,
+      "u": "m"
+    },
+    {
+      "d": "Cable 1x1,5mm Am/verde",
+      "q": 200,
+      "u": "m"
+    },
+    {
+      "d": "Cable 1x1,5mm gris",
+      "q": 400,
+      "u": "m"
+    },
+    {
+      "d": "Cable 1x2,5mm negro",
+      "q": 200,
+      "u": "m"
+    },
+    {
+      "d": "Cable 1x2,5mm azul",
+      "q": 200,
+      "u": "m"
+    },
+    {
+      "d": "Cable 1x2,5mm AM/verd",
+      "q": 200,
+      "u": "m"
+    },
+    {
+      "d": "Cable coaxial TV",
+      "q": 65,
+      "u": "m"
+    },
+    {
+      "d": "Bote gel introducir",
+      "q": 1,
+      "u": "ud"
+    }
+  ]
+}

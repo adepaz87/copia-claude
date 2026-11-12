@@ -1,0 +1,21 @@
+{
+  "empresa": "Kairos Supply",
+  "fecha": "2026-02-27",
+  "lineas": [
+    {
+      "a": "309001187",
+      "d": "KIT TORNILLO AUTOTALADRANTE",
+      "f": "2026-02-27",
+      "i": 23.91,
+      "o": "CASA ROSADA",
+      "pn": 2.391,
+      "pt": 2.390625,
+      "q": 10,
+      "r": "1209300"
+    }
+  ],
+  "numero": "F03000R-2501",
+  "origen": "Gmail",
+  "proveedor": "Sonepar",
+  "tipo": "factura"
+}

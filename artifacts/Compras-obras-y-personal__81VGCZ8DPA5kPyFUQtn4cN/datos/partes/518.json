@@ -1,0 +1,36 @@
+{
+  "albs": [],
+  "cliente": "TRAGSA",
+  "desc": "Conectar tierras.\nConectar cuadro de CA.\nEnhebrar y enbridar acometida por bandeja.\nEnhebrar y enbridar cables de comunicación por bandeja hasta inversor.\nInstalar y comprobar RJ45.",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-09-21",
+  "horas": 23,
+  "obra": "FV CENTRO DE VISITANTES",
+  "ops": [
+    {
+      "h": 8,
+      "n": "Adán"
+    },
+    {
+      "h": 7,
+      "n": "Toño"
+    },
+    {
+      "h": 8,
+      "n": "Jonathan Glez"
+    }
+  ],
+  "stock": [
+    {
+      "d": "cable utp cat 6",
+      "q": 20,
+      "u": "m"
+    },
+    {
+      "d": "rj45",
+      "q": 3,
+      "u": ""
+    }
+  ]
+}

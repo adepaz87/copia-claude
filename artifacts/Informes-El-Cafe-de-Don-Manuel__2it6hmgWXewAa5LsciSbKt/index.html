@@ -1,0 +1,135 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Informes El Café de Don Manuel</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700&display=swap">
+<style>
+  /* Layout: una columna estrecha, cabecera con la línea azul del informe y lista de días agrupada por mes */
+  :root {
+    --bg: #f5f7fa; --panel: #ffffff; --fg: #14223a; --muted: #5d6b80; --line: #d6dee8;
+    --navy: #0f2b55; --blue: #1f6fb5; --blue-soft: #e8f0f9; --ok: #1f8a4c; --bad: #c63d3d;
+    --sans: "Source Sans 3", "Segoe UI", Arial, sans-serif;
+  }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+    --bg: #0d1520; --panel: #142030; --fg: #e6edf6; --muted: #9aa9bd; --line: #26364b;
+    --navy: #8fb6e8; --blue: #6aa6e6; --blue-soft: #1a2b42; --ok: #5cc98a; --bad: #f08080; color-scheme: dark; } }
+  :root[data-theme="dark"] {
+    --bg: #0d1520; --panel: #142030; --fg: #e6edf6; --muted: #9aa9bd; --line: #26364b;
+    --navy: #8fb6e8; --blue: #6aa6e6; --blue-soft: #1a2b42; --ok: #5cc98a; --bad: #f08080; color-scheme: dark; }
+  body { background: var(--bg); color: var(--fg); font-family: var(--sans); font-size: 15px; }
+  .wrap { max-width: 760px; margin-inline: auto; padding-block: 28px 48px;
+    padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px));
+    display: flex; flex-direction: column; gap: 22px; }
+  header { border-bottom: 3px solid var(--blue); padding-bottom: 12px; display: flex; flex-direction: column; gap: 4px; }
+  h1 { margin: 0; color: var(--navy); font-size: 28px; font-weight: 700; text-wrap: balance; }
+  .sub { color: var(--muted); margin: 0; }
+  .bar { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; justify-content: space-between; }
+  .bar label { display: flex; gap: 8px; align-items: center; color: var(--muted); }
+  select, button { font: inherit; color: var(--fg); background: var(--panel); border: 1px solid var(--line); border-radius: 6px; padding: 6px 10px; }
+  button { cursor: pointer; }
+  button:focus-visible, select:focus-visible, a:focus-visible { outline: 2px solid var(--blue); outline-offset: 2px; }
+  a { color: var(--blue); }
+  .mes h2 { font-size: 16px; color: var(--blue); margin: 0 0 8px; text-transform: capitalize; }
+  .lista { list-style: none; margin: 0; padding: 0; background: var(--panel); border: 1px solid var(--line); border-radius: 8px; overflow: hidden; }
+  .lista li { display: grid; grid-template-columns: minmax(0, 1fr) auto auto; gap: 14px; align-items: center; padding: 10px 14px; border-top: 1px solid var(--line); }
+  .lista li:first-child { border-top: 0; }
+  .lista li:nth-child(even) { background: var(--blue-soft); }
+  .dia { font-weight: 600; min-width: 0; }
+  .dia small { display: block; font-weight: 400; color: var(--muted); }
+  .cifra { text-align: right; font-variant-numeric: tabular-nums; }
+  .cifra small { display: block; color: var(--muted); }
+  .btn { background: var(--navy); color: var(--panel); border-color: var(--navy); font-weight: 600; white-space: nowrap; }
+  .btn[disabled] { opacity: .6; cursor: progress; }
+  .estado { min-height: 1.3em; color: var(--muted); font-size: 13px; margin: 0; }
+  .estado.err { color: var(--bad); }
+  .vacio { padding: 20px; background: var(--panel); border: 1px dashed var(--line); border-radius: 8px; color: var(--muted); }
+  @media (max-width: 460px) { .lista li { grid-template-columns: minmax(0, 1fr) auto; } .cifra { display: none; } }
+</style>
+
+<div class="wrap">
+  <header>
+    <h1>Informes diarios de ventas</h1>
+    <p class="sub">El Café de Don Manuel · El Paso y Los Llanos · un PDF por día con el formato de Kairós Supply</p>
+  </header>
+  <div class="bar">
+    <label for="mes">Mes <select id="mes"><option value="">Todos</option></select></label>
+    <a href="https://claude.ai/artifact/1Qm8hqhUA8mDGNoqzdoYiD" target="_blank" rel="noopener">Abrir el panel de ventas</a>
+  </div>
+  <p class="estado" id="estado" role="status"></p>
+  <div id="lista"><div class="vacio">Cargando los informes…</div></div>
+</div>
+
+<script>
+(() => {
+  const MESES = ['enero','febrero','marzo','abril','mayo','junio','julio','agosto','septiembre','octubre','noviembre','diciembre'];
+  const DIAS = ['domingo','lunes','martes','miércoles','jueves','viernes','sábado'];
+  const eur = new Intl.NumberFormat('es-ES', { style: 'currency', currency: 'EUR', useGrouping: 'always' });
+  const num = new Intl.NumberFormat('es-ES', { useGrouping: 'always' });
+  const $lista = document.getElementById('lista'), $mes = document.getElementById('mes'), $estado = document.getElementById('estado');
+  let filas = [], downloads = null;
+
+  const aviso = (t, err) => { $estado.textContent = t; $estado.classList.toggle('err', !!err); };
+  const fechaLarga = (f) => { const d = new Date(f + 'T00:00:00Z'); return { dia: `${DIAS[d.getUTCDay()]} ${d.getUTCDate()}`, mes: `${MESES[d.getUTCMonth()]} ${d.getUTCFullYear()}` }; };
+
+  function pintarMeses() {
+    const meses = [...new Set(filas.map((r) => r.fecha.slice(0, 7)))].sort().reverse();
+    const actual = $mes.value;
+    $mes.replaceChildren(new Option('Todos', ''), ...meses.map((m) => new Option(`${MESES[+m.slice(5) - 1]} ${m.slice(0, 4)}`, m)));
+    $mes.value = meses.includes(actual) ? actual : '';
+  }
+
+  function pintar() {
+    const sel = $mes.value;
+    const vis = filas.filter((r) => !sel || r.fecha.startsWith(sel)).sort((a, b) => b.fecha.localeCompare(a.fecha));
+    if (!vis.length) { $lista.innerHTML = '<div class="vacio">Todavía no hay informes guardados. Cada noche se añade el del día.</div>'; return; }
+    const grupos = new Map();
+    for (const r of vis) { const k = r.fecha.slice(0, 7); if (!grupos.has(k)) grupos.set(k, []); grupos.get(k).push(r); }
+    $lista.replaceChildren();
+    for (const [k, rs] of grupos) {
+      const sec = document.createElement('section'); sec.className = 'mes';
+      const h = document.createElement('h2'); h.textContent = fechaLarga(k + '-01').mes; sec.append(h);
+      const ul = document.createElement('ul'); ul.className = 'lista';
+      for (const r of rs) {
+        const li = document.createElement('li');
+        const d = document.createElement('div'); d.className = 'dia';
+        d.textContent = fechaLarga(r.fecha).dia;
+        const s = document.createElement('small'); s.textContent = r.fecha.split('-').reverse().join('/'); d.append(s);
+        const c = document.createElement('div'); c.className = 'cifra';
+        c.textContent = typeof r.ventas === 'number' ? eur.format(r.ventas) : '';
+        const cs = document.createElement('small'); cs.textContent = typeof r.pedidos === 'number' ? `${num.format(r.pedidos)} pedidos` : ''; c.append(cs);
+        const b = document.createElement('button'); b.type = 'button'; b.className = 'btn'; b.textContent = 'Descargar PDF';
+        b.addEventListener('click', () => descargar(r, b));
+        li.append(d, c, b); ul.append(li);
+      }
+      sec.append(ul); $lista.append(sec);
+    }
+  }
+
+  async function descargar(r, b) {
+    if (!downloads) { aviso('Esta vista no permite descargar archivos. Abre la página en claude.ai.', true); return; }
+    b.disabled = true; aviso(`Preparando el informe del ${r.fecha.split('-').reverse().join('/')}…`);
+    try {
+      const res = await fetch(r.url);
+      if (!res.ok) throw new Error('No se pudo leer el PDF guardado.');
+      await downloads.save({ filename: `informe_ventas_${r.fecha}.pdf`, data: await res.blob() });
+      aviso('Informe descargado.');
+    } catch (e) {
+      if (e && e.code === 'declined') aviso('Descarga cancelada.');
+      else if (e && e.code === 'rate_limited') aviso('Ya hay una descarga pendiente de confirmar.', true);
+      else aviso((e && e.message) || 'No se pudo descargar el informe.', true);
+    } finally { b.disabled = false; }
+  }
+
+  $mes.addEventListener('change', pintar);
+
+  claude.use('downloads').then((d) => { downloads = d; });
+  claude.use('db').then((db) => {
+    if (!db) { $lista.innerHTML = '<div class="vacio">Inicia sesión en claude.ai para ver los informes.</div>'; return; }
+    db.collection('informes').orderBy('fecha', 'desc').limit(1000).onSnapshot((snap) => {
+      filas = snap.docs.map((d) => d.data()).filter((r) => r && typeof r.fecha === 'string' && typeof r.url === 'string');
+      pintarMeses(); pintar();
+    }, () => { $lista.innerHTML = '<div class="vacio">No se pudieron cargar los informes. Recarga la página.</div>'; });
+  });
+})();
+</script>
+
+</body></html>

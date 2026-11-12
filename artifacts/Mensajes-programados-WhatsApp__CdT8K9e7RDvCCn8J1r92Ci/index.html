@@ -1,0 +1,448 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Mensajes programados WhatsApp</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: two-panel desk — compose card on the left, outbox ledger on the right; stacks on phones */
+:root {
+  --bg: #f3f5f2;
+  --surface: #ffffff;
+  --ink: #17231f;
+  --muted: #5d6b66;
+  --line: #d9e0dc;
+  --accent: #1d6b55;
+  --accent-ink: #ffffff;
+  --accent-soft: #e2efe9;
+  --warn: #9a5b00;
+  --warn-soft: #fbefd9;
+  --bad: #b3261e;
+  --bad-soft: #fbe4e2;
+  --neutral-soft: #eceeed;
+  --f-display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --f-body: "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+  --f-mono: "IBM Plex Mono", ui-monospace, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #101614; --surface: #18201d; --ink: #e6ece9; --muted: #9aa8a2; --line: #2b3632;
+    --accent: #5cc4a3; --accent-ink: #0b1411; --accent-soft: #1d3029;
+    --warn: #f0b75c; --warn-soft: #33281a; --bad: #f2867e; --bad-soft: #3a1f1d; --neutral-soft: #232b28;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #101614; --surface: #18201d; --ink: #e6ece9; --muted: #9aa8a2; --line: #2b3632;
+  --accent: #5cc4a3; --accent-ink: #0b1411; --accent-soft: #1d3029;
+  --warn: #f0b75c; --warn-soft: #33281a; --bad: #f2867e; --bad-soft: #3a1f1d; --neutral-soft: #232b28;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+body {
+  background: var(--bg); color: var(--ink); font-family: var(--f-body); font-size: 15px; line-height: 1.5;
+  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 24px 40px;
+}
+.wrap { max-width: 1080px; margin: 0 auto; display: grid; gap: 20px; }
+header { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; }
+h1 { font-family: var(--f-display); font-weight: 700; font-size: 1.75rem; line-height: 1.15; margin: 0; text-wrap: balance; letter-spacing: -0.01em; }
+.sub { color: var(--muted); margin: 2px 0 0; font-size: 0.9rem; }
+.pill { display: inline-flex; align-items: center; gap: 8px; padding: 6px 12px; border-radius: 999px; font-size: 0.85rem; font-weight: 500; background: var(--neutral-soft); color: var(--muted); }
+.pill .dot { width: 8px; height: 8px; border-radius: 50%; background: currentColor; }
+.pill.ok { background: var(--accent-soft); color: var(--accent); }
+.pill.bad { background: var(--bad-soft); color: var(--bad); }
+.grid { display: grid; grid-template-columns: minmax(0, 360px) minmax(0, 1fr); gap: 20px; align-items: start; }
+@media (max-width: 820px) { .grid { grid-template-columns: minmax(0, 1fr); } }
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 20px; min-width: 0; }
+h2 { font-family: var(--f-display); font-weight: 600; font-size: 1.15rem; margin: 0 0 14px; }
+form { display: grid; gap: 14px; }
+label { display: grid; gap: 5px; font-size: 0.82rem; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: 0.04em; }
+label .hint { text-transform: none; letter-spacing: 0; font-weight: 400; }
+input, textarea, select {
+  font: inherit; font-size: 0.95rem; color: var(--ink); background: var(--bg); border: 1px solid var(--line);
+  border-radius: 7px; padding: 9px 11px; width: 100%; min-width: 0;
+}
+textarea { resize: vertical; min-height: 110px; }
+input:focus-visible, textarea:focus-visible, select:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.row2 { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 10px; }
+.picker { position: relative; display: grid; gap: 8px; }
+.sugs { list-style: none; margin: 0; padding: 4px; position: absolute; top: 100%; left: 0; right: 0; z-index: 5; margin-top: 4px; background: var(--surface); border: 1px solid var(--line); border-radius: 8px; box-shadow: 0 6px 20px rgba(0,0,0,.12); max-height: 300px; overflow-y: auto; }
+.sugs li { display: flex; justify-content: space-between; gap: 10px; padding: 8px 10px; border-radius: 6px; cursor: pointer; }
+.sugs li[aria-selected="true"], .sugs li:hover { background: var(--accent-soft); }
+.sugs .sn { font-weight: 600; min-width: 0; overflow-wrap: anywhere; }
+.sugs .sm { font-family: var(--f-mono); font-size: 0.78rem; color: var(--muted); white-space: nowrap; }
+.sugs .none { color: var(--muted); cursor: default; }
+.sugs .none:hover { background: transparent; }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.chips button { background: var(--bg); border: 1px solid var(--line); color: var(--ink); font-weight: 500; font-size: 0.82rem; padding: 4px 10px; border-radius: 999px; }
+.chips button:hover { border-color: var(--accent); }
+.chips-label { font-size: 0.75rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.04em; font-weight: 600; }
+.dest { display: flex; align-items: center; justify-content: space-between; gap: 10px; background: var(--accent-soft); color: var(--ink); border-radius: 8px; padding: 10px 12px; }
+.dest strong { display: block; }
+.dest span { font-family: var(--f-mono); font-size: 0.8rem; color: var(--muted); }
+.count { font-family: var(--f-mono); font-size: 0.75rem; color: var(--muted); text-align: right; margin-top: -8px; }
+button { font: inherit; cursor: pointer; border-radius: 7px; border: 1px solid transparent; padding: 10px 14px; font-weight: 600; }
+.primary { background: var(--accent); color: var(--accent-ink); }
+.primary:disabled { opacity: 0.55; cursor: progress; }
+.ghost { background: transparent; color: var(--ink); border-color: var(--line); font-weight: 500; padding: 6px 10px; font-size: 0.85rem; }
+.ghost.danger { color: var(--bad); }
+.note { font-size: 0.85rem; padding: 10px 12px; border-radius: 7px; }
+.note.ok { background: var(--accent-soft); color: var(--accent); }
+.note.bad { background: var(--bad-soft); color: var(--bad); }
+.note.warn { background: var(--warn-soft); color: var(--warn); }
+.listhead { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 12px; }
+.listhead h2 { margin: 0; }
+.tabs { display: flex; flex-wrap: wrap; gap: 4px; background: var(--bg); border: 1px solid var(--line); border-radius: 8px; padding: 3px; }
+.tabs button { background: transparent; color: var(--muted); padding: 5px 10px; font-size: 0.85rem; font-weight: 500; }
+.tabs button[aria-pressed="true"] { background: var(--surface); color: var(--ink); box-shadow: 0 1px 2px rgba(0,0,0,.08); }
+.tabs .n { font-family: var(--f-mono); font-size: 0.75rem; margin-left: 4px; }
+ol.msgs { list-style: none; margin: 0; padding: 0; display: grid; }
+.msg { display: grid; grid-template-columns: 92px minmax(0, 1fr) auto; gap: 14px; padding: 14px 0; border-top: 1px solid var(--line); align-items: start; }
+.msg:first-child { border-top: 0; }
+@media (max-width: 520px) { .msg { grid-template-columns: minmax(0, 1fr) auto; } .when { grid-column: 1 / -1; display: flex; gap: 8px; align-items: baseline; } }
+.when { font-family: var(--f-mono); font-variant-numeric: tabular-nums; }
+.when .d { font-size: 0.8rem; color: var(--muted); display: block; }
+.when .t { font-size: 1.15rem; font-weight: 500; }
+.who { font-weight: 600; display: flex; flex-wrap: wrap; gap: 6px 10px; align-items: baseline; }
+.who .num { font-family: var(--f-mono); font-weight: 400; font-size: 0.8rem; color: var(--muted); }
+.txt { margin: 4px 0 0; white-space: pre-wrap; overflow-wrap: anywhere; }
+.err { margin: 6px 0 0; font-size: 0.82rem; color: var(--bad); overflow-wrap: anywhere; }
+.side { display: grid; gap: 8px; justify-items: end; }
+.chip { font-size: 0.72rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; padding: 3px 8px; border-radius: 999px; white-space: nowrap; }
+.chip.pendiente { background: var(--warn-soft); color: var(--warn); }
+.chip.enviado { background: var(--accent-soft); color: var(--accent); }
+.chip.error { background: var(--bad-soft); color: var(--bad); }
+.chip.cancelado, .chip.enviando { background: var(--neutral-soft); color: var(--muted); }
+.confirm { display: flex; flex-wrap: wrap; gap: 6px; justify-content: flex-end; }
+.empty { padding: 28px 8px; text-align: center; color: var(--muted); }
+.empty strong { display: block; color: var(--ink); font-family: var(--f-display); font-weight: 600; font-size: 1.05rem; margin-bottom: 4px; }
+.foot { color: var(--muted); font-size: 0.8rem; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; margin-top: 12px; }
+.vistas { display: none; }
+@media (max-width: 820px) {
+  body { padding-block: 12px 32px; }
+  body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--bg); }
+  .wrap { gap: 14px; }
+  h1 { font-size: 1.4rem; }
+  .sub { font-size: 0.85rem; }
+  .vistas { display: grid; grid-template-columns: 1fr 1fr; gap: 4px; position: sticky; top: env(safe-area-inset-top, 0px); z-index: 6; background: var(--bg); padding-block: 6px; }
+  .vistas button { min-height: 44px; background: var(--surface); border: 1px solid var(--line); color: var(--muted); font-weight: 600; }
+  .vistas button[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
+  .vistas .n { font-family: var(--f-mono); font-size: 0.8rem; margin-left: 6px; }
+  .grid[data-vista="nuevo"] > #panel-lista, .grid[data-vista="lista"] > #panel-nuevo { display: none; }
+  .card { padding: 16px; }
+  #h-nuevo { display: none; }
+  label .hint { display: inline; }
+  input, textarea, select { font-size: 16px; padding: 11px 12px; }
+  textarea { min-height: 140px; }
+  .row2 { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+  .primary { min-height: 48px; font-size: 1rem; }
+  .ghost { min-height: 40px; padding: 8px 12px; }
+  .chips button { min-height: 36px; padding: 6px 12px; font-size: 0.9rem; }
+  .sugs li { padding: 12px; }
+  .sugs { max-height: 50vh; }
+  .listhead { display: grid; gap: 10px; }
+  .tabs { flex-wrap: nowrap; overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
+  .tabs::-webkit-scrollbar { display: none; }
+  .tabs button { flex: 1 0 auto; min-height: 38px; white-space: nowrap; }
+  .side { justify-items: end; }
+  .foot { align-items: center; }
+}
+@media (prefers-reduced-motion: no-preference) { .msg.new { animation: hl 1.6s ease-out; } @keyframes hl { from { background: var(--accent-soft); } to { background: transparent; } } }
+</style>
+
+<div class="wrap">
+  <header>
+    <div>
+      <h1>Mensajes programados</h1>
+      <p class="sub">Se envían desde tu WhatsApp a la hora fijada, en hora de Canarias.</p>
+    </div>
+    <span class="pill" id="estado"><span class="dot"></span><span id="estadoTxt">Comprobando WhatsApp…</span></span>
+  </header>
+
+  <div class="vistas" role="group" aria-label="Vista" id="vistas">
+    <button type="button" data-v="nuevo" aria-pressed="true">Nuevo mensaje</button>
+    <button type="button" data-v="lista" aria-pressed="false">Bandeja<span class="n" id="n-vista"></span></button>
+  </div>
+
+  <div class="grid" id="grid" data-vista="nuevo">
+    <section class="card" id="panel-nuevo" aria-labelledby="h-nuevo">
+      <h2 id="h-nuevo">Nuevo mensaje</h2>
+      <form id="form" novalidate>
+        <div class="picker">
+          <label for="f-buscar">Destinatario <span class="hint">(busca en tus contactos y grupos)</span>
+            <input id="f-buscar" role="combobox" aria-expanded="false" aria-controls="sugs" aria-autocomplete="list" autocomplete="off" placeholder="Nombre o número…">
+          </label>
+          <ul class="sugs" id="sugs" role="listbox" hidden></ul>
+          <div id="dest" class="dest" hidden><div><strong id="destNombre"></strong><span id="destNum"></span></div><button type="button" class="ghost" id="destCambiar">Cambiar</button></div>
+          <div id="recWrap" hidden><div class="chips-label">Recientes</div><div class="chips" id="recientes"></div></div>
+        </div>
+        <label for="f-nombre">Nombre <span class="hint">(para la lista)</span>
+          <input id="f-nombre" maxlength="80" autocomplete="off" placeholder="Se rellena al elegir contacto">
+        </label>
+        <label for="f-tel">Teléfono o grupo
+          <input id="f-tel" inputmode="tel" autocomplete="off" placeholder="+34 600 123 456" required>
+        </label>
+        <label for="f-msg">Mensaje
+          <textarea id="f-msg" maxlength="4000" required placeholder="Buenos días, te recuerdo que…"></textarea>
+        </label>
+        <div class="count" id="count">0 / 4000</div>
+        <div class="row2">
+          <label for="f-fecha">Fecha<input id="f-fecha" type="date" required></label>
+          <label for="f-hora">Hora<input id="f-hora" type="time" required></label>
+        </div>
+        <button class="primary" id="btn" type="submit">Programar</button>
+        <div id="formNote" class="note" hidden></div>
+      </form>
+    </section>
+
+    <section class="card" id="panel-lista" aria-labelledby="h-lista">
+      <div class="listhead">
+        <h2 id="h-lista">Bandeja de salida</h2>
+        <div class="tabs" role="group" aria-label="Filtrar por estado" id="tabs">
+          <button type="button" data-f="pendiente" aria-pressed="true">Pendientes<span class="n" id="n-pendiente"></span></button>
+          <button type="button" data-f="enviado" aria-pressed="false">Enviados<span class="n" id="n-enviado"></span></button>
+          <button type="button" data-f="error" aria-pressed="false">Con error<span class="n" id="n-error"></span></button>
+          <button type="button" data-f="cancelado" aria-pressed="false">Cancelados<span class="n" id="n-cancelado"></span></button>
+        </div>
+      </div>
+      <div id="listNote" class="note" hidden></div>
+      <ol class="msgs" id="lista"></ol>
+      <div class="empty" id="vacio"><strong>Cargando la bandeja…</strong>Los mensajes que programes aparecerán aquí, ordenados por hora de envío.</div>
+      <div class="foot"><span id="actualizado"></span><button type="button" class="ghost" id="recargar">Actualizar</button></div>
+    </section>
+  </div>
+</div>
+
+<script>
+const SERVER = "WA";
+const $ = id => document.getElementById(id);
+let mcp = null, datos = [], filtro = "pendiente", confirmando = null, recienCreado = null;
+
+const fmtD = new Intl.DateTimeFormat("es-ES", { timeZone: "Atlantic/Canary", weekday: "short", day: "numeric", month: "short" });
+const fmtT = new Intl.DateTimeFormat("es-ES", { timeZone: "Atlantic/Canary", hour: "2-digit", minute: "2-digit" });
+const fmtFull = new Intl.DateTimeFormat("es-ES", { timeZone: "Atlantic/Canary", dateStyle: "medium", timeStyle: "short" });
+
+function canaryParts(d) {
+  const p = Object.fromEntries(new Intl.DateTimeFormat("en-CA", { timeZone: "Atlantic/Canary", year: "numeric", month: "2-digit", day: "2-digit", hour: "2-digit", minute: "2-digit", hourCycle: "h23" }).formatToParts(d).map(x => [x.type, x.value]));
+  return p;
+}
+(function defaults() {
+  const t = new Date(Date.now() + 86400000), p = canaryParts(t);
+  $("f-fecha").value = `${p.year}-${p.month}-${p.day}`; $("f-hora").value = "09:00";
+  const n = canaryParts(new Date()); $("f-fecha").min = `${n.year}-${n.month}-${n.day}`;
+})();
+$("f-msg").addEventListener("input", e => { $("count").textContent = `${e.target.value.length} / 4000`; });
+
+function numBonito(id) {
+  const m = String(id).match(/^(\d+)@c\.us$/); if (!m) return String(id).endsWith("@g.us") ? "Grupo" : id;
+  const d = m[1]; return d.startsWith("34") && d.length === 11 ? `+34 ${d.slice(2,5)} ${d.slice(5,8)} ${d.slice(8)}` : "+" + d;
+}
+function note(el, kind, text) { el.className = "note " + kind; el.textContent = text; el.hidden = !text; }
+
+function errorText(e) {
+  switch (e && e.code) {
+    case "server_not_connected": return `No encuentro el conector «${SERVER}». Añádelo en Ajustes → Conectores de claude.ai con ese mismo nombre.`;
+    case "needs_reauth": return `Hay que volver a conectar «${SERVER}» en Ajustes → Conectores.`;
+    case "selection_required": return `Tienes varios conectores llamados «${SERVER}». Elige uno cuando Claude te lo pregunte.`;
+    case "not_in_manifest": case "approval_required": return "Esta página necesita tu permiso para usar el conector. Pulsa Actualizar y acepta el aviso.";
+    case "blocked_by_policy": return "La política de tu organización bloquea este conector.";
+    case "server_unavailable": return "El servidor no responde ahora mismo. Puede estar reiniciándose; prueba en un minuto.";
+    case "tool_error": {
+      const r = e.result, t = r && r.content && r.content.find(c => c.type === "text");
+      return (t && t.text) || e.message || "El servidor rechazó la petición.";
+    }
+    case "not_granted": case "capability_disabled": case "capability_removed": return "Esta vista no puede usar conectores. Abre la página en claude.ai.";
+    default: return (e && e.message) || "No se pudo completar la petición.";
+  }
+}
+
+function render() {
+  const counts = { pendiente: 0, enviado: 0, error: 0, cancelado: 0 };
+  datos.forEach(m => { if (m.estado === "enviando") counts.pendiente++; else if (counts[m.estado] !== undefined) counts[m.estado]++; });
+  for (const k in counts) $("n-" + k).textContent = counts[k] ? counts[k] : "";
+  $("n-vista").textContent = counts.pendiente ? counts.pendiente : "";
+  let lista = datos.filter(m => filtro === "pendiente" ? (m.estado === "pendiente" || m.estado === "enviando") : m.estado === filtro);
+  if (filtro !== "pendiente") lista = lista.slice().reverse();
+  const ol = $("lista"); ol.textContent = "";
+  for (const m of lista) {
+    const li = document.createElement("li"); li.className = "msg" + (m.id === recienCreado ? " new" : "");
+    const d = new Date(m.enviarEn);
+    li.innerHTML = `<div class="when"><span class="d"></span><span class="t"></span></div>
+      <div style="min-width:0"><div class="who"><span class="nm"></span><span class="num"></span></div><p class="txt"></p></div>
+      <div class="side"><span class="chip"></span></div>`;
+    li.querySelector(".d").textContent = fmtD.format(d);
+    li.querySelector(".t").textContent = fmtT.format(d);
+    li.querySelector(".nm").textContent = m.nombre || numBonito(m.para);
+    li.querySelector(".num").textContent = m.nombre ? numBonito(m.para) : "";
+    li.querySelector(".txt").textContent = m.texto;
+    const chip = li.querySelector(".chip"); chip.classList.add(m.estado); chip.textContent = m.estado === "enviando" ? "enviando" : m.estado;
+    if (m.estado === "enviado" && m.enviadoEn) chip.title = "Enviado " + fmtFull.format(new Date(m.enviadoEn));
+    if (m.error) { const p = document.createElement("p"); p.className = "err"; p.textContent = m.error; li.children[1].appendChild(p); }
+    if (m.estado === "pendiente") {
+      const side = li.querySelector(".side");
+      if (confirmando === m.id) {
+        const box = document.createElement("div"); box.className = "confirm";
+        const si = document.createElement("button"); si.type = "button"; si.className = "ghost danger"; si.textContent = "Sí, cancelar";
+        const no = document.createElement("button"); no.type = "button"; no.className = "ghost"; no.textContent = "No";
+        si.onclick = () => cancelar(m.id, si); no.onclick = () => { confirmando = null; render(); };
+        box.append(si, no); side.appendChild(box);
+      } else {
+        const b = document.createElement("button"); b.type = "button"; b.className = "ghost"; b.textContent = "Cancelar";
+        b.onclick = () => { confirmando = m.id; render(); }; side.appendChild(b);
+      }
+    }
+    ol.appendChild(li);
+  }
+  const vacio = $("vacio");
+  if (lista.length) { vacio.hidden = true; return; }
+  vacio.hidden = false;
+  const txt = { pendiente: ["No hay mensajes pendientes", "Usa el formulario para programar el primero."], enviado: ["Aún no se ha enviado nada", "Aquí verás los mensajes ya enviados."], error: ["Sin errores", "Si un envío falla, aparecerá aquí con el motivo."], cancelado: ["Nada cancelado", "Los mensajes que canceles quedan aquí."] }[filtro];
+  vacio.innerHTML = "<strong></strong><span></span>"; vacio.firstChild.textContent = txt[0]; vacio.lastChild.textContent = txt[1];
+}
+
+$("tabs").addEventListener("click", e => {
+  const b = e.target.closest("button[data-f]"); if (!b) return;
+  filtro = b.dataset.f; confirmando = null;
+  for (const x of $("tabs").querySelectorAll("button")) x.setAttribute("aria-pressed", String(x === b));
+  render();
+});
+
+function setEstado(kind, text) { const p = $("estado"); p.className = "pill " + kind; $("estadoTxt").textContent = text; }
+
+async function cargar(fresh) {
+  if (!mcp) return;
+  try {
+    const r = await mcp.callTool(SERVER, "listar_mensajes", { estado: "todos" }, { cache: fresh ? { refresh: true } : undefined });
+    const p = r.payload || {};
+    datos = Array.isArray(p.mensajes) ? p.mensajes : [];
+    note($("listNote"), "", "");
+    $("actualizado").textContent = "Actualizado a las " + fmtT.format(new Date());
+    render();
+  } catch (e) {
+    note($("listNote"), "bad", errorText(e));
+    if (!datos.length) { $("vacio").hidden = false; $("vacio").innerHTML = "<strong>No se pudo cargar la bandeja</strong><span>Revisa el aviso de arriba.</span>"; }
+  }
+  try {
+    const s = await mcp.callTool(SERVER, "estado_whatsapp", {}, { cache: false });
+    const p = s.payload || {};
+    p.conectado ? setEstado("ok", "WhatsApp conectado") : setEstado("bad", "WhatsApp desconectado");
+  } catch (e) { setEstado("bad", e.code === "server_unavailable" ? "Servidor sin respuesta" : "Sin conexión con el conector"); }
+}
+
+$("form").addEventListener("submit", async e => {
+  e.preventDefault();
+  const tel = $("f-tel").value.trim(), msg = $("f-msg").value.trim(), f = $("f-fecha").value, h = $("f-hora").value;
+  if (!tel || !msg || !f || !h) { note($("formNote"), "bad", "Rellena teléfono, mensaje, fecha y hora."); return; }
+  if (!mcp) { note($("formNote"), "bad", "Esta vista no puede usar conectores. Abre la página en claude.ai."); return; }
+  const btn = $("btn"); btn.disabled = true; btn.textContent = "Programando…"; note($("formNote"), "", "");
+  const input = { telefono: tel, mensaje: msg, fecha_hora: `${f} ${h}` };
+  const nombre = $("f-nombre").value.trim(); if (nombre) input.nombre = nombre;
+  try {
+    const r = await mcp.callTool(SERVER, "programar_mensaje", input);
+    const m = r.payload && r.payload.programado;
+    recienCreado = m && m.id;
+    note($("formNote"), "ok", m ? `Programado para el ${m.enviarEnLocal}.` : "Programado.");
+    $("f-msg").value = ""; $("count").textContent = "0 / 4000";
+    filtro = "pendiente"; for (const x of $("tabs").querySelectorAll("button")) x.setAttribute("aria-pressed", String(x.dataset.f === "pendiente"));
+    await cargar(true);
+  } catch (err) {
+    const ambiguo = err.code === "server_unavailable" || err.code === "upstream_error" || err.code === "cancelled";
+    note($("formNote"), ambiguo ? "warn" : "bad", ambiguo ? "No hubo respuesta clara. Revisa la bandeja antes de volver a intentarlo, puede que ya esté programado." : errorText(err));
+    if (ambiguo) cargar(true);
+  } finally { btn.disabled = false; btn.textContent = "Programar"; }
+});
+
+async function cancelar(id, btn) {
+  btn.disabled = true; btn.textContent = "Cancelando…";
+  try {
+    await mcp.callTool(SERVER, "cancelar_mensaje", { id });
+    confirmando = null; note($("listNote"), "ok", "Mensaje cancelado.");
+  } catch (e) { confirmando = null; note($("listNote"), "bad", errorText(e)); }
+  await cargar(true);
+}
+
+$("recargar").addEventListener("click", () => cargar(true));
+
+function verVista(v) {
+  $("grid").dataset.vista = v;
+  for (const b of $("vistas").querySelectorAll("button")) b.setAttribute("aria-pressed", String(b.dataset.v === v));
+}
+$("vistas").addEventListener("click", e => { const b = e.target.closest("button[data-v]"); if (b) { verVista(b.dataset.v); window.scrollTo({ top: 0 }); } });
+
+// ---------- directorio de contactos ----------
+let chats = [], sugs = [], activo = -1, tBusca = null, nBusca = 0;
+const norm = t => String(t || "").toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "");
+function elegir(c) {
+  $("f-tel").value = c.esGrupo ? c.id : (c.numero || c.id);
+  $("f-nombre").value = c.nombre || "";
+  $("destNombre").textContent = c.nombre || c.numero || c.id;
+  $("destNum").textContent = c.esGrupo ? "Grupo" : (c.numero || "");
+  $("dest").hidden = false; $("f-buscar").value = ""; cerrarSugs();
+  $("f-msg").focus();
+}
+$("destCambiar").onclick = () => { $("dest").hidden = true; $("f-tel").value = ""; $("f-nombre").value = ""; $("f-buscar").focus(); };
+function cerrarSugs() { $("sugs").hidden = true; $("f-buscar").setAttribute("aria-expanded", "false"); activo = -1; }
+function pintarSugs(lista, msg) {
+  const ul = $("sugs"); ul.textContent = ""; sugs = lista; activo = lista.length ? 0 : -1;
+  if (!lista.length) { const li = document.createElement("li"); li.className = "none"; li.textContent = msg || "Sin resultados"; ul.appendChild(li); }
+  lista.forEach((c, i) => {
+    const li = document.createElement("li"); li.role = "option"; li.id = "sug-" + i; li.setAttribute("aria-selected", String(i === activo));
+    const a = document.createElement("span"); a.className = "sn"; a.textContent = c.nombre || c.numero || c.id;
+    const b = document.createElement("span"); b.className = "sm"; b.textContent = c.esGrupo ? "Grupo" : (c.numero || "");
+    li.append(a, b); li.onmousedown = e => { e.preventDefault(); elegir(c); }; ul.appendChild(li);
+  });
+  ul.hidden = false; $("f-buscar").setAttribute("aria-expanded", "true");
+}
+function marcar() { [...$("sugs").children].forEach((li, i) => li.setAttribute("aria-selected", String(i === activo))); const el = $("sug-" + activo); if (el) el.scrollIntoView({ block: "nearest" }); }
+async function buscar(q) {
+  const my = ++nBusca, qn = norm(q), qd = q.replace(/\D/g, "");
+  const locales = chats.filter(c => norm(c.nombre).includes(qn) || (qd.length >= 3 && (c.numero || "").replace(/\D/g, "").includes(qd)));
+  pintarSugs(locales.slice(0, 10), "Buscando…");
+  try {
+    const r = await mcp.callTool(SERVER, "buscar_contacto", { texto: q }, { cache: { staleTime: 300000, gcTime: 600000 } });
+    if (my !== nBusca) return;
+    const vistos = new Set(), out = [];
+    for (const c of [...locales, ...((r.payload && r.payload.contactos) || []).map(x => ({ id: x.id, nombre: x.nombre, numero: x.numero, esGrupo: false }))]) {
+      const k = c.esGrupo ? c.id : (c.numero || c.id); if (vistos.has(k)) continue; vistos.add(k); out.push(c);
+    }
+    pintarSugs(out.slice(0, 12));
+  } catch (e) { if (my === nBusca) pintarSugs(locales.slice(0, 10), errorText(e)); }
+}
+$("f-buscar").addEventListener("input", e => {
+  const q = e.target.value.trim(); clearTimeout(tBusca);
+  if (q.length < 2 || !mcp) { cerrarSugs(); return; }
+  tBusca = setTimeout(() => buscar(q), 250);
+});
+$("f-buscar").addEventListener("keydown", e => {
+  if ($("sugs").hidden || !sugs.length) return;
+  if (e.key === "ArrowDown") { e.preventDefault(); activo = (activo + 1) % sugs.length; marcar(); }
+  else if (e.key === "ArrowUp") { e.preventDefault(); activo = (activo - 1 + sugs.length) % sugs.length; marcar(); }
+  else if (e.key === "Enter") { e.preventDefault(); if (activo >= 0) elegir(sugs[activo]); }
+  else if (e.key === "Escape") cerrarSugs();
+});
+$("f-buscar").addEventListener("blur", () => setTimeout(cerrarSugs, 150));
+async function cargarChats() {
+  try {
+    const r = await mcp.callTool(SERVER, "chats_recientes", { limite: 100 }, { cache: { staleTime: 300000, gcTime: 600000 } });
+    chats = (r.payload && r.payload.chats) || [];
+    const box = $("recientes"); box.textContent = "";
+    chats.slice(0, 8).forEach(c => { const b = document.createElement("button"); b.type = "button"; b.textContent = c.nombre; b.title = c.esGrupo ? "Grupo" : (c.numero || ""); b.onclick = () => elegir(c); box.appendChild(b); });
+    $("recWrap").hidden = !chats.length;
+  } catch (e) { /* el buscador sigue funcionando con buscar_contacto */ }
+}
+
+(async () => {
+  try { mcp = await window.claude?.use?.("mcp"); } catch { mcp = null; }
+  if (!mcp) {
+    setEstado("bad", "Sin acceso al conector");
+    $("vacio").innerHTML = "<strong>Abre esta página en claude.ai</strong><span>Necesita el conector de WhatsApp para leer y programar mensajes.</span>";
+    return;
+  }
+  cargar(false);
+  cargarChats();
+  setInterval(() => { if (!document.hidden) cargar(true); }, 60000);
+})();
+</script>
+
+</body></html>

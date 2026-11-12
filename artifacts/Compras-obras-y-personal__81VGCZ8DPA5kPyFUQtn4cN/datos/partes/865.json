@@ -1,0 +1,19 @@
+{
+  "albs": [],
+  "cliente": "INSTAPALMA",
+  "desc": "Hormigonar tubos eléctricos , cortar tubos sobrantes dentro de arqueta , rellenar agujeros con arena y cemento dentro de arqueta",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-11-03",
+  "horas": 8,
+  "id": "865",
+  "obra": "ZANJA COVALLE",
+  "ops": [
+    {
+      "h": 8,
+      "n": "Luigi"
+    }
+  ],
+  "origen": "dashboard",
+  "stock": []
+}

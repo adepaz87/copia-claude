@@ -1,0 +1,21 @@
+{
+  "albs": [],
+  "cliente": "AYUNTAMIENTO EL PASO",
+  "desc": "Añadir puntos de luz en salon chimenea, colocar sensores. Cortar techos para registros. Marcar comedores de cocina y pasillos.",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-10-13",
+  "horas": 13,
+  "obra": "HOTEL MONTERREY",
+  "ops": [
+    {
+      "h": 6.5,
+      "n": "Antonio"
+    },
+    {
+      "h": 6.5,
+      "n": "Iker"
+    }
+  ],
+  "stock": []
+}

@@ -1,0 +1,21 @@
+{
+  "albs": [],
+  "cliente": "TRAGSA",
+  "desc": "Instalar bases, baterías, bases singenstack, sigenstack cover y sigenstack BC (control)",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-09-10",
+  "horas": 16,
+  "obra": "FV EL RIACHUELO",
+  "ops": [
+    {
+      "h": 8,
+      "n": "Adán"
+    },
+    {
+      "h": 8,
+      "n": "Jonathan Glez"
+    }
+  ],
+  "stock": []
+}

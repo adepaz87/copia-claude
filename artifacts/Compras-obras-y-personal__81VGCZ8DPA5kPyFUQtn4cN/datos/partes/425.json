@@ -1,0 +1,17 @@
+{
+  "albs": [],
+  "cliente": "TOMÁS BARRETO SA",
+  "desc": "Revisión de UPS. Estado correcto.Sustituido diferencial general de UPS. Por nuevo inmunizado. Funcionando.",
+  "devol": [],
+  "estado": "TERMINADO",
+  "fecha": "2026-09-08",
+  "horas": 1,
+  "obra": "SPAR SALINAS",
+  "ops": [
+    {
+      "h": 1,
+      "n": "Toño"
+    }
+  ],
+  "stock": []
+}

@@ -1,0 +1,54 @@
+{
+  "albs": [
+    "Ayumar 2-819"
+  ],
+  "cliente": "ALBERTO MEDINA",
+  "desc": "Fijar socalos para TV garaje\nPasar líneas de fuerza datos y TV para televisión garaje\nColocar enchufe para extracción de baterías fv\nRodar grabador, router punto\nDe acceso y TV de cámaras para poder añadir baterías\nCambiar tiras leds exteriores fundidas\nSoldar tiras led nuevas",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-09-07",
+  "horas": 10,
+  "obra": "CASA ALBERTO MEDINA",
+  "ops": [
+    {
+      "h": 5,
+      "n": "Aythami"
+    },
+    {
+      "h": 5,
+      "n": "Joel"
+    }
+  ],
+  "stock": [
+    {
+      "d": "zócalo sobre pared+ suco ticino",
+      "q": 1,
+      "u": ""
+    },
+    {
+      "d": "cable TV",
+      "q": 18,
+      "u": "m"
+    },
+    {
+      "d": "cable datos",
+      "q": 22,
+      "u": "m"
+    },
+    {
+      "d": "cable 2,5mm",
+      "q": 45,
+      "u": "m"
+    },
+    {
+      "d": "conector f",
+      "q": 1,
+      "u": ""
+    },
+    {
+      "d": "clavijas rj45",
+      "q": 3,
+      "u": ""
+    }
+  ]
+}

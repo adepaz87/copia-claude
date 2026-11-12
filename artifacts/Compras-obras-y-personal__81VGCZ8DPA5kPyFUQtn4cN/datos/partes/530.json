@@ -1,0 +1,36 @@
+{
+  "albs": [],
+  "cliente": "TRAGSA",
+  "desc": "Abrir zanjas para pasar canalizaciones de CC.\nInstalar tubo para pases de CC y tapar zanjas.\nClavar picas de tierra.\nInstalar bandeja en cuarto del inversor.\nFijar cuadros de CC y CA.\nCortar carril perforado para bases de bandeja.",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-09-22",
+  "horas": 19.5,
+  "obra": "FV EL RIACHUELO",
+  "ops": [
+    {
+      "h": 3.5,
+      "n": "Toño"
+    },
+    {
+      "h": 8,
+      "n": "Adán"
+    },
+    {
+      "h": 8,
+      "n": "Jonathan Glez"
+    }
+  ],
+  "stock": [
+    {
+      "d": "tubo rígido metálico",
+      "q": 5,
+      "u": "m"
+    },
+    {
+      "d": "abrazaderas metálicas de 40",
+      "q": 10,
+      "u": ""
+    }
+  ]
+}

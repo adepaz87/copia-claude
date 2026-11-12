@@ -1,0 +1,25 @@
+{
+  "albs": [],
+  "cliente": "CABILDO INSULAR",
+  "desc": "Colocar topes en aturdidores para evitar cortocircuitos.\nReparar aturidor con cable roto por tiron de operario.\nSustituir termostato de esterilizador de caprino y colprobar funcionamiento.",
+  "devol": [],
+  "estado": "TERMINADO",
+  "fecha": "2026-10-13",
+  "horas": 4,
+  "obra": "MATADERO INSULAR",
+  "ops": [
+    {
+      "h": 1.5,
+      "n": "Antonio"
+    },
+    {
+      "h": 1.5,
+      "n": "Iker"
+    },
+    {
+      "h": 1,
+      "n": "Transporte"
+    }
+  ],
+  "stock": []
+}

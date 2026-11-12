@@ -1,0 +1,19 @@
+{
+  "actualizada": "2026-08-04T09:00:00Z",
+  "aviso": "",
+  "centro": "SPAR El Puerto",
+  "creada": "2026-08-04T09:00:00Z",
+  "descripcion": "Sustituir el mueble expositor por un mueble de caja con TPV y balanza; 4 tomas eléctricas.",
+  "estado": "terminada",
+  "fechaAviso": "2026-08-04",
+  "historial": [
+    "04/08/2026 · Importada del correo de Alberto"
+  ],
+  "informado": true,
+  "notas": "Resuelta el 04/08/2026.",
+  "operario": "Toño Guardia",
+  "ot": 55,
+  "prioridad": "Sin especificar",
+  "solicitante": "",
+  "tipo": "MANTENIMIENTO"
+}

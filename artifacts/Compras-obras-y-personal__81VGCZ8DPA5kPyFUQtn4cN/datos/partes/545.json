@@ -1,0 +1,25 @@
+{
+  "albs": [],
+  "cliente": "TRAGSA",
+  "desc": "Enhebrar líneas para cargadores eléctricos",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-09-24",
+  "horas": 6,
+  "obra": "FV CENTRO DE VISITANTES",
+  "ops": [
+    {
+      "h": 2,
+      "n": "Adán"
+    },
+    {
+      "h": 2,
+      "n": "Toño"
+    },
+    {
+      "h": 2,
+      "n": "Jonathan Glez"
+    }
+  ],
+  "stock": []
+}

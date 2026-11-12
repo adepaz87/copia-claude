@@ -1,0 +1,33 @@
+{
+  "albs": [],
+  "cliente": "CONSTRUCCIONES DOMINGO",
+  "desc": "Buscar material.\nEmpatar tubos y llevar  a nueva ubicación",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-10-15",
+  "horas": 1,
+  "obra": "CASA CRISTINA",
+  "ops": [
+    {
+      "h": 1,
+      "n": "Ricky"
+    }
+  ],
+  "stock": [
+    {
+      "d": "tubo 32 corrugado negro",
+      "q": 42,
+      "u": "m"
+    },
+    {
+      "d": "tubo 25 corrugado negro",
+      "q": 7,
+      "u": "m"
+    },
+    {
+      "d": "tubo 50 Comarrugo negro",
+      "q": 8,
+      "u": "m"
+    }
+  ]
+}

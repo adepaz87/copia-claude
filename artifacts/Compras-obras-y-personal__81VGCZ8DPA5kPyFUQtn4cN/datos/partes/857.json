@@ -1,0 +1,25 @@
+{
+  "albs": [
+    "Sonepar 309006648"
+  ],
+  "cliente": "AYUNTAMIENTO EL PASO",
+  "desc": "Colocar lamparas, emergencias y sensores en pasillo 2 planta. Colocar pantallas fluorescentes y emergencia en almacen 2 planta. Colocar pantallas y emergencia en almacén rack. Colocar sensor en emergencia en rellano escalera central 2 planta.",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-11-03",
+  "horas": 15,
+  "id": "857",
+  "obra": "HOTEL MONTERREY",
+  "ops": [
+    {
+      "h": 7,
+      "n": "Antonio"
+    },
+    {
+      "h": 8,
+      "n": "Iker"
+    }
+  ],
+  "origen": "dashboard",
+  "stock": []
+}

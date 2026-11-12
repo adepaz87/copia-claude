@@ -1,0 +1,35 @@
+{
+  "empresa": "Instapalma",
+  "fecha": "2026-10-16",
+  "lineas": [
+    {
+      "a": "309006354",
+      "d": "CABEZA PULS.RASANTE VERDE",
+      "dto": "45",
+      "f": "2026-10-16",
+      "i": 5.82,
+      "o": "MATADERO INSULAR",
+      "pn": 5.82,
+      "pt": 10.59,
+      "q": 1,
+      "r": "20971"
+    },
+    {
+      "a": "309006354",
+      "d": "CUERPO COMPLETO NA+NA",
+      "dto": "45",
+      "f": "2026-10-16",
+      "i": 12.17,
+      "o": "MATADERO INSULAR",
+      "pn": 12.17,
+      "pt": 22.12,
+      "q": 1,
+      "r": "21029"
+    }
+  ],
+  "numero": "309006354",
+  "obra": "MATADERO INSULAR",
+  "origen": "Gmail (escaneo)",
+  "proveedor": "Sonepar",
+  "tipo": "albaran"
+}

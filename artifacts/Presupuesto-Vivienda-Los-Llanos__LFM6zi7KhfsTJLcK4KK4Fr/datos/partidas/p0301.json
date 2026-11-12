@@ -1,0 +1,12 @@
+{
+  "cap": "03",
+  "cod": "03.01",
+  "desc": "Cierre parcial de los dos huecos de escaparate con fábrica de bloque de 20 cm y formación de huecos de ventana y puerta de entrada con dintel y jambas.",
+  "med": 12,
+  "nota": "Medir huecos de escaparate en obra",
+  "orden": 1,
+  "pre": 58,
+  "rev": true,
+  "sb": false,
+  "ud": "m²"
+}

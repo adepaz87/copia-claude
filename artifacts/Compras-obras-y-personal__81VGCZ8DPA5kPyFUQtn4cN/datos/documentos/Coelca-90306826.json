@@ -1,0 +1,140 @@
+{
+  "empresa": "Instapalma",
+  "fecha": "2026-01-23",
+  "lineas": [
+    {
+      "a": "180.261/018",
+      "d": "CABLE H07Z1-K CPR 1X6 AZUL",
+      "f": "2026-01-20",
+      "fab": "CABLE",
+      "i": 89.6,
+      "o": "HOTEL ESCUELA MONTERREY",
+      "pn": 0.896,
+      "pt": 0.896,
+      "q": 100,
+      "r": "555175"
+    },
+    {
+      "a": "180.261/018",
+      "d": "CABLE H07Z1-K CPR 1X6 NEGRO",
+      "f": "2026-01-20",
+      "fab": "CABLE",
+      "i": 89.6,
+      "o": "HOTEL ESCUELA MONTERREY",
+      "pn": 0.896,
+      "pt": 0.896,
+      "q": 100,
+      "r": "555172"
+    },
+    {
+      "a": "180.261/018",
+      "d": "PUNTERA HUECA DOBLE 6mm AMARIL GAE-DUO-2X6",
+      "f": "2026-01-20",
+      "i": 35.4,
+      "o": "HOTEL ESCUELA MONTERREY",
+      "pn": 0.177,
+      "pt": 0.177,
+      "q": 200,
+      "r": "5895"
+    },
+    {
+      "a": "180.261/018",
+      "d": "PUNTERA HUECA 6mm VERDE",
+      "f": "2026-01-20",
+      "fab": "GAE-TE-6",
+      "i": 13,
+      "o": "HOTEL ESCUELA MONTERREY",
+      "pn": 0.065,
+      "pt": 0.065,
+      "q": 200,
+      "r": "5885"
+    },
+    {
+      "a": "180.261/018",
+      "d": "PUNTERA HUECA DOBLE 4mm GRIS",
+      "f": "2026-01-20",
+      "fab": "GAE-DUO-2X4",
+      "i": 16,
+      "o": "HOTEL ESCUELA MONTERREY",
+      "pn": 0.16,
+      "pt": 0.16,
+      "q": 100,
+      "r": "5894"
+    },
+    {
+      "a": "180.261/018",
+      "d": "PUNTERA HUECA 2,5mm GRIS",
+      "f": "2026-01-20",
+      "fab": "GAE-TE-2,50",
+      "i": 10.5,
+      "o": "HOTEL ESCUELA MONTERREY",
+      "pn": 0.021,
+      "pt": 0.021,
+      "q": 500,
+      "r": "5883"
+    },
+    {
+      "a": "180.261/018",
+      "d": "PUNTERA HUECA DOBLE 2.5mm AZUL GAE-DUO-2X2,50",
+      "f": "2026-01-20",
+      "i": 6.3,
+      "o": "HOTEL ESCUELA MONTERREY",
+      "pn": 0.063,
+      "pt": 0.063,
+      "q": 100,
+      "r": "5893"
+    },
+    {
+      "a": "180.261/018",
+      "d": "PUNTERA HUECA 1,5mm NEGRO",
+      "f": "2026-01-20",
+      "fab": "GAE-TE-1,50",
+      "i": 13,
+      "o": "HOTEL ESCUELA MONTERREY",
+      "pn": 0.026,
+      "pt": 0.026,
+      "q": 500,
+      "r": "5882"
+    },
+    {
+      "a": "180.357/018",
+      "d": "CABLE RVK CPR 3G2.5 ROLLO",
+      "f": "2026-01-23",
+      "fab": "CABLE",
+      "i": 128.3,
+      "o": "TEATRO MONTERREY",
+      "pn": 1.283,
+      "pt": 1.283,
+      "q": 100,
+      "r": "5551150"
+    },
+    {
+      "a": "180.357/018",
+      "d": "BASE 16A PVC FACIL NEGRO",
+      "f": "2026-01-23",
+      "fab": "SOL-707C",
+      "i": 12.64,
+      "o": "TEATRO MONTERREY",
+      "pn": 3.16,
+      "pt": 3.16,
+      "q": 4,
+      "r": "867074"
+    },
+    {
+      "a": "180.357/018",
+      "d": "BASE 16A PVC PRENS+TAPA IP54",
+      "f": "2026-01-23",
+      "fab": "SOL-707T",
+      "i": 12.28,
+      "o": "TEATRO MONTERREY",
+      "pn": 3.07,
+      "pt": 3.07,
+      "q": 4,
+      "r": "867073"
+    }
+  ],
+  "numero": "90306826",
+  "origen": "Gmail",
+  "proveedor": "Coelca",
+  "tipo": "factura"
+}

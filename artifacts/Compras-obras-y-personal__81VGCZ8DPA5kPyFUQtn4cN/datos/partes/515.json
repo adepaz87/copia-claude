@@ -1,0 +1,49 @@
+{
+  "albs": [
+    "Ayumar 8-1040",
+    "Ayumar  8-1041"
+  ],
+  "cliente": "NOLASCO",
+  "desc": "Elaborar cuadro\nRotular cuadro\nFichar registros\nMecanizar\nColocar portalámparas y bombillos\nColocar portero conectarlo y conectar cable en patinillo\nConectar TV en patinillo\nCerrar registros \nComprobar viviendas\n(Se dejan embellecedores en una caja al pintor ya que falta la segunda mano y el se encarga de ponerlos)",
+  "devol": [],
+  "estado": "TERMINADO",
+  "fecha": "2026-09-21",
+  "horas": 24,
+  "obra": "NOLASCO EL CASTILLETE",
+  "ops": [
+    {
+      "h": 8,
+      "n": "Riki"
+    },
+    {
+      "h": 8,
+      "n": "Joel"
+    },
+    {
+      "h": 8,
+      "n": "Aythami"
+    }
+  ],
+  "stock": [
+    {
+      "d": "diferenciales 2x40",
+      "q": 2,
+      "u": ""
+    },
+    {
+      "d": "automático 2x25",
+      "q": 1,
+      "u": ""
+    },
+    {
+      "d": "automático 2x10",
+      "q": 1,
+      "u": ""
+    },
+    {
+      "d": "automaticos 2 x16",
+      "q": 5,
+      "u": ""
+    }
+  ]
+}

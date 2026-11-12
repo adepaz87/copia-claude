@@ -1,0 +1,19 @@
+{
+  "actualizada": "2026-08-17T09:00:00Z",
+  "aviso": "25836",
+  "centro": "SPAR El Muelle",
+  "creada": "2026-08-17T09:00:00Z",
+  "descripcion": "Luminaria parpadeando en la zona de frescos.",
+  "estado": "terminada",
+  "fechaAviso": "2026-08-17",
+  "historial": [
+    "17/08/2026 · Importada del correo de Alberto"
+  ],
+  "informado": true,
+  "notas": "Resuelta el 17/08/2026.",
+  "operario": "",
+  "ot": 36,
+  "prioridad": "Sin especificar",
+  "solicitante": "",
+  "tipo": "MANTENIMIENTO"
+}

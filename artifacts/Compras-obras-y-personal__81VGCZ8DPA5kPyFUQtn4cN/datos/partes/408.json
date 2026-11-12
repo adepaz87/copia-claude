@@ -1,0 +1,55 @@
+{
+  "albs": [],
+  "cliente": "EDIFICIO DOMINGO",
+  "desc": "Entubar derivaciones individuales planta 1,2y 3 desde cuarto contadores hasta patinillo\nEntubar trasteros planta baja hasta patinillo",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-09-03",
+  "horas": 24,
+  "obra": "EDIFICIO DOMINGO EL PASO",
+  "ops": [
+    {
+      "h": 9,
+      "n": "Riki"
+    },
+    {
+      "h": 8,
+      "n": "Peter"
+    },
+    {
+      "h": 3.5,
+      "n": "Aythami"
+    },
+    {
+      "h": 3.5,
+      "n": "Joel"
+    }
+  ],
+  "stock": [
+    {
+      "d": "registros telecomunicaciones",
+      "q": 7,
+      "u": ""
+    },
+    {
+      "d": "cuadros empotrar solera",
+      "q": 7,
+      "u": ""
+    },
+    {
+      "d": "tubo cuarrugado de 20",
+      "q": 300,
+      "u": "m"
+    },
+    {
+      "d": "tubo cuarrugado de 32",
+      "q": 1400,
+      "u": "m"
+    },
+    {
+      "d": "tubo cuarrugado de 40",
+      "q": 175,
+      "u": "m"
+    }
+  ]
+}

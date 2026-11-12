@@ -1,0 +1,36 @@
+{
+  "empresa": "Instapalma",
+  "fecha": "2026-11-06",
+  "lineas": [
+    {
+      "a": "",
+      "d": "MANO DE OBRA ELECTRICIDAD (128 h a 20 €)",
+      "dto": "",
+      "f": "2026-11-06",
+      "i": 2560,
+      "igic": 7,
+      "o": "",
+      "pn": 20,
+      "pt": 20,
+      "q": 128,
+      "r": ""
+    },
+    {
+      "a": "",
+      "d": "MATERIAL",
+      "dto": "",
+      "f": "2026-11-06",
+      "i": 100,
+      "igic": 7,
+      "o": "",
+      "pn": 100,
+      "pt": 100,
+      "q": 1,
+      "r": ""
+    }
+  ],
+  "numero": "F260036",
+  "origen": "Gmail",
+  "proveedor": "Joel Morales",
+  "tipo": "factura"
+}

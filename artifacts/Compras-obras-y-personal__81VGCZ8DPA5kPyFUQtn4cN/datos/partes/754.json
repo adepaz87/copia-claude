@@ -1,0 +1,21 @@
+{
+  "albs": [],
+  "cliente": "DRAGADOS",
+  "desc": "Buscar tubos de electricidad y teleco en  pasillo de 2 planta ordenado por la jefa de obra.",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-10-21",
+  "horas": 4,
+  "obra": "HOTEL MONTERREY",
+  "ops": [
+    {
+      "h": 2,
+      "n": "Antonio"
+    },
+    {
+      "h": 2,
+      "n": "Iker"
+    }
+  ],
+  "stock": []
+}

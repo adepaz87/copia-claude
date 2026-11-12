@@ -1,0 +1,32 @@
+{
+  "albs": [
+    "Diexfe 020595"
+  ],
+  "cliente": "TRAGSA",
+  "desc": "Enbridar cables por bandeja para entrar en cuadro. Empezar a realización de cuadro",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-11-04",
+  "horas": 8,
+  "id": "881",
+  "obra": "HOSPITAL (MOD G)",
+  "ops": [
+    {
+      "h": 8,
+      "n": "Juan"
+    }
+  ],
+  "origen": "dashboard",
+  "stock": [
+    {
+      "d": "cable de 3x1,5 rz1",
+      "q": 52,
+      "u": "m"
+    },
+    {
+      "d": "bolsa bridas de 4,8x300",
+      "q": 1,
+      "u": ""
+    }
+  ]
+}

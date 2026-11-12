@@ -1,0 +1,20 @@
+{
+  "albs": [
+    "Moeve 446224",
+    "Shell el paso 26AF00017223"
+  ],
+  "cliente": "INSTAPALMA",
+  "desc": "Hormigonar laterales de arqueta",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-10-14",
+  "horas": 8,
+  "obra": "ZANJA COVALLE",
+  "ops": [
+    {
+      "h": 8,
+      "n": "Luigi"
+    }
+  ],
+  "stock": []
+}

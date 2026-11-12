@@ -1,0 +1,19 @@
+{
+  "actualizada": "2026-05-19T09:00:00Z",
+  "aviso": "",
+  "centro": "Recepción TBSA",
+  "creada": "2026-05-19T09:00:00Z",
+  "descripcion": "Instalación de luminaria en recepción.",
+  "estado": "terminada",
+  "fechaAviso": "2026-05-19",
+  "historial": [
+    "19/05/2026 · Importada del correo de Alberto"
+  ],
+  "informado": true,
+  "notas": "Resuelta (correo 19/05/2026).",
+  "operario": "",
+  "ot": 5,
+  "prioridad": "Sin especificar",
+  "solicitante": "",
+  "tipo": "MANTENIMIENTO"
+}

@@ -1,0 +1,31 @@
+{
+  "albs": [],
+  "cliente": "CABILDO INSULAR",
+  "desc": "Reparar esterilizador desangrado bovino.\nVer averia pesa de pasilla camaras.\nCambiar tubos en cocina.",
+  "devol": [],
+  "estado": "TERMINADO",
+  "fecha": "2026-09-29",
+  "horas": 3,
+  "obra": "MATADERO INSULAR",
+  "ops": [
+    {
+      "h": 1,
+      "n": "Antonio"
+    },
+    {
+      "h": 1,
+      "n": "Iker"
+    },
+    {
+      "h": 1,
+      "n": "Transporte"
+    }
+  ],
+  "stock": [
+    {
+      "d": "Cinta aislante Blanca plymouth N-10",
+      "q": 1,
+      "u": ""
+    }
+  ]
+}

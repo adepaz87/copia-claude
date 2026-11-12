@@ -1,0 +1,17 @@
+{
+  "albs": [],
+  "cliente": "COVALLE",
+  "desc": "Marcar en planta baja entubados nuevos. Certificar trabajos realizados en obra",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-10-28",
+  "horas": 5,
+  "obra": "NAVE COOPERATIVA COVALLE",
+  "ops": [
+    {
+      "h": 5,
+      "n": "Jonathan Rodríguez"
+    }
+  ],
+  "stock": []
+}

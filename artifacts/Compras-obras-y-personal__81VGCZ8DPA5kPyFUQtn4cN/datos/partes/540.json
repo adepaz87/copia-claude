@@ -1,0 +1,25 @@
+{
+  "albs": [],
+  "cliente": "CHICHO 2 TUMBOS",
+  "desc": "Cerrar registros porteros patinillos\nCerrar registros TV patinillos\nCerrar registros viviendas planta 2,3,y 4\nMecanizar viviendas que faltaban\nCerrar registros teleco planta 3y4\nFichar tierras de viviendas planta 3,4y 5\nMecanizar vivienda minusválidos planta 1 \nProbar vivienda minusválidos planta 1\nCerrar registros pasillos planta 3",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-09-23",
+  "horas": 31,
+  "obra": "EDIFICIO SABINO",
+  "ops": [
+    {
+      "h": 11,
+      "n": "Joel"
+    },
+    {
+      "h": 11,
+      "n": "Aythami"
+    },
+    {
+      "h": 9,
+      "n": "Riki"
+    }
+  ],
+  "stock": []
+}

@@ -1,0 +1,27 @@
+{
+  "albs": [
+    "Sonepar 309006545"
+  ],
+  "cliente": "CABILDO INSULAR",
+  "desc": "Reparar averia en esterilizador de inspeccion de porcino. Ver temperatura de esterilizadores y paro de emergencia de sierra pasillo.",
+  "devol": [],
+  "estado": "TERMINADO",
+  "fecha": "2026-10-27",
+  "horas": 3,
+  "obra": "MATADERO INSULAR",
+  "ops": [
+    {
+      "h": 1,
+      "n": "Antonio"
+    },
+    {
+      "h": 1,
+      "n": "Iker"
+    },
+    {
+      "h": 1,
+      "n": "persona no identificada)"
+    }
+  ],
+  "stock": []
+}

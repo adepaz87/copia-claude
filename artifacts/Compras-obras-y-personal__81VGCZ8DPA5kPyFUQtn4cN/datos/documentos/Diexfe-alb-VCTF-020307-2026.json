@@ -1,0 +1,83 @@
+{
+  "empresa": "Instapalma",
+  "fecha": "2026-10-28",
+  "lineas": [
+    {
+      "a": "VCTF-020307-2026",
+      "d": "CAJA PT8 392X152X70 FG10216",
+      "dto": "Neto",
+      "f": "2026-10-28",
+      "i": 14.63,
+      "o": "CASA LA VERADA",
+      "pn": 7.315,
+      "pt": 7.314,
+      "q": 2,
+      "r": "CMC-350C8"
+    },
+    {
+      "a": "VCTF-020307-2026",
+      "d": "CAJA PT9 480X160X70 FG10217",
+      "dto": "Neto",
+      "f": "2026-10-28",
+      "i": 10.64,
+      "o": "CASA LA VERADA",
+      "pn": 10.64,
+      "pt": 10.643,
+      "q": 1,
+      "r": "CMC-350C9"
+    },
+    {
+      "a": "VCTF-020307-2026",
+      "d": "CAJA EMP DOS REGISTROS CON PUERTA+MARCO ICT 60X50X8CM",
+      "dto": "0,00",
+      "f": "2026-10-28",
+      "i": 32.61,
+      "o": "CASA LA VERADA",
+      "pn": 32.61,
+      "pt": 32.61,
+      "q": 1,
+      "r": "SOL-5504/2"
+    },
+    {
+      "a": "VCTF-020307-2026",
+      "d": "CAJA EMP.DISTR.56 EL.320X670X75 PTA.BL.",
+      "dto": "53,50",
+      "f": "2026-10-28",
+      "i": 48.59,
+      "o": "CASA LA VERADA",
+      "pn": 48.59,
+      "pt": 104.49,
+      "q": 1,
+      "r": "SOL-5270"
+    },
+    {
+      "a": "VCTF-020307-2026",
+      "d": "CAJA UNIVERSAL ENLAZ.2 CARAS (500 UD)",
+      "dto": "0,00",
+      "f": "2026-10-28",
+      "i": 12.06,
+      "o": "CASA LA VERADA",
+      "pn": 0.134,
+      "pt": 0.134,
+      "q": 90,
+      "r": "SOL-6625"
+    },
+    {
+      "a": "VCTF-020307-2026",
+      "d": "CAJA DE EMPOTRAR PT10 516X200X90 FG10220",
+      "dto": "Neto",
+      "f": "2026-10-28",
+      "i": 16.86,
+      "o": "CASA LA VERADA",
+      "pn": 16.86,
+      "pt": 16.857,
+      "q": 1,
+      "r": "CMC-350C10"
+    }
+  ],
+  "numero": "VCTF-020307-2026",
+  "obra": "CASA LA VERADA",
+  "origen": "Gmail",
+  "proveedor": "Diexfe",
+  "tipo": "albaran"
+}

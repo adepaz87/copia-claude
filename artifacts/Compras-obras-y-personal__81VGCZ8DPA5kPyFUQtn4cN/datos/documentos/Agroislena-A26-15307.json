@@ -1,0 +1,62 @@
+{
+  "empresa": "Instapalma",
+  "fecha": "2026-10-01",
+  "lineas": [
+    {
+      "a": "A26/20831",
+      "d": "ROSCA CHAPA 3.5X38",
+      "dto": "",
+      "f": "2026-09-09",
+      "i": 1.13,
+      "igic": 7,
+      "o": "APARTAMENTOS SPAR TRIANA",
+      "pn": 0.0113,
+      "pt": 0.0113,
+      "q": 100,
+      "r": ""
+    },
+    {
+      "a": "A26/20831",
+      "d": "SIKAFLEX 11 FC BLANCO",
+      "dto": "",
+      "f": "2026-09-09",
+      "i": 10.24,
+      "igic": 7,
+      "o": "APARTAMENTOS SPAR TRIANA",
+      "pn": 10.24,
+      "pt": 10.24,
+      "q": 1,
+      "r": ""
+    },
+    {
+      "a": "A26/20831",
+      "d": "BROCA HSS-CO 3.5MM",
+      "dto": "",
+      "f": "2026-09-09",
+      "i": 2.4,
+      "igic": 7,
+      "o": "APARTAMENTOS SPAR TRIANA",
+      "pn": 1.2,
+      "pt": 1.2,
+      "q": 2,
+      "r": ""
+    },
+    {
+      "a": "A26/20831",
+      "d": "BOLSA",
+      "dto": "",
+      "f": "2026-09-09",
+      "i": 0.12,
+      "igic": 7,
+      "o": "APARTAMENTOS SPAR TRIANA",
+      "pn": 0.12,
+      "pt": 0.12,
+      "q": 1,
+      "r": ""
+    }
+  ],
+  "numero": "A26/15307",
+  "origen": "Gmail",
+  "proveedor": "Agroisleña",
+  "tipo": "factura"
+}

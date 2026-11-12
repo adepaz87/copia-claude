@@ -1,0 +1,21 @@
+{
+  "albs": [],
+  "cliente": "RAICO",
+  "desc": "Comprobación de líneas \nBuscar entubado",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-10-08",
+  "horas": 6,
+  "obra": "CAFE DON MANUEL",
+  "ops": [
+    {
+      "h": 3,
+      "n": "Manuel"
+    },
+    {
+      "h": 3,
+      "n": "Juan"
+    }
+  ],
+  "stock": []
+}

@@ -1,0 +1,12 @@
+{
+  "cap": "01",
+  "cod": "01.04",
+  "desc": "Picado de alicatado existente en aseos, hasta soporte firme.",
+  "med": 24,
+  "nota": "2 aseos existentes ≈ 6,0 ml × 2,20 m c/u − puertas",
+  "orden": 4,
+  "pre": 10,
+  "rev": true,
+  "sb": false,
+  "ud": "m²"
+}

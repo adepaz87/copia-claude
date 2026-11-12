@@ -1,0 +1,783 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Órdenes de Trabajo SPAR</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Source+Sans+3:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+/* Layout: cabecera con contadores por estado (sirven de filtro), barra de filtros y una lista de fichas de OT; el detalle se edita en un diálogo. */
+:root{
+  --bg:#f3f5f7; --surface:#ffffff; --surface-2:#e9edf1; --ink:#16212c; --muted:#5a6876; --line:#d3dae1;
+  --accent:#d98a00; --accent-ink:#1b1300; --accent-soft:#fff1d6;
+  --s-pend:#8a96a3; --s-asig:#2f6fbf; --s-curso:#c27a00; --s-espera:#8b4fb0; --s-fin:#2e8a57;
+  --p-alta:#c8382f; --p-media:#d98a00; --p-baja:#5a8f6a; --p-ns:#a3adb8;
+  --danger:#b3261e;
+  --f-display:"Barlow Condensed","Arial Narrow",system-ui,sans-serif;
+  --f-body:"Source Sans 3",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --f-mono:"JetBrains Mono",ui-monospace,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0f151b; --surface:#17202a; --surface-2:#1f2a35; --ink:#e6ebf0; --muted:#97a4b1; --line:#2c3946;
+  --accent:#f0a320; --accent-ink:#1b1300; --accent-soft:#3a2a0c;
+  --s-pend:#8995a2; --s-asig:#5d97e0; --s-curso:#e59a22; --s-espera:#b27cd6; --s-fin:#4cb57a;
+  --p-alta:#ef6a5f; --p-media:#f0a320; --p-baja:#78b48a; --p-ns:#6b7784; --danger:#ff8a80; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0f151b; --surface:#17202a; --surface-2:#1f2a35; --ink:#e6ebf0; --muted:#97a4b1; --line:#2c3946;
+  --accent:#f0a320; --accent-ink:#1b1300; --accent-soft:#3a2a0c;
+  --s-pend:#8995a2; --s-asig:#5d97e0; --s-curso:#e59a22; --s-espera:#b27cd6; --s-fin:#4cb57a;
+  --p-alta:#ef6a5f; --p-media:#f0a320; --p-baja:#78b48a; --p-ns:#6b7784; --danger:#ff8a80; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:15px;line-height:1.45}
+.wrap{max-width:1080px;margin:0 auto;padding-block:20px 48px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:flex;flex-direction:column;gap:18px}
+header.top{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:12px}
+.brand small{display:block;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+h1{font-family:var(--f-display);font-weight:700;font-size:34px;line-height:1;margin:2px 0 0;letter-spacing:.01em;text-wrap:balance}
+.actions{display:flex;gap:8px;flex-wrap:wrap}
+button{font:inherit;cursor:pointer;border-radius:6px;border:1px solid var(--line);background:var(--surface);color:var(--ink);padding:8px 14px}
+button:hover{border-color:var(--muted)}
+button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+button.primary{background:var(--accent);border-color:var(--accent);color:var(--accent-ink);font-weight:600}
+button.ghost{background:transparent}
+button.danger{color:var(--danger)}
+.status-bar{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:8px}
+@media (max-width:720px){.status-bar{grid-template-columns:repeat(3,minmax(0,1fr))}}
+.stat{display:flex;flex-direction:column;align-items:flex-start;gap:2px;text-align:left;padding:10px 12px;border-radius:8px;border:1px solid var(--line);background:var(--surface);position:relative;overflow:hidden}
+.stat::before{content:"";position:absolute;inset:0 auto 0 0;width:4px;background:var(--c,var(--muted))}
+.stat b{font-family:var(--f-display);font-size:28px;line-height:1;font-variant-numeric:tabular-nums}
+.stat span{font-size:12.5px;color:var(--muted);letter-spacing:.02em}
+.stat[aria-pressed="true"]{border-color:var(--c,var(--ink));box-shadow:inset 0 0 0 1px var(--c,var(--ink))}
+.filters{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.filters input[type=search]{flex:1 1 220px;min-width:0}
+input,select,textarea{font:inherit;color:var(--ink);background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:8px 10px;max-width:100%}
+textarea{resize:vertical;min-height:70px;width:100%}
+.note{font-size:13px;color:var(--muted)}
+.list{display:flex;flex-direction:column;gap:8px}
+.ot{display:grid;grid-template-columns:86px minmax(0,1fr) 220px;gap:14px;align-items:start;background:var(--surface);border:1px solid var(--line);border-left:5px solid var(--pc,var(--p-ns));border-radius:8px;padding:12px 14px}
+@media (max-width:760px){.ot{grid-template-columns:64px minmax(0,1fr)}.ot .ctl{grid-column:1/-1}}
+.ot.done{opacity:.72}
+.otnum{font-family:var(--f-display);font-weight:700;font-size:13px;color:var(--muted);letter-spacing:.06em;text-transform:uppercase}
+.otnum b{display:block;font-size:30px;line-height:1;color:var(--ink);letter-spacing:0;font-variant-numeric:tabular-nums}
+.main{min-width:0;display:flex;flex-direction:column;gap:4px}
+.centro{font-weight:600;font-size:16px}
+.desc{color:var(--ink);overflow-wrap:anywhere}
+.meta{display:flex;flex-wrap:wrap;gap:6px 12px;font-size:13px;color:var(--muted)}
+.meta .mono{font-family:var(--f-mono);font-size:12px}
+.tag{display:inline-flex;align-items:center;gap:5px;font-size:12px;font-weight:600;letter-spacing:.03em;text-transform:uppercase;padding:2px 8px;border-radius:999px;background:var(--surface-2);color:var(--ink)}
+.tag i{width:8px;height:8px;border-radius:50%;background:var(--c)}
+.warn{color:var(--danger);font-weight:600}
+.ctl{display:flex;flex-direction:column;gap:6px}
+.ctl select{width:100%}
+.ctl .row{display:flex;gap:6px;align-items:center;justify-content:space-between}
+.chk{display:inline-flex;gap:6px;align-items:center;font-size:13px;color:var(--muted);cursor:pointer}
+.empty{padding:32px 16px;text-align:center;color:var(--muted);border:1px dashed var(--line);border-radius:8px;background:var(--surface)}
+.banner{padding:10px 12px;border-radius:6px;background:var(--accent-soft);color:var(--ink);font-size:14px}
+dialog{border:1px solid var(--line);border-radius:10px;background:var(--surface);color:var(--ink);padding:0;width:min(680px,calc(100vw - 24px));max-height:calc(100dvh - 24px)}
+dialog::backdrop{background:rgba(10,16,22,.55)}
+.dlg{display:flex;flex-direction:column;gap:14px;padding:18px}
+.dlg h2{font-family:var(--f-display);font-size:24px;margin:0;font-weight:700}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px 12px}
+@media (max-width:520px){.grid{grid-template-columns:minmax(0,1fr)}}
+.grid .full{grid-column:1/-1}
+label.f{display:flex;flex-direction:column;gap:4px;font-size:12.5px;color:var(--muted);letter-spacing:.02em;min-width:0}
+label.f input,label.f select{width:100%}
+.dlg-foot{display:flex;flex-wrap:wrap;gap:8px;justify-content:space-between;align-items:center}
+.dlg-foot .r{display:flex;gap:8px;flex-wrap:wrap}
+.copybox{display:flex;flex-direction:column;gap:6px}
+.copybox pre{margin:0;white-space:pre-wrap;font-family:var(--f-mono);font-size:12px;background:var(--surface-2);padding:10px;border-radius:6px;max-height:220px;overflow:auto}
+.ops{display:flex;flex-direction:column;gap:6px}
+.ops li{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:6px 8px;background:var(--surface-2);border-radius:6px}
+.ops ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:6px}
+.toast{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(20px + env(safe-area-inset-bottom,0px));background:var(--ink);color:var(--bg);padding:8px 14px;border-radius:6px;font-size:14px;z-index:50}
+.wa{border:0;cursor:pointer;}
+a.wa,button.wa{display:inline-flex;align-items:center;justify-content:center;gap:6px;font-size:13px;font-weight:600;text-decoration:none;color:#fff;background:#1f9d55;border-radius:6px;padding:6px 10px}
+a.wa:hover{filter:brightness(1.08)}
+.ops li input{width:150px}
+#dlgTiendas{width:min(980px,calc(100vw - 24px))}
+.dir{display:flex;flex-direction:column;gap:14px;max-height:calc(100dvh - 210px);overflow:auto}
+.dir h3{font-family:var(--f-display);font-size:18px;margin:0 0 6px;display:flex;justify-content:space-between;gap:8px;color:var(--muted);text-transform:uppercase;letter-spacing:.05em}
+.dir table{width:100%;border-collapse:collapse;font-size:14px}
+.dir h3 span+span{text-transform:none}
+@media (min-width:641px){.dir table{table-layout:fixed}.dir th:nth-child(1){width:34%}.dir th:nth-child(2){width:38%}.dir th:nth-child(3){width:16%}}
+.dir th{text-align:left;font-size:12px;color:var(--muted);font-weight:600;padding:4px 6px;border-bottom:1px solid var(--line)}
+.dir td{padding:6px;border-bottom:1px solid var(--line);vertical-align:top}
+.dir td.n{text-align:right;font-variant-numeric:tabular-nums}
+.dir a{color:var(--s-asig);text-decoration:none;overflow-wrap:anywhere}
+.dir a:hover{text-decoration:underline}
+.dir .sub{display:block;font-size:12.5px;color:var(--muted)}
+@media (max-width:640px){.dir thead{display:none}.dir tr{display:grid;grid-template-columns:minmax(0,1fr) auto;padding:6px 0;border-bottom:1px solid var(--line)}.dir td{border:0;padding:2px 6px}.dir td.full{grid-column:1/-1}}
+#dlgDocs{width:min(980px,calc(100vw - 24px))}
+.docs-bar{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.docs-bar select{flex:1 1 220px;min-width:0}
+.doc{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:4px 12px;padding:8px 10px;border:1px solid var(--line);border-left:4px solid var(--c,var(--line));border-radius:6px;background:var(--surface)}
+.doc .t{font-weight:600}
+.doc .t a{color:var(--s-asig);text-decoration:none}.doc .t a:hover{text-decoration:underline}
+.doc .m{font-size:13px;color:var(--muted)}
+.doc .acts{display:flex;gap:6px;align-items:start}
+.doc .acts button{padding:4px 10px;font-size:13px}
+.docgrp{display:flex;flex-direction:column;gap:6px}
+.btn-sm{padding:3px 9px;font-size:12.5px;border-radius:999px;white-space:nowrap}
+.btn-sm.bad{border-color:var(--danger);color:var(--danger)}
+details.up{border:1px dashed var(--line);border-radius:8px;padding:8px 10px}
+details.up summary{cursor:pointer;font-weight:600}
+.hist{font-size:12.5px;color:var(--muted);display:flex;flex-direction:column;gap:2px;max-height:120px;overflow:auto}
+@media (prefers-reduced-motion:no-preference){.ot{transition:border-color .15s}}
+</style>
+
+<div class="wrap">
+  <header class="top">
+    <div class="brand">
+      <small>Instapalma · Mantenimiento Tomás Barreto y Áridos El Riachuelo</small>
+      <h1>Órdenes de trabajo</h1>
+    </div>
+    <div class="actions">
+      <button id="btnPdf" class="ghost" type="button" hidden>Exportar PDF</button>
+      <button id="btnTiendas" class="ghost" type="button">Tiendas</button>
+      <button id="btnDocs" class="ghost" type="button">Documentación</button>
+      <button id="btnOps" class="ghost" type="button">Operarios</button>
+      <button id="btnNew" class="primary" type="button">+ Nueva OT</button>
+    </div>
+  </header>
+
+  <div id="banner" class="banner" hidden></div>
+
+  <nav class="status-bar" id="statusBar" aria-label="Filtrar por estado"></nav>
+
+  <div class="filters">
+    <input id="q" type="search" placeholder="Buscar centro, descripción, nº OT o aviso GIM">
+    <select id="fOp" aria-label="Operario"></select>
+    <select id="fEmp" aria-label="Empresa">
+      <option value="">Todas las empresas</option>
+      <option>Tomás Barreto</option><option>Áridos El Riachuelo</option>
+    </select>
+    <select id="fSol" aria-label="Solicitante">
+      <option value="">Cualquier solicitante</option>
+      <option>Raquel</option><option>Fernando</option><option>José Gabriel</option><option>Otro</option>
+    </select>
+    <select id="fPrio" aria-label="Prioridad">
+      <option value="">Cualquier prioridad</option>
+      <option>Alta</option><option>Media</option><option>Baja</option><option>Sin especificar</option>
+    </select>
+    <label class="chk"><input id="fNoInf" type="checkbox"> Sin informar a TBSA</label>
+  </div>
+
+  <div class="list" id="list"><div class="empty">Cargando órdenes…</div></div>
+  <p class="note" id="foot"></p>
+</div>
+
+<datalist id="centros">
+  <option>SPAR El Paso</option><option>SPAR Puntallana</option><option>SPAR Santo Domingo (Garafía)</option>
+  <option>SPAR Salinas</option><option>SPAR Mercado</option><option>SPAR El Puente</option><option>SPAR San Pedro</option>
+  <option>SPAR Las Rosas (cocina)</option><option>SPAR Fuencaliente</option><option>SPAR Triana</option>
+  <option>SPAR Tagomago</option><option>SPAR Puerto Naos</option><option>SPAR Muelle</option><option>SPAR San Francisco</option>
+  <option>SPAR El Puerto</option><option>SPAR San Miguel</option><option>SPAR San Antonio</option><option>SPAR Tijarafe</option>
+  <option>SPAR Barlovento</option><option>SPAR Los Llanos</option><option>SPAR Mederos</option>
+  <option>Nuevo Almacén I</option><option>Central Logística Los Guinchos</option><option>CPF</option>
+  <option>Áridos El Riachuelo</option>
+</datalist>
+
+<dialog id="dlgOT">
+  <form class="dlg" id="formOT" method="dialog">
+    <h2 id="dlgTitle">Nueva OT</h2>
+    <div class="grid">
+      <label class="f">Nº OT<input id="o_ot" type="number" min="1" required></label>
+      <label class="f">Nº aviso GIM<input id="o_aviso" type="text" inputmode="numeric" placeholder="p. ej. 27168"></label>
+      <label class="f">Empresa<select id="o_emp"><option>Tomás Barreto</option><option>Áridos El Riachuelo</option></select></label>
+      <label class="f">Solicitante<select id="o_sol"><option value="">Sin dato</option><option>Raquel</option><option>Fernando</option><option>José Gabriel</option><option>Otro</option></select></label>
+      <label class="f">Fecha del aviso<input id="o_fecha" type="date" required></label>
+      <label class="f full">Centro<input id="o_centro" list="centros" required placeholder="SPAR …"></label>
+      <label class="f full">Descripción de la avería<textarea id="o_desc" required></textarea></label>
+      <label class="f">Prioridad<select id="o_prio"><option>Alta</option><option>Media</option><option>Baja</option><option selected>Sin especificar</option></select></label>
+      <label class="f">Tipo<select id="o_tipo"><option>MANTENIMIENTO</option><option>OBRA</option><option>PRESUPUESTO</option><option>OTRO</option></select></label>
+      <label class="f">Operario<select id="o_op"></select></label>
+      <label class="f">Estado<select id="o_estado"></select></label>
+      <label class="f full">Notas del trabajo<textarea id="o_notas" placeholder="Qué se hizo, material pendiente, presupuesto…"></textarea></label>
+      <label class="chk full"><input id="o_inf" type="checkbox"> Tomás Barreto ya está informado del estado actual</label>
+    </div>
+    <div class="hist" id="o_hist"></div>
+    <div class="copybox" id="copyBox" hidden>
+      <div class="r" style="display:flex;gap:8px;flex-wrap:wrap">
+        <button type="button" id="btnAviso">Avisar asignación (correo + WhatsApp)</button>
+        <button type="button" id="btnCierre">Informar cierre</button>
+        <button type="button" data-mail="asig">Correo de asignación</button>
+        <button type="button" data-mail="estado">Correo de seguimiento</button>
+        <button type="button" data-mail="cierre">Correo de cierre</button>
+        <span id="waDlg"></span>
+      </div>
+      <pre id="mailText" hidden></pre>
+      <button type="button" id="btnCopyMail" hidden>Copiar texto</button>
+    </div>
+    <div class="dlg-foot">
+      <button type="button" id="btnDel" class="ghost danger">Eliminar</button>
+      <div class="r">
+        <button type="button" id="btnCancel" class="ghost">Cancelar</button>
+        <button type="submit" class="primary" id="btnSave">Guardar</button>
+      </div>
+    </div>
+    <p class="note" id="delConfirm" hidden>¿Seguro? Pulsa «Eliminar» otra vez para borrar esta OT.</p>
+  </form>
+</dialog>
+
+<dialog id="dlgOps">
+  <div class="dlg">
+    <h2>Operarios</h2>
+    <p class="note">La lista aparece en el selector de cada OT. Pon el móvil para poder avisarles por WhatsApp (9 cifras se toman como España). Quitar a alguien no cambia las OT que ya tiene.</p>
+    <div class="ops"><ul id="opsList"></ul></div>
+    <form id="formOp" style="display:flex;gap:8px">
+      <input id="newOp" placeholder="Nombre del operario" style="flex:1;min-width:0" required>
+      <button type="submit">Añadir</button>
+    </form>
+    <div class="dlg-foot"><span></span><button type="button" id="btnOpsClose" class="primary">Hecho</button></div>
+  </div>
+</dialog>
+
+<dialog id="dlgAviso">
+  <div class="dlg">
+    <h2 id="avTitle">Avisar asignación</h2>
+    <p class="note" id="avTo"></p>
+    <div class="copybox"><pre id="avMail"></pre></div>
+    <p class="note" id="avWaTo"></p>
+    <div class="copybox"><pre id="avWa"></pre></div>
+    <p class="note" id="avMsg" hidden></p>
+    <div class="dlg-foot"><button type="button" id="avSkip" class="ghost">Ahora no</button>
+      <button type="button" id="avSend" class="primary">Enviar correo y WhatsApp</button></div>
+  </div>
+</dialog>
+<dialog id="dlgTiendas">
+  <div class="dlg">
+    <h2>Directorio de tiendas</h2>
+    <input id="qT" type="search" placeholder="Buscar tienda, municipio, código postal o teléfono">
+    <div class="dir" id="dirList"></div>
+    <p class="note">Datos del listado de tiendas de Tomás Barreto (noviembre 2026). El municipio se deduce del código postal.</p>
+    <div class="dlg-foot"><span class="note" id="dirFoot"></span><button type="button" id="btnTiendasClose" class="primary">Cerrar</button></div>
+  </div>
+</dialog>
+<dialog id="dlgDocs">
+  <div class="dlg">
+    <h2>Documentación por centro</h2>
+    <div class="docs-bar">
+      <select id="dcCentro" aria-label="Centro"></select>
+      <select id="dcEstado" aria-label="Estado">
+        <option value="">Todos los documentos</option><option value="alerta">Vencidos o por vencer (90 días)</option>
+      </select>
+    </div>
+    <details class="up" id="dcUp" hidden>
+      <summary id="dcUpSum">+ Añadir documento</summary>
+      <form id="dcForm" class="grid" style="margin-top:10px">
+        <label class="f full" id="dcFileWrap">Archivo (PDF o imagen)<input id="dcFile" type="file" accept="application/pdf,image/*"></label>
+        <label class="f">Centro<select id="dcC" required></select></label>
+        <label class="f">Tipo<select id="dcTipo"></select></label>
+        <label class="f full">Título<input id="dcTit" required placeholder="p. ej. Certificado OCA baja tensión"></label>
+        <label class="f">Nº expediente<input id="dcExp"></label>
+        <label class="f">Resultado<input id="dcRes" placeholder="Favorable, con defectos leves…"></label>
+        <label class="f">Fecha del documento<input id="dcFecha" type="date"></label>
+        <label class="f">Próxima revisión / caducidad<input id="dcProx" type="date"></label>
+        <label class="f full">Notas<textarea id="dcNotas" style="min-height:50px"></textarea></label>
+        <div class="full" style="display:flex;gap:8px;justify-content:flex-end"><button type="button" id="dcCancel" class="ghost">Cancelar</button><button type="submit" class="primary" id="dcSave">Guardar documento</button></div>
+      </form>
+    </details>
+    <div class="dir" id="docList"></div>
+    <div class="dlg-foot"><span class="note" id="docFoot"></span><button type="button" id="btnDocsClose" class="primary">Cerrar</button></div>
+  </div>
+</dialog>
+<dialog id="dlgVer" style="width:min(1000px,calc(100vw - 24px))">
+  <div class="dlg">
+    <h2 id="vwTitle" style="font-size:20px">Documento</h2>
+    <p class="note" id="vwMsg">Cargando…</p>
+    <div id="vwFrame" style="height:calc(100dvh - 220px);overflow:auto;display:flex;flex-direction:column;gap:10px;align-items:center;background:var(--surface-2);border-radius:6px;padding:10px" hidden></div>
+    <div class="dlg-foot"><button type="button" id="vwDl">Descargar</button><button type="button" id="vwClose" class="primary">Cerrar</button></div>
+  </div>
+</dialog>
+<div class="toast" id="toast" hidden></div>
+
+<script>
+const ESTADOS=[
+  {k:"pendiente",l:"Pendiente",c:"--s-pend"},
+  {k:"asignada",l:"Asignada",c:"--s-asig"},
+  {k:"en_curso",l:"En curso",c:"--s-curso"},
+  {k:"espera",l:"Espera presupuesto / material",c:"--s-espera"},
+  {k:"terminada",l:"Terminada",c:"--s-fin"}
+];
+const EST=Object.fromEntries(ESTADOS.map(e=>[e.k,e]));
+const PRIO_C={"Alta":"--p-alta","Media":"--p-media","Baja":"--p-baja","Sin especificar":"--p-ns"};
+const PRIO_ORD={"Alta":0,"Media":1,"Sin especificar":2,"Baja":3};
+const $=s=>document.querySelector(s);
+let db=null, ots=[], operarios=[], telefonos={}, opsVersion=null, fEstado="abiertas", editing=null, loaded=false;
+
+function empOf(o){return (o&&o.empresa)||"Tomás Barreto"}
+function esc(s){return String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
+function fmtDate(d){if(!d)return"—";const [y,m,dd]=d.split("-");return `${dd}/${m}/${y}`}
+function nowStr(){const d=new Date();return d.toLocaleDateString("es-ES")+" "+d.toLocaleTimeString("es-ES",{hour:"2-digit",minute:"2-digit"})}
+function daysSince(d){if(!d)return 0;return Math.floor((Date.now()-new Date(d+"T00:00:00").getTime())/864e5)}
+function toast(t){const el=$("#toast");el.textContent=t;el.hidden=false;clearTimeout(toast._t);toast._t=setTimeout(()=>el.hidden=true,Math.max(2200,t.length*60))}
+function banner(t){const b=$("#banner");if(!t){b.hidden=true;return}b.textContent=t;b.hidden=false}
+try{const s=JSON.parse(localStorage.getItem("ot-filtros")||"null");if(s&&s.fEstado)fEstado=s.fEstado}catch(e){}
+function saveFilt(){try{localStorage.setItem("ot-filtros",JSON.stringify({fEstado}))}catch(e){}}
+
+function renderStatus(){
+  const open=ots.filter(o=>o.estado!=="terminada").length;
+  const items=[{k:"abiertas",l:"Abiertas",c:"--accent",n:open},...ESTADOS.map(e=>({...e,n:ots.filter(o=>o.estado===e.k).length}))];
+  $("#statusBar").innerHTML=items.map(i=>`<button type="button" class="stat" style="--c:var(${i.c})" data-k="${i.k}" aria-pressed="${fEstado===i.k}"><b>${i.n}</b><span>${esc(i.l)}</span></button>`).join("");
+}
+function opOptions(sel,withAll){
+  const names=[...new Set([...operarios,...ots.map(o=>o.operario).filter(Boolean)])];
+  let h=withAll?`<option value="">Todos los operarios</option><option value="__none">Sin asignar</option>`:`<option value="">— Sin asignar —</option>`;
+  h+=names.map(n=>`<option ${n===sel?"selected":""}>${esc(n)}</option>`).join("");
+  return h;
+}
+function renderFilters(){const v=$("#fOp").value;$("#fOp").innerHTML=opOptions("",true);$("#fOp").value=v}
+function filtered(){
+  const q=$("#q").value.trim().toLowerCase(),emp=$("#fEmp").value,op=$("#fOp").value,sol=$("#fSol").value,pr=$("#fPrio").value,ni=$("#fNoInf").checked;
+  return ots.filter(o=>{
+    if(fEstado==="abiertas"?o.estado==="terminada":o.estado!==fEstado)return false;
+    if(emp&&empOf(o)!==emp)return false;
+    if(op==="__none"?o.operario:op&&o.operario!==op)return false;
+    if(sol&&o.solicitante!==sol)return false;
+    if(pr&&o.prioridad!==pr)return false;
+    if(ni&&o.informado)return false;
+    if(q&&!`${o.ot} ${o.aviso} ${empOf(o)} ${o.centro} ${o.descripcion} ${o.notas} ${o.operario}`.toLowerCase().includes(q))return false;
+    return true;
+  }).sort((a,b)=>(a.estado==="terminada")-(b.estado==="terminada")||PRIO_ORD[a.prioridad]-PRIO_ORD[b.prioridad]||(a.fechaAviso||"").localeCompare(b.fechaAviso||"")||a.ot-b.ot);
+}
+function renderList(){
+  renderStatus();
+  if(!loaded)return;
+  const rows=filtered();
+  if(!ots.length){$("#list").innerHTML=`<div class="empty">Todavía no hay órdenes. Pulsa «+ Nueva OT» para registrar el primer aviso de Raquel o Fernando.</div>`;$("#foot").textContent="";return}
+  if(!rows.length){$("#list").innerHTML=`<div class="empty">Ninguna OT coincide con estos filtros.</div>`;$("#foot").textContent="";return}
+  $("#list").innerHTML=rows.map(o=>{
+    const e=EST[o.estado]||EST.pendiente, d=daysSince(o.fechaAviso), open=o.estado!=="terminada";
+    return `<article class="ot ${open?"":"done"}" style="--pc:var(${PRIO_C[o.prioridad]||"--p-ns"})" data-id="${o.id}">
+      <div class="otnum">OT<b>${esc(o.ot)}</b></div>
+      <div class="main">
+        <div class="centro">${empOf(o)!=="Tomás Barreto"?`<span class="tag" style="--c:var(--accent)"><i></i>${esc(empOf(o))}</span> `:""}${esc(o.centro)}</div>
+        <div class="desc">${esc(o.descripcion)}</div>
+        <div class="meta">
+          <span class="tag" style="--c:var(${e.c})"><i></i>${esc(e.l)}</span>
+          <span>Prioridad ${esc(o.prioridad)}</span>
+          <span class="mono">${o.aviso?(empOf(o)==="Tomás Barreto"?"GIM ":"Ref. ")+esc(o.aviso):"Sin aviso GIM"}</span>
+          <span>${esc(o.solicitante||"Solicitante sin dato")} · ${fmtDate(o.fechaAviso)}${open&&d>=3?` · <span class="warn">${d} días abierta</span>`:""}</span>
+          ${!o.informado&&open&&o.estado!=="pendiente"?`<span class="warn">TBSA sin informar</span>`:""}
+        </div>
+      </div>
+      <div class="ctl">
+        <select data-f="operario" aria-label="Operario de la OT ${esc(o.ot)}">${opOptions(o.operario,false)}</select>
+        <select data-f="estado" aria-label="Estado de la OT ${esc(o.ot)}">${ESTADOS.map(s=>`<option value="${s.k}" ${s.k===o.estado?"selected":""}>${esc(s.l)}</option>`).join("")}</select>
+        <div class="row"><label class="chk"><input type="checkbox" data-f="informado" ${o.informado?"checked":""}> TBSA informado</label><button type="button" class="ghost" data-open>Abrir</button></div>
+        ${o.operario&&open?waLink(o,(o.avisadoWa?"Reenviar WhatsApp a ":"WhatsApp a ")+o.operario.split(" ")[0]):""}
+      </div>
+    </article>`}).join("");
+  $("#foot").textContent=`${rows.length} de ${ots.length} órdenes. Orden: abiertas primero, por prioridad y antigüedad.`;
+}
+
+function hist(o,txt){return [...(o.historial||[]),`${nowStr()} · ${txt}`].slice(-30)}
+async function patch(o,data,txt){
+  if(!db){toast("No se puede guardar: sin conexión con la base de datos");return}
+  try{await db.collection("ots").doc(o.id).update({...data,actualizada:new Date().toISOString(),historial:hist(o,txt)})}
+  catch(e){toast("No se guardó: "+(e.message||e.code||"error"))}
+}
+$("#list").addEventListener("change",e=>{
+  const card=e.target.closest(".ot");if(!card)return;const o=ots.find(x=>x.id===card.dataset.id);const f=e.target.dataset.f;if(!o||!f)return;
+  if(f==="operario"){const v=e.target.value;const d={operario:v,informado:false};if(v&&o.estado==="pendiente")d.estado="asignada";if(v)d.asignadaEn=new Date().toISOString();patch(o,d,v?`Asignada a ${v}`:"Sin operario");if(v)autoNotify({...o,...d},"asig")}
+  if(f==="estado"){const v=e.target.value;patch(o,{estado:v,informado:false},`Estado: ${EST[v].l}`);if(v==="terminada")autoNotify({...o,estado:v},"cierre")}
+  if(f==="informado"){patch(o,{informado:e.target.checked},e.target.checked?"TBSA informado":"Marcado como no informado")}
+});
+$("#list").addEventListener("click",e=>{if(e.target.closest("[data-open]")){openOT(ots.find(x=>x.id===e.target.closest(".ot").dataset.id))}});
+$("#statusBar").addEventListener("click",e=>{const b=e.target.closest(".stat");if(!b)return;fEstado=b.dataset.k;saveFilt();renderList()});
+["#q","#fEmp","#fOp","#fSol","#fPrio","#fNoInf"].forEach(s=>$(s).addEventListener("input",renderList));
+
+/* ---- Diálogo OT ---- */
+function nextOT(){return ots.reduce((m,o)=>Math.max(m,+o.ot||0),0)+1}
+function openOT(o){
+  editing=o||null;
+  $("#dlgTitle").textContent=o?`OT ${o.ot} · ${o.centro}`:"Nueva OT";
+  $("#o_ot").value=o?o.ot:nextOT();
+  $("#o_aviso").value=o?.aviso||"";
+  $("#o_emp").value=o?empOf(o):"Tomás Barreto";
+  $("#o_sol").value=o?(o.solicitante||""):"Raquel";
+  $("#o_fecha").value=o?.fechaAviso||new Date().toISOString().slice(0,10);
+  $("#o_centro").value=o?.centro||"";
+  $("#o_desc").value=o?.descripcion||"";
+  $("#o_prio").value=o?.prioridad||"Sin especificar";
+  $("#o_tipo").value=o?.tipo||"MANTENIMIENTO";
+  $("#o_op").innerHTML=opOptions(o?.operario||"",false);
+  $("#o_estado").innerHTML=ESTADOS.map(s=>`<option value="${s.k}">${esc(s.l)}</option>`).join("");
+  $("#o_estado").value=o?.estado||"pendiente";
+  $("#o_notas").value=o?.notas||"";
+  $("#o_inf").checked=!!o?.informado;
+  $("#o_hist").innerHTML=o?(o.historial||[]).slice().reverse().map(h=>`<span>${esc(h)}</span>`).join(""):"";
+  $("#copyBox").hidden=!o;$("#mailText").hidden=true;$("#btnCopyMail").hidden=true;
+  $("#btnDel").hidden=!o;$("#delConfirm").hidden=true;renderWaDlg();
+  $("#dlgOT").showModal();
+}
+$("#btnNew").onclick=()=>openOT(null);
+$("#btnCancel").onclick=()=>$("#dlgOT").close();
+$("#formOT").addEventListener("submit",async e=>{
+  e.preventDefault();
+  if(!db){toast("No se puede guardar: sin conexión con la base de datos");return}
+  const d={ot:+$("#o_ot").value,empresa:$("#o_emp").value,aviso:$("#o_aviso").value.trim(),solicitante:$("#o_sol").value,fechaAviso:$("#o_fecha").value,
+    centro:$("#o_centro").value.trim(),descripcion:$("#o_desc").value.trim(),prioridad:$("#o_prio").value,tipo:$("#o_tipo").value,
+    operario:$("#o_op").value,estado:$("#o_estado").value,notas:$("#o_notas").value.trim(),informado:$("#o_inf").checked,actualizada:new Date().toISOString()};
+  if(d.operario&&d.estado==="pendiente")d.estado="asignada";
+  const dup=ots.find(o=>+o.ot===d.ot&&o.id!==editing?.id);if(dup){toast(`Ya existe la OT ${d.ot}. Usa otro número.`);return}
+  try{
+    if(editing){
+      const ch=[];if(editing.operario!==d.operario)ch.push(d.operario?`Asignada a ${d.operario}`:"Sin operario");if(editing.estado!==d.estado)ch.push(`Estado: ${EST[d.estado].l}`);
+      if(editing.operario!==d.operario&&d.operario)d.asignadaEn=new Date().toISOString();
+      d.historial=hist(editing,ch.join(" · ")||"Datos editados");
+      const reasig=editing.operario!==d.operario&&d.operario;const id=editing.id;const cierra=editing.estado!=="terminada"&&d.estado==="terminada";
+      await db.collection("ots").doc(editing.id).update(d);toast(`OT ${d.ot} guardada`);
+      if(cierra){$("#dlgOT").close();autoNotify({...editing,...d,id},"cierre");return}
+      if(reasig){$("#dlgOT").close();autoNotify({...editing,...d,id},"asig");return}
+    }else{
+      d.creada=new Date().toISOString();d.historial=[`${nowStr()} · Registrada (aviso de ${d.solicitante})`+(d.operario?` · Asignada a ${d.operario}`:"")];
+      if(d.operario)d.asignadaEn=d.creada;
+      await db.collection("ots").doc("ot-"+d.ot).set(d);toast(`OT ${d.ot} registrada`);
+      if(d.operario){$("#dlgOT").close();autoNotify({...d,id:"ot-"+d.ot},"asig");return}
+    }
+    $("#dlgOT").close();
+  }catch(err){toast("No se guardó: "+(err.message||err.code||"error"))}
+});
+$("#btnDel").onclick=async()=>{
+  if($("#delConfirm").hidden){$("#delConfirm").hidden=false;return}
+  try{await db.collection("ots").doc(editing.id).delete();toast(`OT ${editing.ot} eliminada`);$("#dlgOT").close()}catch(e){toast("No se pudo eliminar")}
+};
+function mailFor(kind){
+  const o={...editing,operario:$("#o_op").value,estado:$("#o_estado").value,notas:$("#o_notas").value.trim(),prioridad:$("#o_prio").value,centro:$("#o_centro").value.trim(),descripcion:$("#o_desc").value.trim(),aviso:$("#o_aviso").value.trim(),tipo:$("#o_tipo").value};
+  const gim=o.aviso?`${empOf(o)==="Tomás Barreto"?"Aviso GIM":"Referencia"} ${o.aviso}`:"sin número GIM visible";
+  const hora=new Date().getHours()<14?"Buenos días":"Buenas tardes";
+  const firma="\n\nSaludos,\nINSTAPALMA OBRAS Y SERVICIOS SLU";
+  if(kind==="asig")return `Asunto: OT ${o.ot} asignada — ${o.centro}\n\n${hora},\n\nSe comunica la asignación de la OT ${o.ot} (${gim}).\n\nCentro: ${o.centro}.\nTrabajo: ${o.descripcion}\nAsignada a: ${o.operario||"(sin asignar)"}.\nFecha de asignación: ${nowStr()}.\nPrioridad: ${o.prioridad.toLowerCase()}.\nTipo: ${o.tipo}.${firma}`;
+  if(kind==="estado")return `Asunto: Seguimiento OT ${o.ot} — ${o.centro}\n\n${hora},\n\nOT ${o.ot} (${gim}), ${o.centro}.\nEstado actual: ${EST[o.estado].l.toLowerCase()}.\nOperario: ${o.operario||"sin asignar"}.\n${o.notas?"Detalle: "+o.notas+"\n":""}${firma}`;
+  return `Asunto: OT ${o.ot} resuelta — ${o.centro}\n\n${hora},\n\nLa OT ${o.ot} (${gim}) en ${o.centro} queda resuelta.\n\nAvería: ${o.descripcion}\nTrabajo realizado: ${o.notas||"(describir)"}\nOperario: ${o.operario||"—"}.\nFecha de cierre: ${nowStr()}.${firma}`;
+}
+$("#copyBox").addEventListener("click",e=>{const k=e.target.dataset.mail;if(!k)return;$("#mailText").textContent=mailFor(k);$("#mailText").hidden=false;$("#btnCopyMail").hidden=false});
+$("#btnCopyMail").onclick=async()=>{
+  const t=$("#mailText").textContent;
+  try{await navigator.clipboard.writeText(t);toast("Texto copiado. Pégalo en el correo.")}
+  catch(e){const r=document.createRange();r.selectNodeContents($("#mailText"));const s=getSelection();s.removeAllRanges();s.addRange(r);toast("Texto seleccionado: cópialo con Ctrl+C")}
+  if(editing&&!editing.informado){$("#o_inf").checked=true}
+};
+
+/* ---- WhatsApp ---- */
+function telOf(n){const t=String(telefonos[n]||"").replace(/[^\d]/g,"");if(!t)return"";return t.length===9?"34"+t:t}
+function waText(o){
+  return `Hola ${String(o.operario||"").split(" ")[0]}, te asigno la OT ${o.ot}.\n\nCentro: ${o.centro}\nTrabajo: ${o.descripcion}\nPrioridad: ${o.prioridad}${o.aviso?(empOf(o)==="Tomás Barreto"?"\nAviso GIM: ":"\nReferencia: ")+o.aviso:""}${o.notas?"\nNotas: "+o.notas:""}\n\nAvísame cuando esté hecha. Gracias.`;
+}
+function waLink(o,label){
+  const t=telOf(o.operario);
+  if(!t)return `<span class="note">Sin teléfono de ${esc(o.operario)} (añádelo en Operarios)</span>`;
+  if(mcp)return `<button type="button" class="wa" data-wasend="${esc(o.id||"")}">${esc(label)}</button>`;
+  return `<a class="wa" href="https://wa.me/${t}?text=${encodeURIComponent(waText(o))}" target="_blank" rel="noopener" data-wa="${esc(o.id||"")}">${esc(label)}</a>`;
+}
+let mcp=null;
+(async()=>{try{mcp=window.claude?await window.claude.use("mcp"):null}catch(e){mcp=null}if(mcp){renderList();renderWaDlg()}})();
+function canaryNow(addMin){
+  const d=new Date(Date.now()+addMin*60000);
+  const p=Object.fromEntries(new Intl.DateTimeFormat("en-GB",{timeZone:"Atlantic/Canary",year:"numeric",month:"2-digit",day:"2-digit",hour:"2-digit",minute:"2-digit",hour12:false}).formatToParts(d).map(x=>[x.type,x.value]));
+  return `${p.year}-${p.month}-${p.day} ${p.hour==="24"?"00":p.hour}:${p.minute}`;
+}
+async function sendWa(btn,o){
+  if(btn.disabled)return;btn.disabled=true;const old=btn.textContent;btn.textContent="Enviando…";
+  try{
+    await mcp.callTool("WA","programar_mensaje",{telefono:"+"+telOf(o.operario),mensaje:waText(o),fecha_hora:canaryNow(1),nombre:`${o.operario} · OT ${o.ot}`},{cache:false});
+    toast(`WhatsApp programado para ${o.operario}. Comprueba que salió.`);
+    if(o.id)patch(ots.find(x=>x.id===o.id)||o,{avisadoWa:new Date().toISOString()},"WhatsApp programado a "+o.operario);
+    btn.textContent="Programado ✓";
+  }catch(e){
+    btn.disabled=false;btn.textContent=old;
+    if(e&&["not_granted","server_not_connected","unavailable"].includes(e.code))toast("No hay acceso al conector WA. Revisa los permisos de la página.");
+    else toast("No se envió: "+(e.message||e.code||"error"));
+  }
+}
+function renderWaDlg(){
+  if(!editing){$("#waDlg").innerHTML="";return}
+  const o={...editing,operario:$("#o_op").value,centro:$("#o_centro").value.trim(),descripcion:$("#o_desc").value.trim(),prioridad:$("#o_prio").value,aviso:$("#o_aviso").value.trim(),notas:$("#o_notas").value.trim()};
+  $("#waDlg").innerHTML=o.operario?waLink(o,"Enviar por WhatsApp"):"";
+}
+["#o_op","#o_centro","#o_desc","#o_prio","#o_aviso","#o_notas"].forEach(s=>$(s).addEventListener("input",renderWaDlg));
+document.addEventListener("click",e=>{const b=e.target.closest("[data-wasend]");if(!b)return;
+  const id=b.dataset.wasend;let o=ots.find(x=>x.id===id);
+  if(b.closest("#waDlg")&&editing)o={...editing,operario:$("#o_op").value,centro:$("#o_centro").value.trim(),descripcion:$("#o_desc").value.trim(),prioridad:$("#o_prio").value,aviso:$("#o_aviso").value.trim(),notas:$("#o_notas").value.trim()};
+  if(o)sendWa(b,o);
+});
+document.addEventListener("click",e=>{const a=e.target.closest("a.wa");if(!a)return;const o=ots.find(x=>x.id===a.dataset.wa);if(o)patch(o,{},"Aviso por WhatsApp a "+o.operario)});
+
+
+/* ---- Aviso de asignación: correo a TBSA + WhatsApp al operario ---- */
+const TEL_FERNANDO="+34676157877";
+function waFernando(o,cierre){return cierre?`Buenas, Fernando. La OT ${o.ot} de ${o.centro} queda resuelta (${o.operario||"Instapalma"}).${o.aviso?(empOf(o)==="Tomás Barreto"?" Aviso GIM ":" Referencia ")+o.aviso+".":""} Os informamos también por correo. Saludos, Instapalma.`:`Buenas, Fernando. OT ${o.ot} de ${o.centro} asignada a ${o.operario}.\nTrabajo: ${o.descripcion}\nPrioridad: ${o.prioridad}${o.aviso?(empOf(o)==="Tomás Barreto"?"\nAviso GIM: ":"\nReferencia: ")+o.aviso:""}\nOs informamos también por correo. Saludos, Instapalma.`}
+const DEST_TBSA=["jarodriguez@tomasbarretosa.com","rbarrera@tomasbarretosa.com","fconcepcion@tomasbarretosa.com"];
+const MAIL_RIACHUELO="josegabrielbarretocruz@gmail.com";
+function destOf(o){return empOf(o)==="Áridos El Riachuelo"?[...DEST_TBSA,MAIL_RIACHUELO]:DEST_TBSA}
+function destTxt(o){return "Correo a José Antonio, Raquel y Fernando"+(empOf(o)==="Áridos El Riachuelo"?" y a Áridos El Riachuelo":"")+" ("+destOf(o).join(", ")+")"}
+function mailAsig(o){
+  const gim=o.aviso?`${empOf(o)==="Tomás Barreto"?"Aviso GIM":"Referencia"} ${o.aviso}`:"sin número GIM visible";
+  const hora=new Date().getHours()<14?"Buenos días":"Buenas tardes";
+  return {subject:`OT ${o.ot} asignada — ${o.centro}`,
+    body:`${hora},\n\nSe comunica la asignación de la OT ${o.ot} (${gim}).\n\nCentro: ${o.centro}.\nTrabajo: ${o.descripcion}\nAsignada a: ${o.operario}.\nFecha de asignación: ${nowStr()}.\nPrioridad: ${String(o.prioridad||"").toLowerCase()}.\nTipo: ${o.tipo||"MANTENIMIENTO"}.\n\nSaludos,\nINSTAPALMA OBRAS Y SERVICIOS SLU`};
+}
+let avisoOT=null,avisoModo="asig";
+function notaLimpia(t){return String(t||"").split(/(?<=\.)\s+/).filter(x=>!/provisional|confirmar o cambiar|^OT GIM \d+\.?$|^Tipo: /i.test(x.trim())).join(" ").trim()}
+function mailCierre(o){
+  const gim=o.aviso?`${empOf(o)==="Tomás Barreto"?"Aviso GIM":"Referencia"} ${o.aviso}`:"sin número GIM visible";
+  const hora=new Date().getHours()<14?"Buenos días":"Buenas tardes";
+  return {subject:`OT ${o.ot} resuelta — ${o.centro}`,
+    body:`${hora},\n\nLa OT ${o.ot} (${gim}) en ${o.centro} queda resuelta.\n\nAvería: ${o.descripcion}\nTrabajo realizado: ${notaLimpia(o.notas)||"(sin detalle)"}\nOperario: ${o.operario||"—"}.\nFecha de cierre: ${nowStr()}.\n\nSaludos,\nINSTAPALMA OBRAS Y SERVICIOS SLU`};
+}
+function openCierre(o){
+  if(!o)return;avisoOT={...o};avisoModo="cierre";const m=mailCierre(o);
+  $("#avTitle").textContent=`Informar cierre · OT ${o.ot}`;
+  $("#avTo").textContent=destTxt(o)+(o.notas?"":". Ojo: la OT no tiene notas del trabajo realizado; añádelas antes si quieres que salgan.");
+  $("#avMail").textContent=`Asunto: ${m.subject}\n\n${m.body}`;
+  $("#avWaTo").textContent="";$("#avWa").parentElement.hidden=true;
+  $("#avMsg").hidden=true;$("#avSend").disabled=false;$("#avSend").textContent="Enviar correo de cierre";
+  if(!mcp){$("#avMsg").textContent="Esta vista no puede usar el conector de Gmail. Abre el gestor en claude.ai.";$("#avMsg").hidden=false;$("#avSend").disabled=true}
+  $("#dlgAviso").showModal();
+}
+function openAviso(o){
+  if(!o||!o.operario)return;
+  avisoOT={...o};avisoModo="asig";const m=mailAsig(o),tel=telOf(o.operario);
+  $("#avTitle").textContent=`Avisar asignación · OT ${o.ot}`;
+  $("#avTo").textContent=destTxt(o);
+  $("#avMail").textContent=`Asunto: ${m.subject}\n\n${m.body}`;
+  $("#avWaTo").textContent=tel?`WhatsApp a ${o.operario} (+${tel})`:`${o.operario} no tiene móvil en Operarios: solo se enviará el correo.`;
+  $("#avWa").textContent=waText(o);$("#avWa").parentElement.hidden=!tel;
+  $("#avMsg").hidden=true;$("#avSend").disabled=false;$("#avSend").textContent=tel?"Enviar correo y WhatsApp":"Enviar correo";
+  if(!mcp){$("#avMsg").textContent="Esta vista no puede usar los conectores de Gmail y WhatsApp. Abre el gestor en claude.ai.";$("#avMsg").hidden=false;$("#avSend").disabled=true}
+  $("#dlgAviso").showModal();
+}
+$("#avSkip").onclick=()=>$("#dlgAviso").close();
+$("#btnCierre").onclick=()=>{if(!editing)return;const o={...editing,empresa:$("#o_emp").value,operario:$("#o_op").value,centro:$("#o_centro").value.trim(),descripcion:$("#o_desc").value.trim(),aviso:$("#o_aviso").value.trim(),notas:$("#o_notas").value.trim()};$("#dlgOT").close();openCierre(o)};
+$("#btnAviso").onclick=()=>{if(!editing)return;const o={...editing,empresa:$("#o_emp").value,operario:$("#o_op").value,centro:$("#o_centro").value.trim(),descripcion:$("#o_desc").value.trim(),prioridad:$("#o_prio").value,aviso:$("#o_aviso").value.trim(),notas:$("#o_notas").value.trim(),tipo:$("#o_tipo").value};if(!o.operario){toast("Primero elige un operario");return}$("#dlgOT").close();openAviso(o)};
+async function sendNotice(o,modo){
+  const cierre=modo==="cierre";const res=[],m=cierre?mailCierre(o):mailAsig(o),tel=cierre?"":telOf(o.operario);let okMail=false,okWa=false;
+  if(o._mail){okMail=true}else try{await mcp.callTool("Gmail","send_message",{to:destOf(o),subject:m.subject,body:m.body,includeSignature:true},{cache:false});okMail=o._mail=true;res.push("Correo enviado a TBSA")}
+  catch(e){res.push("Correo NO enviado: "+(e.message||e.code||"error"))}
+  if(tel&&o._wa){okWa=true}else if(tel){try{await mcp.callTool("WA","programar_mensaje",{telefono:"+"+tel,mensaje:waText(o),fecha_hora:canaryNow(1),nombre:`${o.operario} · OT ${o.ot}`},{cache:false});okWa=o._wa=true;res.push(`WhatsApp a ${o.operario} programado`)}
+  catch(e){res.push("WhatsApp NO enviado: "+(e.message||e.code||"error"))}}
+  else if(!cierre)res.push(`${o.operario} sin móvil: no hay WhatsApp`);
+  if(!o._waF){try{await mcp.callTool("WA","programar_mensaje",{telefono:TEL_FERNANDO,mensaje:waFernando(o,cierre),fecha_hora:canaryNow(1),nombre:`Fernando · OT ${o.ot}${cierre?" cierre":""}`},{cache:false});o._waF=true;res.push("WhatsApp a Fernando programado")}
+  catch(e){res.push("WhatsApp a Fernando NO enviado: "+(e.message||e.code||"error"))}}
+  await new Promise(r=>setTimeout(r,600));
+  const cur=ots.find(x=>x.id===o.id);
+  if(cur&&(okMail||okWa)){const d={};if(okMail)d.informado=true;if(okWa)d.avisadoWa=new Date().toISOString();await patch(cur,d,(cierre?"Cierre: ":"Asignación: ")+res.join(" · "))}
+  return {res,ok:okMail&&(okWa||!tel)};
+}
+const enviados=new Set();
+async function autoNotify(o,modo){
+  if(!o)return;if(modo==="asig"&&!o.operario)return;
+  const key=modo+":"+o.id+":"+(o.operario||"");if(enviados.has(key))return;
+  if(!mcp){modo==="cierre"?openCierre(o):openAviso(o);return}
+  enviados.add(key);toast(modo==="cierre"?`Enviando correo de cierre de la OT ${o.ot}…`:`Avisando asignación de la OT ${o.ot}…`);
+  const r=await sendNotice({...o},modo);
+  if(!r.ok)enviados.delete(key);
+  toast(`OT ${o.ot}: `+r.res.join(" · "));
+}
+$("#avSend").onclick=async()=>{
+  const o=avisoOT;if(!o||!mcp)return;const b=$("#avSend");b.disabled=true;b.textContent="Enviando…";
+  const r=await sendNotice(o,avisoModo);
+  $("#avMsg").textContent=r.res.join(". ")+".";$("#avMsg").hidden=false;
+  b.textContent=r.ok?"Hecho ✓":"Reintentar";b.disabled=r.ok;
+};
+
+/* ---- Directorio de tiendas ---- */
+const TD="@tomasbarretosa.com";
+const CENTRAL={nombre:"Central de servicios",cp:"38712",mun:"Breña Baja",email:"ccentral"+TD,tel:"922 18 13 66",m2:null,nota:""};
+const TIENDAS=[
+ ["Bloque 1",[["SPAR Barlovento","38726","Barlovento","spar.barlovento","922 18 64 19",252,"Verano"],["SPAR Los Sauces","38720","San Andrés y Sauces","spar.lossauces","922 45 11 53",296,""],["SPAR San Francisco","38700","Santa Cruz de La Palma","spar.sanfrancisco","922 41 71 06",301,""],["SPAR El Puente","38700","Santa Cruz de La Palma","spar.elpuente","922 41 17 47",512,""],["SPAR Express El Muelle","38700","Santa Cruz de La Palma","spar.elmuelle","922 41 30 35",138,""],["SPAR La Luz","38700","Santa Cruz de La Palma","spar.laluz","922 41 27 15",217,"Verano"],["SPAR El Porvenir","38710","Breña Alta","spar.elporvenir","922 42 94 67",436,""],["SPAR Tago-Mago","38760","Los Llanos de Aridane","spar.tagomago","922 40 12 66",408,""],["SPAR Puerto Naos","38760","Los Llanos de Aridane","spar.puertonaos","922 40 81 00",337,""]]],
+ ["Bloque 2",[["SPAR Salinas","38712","Breña Baja","spar.salinas","922 18 14 44",194,""],["SPAR Mazo","38730","Villa de Mazo","spar.mazo","922 42 85 00",252,"Verano"],["SPAR Mederos","38760","Los Llanos de Aridane","spar.mederos","922 40 11 52",1089,""],["SPAR San Antonio","38712","Breña Baja","spar.sanantonio","922 43 35 20",560,""],["SPAR El Paso","38750","El Paso","spar.elpaso","922 48 59 27",694,""],["SPAR Mercado","38700","Santa Cruz de La Palma","spar.mercado","922 41 40 01",195,""]]],
+ ["Nuevo Almacén",[["Nuevo Almacén Guinchos","38712","Breña Baja","nalosguinchos","922 42 01 72",460,""],["Nuevo Almacén II (Los Llanos)","38760","Los Llanos de Aridane","nalosllanos","922 46 35 30",773,""]]],
+ ["Bloque 4",[["SPAR San José","38712","Breña Baja","spar.sanjose","922 43 53 49",123,""],["Eurospar San Pedro","38710","Breña Alta","spar.sanpedro","922 43 71 01",884,""],["SPAR Dos Pinos","38750","El Paso","spar.dospinos","922 46 31 59",204,""],["SPAR Puntagorda","38789","Puntagorda","spar.puntagorda","922 49 32 50",101,"Verano"],["SPAR Tijarafe","38780","Tijarafe","spar.tijarafe","922 49 04 12",202,""],["SPAR Fuencaliente","38740","Fuencaliente","spar.fuencaliente","922 76 39 12",249,""],["SPAR San Miguel","38770","Tazacorte","spar.sanmiguel","922 48 09 70",235,""],["SPAR Puntallana","38715","Puntallana","spar.puntallana","922 43 01 17",296,"Verano"],["SPAR El Puerto","38770","Tazacorte","spar.elpuerto","922 40 33 65",82,"Domingos agosto/octubre"]]],
+ ["Bloque 5",[["SPAR El Pinar","38789","Puntagorda","sparelpinar","922 49 30 06",172,""],["SPAR Santo Domingo (Garafía)","38788","Garafía","sparsantodomingo","922 40 02 32",110,""]]]
+].map(([b,r])=>({bloque:b,tiendas:r.map(([nombre,cp,mun,u,tel,m2,nota])=>({nombre,cp,mun,email:u+TD,tel,m2,nota}))}));
+const fmtN=n=>n==null?"":n.toLocaleString("es-ES");
+function tRow(t){const tl=t.tel.replace(/\s/g,"");return `<tr><td class="full"><b>${esc(t.nombre)}</b><span class="sub">${esc(t.mun)} · ${esc(t.cp)}${t.nota?" · "+esc(t.nota):""}</span></td><td class="full"><a href="mailto:${esc(t.email)}">${esc(t.email)}</a></td><td><a href="tel:+34${tl}">${esc(t.tel)}</a></td><td class="n">${t.m2!=null?fmtN(t.m2)+" m²":""}<br>${docBtn(t.nombre)}</td></tr>`}
+function renderTiendas(){
+  const q=$("#qT").value.trim().toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"");
+  const m=t=>!q||`${t.nombre} ${t.mun} ${t.cp} ${t.email} ${t.tel} ${t.tel.replace(/\s/g,"")} ${t.nota}`.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"").includes(q);
+  const head=`<thead><tr><th>Tienda</th><th>Correo</th><th>Teléfono</th><th style="text-align:right">m² venta</th></tr></thead>`;
+  let h="",n=0,tot=0;
+  if(m(CENTRAL)){h+=`<section><h3><span>Oficinas</span></h3><table>${head}<tbody>${tRow(CENTRAL)}</tbody></table></section>`}
+  for(const g of TIENDAS){const r=g.tiendas.filter(m);if(!r.length)continue;n+=r.length;const s=r.reduce((a,t)=>a+t.m2,0);tot+=s;
+    h+=`<section><h3><span>${esc(g.bloque)}</span><span>${r.length} tiendas · ${fmtN(s)} m²</span></h3><table>${head}<tbody>${r.map(tRow).join("")}</tbody></table></section>`}
+  $("#dirList").innerHTML=h||`<div class="empty">Ninguna tienda coincide con «${esc($("#qT").value)}».</div>`;
+  $("#dirFoot").textContent=`${n} tiendas · ${fmtN(tot)} m² de sala de venta`;
+}
+$("#btnTiendas").onclick=()=>{$("#qT").value="";renderTiendas();$("#dlgTiendas").showModal()};
+$("#btnTiendasClose").onclick=()=>$("#dlgTiendas").close();
+$("#qT").addEventListener("input",renderTiendas);
+
+/* ---- Documentación por centro ---- */
+const DOC_TIPOS=["OCA baja tensión","OCA alta tensión / CT","Certificado de instalación (CIE)","Proyecto / memoria técnica","Protección contra incendios","Frío / climatización","Ascensor / elevación","Contrato de mantenimiento","Licencia / permiso","Otro"];
+let docs=[],assets=null,docEdit=null;
+(async()=>{try{assets=window.claude?await window.claude.use("assets"):null}catch(e){assets=null}$("#dcUp").hidden=!assets&&!db})();
+const CENTROS_DOC=()=>{const s=[CENTRAL.nombre,...TIENDAS.flatMap(g=>g.tiendas.map(t=>t.nombre))];docs.forEach(d=>{if(d.centro&&!s.includes(d.centro))s.push(d.centro)});return s};
+const hoyISO=()=>new Date().toISOString().slice(0,10);
+function docEstado(d){
+  if(d.sustituido)return {k:"hist",l:"Histórico (sustituido por uno posterior)",c:"--s-pend"};
+  if(!d.proxima)return {k:"sin",l:"Sin caducidad",c:"--s-pend"};
+  const dias=Math.floor((new Date(d.proxima+"T00:00:00")-new Date(hoyISO()+"T00:00:00"))/864e5);
+  if(dias<0)return {k:"vencido",l:`Vencido hace ${-dias} días`,c:"--p-alta",alerta:true};
+  if(dias<=90)return {k:"pronto",l:`Vence en ${dias} días`,c:"--p-media",alerta:true};
+  return {k:"ok",l:"Vigente",c:"--s-fin"};
+}
+function docsDe(c){return docs.filter(d=>d.centro===c)}
+function docBtn(c){const l=docsDe(c);const al=l.filter(d=>docEstado(d).alerta).length;return `<button type="button" class="btn-sm ${al?"bad":""}" data-docs="${esc(c)}">Docs ${l.length}${al?` · ${al} ⚠`:""}</button>`}
+function updDocsBtn(){const al=docs.filter(d=>docEstado(d).k==="vencido").length;$("#btnDocs").textContent=al?`Documentación · ${al} vencido${al>1?"s":""}`:"Documentación";$("#btnDocs").classList.toggle("danger",!!al)}
+function fillCentroSel(sel,withAll,val){const c=CENTROS_DOC();sel.innerHTML=(withAll?`<option value="">Todos los centros</option>`:"")+c.map(n=>`<option>${esc(n)}</option>`).join("");if(val!=null)sel.value=val}
+function renderDocs(){
+  if(!$("#dlgDocs").open)return;
+  const c=$("#dcCentro").value,al=$("#dcEstado").value==="alerta";
+  const rows=docs.filter(d=>(!c||d.centro===c)&&(!al||docEstado(d).alerta)).sort((a,b)=>(a.proxima||"9999").localeCompare(b.proxima||"9999"));
+  const by={};rows.forEach(d=>(by[d.centro]=by[d.centro]||[]).push(d));
+  const order=CENTROS_DOC().filter(n=>by[n]);
+  $("#docList").innerHTML=order.length?order.map(n=>`<section class="docgrp"><h3><span>${esc(n)}</span><span>${by[n].length} doc.</span></h3>${by[n].map(d=>{const e=docEstado(d);
+    return `<div class="doc" style="--c:var(${e.c})"><div><div class="t">${d.asset?`<a href="#" data-dview="${esc(d.id)}">${esc(d.titulo)}</a>`:esc(d.titulo)}</div>
+      <div class="m">${esc(d.tipo||"")}${d.expediente?" · Exp. "+esc(d.expediente):""}${d.fecha?" · "+fmtDate(d.fecha):""}${d.resultado?" · "+esc(d.resultado):""}</div>
+      <div class="m"><span class="tag" style="--c:var(${e.c})"><i></i>${esc(e.l)}</span>${d.proxima?" Próxima: "+fmtDate(d.proxima):""}${d.notas?" · "+esc(d.notas):""}</div></div>
+      <div class="acts">${db?`<button type="button" class="ghost" data-dedit="${esc(d.id)}">Editar</button>`:""}</div></div>`}).join("")}</section>`).join("")
+    :`<div class="empty">${docs.length?"Ningún documento con este filtro.":"Todavía no hay documentos."}${c?` <br><br>${esc(c)} no tiene documentación cargada.`:""}</div>`;
+  const nv=rows.filter(d=>docEstado(d).k==="vencido").length;
+  $("#docFoot").textContent=`${rows.length} documentos${nv?` · ${nv} vencidos`:""}`;
+}
+function openDocs(centro){
+  fillCentroSel($("#dcCentro"),true,centro||"");$("#dcEstado").value="";resetDocForm();
+  $("#dcUp").hidden=!db;$("#dlgDocs").showModal();renderDocs();
+}
+function resetDocForm(d){
+  docEdit=d||null;
+  fillCentroSel($("#dcC"),false,d?d.centro:($("#dcCentro").value||CENTROS_DOC()[0]));
+  $("#dcTipo").innerHTML=DOC_TIPOS.map(t=>`<option>${esc(t)}</option>`).join("");$("#dcTipo").value=d?.tipo||DOC_TIPOS[0];
+  $("#dcTit").value=d?.titulo||"";$("#dcExp").value=d?.expediente||"";$("#dcRes").value=d?.resultado||"";
+  $("#dcFecha").value=d?.fecha||"";$("#dcProx").value=d?.proxima||"";$("#dcNotas").value=d?.notas||"";$("#dcFile").value="";
+  $("#dcFileWrap").firstChild.textContent=d?"Sustituir archivo (opcional)":"Archivo (PDF o imagen)";
+  $("#dcFileWrap").hidden=!assets;
+  $("#dcUpSum").textContent=d?`Editando: ${d.titulo}`:"+ Añadir documento";
+  $("#dcCancel").textContent=d?"Eliminar":"Cancelar";$("#dcCancel").classList.toggle("danger",!!d);$("#dcCancel").dataset.armed="";
+}
+$("#btnDocs").onclick=()=>openDocs("");
+$("#btnDocsClose").onclick=()=>$("#dlgDocs").close();
+["#dcCentro","#dcEstado"].forEach(s=>$(s).addEventListener("input",()=>{if(!docEdit)fillCentroSel($("#dcC"),false,$("#dcCentro").value||CENTROS_DOC()[0]);renderDocs()}));
+document.addEventListener("click",e=>{const b=e.target.closest("[data-docs]");if(!b)return;$("#dlgTiendas").close();openDocs(b.dataset.docs)});
+$("#docList").addEventListener("click",e=>{const v=e.target.closest("[data-dview]");if(v){e.preventDefault();verDoc(docs.find(x=>x.id===v.dataset.dview));return}});
+let verUrl=null,verD=null;
+async function blobDe(d){const r=await fetch("/_blob/"+d.asset,{credentials:"include"});if(!r.ok)throw new Error("HTTP "+r.status);return await r.blob()}
+async function verDoc(d){
+  if(!d)return;verD=d;$("#vwTitle").textContent=`${d.centro} · ${d.titulo}`;$("#vwMsg").textContent="Cargando…";$("#vwMsg").hidden=false;$("#vwFrame").hidden=true;$("#dlgVer").showModal();
+  try{const b=await blobDe(d);if(verUrl)URL.revokeObjectURL(verUrl);verUrl=URL.createObjectURL(b);const box=$("#vwFrame");box.innerHTML="";
+    if((b.type||"").startsWith("image/")){const im=document.createElement("img");im.src=verUrl;im.style.maxWidth="100%";box.appendChild(im)}
+    else{await loadScript("https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js");const lib=window.pdfjsLib;lib.GlobalWorkerOptions.workerSrc="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js";
+      const pdf=await lib.getDocument({data:new Uint8Array(await b.arrayBuffer())}).promise;const w=Math.min(box.clientWidth||900,1000)-20;
+      for(let i=1;i<=pdf.numPages;i++){const pg=await pdf.getPage(i);const v0=pg.getViewport({scale:1});const sc=Math.max(w,300)/v0.width;const dpr=window.devicePixelRatio||1;const v=pg.getViewport({scale:sc*dpr});
+        const cv=document.createElement("canvas");cv.width=v.width;cv.height=v.height;cv.style.width=(v.width/dpr)+"px";cv.style.background="#fff";cv.style.boxShadow="0 1px 3px rgba(0,0,0,.25)";box.appendChild(cv);
+        if(i===1){box.hidden=false;$("#vwMsg").hidden=true}
+        await pg.render({canvasContext:cv.getContext("2d"),viewport:v}).promise}}
+    box.hidden=false;$("#vwMsg").hidden=true}
+  catch(e){$("#vwMsg").textContent="No se pudo abrir el archivo ("+(e.message||e)+"). Prueba con «Descargar».";}
+}
+$("#vwClose").onclick=()=>{$("#dlgVer").close();$("#vwFrame").innerHTML=""};
+$("#vwDl").onclick=async()=>{
+  if(!verD)return;
+  try{const b=await blobDe(verD);if(!dl)throw {code:"unavailable"};await dl.save({filename:verD.archivo||((verD.expediente||"documento").replace(/\//g,"-")+".pdf"),data:await b.arrayBuffer()});toast("Archivo guardado")}
+  catch(e){if(e&&e.code==="declined")toast("Descarga cancelada");else if(verUrl){const a=document.createElement("a");a.href=verUrl;a.download=verD.archivo||"documento.pdf";a.click()}else toast("No se pudo descargar: "+(e.message||e.code||e))}
+};
+$("#docList").addEventListener("click",e=>{const b=e.target.closest("[data-dedit]");if(!b)return;const d=docs.find(x=>x.id===b.dataset.dedit);if(!d)return;resetDocForm(d);$("#dcUp").open=true;$("#dcUp").scrollIntoView({block:"nearest"})});
+$("#dcCancel").onclick=async()=>{
+  if(!docEdit){resetDocForm();$("#dcUp").open=false;return}
+  const b=$("#dcCancel");if(!b.dataset.armed){b.dataset.armed="1";b.textContent="¿Seguro? Pulsa otra vez";return}
+  const d=docEdit;
+  try{await db.collection("docs").doc(d.id).delete();if(d.asset&&assets){try{await assets.delete(d.asset)}catch(e){}}toast("Documento eliminado");resetDocForm();$("#dcUp").open=false}
+  catch(e){toast("No se pudo eliminar: "+(e.message||e.code||"error"))}
+};
+$("#dcForm").addEventListener("submit",async e=>{
+  e.preventDefault();if(!db){toast("Sin conexión con la base de datos");return}
+  const f=$("#dcFile").files[0];const b=$("#dcSave");b.disabled=true;b.textContent=f?"Subiendo…":"Guardando…";
+  try{
+    const d={centro:$("#dcC").value,tipo:$("#dcTipo").value,titulo:$("#dcTit").value.trim(),expediente:$("#dcExp").value.trim(),resultado:$("#dcRes").value.trim(),
+      fecha:$("#dcFecha").value,proxima:$("#dcProx").value,notas:$("#dcNotas").value.trim(),actualizada:new Date().toISOString()};
+    if(f){if(!assets)throw new Error("No tienes permiso para subir archivos");const up=await assets.upload(f);d.asset=up.id;d.archivo=f.name;d.sizeBytes=up.sizeBytes}
+    if(docEdit){const old=docEdit.asset;await db.collection("docs").doc(docEdit.id).update(d);if(f&&old&&assets){try{await assets.delete(old)}catch(e){}}}
+    else{d.creada=d.actualizada;await db.collection("docs").doc("doc-"+Date.now().toString(36)).set(d)}
+    toast("Documento guardado");resetDocForm();$("#dcUp").open=false;
+  }catch(err){toast("No se guardó: "+(err.code==="unsupported_type"?"tipo de archivo no admitido":err.code==="too_large"?"archivo demasiado grande":(err.message||err.code||"error")))}
+  finally{b.disabled=false;b.textContent="Guardar documento"}
+});
+
+/* ---- Operarios ---- */
+function renderOps(){
+  $("#opsList").innerHTML=operarios.length?operarios.map((n,i)=>`<li><span style="flex:1">${esc(n)}</span><input type="tel" inputmode="tel" placeholder="Móvil" value="${esc(telefonos[n]||"")}" data-tel="${esc(n)}" aria-label="Móvil de ${esc(n)}"><button type="button" class="ghost danger" data-rm="${i}">Quitar</button></li>`).join(""):`<li><span class="note">No hay operarios. Añade el primero abajo.</span></li>`;
+}
+async function saveOps(list){
+  if(!db){toast("Sin conexión con la base de datos");return}
+  try{await db.doc("config/operarios").set({lista:list,telefonos})}catch(e){toast("No se guardó la lista")}
+}
+$("#btnOps").onclick=()=>{renderOps();$("#dlgOps").showModal()};
+$("#btnOpsClose").onclick=()=>$("#dlgOps").close();
+$("#formOp").addEventListener("submit",e=>{e.preventDefault();const n=$("#newOp").value.trim();if(!n)return;if(operarios.includes(n)){toast("Ya está en la lista");return}saveOps([...operarios,n]);$("#newOp").value=""});
+$("#opsList").addEventListener("change",async e=>{const n=e.target.dataset.tel;if(n==null)return;telefonos={...telefonos,[n]:e.target.value.trim()};await saveOps(operarios);toast("Teléfono guardado")});
+$("#opsList").addEventListener("click",e=>{const i=e.target.dataset.rm;if(i==null)return;saveOps(operarios.filter((_,j)=>j!=i))});
+
+
+/* ---- Exportar PDF (la vista filtrada) ---- */
+let dl=null;
+(async()=>{try{dl=window.claude?await window.claude.use("downloads"):null}catch(e){dl=null}if(dl)$("#btnPdf").hidden=false})();
+function loadScript(src){return new Promise((ok,ko)=>{if(document.querySelector(`script[src="${src}"]`)){ok();return}const s=document.createElement("script");s.src=src;s.onload=ok;s.onerror=()=>ko(new Error("No se pudo cargar "+src));document.head.appendChild(s)})}
+function filtroTexto(){
+  const t=[fEstado==="abiertas"?"Abiertas":(EST[fEstado]?.l||fEstado)];
+  const op=$("#fOp").value;if(op)t.push(op==="__none"?"Sin asignar":"Operario: "+op);
+  if($("#fEmp").value)t.push("Empresa: "+$("#fEmp").value);
+  if($("#fSol").value)t.push("Solicitante: "+$("#fSol").value);
+  if($("#fPrio").value)t.push("Prioridad: "+$("#fPrio").value);
+  if($("#fNoInf").checked)t.push("Sin informar a TBSA");
+  const q=$("#q").value.trim();if(q)t.push("Búsqueda: «"+q+"»");
+  return t.join(" · ");
+}
+$("#btnPdf").onclick=async()=>{
+  const rows=filtered();
+  if(!rows.length){toast("No hay OT que exportar con estos filtros");return}
+  const b=$("#btnPdf");b.disabled=true;b.textContent="Generando…";
+  try{
+    await loadScript("https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js");
+    await loadScript("https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.8.2/jspdf.plugin.autotable.min.js");
+    const {jsPDF}=window.jspdf;
+    const doc=new jsPDF({orientation:"landscape",unit:"mm",format:"a4"});
+    const W=doc.internal.pageSize.getWidth();
+    doc.setFont("helvetica","bold");doc.setFontSize(15);doc.text("Órdenes de trabajo · Tomás Barreto",14,15);
+    doc.setFont("helvetica","normal");doc.setFontSize(9);doc.setTextColor(90);
+    doc.text(`Instapalma · ${filtroTexto()} · ${rows.length} OT · generado ${nowStr()}`,14,21);
+    doc.autoTable({
+      startY:26,margin:{left:10,right:10},
+      head:[["OT","Fecha","Centro","Descripción","Prior.","Operario","Estado","Aviso GIM","Notas"]],
+      body:rows.map(o=>[o.ot,fmtDate(o.fechaAviso),(empOf(o)!=="Tomás Barreto"?empOf(o)+" · ":"")+(o.centro||""),o.descripcion||"",o.prioridad||"",o.operario||"Sin asignar",(EST[o.estado]||EST.pendiente).l+(!o.informado&&o.estado!=="pendiente"&&o.estado!=="terminada"?"\n(TBSA sin informar)":""),o.aviso||"",o.notas||""]),
+      styles:{font:"helvetica",fontSize:8,cellPadding:1.6,valign:"top",overflow:"linebreak"},
+      headStyles:{fillColor:[38,70,120],textColor:255,fontStyle:"bold"},
+      alternateRowStyles:{fillColor:[244,246,250]},
+      columnStyles:{0:{cellWidth:11,fontStyle:"bold"},1:{cellWidth:18},2:{cellWidth:34},3:{cellWidth:70},4:{cellWidth:16},5:{cellWidth:26},6:{cellWidth:26},7:{cellWidth:17},8:{cellWidth:"auto"}},
+      didDrawPage:()=>{const n=doc.internal.getNumberOfPages();doc.setFontSize(8);doc.setTextColor(120);doc.text("Página "+n,W-10,doc.internal.pageSize.getHeight()-6,{align:"right"})}
+    });
+    const d=new Date(),f=`${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,"0")}-${String(d.getDate()).padStart(2,"0")}`;
+    await dl.save({filename:`OT-TomasBarreto-${f}.pdf`,data:doc.output("arraybuffer")});
+    toast("PDF guardado");
+  }catch(e){
+    if(e&&e.code==="declined")toast("Descarga cancelada");
+    else if(e&&(e.code==="unavailable"||e.code==="not_granted")){$("#btnPdf").hidden=true;toast("La descarga no está disponible aquí")}
+    else toast("No se pudo generar el PDF: "+(e.message||e.code||e));
+  }finally{b.disabled=false;b.textContent="Exportar PDF"}
+};
+
+/* ---- Datos ---- */
+renderList();
+(async()=>{
+  const timer=setTimeout(()=>{if(!loaded){banner("No se puede conectar con la base de datos todavía. Si sigue así, recarga la página.")}},10000);
+  db=window.claude?await window.claude.use("db"):null;
+  if(!db){clearTimeout(timer);loaded=true;banner("Inicia sesión en claude.ai para ver y guardar las órdenes.");renderList();return}
+  db.collection("ots").onSnapshot(s=>{
+    ots=s.docs.map(d=>({id:d.id,...d.data()}));
+    if(!s.metadata.fromCache){clearTimeout(timer);banner("")}
+    loaded=true;renderFilters();renderList();
+  },err=>{clearTimeout(timer);loaded=true;banner("No se pudieron leer las órdenes: "+(err.message||err.code));renderList()});
+  db.collection("docs").onSnapshot(s=>{docs=s.docs.map(d=>({id:d.id,...d.data()}));updDocsBtn();renderDocs();if($("#dlgTiendas").open)renderTiendas()},()=>{});
+  db.doc("config/operarios").onSnapshot(s=>{operarios=(s.exists&&s.data().lista)||[];telefonos=(s.exists&&s.data().telefonos)||{};renderFilters();renderOps();if(loaded)renderList()},()=>{});
+})();
+</script>
+
+</body></html>

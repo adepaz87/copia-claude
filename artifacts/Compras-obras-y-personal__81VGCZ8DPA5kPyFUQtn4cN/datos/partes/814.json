@@ -1,0 +1,17 @@
+{
+  "albs": [],
+  "cliente": "TOMAS BARRETO SA",
+  "desc": "Ver trabajos reformas instalaciones",
+  "devol": [],
+  "estado": "TERMINADO",
+  "fecha": "2026-10-28",
+  "horas": 3,
+  "obra": "COCINAS CPF.",
+  "ops": [
+    {
+      "h": 3,
+      "n": "Toño"
+    }
+  ],
+  "stock": []
+}

@@ -1,0 +1,12 @@
+{
+  "cap": "09",
+  "cod": "09.06",
+  "desc": "Termo eléctrico de 100 l para agua caliente sanitaria, instalado.",
+  "med": 1,
+  "nota": "Alternativa: bomba de calor para ACS",
+  "orden": 6,
+  "pre": 380,
+  "rev": true,
+  "sb": false,
+  "ud": "ud"
+}

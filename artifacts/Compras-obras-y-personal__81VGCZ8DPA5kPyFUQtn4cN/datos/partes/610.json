@@ -1,0 +1,26 @@
+{
+  "albs": [
+    "Diexfe 017871",
+    "Diexfe 017882",
+    "Diexfe 017925",
+    "Diexfe 017963"
+  ],
+  "cliente": "CONSTRUCCIONES DOS TUMBOS",
+  "desc": "Marcar,Abrir huecos en pladur ,colocación cajas mecanismo  y entubar en 2 Planta \nLimpiar zonas de trabajo",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-10-01",
+  "horas": 19,
+  "obra": "RESIDENCIA TERCERA EDAD EL PASO",
+  "ops": [
+    {
+      "h": 8,
+      "n": "Petter"
+    },
+    {
+      "h": 11,
+      "n": "Jonathan Rodríguez"
+    }
+  ],
+  "stock": []
+}

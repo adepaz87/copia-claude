@@ -1,0 +1,22 @@
+{
+  "actualizada": "2026-11-03T10:28:21.872Z",
+  "avisadoWa": "2026-11-03T10:28:21.872Z",
+  "aviso": "",
+  "centro": "Cocina Las Rosas (Los Llanos)",
+  "creada": "2026-10-28T09:00:00Z",
+  "descripcion": "Revisar y adecuar la instalación eléctrica; comentar con Daniel.",
+  "estado": "asignada",
+  "fechaAviso": "2026-10-28",
+  "historial": [
+    "28/10/2026 · Importada del correo de Alberto",
+    "3/11/2026 06:29 · Marcado como no informado",
+    "3/11/2026 10:28 · WhatsApp programado a Toño Guardia"
+  ],
+  "informado": false,
+  "notas": "Sin correo de cierre todavía.",
+  "operario": "Toño Guardia",
+  "ot": 98,
+  "prioridad": "Sin especificar",
+  "solicitante": "",
+  "tipo": "MANTENIMIENTO"
+}

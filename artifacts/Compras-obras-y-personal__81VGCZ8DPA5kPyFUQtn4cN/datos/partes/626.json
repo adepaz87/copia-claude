@@ -1,0 +1,23 @@
+{
+  "albs": [],
+  "cliente": "RAYCO (CAFÉ DON MANUEL)",
+  "desc": "Modificar cuadros existentes y colocar canaleta,rodar cuadro de fotovomtaica de sitio y cambiar ubicación de tomas de corriente  y de alumbrado.\n\nDesconectar y desmontar inversor existente.\n\nMontar inversor nuevo y baterías. \n\nHacer puentes de continua y de alterna y conectar en inversor y en el cuadro de fotovoltaica. \n\nDejar listo a falta de puesta en servicio.",
+  "devol": [],
+  "estado": "TERMINADO",
+  "fecha": "2026-10-05",
+  "horas": 8,
+  "obra": "FV. VIVIENDA VELHOCO",
+  "ops": [
+    {
+      "h": 8,
+      "n": "Jorge"
+    }
+  ],
+  "stock": [
+    {
+      "d": "cable fotovoltaico de 10mm",
+      "q": 12,
+      "u": "m"
+    }
+  ]
+}

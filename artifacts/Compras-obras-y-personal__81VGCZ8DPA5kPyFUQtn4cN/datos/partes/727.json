@@ -1,0 +1,74 @@
+{
+  "albs": [
+    "202610-0192"
+  ],
+  "cliente": "JOSE BARRETO",
+  "desc": "Abrir hueco para pasar entubado de datos \nEntubar\nColocación  de puestos de trabajo y hacer mecanizado\nEnfichar\nConectar lámparas \nColocación  de emergencia\nDar servicio y comprobar instalación \nLimpiar \nHacer devolución",
+  "devol": [],
+  "estado": "TERMINADO",
+  "fecha": "2026-10-19",
+  "horas": 16,
+  "obra": "GARAJE BELLIDO",
+  "ops": [
+    {
+      "h": 8,
+      "n": "Manuel"
+    },
+    {
+      "h": 8,
+      "n": "Juan"
+    }
+  ],
+  "stock": [
+    {
+      "d": "cable de datos categoría 6 apantallado",
+      "q": 20,
+      "u": "m"
+    },
+    {
+      "d": "tubo de 25",
+      "q": 7,
+      "u": "m"
+    },
+    {
+      "d": "curvas de 25",
+      "q": 3,
+      "u": ""
+    },
+    {
+      "d": "curvas de 20",
+      "q": 3,
+      "u": ""
+    },
+    {
+      "d": "curvas de Flexibles de 20",
+      "q": 1,
+      "u": ""
+    },
+    {
+      "d": "tubo de 20",
+      "q": 11,
+      "u": "m"
+    },
+    {
+      "d": "fichas 16",
+      "q": 3,
+      "u": ""
+    },
+    {
+      "d": "fichas de 10",
+      "q": 12,
+      "u": ""
+    },
+    {
+      "d": "clavos de Wurth",
+      "q": 130,
+      "u": ""
+    },
+    {
+      "d": "bridas de 4,5 por 300 grises",
+      "q": 2,
+      "u": "paquetes"
+    }
+  ]
+}

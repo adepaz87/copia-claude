@@ -1,0 +1,25 @@
+{
+  "albs": [],
+  "cliente": "CHICHO 2 TUMBOS",
+  "desc": "Entubar desde cgp hasta centralizaciones\nFijar dos centralizaciones\nPicar para entrada de tubos\nColocar cajas de mecanismos viviendas minusválidos\nMecanizar viviendas minusválidos \nColocar emergencias pasillo planta 3\nColocar downligth pasillo planta 3",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-09-09",
+  "horas": 26,
+  "obra": "EDIFICIO SABINO",
+  "ops": [
+    {
+      "h": 9,
+      "n": "Riki"
+    },
+    {
+      "h": 7.5,
+      "n": "Joel"
+    },
+    {
+      "h": 9.5,
+      "n": "Aythami"
+    }
+  ],
+  "stock": []
+}

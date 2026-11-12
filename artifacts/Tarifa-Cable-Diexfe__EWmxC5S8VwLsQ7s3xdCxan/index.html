@@ -1,0 +1,566 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Tarifa Cable Diexfe</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: cabecera, panel del presupuesto activo, pestañas Tarifa / Presupuesto con tabla densa */
+:root{
+  --bg:#f5f7f6; --surface:#ffffff; --fg:#17201c; --muted:#5d6b64; --line:#dde4e0;
+  --accent:#0d7a52; --accent-soft:#e2f2ea; --chip:#eef2f0; --danger:#b42318; --on-accent:#ffffff;
+  --sans:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,"SFMono-Regular",Menlo,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#111614; --surface:#18201d; --fg:#e4ebe7; --muted:#93a39b; --line:#2a3530;
+  --accent:#4cc895; --accent-soft:#1d3329; --chip:#212b27; --danger:#f97066; --on-accent:#0b1a13; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#111614; --surface:#18201d; --fg:#e4ebe7; --muted:#93a39b; --line:#2a3530;
+  --accent:#4cc895; --accent-soft:#1d3329; --chip:#212b27; --danger:#f97066; --on-accent:#0b1a13; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font-family:var(--sans);font-size:14px;line-height:1.45}
+.wrap{max-width:1120px;margin:0 auto;padding-block:24px 64px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+header{display:flex;flex-wrap:wrap;gap:12px 32px;align-items:flex-end;justify-content:space-between;margin-bottom:18px}
+h1{font-size:24px;font-weight:600;margin:0;text-wrap:balance;letter-spacing:-.01em}
+.sub{color:var(--muted);margin-top:4px}
+.meta{display:flex;flex-wrap:wrap;gap:6px 20px;font-size:12.5px;color:var(--muted)}
+.meta b{color:var(--fg);font-weight:500;font-family:var(--mono)}
+input,select,button{font:inherit;color:var(--fg)}
+input[type=search],input[type=text],input[type=number],select{padding:7px 10px;border:1px solid var(--line);border-radius:6px;background:var(--surface)}
+input[type=number]{font-family:var(--mono);text-align:right}
+input:focus,select:focus,button:focus-visible{outline:2px solid var(--accent);outline-offset:1px}
+.btn{padding:7px 12px;border-radius:6px;border:1px solid var(--line);background:var(--chip);cursor:pointer;white-space:nowrap}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:var(--on-accent);font-weight:500}
+.btn.ghost{background:transparent}
+.btn.danger{color:var(--danger);border-color:var(--danger);background:transparent}
+.btn:disabled{opacity:.5;cursor:default}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:14px 16px;margin-bottom:14px;display:flex;flex-direction:column;gap:12px}
+.panel h2{font-size:12px;font-weight:600;margin:0;text-transform:uppercase;letter-spacing:.07em;color:var(--muted)}
+.row{display:flex;flex-wrap:wrap;gap:8px 16px;align-items:center}
+.field{display:flex;align-items:center;gap:8px;font-size:13px}
+.field input[type=number]{width:80px}
+#bsel{min-width:0;max-width:100%;flex:1 1 220px}
+.status{font-size:12px;color:var(--muted)}
+details summary{cursor:pointer;font-size:13px;color:var(--accent);font-weight:500}
+.mo{display:grid;grid-template-columns:repeat(auto-fill,minmax(112px,1fr));gap:8px;margin-top:10px}
+.mo label{display:flex;flex-direction:column;gap:3px;font-size:11.5px;color:var(--muted);font-family:var(--mono)}
+.mo input{width:100%;font-size:13px;padding:5px 7px;background:var(--bg)}
+.mo input.user{border-color:var(--accent)}
+.note{font-size:12px;color:var(--muted)}
+.tabs{display:flex;gap:4px;border-bottom:1px solid var(--line);margin-bottom:0}
+.tab{background:none;border:0;border-bottom:2px solid transparent;padding:10px 14px;cursor:pointer;color:var(--muted);font-weight:500;margin-bottom:-1px}
+.tab[aria-selected=true]{color:var(--fg);border-bottom-color:var(--accent)}
+.tab .pill{display:inline-block;margin-left:6px;font-family:var(--mono);font-size:11px;padding:1px 7px;border-radius:999px;background:var(--accent-soft);color:var(--accent)}
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);padding-block:10px;display:flex;flex-direction:column;gap:10px;border-bottom:1px solid var(--line)}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
+#q{flex:1 1 240px;min-width:0}
+.chips{display:flex;gap:6px;overflow-x:auto;padding-bottom:2px;scrollbar-width:thin}
+.chip{flex:none;font-size:12.5px;padding:5px 10px;border-radius:999px;border:1px solid transparent;background:var(--chip);cursor:pointer;white-space:nowrap}
+.chip span{color:var(--muted);font-family:var(--mono);font-size:11px;margin-left:4px}
+.chip[aria-pressed=true]{background:var(--accent-soft);border-color:var(--accent);color:var(--accent)}
+.count{font-size:12.5px;color:var(--muted);margin:12px 0 6px}
+.tbl{overflow-x:auto;background:var(--surface);border:1px solid var(--line);border-radius:8px}
+table{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums}
+th{font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);font-weight:500;text-align:left;padding:9px 10px;border-bottom:1px solid var(--line);white-space:nowrap}
+th.sort{cursor:pointer;user-select:none}
+th.num,td.num{text-align:right}
+td{padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+tbody tr:last-child td{border-bottom:0}
+#tb tr:hover{background:var(--chip)}
+.code{font-family:var(--mono);font-size:12px;color:var(--muted);white-space:nowrap}
+.fam{font-size:11.5px;color:var(--accent);white-space:nowrap}
+.price{font-family:var(--mono);font-weight:500;white-space:nowrap}
+.unit{color:var(--muted);font-size:11px;margin-left:2px}
+.pvp{color:var(--accent);font-weight:600}
+td.dim{color:var(--muted)}
+.add{width:30px;height:30px;border-radius:6px;border:1px solid var(--accent);background:transparent;color:var(--accent);font-size:18px;line-height:1;cursor:pointer}
+.add:hover{background:var(--accent-soft)}
+.add.done{background:var(--accent);color:var(--on-accent)}
+.empty{padding:28px;text-align:center;color:var(--muted)}
+/* presupuesto */
+.bmeta{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px}
+.bmeta label{display:flex;flex-direction:column;gap:4px;font-size:12px;color:var(--muted)}
+.bmeta input{width:100%}
+#lt input[type=text]{width:100%;min-width:140px}
+#lt input[type=number]{width:70px;padding:5px 7px}
+.del{background:none;border:0;color:var(--muted);cursor:pointer;font-size:16px;padding:2px 6px;border-radius:4px}
+.del:hover{color:var(--danger);background:var(--chip)}
+.tot{display:grid;grid-template-columns:1fr auto;gap:6px 24px;max-width:420px;margin-left:auto;margin-top:14px;font-variant-numeric:tabular-nums}
+.tot dt{color:var(--muted)}
+.tot dd{margin:0;text-align:right;font-family:var(--mono)}
+.tot .grand{font-size:18px;font-weight:600;color:var(--fg);padding-top:8px;border-top:1px solid var(--line)}
+.tot .int{font-size:12.5px}
+.actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+.confirm{display:flex;flex-wrap:wrap;gap:8px;align-items:center;font-size:13px}
+.toast{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(20px + env(safe-area-inset-bottom,0px));background:var(--fg);color:var(--bg);padding:9px 16px;border-radius:8px;font-size:13px;z-index:20;max-width:calc(100% - 32px)}
+footer{margin-top:16px;font-size:12px;color:var(--muted)}
+@media (max-width:640px){.hide-sm{display:none}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+
+<div class="wrap">
+  <header>
+    <div>
+      <h1>Tarifa de cable · Diexfe</h1>
+      <div class="sub">Oferta OCTF-014169-2026 · Tarifa Cable Completa V2 · precios netos</div>
+    </div>
+    <div class="meta">
+      <div>Fecha <b>29/09/2026</b></div>
+      <div>Proveedor <b>Diexfe Tenerife</b></div>
+    </div>
+  </header>
+
+  <section class="panel" aria-label="Presupuesto activo">
+    <div class="row" style="justify-content:space-between">
+      <h2>Presupuesto activo</h2>
+      <span class="status" id="status">Conectando…</span>
+    </div>
+    <div class="row">
+      <select id="bsel" aria-label="Presupuesto activo"></select>
+      <button class="btn" type="button" id="bnew">Nuevo presupuesto</button>
+    </div>
+    <div class="row">
+      <label class="field" for="ben">Beneficio <input type="number" id="ben" step="1" min="0" value="35"> %</label>
+      <label class="field" for="base">Aplicar sobre
+        <select id="base"><option value="all">material + mano de obra</option><option value="mat">solo material</option></select></label>
+    </div>
+    <details>
+      <summary>Mano de obra por sección (€/m por cable)</summary>
+      <div class="mo" id="mo"></div>
+      <div class="row" style="margin-top:10px;justify-content:space-between">
+        <span class="note">240 mm² = 3,00 €/m es tu dato; el resto es una escala orientativa. Los multipolares toman la sección del conductor mayor. Cada partida guarda la mano de obra del momento en que la añades.</span>
+        <button class="btn" type="button" id="moreset">Restablecer escala</button>
+      </div>
+    </details>
+  </section>
+
+  <div class="tabs" role="tablist">
+    <button class="tab" role="tab" id="t-tarifa" aria-selected="true" type="button">Tarifa</button>
+    <button class="tab" role="tab" id="t-pres" aria-selected="false" type="button">Presupuesto<span class="pill" id="npill">0</span></button>
+  </div>
+
+  <!-- TARIFA -->
+  <div id="v-tarifa">
+    <div class="bar">
+      <div class="row">
+        <input type="search" id="q" placeholder="Buscar: 5G6, RZ1-K 1x240, SZ1-K, MIG-84038…" aria-label="Buscar cable">
+        <select id="sort" aria-label="Ordenar">
+          <option value="fam">Por familia</option>
+          <option value="pa">Precio ↑</option>
+          <option value="pd">Precio ↓</option>
+          <option value="cod">Código</option>
+        </select>
+      </div>
+      <div class="row">
+        <label class="field" for="ncab">Cables por línea <input type="number" id="ncab" step="1" min="1" value="1"></label>
+        <label class="field" for="mts">Metros de línea <input type="number" id="mts" step="1" min="1" value="1"></label>
+        <span class="note">Pulsa + para añadir la línea al presupuesto activo.</span>
+      </div>
+      <div class="chips" id="chips" role="group" aria-label="Familias"></div>
+    </div>
+    <div class="count" id="count"></div>
+    <div class="tbl">
+      <table>
+        <thead><tr>
+          <th class="sort" data-k="cod">Código</th>
+          <th class="sort" data-k="fam">Descripción</th>
+          <th class="num sort hide-sm" data-k="p">Material</th>
+          <th class="num hide-sm">M. obra</th>
+          <th class="num sort" data-k="p">PVP €/m</th>
+          <th class="num" id="thtot">Total</th>
+          <th></th>
+        </tr></thead>
+        <tbody id="tb"></tbody>
+      </table>
+    </div>
+    <footer id="foot"></footer>
+  </div>
+
+  <!-- PRESUPUESTO -->
+  <div id="v-pres" hidden>
+    <section class="panel" style="margin-top:14px">
+      <div class="bmeta">
+        <label for="bnom">Nombre<input type="text" id="bnom" placeholder="Presupuesto"></label>
+        <label for="bcli">Cliente<input type="text" id="bcli" placeholder="Nombre del cliente"></label>
+        <label for="bobra">Obra / referencia<input type="text" id="bobra" placeholder="Dirección o referencia"></label>
+      </div>
+    </section>
+    <div class="tbl">
+      <table id="lt">
+        <thead><tr>
+          <th>Concepto</th>
+          <th>Cable</th>
+          <th class="num">Cables</th>
+          <th class="num">Metros</th>
+          <th class="num hide-sm">Coste €/m</th>
+          <th class="num">PVP €/m</th>
+          <th class="num">Importe</th>
+          <th></th>
+        </tr></thead>
+        <tbody id="lb"></tbody>
+      </table>
+    </div>
+    <dl class="tot" id="tot"></dl>
+    <div class="actions">
+      <button class="btn primary" type="button" id="xhtml">Descargar presupuesto</button>
+      <button class="btn" type="button" id="xcsv">Exportar a Excel (CSV)</button>
+      <button class="btn" type="button" id="xcopy">Copiar resumen</button>
+      <span style="flex:1"></span>
+      <span id="delzone"><button class="btn danger" type="button" id="bdel">Eliminar presupuesto</button></span>
+    </div>
+    <p class="note" id="xnote"></p>
+  </div>
+</div>
+<div class="toast" id="toast" hidden></div>
+
+<script>
+const D=[
+["MIG-81764","CABLE BARRYFLEX RV-K 0,6/1KV 5G1,5MM2",1.436],
+["MIG-81765","CABLE BARRYFLEX RV-K 0,6/1KV 5G10MM2",9.005],
+["MIG-81766","CABLE BARRYFLEX RV-K 0,6/1KV 5G2,5MM2 BOBINA",2.259],
+["MIG-81767","CABLE BARRYFLEX RV-K 0,6/1KV 5G4MM2",3.557],
+["MIG-81768","CABLE BARRYFLEX RV-K 0,6/1KV 5G6MM2",5.239],
+["MIG-83167","CABLE AFIRENAX-X RZ1-K 0,6/1KV 6G1,5MM2",2.413],
+["MIG-83169","CABLE AFIRENAX-X RZ1-K 0,6/1KV 7G1,5MM2",2.725],
+["MIG-83171","CABLE AFIRENAX-X RZ1-K 0,6/1KV 8G1,5MM2",3.093],
+["MIG-84001","CABLE AFIRENAX-X RZ1-K 0,6/1KV 1X1,5MM2",0.573],
+["MIG-84002","CABLE AFIRENAX-X RZ1-K 0,6/1KV 1X2,5MM2",0.665],
+["MIG-84003","CABLE AFIRENAX-X RZ1-K 0,6/1KV 1X4MM2",0.930],
+["MIG-84004","CABLE AFIRENAX-X RZ1-K 0,6/1KV 1X6MM2",1.247],
+["MIG-84005","CABLE AFIRENAX-X RZ1-K 0,6/1KV 1X10MM2 BOB",1.953],
+["MIG-84006","CABLE AFIRENAX-X RZ1-K 0,6/1KV 1X16MM2",2.895],
+["MIG-84007","CABLE AFIRENAX-X RZ1-K 0,6/1KV 1X25MM2",4.402],
+["MIG-84008","CABLE AFIRENAX-X RZ1-K 0,6/1KV 1X35MM2",6.080],
+["MIG-84009","CABLE AFIRENAX-X RZ1-K 0,6/1KV 1X50MM2",8.457],
+["MIG-84010","CABLE AFIRENAX-X RZ1-K 0,6/1KV 1X70MM2",11.963],
+["MIG-84011","CABLE AFIRENAX-X RZ1-K 0,6/1KV 1X95MM2",15.772],
+["MIG-84012","CABLE AFIRENAX-X RZ1-K 0,6/1KV 1X120MM2",20.063],
+["MIG-84013","CABLE AFIRENAX-X RZ1-K 0,6/1KV 1X150MM2",24.970],
+["MIG-84014","CABLE AFIRENAX-X RZ1-K 0,6/1KV 1X185MM2",30.119],
+["MIG-84015","CABLE AFIRENAX-X RZ1-K 0,6/1KV 1X240MM2",39.300],
+["MIG-84016","CABLE AFIRENAX-X RZ1-K 0,6/1KV 2X1,5MM2 BOBINA",0.814],
+["MIG-84017","CABLE AFIRENAX-X RZ1-K 0,6/1KV 2X2,5MM2",1.175],
+["MIG-84018","CABLE AFIRENAX-X RZ1-K 0,6/1KV 2X4MM2",1.840],
+["MIG-84019","CABLE AFIRENAX-X RZ1-K 0,6/1KV 2X6MM2",2.480],
+["MIG-84020","CABLE AFIRENAX-X RZ1-K 0,6/1KV 2X10MM2",3.995],
+["MIG-84021","CABLE AFIRENAX-X RZ1-K 0,6/1KV 3G1,5MM2 BOBINA",1.047],
+["MIG-84022","CABLE AFIRENAX-X RZ1-K 0,6/1KV 3G2,5MM2 BOBINA",1.551],
+["MIG-84023","CABLE AFIRENAX-X RZ1-K 0,6/1KV 3G4MM2",2.390],
+["MIG-84024","CABLE AFIRENAX-X RZ1-K 0,6/1KV 3G6MM2 BOBINA",3.461],
+["MIG-84025","CABLE AFIRENAX-X RZ1-K 0,6/1KV 3G10MM2",5.586],
+["MIG-84030","CABLE AFIRENAX-X RZ1-K 0,6/1KV 4G1,5MM2",1.371],
+["MIG-84031","CABLE AFIRENAX-X RZ1-K 0,6/1KV 4G2,5MM2",2.030],
+["MIG-84032","CABLE AFIRENAX-X RZ1-K 0,6/1KV 4G4MM2",3.123],
+["MIG-84033","CABLE AFIRENAX-X RZ1-K 0,6/1KV 4G6MM2",4.543],
+["MIG-84034","CABLE AFIRENAX-X RZ1-K 0,6/1KV 4G10MM2",7.478],
+["MIG-84035","CABLE AFIRENAX-X RZ1-K 0,6/1KV 4X16MM2",11.553],
+["MIG-84036","CABLE AFIRENAX-X RZ1-K 0,6/1KV 5G1,5MM2 BOBINA",1.661],
+["MIG-84037","CABLE AFIRENAX-X RZ1-K 0,6/1KV 5G2,5MM2",2.498],
+["MIG-84038","CABLE AFIRENAX-X RZ1-K 0,6/1KV 5G4MM2",3.861],
+["MIG-84039","CABLE AFIRENAX-X RZ1-K 0,6/1KV 5G6MM2",5.588],
+["MIG-84040","CABLE AFIRENAX-X RZ1-K 0,6/1KV 5G10MM2",9.266],
+["MIG-84041","CABLE AFIRENAX-X RZ1-K 0,6/1KV 5G16MM2",14.267],
+["MIG-84048","CABLE AFIRENAX-X RZ1-K 0,6/1KV 2X16MM2",6.112],
+["MIG-84071","CABLE AFIRENAX-X RZ1-K 0,6/1KV 5G25MM2",22.198],
+["MIG-84072","CABLE AFIRENAX-X RZ1-K 0,6/1KV 5G35MM2",31.827],
+["MIG-84082","CABLE AFIRENAX-X RZ1-K 0,6/1KV 4X25MM2",17.893],
+["MIG-84083","CABLE AFIRENAX-X RZ1-K 0,6/1KV 4X35MM2",25.230],
+["MIG-84099082","CABLE AFIRENAX-L 05Z1-K/07Z1-K 1MM2 AZ",0.230],
+["MIG-84100082","CABLE AFIRENAX-L 05Z1-K/07Z1-K 1,5MM2 AZ",0.240],
+["MIG-84101082","CABLE AFIRENAX-L 05Z1-K/07Z1-K 2,5MM2 AZ",0.398],
+["MIG-84102082","CABLE AFIRENAX-L 05Z1-K/07Z1-K 4MM2 AZ",0.633],
+["MIG-84103082","CABLE AFIRENAX-L 05Z1-K/07Z1-K 6MM2 AZ",0.916],
+["MIG-84104082","CABLE AFIRENAX-L 05Z1-K/07Z1-K 10MM2 AZ",1.586],
+["MIG-84105082","CABLE AFIRENAX-L 05Z1-K/07Z1-K 16MM2 AZ",2.469],
+["MIG-84106082","CABLE AFIRENAX-L 05Z1-K/07Z1-K 25MM2 AZ",3.868],
+["MIG-84122","CABLE AFIREFACIL TRENZADO 07Z1-K 3G10+1,5",5.529],
+["MIG-84123","CABLE AFIREFACIL TRENZADO 07Z1-K 3G16+1,5",8.355],
+["MIG-84124","CABLE AFIREFACIL TRENZADO 07Z1-K 3G25+1,5",12.702],
+["MIG-84125","CABLE AFIREFACIL TRENZADO 07Z1-K 3G35+1,5",18.254],
+["MIG-84140","CABLE AFIREFACIL TRENZADO 07Z1-K 5G10+1,5",9.789],
+["MIG-84141","CABLE AFIREFACIL TRENZADO 07Z1-K 5G16+1,5",14.651],
+["MIG-85405","CABLE AFIREFENIX MICA RZ1-K AS+ 1X16MM2",3.529],
+["MIG-85406","CABLE AFIREFENIX MICA RZ1-K AS+ 1X25MM2",5.509],
+["MIG-85407","CABLE AFIREFENIX MICA RZ1-K AS+ 1X35MM2",7.084],
+["MIG-85408","CABLE AFIREFENIX MICA RZ1-K AS+ 1X50MM2",9.472],
+["MIG-85409","CABLE AFIREFENIX MICA RZ1-K AS+ 1X70MM2",13.181],
+["MIG-85410","CABLE AFIREFENIX MICA RZ1-K AS+ 1X95MM2",17.258],
+["MIG-85411","CABLE AFIREFENIX MICA RZ1-K AS+ 1X120MM2",21.818],
+["MIG-85412","CABLE AFIREFENIX MICA RZ1-K AS+ 1X150MM2",27.229],
+["MIG-85413","CABLE AFIREFENIX MICA RZ1-K AS+ 1X185MM2",32.909],
+["MIG-85414","CABLE AFIREFENIX MICA RZ1-K AS+ 1X240MM2",43.168],
+["MIG-85469","CABLE AFIREFENIX MICA RZ1-K AS+ 5G16MM2",16.950],
+["MIG-85501","CABLE AFIREFENIX SZ1-K 0,6/1KV 1X2,5MM2",0.929],
+["MIG-85502","CABLE AFIREFENIX SZ1-K 0,6/1KV 1X4MM2",1.262],
+["MIG-85503","CABLE AFIREFENIX SZ1-K 0,6/1KV 1X6MM2",1.668],
+["MIG-85504","CABLE AFIREFENIX SZ1-K 0,6/1KV 1X10MM2",2.528],
+["MIG-85516","CABLE AFIREFENIX SZ1-K 0,6/1KV 2X1,5MM2",1.234],
+["MIG-85517","CABLE AFIREFENIX SZ1-K 0,6/1KV 2X2,5MM2",1.819],
+["MIG-85523","CABLE AFIREFENIX SZ1-K 0,6/1KV 3G1,5MM2",1.774],
+["MIG-85524","CABLE AFIREFENIX SZ1-K 0,6/1KV 3G2,5MM2",2.348],
+["MIG-85525","CABLE AFIREFENIX SZ1-K 0,6/1KV 3G4MM2",3.358],
+["MIG-85526","CABLE AFIREFENIX SZ1-K 0,6/1KV 3G6MM2",4.548],
+["MIG-85531","CABLE AFIREFENIX SZ1-K 0,6/1KV 4G1,5MM2",2.469],
+["MIG-85532","CABLE AFIREFENIX SZ1-K 0,6/1KV 4G2,5MM2",3.121],
+["MIG-85533","CABLE AFIREFENIX SZ1-K 0,6/1KV 4G4MM2",4.459],
+["MIG-85534","CABLE AFIREFENIX SZ1-K 0,6/1KV 4G6MM2",5.870],
+["MIG-85535","CABLE AFIREFENIX SZ1-K 0,6/1KV 4G10MM2",9.230],
+["MIG-85540","CABLE AFIREFENIX SZ1-K 0,6/1KV 5G1,5MM2",2.734],
+["MIG-85541","CABLE AFIREFENIX SZ1-K 0,6/1KV 5G2,5MM2",3.655],
+["MIG-85542","CABLE AFIREFENIX SZ1-K 0,6/1KV 5G4MM2",5.189],
+["MIG-85543","CABLE AFIREFENIX SZ1-K 0,6/1KV 5G6MM2",7.108],
+["MIG-85544","CABLE AFIREFENIX SZ1-K 0,6/1KV 5G10MM2",11.016],
+["MIG-85545","CABLE AFIREFENIX SZ1-K 0,6/1KV 5G16MM2",16.950],
+["MIG-86203","CABLE BARRYFLEX RV-K 0,6/1KV 1X2,5MM2",0.602],
+["MIG-86204","CABLE BARRYFLEX RV-K 0,6/1KV 1X4MM2",0.752],
+["MIG-86205","CABLE BARRYFLEX RV-K 0,6/1KV 1X6MM2",1.054],
+["MIG-86206","CABLE BARRYFLEX RV-K 0,6/1KV 1X10MM2",1.754],
+["MIG-86207","CABLE BARRYFLEX RV-K 0,6/1KV 1X16MM2",2.701],
+["MIG-86208","CABLE BARRYFLEX RV-K 0,6/1KV 1X25MM2",4.160],
+["MIG-86232","CABLE BARRYFLEX RV-K 0,6/1KV 3G1,5MM2 BOBINA",0.871],
+["MIG-86233","CABLE BARRYFLEX RV-K 0,6/1KV 3G2,5MM2 BOBINA",1.364],
+["MIG-86234","CABLE BARRYFLEX RV-K 0,6/1KV 3G4MM2 BOBINA",2.167],
+["MIG-86235","CABLE BARRYFLEX RV-K 0,6/1KV 3G6MM2 BOBINA",3.188],
+["MIG-86247","CABLE BARRYFLEX RV-K 0,6/1KV 4G1,5MM2",1.147],
+["MIG-86248","CABLE BARRYFLEX RV-K 0,6/1KV 4G2,5MM2",1.808],
+["MIG-86249","CABLE BARRYFLEX RV-K 0,6/1KV 4G4MM2 BOBINA",2.855],
+["MIG-86250","CABLE BARRYFLEX RV-K 0,6/1KV 4G6MM2",4.200],
+["MIG-CU35","COBRE DESNUDO 35MM2 (KG)",16.860],
+["MIG-CU50","COBRE DESNUDO 50MM2 (KG)",16.919],
+["PRY-20217478","CBL. AL VOLTALENE FLAMEX XZ1(S) 1X16 CPRO",0.711],
+["PRY-20217479","CBL. AL VOLTALENE FLAMEX XZ1 1X25 CPRO",0.903],
+["PRY-20217480","CBL. AL VOLTALENE FLAMEX XZ1 1X35 1KV CPRO",1.407],
+["PRY-20217481","CBL. AL VOLTALENE FLAMEX XZ1 1X50 CPRO",1.309],
+["PRY-20217482","CBL. AL VOLTALENE FLAMEX XZ1 1X70 1KV CPR",1.821],
+["PRY-20217483","CBL. AL VOLTALENE FLAMEX XZ1(S) 1X95 CPR",2.389],
+["PRY-20217484","CBL. AL VOLTALENE FLAMEX XZ1 1X120MM2 1KV CPRO",3.003],
+["PRY-20217485","CBL. AL VOLTALENE FLAMEX XZ1(S) 1X150 CPR",3.684],
+["PRY-20046735","CBL. AL VOLTALENE FLAMEX XZ1(S) 1X185",4.865],
+["PRY-20217487","CBL. AL VOLTALENE FLAMEX XZ1(S) 1X240 CPR",6.145],
+["PRY-20216906","CABLE AL POLIRRET RZ 1KV 2X25 FCA CPRO",1.576],
+["PRY-20216908","CABLE AL POLIRRET RZ 3X25+54,6 CPRO",4.817],
+["PRY-20216904","CABLE AL POLIRRET RZ 1KV 4X25 FCA CPRO",3.039],
+["PRY-20198550","CABLE AL POLIRRET (N FIADOR) 4X25+54,6 1000V FCA",5.388],
+["PRY-20216909","CABLE AL POLIRRET RZ 3X50+54,6 CPRO",5.385],
+["PRY-20216910","CBL. AL POLIRRET RZ 1KV 3X95+54,6 FCA CPRO",8.680],
+["PRY-20031877","CABLE FLEXTREME H07RN-F 450/750V 3G1,5",1.231],
+["PRY-20031886","CBL. FLEXTREME H07RN-F 450/750V 3G2,5 ECA",1.840],
+["PRY-20031914","CBL. FLEXTREME H07RN-F 450/750V 3G6 NG",3.762],
+["PRY-20031905","FLEXTREME MAX H07RN-F 450/750V 5G2,5",2.791],
+["PRY-20031907","CBL. FLEXTREME H07RN-F 450/750V 5G6 NG",6.208],
+["PRY-20031908","CABLE FLEXTREME H07RN-F 450/750V 5G10",11.825],
+["PRY-20031782","CABLE FLEXTREME H07RN-F 450/750V 5G16 NG",16.850],
+["PRY-20031896","CBL. XTREM H07RN-F 750V 5G25MM2 BOB.",26.246],
+["PRY-20031858","FLEXTREME H07RN-F 1X16",3.375],
+["MIG-84633923","CABLE SOLFLEX H1Z2Z2-K 1X6 NEGRO BOB",1.076],
+["MIG-84633943","CABLE SOLFLEX H1Z2Z2-K 1X6 ROJO BOB",1.076],
+["MIG-821101001009203","CABLE SOLFLEX H1Z2Z2-K 1X10 NEGRO BOB",1.798],
+["MIG-821101001009403","CABLE SOLFLEX H1Z2Z2-K 1X10 ROJO BOB",1.798],
+["MIG-821101001609203","CABLE SOLFLEX H1Z2Z2-K 1X16 NEGRO BOB",2.734],
+["MIG-821101001609403","CABLE SOLFLEX H1Z2Z2-K 1X16 ROJO BOB",2.734],
+["MIG-821101002509203","CABLE SOLFLEX H1Z2Z2-K 1X25 NEGRO BOB",2.330]
+];
+const FAMS=[[/BARRYFLEX/,"RV-K Barryflex"],[/AFIRENAX-X|AFIRENAS-X/,"RZ1-K Afirenax-X"],[/AFIRENAX-L/,"H07Z1-K Afirenax-L"],[/AFIREFACIL/,"Trenzado 07Z1-K"],[/MICA/,"RZ1-K AS+ Mica"],[/SZ1-K/,"SZ1-K Afirefenix"],[/VOLTALENE/,"AL XZ1 Voltalene"],[/POLIRRET/,"AL RZ Polirret"],[/FLEXTREME|XTREM/,"H07RN-F Flextreme"],[/SOLFLEX/,"H1Z2Z2-K Solar"],[/COBRE/,"Cobre desnudo"]];
+const famOrder=FAMS.map(f=>f[1]);
+function secOf(des){let m=des.match(/\d+\s*[XG]\s*(\d+(?:,\d+)?)/);if(!m)m=des.match(/(\d+(?:,\d+)?)\s*MM2?/);return m?m[1]:null}
+const rows=D.map(([cod,des,p],i)=>{const kg=/\(KG\)/.test(des);return{cod,des,p,i,kg,fam:(FAMS.find(([r])=>r.test(des))||[0,"Otros"])[1],sec:kg?null:secOf(des)}});
+const byCod=Object.fromEntries(rows.map(r=>[r.cod,r]));
+const SECS=["1","1,5","2,5","4","6","10","16","25","35","50","70","95","120","150","185","240"];
+const MO_DEF={"1":0.60,"1,5":0.60,"2,5":0.70,"4":0.80,"6":0.90,"10":1.00,"16":1.20,"25":1.40,"35":1.60,"50":1.80,"70":2.00,"95":2.20,"120":2.40,"150":2.60,"185":2.80,"240":3.00};
+
+const $=s=>document.querySelector(s);
+const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const f2=n=>(+n||0).toLocaleString("es-ES",{minimumFractionDigits:2,maximumFractionDigits:2});
+const f3=n=>(+n||0).toLocaleString("es-ES",{minimumFractionDigits:3,maximumFractionDigits:3});
+const num=(v,d)=>{const n=parseFloat(String(v).replace(",","."));return isFinite(n)?n:d};
+const today=()=>new Date().toLocaleDateString("es-ES");
+const uid=()=>Date.now().toString(36)+Math.random().toString(36).slice(2,7);
+let toastT;function toast(t){const el=$("#toast");el.textContent=t;el.hidden=false;clearTimeout(toastT);toastT=setTimeout(()=>el.hidden=true,2400)}
+
+/* ---------- estado ---------- */
+const st={q:"",fam:null,sort:"fam",ncab:1,mts:1,view:"tarifa"};
+let MO={...MO_DEF},moUser={};
+let budgets=[];          // [{id,nombre,cliente,obra,fecha,ben,base,creado}]
+let activeId=null;
+let lines=[];            // líneas del presupuesto activo
+try{const s=JSON.parse(localStorage.getItem("diexfe-ui")||"{}");if(s.sort)st.sort=s.sort;if(s.fam!==undefined)st.fam=s.fam;if(s.active)activeId=s.active}catch(e){}
+function saveUI(){try{localStorage.setItem("diexfe-ui",JSON.stringify({sort:st.sort,fam:st.fam,active:activeId}))}catch(e){}}
+const active=()=>budgets.find(b=>b.id===activeId)||null;
+const params=()=>{const b=active();return{ben:b?num(b.ben,35):num($("#ben").value,35),base:b?b.base||"all":$("#base").value}};
+function pvpOf(mat,mo,pr){const k=1+pr.ben/100;return pr.base==="all"?(mat+mo)*k:mat*k+mo}
+
+/* ---------- almacenamiento: db compartida, o este navegador si no hay ---------- */
+const Store={mode:"local",db:null,unsubB:null,unsubL:null,
+  async init(){
+    let db=null;try{db=window.claude&&await window.claude.use("db")}catch(e){}
+    if(db){this.mode="db";this.db=db;$("#status").textContent="Guardado en la nube";
+      db.doc("ajustes/general").onSnapshot(s=>{const d=s.exists?s.data():null;if(d&&d.mo){MO={...MO_DEF,...d.mo};moUser={...(d.moUser||{})};moUI();renderTarifa()}},e=>{});
+      this.unsubB=db.collection("presupuestos").orderBy("creado","desc").onSnapshot(s=>{budgets=s.docs.map(d=>({id:d.id,...d.data()}));afterBudgets()},e=>{$("#status").textContent="Sin conexión con la base de datos"});
+    }else{
+      this.mode="local";$("#status").textContent="Guardado solo en este navegador";
+      try{const l=JSON.parse(localStorage.getItem("diexfe-local")||"{}");budgets=l.budgets||[];this._lines=l.lines||{};if(l.mo){MO={...MO_DEF,...l.mo};moUser=l.moUser||{}}}catch(e){this._lines={}}
+      moUI();afterBudgets();
+    }
+  },
+  _persist(){try{localStorage.setItem("diexfe-local",JSON.stringify({budgets,lines:this._lines,mo:MO,moUser}))}catch(e){}},
+  async saveMO(){if(this.mode==="db"){try{await this.db.doc("ajustes/general").set({mo:MO,moUser})}catch(e){toast("No se pudo guardar la mano de obra")}}else this._persist()},
+  async createBudget(b){if(this.mode==="db"){await this.db.doc("presupuestos/"+b.id).set(b)}else{budgets.unshift(b);this._lines[b.id]=[];this._persist();afterBudgets()}},
+  async updateBudget(id,patch){if(this.mode==="db"){await this.db.doc("presupuestos/"+id).update(patch)}else{Object.assign(budgets.find(b=>b.id===id)||{},patch);this._persist()}},
+  async deleteBudget(id){if(this.mode==="db"){const ls=await this.db.collection("presupuestos/"+id+"/lineas").get();for(const d of ls.docs)await this.db.doc("presupuestos/"+id+"/lineas/"+d.id).delete();await this.db.doc("presupuestos/"+id).delete()}else{budgets=budgets.filter(b=>b.id!==id);delete this._lines[id];this._persist();afterBudgets()}},
+  watchLines(id){if(this.unsubL){this.unsubL();this.unsubL=null}
+    if(!id){lines=[];renderPres();return}
+    if(this.mode==="db"){lines=[];renderPres();this.unsubL=this.db.collection("presupuestos/"+id+"/lineas").orderBy("orden").onSnapshot(s=>{lines=s.docs.map(d=>({id:d.id,...d.data()}));renderPres()},e=>toast("No se pudieron cargar las partidas"))}
+    else{lines=(this._lines[id]||[]).slice();renderPres()}},
+  async addLine(bid,l){if(this.mode==="db"){await this.db.doc("presupuestos/"+bid+"/lineas/"+l.id).set(l)}else{(this._lines[bid]=this._lines[bid]||[]).push(l);this._persist();if(bid===activeId){lines=this._lines[bid].slice();renderPres()}}},
+  async updateLine(bid,id,patch){if(this.mode==="db"){await this.db.doc("presupuestos/"+bid+"/lineas/"+id).update(patch)}else{const l=(this._lines[bid]||[]).find(x=>x.id===id);if(l)Object.assign(l,patch);this._persist()}},
+  async deleteLine(bid,id){if(this.mode==="db"){await this.db.doc("presupuestos/"+bid+"/lineas/"+id).delete()}else{this._lines[bid]=(this._lines[bid]||[]).filter(x=>x.id!==id);this._persist();lines=this._lines[bid].slice();renderPres()}}
+};
+
+function afterBudgets(){
+  if(!budgets.find(b=>b.id===activeId))activeId=budgets[0]?.id||null;
+  const sel=$("#bsel");
+  sel.innerHTML=budgets.length?budgets.map(b=>`<option value="${b.id}">${esc(b.nombre||"Sin nombre")}${b.cliente?" · "+esc(b.cliente):""}</option>`).join(""):`<option value="">Aún no hay presupuestos</option>`;
+  sel.disabled=!budgets.length;sel.value=activeId||"";
+  const b=active();
+  if(b){if(document.activeElement!==$("#ben"))$("#ben").value=num(b.ben,35);$("#base").value=b.base||"all";
+    for(const[k,id]of[["nombre","#bnom"],["cliente","#bcli"],["obra","#bobra"]])if(document.activeElement!==$(id))$(id).value=b[k]||""}
+  if(Store._watching!==activeId){Store._watching=activeId;Store.watchLines(activeId)}
+  saveUI();renderTarifa();renderPres();
+}
+async function newBudget(){
+  const n=budgets.length+1;
+  const b={id:uid(),nombre:"Presupuesto "+n,cliente:"",obra:"",fecha:today(),ben:num($("#ben").value,35),base:$("#base").value,creado:Date.now()};
+  activeId=b.id;
+  try{await Store.createBudget(b);toast("Creado «"+b.nombre+"»")}catch(e){toast("No se pudo crear el presupuesto")}
+  return b;
+}
+
+/* ---------- tarifa ---------- */
+function chips(){const c=$("#chips"),counts={};rows.forEach(r=>counts[r.fam]=(counts[r.fam]||0)+1);c.innerHTML="";
+  [[null,"Todas",rows.length],...famOrder.map(f=>[f,f,counts[f]])].forEach(([v,l,n])=>{const b=document.createElement("button");b.className="chip";b.type="button";b.setAttribute("aria-pressed",String(st.fam===v));b.innerHTML=esc(l)+"<span>"+n+"</span>";b.onclick=()=>{st.fam=v;saveUI();chips();renderTarifa()};c.appendChild(b)})}
+const norm=s=>s.toUpperCase().replace(/\./g,",").replace(/\s+/g," ");
+function renderTarifa(){
+  const terms=norm(st.q).split(" ").filter(Boolean);
+  let r=rows.filter(x=>(!st.fam||x.fam===st.fam)&&terms.every(t=>norm(x.des+" "+x.cod+" "+x.fam).includes(t)));
+  const s=st.sort;r.sort(s==="pa"?(a,b)=>a.p-b.p:s==="pd"?(a,b)=>b.p-a.p:s==="cod"?(a,b)=>a.cod.localeCompare(b.cod):(a,b)=>famOrder.indexOf(a.fam)-famOrder.indexOf(b.fam)||a.i-b.i);
+  const pr=params(),n=Math.max(1,Math.round(st.ncab)),m=Math.max(1,st.mts);
+  $("#thtot").textContent="Total "+(n>1?n+" × ":"")+m.toLocaleString("es-ES")+" m";
+  $("#tb").innerHTML=r.length?r.map(x=>{const mo=x.sec?(MO[x.sec]||0):0,pvp=pvpOf(x.p,mo,pr);
+    return `<tr><td class="code">${x.cod}</td><td>${esc(x.des)}<div class="fam">${esc(x.fam)}${x.sec?" · "+x.sec+" mm²":""}</div></td><td class="num price dim hide-sm">${f3(x.p)}</td><td class="num price dim hide-sm">${x.kg?"—":f2(mo)}</td><td class="num price pvp">${f2(pvp)}<span class="unit">€/${x.kg?"kg":"m"}</span></td><td class="num price">${f2(pvp*m*(x.kg?1:n))} €</td><td><button class="add" type="button" data-add="${x.cod}" aria-label="Añadir ${esc(x.des)} al presupuesto" title="Añadir al presupuesto">+</button></td></tr>`}).join("")
+    :`<tr><td colspan="7" class="empty">Ningún cable coincide con «${esc(st.q)}». Prueba con la sección (p. ej. 4G6) o el tipo (RZ1-K).</td></tr>`;
+  $("#count").textContent=`${r.length} de ${rows.length} referencias · PVP sin IGIC · beneficio ${pr.ben.toLocaleString("es-ES")}% sobre ${pr.base==="all"?"material + mano de obra":"material"}`;
+}
+$("#tb").addEventListener("click",async e=>{
+  const b=e.target.closest("[data-add]");if(!b)return;
+  const x=byCod[b.dataset.add];b.disabled=true;
+  let bid=activeId;if(!bid){bid=(await newBudget()).id}
+  const mo=x.sec?(MO[x.sec]||0):0;
+  const l={id:uid(),cod:x.cod,des:x.des,sec:x.sec||"",kg:x.kg,mat:x.p,mo,ncab:x.kg?1:Math.max(1,Math.round(st.ncab)),mts:Math.max(1,st.mts),concepto:"",orden:Date.now()};
+  try{await Store.addLine(bid,l);b.classList.add("done");b.textContent="✓";toast("Añadido: "+(x.kg?"":l.ncab+" × ")+l.mts+(x.kg?" kg ":" m ")+x.des.replace(/^C(ABLE|BL)\.?\s*/,""));setTimeout(()=>{b.classList.remove("done");b.textContent="+"},1400)}
+  catch(err){toast("No se pudo añadir la línea")}
+  b.disabled=false;
+});
+
+/* ---------- presupuesto ---------- */
+function calc(){
+  const pr=params();let mat=0,mo=0,pvp=0;
+  const ls=lines.map(l=>{const q=(l.kg?1:l.ncab)*l.mts;const p=pvpOf(l.mat,l.mo,pr);mat+=l.mat*q;mo+=l.mo*q;pvp+=p*q;return{...l,q,p,imp:p*q}});
+  return{ls,mat,mo,base:pvp,ben:pvp-mat-mo,igic:pvp*0.07,total:pvp*1.07,pr};
+}
+function renderTotals(c){
+  $("#tot").innerHTML=`<dt class="int">Coste material</dt><dd class="int">${f2(c.mat)} €</dd><dt class="int">Mano de obra</dt><dd class="int">${f2(c.mo)} €</dd><dt class="int">Beneficio (${c.pr.ben.toLocaleString("es-ES")}%)</dt><dd class="int">${f2(c.ben)} €</dd><dt>Base imponible</dt><dd>${f2(c.base)} €</dd><dt>IGIC 7%</dt><dd>${f2(c.igic)} €</dd><dt class="grand">Total</dt><dd class="grand">${f2(c.total)} €</dd>`;
+  $("#npill").textContent=lines.length;
+}
+function renderPres(){
+  const c=calc();renderTotals(c);
+  const lt=$("#lb");
+  if(lt.contains(document.activeElement)){ // no reconstruir mientras se escribe
+    c.ls.forEach(l=>{const tr=lt.querySelector(`tr[data-id="${l.id}"]`);if(tr){tr.querySelector(".cp").textContent=f2(l.p);tr.querySelector(".ci").textContent=f2(l.imp)+" €"}});return}
+  lt.innerHTML=c.ls.length?c.ls.map(l=>`<tr data-id="${l.id}">
+    <td><input type="text" id="c-${l.id}" data-f="concepto" value="${esc(l.concepto)}" placeholder="p. ej. Derivación individual" aria-label="Concepto"></td>
+    <td>${esc(l.des)}<div class="code">${l.cod}${l.sec?" · "+l.sec+" mm²":""}</div></td>
+    <td class="num">${l.kg?"—":`<input type="number" id="n-${l.id}" data-f="ncab" min="1" step="1" value="${l.ncab}" aria-label="Cables">`}</td>
+    <td class="num"><input type="number" id="m-${l.id}" data-f="mts" min="0" step="1" value="${l.mts}" aria-label="${l.kg?"Kilos":"Metros"}"></td>
+    <td class="num price dim hide-sm">${f2(l.mat+l.mo)}</td>
+    <td class="num price pvp cp">${f2(l.p)}</td>
+    <td class="num price ci">${f2(l.imp)} €</td>
+    <td><button class="del" type="button" data-del="${l.id}" aria-label="Quitar partida" title="Quitar partida">×</button></td></tr>`).join("")
+    :`<tr><td colspan="8" class="empty">${activeId?"Este presupuesto no tiene partidas. Ve a Tarifa, ajusta cables y metros y pulsa + en el cable que quieras.":"Crea un presupuesto con «Nuevo presupuesto» o pulsa + en cualquier cable de la Tarifa."}</td></tr>`;
+  $("#xnote").textContent=Store.mode==="local"?"Los presupuestos se guardan solo en este navegador.":"";
+}
+const lineTimers={};
+$("#lb").addEventListener("input",e=>{
+  const i=e.target.closest("[data-f]");if(!i)return;const tr=i.closest("tr"),id=tr.dataset.id,f=i.dataset.f;
+  const l=lines.find(x=>x.id===id);if(!l)return;
+  const v=f==="concepto"?i.value:Math.max(f==="ncab"?1:0,num(i.value,0));
+  l[f]=v;renderPres();
+  const bid=activeId;clearTimeout(lineTimers[id]);lineTimers[id]=setTimeout(()=>Store.updateLine(bid,id,{ncab:l.ncab,mts:l.mts,concepto:l.concepto}).catch(()=>toast("No se pudo guardar el cambio")),600);
+});
+$("#lb").addEventListener("focusout",()=>setTimeout(()=>{if(!$("#lb").contains(document.activeElement))renderPres()},0));
+$("#lb").addEventListener("click",e=>{const b=e.target.closest("[data-del]");if(!b)return;Store.deleteLine(activeId,b.dataset.del).then(()=>toast("Partida quitada")).catch(()=>toast("No se pudo quitar la partida"))});
+
+let metaT;
+function budgetPatch(patch){const b=active();if(!b)return;Object.assign(b,patch);clearTimeout(metaT);const id=b.id;metaT=setTimeout(()=>Store.updateBudget(id,patch).catch(()=>toast("No se pudo guardar")),600)}
+$("#bnom").addEventListener("input",e=>{budgetPatch({nombre:e.target.value});const o=$("#bsel").selectedOptions[0];if(o)o.textContent=e.target.value||"Sin nombre"});
+$("#bcli").addEventListener("input",e=>budgetPatch({cliente:e.target.value}));
+$("#bobra").addEventListener("input",e=>budgetPatch({obra:e.target.value}));
+$("#ben").addEventListener("input",e=>{const v=num(e.target.value,0);if(active())budgetPatch({ben:v});renderTarifa();renderPres()});
+$("#base").addEventListener("change",e=>{if(active())budgetPatch({base:e.target.value});renderTarifa();renderPres()});
+$("#bsel").addEventListener("change",e=>{activeId=e.target.value;afterBudgets()});
+$("#bnew").addEventListener("click",async()=>{await newBudget();setView("pres")});
+
+function bindDel(){$("#bdel").onclick=()=>{const b=active();if(!b)return;
+  $("#delzone").innerHTML=`<span class="confirm">¿Eliminar «${esc(b.nombre)}» y sus ${lines.length} partidas? <button class="btn danger" type="button" id="dyes">Eliminar</button><button class="btn ghost" type="button" id="dno">Cancelar</button></span>`;
+  $("#dno").onclick=resetDel;
+  $("#dyes").onclick=async()=>{const id=b.id;try{await Store.deleteBudget(id);activeId=null;toast("Presupuesto eliminado")}catch(e){toast("No se pudo eliminar")}resetDel()}}}
+function resetDel(){$("#delzone").innerHTML=`<button class="btn danger" type="button" id="bdel">Eliminar presupuesto</button>`;bindDel()}
+bindDel();
+
+/* ---------- exportar ---------- */
+function docHTML(){
+  const b=active()||{},c=calc();
+  const rowsH=c.ls.map((l,i)=>`<tr><td>${i+1}</td><td>${esc(l.concepto||"")}${l.concepto?"<br>":""}<small>${esc(l.des)}</small></td><td class="n">${l.kg?l.mts+" kg":(l.ncab>1?l.ncab+" × ":"")+l.mts.toLocaleString("es-ES")+" m"}</td><td class="n">${f2(l.p)} €</td><td class="n">${f2(l.imp)} €</td></tr>`).join("");
+  return `<!doctype html><html lang="es"><head><meta charset="utf-8"><title>${esc(b.nombre||"Presupuesto")}</title><style>body{font-family:Arial,Helvetica,sans-serif;color:#1b1f1d;max-width:820px;margin:32px auto;padding:0 20px;font-size:13px}h1{font-size:22px;margin:0 0 4px}table{width:100%;border-collapse:collapse;margin-top:20px}th,td{padding:7px 8px;border-bottom:1px solid #d9dfdc;text-align:left;vertical-align:top}th{font-size:11px;text-transform:uppercase;color:#5d6b64}.n{text-align:right;white-space:nowrap}small{color:#5d6b64}.meta{color:#5d6b64;line-height:1.6}.tot{margin-left:auto;margin-top:16px;width:300px}.tot td{border:0;padding:4px 8px}.tot .g td{font-size:16px;font-weight:bold;border-top:2px solid #1b1f1d}</style></head><body><h1>${esc(b.nombre||"Presupuesto")}</h1><div class="meta">${b.cliente?"Cliente: "+esc(b.cliente)+"<br>":""}${b.obra?"Obra: "+esc(b.obra)+"<br>":""}Fecha: ${esc(b.fecha||today())}</div><table><thead><tr><th>#</th><th>Concepto</th><th class="n">Medición</th><th class="n">Precio</th><th class="n">Importe</th></tr></thead><tbody>${rowsH}</tbody></table><table class="tot"><tr><td>Base imponible</td><td class="n">${f2(c.base)} €</td></tr><tr><td>IGIC 7%</td><td class="n">${f2(c.igic)} €</td></tr><tr class="g"><td>Total</td><td class="n">${f2(c.total)} €</td></tr></table><p><small>Precios por metro instalado, incluyen material y mano de obra.</small></p></body></html>`;
+}
+function csv(){
+  const b=active()||{},c=calc(),q=v=>'"'+String(v??"").replace(/"/g,'""')+'"',n=v=>f3(v).replace(/\./g,"");
+  const out=[["Presupuesto",b.nombre],["Cliente",b.cliente],["Obra",b.obra],["Fecha",b.fecha],["Beneficio %",c.pr.ben],[],
+    ["Concepto","Código","Descripción","Sección mm2","Cables","Metros/kg","Material €/ud","M. obra €/ud","PVP €/ud","Importe €"]];
+  c.ls.forEach(l=>out.push([l.concepto,l.cod,l.des,l.sec,l.kg?"":l.ncab,l.mts,n(l.mat),n(l.mo),n(l.p),n(l.imp)]));
+  out.push([],["Coste material","","","","","","","","",n(c.mat)],["Mano de obra","","","","","","","","",n(c.mo)],["Beneficio","","","","","","","","",n(c.ben)],["Base imponible","","","","","","","","",n(c.base)],["IGIC 7%","","","","","","","","",n(c.igic)],["Total","","","","","","","","",n(c.total)]);
+  return "﻿"+out.map(r=>r.map(q).join(";")).join("\r\n");
+}
+const fname=ext=>((active()?.nombre||"presupuesto").replace(/[^\wáéíóúñü -]+/gi,"").trim().replace(/\s+/g,"-")||"presupuesto")+"."+ext;
+async function save(filename,data){
+  if(!lines.length){toast("El presupuesto no tiene partidas");return}
+  let dl=null;try{dl=window.claude&&await window.claude.use("downloads")}catch(e){}
+  if(!dl){toast("La descarga no está disponible aquí");return}
+  try{await dl.save({filename,data});toast("Descargado "+filename)}catch(e){if(e&&e.code!=="declined")toast("No se pudo descargar ("+(e.code||"error")+")")}
+}
+$("#xhtml").onclick=()=>save(fname("html"),docHTML());
+$("#xcsv").onclick=()=>save(fname("csv"),csv());
+$("#xcopy").onclick=()=>{const b=active()||{},c=calc();
+  const t=[(b.nombre||"Presupuesto")+(b.cliente?" – "+b.cliente:""),...c.ls.map(l=>`${l.concepto?l.concepto+": ":""}${l.des} · ${l.kg?l.mts+" kg":(l.ncab>1?l.ncab+"×":"")+l.mts+" m"} · ${f2(l.p)} €/u · ${f2(l.imp)} €`),"",`Base imponible: ${f2(c.base)} €`,`IGIC 7%: ${f2(c.igic)} €`,`TOTAL: ${f2(c.total)} €`].join("\n");
+  navigator.clipboard.writeText(t).then(()=>toast("Resumen copiado")).catch(()=>toast("No se pudo copiar"))};
+
+/* ---------- mano de obra ---------- */
+let moT;
+function moUI(){const c=$("#mo");c.innerHTML="";SECS.forEach(k=>{const id="mo-"+k.replace(",","_");const l=document.createElement("label");l.htmlFor=id;l.textContent=k+" mm²";const i=document.createElement("input");i.type="number";i.step="0.05";i.min="0";i.id=id;i.value=(MO[k]||0).toFixed(2);if(moUser[k]||k==="240")i.classList.add("user");
+  i.oninput=()=>{MO[k]=num(i.value,0);moUser[k]=1;i.classList.add("user");renderTarifa();clearTimeout(moT);moT=setTimeout(()=>Store.saveMO(),700)};l.appendChild(i);c.appendChild(l)})}
+$("#moreset").onclick=()=>{MO={...MO_DEF};moUser={};moUI();renderTarifa();Store.saveMO()};
+
+/* ---------- vistas y controles ---------- */
+function setView(v){st.view=v;$("#v-tarifa").hidden=v!=="tarifa";$("#v-pres").hidden=v!=="pres";$("#t-tarifa").setAttribute("aria-selected",String(v==="tarifa"));$("#t-pres").setAttribute("aria-selected",String(v==="pres"));if(v==="pres")renderPres()}
+$("#t-tarifa").onclick=()=>setView("tarifa");$("#t-pres").onclick=()=>setView("pres");
+$("#q").addEventListener("input",e=>{st.q=e.target.value;renderTarifa()});
+$("#sort").value=st.sort;$("#sort").addEventListener("change",e=>{st.sort=e.target.value;saveUI();renderTarifa()});
+document.querySelectorAll("th.sort").forEach(th=>th.onclick=()=>{const k=th.dataset.k;st.sort=k==="p"?(st.sort==="pa"?"pd":"pa"):k;$("#sort").value=st.sort;saveUI();renderTarifa()});
+$("#ncab").addEventListener("input",e=>{st.ncab=Math.max(1,num(e.target.value,1));renderTarifa()});
+$("#mts").addEventListener("input",e=>{st.mts=Math.max(1,num(e.target.value,1));renderTarifa()});
+$("#foot").textContent=`${rows.length} referencias de la oferta OCTF-014169-2026 (base 970,23 €). Precio por metro salvo cobre desnudo (por kg). Beneficio aplicado como recargo sobre coste. Confirma la vigencia de precios con Diexfe antes de presupuestar.`;
+
+$("#bsel").innerHTML='<option value="">Cargando…</option>';$("#bsel").disabled=true;
+moUI();chips();renderTarifa();renderPres();
+Store.init();
+</script>
+
+</body></html>

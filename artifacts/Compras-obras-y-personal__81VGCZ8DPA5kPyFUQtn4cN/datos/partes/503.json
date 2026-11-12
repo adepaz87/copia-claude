@@ -1,0 +1,65 @@
+{
+  "albs": [
+    "Fraper 212501011752"
+  ],
+  "cliente": "TRAGSA",
+  "desc": "Replanteo y recuento de material necesario.\n\nAcopio de material disponible en almacén y translado a la obra.\n\nHacer barrera de tubos de pvc para la parte del Teafo (cortar y pintar tubos, y fijar anclajes a la pared)\n\nCortar y fijar bandeja de 300 para la llegada de los cables de MT al Trafo.",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-09-18",
+  "horas": 8,
+  "obra": "CT. PLAZA GAZMIRA",
+  "ops": [
+    {
+      "h": 8,
+      "n": "Jorge"
+    }
+  ],
+  "stock": [
+    {
+      "d": "tubo rigido de 50mm",
+      "q": 6,
+      "u": "m"
+    },
+    {
+      "d": "terminales de cobre 240mm",
+      "q": 24,
+      "u": ""
+    },
+    {
+      "d": "juego de bornas de MT rectas de 95mm",
+      "q": 1,
+      "u": ""
+    },
+    {
+      "d": "juego de bornas acodadas de MT de 95mm",
+      "q": 1,
+      "u": ""
+    },
+    {
+      "d": "juegos de bornas en T de MT de 150mm",
+      "q": 2,
+      "u": ""
+    },
+    {
+      "d": "cable 240mm cobre rk1-k",
+      "q": 47,
+      "u": "m"
+    },
+    {
+      "d": "bandeja plastica Unex de 300x100mm",
+      "q": 2,
+      "u": "m"
+    },
+    {
+      "d": "pértiga de salvamento de MT",
+      "q": 1,
+      "u": ""
+    },
+    {
+      "d": "tacos y tornillos de 6mm",
+      "q": 1,
+      "u": "caja"
+    }
+  ]
+}

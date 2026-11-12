@@ -1,0 +1,20 @@
+{
+  "albs": [],
+  "cliente": "SUPERMERCADOS EN CADENA",
+  "desc": "Solucionar averia en alumbrado de secciones : foco inundado tras haber entrado agua de las lluvias sobre el techo de la sección de platos calientes.",
+  "devol": [],
+  "estado": "TERMINADO",
+  "fecha": "2026-11-11",
+  "horas": 1.5,
+  "id": "943",
+  "msg": "1a1ccbe3dc68805f",
+  "obra": "OT. 147 (SPAR SAN FRANCISCO)",
+  "ops": [
+    {
+      "h": 1.5,
+      "n": "Jorge"
+    }
+  ],
+  "origen": "dashboard",
+  "stock": []
+}

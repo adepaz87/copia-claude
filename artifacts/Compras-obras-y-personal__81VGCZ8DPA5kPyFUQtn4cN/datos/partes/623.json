@@ -1,0 +1,25 @@
+{
+  "albs": [],
+  "cliente": "CABILDO INSULAR",
+  "desc": "Desmontar sierra de esquinado de porcino para comprobar microinterruptores de seguridad y marcha.\nSustituir microinterruptor, comprobar rele termico y probar. \nI= 3,2A OK",
+  "devol": [],
+  "estado": "TERMINADO",
+  "fecha": "2026-10-05",
+  "horas": 4,
+  "obra": "MATADERO",
+  "ops": [
+    {
+      "h": 1.5,
+      "n": "Antonio"
+    },
+    {
+      "h": 1.5,
+      "n": "Iker"
+    },
+    {
+      "h": 1,
+      "n": "Transporte"
+    }
+  ],
+  "stock": []
+}

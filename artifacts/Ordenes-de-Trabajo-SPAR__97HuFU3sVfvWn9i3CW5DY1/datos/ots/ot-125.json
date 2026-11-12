@@ -1,0 +1,26 @@
+{
+  "actualizada": "2026-11-04T12:20:00Z",
+  "asignadaEn": "2026-11-03T16:14:02.091Z",
+  "avisadoWa": "2026-11-03T16:15:00.153Z",
+  "aviso": "",
+  "centro": "SPAR Triana",
+  "creada": "2026-11-03T16:15:00Z",
+  "descripcion": "En el almacén hace falta para mañana miércoles 04/11 una toma de corriente. Potencia de arranque 30.000 W, de trabajo 15.000 W.",
+  "estado": "terminada",
+  "fechaAviso": "2026-11-03",
+  "historial": [
+    "03/11/2026 · Importada de la captura GIM de Raquel",
+    "3/11/2026 16:14 · Asignada a Jonathan Rodríguez",
+    "3/11/2026 16:15 · WhatsApp programado a Jonathan Rodríguez",
+    "4/11/2026 12:07 · Jonathan Rodríguez por WhatsApp: «OT 125 Resuelta»",
+    "4/11/2026 12:20 · Cierre: correo a TBSA y WhatsApp a Fernando"
+  ],
+  "informado": false,
+  "notas": "Plazo: miércoles 04/11. Nº OT provisional: confirmar o cambiar.",
+  "operario": "Jonathan Rodríguez",
+  "ot": 125,
+  "prioridad": "Alta",
+  "solicitante": "Raquel",
+  "terminadaEn": "2026-11-04T12:07:00Z",
+  "tipo": "MANTENIMIENTO"
+}

@@ -1,0 +1,58 @@
+{
+  "empresa": "Instapalma",
+  "fecha": "2026-02-26",
+  "lineas": [
+    {
+      "a": "VCTF-003664-2026",
+      "d": "CAJA EMP.TABIQUES HUECOS (520UD)",
+      "dto": "0,00",
+      "f": "2026-02-26",
+      "i": 12.5,
+      "o": "CASA IONE",
+      "pn": 0.5,
+      "pt": 0.5,
+      "q": 25,
+      "r": "SOL-5625"
+    },
+    {
+      "a": "VCTF-003664-2026",
+      "d": "CAJA EMP 4 ENT.TUBO D.25 4 ENT.TUBO D.20 (EMB 260UD)",
+      "dto": "0,00",
+      "f": "2026-02-26",
+      "i": 6,
+      "o": "CASA IONE",
+      "pn": 1,
+      "pt": 1,
+      "q": 6,
+      "r": "SOL-5725"
+    },
+    {
+      "a": "VCTF-003664-2026",
+      "d": "CAJA EMP.6 ENT.TUBO D.20 4 ENT.TUBO D.25",
+      "dto": "0,00",
+      "f": "2026-02-26",
+      "i": 22.54,
+      "o": "CASA IONE",
+      "pn": 1.61,
+      "pt": 1.61,
+      "q": 14,
+      "r": "SOL-5825"
+    },
+    {
+      "a": "VCTF-003664-2026",
+      "d": "CJ.MEC.EMP.TAB.HUECO 4 EL.GARRAS++",
+      "dto": "0,00",
+      "f": "2026-02-26",
+      "i": 10.39,
+      "o": "CASA IONE",
+      "pn": 2.5975,
+      "pt": 2.598,
+      "q": 4,
+      "r": "SOL-5925"
+    }
+  ],
+  "numero": "FT-001194-2026",
+  "origen": "Gmail",
+  "proveedor": "Diexfe",
+  "tipo": "factura"
+}

@@ -1,0 +1,21 @@
+{
+  "albs": [],
+  "cliente": "CONSTRUCCIONES DOMINGO",
+  "desc": "Colocar embellecedores\nColocar sobre tensión",
+  "devol": [],
+  "estado": "TERMINADO",
+  "fecha": "2026-09-02",
+  "horas": 2,
+  "obra": "CASA LETICIA",
+  "ops": [
+    {
+      "h": 1,
+      "n": "Aythami"
+    },
+    {
+      "h": 1,
+      "n": "Joel"
+    }
+  ],
+  "stock": []
+}

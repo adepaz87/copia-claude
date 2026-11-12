@@ -1,0 +1,17 @@
+{
+  "albs": [],
+  "cliente": "TOMAS BARRETO SA",
+  "desc": "Listado materiales para FV. en zona inversores y cuadro General",
+  "devol": [],
+  "estado": "TERMINADO",
+  "fecha": "2026-10-15",
+  "horas": 0.5,
+  "obra": "SPAR TRIANA",
+  "ops": [
+    {
+      "h": 0.5,
+      "n": "Toño"
+    }
+  ],
+  "stock": []
+}

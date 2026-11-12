@@ -1,0 +1,19 @@
+{
+  "actualizada": "2026-08-21T09:00:00Z",
+  "aviso": "",
+  "centro": "SPAR Triana",
+  "creada": "2026-08-21T09:00:00Z",
+  "descripcion": "Tapar canaletas en el cuarto del grupo electrógeno.",
+  "estado": "terminada",
+  "fechaAviso": "2026-08-21",
+  "historial": [
+    "21/08/2026 · Importada del correo de Alberto"
+  ],
+  "informado": true,
+  "notas": "Resuelta el 21/08/2026.",
+  "operario": "",
+  "ot": 3,
+  "prioridad": "Sin especificar",
+  "solicitante": "",
+  "tipo": "MANTENIMIENTO"
+}

@@ -1,0 +1,57 @@
+{
+  "albs": [],
+  "cliente": "TRAGSA",
+  "desc": "Registrar\nVer trabajos \nContabilizar mecanismos \nContabilizar bancadas para cuadros",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-09-29",
+  "horas": 16,
+  "obra": "HOSPITAL (MOD G )",
+  "ops": [
+    {
+      "h": 8,
+      "n": "Manuel"
+    },
+    {
+      "h": 8,
+      "n": "Juan"
+    }
+  ],
+  "stock": [
+    {
+      "d": "regletas de 25mm",
+      "q": 4,
+      "u": ""
+    },
+    {
+      "d": "regletas  de 16mm",
+      "q": 4,
+      "u": ""
+    },
+    {
+      "d": "regletas  de 10mm",
+      "q": 3,
+      "u": ""
+    },
+    {
+      "d": "bornas  de 25mm",
+      "q": 3,
+      "u": ""
+    },
+    {
+      "d": "bridas  de 4,8x300",
+      "q": 1,
+      "u": "paquete"
+    },
+    {
+      "d": "cinta aislante blanca",
+      "q": 1,
+      "u": "rollos"
+    },
+    {
+      "d": "cinta aislante negra",
+      "q": 1,
+      "u": "rollo"
+    }
+  ]
+}

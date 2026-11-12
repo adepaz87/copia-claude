@@ -1,0 +1,25 @@
+{
+  "albs": [
+    "Instapalma 202610-0186"
+  ],
+  "cliente": "CONSTRUCCIONES DOS TUMBOS",
+  "desc": "Entubar zonas comunes segunda planta \nEnhebrar zonas comunes (pasillos,cuartos vertederos)alumbrados,alumbrados emergencia,tomas corriente,tomas termos eléctricos,conmutadas…\nLimpiar zonas de trabajo",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-10-09",
+  "horas": 8,
+  "obra": "RESIDENCIA TERCERA EDAD EL PASO",
+  "ops": [
+    {
+      "h": 8,
+      "n": "Jonathan Rodríguez"
+    }
+  ],
+  "stock": [
+    {
+      "d": "Cable 1x1,5mm negro",
+      "q": 200,
+      "u": "m"
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "albs": [],
+  "cliente": "TRAGSA",
+  "desc": "Recuento de iluminación y materiales que faltan para terminar la obra",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-10-14",
+  "horas": 1,
+  "obra": "FV CENTRONDE VISITANTES",
+  "ops": [
+    {
+      "h": 1,
+      "n": "Jonathan Glez"
+    }
+  ],
+  "stock": []
+}

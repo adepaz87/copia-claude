@@ -1,0 +1,23 @@
+{
+  "albs": [
+    "Ayumar 2-816"
+  ],
+  "cliente": "CHICHO 2 TUMBOS",
+  "desc": "Ver avería bomba\nBomba quemada se comprueba bobinas y dan continuidad entre diferentes bobinas\nSe desmonta válvula presión y se comprueba coneccionado ok\nSe comprueba regulación guarda motor según bomba nueva ok\nCambiar general de cuarto bomba ya que no rearmaba \nPosiblemente la avería la causó el sentido de giro ya que la cambiaron y no comprobaron, y coneccionado de bomba sin terminales enrollad",
+  "devol": [],
+  "estado": "TERMINADO",
+  "fecha": "2026-09-02",
+  "horas": 4,
+  "obra": "CASA CHICHO 2 TUMBOS",
+  "ops": [
+    {
+      "h": 2,
+      "n": "Aythami"
+    },
+    {
+      "h": 2,
+      "n": "Joel"
+    }
+  ],
+  "stock": []
+}

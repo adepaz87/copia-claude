@@ -1,0 +1,23 @@
+{
+  "albs": [],
+  "cliente": "AYUNTAMIENTO EL PASO",
+  "desc": "Colocar lamparas, emergencias y sensores en 3 Planta. Colocar emergencias en habitaciones 3 planta. Visita de obra con arquitecto para ver iluminacion. Limpiar obra y tirar cartones",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-11-04",
+  "horas": 16,
+  "id": "880",
+  "obra": "HOTEL MONTERREY",
+  "ops": [
+    {
+      "h": 8,
+      "n": "Antonio"
+    },
+    {
+      "h": 8,
+      "n": "Iker"
+    }
+  ],
+  "origen": "dashboard",
+  "stock": []
+}

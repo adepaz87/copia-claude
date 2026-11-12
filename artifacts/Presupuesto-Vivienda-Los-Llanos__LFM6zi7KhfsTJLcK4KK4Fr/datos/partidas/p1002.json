@@ -1,0 +1,12 @@
+{
+  "cap": "10",
+  "cod": "10.02",
+  "desc": "Conducto de extracción de humos de cocina hasta cubierta, independiente, Ø125 mm.",
+  "med": 1,
+  "nota": "Edificio de una planta, salida directa a cubierta",
+  "orden": 2,
+  "pre": 350,
+  "rev": true,
+  "sb": false,
+  "ud": "PA"
+}

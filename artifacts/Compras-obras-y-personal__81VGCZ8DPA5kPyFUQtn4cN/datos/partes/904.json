@@ -1,0 +1,19 @@
+{
+  "albs": [],
+  "cliente": "CASA LA VERADA",
+  "desc": "Picar ajuste cajas, marcar Nuevos puntos, revisar ranurado entuvado",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-11-05",
+  "horas": 6,
+  "id": "904",
+  "obra": "CASA",
+  "ops": [
+    {
+      "h": 6,
+      "n": "Goyo"
+    }
+  ],
+  "origen": "dashboard",
+  "stock": []
+}

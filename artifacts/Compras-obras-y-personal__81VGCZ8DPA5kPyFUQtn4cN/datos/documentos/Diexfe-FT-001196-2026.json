@@ -1,0 +1,58 @@
+{
+  "empresa": "Instapalma",
+  "fecha": "2026-02-26",
+  "lineas": [
+    {
+      "a": "VCTF-003668-2026",
+      "d": "CAJA EMP.TABIQUES HUECOS (520UD)",
+      "dto": "0,00",
+      "f": "2026-02-26",
+      "i": 11,
+      "o": "CASA MARIA FATIMA",
+      "pn": 0.5,
+      "pt": 0.5,
+      "q": 22,
+      "r": "SOL-5625"
+    },
+    {
+      "a": "VCTF-003668-2026",
+      "d": "CAJA EMP 4 ENT.TUBO D.25 4 ENT.TUBO D.20 (EMB 260UD)",
+      "dto": "0,00",
+      "f": "2026-02-26",
+      "i": 10,
+      "o": "CASA MARIA FATIMA",
+      "pn": 1,
+      "pt": 1,
+      "q": 10,
+      "r": "SOL-5725"
+    },
+    {
+      "a": "VCTF-003668-2026",
+      "d": "CAJA EMP.6 ENT.TUBO D.20 4 ENT.TUBO D.25",
+      "dto": "0,00",
+      "f": "2026-02-26",
+      "i": 11.27,
+      "o": "CASA MARIA FATIMA",
+      "pn": 1.61,
+      "pt": 1.61,
+      "q": 7,
+      "r": "SOL-5825"
+    },
+    {
+      "a": "VCTF-003668-2026",
+      "d": "CJ.MEC.EMP.TAB.HUECO 4 EL.GARRAS++",
+      "dto": "0,00",
+      "f": "2026-02-26",
+      "i": 2.6,
+      "o": "CASA MARIA FATIMA",
+      "pn": 2.6,
+      "pt": 2.598,
+      "q": 1,
+      "r": "SOL-5925"
+    }
+  ],
+  "numero": "FT-001196-2026",
+  "origen": "Gmail",
+  "proveedor": "Diexfe",
+  "tipo": "factura"
+}

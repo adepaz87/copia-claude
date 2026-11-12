@@ -1,0 +1,20 @@
+{
+  "actualizada": "2026-11-03T06:30:12.373Z",
+  "aviso": "",
+  "centro": "Central Logística y Oficinas",
+  "creada": "2026-11-03T10:00:00Z",
+  "descripcion": "En el corte de luz de ayer el grupo electrógeno arrancó pero no conmutó. Goyo lo pasó a manual.",
+  "estado": "terminada",
+  "fechaAviso": "2026-10-26",
+  "historial": [
+    "03/11/2026 · Importada de la captura GIM de Raquel",
+    "3/11/2026 06:30 · Estado: Terminada"
+  ],
+  "informado": false,
+  "notas": "OT GIM 4749. Relacionada con la OT 93. Nº OT provisional: confirmar o cambiar.",
+  "operario": "",
+  "ot": 102,
+  "prioridad": "Sin especificar",
+  "solicitante": "Raquel",
+  "tipo": "MANTENIMIENTO"
+}

@@ -1,0 +1,25 @@
+{
+  "abono": true,
+  "empresa": "Instapalma",
+  "fecha": "2026-10-31",
+  "lineas": [
+    {
+      "a": "309006348",
+      "d": "TEMPO INTERM 24VDC/24..240VAC RELÉ",
+      "dto": "45,00",
+      "f": "2026-10-16",
+      "fab": "RE17RLMU",
+      "i": -88.24,
+      "m": "Schneider Electric",
+      "o": "MATADERO INSULAR",
+      "pn": 88.24,
+      "pt": 160.44,
+      "q": -1,
+      "r": "98155"
+    }
+  ],
+  "numero": "A03000R-1563",
+  "origen": "Gmail",
+  "proveedor": "Sonepar",
+  "tipo": "factura"
+}

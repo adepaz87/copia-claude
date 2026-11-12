@@ -1,0 +1,21 @@
+{
+  "albs": [],
+  "cliente": "DRAGADOS",
+  "desc": "Enebrar linea de 24v para enlazar balizas de escaleras. Colocar fuente de alimentación y bateria. Colocar led de escaleras de escenario y probar. Ordenar tubos de escalera central.",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-10-28",
+  "horas": 8,
+  "obra": "TEATRO MONTERREY",
+  "ops": [
+    {
+      "h": 4,
+      "n": "Antonio"
+    },
+    {
+      "h": 4,
+      "n": "Iker"
+    }
+  ],
+  "stock": []
+}

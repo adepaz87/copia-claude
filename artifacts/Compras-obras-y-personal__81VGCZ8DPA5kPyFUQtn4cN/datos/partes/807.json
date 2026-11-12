@@ -1,0 +1,19 @@
+{
+  "albs": [
+    "Nolasco 2026/03/000905"
+  ],
+  "cliente": "VIVIENDA LA VERADA",
+  "desc": "Replanteo",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-10-27",
+  "horas": 6,
+  "obra": "VIVIENDA",
+  "ops": [
+    {
+      "h": 6,
+      "n": "Goyo"
+    }
+  ],
+  "stock": []
+}

@@ -1,0 +1,17 @@
+{
+  "albs": [],
+  "cliente": "CHICHO DOS TUMBOS",
+  "desc": "Ver trabajáis a realizar \nHacer recuento material para hacer pedido",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-09-17",
+  "horas": 1,
+  "obra": "VIVIENDAS TANQUE",
+  "ops": [
+    {
+      "h": 1,
+      "n": "Aythami"
+    }
+  ],
+  "stock": []
+}

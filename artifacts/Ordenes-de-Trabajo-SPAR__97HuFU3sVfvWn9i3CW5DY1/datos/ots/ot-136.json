@@ -1,0 +1,26 @@
+{
+  "actualizada": "2026-11-10T15:16:00Z",
+  "asignadaEn": "2026-11-09T15:05:36.251Z",
+  "aviso": "",
+  "centro": "SPAR Salinas",
+  "creada": "2026-11-09T14:20:00Z",
+  "descripcion": "Poner una toma de corriente para aire acondicionado. La piden para mañana (10/11) a primera hora.",
+  "empresa": "Tomás Barreto",
+  "estado": "terminada",
+  "fechaAviso": "2026-11-09",
+  "historial": [
+    "09/11/2026 · Importada de la captura GIM de Raquel (correo «SALINAS»)",
+    "9/11/2026 15:05 · Asignada a Toño Guardia",
+    "9/11/2026 15:55 · Fernando amplía por correo («RV: SALINAS»): aire provisional, instalación eléctrica mañana a primera hora",
+    "10/11/2026 15:03 · Terminada: Toño Guardia avisa «OT 136 resuelto» por WhatsApp",
+    "10/11/2026 15:16 · Correo de cierre a TBSA y WhatsApp a Fernando"
+  ],
+  "informado": false,
+  "notas": "Captura GIM de Raquel (correo «SALINAS», 09/11 14:47). Sin número de aviso visible. Nº OT provisional: confirmar o cambiar.\nFernando (correo «RV: SALINAS», 09/11 15:55): se ha roto el aire de Salinas y hay mucho calor. Ponen un aire nuevo provisional hasta que lleguen los repuestos del averiado; piden a alguien mañana a primera hora para la instalación eléctrica.\nToño Guardia confirma por WhatsApp «OT 136 resuelto» (10/11 15:03).",
+  "operario": "Toño Guardia",
+  "ot": 136,
+  "prioridad": "Alta",
+  "solicitante": "Raquel",
+  "terminadaEn": "2026-11-10T15:03:00Z",
+  "tipo": "MANTENIMIENTO"
+}

@@ -1,0 +1,21 @@
+{
+  "albs": [],
+  "cliente": "DRAGADOS",
+  "desc": "Separar alumbrado de escalera a cafeteria. \nEnebrar camerinos planta 1 y fichar registros.\nEnebrar oficina y almacen planta 1 y fichar registros.\nEnebrar linea wifi planta 1 hasta ubicacion rack.\nMarcar lineas en cuadros.",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-09-28",
+  "horas": 15,
+  "obra": "TEATRO MONTERREY",
+  "ops": [
+    {
+      "h": 7,
+      "n": "Antonio"
+    },
+    {
+      "h": 8,
+      "n": "Iker"
+    }
+  ],
+  "stock": []
+}

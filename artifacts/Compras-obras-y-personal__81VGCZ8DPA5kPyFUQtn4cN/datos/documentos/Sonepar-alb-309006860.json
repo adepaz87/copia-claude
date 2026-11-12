@@ -1,0 +1,25 @@
+{
+  "empresa": "Instapalma",
+  "fecha": "2026-11-11",
+  "lineas": [
+    {
+      "a": "309006860",
+      "d": "REGLETA CONEX.12P 10MM ESTANDAR NATURAL TEKO 110",
+      "dto": "NETO",
+      "f": "2026-11-11",
+      "i": 39.2,
+      "o": "ESCUELA MONTERREY",
+      "pn": 1.96,
+      "pt": 1.96,
+      "q": 20,
+      "r": "53806"
+    }
+  ],
+  "msg": "1a1c9a8dc8c1d50d",
+  "numero": "309006860",
+  "obra": "ESCUELA MONTERREY",
+  "origen": "Gmail (escaneo)",
+  "proveedor": "Sonepar",
+  "tipo": "albaran",
+  "total": 39.2
+}

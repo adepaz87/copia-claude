@@ -1,0 +1,21 @@
+{
+  "albs": [],
+  "cliente": "TRAGSA",
+  "desc": "Sacar palets de baterías y materiales.\nTerminar de agujerar en el suelo, y fijar bases para las baterías.\nInstalar fijaciones para polipasto.\nInstalar baterías y controlador\nFijar baterías entre sí.\nInstalar protectores de cables en las bases de baterías.\nRecoger y separar cartones y plásticos.\nTirar basura.",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-09-07",
+  "horas": 16,
+  "obra": "FV CENTRO DE VISITANTES",
+  "ops": [
+    {
+      "h": 8,
+      "n": "Adán"
+    },
+    {
+      "h": 8,
+      "n": "Jonathan Glez"
+    }
+  ],
+  "stock": []
+}

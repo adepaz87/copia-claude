@@ -1,0 +1,19 @@
+{
+  "alias": [
+    "APARTAMENTO SPAR TRIANA",
+    "APARTAMENTO TRIANA",
+    "APARTAMENTOS SPAR TRIANA",
+    "SPAR TRIANA VIVIENDA"
+  ],
+  "archivada": true,
+  "archivada_t": "2026-11-09",
+  "cliente": "TOMÁS BARRETO",
+  "creado": "2026-10-29",
+  "estado": "aprobada",
+  "fact": {
+    "igic": 7,
+    "mg": 35,
+    "ph": 27
+  },
+  "nombre": "Apartamentos Spar Triana"
+}

@@ -1,0 +1,29 @@
+{
+  "albs": [],
+  "cliente": "CONSTRUCCIONES DOMINGO",
+  "desc": "Colocar registros y cuadros planta 3 Entubar viviendas planta 3",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-10-27",
+  "horas": 36,
+  "obra": "EDIFICIO DOMINGO",
+  "ops": [
+    {
+      "h": 10,
+      "n": "Aythami"
+    },
+    {
+      "h": 9,
+      "n": "Riki"
+    },
+    {
+      "h": 9,
+      "n": "Joel"
+    },
+    {
+      "h": 8,
+      "n": "Junior"
+    }
+  ],
+  "stock": []
+}

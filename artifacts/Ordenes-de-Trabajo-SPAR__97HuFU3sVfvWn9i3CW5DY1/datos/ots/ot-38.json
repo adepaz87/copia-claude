@@ -1,0 +1,19 @@
+{
+  "actualizada": "2026-07-09T09:00:00Z",
+  "aviso": "25854",
+  "centro": "SPAR Triana",
+  "creada": "2026-07-09T09:00:00Z",
+  "descripcion": "Conexión de toldos.",
+  "estado": "terminada",
+  "fechaAviso": "2026-07-09",
+  "historial": [
+    "09/07/2026 · Importada del correo de Alberto"
+  ],
+  "informado": true,
+  "notas": "Resuelta (correo 09/07/2026).",
+  "operario": "",
+  "ot": 38,
+  "prioridad": "Sin especificar",
+  "solicitante": "",
+  "tipo": "MANTENIMIENTO"
+}

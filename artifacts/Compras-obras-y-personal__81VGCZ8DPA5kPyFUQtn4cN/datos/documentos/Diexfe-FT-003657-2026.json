@@ -1,0 +1,22 @@
+{
+  "empresa": "Kairos Supply",
+  "fecha": "2026-06-29",
+  "lineas": [
+    {
+      "a": "VCTF-012143-2026",
+      "d": "SAI MONO RACK/TORRE NETYS RT4 UPS 2 KVA",
+      "dto": "0,00",
+      "f": "2026-06-29",
+      "i": 742,
+      "o": "MATADERO INSULAR,",
+      "pn": 742,
+      "pt": 742,
+      "q": 1,
+      "r": "SOC-NRT4-U020B"
+    }
+  ],
+  "numero": "FT-003657-2026",
+  "origen": "Gmail",
+  "proveedor": "Diexfe",
+  "tipo": "factura"
+}

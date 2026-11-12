@@ -1,0 +1,32 @@
+{
+  "albs": [],
+  "cliente": "AYUNTAMIENTO EL PASO",
+  "desc": "Ver cambios en alumbrado de salones de cocina y recoger material",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-10-16",
+  "horas": 2,
+  "obra": "HOTEL MONTERREY",
+  "ops": [
+    {
+      "h": 1,
+      "n": "Antonio"
+    },
+    {
+      "h": 1,
+      "n": "Iker"
+    }
+  ],
+  "stock": [
+    {
+      "d": "bridas ratio 300x4,8",
+      "q": 5,
+      "u": "paquetes"
+    },
+    {
+      "d": "duo power 6x30",
+      "q": 5,
+      "u": "ud"
+    }
+  ]
+}

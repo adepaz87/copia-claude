@@ -1,0 +1,66 @@
+{
+  "albs": [],
+  "cliente": "CONSTRUCCIONES DOS TUMBOS",
+  "desc": "Abrir huecos en techos de pladur para donwligth (apartamentos y pasillos )\nAbrir huecos en techos de pladur para lamaparas emergencia pasillos 1planta \nColocación y conexionado de repartidores en caja teleco apartamentos (4) y conexionado de tomas machos rj-45 macho en cajas teleco apartamentos.\nElaboración cuadros apartamentos 1planta.\nLimpiar y recoger basuras zonas de trabajo",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-09-07",
+  "horas": 24,
+  "obra": "APARTAMENTOS TAZACORTE",
+  "ops": [
+    {
+      "h": 8,
+      "n": "Rafa"
+    },
+    {
+      "h": 8,
+      "n": "Petter"
+    },
+    {
+      "h": 8,
+      "n": "Jonathan Rodríguez"
+    }
+  ],
+  "stock": [
+    {
+      "d": "Cable 1x6mm",
+      "q": 8,
+      "u": "m"
+    },
+    {
+      "d": "Punteras 2,5mm",
+      "q": 20,
+      "u": "ud"
+    },
+    {
+      "d": "Punteras 1,5mm",
+      "q": 8,
+      "u": "ud"
+    },
+    {
+      "d": "Puntera doble 1,5mm",
+      "q": 4,
+      "u": "ud"
+    },
+    {
+      "d": "Punteras 10mm",
+      "q": 4,
+      "u": "ud"
+    },
+    {
+      "d": "Puntera doble 10mm",
+      "q": 12,
+      "u": "ud"
+    },
+    {
+      "d": "Pubteras 6mm",
+      "q": 60,
+      "u": "ud"
+    },
+    {
+      "d": "Borna capuchón 35mm",
+      "q": 2,
+      "u": "ud"
+    }
+  ]
+}

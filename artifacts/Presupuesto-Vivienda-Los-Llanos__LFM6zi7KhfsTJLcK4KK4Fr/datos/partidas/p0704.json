@@ -1,0 +1,12 @@
+{
+  "cap": "07",
+  "cod": "07.04",
+  "desc": "Protección de seguridad en huecos de planta baja (reja o persiana enrollable de aluminio).",
+  "med": 6,
+  "nota": "Las ventanas actuales tienen reja: valorar reutilizarlas",
+  "orden": 4,
+  "pre": 220,
+  "rev": true,
+  "sb": false,
+  "ud": "ud"
+}

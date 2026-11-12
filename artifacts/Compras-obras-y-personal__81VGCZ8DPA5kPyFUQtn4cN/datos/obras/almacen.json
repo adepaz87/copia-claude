@@ -1,0 +1,11 @@
+{
+  "alias": [
+    "ALMACEN",
+    "ALMA6"
+  ],
+  "cliente": "ALMACEN",
+  "creado": "2026-10-29",
+  "estado": "propuesta",
+  "interna": true,
+  "nombre": "Almacén"
+}

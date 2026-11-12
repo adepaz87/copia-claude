@@ -1,0 +1,142 @@
+{
+  "empresa": "Kairos Supply",
+  "fecha": "2026-02-04",
+  "lineas": [
+    {
+      "a": "VCTF-002133-2026",
+      "d": "ARMARIO SOBRE CELDA TELEMANDO CM-UP TIPO ENEL",
+      "dto": "0,00",
+      "f": "2026-02-04",
+      "i": 3142,
+      "o": "",
+      "pn": 3142,
+      "pt": 3142,
+      "q": 1,
+      "r": "ORM-CM-UP-ENEL"
+    },
+    {
+      "a": "VCTF-002133-2026",
+      "d": "EKOR RGDT TELEMANDO TIPO ENEL",
+      "dto": "0,00",
+      "f": "2026-02-04",
+      "i": 1274,
+      "o": "",
+      "pn": 637,
+      "pt": 637,
+      "q": 2,
+      "r": "ORM-EKOR-RGDT-ENEL"
+    },
+    {
+      "a": "VCTF-002134-2026",
+      "d": "CELDA MODULAR DE LINEA CGMCOSMOS-2L+1PVN=24KV IN=630A/ICC16KA",
+      "dto": "0,00",
+      "f": "2026-02-04",
+      "i": 13342.69,
+      "o": "EDIFICIO DOMINGO",
+      "pn": 13342.69,
+      "pt": 13342.69,
+      "q": 1,
+      "r": "ORM-CGMCOSMOS-2L+1P"
+    },
+    {
+      "a": "VCTF-002134-2026",
+      "d": "ARMARIO SOBRE CELDA TELEMANDO CM-UP TIPO ENEL",
+      "dto": "0,00",
+      "f": "2026-02-04",
+      "i": 3047.87,
+      "o": "EDIFICIO DOMINGO",
+      "pn": 3047.87,
+      "pt": 3047.87,
+      "q": 1,
+      "r": "ORM-CM-UP-ENEL"
+    },
+    {
+      "a": "VCTF-002134-2026",
+      "d": "TRANFORMADOR TIER2 20KV 250KVA 420/B2 CON TERMOMETRO",
+      "dto": "0,00",
+      "f": "2026-02-04",
+      "i": 13799.86,
+      "o": "EDIFICIO DOMINGO",
+      "pn": 13799.86,
+      "pt": 13799.86,
+      "q": 1,
+      "r": "ORM-TIER2250KVA20KV"
+    },
+    {
+      "a": "VCTF-002134-2026",
+      "d": "CUADRO DE BAJA TENSION ADDIBO PARA ENEL CON INTERRIOTRO Y 8",
+      "dto": "0,00",
+      "f": "2026-02-04",
+      "i": 2890.34,
+      "o": "EDIFICIO DOMINGO",
+      "pn": 2890.34,
+      "pt": 2890.34,
+      "q": 1,
+      "r": "ORM-CBTADDIBO8ST400A"
+    },
+    {
+      "a": "VCTF-002134-2026",
+      "d": "CONECTOR ATORNILLABLE SIMETRICO EN T K-400 TB PARA CABLE",
+      "dto": "Neto",
+      "f": "2026-02-04",
+      "i": 1058.22,
+      "o": "EDIFICIO DOMINGO",
+      "pn": 176.37,
+      "pt": 176.37,
+      "q": 6,
+      "r": "ORM-K-400-TB-240-AL"
+    },
+    {
+      "a": "VCTF-002134-2026",
+      "d": "CONECTOR ENCHUFABLE K-200 SR PARA CABLE <= 95MM2 AL",
+      "dto": "0,00",
+      "f": "2026-02-04",
+      "i": 297.6,
+      "o": "EDIFICIO DOMINGO",
+      "pn": 99.2,
+      "pt": 99.2,
+      "q": 3,
+      "r": "ORM-K-200-SR-95-AL"
+    },
+    {
+      "a": "VCTF-002134-2026",
+      "d": "CONECTOR ACODADO K-200 LR PARA CABLE <= 95MM2 AL",
+      "dto": "0,00",
+      "f": "2026-02-04",
+      "i": 314.13,
+      "o": "EDIFICIO DOMINGO",
+      "pn": 104.71,
+      "pt": 104.71,
+      "q": 3,
+      "r": "ORM-K-200-LR-95-AL"
+    },
+    {
+      "a": "VCTF-002134-2026",
+      "d": "FUSIBLE AT 10/24 KV",
+      "dto": "0,00",
+      "f": "2026-02-04",
+      "i": 274.88,
+      "o": "EDIFICIO DOMINGO",
+      "pn": 68.72,
+      "pt": 68.72,
+      "q": 4,
+      "r": "ORM-300122"
+    },
+    {
+      "a": "VCTF-002134-2026",
+      "d": "IMPUESTO SF6. CGMCOSMOS2L+1P",
+      "dto": "0,00",
+      "f": "2026-02-04",
+      "i": 248,
+      "o": "EDIFICIO DOMINGO",
+      "pn": 248,
+      "pt": 248,
+      "q": 1,
+      "r": "ORM-SF6CGM2L+1P"
+    }
+  ],
+  "numero": "FT-000694-2026",
+  "origen": "Gmail",
+  "proveedor": "Diexfe",
+  "tipo": "factura"
+}

@@ -1,0 +1,65 @@
+{
+  "albs": [
+    "Eaton 202608279",
+    "Diexfe 015619"
+  ],
+  "cliente": "CONSTRUCCIONES DOS TUMBOS",
+  "desc": "Colocación y conexionado mecanismo edificio en general \nEmpapelar mecanismo instalados escalera \nColocación y conexionado de lámparas emergencia y Downlight \nElaboración cuadros zonas comunes \nLimpiar zonas de trabajo",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-09-11",
+  "horas": 16,
+  "obra": "APARTAMENTOS TAZACORTE",
+  "ops": [
+    {
+      "h": 8,
+      "n": "Petter"
+    },
+    {
+      "h": 8,
+      "n": "Jonathan Rodríguez"
+    }
+  ],
+  "stock": [
+    {
+      "d": "Led Downlight 24w 4000k",
+      "q": 22,
+      "u": "ud"
+    },
+    {
+      "d": "Marco emergencia Normalux GS",
+      "q": 23,
+      "u": "ud"
+    },
+    {
+      "d": "Cable 1x6 mm",
+      "q": 4,
+      "u": "m"
+    },
+    {
+      "d": "punteras dobles 6 mm",
+      "q": 4,
+      "u": "ud"
+    },
+    {
+      "d": "punteras dobles 10mm",
+      "q": 2,
+      "u": "ud"
+    },
+    {
+      "d": "punteras 6mm",
+      "q": 24,
+      "u": "ud"
+    },
+    {
+      "d": "interruptor ancho ticino Classia",
+      "q": 1,
+      "u": "ud"
+    },
+    {
+      "d": "Pulsador ancho símbolo campana ticino Classia",
+      "q": 1,
+      "u": "ud"
+    }
+  ]
+}

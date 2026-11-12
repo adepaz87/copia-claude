@@ -1,0 +1,62 @@
+{
+  "empresa": "Kairos Supply",
+  "fecha": "2026-09-15",
+  "lineas": [
+    {
+      "a": "164137",
+      "d": "KIT SAFETRACK ROSETA+2 ADAP APC 100",
+      "dto": "",
+      "f": "2026-09-09",
+      "i": 181.5,
+      "igic": 7,
+      "o": "",
+      "pn": 90.75,
+      "pt": 90.75,
+      "q": 2,
+      "r": "111142"
+    },
+    {
+      "a": "164137",
+      "d": "CAJA FO C/ 2 SC C/TAPA VACIA",
+      "dto": "",
+      "f": "2026-09-09",
+      "i": 2.41,
+      "igic": 7,
+      "o": "",
+      "pn": 1.205,
+      "pt": 1.205,
+      "q": 2,
+      "r": "112329"
+    },
+    {
+      "a": "164137",
+      "d": "LAT DX HIB LC/UPC-SC/APC SM 2MT",
+      "dto": "",
+      "f": "2026-09-09",
+      "i": 15.18,
+      "igic": 7,
+      "o": "",
+      "pn": 3.795,
+      "pt": 3.795,
+      "q": 4,
+      "r": "111331"
+    },
+    {
+      "a": "164137",
+      "d": "TRANSCEIVER REYEE 1310NM 1,25GB LC",
+      "dto": "",
+      "f": "2026-09-09",
+      "i": 128.48,
+      "igic": 7,
+      "o": "",
+      "pn": 32.12,
+      "pt": 32.12,
+      "q": 4,
+      "r": "632215"
+    }
+  ],
+  "numero": "Z26_263068",
+  "origen": "Gmail",
+  "proveedor": "Electtronics",
+  "tipo": "factura"
+}

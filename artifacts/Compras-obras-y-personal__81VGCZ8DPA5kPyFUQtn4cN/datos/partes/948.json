@@ -1,0 +1,20 @@
+{
+  "albs": [],
+  "cliente": "TOMÁS BARRETO SA",
+  "desc": "Revisión puesta en marcha de grupo, pruebas en carga y de conmutación, revisión de UPS, en carga y batería correcta, funcionando",
+  "devol": [],
+  "estado": "TERMINADO",
+  "fecha": "2026-11-11",
+  "horas": 3,
+  "id": "948",
+  "msg": "1a1ccbe3dc68805f",
+  "obra": "SPAR EL PASO",
+  "ops": [
+    {
+      "h": 3,
+      "n": "Toño"
+    }
+  ],
+  "origen": "dashboard",
+  "stock": []
+}

@@ -1,0 +1,21 @@
+{
+  "albs": [],
+  "cliente": "AYUNTAMIENTO TAZACORTE",
+  "desc": "Verificar foco lateral campo lucha,se detecta línea desconectada interior foco se conecta correctamente y se deja funcionando \n*Focos han los  han manipulado girándolos de ubicacion .\nVerificar luminaria exterior zona campo petanca (luminaria estropeada ) \nProgramar reloj alumbrados exterior",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-10-06",
+  "horas": 4,
+  "obra": "POLIDEPORTIVO TAZACORTE",
+  "ops": [
+    {
+      "h": 2,
+      "n": "Petter"
+    },
+    {
+      "h": 2,
+      "n": "Jonathan Rodríguez"
+    }
+  ],
+  "stock": []
+}

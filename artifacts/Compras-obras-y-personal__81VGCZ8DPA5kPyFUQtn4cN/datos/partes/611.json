@@ -1,0 +1,23 @@
+{
+  "albs": [
+    "Coelca 035.294/003"
+  ],
+  "cliente": "EXTINPALMA S.L.",
+  "desc": "tendido de cableado del sistema de protección contra incendios\nmediante la canalización existente de tubo de PVC visto, fijado al techo \nde los aparcamientos de planta -2 y - 1,  según el recorrido previsto.",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-10-01",
+  "horas": 16,
+  "obra": "HIPERDINO EL PUENTE (CONTRAINCENDIO)",
+  "ops": [
+    {
+      "h": 8,
+      "n": "Eloy"
+    },
+    {
+      "h": 8,
+      "n": "Rafa"
+    }
+  ],
+  "stock": []
+}

@@ -1,0 +1,22 @@
+{
+  "empresa": "Instapalma",
+  "fecha": "2026-10-08",
+  "lineas": [
+    {
+      "a": "VCTF-018933-2026",
+      "d": "CABLE AFIREFACIL TRENZADO 07Z1-K 3G25+1,5",
+      "dto": "Neto",
+      "f": "2026-10-08",
+      "i": 6069.65,
+      "o": "EDF SABINO",
+      "pn": 11.178,
+      "pt": 11.178,
+      "q": 543,
+      "r": "MIG-84124"
+    }
+  ],
+  "numero": "FT-005782-2026",
+  "origen": "Gmail",
+  "proveedor": "Diexfe",
+  "tipo": "factura"
+}

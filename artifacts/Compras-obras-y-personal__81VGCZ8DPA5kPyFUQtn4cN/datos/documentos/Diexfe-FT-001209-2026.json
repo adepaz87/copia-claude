@@ -1,0 +1,94 @@
+{
+  "empresa": "Instapalma",
+  "fecha": "2026-02-20",
+  "lineas": [
+    {
+      "a": "VCTF-003202-2026",
+      "d": "CAJA ESTC.310X240X125 TORN.ROSC.PLAST.GR (12UD)",
+      "dto": "0,00",
+      "f": "2026-02-19",
+      "i": 60.15,
+      "o": "SPAR TRIANA LED EXT.",
+      "pn": 15.0375,
+      "pt": 15.037,
+      "q": 4,
+      "r": "SOL-100887"
+    },
+    {
+      "a": "VCTF-003202-2026",
+      "d": "RACOR GIR.M25 GR RAL7035 P/TUB.ESPIR.M20",
+      "dto": "Neto",
+      "f": "2026-02-19",
+      "i": 3.28,
+      "o": "SPAR TRIANA LED EXT.",
+      "pn": 0.656,
+      "pt": 0.656,
+      "q": 5,
+      "r": "GAE-248.2520.2"
+    },
+    {
+      "a": "VCTF-003202-2026",
+      "d": "RACOR GIR.M40 GR RAL7035 P/TUB.ESPIR.M32",
+      "dto": "Neto",
+      "f": "2026-02-19",
+      "i": 1.21,
+      "o": "SPAR TRIANA LED EXT.",
+      "pn": 1.21,
+      "pt": 1.211,
+      "q": 1,
+      "r": "GAE-248.4032.2"
+    },
+    {
+      "a": "VCTF-003202-2026",
+      "d": "GEL LUBRICANTE DUPLOGEL INTRODUCIR 500CC",
+      "dto": "Neto",
+      "f": "2026-02-19",
+      "i": 6.29,
+      "o": "SPAR TRIANA LED EXT.",
+      "pn": 6.29,
+      "pt": 6.293,
+      "q": 1,
+      "r": "ANG-46015000"
+    },
+    {
+      "a": "VCTF-003202-2026",
+      "d": "CINTA ELECT.PVC N-10 25MX25X0,13MM BL.",
+      "dto": "40,00",
+      "f": "2026-02-19",
+      "i": 2.7,
+      "o": "SPAR TRIANA LED EXT.",
+      "pn": 1.35,
+      "pt": 2.25,
+      "q": 2,
+      "r": "PLY-5248"
+    },
+    {
+      "a": "VCTF-003202-2026",
+      "d": "CINTA ELECT.PVC N-10 25MX25X0,13MM NG.",
+      "dto": "40,00",
+      "f": "2026-02-19",
+      "i": 1.35,
+      "o": "SPAR TRIANA LED EXT.",
+      "pn": 1.35,
+      "pt": 2.25,
+      "q": 1,
+      "r": "PLY-5245"
+    },
+    {
+      "a": "VCTF-003271-2026",
+      "d": "MANGUERA ELECTROFLEX-IT PVC M20 GRIS ROLLO 25M",
+      "dto": "0,00",
+      "f": "2026-02-20",
+      "i": 25.42,
+      "o": "SPAR TRIANA LED EXT.",
+      "pn": 1.0168,
+      "pt": 1.017,
+      "q": 25,
+      "r": "GAE-925.2000.0-R25"
+    }
+  ],
+  "numero": "FT-001209-2026",
+  "origen": "Gmail",
+  "proveedor": "Diexfe",
+  "tipo": "factura"
+}

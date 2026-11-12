@@ -1,0 +1,19 @@
+{
+  "actualizada": "2026-09-01T09:00:00Z",
+  "aviso": "26420",
+  "centro": "SPAR San Pedro",
+  "creada": "2026-09-01T09:00:00Z",
+  "descripcion": "Al encender la luz del mural de helados salta el diferencial y se apagan las vitrinas de carne y charcutería.",
+  "estado": "terminada",
+  "fechaAviso": "2026-09-01",
+  "historial": [
+    "01/09/2026 · Importada del correo de Alberto"
+  ],
+  "informado": true,
+  "notas": "Resuelta el 01/09/2026.",
+  "operario": "",
+  "ot": 67,
+  "prioridad": "Sin especificar",
+  "solicitante": "",
+  "tipo": "MANTENIMIENTO"
+}

@@ -1,0 +1,23 @@
+{
+  "albs": [],
+  "cliente": "COVALLE",
+  "desc": "Entubando puestos de trabajo oficinas planta alta,alumbrado,alumbrado emergencia,etc…colocación cajas registro Entubar para puesto trabajo mostrador almacén Ver trabajos a realizar con Sergio Limpiar zonas de trabajo",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-11-03",
+  "horas": 21.5,
+  "id": "862",
+  "obra": "NAVE COOPERATIVA COVALLE",
+  "ops": [
+    {
+      "h": 11,
+      "n": "Petter"
+    },
+    {
+      "h": 10.5,
+      "n": "Jonathan Rodríguez"
+    }
+  ],
+  "origen": "dashboard",
+  "stock": []
+}

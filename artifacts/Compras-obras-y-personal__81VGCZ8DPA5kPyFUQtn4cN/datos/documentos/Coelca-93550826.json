@@ -1,0 +1,152 @@
+{
+  "empresa": "Instapalma",
+  "fecha": "2026-08-31",
+  "lineas": [
+    {
+      "a": "34.423/003",
+      "d": "CABLE FTP CAT6 LSZH Dca(BOBI",
+      "f": "2026-08-17",
+      "fab": "GES78CPDAT0130B99",
+      "i": 136.35,
+      "o": "GIMNASIO DARWIN",
+      "pn": 0.909,
+      "pt": 0.909,
+      "q": 150,
+      "r": "29203"
+    },
+    {
+      "a": "34.423/003",
+      "d": "STANDAR LED 9W 4000K E27",
+      "f": "2026-08-17",
+      "fab": "RBL-EST9F",
+      "i": 42,
+      "o": "GIMNASIO DARWIN",
+      "pn": 2.8,
+      "pt": 2.7,
+      "q": 15,
+      "r": "592410"
+    },
+    {
+      "a": "34.423/003",
+      "d": "EMERG. 200LUM.LED IP44 S10 1H",
+      "f": "2026-08-17",
+      "i": 13.9,
+      "o": "GIMNASIO DARWIN",
+      "pn": 13.9,
+      "pt": 13.9,
+      "q": 1,
+      "r": "88110200"
+    },
+    {
+      "a": "34.424/003",
+      "d": "CUADRO INDS (3)M16 (1)T16",
+      "f": "2026-08-17",
+      "fab": "SOL-1332P-I550-1",
+      "i": 1532,
+      "o": "",
+      "pn": 383,
+      "pt": 383,
+      "q": 4,
+      "r": "9005"
+    },
+    {
+      "a": "184.024/018",
+      "d": "TUBO REFLEX M32",
+      "f": "2026-08-17",
+      "fab": "CAN-80100032",
+      "i": 3.14,
+      "o": "LLEVADO CARLOS ACOSTA",
+      "pn": 0.785,
+      "pt": 0.786,
+      "q": 4,
+      "r": "36703"
+    },
+    {
+      "a": "184.024/018",
+      "d": "TUBO DOBLE PARED 63 ROLLO",
+      "f": "2026-08-17",
+      "fab": "CAN-92100063",
+      "i": 71.35,
+      "o": "LLEVADO CARLOS ACOSTA",
+      "pn": 1.427,
+      "pt": 1.427,
+      "q": 50,
+      "r": "128903"
+    },
+    {
+      "a": "184.024/018",
+      "d": "TUBO DOBLE PARED 160 ROLLO",
+      "f": "2026-08-17",
+      "fab": "CAN-92100160",
+      "i": 149.33,
+      "o": "LLEVADO CARLOS ACOSTA",
+      "pn": 5.9732,
+      "pt": 5.973,
+      "q": 25,
+      "r": "138803"
+    },
+    {
+      "a": "34.437/003",
+      "d": "SEÑAL TRIANG.RAYO AL.105mm",
+      "f": "2026-08-18",
+      "fab": "720100",
+      "i": 4.27,
+      "o": "OBRA EL SOCORRO LLEVADO TOÑO",
+      "pn": 2.135,
+      "pt": 2.136,
+      "q": 2,
+      "r": "16548"
+    },
+    {
+      "a": "34.483/003",
+      "d": "CONVERTIDOR MEDIA SC MULTIMODO ADA-21430",
+      "f": "2026-08-19",
+      "i": 357.4,
+      "o": "",
+      "pn": 89.35,
+      "pt": 89.351,
+      "q": 4,
+      "r": "28494"
+    },
+    {
+      "a": "34.497/003",
+      "d": "TRAFO 300/5 NUCLEO ABIERTO",
+      "f": "2026-08-20",
+      "fab": "CIR-M78025",
+      "i": 268.95,
+      "o": "",
+      "pn": 89.65,
+      "pt": 89.65,
+      "q": 3,
+      "r": "314780"
+    },
+    {
+      "a": "184.155/018",
+      "d": "CAJA PLADUR DOBLE",
+      "f": "2026-08-26",
+      "fab": "SOL-5725",
+      "i": 45.9,
+      "o": "HOTEL ESCUELA MONTERREY",
+      "pn": 2.295,
+      "pt": 2.295,
+      "q": 20,
+      "r": "857250"
+    },
+    {
+      "a": "34.706/003",
+      "d": "CONMUTADOR BLANCO 1M 16A",
+      "f": "2026-08-31",
+      "fab": "GEW-GW10051",
+      "i": 3.14,
+      "o": "FINCA AMADO - VIV. 27",
+      "pn": 3.14,
+      "pt": 3.135,
+      "q": 1,
+      "r": "910051"
+    }
+  ],
+  "numero": "93550826",
+  "origen": "Gmail",
+  "proveedor": "Coelca",
+  "tipo": "factura"
+}

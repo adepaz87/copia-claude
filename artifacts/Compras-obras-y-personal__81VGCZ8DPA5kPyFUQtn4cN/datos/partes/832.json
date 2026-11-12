@@ -1,0 +1,28 @@
+{
+  "albs": [],
+  "cliente": "TRAGSA",
+  "desc": "Enbridar cables por bandeja Ordenar cables en registros Registrar Colocación de cuadro y preparar perfiles para fijación Colocación de bandeja plástica",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-10-29",
+  "horas": 16,
+  "obra": "HOSPITAL (MOD G)",
+  "ops": [
+    {
+      "h": 8,
+      "n": "Manuel"
+    },
+    {
+      "h": 8,
+      "n": "Juan"
+    }
+  ],
+  "origen": "dashboard",
+  "stock": [
+    {
+      "d": "bandeja de 400x100 legrand",
+      "q": 3,
+      "u": "m"
+    }
+  ]
+}

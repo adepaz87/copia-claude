@@ -1,0 +1,25 @@
+{
+  "albs": [],
+  "cliente": "AYTO. EL PASO",
+  "desc": "Descargar cabinas de media tensión y meterlas dentro del CT.",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-10-06",
+  "horas": 3,
+  "obra": "CT. PINO DE LA VIRGEN",
+  "ops": [
+    {
+      "h": 1,
+      "n": "Jorge"
+    },
+    {
+      "h": 1,
+      "n": "Ricky"
+    },
+    {
+      "h": 1,
+      "n": "Junior"
+    }
+  ],
+  "stock": []
+}

@@ -1,0 +1,23 @@
+{
+  "empresa": "Instapalma",
+  "fecha": "2026-09-14",
+  "lineas": [
+    {
+      "a": "",
+      "d": "TRABAJOS DE INSTALACION ELECTRICA EN EDIFICIO SABINO RAMOS (factura modificada)",
+      "dto": "",
+      "f": "2026-09-14",
+      "i": 22970.47,
+      "igic": 7,
+      "o": "EDIFICIO SABINO",
+      "pn": 22970.47,
+      "pt": 22970.47,
+      "q": 1,
+      "r": ""
+    }
+  ],
+  "numero": "112600373",
+  "origen": "Gmail",
+  "proveedor": "José Carlos (Inst. Eléctricas)",
+  "tipo": "factura"
+}

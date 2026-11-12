@@ -1,0 +1,23 @@
+{
+  "empresa": "Kairos Supply",
+  "fecha": "2026-06-16",
+  "lineas": [
+    {
+      "a": "",
+      "d": "TIRA LED PARKING SPAR TRIANA",
+      "dto": "",
+      "f": "2026-06-16",
+      "i": 450,
+      "igic": 7,
+      "o": "SPAR TRIANA",
+      "pn": 450,
+      "pt": 450,
+      "q": 1,
+      "r": ""
+    }
+  ],
+  "numero": "2026-0022",
+  "origen": "Gmail",
+  "proveedor": "Leirbag",
+  "tipo": "factura"
+}
