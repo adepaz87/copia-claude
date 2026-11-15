@@ -64,6 +64,7 @@ h3{font-size:18px}
 .kpi .l{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
 .kpi .v{font-family:var(--f-display);font-weight:600;font-size:30px;line-height:1.1;font-variant-numeric:tabular-nums}
 .kpi .n{font-size:12.5px;color:var(--ink2)}
+.kpi.kbtn{cursor:pointer}.kpi.kbtn:hover{background:var(--soft)}.kpi.kbtn.on{box-shadow:inset 0 0 0 2px var(--accent);background:var(--accent-soft)}
 .tbl{overflow-x:auto}
 table{border-collapse:collapse;width:100%;font-size:13px}
 th,td{padding:7px 8px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
@@ -115,6 +116,7 @@ tr.sel td{background:var(--accent-soft)}
       <a href="#recursos/vehiculos" data-a="recursos">Recursos</a>
       <a href="#pedidos/pendientes" data-a="pedidos">Pedidos</a>
       <a href="#facturas/cobrar" data-a="facturas">Facturas</a>
+      <a href="#docs/documentos" data-a="docs">Documentación</a>
     </nav>
     <div class="filters" id="fCompras">
       <select id="fEmp" aria-label="Empresa"><option value="">Todas las empresas</option><option>Instapalma</option><option>Kairos Supply</option></select>
@@ -475,7 +477,7 @@ async function discard(key){if(!db)return;DESC.add(key);SUG=null;render();try{aw
    devoluciones de almacén, resúmenes de fin de mes. Los nombres de obra y de
    operario se casan por alias que Alberto aprueba.
    ===================================================================== */
-let DEST=new Map(),ACL=new Map(),PDUP=[],PARTES=[],ALM=[],RES=[],OBRAS=[],PERS=[],CFG={},FACT=[],PSTK=new Map(),REC={};
+let COMP=new Map(),DEST=new Map(),ACL=new Map(),PDUP=[],PARTES=[],ALM=[],RES=[],OBRAS=[],PERS=[],CFG={},FACT=[],PSTK=new Map(),REC={};
 const keyN=s=>normTxt(s).replace(/[^A-Z0-9]+/g,' ').trim();
 const tokSet=s=>new Set(keyN(s).split(' ').filter(t=>t.length>1&&!['EDF','EDIF','EDIFICIO','OBRA','LA','EL','DE','DEL','LOS','LAS','Y','EN','CALLE'].includes(t)));
 const hfmt=v=>nfmt.format(Math.round(v*10)/10)+' h';
@@ -840,21 +842,161 @@ function vNombres(){
   <details class="panel"><summary><b>Obras aprobadas (${aprob.length})</b></summary><div style="display:grid;gap:10px;margin-top:12px">${aprob.map(card).join('')}</div></details>`;
 }
 
+function cotejoTodo(){
+  const C=cotejoAlb('0000');const rows=C.rows.slice();
+  for(const v of C.sinRef)rows.push({prov:v.prov,n:v.n,f:v.f,raws:new Set([v.a]),src:new Set(['factura']),partes:[],obraP:new Set(),obraS:v.o,obraSid:obraDe(v.o),i:v.i,emp:v.emp,fx:v,estado:'facturado'});
+  rows.sort((a,b)=>a.f<b.f?1:a.f>b.f?-1:0);
+  const byK=new Map(rows.map(r=>[r.prov+'|'+r.n,r])),fxId=new Map(),fxL=new Map(),albDoc=new Map();for(const d of DOCS)if(d.tipo==='albaran')albDoc.set(d.proveedor+'|'+nAlb(d.proveedor,d.numero),d);
+  const aclOb=k=>{const a=ACL.get(k);if(!a)return null;if(a.obra&&OX.obById.has(a.obra))return a.obra;if(a.excluir)return '#'+a.excluir;return null};
+  for(const r of rows){const k=r.prov+'|'+r.n,o=aclOb(k);r.k=k;if(o){r.acl=o;if(o[0]!=='#'){r.obraSid=o;r.choque=!!(r.obraP.size&&!r.obraP.has(o))}else{r.obraSid=null;r.choque=false}}
+    r.sinObra=!r.obraSid&&!r.obraP.size&&!r.acl;r.soloParte=!r.fx&&r.src.size===1&&r.src.has('parte')}
+  // albarán apuntado en parte sin pareja: albaranes reales parecidos (misma obra o mismo proveedor, número parecido, fechas cercanas)
+  const dig=s=>String(s||'').replace(/\D/g,'');const lev=(a,b)=>{const m=a.length,n=b.length;if(Math.abs(m-n)>3)return 9;let p=[...Array(n+1).keys()];for(let i=1;i<=m;i++){const c=[i];for(let j=1;j<=n;j++)c[j]=Math.min(p[j]+1,c[j-1]+1,p[j-1]+(a[i-1]===b[j-1]?0:1));p=c}return p[n]};
+  const reales=rows.filter(r=>!r.soloParte);
+  for(const r of rows){if(!r.soloParte)continue;const nd=r.n;const out=[];
+    for(const c of reales){if(r.prov&&c.prov!==r.prov)continue;const dd=Math.abs(new Date(c.f)-new Date(r.f))/864e5;if(dd>40)continue;
+      const cd=c.n;const L=lev(nd,cd);const fin=nd.length>=3&&cd.length>=3&&(cd.endsWith(nd.slice(-3))||nd.endsWith(cd.slice(-3)));
+      const mismaObra=[...r.obraP].some(o=>o===c.obraSid||c.obraP.has(o));if(!(L<=2||fin))continue;if(!mismaObra&&L>1)continue;
+      out.push({c,s:(mismaObra?0:3)+L+dd/30})}
+    r.sug=out.sort((a,b)=>a.s-b.s).slice(0,4).map(x=>x.c)}
+  const facts=DOCS.filter(d=>d.tipo==='factura').map(d=>{fxId.set(d.proveedor+'|'+d.numero,d.id);const g=new Map(),sinA=[];let tot=0;
+    for(const l of d.lineas||[]){tot+=l.i||0;const n=nAlb(d.proveedor,l.a);if(!n){sinA.push(l);continue}const k=d.proveedor+'|'+n;const x=g.get(k)||{k,n,a:l.a,f:l.f,o:l.o||'',i:0,nl:0,ls:[]};x.i+=l.i||0;x.nl++;x.ls.push(l);if(!fxL.has(k))fxL.set(k,{d,ls:x.ls});if(l.o&&!x.o)x.o=l.o;g.set(k,x)}
+    const albs=[...g.values()].sort((a,b)=>a.f<b.f?-1:a.f>b.f?1:0);albs.forEach(a=>{a.r=byK.get(a.k);a.acl=aclOb(a.k);a.oid=a.acl?(a.acl[0]==='#'?null:a.acl):obraDe(a.o);a.sinObra=!a.oid&&!a.acl&&!(a.r&&a.r.obraP.size)});
+    const dk=aclKey(d,{a:''});const dAcl=aclOb(dk);sinA.forEach(l=>{const o=obraL(d,l);l._ob=o&&o[0]!=='#'?o:null;l._x=o==='#excl'});
+    return {d,albs,sinA,tot,dk,dAcl,sinParte:albs.filter(a=>!a.r||!a.r.src.has('parte')).length,sinObra:albs.filter(a=>a.sinObra).length+sinA.filter(l=>!l._ob&&!l._x).length}}).sort((a,b)=>a.d.fecha<b.d.fecha?1:a.d.fecha>b.d.fecha?-1:0);
+  return {rows,facts,otros:C.otros,fxId,fxL,albDoc};
+}
+const cfKey=s=>keyN(s).replace(/ /g,'');
+function cotejoFiltrado(){
+  const CF=UI.cf||(UI.cf={prov:'',emp:'',desde:'',hasta:'',obra:'',est:'',q:''});UI.cfOpen=UI.cfOpen||new Set();
+  const T=cotejoTodo();const qn=cfKey(CF.q);const okF=f=>(!CF.desde||(f||'')>=CF.desde)&&(!CF.hasta||(f||'')<=CF.hasta);
+  const qA=r=>!qn||cfKey([...r.raws].join(' ')+' '+r.n+' '+(r.fx?r.fx.doc:'')+' '+(r.obraS||'')+' '+r.partes.map(p=>'#'+p.id).join(' ')+' '+[...r.obraP].map(obraNom).join(' ')).includes(qn);
+  const rowsB=T.rows.filter(r=>{if(CF.prov&&r.prov!==CF.prov)return false;if(CF.emp&&r.emp&&r.emp!==CF.emp)return false;if(!okF(r.f))return false;
+    if(CF.obra==='#sin'){if(r.obraSid||r.obraP.size)return false}else if(CF.obra&&r.obraSid!==CF.obra&&!r.obraP.has(CF.obra))return false;
+    return qA(r)});
+  const cmpA=r=>COMP.has('alb|'+r.k),cmpF=x=>COMP.has('fx|'+x.d.id);
+  const rows=rowsB.filter(r=>{const e=CF.est;if(e==='sinobra')return r.sinObra;if(e==='soloparte')return r.soloParte;if(e==='nocomp')return !cmpA(r);if(e==='comp')return cmpA(r);return !(e==='choque'?!r.choque:e==='sinparte'?r.src.has('parte'):e==='solofactura'?!(r.src.size===1&&r.src.has('factura')):e==='sinfactura'?r.estado==='facturado':e&&r.estado!==e)});
+  const factsB=T.facts.filter(x=>{const d=x.d;if(CF.prov&&d.proveedor!==CF.prov)return false;if(CF.emp&&d.empresa!==CF.emp)return false;if(!okF(d.fecha))return false;
+    if(CF.obra==='#sin'){if(!x.albs.some(a=>!a.oid)&&!x.sinA.some(l=>!obraDe(l.o)))return false}else if(CF.obra&&!x.albs.some(a=>a.oid===CF.obra||(a.r&&a.r.obraP.has(CF.obra)))&&!x.sinA.some(l=>obraDe(l.o)===CF.obra))return false;
+    if(qn&&!cfKey(d.numero+' '+x.albs.map(a=>a.a+' '+a.n+' '+a.o).join(' ')+' '+x.sinA.map(l=>l.o||'').join(' ')).includes(qn))return false;return true});
+  const facts=factsB.filter(x=>!(CF.fest==='sinparte'&&!x.sinParte)&&!(CF.fest==='sinalb'&&!x.sinA.length)&&!(CF.fest==='sinobra'&&!x.sinObra)&&!(CF.fest==='nocomp'&&cmpF(x))&&!(CF.fest==='comp'&&!cmpF(x)));
+  return {T,CF,rows,facts,rowsB,factsB,cmpA,cmpF};
+}
 function vCotejo(){
-  const desde=UI.odesde||CFG.desde||DESDE0;const C=cotejoAlb(desde);
-  const n=e=>C.rows.filter(r=>r.estado===e).length;
-  const choques=C.rows.filter(r=>r.choque);
-  const fila=r=>`<tr><td>${fdate(r.f)}</td><td>${provTag(r.prov)}</td><td class="mono">${esc([...r.raws][0]||r.n)}</td><td>${[...r.src].map(s=>s==='correo'?'Correo':'Parte').join(' + ')}</td><td>${r.partes.length?r.partes.map(p=>`#${esc(p.id)}`).join(' '):''}<div>${[...r.obraP].map(obraLink).join(', ')}</div></td><td>${esc(r.obraS||'')}${r.choque?' <span class="pill up">otra obra</span>':''}</td><td class="num">${r.i!=null?eur.format(r.i):''}</td><td>${estPill(r.estado)}${r.fx?`<div class="mono">${esc(r.fx.doc)}${r.aprox?' (aprox.)':''}</div>`:r.estado==='falta'?`<div class="sub" style="margin:0">Ya facturado hasta ${fdate(r.cierre)}</div>`:''}</td></tr>`;
-  return `<section><h1>Cotejo de albaranes con facturas</h1><p class="sub">Albaranes que llegan por correo o que los operarios anotan en el parte, comparados con las facturas de cada proveedor desde el ${fdate(desde)}. "Falta en factura" quiere decir que ya llegó una factura posterior a la fecha del albarán y no lo incluye.</p></section>
-  <section class="kpis">
-    <div class="kpi"><div class="l">Falta en factura</div><div class="v" style="color:${n('falta')?'var(--up)':'inherit'}">${n('falta')}</div><div class="n">Reclamar o revisar</div></div>
-    <div class="kpi"><div class="l">Pendientes de factura</div><div class="v">${n('pendiente')}</div><div class="n">Aún no ha llegado la factura del periodo</div></div>
-    <div class="kpi"><div class="l">Facturados</div><div class="v">${n('facturado')}</div><div class="n">Cuadran con su factura</div></div>
-    <div class="kpi"><div class="l">Obra distinta</div><div class="v">${choques.length}</div><div class="n">El parte y el proveedor no coinciden</div></div>
-  </section>
-  <section class="panel"><header><h2>Albaranes</h2></header><div class="tbl" style="max-height:70vh"><table><thead><tr><th>Fecha</th><th>Proveedor</th><th>Albarán</th><th>Visto en</th><th>Parte y obra</th><th>Obra según proveedor</th><th class="num">Importe</th><th>Estado</th></tr></thead><tbody>${C.rows.map(fila).join('')||'<tr><td colspan="8" class="empty">Sin albaranes.</td></tr>'}</tbody></table></div></section>
-  ${C.otros.length?`<section class="panel"><header><h2>Albaranes de otros proveedores en partes</h2><span class="sub">No hay facturas suyas cargadas</span></header><div class="tbl"><table><thead><tr><th>Fecha</th><th>Parte</th><th>Obra</th><th>Albarán anotado</th></tr></thead><tbody>${C.otros.map(x=>`<tr><td>${fdate(x.p.fecha)}</td><td class="mono">#${esc(x.p.id)}</td><td>${obraLink(obraP(x.p))||esc(x.p.obra)}</td><td>${esc(x.a)}</td></tr>`).join('')}</tbody></table></div></section>`:''}
-  <details class="panel"><summary><b>Facturados sin albarán por correo ni anotado en parte (${C.sinRef.length})</b> <span class="sub">Material que se ha facturado y nadie ha reflejado en un parte</span></summary><div class="tbl" style="margin-top:10px"><table><thead><tr><th>Fecha</th><th>Proveedor</th><th>Albarán</th><th>Obra según proveedor</th><th class="num">Importe</th><th>Factura</th></tr></thead><tbody>${C.sinRef.map(v=>`<tr><td>${fdate(v.f)}</td><td>${provTag(v.prov)}</td><td class="mono">${esc(v.a)}</td><td>${esc(v.o)}</td><td class="num">${eur.format(v.i)}</td><td class="mono">${esc(v.doc)}</td></tr>`).join('')}</tbody></table></div></details>`;
+  const {T,CF,rows,facts,rowsB,factsB,cmpA,cmpF}=cotejoFiltrado();const cv=UI.cv||'albaranes';UI.caOpen=UI.caOpen||new Set();
+  const n=e=>rowsB.filter(r=>r.estado===e).length;const choques=rowsB.filter(r=>r.choque).length;
+  const kpi=(attr,val,on,l,v,nn,col)=>`<div class="kpi kbtn${on?' on':''}" role="button" tabindex="0" aria-pressed="${on}" ${attr}="${val}"><div class="l">${l}</div><div class="v"${col?` style="color:${col}"`:''}>${v}</div><div class="n">${nn}</div></div>`;
+  const linTbl=ls=>`<table style="font-size:12.5px"><thead><tr><th>Ref.</th><th>Descripción</th><th class="num">Cant.</th><th class="num">P. tarifa</th><th class="num">Dto.</th><th class="num">P. neto</th><th class="num">Importe</th><th>Obra</th></tr></thead><tbody>${ls.map(l=>`<tr><td class="mono">${esc(l.r||'')}</td><td>${esc(l.d||'')}</td><td class="num">${l.q!=null?nfmt.format(l.q):''}</td><td class="num">${l.pt?pfmt(l.pt):''}</td><td class="num">${esc(l.dto||'')}</td><td class="num">${l.pn!=null?pfmt(l.pn):''}</td><td class="num">${eur.format(l.i||0)}</td><td>${esc(l.o||'')}</td></tr>`).join('')||'<tr><td colspan="8" class="empty">Sin líneas cargadas.</td></tr>'}</tbody></table>`;
+  const parteTxt=p=>`<div style="margin:4px 0"><b>Parte #${esc(p.id)}</b> · ${fdate(p.fecha)} · ${obraP(p)?obraLink(obraP(p)):esc(p.obra||'')}${p.cliente?' · '+esc(p.cliente):''}${(p.ops||[]).length?'<br><span class="sub">'+p.ops.map(o=>esc(o.n)+' '+nfmt.format(o.h||0)+' h').join(' · ')+'</span>':''}${p.desc?'<br>'+esc(p.desc):''}</div>`;
+  const obSel=(k,cur)=>`<select data-aclo="${esc(k)}" aria-label="Cambiar obra" style="max-width:260px"><option value="">${cur?'Cambiar obra…':'Asignar obra…'}</option>${OBRAS.filter(o=>o.estado!=='descartada').sort((a,b)=>(a.nombre||'').localeCompare(b.nombre||'')).map(o=>`<option value="${esc(o.id)}"${o.id===cur?' selected':''}>${esc(o.nombre)}</option>`).join('')}<optgroup label="Sin obra">${Object.entries(EXCL).map(([v,t])=>`<option value="#${v}"${cur==='#'+v?' selected':''}>${t}</option>`).join('')}</optgroup></select>`;
+  const chk=(k,on,lab)=>`<input type="checkbox" data-comp="${esc(k)}"${on?' checked':''} aria-label="${esc(lab)}" title="Comprobado" style="width:18px;height:18px">`;
+  const provs=[...new Set(DOCS.filter(d=>d.tipo==='factura'||d.tipo==='albaran').map(d=>d.proveedor))].sort();
+  const emps=[...new Set(DOCS.map(d=>d.empresa).filter(Boolean))].sort();
+  const obs=OBRAS.filter(o=>o.estado!=='descartada').sort((a,b)=>(a.nombre||'').localeCompare(b.nombre||''));
+  const sel=(k,opts,lab)=>`<select data-cf="${k}" aria-label="${lab}">${opts.map(([v,t])=>`<option value="${esc(v)}"${(CF[k]||'')===v?' selected':''}>${esc(t)}</option>`).join('')}</select>`;
+  const hayF=CF.prov||CF.emp||CF.desde||CF.hasta||CF.obra||CF.q||(cv==='albaranes'?CF.est:CF.fest);
+  const filtros=`<section class="panel"><div class="row">
+    <input type="search" data-cf="q" placeholder="Nº de albarán, factura, parte u obra" value="${esc(CF.q)}" style="flex:1 1 240px;min-width:0" aria-label="Buscar">
+    ${sel('prov',[['','Todos los proveedores'],...provs.map(p=>[p,p])],'Proveedor')}
+    ${sel('emp',[['','Todas las empresas'],...emps.map(p=>[p,p])],'Empresa')}
+    ${sel('obra',[['','Todas las obras'],['#sin','Sin obra'],...obs.map(o=>[o.id,o.nombre])],'Obra')}
+    ${cv==='albaranes'?sel('est',[['','Todos los estados'],['falta','Falta en factura'],['pendiente','Pendiente de factura'],['sinfactura','Sin factura (falta + pendiente)'],['facturado','Facturado'],['choque','Obra distinta'],['sinobra','Sin obra'],['soloparte','Solo en parte (sin albarán real)'],['nocomp','Sin comprobar'],['comp','Comprobados'],['sinparte','No anotado en parte'],['solofactura','Solo en factura (sin correo ni parte)']],'Estado'):sel('fest',[['','Todas las facturas'],['sinparte','Con albaranes no anotados en parte'],['sinalb','Con líneas sin albarán'],['sinobra','Con algo sin obra'],['nocomp','Sin comprobar'],['comp','Comprobadas']],'Estado')}
+    <label class="row" style="gap:4px">Desde <input type="date" data-cf="desde" value="${esc(CF.desde)}"></label>
+    <label class="row" style="gap:4px">Hasta <input type="date" data-cf="hasta" value="${esc(CF.hasta)}"></label>
+    ${hayF?'<button class="ghost" id="cfClear">Quitar filtros</button>':''}
+    <button id="cfCsv">Descargar CSV</button>
+  </div></section>`;
+  const vista=`<div class="chips" role="tablist"><button class="chip" data-cv="albaranes" aria-pressed="${cv==='albaranes'}">Albaranes (${rows.length})</button><button class="chip" data-cv="facturas" aria-pressed="${cv==='facturas'}">Facturas con sus albaranes (${facts.length})</button></div>`;
+  const vis=r=>[...r.src].map(s=>s==='correo'?'Correo':s==='parte'?'Parte':'Solo factura').join(' + ');
+  const fxCell=r=>{if(!r.fx)return r.estado==='falta'?`<div class="sub" style="margin:0">Ya facturado hasta ${fdate(r.cierre)}</div>`:'';const id=T.fxId.get(r.prov+'|'+r.fx.doc);return `<div class="mono">${id?`<a href="#" data-gofx="${esc(id)}">${esc(r.fx.doc)}</a>`:esc(r.fx.doc)}${r.aprox?' (aprox.)':''}</div>`};
+  const caDet=r=>{const k=r.prov+'|'+r.n,ad=T.albDoc.get(k),fl=T.fxL.get(k);const fid=r.fx&&T.fxId.get(r.prov+'|'+r.fx.doc);
+    return `<tr><td colspan="9" style="background:var(--soft);padding:10px 12px 14px"><div style="position:sticky;left:12px;max-width:min(1100px,calc(100vw - 72px))"><div class="cards" style="margin-bottom:8px">
+      <div class="mini"><div class="l">Proveedor</div><div class="v" style="font-size:15px">${esc(r.prov)}</div></div><div class="mini"><div class="l">Empresa</div><div class="v" style="font-size:15px">${esc(r.emp||(ad&&ad.empresa)||'—')}</div></div>
+      <div class="mini"><div class="l">Fecha</div><div class="v" style="font-size:15px">${fdate(r.f)}</div></div><div class="mini"><div class="l">Importe</div><div class="v" style="font-size:15px">${r.i!=null?eur.format(r.i):'—'}</div></div>
+      <div class="mini"><div class="l">Factura</div><div class="v mono" style="font-size:14px">${r.fx?(fid?`<a href="#" data-gofx="${esc(fid)}">${esc(r.fx.doc)}</a>`:esc(r.fx.doc))+(r.fx.docF?' <span class="sub">'+fdate(r.fx.docF)+'</span>':''):'Sin factura'}</div></div></div>
+      <div class="row" style="margin:4px 0 8px"><b>Obra:</b> ${r.obraSid?obraLink(r.obraSid):r.acl?esc(EXCL[r.acl.slice(1)]||''):'<span class="pill up">sin obra</span>'} ${obSel(k,r.acl||r.obraSid)}${r.acl?' <span class="sub">(puesta a mano)</span>':''}</div>
+      ${r.soloParte?`<div class="note" style="margin-bottom:8px"><b>Este número solo aparece en el parte</b>: no hay albarán del proveedor ni línea de factura con él. ${r.sug&&r.sug.length?'Puede que lo apuntaran mal. Albaranes parecidos:'+r.sug.map(c=>`<div style="margin-top:4px">· <a href="#" data-goalb="${esc(c.n)}" class="mono">${esc([...c.raws][0]||c.n)}</a> ${provTag(c.prov)} ${fdate(c.f)} · ${c.obraSid?esc(obraNom(c.obraSid)):esc(c.obraS||'sin obra')} · ${c.i!=null?eur.format(c.i):''} ${c.fx?'· factura '+esc(c.fx.doc):''}</div>`).join(''):'No he encontrado ningún albarán con un número parecido.'}</div>`:''}
+      ${r.partes.length?`<h3 style="font-size:15px">Anotado en ${r.partes.length===1?'el parte':'los partes'}</h3>${r.partes.map(parteTxt).join('')}`:'<p class="sub">Nadie lo ha anotado en un parte.</p>'}
+      ${ad?`<h3 style="font-size:15px;margin-top:8px">Líneas del albarán (recibido por correo${ad.obra?', obra '+esc(ad.obra):''})</h3><div class="tbl">${linTbl(ad.lineas||[])}</div>`:''}
+      ${fl?`<h3 style="font-size:15px;margin-top:8px">Líneas según la factura ${esc(fl.d.numero)}</h3><div class="tbl">${linTbl(fl.ls)}</div>`:''}
+      ${!ad&&!fl?'<p class="sub">No hay líneas: solo se conoce por el parte.</p>':''}</div></td></tr>`};
+  const fila=r=>{const k=r.prov+'|'+r.n,op=UI.caOpen.has(k);return `<tr class="click${op?' sel':''}" data-ca="${esc(k)}"><td>${chk('alb|'+k,cmpA(r),'Albarán comprobado')}</td><td>${op?'▾ ':'▸ '}${fdate(r.f)}</td><td>${provTag(r.prov)}</td><td class="mono">${esc([...r.raws][0]||r.n)}</td><td>${vis(r)}</td><td>${r.partes.length?r.partes.map(p=>`#${esc(p.id)}`).join(' '):''}<div>${[...r.obraP].map(obraLink).join(', ')}</div></td><td>${r.acl?(r.obraSid?esc(obraNom(r.obraSid)):esc(EXCL[r.acl.slice(1)]||''))+' <span class="tag">a mano</span>':esc(r.obraS||'')}${r.choque?' <span class="pill up">otra obra</span>':''}${r.sinObra?' <span class="pill up">sin obra</span>':''}${r.soloParte?` <span class="pill flat">solo en parte${r.sug&&r.sug.length?' · '+r.sug.length+' parecido'+(r.sug.length>1?'s':''):''}</span>`:''}</td><td class="num">${r.i!=null?eur.format(r.i):''}</td><td>${estPill(r.estado)}${fxCell(r)}</td></tr>${op?caDet(r):''}`};
+  const sumA=rows.reduce((s,r)=>s+(r.i||0),0);
+  let cuerpo;
+  if(cv==='albaranes'){
+    cuerpo=`<section class="kpis">
+    ${kpi('data-kest','falta',CF.est==='falta','Falta en factura',n('falta'),'Reclamar o revisar',n('falta')?'var(--up)':'')}
+    ${kpi('data-kest','pendiente',CF.est==='pendiente','Pendientes de factura',n('pendiente'),'Aún no ha llegado la factura del periodo')}
+    ${kpi('data-kest','facturado',CF.est==='facturado','Facturados',n('facturado'),'Cuadran con su factura')}
+    ${kpi('data-kest','sinobra',CF.est==='sinobra','Sin obra',rowsB.filter(r=>r.sinObra).length,'Hay que asignarles obra',rowsB.some(r=>r.sinObra)?'var(--up)':'')}
+    ${kpi('data-kest','soloparte',CF.est==='soloparte','Solo en parte',rowsB.filter(r=>r.soloParte).length,'Nº apuntado que no existe; puede estar mal escrito')}
+    ${kpi('data-kest','nocomp',CF.est==='nocomp','Sin comprobar',rowsB.filter(r=>!cmpA(r)).length,rowsB.filter(r=>cmpA(r)).length+' ya comprobados')}
+  </section><p class="sub" style="margin:-10px 0 0">Pulsa un recuadro para ver solo esos albaranes (otra vez para quitarlo). Pulsa un albarán para ver su detalle.</p>
+  <section class="panel"><header><h2>Albaranes</h2><span class="sub">${rows.length} albaranes · ${eur.format(sumA)} sin IGIC · más recientes arriba</span></header><div class="tbl" style="max-height:70vh"><table><thead><tr><th title="Comprobado">✓</th><th>Fecha</th><th>Proveedor</th><th>Albarán</th><th>Visto en</th><th>Parte y obra</th><th>Obra según proveedor</th><th class="num">Importe</th><th>Estado y factura</th></tr></thead><tbody>${rows.slice(0,600).map(fila).join('')||'<tr><td colspan="9" class="empty">Ningún albarán con estos filtros.</td></tr>'}</tbody></table></div>${rows.length>600?`<p class="sub">Se muestran 600 de ${rows.length}. Afina los filtros o descarga el CSV.</p>`:''}</section>
+  ${T.otros.length&&!hayF?`<section class="panel"><header><h2>Albaranes de otros proveedores en partes</h2><span class="sub">No hay facturas suyas cargadas</span></header><div class="tbl"><table><thead><tr><th>Fecha</th><th>Parte</th><th>Obra</th><th>Albarán anotado</th></tr></thead><tbody>${T.otros.map(x=>`<tr><td>${fdate(x.p.fecha)}</td><td class="mono">#${esc(x.p.id)}</td><td>${obraLink(obraP(x.p))||esc(x.p.obra)}</td><td>${esc(x.a)}</td></tr>`).join('')}</tbody></table></div></section>`:''}`;
+  }else{
+    const abre=!!(CF.q||CF.obra);const sumF=facts.reduce((s,x)=>s+x.tot,0);
+    const det=x=>`<tr><td colspan="7" style="background:var(--soft);padding:8px 10px 12px"><div class="tbl" style="position:sticky;left:10px;max-width:min(1100px,calc(100vw - 72px))"><table><thead><tr><th>Albarán</th><th>Fecha</th><th>Obra</th><th>Visto en</th><th>Partes</th><th class="num">Líneas</th><th class="num">Importe</th></tr></thead><tbody>${x.albs.map(a=>`<tr><td class="mono"><a href="#" data-goalb="${esc(a.n)}">${esc(a.a)}</a></td><td>${a.f?fdate(a.f):''}</td><td>${a.oid?obraLink(a.oid):a.acl?esc(EXCL[a.acl.slice(1)]||''):esc(a.o||'')||'<span style="color:var(--muted)">(sin obra)</span>'}${a.sinObra?' <span class="pill up">sin obra</span>':''}<div>${obSel(a.k,a.acl||a.oid)}</div>${a.r&&a.r.choque?' <span class="pill up">otra obra</span>':''}</td><td>${a.r?vis(a.r):''}${!a.r||!a.r.src.has('parte')?' <span class="pill flat">no anotado en parte</span>':''}</td><td>${a.r&&a.r.partes.length?a.r.partes.map(p=>'#'+esc(p.id)).join(' '):''}</td><td class="num">${a.nl}</td><td class="num">${eur.format(a.i)}</td></tr><tr><td colspan="7" style="padding:0 0 10px 14px"><div class="tbl">${linTbl(a.ls)}</div></td></tr>`).join('')}${x.sinA.length?`<tr><td colspan="7"><b>Líneas sin albarán (${x.sinA.length})</b> · obra de estas líneas: ${obSel(x.dk,x.dAcl)}</td></tr><tr><td colspan="7" style="padding:0 0 10px 14px"><div class="tbl">${linTbl(x.sinA)}</div></td></tr>`:''}${!x.albs.length&&!x.sinA.length?'<tr><td colspan="7" class="empty">Factura sin líneas cargadas.</td></tr>':''}</tbody></table></div></td></tr>`;
+    cuerpo=`<section class="kpis">
+    ${kpi('data-kfest','',!CF.fest,'Facturas',factsB.length,eur0.format(factsB.reduce((s,x)=>s+x.tot,0))+' sin IGIC')}
+    ${kpi('data-kfest','#alb',false,'Albaranes facturados',factsB.reduce((s,x)=>s+x.albs.length,0),'Ver la lista de albaranes')}
+    ${kpi('data-kfest','sinparte',CF.fest==='sinparte','Con albaranes sin parte',factsB.filter(x=>x.sinParte).length,'Algún albarán no lo anotó nadie en un parte')}
+    ${kpi('data-kfest','sinalb',CF.fest==='sinalb','Con líneas sin albarán',factsB.filter(x=>x.sinA.length).length,'Facturado directamente, sin albarán')}
+    ${kpi('data-kfest','sinobra',CF.fest==='sinobra','Con algo sin obra',factsB.filter(x=>x.sinObra).length,'Albaranes o líneas sin obra asignada',factsB.some(x=>x.sinObra)?'var(--up)':'')}
+    ${kpi('data-kfest','nocomp',CF.fest==='nocomp','Sin comprobar',factsB.filter(x=>!cmpF(x)).length,factsB.filter(x=>cmpF(x)).length+' ya comprobadas')}
+  </section><p class="sub" style="margin:-10px 0 0">Pulsa un recuadro para filtrar. Pulsa una factura para ver sus albaranes y todas sus líneas.</p>${frecPanel(T)}
+  <section class="panel"><header><h2>Facturas de proveedor</h2><span class="sub">Pulsa una factura para ver sus albaranes · más recientes arriba</span></header><div class="tbl" style="max-height:75vh"><table><thead><tr><th></th><th>Fecha</th><th>Proveedor</th><th>Factura</th><th>Empresa</th><th class="num">Albaranes</th><th class="num">Base</th></tr></thead><tbody>${facts.slice(0,400).map(x=>{const op=abre||UI.cfOpen.has(x.d.id);return `<tr class="click${op?' sel':''}" data-fx="${esc(x.d.id)}"><td>${chk('fx|'+x.d.id,cmpF(x),'Factura comprobada')} ${op?'▾':'▸'}</td><td>${fdate(x.d.fecha)}</td><td>${provTag(x.d.proveedor)}</td><td class="mono">${esc(x.d.numero)}</td><td>${esc(x.d.empresa||'')}</td><td class="num">${x.albs.length}${x.sinA.length?` <span class="sub">+${x.sinA.length} sin alb.</span>`:''}${x.sinParte?` <span class="pill flat" title="Albaranes no anotados en parte">${x.sinParte} sin parte</span>`:''}${x.sinObra?` <span class="pill up">${x.sinObra} sin obra</span>`:''}</td><td class="num">${eur.format(x.tot)}</td></tr>${op?det(x):''}`}).join('')||'<tr><td colspan="7" class="empty">Ninguna factura con estos filtros.</td></tr>'}</tbody></table></div>${facts.length>400?`<p class="sub">Se muestran 400 de ${facts.length}. Afina los filtros.</p>`:''}</section>`;
+  }
+  return `<section><h1>Albaranes y facturas</h1><p class="sub">Todas las facturas de proveedor y todos los albaranes (correo, partes y los que solo aparecen en factura), con la factura de cada albarán y los albaranes de cada factura. "Falta en factura" quiere decir que ya llegó una factura posterior a la fecha del albarán y no lo incluye.</p></section>
+  ${vista}${filtros}${cuerpo}`;
+}
+function bindCotejo(){
+  document.querySelectorAll('[data-cv]').forEach(b=>b.onclick=()=>{UI.cv=b.dataset.cv;render()});
+  document.querySelectorAll('[data-cf]').forEach(i=>{const k=i.dataset.cf;if(k==='q')i.oninput=()=>{UI.cf.q=i.value;clearTimeout(bindCotejo.t);bindCotejo.t=setTimeout(()=>{const pos=i.selectionStart;render();const nn=document.querySelector('[data-cf="q"]');if(nn){nn.focus();try{nn.setSelectionRange(pos,pos)}catch(e){}}},250)};else i.onchange=()=>{UI.cf[k]=i.value;render()}});
+  document.querySelectorAll('[data-kest]').forEach(k=>{const f=()=>{UI.cf.est=UI.cf.est===k.dataset.kest?'':k.dataset.kest;render()};k.onclick=f;k.onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();f()}}});
+  document.querySelectorAll('[data-kfest]').forEach(k=>{const f=()=>{const v=k.dataset.kfest;if(v==='#alb'){UI.cv='albaranes';UI.cf.est='facturado'}else UI.cf.fest=UI.cf.fest===v?'':v;render()};k.onclick=f;k.onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();f()}}});
+  document.querySelectorAll('[data-ca]').forEach(tr=>tr.onclick=e=>{if(e.target.closest('a,input,select,label,button'))return;const k=tr.dataset.ca,s=UI.caOpen;s.has(k)?s.delete(k):s.add(k);render()});
+  document.querySelectorAll('[data-comp]').forEach(c=>{c.onclick=e=>e.stopPropagation();c.onchange=()=>{const k=c.dataset.comp,on=c.checked;W(()=>on?db.doc('comprobados/'+aclId(k)).set({k,t:new Date().toISOString()}):db.doc('comprobados/'+aclId(k)).delete(),on?'Marcado como comprobado':'Quitado el comprobado')}});
+  document.querySelectorAll('[data-aclo]').forEach(s=>s.addEventListener('click',e=>e.stopPropagation()));
+  document.querySelectorAll('[data-frec]').forEach(s=>s.onchange=()=>{const f={...(CFG.frec||{})};f[s.dataset.frec]=s.value;W(()=>db.doc('config/general').set({...CFG,frec:f}),'Frecuencia guardada')});
+  const cl=$('#cfClear');if(cl)cl.onclick=()=>{UI.cf={prov:'',emp:'',desde:'',hasta:'',obra:'',est:'',fest:'',q:''};render()};
+  document.querySelectorAll('[data-fx]').forEach(tr=>tr.onclick=e=>{if(e.target.closest('a,input,select,label,button'))return;const id=tr.dataset.fx,s=UI.cfOpen;if(UI.cf.q||UI.cf.obra){UI.cf.q='';UI.cf.obra='';s.clear();s.add(id)}else if(s.has(id))s.delete(id);else s.add(id);render()});
+  document.querySelectorAll('[data-gofx]').forEach(a=>a.onclick=e=>{e.preventDefault();const d=DOCS.find(x=>x.id===a.dataset.gofx);UI.cv='facturas';UI.cf={prov:d?d.proveedor:'',emp:'',desde:'',hasta:'',obra:'',est:'',fest:'',q:''};UI.cfOpen=new Set([a.dataset.gofx]);render();const tr=document.querySelector(`[data-fx="${CSS.escape(a.dataset.gofx)}"]`);if(tr)tr.scrollIntoView({block:'center'})});
+  document.querySelectorAll('[data-goalb]').forEach(a=>a.onclick=e=>{e.preventDefault();UI.cv='albaranes';UI.cf={...UI.cf,q:a.dataset.goalb,est:'',obra:'',desde:'',hasta:''};render()});
+  const cs=$('#cfCsv');if(cs)cs.onclick=()=>{const {rows,facts}=cotejoFiltrado();const est={falta:'Falta en factura',pendiente:'Pendiente de factura',facturado:'Facturado'};
+    if((UI.cv||'albaranes')==='albaranes'){const out=[['Fecha','Proveedor','Empresa','Albarán','Visto en','Partes','Obra según parte','Obra según proveedor','Importe','Estado','Factura']];
+      rows.forEach(r=>out.push([r.f,r.prov,r.emp||'',[...r.raws][0]||r.n,[...r.src].join(' + '),r.partes.map(p=>p.id).join(' '),[...r.obraP].map(obraNom).join(', '),r.obraS||'',r.i!=null?+r.i.toFixed(2):'',est[r.estado]+(r.choque?' (obra distinta)':''),r.fx?r.fx.doc:'']));
+      download(`albaranes-${hoy()}.csv`,toCSV(out))}
+    else{const out=[['Factura','Fecha factura','Proveedor','Empresa','Albarán','Fecha albarán','Obra','Importe','Visto en','Partes']];
+      facts.forEach(x=>{x.albs.forEach(a=>out.push([x.d.numero,x.d.fecha,x.d.proveedor,x.d.empresa||'',a.a,a.f||'',a.oid?obraNom(a.oid):a.o||'',+a.i.toFixed(2),a.r?[...a.r.src].join(' + '):'',a.r?a.r.partes.map(p=>p.id).join(' '):'']));x.sinA.forEach(l=>out.push([x.d.numero,x.d.fecha,x.d.proveedor,x.d.empresa||'','(sin albarán) '+(l.d||''),l.f||'',obraDe(l.o)?obraNom(obraDe(l.o)):l.o||'',+(l.i||0).toFixed(2),'','']))});
+      download(`facturas-albaranes-${hoy()}.csv`,toCSV(out))}};
+}
+
+
+/* facturas que faltan según la frecuencia de cada proveedor (config/general.frec) */
+const FREC0={'Diexfe|Instapalma':'quincenal','Coelca|Instapalma':'quincenal','Sonepar|Instapalma':'quincenal','Fraper|Instapalma':'quincenal','BAP|Instapalma':'mensual','Ayumar|Instapalma':'mensual','Nolasco|Instapalma':'mensual','Comercial Sastre|Instapalma':'mensual','Moeller|Instapalma':'mensual','Joel Morales|Instapalma':'mensual','José Carlos (Inst. Eléctricas)|Instapalma':'mensual'};
+function frecDe(k){const f=CFG.frec||{};return k in f?f[k]:(FREC0[k]||'')}
+function periodos(frec,desde,hasta){const out=[];let [y,m]=desde.split('-').map(Number);const [yh,mh]=hasta.split('-').map(Number);
+  while(y<yh||(y===yh&&m<=mh)){const mm=String(m).padStart(2,'0'),last=new Date(y,m,0).getDate();
+    if(frec==='quincenal'){out.push({ini:`${y}-${mm}-01`,fin:`${y}-${mm}-15`,lab:`1–15 ${MES[m-1]} ${String(y).slice(2)}`});out.push({ini:`${y}-${mm}-16`,fin:`${y}-${mm}-${last}`,lab:`16–${last} ${MES[m-1]} ${String(y).slice(2)}`})}
+    else out.push({ini:`${y}-${mm}-01`,fin:`${y}-${mm}-${last}`,lab:`${MES[m-1]} ${String(y).slice(2)}`});
+    m++;if(m>12){m=1;y++}}
+  return out}
+function faltanFacturas(T){
+  const hoyD=new Date(),lim=new Date(hoyD-12*864e5).toISOString().slice(0,10);const by=new Map();
+  for(const x of T.facts){const k=x.d.proveedor+'|'+(x.d.empresa||'Instapalma');(by.get(k)||by.set(k,[]).get(k)).push(x.d.fecha)}
+  const keys=new Set([...by.keys(),...Object.keys(FREC0),...Object.keys(CFG.frec||{})]);const out=[];
+  for(const k of [...keys].sort()){const fr=frecDe(k);const fs=(by.get(k)||[]).sort();const [prov,emp]=k.split('|');
+    const row={k,prov,emp,fr,n:fs.length,ult:fs[fs.length-1]||'',faltan:[]};
+    if(fr&&fs.length){const desde=fs[0]<'2026-01-01'?'2026-01-01':fs[0].slice(0,8)+'01';const ps=periodos(fr,desde.slice(0,7),hoyD.toISOString().slice(0,7));
+      // cada factura cubre su periodo; si se emite en los 7 primeros días del periodo y el anterior no tiene, cubre el anterior
+      const cub=new Set();for(const f of fs){const i=ps.findIndex(p=>f>=p.ini&&f<=p.fin);if(i<0)continue;const off=(new Date(f)-new Date(ps[i].ini))/864e5;if(off<7&&i>0&&!cub.has(i-1))cub.add(i-1);else cub.add(i)}
+      ps.forEach((p,i)=>{if(!cub.has(i)&&p.fin<=lim){const alb=T.rows.filter(r=>r.prov===prov&&(!r.emp||r.emp===emp)&&!r.fx&&r.f>=p.ini&&r.f<=p.fin).length;row.faltan.push({...p,alb})}})}
+    out.push(row)}
+  return out}
+function frecPanel(T){
+  const R=faltanFacturas(T).filter(r=>r.n>1||r.fr);const tot=R.reduce((s,r)=>s+r.faltan.length,0);
+  return `<details class="panel"${tot?' open':''}><summary><b>Facturas que faltan según la frecuencia (${tot})</b> <span class="sub">Cada proveedor con la frecuencia con la que factura. Cámbiala si no es la correcta.</span></summary><div class="tbl" style="margin-top:10px"><table><thead><tr><th>Proveedor</th><th>Empresa</th><th>Frecuencia</th><th class="num">Facturas</th><th>Última</th><th>Periodos sin factura</th></tr></thead><tbody>${R.map(r=>`<tr><td>${provTag(r.prov)}</td><td>${esc(r.emp)}</td><td><select data-frec="${esc(r.k)}" aria-label="Frecuencia de ${esc(r.prov)}"><option value=""${!r.fr?' selected':''}>Cuando hay compra</option><option value="quincenal"${r.fr==='quincenal'?' selected':''}>Quincenal</option><option value="mensual"${r.fr==='mensual'?' selected':''}>Mensual</option></select></td><td class="num">${r.n}</td><td>${r.ult?fdate(r.ult):''}</td><td>${!r.fr?'<span class="sub">No se comprueba</span>':r.faltan.length?r.faltan.map(p=>`<span class="pill ${p.alb?'up':'flat'}" style="margin:1px" title="${p.alb?p.alb+' albaranes sin facturar en ese periodo':'Sin albaranes conocidos en ese periodo'}">${esc(p.lab)}${p.alb?' · '+p.alb+' alb.':''}</span>`).join(' '):'<span class="pill down">Al día</span>'}</td></tr>`).join('')}</tbody></table></div><p class="sub">En rojo, periodos sin factura en los que sí hay albaranes sin facturar: casi seguro que falta una factura. En gris, periodos sin factura y sin albaranes conocidos: puede que no se comprara nada.</p></details>`;
 }
 
 function mesesPartes(){return [...new Set(PARTES.map(p=>p.fecha.slice(0,7)))].sort().reverse()}
@@ -2008,8 +2150,84 @@ function bindPagos(){
   const c=$('#pgCsv');if(c)c.onclick=()=>{const rows=[['Empresa','Cliente','Factura','Fecha de emisión','Pendiente (IGIC incl.)']];ordenaCobro(cobrarSel()).forEach(p=>rows.push([empPago(p),p.contacto||'',p.numero||'',p.fecha||'',p.pendiente||0]));download(`facturas-a-cobrar-${hoy()}.csv`,toCSV(rows))};
 }
 
+/* =====================================================================
+   DOCUMENTACIÓN DE EMPRESA (v57, 13/11/2026)
+   Colección docs_empresa: {empresa, categoria, titulo, entidad, numero, inicio, vence,
+   importe, notas, datos:[{k,v}], archivo:{id,url,nombre}, t}. PDF en el almacén de archivos.
+   ===================================================================== */
+let DOCE=[];
+const DE_EMP=['Instapalma','Kairos Supply'];
+const DE_CAT=['Seguros','Escrituras y mercantil','Certificados y acreditaciones','Hacienda y Seguridad Social','PRL','Vehículos','Contratos','Otros'];
+const deDias=v=>v?Math.round((new Date(v+'T00:00:00')-new Date(hoy()+'T00:00:00'))/864e5):null;
+function deEstado(d){const n=deDias(d.vence);if(n==null)return '<span class="pill flat">Sin vencimiento</span>';if(n<0)return `<span class="pill up">Vencido hace ${-n} d</span>`;if(n<=60)return `<span class="pill up" style="background:#fff2d6;color:#8a5a00">Vence en ${n} d</span>`;return `<span class="pill down">Vigente</span>`}
+function deForm(d){d=d||{};const emps=[...new Set([...DE_EMP,...DOCE.map(x=>x.empresa).filter(Boolean)])];
+  return `<section class="panel" id="deForm" style="border-color:var(--accent)"><header><h2>${d.id?'Editar documento':'Añadir documento'}</h2><button class="ghost" id="deCancel">Cancelar</button></header>
+  <div class="grid2" style="gap:10px">
+    <label>Empresa<br><input id="deEmp" list="deEmpL" value="${esc(d.empresa||'Instapalma')}" style="width:100%"><datalist id="deEmpL">${emps.map(e=>`<option>${esc(e)}</option>`).join('')}</datalist></label>
+    <label>Categoría<br><select id="deCat" style="width:100%">${DE_CAT.map(c=>`<option${c===(d.categoria||'Seguros')?' selected':''}>${c}</option>`).join('')}</select></label>
+    <label>Título<br><input id="deTit" value="${esc(d.titulo||'')}" placeholder="Ej.: Seguro RC Pyme Construcción" style="width:100%"></label>
+    <label>Entidad (aseguradora, notaría, organismo…)<br><input id="deEnt" value="${esc(d.entidad||'')}" style="width:100%"></label>
+    <label>Número / referencia<br><input id="deNum" value="${esc(d.numero||'')}" style="width:100%"></label>
+    <label>Importe anual (€)<br><input id="deImp" type="number" step="0.01" value="${d.importe??''}" style="width:100%"></label>
+    <label>Fecha de inicio / efecto<br><input id="deIni" type="date" value="${esc(d.inicio||'')}" style="width:100%"></label>
+    <label>Vencimiento<br><input id="deVen" type="date" value="${esc(d.vence||'')}" style="width:100%"></label>
+  </div>
+  <label style="display:block;margin-top:10px">Datos clave (uno por línea, «Campo: valor»)<br><textarea id="deDat" rows="6" style="width:100%;font:inherit">${esc((d.datos||[]).map(x=>x.k+': '+x.v).join('\n'))}</textarea></label>
+  <label style="display:block;margin-top:10px">Notas<br><textarea id="deNot" rows="2" style="width:100%;font:inherit">${esc(d.notas||'')}</textarea></label>
+  <label style="display:block;margin-top:10px">Archivo (PDF o imagen)${d.archivo?` · actual: <a href="${esc(d.archivo.url)}" target="_blank" rel="noopener">${esc(d.archivo.nombre)}</a>`:''}<br><input id="deFile" type="file" accept="application/pdf,image/*"></label>
+  <div class="row" style="margin-top:12px"><button class="primary" id="deSave" data-id="${esc(d.id||'')}">Guardar</button></div></section>`}
+function vDocEmp(){
+  const F=UI.def||(UI.def={emp:'',cat:'',q:''});const q=normTxt(F.q).trim();
+  let L=DOCE.filter(d=>(!F.emp||d.empresa===F.emp)&&(!F.cat||d.categoria===F.cat));
+  if(q){const ws=q.split(/\s+/);L=L.filter(d=>{const h=normTxt([d.titulo,d.entidad,d.numero,d.empresa,d.categoria,d.notas,...(d.datos||[]).map(x=>x.k+' '+x.v)].join(' '));return ws.every(w=>h.includes(w))})}
+  const venc=UI.view==='vencimientos';
+  const emps=[...new Set([...DE_EMP,...DOCE.map(x=>x.empresa).filter(Boolean)])];
+  const nVen=DOCE.filter(d=>deDias(d.vence)!=null&&deDias(d.vence)<0).length,nPro=DOCE.filter(d=>{const n=deDias(d.vence);return n!=null&&n>=0&&n<=60}).length;
+  const row=d=>{const open=UI.deOpen===d.id;return `<tr class="click" data-deopen="${esc(d.id)}"${open?' style="background:var(--accent-soft)"':''}><td>${esc(d.titulo||'(sin título)')}<div class="sub" style="margin:0">${esc(d.categoria||'')}${venc?' · '+esc(d.empresa||''):''}</div></td><td>${esc(d.entidad||'')}</td><td class="mono">${esc(d.numero||'')}</td><td>${d.vence?fdate(d.vence):'—'}</td><td>${deEstado(d)}</td><td class="num">${d.importe?eur.format(d.importe):''}</td><td>${d.archivo?`<a href="${esc(d.archivo.url)}" target="_blank" rel="noopener" data-stop="1">PDF</a>`:''}</td></tr>
+    ${open?`<tr><td colspan="7" style="background:var(--soft)"><div class="cards">${d.inicio?`<div class="mini"><div class="l">Inicio / efecto</div><div class="v">${fdate(d.inicio)}</div></div>`:''}${d.vence?`<div class="mini"><div class="l">Vencimiento</div><div class="v">${fdate(d.vence)}</div></div>`:''}${d.importe?`<div class="mini"><div class="l">Importe</div><div class="v">${eur.format(d.importe)}</div></div>`:''}</div>
+      ${(d.datos||[]).length?`<table style="margin-top:10px"><tbody>${d.datos.map(x=>`<tr><td style="width:34%;color:var(--muted)">${esc(x.k)}</td><td>${esc(x.v)}</td></tr>`).join('')}</tbody></table>`:''}
+      ${d.notas?`<p class="note" style="margin-top:10px;white-space:pre-wrap">${esc(d.notas)}</p>`:''}
+      <div class="row" style="margin-top:10px">${d.archivo?`<a href="${esc(d.archivo.url)}" target="_blank" rel="noopener"><button class="primary">Abrir ${esc(d.archivo.nombre)}</button></a>`:'<span class="sub">Sin archivo adjunto</span>'}<button data-deedit="${esc(d.id)}">Editar</button><button class="ghost" data-dedel="${esc(d.id)}">Borrar</button></div></td></tr>`:''}`};
+  const head='<thead><tr><th>Documento</th><th>Entidad</th><th>Número</th><th>Vence</th><th>Estado</th><th class="num">Importe</th><th></th></tr></thead>';
+  let body='';
+  if(venc){const vs=L.filter(d=>d.vence).sort((a,b)=>a.vence<b.vence?-1:1);body=vs.length?`<section class="panel"><header><h2>Vencimientos</h2><span class="sub">Ordenados por fecha; en amarillo lo que vence en 60 días o menos</span></header><div class="tbl"><table>${head}<tbody>${vs.map(row).join('')}</tbody></table></div></section>`:'<div class="panel empty">Ningún documento tiene fecha de vencimiento.</div>'}
+  else{const by=new Map();L.forEach(d=>{const k=d.empresa||'(sin empresa)';if(!by.has(k))by.set(k,new Map());const c=by.get(k);const cc=d.categoria||'Otros';if(!c.has(cc))c.set(cc,[]);c.get(cc).push(d)});
+    body=by.size?[...by.entries()].sort().map(([e,cs])=>`<section class="panel"><header><h2>${esc(e)}</h2><span class="sub">${[...cs.values()].reduce((s,x)=>s+x.length,0)} documentos</span></header>${DE_CAT.filter(c=>cs.has(c)).map(c=>`<h3 style="margin:12px 0 4px">${c}</h3><div class="tbl"><table>${head}<tbody>${cs.get(c).sort((a,b)=>(a.titulo||'').localeCompare(b.titulo||'')).map(row).join('')}</tbody></table></div>`).join('')}</section>`).join(''):`<div class="panel empty">${DOCE.length?'Ningún documento coincide con los filtros.':'Todavía no hay documentos. Pulsa «Añadir documento».'}</div>`}
+  return `<section class="row" style="justify-content:space-between"><div><h1>Documentación de empresa</h1><p class="sub">Pólizas, escrituras, certificados y demás documentos de cada empresa del grupo, con su PDF y sus fechas.</p></div><button class="primary" id="deAdd">Añadir documento</button></section>
+  ${UI.deEdit!==undefined&&UI.deEdit!==null?deForm(UI.deEdit==='new'?null:DOCE.find(x=>x.id===UI.deEdit)):''}
+  <section class="kpis"><div class="kpi"><div class="l">Documentos</div><div class="v">${DOCE.length}</div><div class="n">${emps.filter(e=>DOCE.some(d=>d.empresa===e)).length} empresas</div></div>
+  <div class="kpi"><div class="l">Vencidos</div><div class="v" style="color:${nVen?'var(--up)':'inherit'}">${nVen}</div></div>
+  <div class="kpi"><div class="l">Vencen en 60 días</div><div class="v">${nPro}</div></div></section>
+  <section class="panel row"><input type="search" id="deQ" placeholder="Buscar: AXA, 82734961, escritura…" value="${esc(F.q)}" style="flex:1 1 240px;min-width:0">
+  <select id="deFE"><option value="">Todas las empresas</option>${emps.map(e=>`<option${e===F.emp?' selected':''}>${esc(e)}</option>`).join('')}</select>
+  <select id="deFC"><option value="">Todas las categorías</option>${DE_CAT.map(c=>`<option${c===F.cat?' selected':''}>${c}</option>`).join('')}</select></section>
+  ${body}`;
+}
+function bindDocEmp(){
+  const F=UI.def;
+  const q=$('#deQ');if(q)q.oninput=()=>{F.q=q.value;clearTimeout(bindDocEmp.t);bindDocEmp.t=setTimeout(()=>{const p=q.selectionStart;render();const n=$('#deQ');n.focus();n.setSelectionRange(p,p)},200)};
+  const fe=$('#deFE');if(fe)fe.onchange=()=>{F.emp=fe.value;render()};
+  const fc=$('#deFC');if(fc)fc.onchange=()=>{F.cat=fc.value;render()};
+  const add=$('#deAdd');if(add)add.onclick=()=>{UI.deEdit='new';render();const f=$('#deForm');if(f)f.scrollIntoView({block:'start',behavior:'smooth'})};
+  const cn=$('#deCancel');if(cn)cn.onclick=()=>{UI.deEdit=null;render()};
+  document.querySelectorAll('[data-deopen]').forEach(r=>r.onclick=e=>{if(e.target.closest('[data-stop]'))return;UI.deOpen=UI.deOpen===r.dataset.deopen?null:r.dataset.deopen;render()});
+  document.querySelectorAll('[data-deedit]').forEach(b=>b.onclick=()=>{UI.deEdit=b.dataset.deedit;render();const f=$('#deForm');if(f)f.scrollIntoView({block:'start',behavior:'smooth'})});
+  document.querySelectorAll('[data-dedel]').forEach(b=>b.onclick=()=>{if(dosPasos(b,'Pulsa otra vez para borrarlo'))W(()=>db.doc('docs_empresa/'+b.dataset.dedel).delete(),'Documento borrado')});
+  const sv=$('#deSave');if(sv)sv.onclick=async()=>{
+    const v=id=>($('#'+id).value||'').trim();const tit=v('deTit');if(!tit){toast('Pon un título');$('#deTit').focus();return}
+    const datos=v('deDat').split('\n').map(l=>{const i=l.indexOf(':');return i>0?{k:l.slice(0,i).trim(),v:l.slice(i+1).trim()}:l.trim()?{k:'Nota',v:l.trim()}:null}).filter(Boolean);
+    const id=sv.dataset.id||(slug(v('deEmp')+' '+v('deCat')+' '+tit+' '+v('deNum'))+'-'+Date.now().toString(36));
+    const prev=DOCE.find(x=>x.id===id)||{};
+    const rec={empresa:v('deEmp'),categoria:v('deCat'),titulo:tit,entidad:v('deEnt'),numero:v('deNum'),inicio:v('deIni'),vence:v('deVen'),importe:parseFloat(v('deImp'))||null,notas:v('deNot'),datos,archivo:prev.archivo||null,t:new Date().toISOString()};
+    const file=$('#deFile').files&&$('#deFile').files[0];
+    sv.disabled=true;
+    if(file){let as=null;try{as=await claude.use('assets')}catch(e){as=null}if(!as){toast('Este visor no permite subir archivos.');sv.disabled=false;return}
+      toast('Subiendo '+file.name+'…');try{const r=await as.upload(file);rec.archivo={id:r.id,url:r.url,nombre:file.name}}catch(e){toast('No se ha podido subir: '+(e&&(e.message||e.code)||'error'));sv.disabled=false;return}}
+    await W(()=>db.doc('docs_empresa/'+id).set(rec),'Documento guardado');UI.deEdit=null;UI.deOpen=id;render()};
+}
+
 function recompute(){if(!DOCS.length)return render();build();SUG=null;render()}
-const SUBS={compras:[['resumen','Resumen'],['articulos','Artículos'],['comparar','Comparar'],['mensual','Comparativo mensual'],['informe','Informe']],obras:[['obras','Coste por obra'],['archivadas','Obras archivadas'],['sinprecio','Artículos sin precio'],['partes','Partes de trabajo'],['facturas','Relaciones valoradas'],['cotejo','Albaranes y facturas'],['aclarar','Por aclarar'],['nombres','Nombres de obra']],personal:[['horas','Horas'],['resumenmes','Resumen fin de mes'],['operarios','Operarios'],['prl','PRL']],recursos:[['vehiculos','Vehículos'],['herramienta','Herramienta'],['stock','Stock de almacén']],pedidos:[['pendientes','Pendientes'],['servidos','Servidos / gestionados'],['todos','Todos los pedidos']],facturas:[['cobrar','A cobrar']]};
+const SUBS={compras:[['resumen','Resumen'],['articulos','Artículos'],['comparar','Comparar'],['mensual','Comparativo mensual'],['informe','Informe']],obras:[['obras','Coste por obra'],['archivadas','Obras archivadas'],['sinprecio','Artículos sin precio'],['partes','Partes de trabajo'],['facturas','Relaciones valoradas'],['cotejo','Albaranes y facturas'],['aclarar','Por aclarar'],['nombres','Nombres de obra']],personal:[['horas','Horas'],['resumenmes','Resumen fin de mes'],['operarios','Operarios'],['prl','PRL']],recursos:[['vehiculos','Vehículos'],['herramienta','Herramienta'],['stock','Stock de almacén']],pedidos:[['pendientes','Pendientes'],['servidos','Servidos / gestionados'],['todos','Todos los pedidos']],facturas:[['cobrar','A cobrar']],docs:[['documentos','Documentos'],['vencimientos','Vencimientos']]};
 function render(){
   document.querySelectorAll('nav.tabs a').forEach(a=>{if(a.dataset.a===UI.area)a.setAttribute('aria-current','page');else a.removeAttribute('aria-current')});
   $('#sub').innerHTML=SUBS[UI.area].map(([v,t])=>`<a href="#${UI.area}/${v}"${v===UI.view?' aria-current="page"':''}>${t}</a>`).join('');
@@ -2024,7 +2242,8 @@ function render(){
     if(k==='(vacío)'&&b.dataset.sure!=='1'){b.dataset.sure='1';b.textContent='¿Las '+n+'? Pulsa otra vez';return}
     const t=new Date().toISOString();const txt=[its.length?its.length+(its.length===1?' compra':' compras'):'',ps.length?ps.length+(ps.length===1?' parte':' partes'):''].filter(Boolean).join(' y ');
     W(()=>Promise.all([...its.map(x=>{const prev=ACL.get(x.k)||{};return db.doc('aclaraciones/'+aclId(x.k)).set({k:x.k,nota:prev.nota||'',t,obra:null,excluir:'no',lin:prev.lin||null})}),...ps.map(p=>db.doc('partes/'+p.id).update({noImputar:true,editado:hoy()}))]),'No imputar: '+txt)});
-  document.querySelectorAll('[data-nomv]').forEach(b=>b.onclick=()=>{UI.nomv=UI.nomv===b.dataset.nomv?null:b.dataset.nomv;render()});if(UI.view==='pagos')bindPagos();bindFact();if(UI.view==='partes')bindPartes();window.scrollTo(0,y);return}
+  document.querySelectorAll('[data-nomv]').forEach(b=>b.onclick=()=>{UI.nomv=UI.nomv===b.dataset.nomv?null:b.dataset.nomv;render()});if(UI.view==='pagos')bindPagos();bindFact();if(UI.view==='partes')bindPartes();if(UI.view==='cotejo')bindCotejo();window.scrollTo(0,y);return}
+  if(UI.area==='docs'){app.innerHTML=vDocEmp();bindDocEmp();window.scrollTo(0,y);return}
   if(UI.area==='facturas'){app.innerHTML=vCobrar();bindPagos();window.scrollTo(0,y);return}
   if(UI.area==='pedidos'){app.innerHTML=vPedidos();bindPedidos();window.scrollTo(0,y);return}
   if(UI.area==='recursos'){app.innerHTML=UI.view==='herramienta'?vHerr():UI.view==='stock'?vStock():vVeh();bindRec();window.scrollTo(0,y);return}
@@ -2113,8 +2332,8 @@ route();
   const snap=(c,fn)=>db.collection(c).onSnapshot(s=>{fn(s.docs.map(d=>({id:d.id,...d.data()})));OX=null;_HP=null;render()},()=>{});
   snap('partes',x=>{PARTES=x.filter(p=>!p.duplicado);PDUP=x.filter(p=>p.duplicado)});snap('almacen',x=>ALM=x);snap('resumenes',x=>RES=x);snap('obras',x=>OBRAS=x);snap('personal',x=>PERS=x);
   snap('facturas_obra',x=>FACT=x);snap('destinatarios',x=>{DEST=new Map(x.map(d=>[d.id,d]))});snap('recursos',x=>{REC=Object.fromEntries(x.map(d=>[d.id,d]))});snap('precios_stock',x=>PSTK=new Map(x.map(d=>[d.id,d])));
-  snap('aclaraciones',x=>{ACL=new Map(x.map(d=>[d.k,d]))});
-  snap('pedidos',x=>PEDS=x);snap('pagos',x=>PAGOS=x);snap('prl',x=>PRL=x);snap('prl_avisos',x=>PRLAV=x);
+  snap('aclaraciones',x=>{ACL=new Map(x.map(d=>[d.k,d]))});snap('comprobados',x=>{COMP=new Map(x.map(d=>[d.k,d]))});
+  snap('pedidos',x=>PEDS=x);snap('pagos',x=>PAGOS=x);snap('prl',x=>PRL=x);snap('prl_avisos',x=>PRLAV=x);snap('docs_empresa',x=>DOCE=x);
   snap('config',x=>{CFG=(x.find(d=>d.id==='general'))||{}});
 })();
 })();

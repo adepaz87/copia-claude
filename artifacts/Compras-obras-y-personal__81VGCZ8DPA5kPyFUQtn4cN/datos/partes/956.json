@@ -1,0 +1,20 @@
+{
+  "albs": [],
+  "cliente": "INSTAPALMA",
+  "desc": "Levantar paredes de piedra alrededor de arqueta para hormigonar , abrir agujero a arqueta para pasar triturbo, hormigonar tubos de zanja",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-11-12",
+  "horas": 8,
+  "id": "956",
+  "obra": "ZANJA COVALLE",
+  "ops": [
+    {
+      "h": 8,
+      "n": "Luigi"
+    }
+  ],
+  "origen": "dashboard",
+  "restante": "5",
+  "stock": []
+}

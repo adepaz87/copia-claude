@@ -1,0 +1,24 @@
+{
+  "albs": [],
+  "cliente": "COVALLE",
+  "desc": "Realizar entubados oficinas planta alta Colocación cajas mecanismo en pladur oficinas planta alta Se empieza enhebrar circuitos de alumbrado y fuerza oficinas planta alta Limpiar zonas de trabajo",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-11-13",
+  "horas": 16,
+  "id": "965",
+  "obra": "NAVE COOPERATIVA COVALLE",
+  "ops": [
+    {
+      "h": 8,
+      "n": "Petter"
+    },
+    {
+      "h": 8,
+      "n": "Jonathan Rodríguez"
+    }
+  ],
+  "origen": "dashboard",
+  "restante": "Indefinido",
+  "stock": []
+}

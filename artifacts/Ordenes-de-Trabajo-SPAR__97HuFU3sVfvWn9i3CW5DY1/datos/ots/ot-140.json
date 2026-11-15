@@ -1,5 +1,5 @@
 {
-  "actualizada": "2026-11-10T21:42:28.213Z",
+  "actualizada": "2026-11-12T16:14:00Z",
   "asignadaEn": "2026-11-10T21:42:24.701Z",
   "avisadoWa": "2026-11-10T21:42:28.213Z",
   "aviso": "",
@@ -7,19 +7,34 @@
   "creada": "2026-11-10T20:20:00Z",
   "descripcion": "Mantenimiento mensual del grupo electrógeno (noviembre 2026).",
   "empresa": "Tomás Barreto",
-  "estado": "asignada",
+  "estado": "terminada",
   "fechaAviso": "2026-11-10",
   "historial": [
     "10/11/2026 · Creada como OT periódica mensual de mantenimiento de GE (noviembre 2026)",
     "10/11/2026 21:42 · Asignada a Toño Guardia",
-    "10/11/2026 21:42 · Asignación: Correo enviado a TBSA · WhatsApp a Toño Guardia programado · WhatsApp a Fernando programado"
+    "10/11/2026 21:42 · Asignación: Correo enviado a TBSA · WhatsApp a Toño Guardia programado · WhatsApp a Fernando programado",
+    "12/11/2026 15:36 · Toño avisa por WhatsApp: «OT 140 resuelto» · Estado: Terminada",
+    "12/11/2026 16:14 · Cierre: correo enviado a TBSA · WhatsApp a Fernando programado",
+    "12/11/2026 21:30 · Parte de revisión del GE guardado (Documentación) y enviado por correo a Fernando, Raquel, José Antonio y Alberto"
   ],
   "informado": true,
-  "notas": "OT periódica: mantenimiento de grupo electrógeno, se repite cada mes. Nº OT provisional: confirmar o cambiar.",
+  "notas": "OT periódica: mantenimiento de grupo electrógeno, se repite cada mes. Resuelta por Toño Guardia el 12/11 a las 15:36 (WhatsApp «OT 140 resuelto»).",
   "operario": "Toño Guardia",
   "ot": 140,
+  "parteGE": {
+    "archivo": "Parte_GE_OT140_SPAR_Triana_2026-11-12.pdf",
+    "asset": "5ec2fda96955766f9aea15a4526b1e3b",
+    "docId": "doc-parte-ge-ot140-2026-11",
+    "equipo": "CAROD 925600868FR1L",
+    "fecha": "2026-11-12",
+    "fuente": "Dashboard Instapalma /mantenimientos-ge",
+    "horas": "1,6",
+    "resultado": "OK (13/13 comprobaciones)",
+    "url": "/_blob/5ec2fda96955766f9aea15a4526b1e3b"
+  },
   "periodica": "GE mensual",
   "prioridad": "Media",
   "solicitante": "Periódica mensual",
+  "terminadaEn": "2026-11-12T15:36:00Z",
   "tipo": "MANTENIMIENTO"
 }

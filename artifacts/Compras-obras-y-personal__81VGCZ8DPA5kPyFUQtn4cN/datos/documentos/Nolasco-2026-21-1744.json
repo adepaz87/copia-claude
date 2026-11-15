@@ -1,0 +1,22 @@
+{
+  "empresa": "Instapalma",
+  "fecha": "2026-11-10",
+  "lineas": [
+    {
+      "a": "2026/01/000501",
+      "d": "KIT JUEGO DE 3 ALICATES (alicates VDE, tijeras electricista, 7 destornilladores VDE) MILWAUKEE",
+      "dto": "",
+      "f": "2026-11-10",
+      "i": 107.9,
+      "o": "GOLLO",
+      "pn": 107.9,
+      "pt": 107.9,
+      "q": 1,
+      "r": "@KIT JUEGO DE 3 A"
+    }
+  ],
+  "numero": "2026/21/1744",
+  "origen": "Gmail",
+  "proveedor": "Nolasco",
+  "tipo": "factura"
+}

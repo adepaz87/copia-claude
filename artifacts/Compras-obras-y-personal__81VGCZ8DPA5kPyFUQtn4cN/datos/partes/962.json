@@ -1,0 +1,23 @@
+{
+  "albs": [],
+  "cliente": "TOMÁS BARRETO SA",
+  "desc": "Realizado de toma nueva ubicación rebanadora de pan, desplazar cableado,conexionado y funcionando",
+  "devol": [],
+  "estado": "TERMINADO",
+  "fecha": "2026-11-13",
+  "horas": 3,
+  "id": "962",
+  "obra": "SPAR MEDEROS",
+  "ops": [
+    {
+      "h": 1.5,
+      "n": "Toño"
+    },
+    {
+      "h": 1.5,
+      "n": "Manuel"
+    }
+  ],
+  "origen": "dashboard",
+  "stock": []
+}

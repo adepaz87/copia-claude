@@ -1,0 +1,24 @@
+{
+  "albs": [],
+  "cliente": "EXTINPALMA S.L.",
+  "desc": "Instalación y montaje de bases para detectores de incendio, colocación de detectores, pulsadores manuales de alarma y sirenas interiores. Preparación, acondicionamiento e identificación de conductores, ejecución de conexiones eléctricas y conexionado de los distintos dispositivos al sistema de detección y alarma de incendios. ( Zona parking.2 y varios)",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-11-12",
+  "horas": 16,
+  "id": "959",
+  "obra": "HIPERDINO EL PUENTE",
+  "ops": [
+    {
+      "h": 8,
+      "n": "Eloy"
+    },
+    {
+      "h": 8,
+      "n": "Rafa"
+    }
+  ],
+  "origen": "dashboard",
+  "restante": "Indefinido",
+  "stock": []
+}

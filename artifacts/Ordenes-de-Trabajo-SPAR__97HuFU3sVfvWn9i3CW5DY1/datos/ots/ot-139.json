@@ -14,12 +14,24 @@
     "10/11/2026 21:42 · Asignada a Toño Guardia",
     "10/11/2026 21:42 · Asignación: Correo enviado a TBSA · WhatsApp a Toño Guardia programado · WhatsApp a Fernando programado",
     "12/11/2026 13:39 · Toño avisa por WhatsApp: «OT 139 resuelto» · Estado: Terminada",
-    "12/11/2026 14:15 · Cierre: correo enviado a TBSA · WhatsApp a Fernando programado"
+    "12/11/2026 14:15 · Cierre: correo enviado a TBSA · WhatsApp a Fernando programado",
+    "12/11/2026 21:30 · Parte de revisión del GE guardado (Documentación) y enviado por correo a Fernando, Raquel, José Antonio y Alberto"
   ],
   "informado": true,
   "notas": "OT periódica: mantenimiento de grupo electrógeno, se repite cada mes. Resuelta por Toño Guardia el 12/11 a las 13:39 (WhatsApp «OT 139 resuelto»).",
   "operario": "Toño Guardia",
   "ot": 139,
+  "parteGE": {
+    "archivo": "Parte_GE_OT139_SPAR_Mederos_2026-11-12.pdf",
+    "asset": "1753d2ee4b101ac8d0e8c4ba7d8fd4a9",
+    "docId": "doc-parte-ge-ot139-2026-11",
+    "equipo": "OLIMPYAN CATERPILLAR GEP 200-4",
+    "fecha": "2026-11-12",
+    "fuente": "Dashboard Instapalma /mantenimientos-ge",
+    "horas": "59,5",
+    "resultado": "OK (13/13 comprobaciones)",
+    "url": "/_blob/1753d2ee4b101ac8d0e8c4ba7d8fd4a9"
+  },
   "periodica": "GE mensual",
   "prioridad": "Media",
   "solicitante": "Periódica mensual",

@@ -14,12 +14,24 @@
     "10/11/2026 21:42 · Asignada a Toño Guardia",
     "10/11/2026 21:42 · Asignación: Correo enviado a TBSA · WhatsApp a Toño Guardia programado · WhatsApp a Fernando programado",
     "11/11/2026 15:37 · Toño avisa por WhatsApp: «OT 138 resuelto» · Estado: Terminada",
-    "11/11/2026 16:14 · Cierre: correo enviado a TBSA · WhatsApp a Fernando programado"
+    "11/11/2026 16:14 · Cierre: correo enviado a TBSA · WhatsApp a Fernando programado",
+    "12/11/2026 21:30 · Parte de revisión del GE guardado (Documentación) y enviado por correo a Fernando, Raquel, José Antonio y Alberto"
   ],
   "informado": true,
   "notas": "OT periódica: mantenimiento mensual del grupo electrógeno de SPAR El Paso (noviembre 2026). Hecho por Toño Guardia el 11/11 a las 15:37.",
   "operario": "Toño Guardia",
   "ot": 138,
+  "parteGE": {
+    "archivo": "Parte_GE_OT138_SPAR_El_Paso_2026-11-11.pdf",
+    "asset": "d4328cdc00a0f737902a87f9e2ef8a7a",
+    "docId": "doc-parte-ge-ot138-2026-11",
+    "equipo": "OLIMPYAN CATERPILLAR GEP. 150-1",
+    "fecha": "2026-11-11",
+    "fuente": "Dashboard Instapalma /mantenimientos-ge",
+    "horas": "40,6",
+    "resultado": "OK (13/13 comprobaciones)",
+    "url": "/_blob/d4328cdc00a0f737902a87f9e2ef8a7a"
+  },
   "periodica": "GE mensual",
   "prioridad": "Media",
   "solicitante": "Periódica mensual",

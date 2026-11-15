@@ -1,0 +1,32 @@
+{
+  "albs": [
+    "Instapalma 202611-0232"
+  ],
+  "cliente": "COVALLE",
+  "desc": "Colocación cajas registro y entubado en oficinas,baños,archivo,cocina planta alta Limpiar zonas de registro",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-11-12",
+  "horas": 22,
+  "id": "960",
+  "obra": "NAVE COOPERATIVA COVALLE",
+  "ops": [
+    {
+      "h": 11,
+      "n": "Petter"
+    },
+    {
+      "h": 11,
+      "n": "Jonathan Rodríguez"
+    }
+  ],
+  "origen": "dashboard",
+  "restante": "Indefinido",
+  "stock": [
+    {
+      "d": "Clavos pistola Wurth 3,0x27",
+      "q": 150,
+      "u": ""
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "albs": [],
+  "cliente": "RAICO",
+  "desc": "Identificación de circuitos Desmontaje de líneas de alumbrado, fuerza y datos Desmontaje de cuadro antiguo Realización de cuadro Desconectar acometidas Montaje cuadro nuevo y conectarlo",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-11-12",
+  "horas": 16,
+  "id": "957",
+  "obra": "CAFÉ DON MANUEL S/C DE LA PALMA",
+  "ops": [
+    {
+      "h": 8,
+      "n": "Jorge Corujo"
+    },
+    {
+      "h": 8,
+      "n": "Juan"
+    }
+  ],
+  "origen": "dashboard",
+  "restante": "Indefinido",
+  "stock": [
+    {
+      "d": "punteras de 10mm",
+      "q": 4,
+      "u": ""
+    },
+    {
+      "d": "punteras de 6mm",
+      "q": 18,
+      "u": ""
+    },
+    {
+      "d": "punteras de 2,5mm",
+      "q": 8,
+      "u": ""
+    },
+    {
+      "d": "punteras dobles de 6mm",
+      "q": 4,
+      "u": ""
+    },
+    {
+      "d": "cable de 1x6mm",
+      "q": 3,
+      "u": "m"
+    }
+  ]
+}

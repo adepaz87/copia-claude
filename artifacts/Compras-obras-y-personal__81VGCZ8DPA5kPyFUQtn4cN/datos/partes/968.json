@@ -1,0 +1,47 @@
+{
+  "albs": [
+    "Sonepar 309006945"
+  ],
+  "cliente": "ÁRIDOS RIACHUELO SAU",
+  "desc": "Instalación montaje de horometro en tablero control planta molino abrir hueco conexionado,funcionando. Avería Generador 1000KVA, fallo de motor generador eléctrico cables bornes de motor fogueteados (pendiente)",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-11-13",
+  "horas": 8,
+  "id": "968",
+  "obra": "PLANTA ÁRIDOS GENERADOR",
+  "ops": [
+    {
+      "h": 4,
+      "n": "Toño"
+    },
+    {
+      "h": 4,
+      "n": "Manuel"
+    }
+  ],
+  "origen": "dashboard",
+  "restante": "Día",
+  "stock": [
+    {
+      "d": "Cable 1x1,5mm.",
+      "q": 2,
+      "u": "m"
+    },
+    {
+      "d": "punteras simples 1,5mm",
+      "q": 4,
+      "u": ""
+    },
+    {
+      "d": "punteras dobles 2,5",
+      "q": 2,
+      "u": ""
+    },
+    {
+      "d": "bridas 2,5x100mm.",
+      "q": 10,
+      "u": ""
+    }
+  ]
+}

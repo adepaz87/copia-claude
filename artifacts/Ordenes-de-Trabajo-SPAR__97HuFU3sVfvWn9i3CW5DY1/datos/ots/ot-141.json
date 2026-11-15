@@ -14,12 +14,24 @@
     "10/11/2026 21:42 · Asignada a Toño Guardia",
     "10/11/2026 21:42 · Asignación: Correo enviado a TBSA · WhatsApp a Toño Guardia programado · WhatsApp a Fernando programado",
     "12/11/2026 11:27 · Toño avisa por WhatsApp: «OT 141 resuelto» · Estado: Terminada",
-    "12/11/2026 12:14 · Cierre: correo enviado a TBSA · WhatsApp a Fernando programado"
+    "12/11/2026 12:14 · Cierre: correo enviado a TBSA · WhatsApp a Fernando programado",
+    "12/11/2026 21:30 · Parte de revisión del GE guardado (Documentación) y enviado por correo a Fernando, Raquel, José Antonio y Alberto"
   ],
   "informado": true,
   "notas": "OT periódica: mantenimiento de grupo electrógeno, se repite cada mes. Resuelta por Toño Guardia el 12/11 a las 11:27 (WhatsApp «OT 141 resuelto»).",
   "operario": "Toño Guardia",
   "ot": 141,
+  "parteGE": {
+    "archivo": "Parte_GE_OT141_Central_Logistica_Los_Guinchos_2026-11-12.pdf",
+    "asset": "b1f9e228d3451ec69349cc285e6a17b5",
+    "docId": "doc-parte-ge-ot141-2026-11",
+    "equipo": "OLIMPYAN CATERPILLAR GEH.250/4",
+    "fecha": "2026-11-12",
+    "fuente": "Dashboard Instapalma /mantenimientos-ge",
+    "horas": "141,5",
+    "resultado": "OK (13/13 comprobaciones)",
+    "url": "/_blob/b1f9e228d3451ec69349cc285e6a17b5"
+  },
   "periodica": "GE mensual",
   "prioridad": "Media",
   "solicitante": "Periódica mensual",

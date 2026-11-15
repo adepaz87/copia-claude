@@ -1,0 +1,21 @@
+{
+  "albs": [],
+  "cliente": "CASA LA VERADA",
+  "desc": "Entubar colocar caja",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-11-12",
+  "horas": 6,
+  "id": "958",
+  "nota": "En el campo Albaranes del dashboard pone \"Goyo-3h\"; no se ha sumado.",
+  "obra": "CASA",
+  "ops": [
+    {
+      "h": 6,
+      "n": "Goyo"
+    }
+  ],
+  "origen": "dashboard",
+  "restante": "No",
+  "stock": []
+}

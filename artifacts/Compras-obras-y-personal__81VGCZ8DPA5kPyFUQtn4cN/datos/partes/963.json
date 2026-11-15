@@ -1,0 +1,23 @@
+{
+  "albs": [],
+  "cliente": "TOMÁS BARRETO SA",
+  "desc": "Realizado de mantenimientos preventivos en Instalaciones",
+  "devol": [],
+  "estado": "TERMINADO",
+  "fecha": "2026-11-13",
+  "horas": 5,
+  "id": "963",
+  "obra": "SPAR MEDEROS",
+  "ops": [
+    {
+      "h": 2.5,
+      "n": "Toño"
+    },
+    {
+      "h": 2.5,
+      "n": "Manuel"
+    }
+  ],
+  "origen": "dashboard",
+  "stock": []
+}

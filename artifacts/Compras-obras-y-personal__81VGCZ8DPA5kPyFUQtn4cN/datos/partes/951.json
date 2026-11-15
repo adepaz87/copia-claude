@@ -1,0 +1,23 @@
+{
+  "albs": [],
+  "cliente": "EL SASTRE",
+  "desc": "Avería humedades en cuadro general limpieza secados, revisión su cuadros.limpieza secado subcuadro zona compresores. Funcionando.",
+  "devol": [],
+  "estado": "TERMINADO",
+  "fecha": "2026-11-12",
+  "horas": 4,
+  "id": "951",
+  "obra": "EL SASTRE MIRCA",
+  "ops": [
+    {
+      "h": 2,
+      "n": "Toño"
+    },
+    {
+      "h": 2,
+      "n": "Manuel"
+    }
+  ],
+  "origen": "dashboard",
+  "stock": []
+}

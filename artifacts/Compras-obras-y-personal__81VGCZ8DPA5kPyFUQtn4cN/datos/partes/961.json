@@ -1,0 +1,32 @@
+{
+  "albs": [],
+  "cliente": "CONSTRUCCIONES DOMINGO",
+  "desc": "Enebrar alumbrado y fuerza viviendas 1,2,3 planta 2 Enebrar fuerza y alumbrado viviendas 5,7 y 7 planta 3",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-11-12",
+  "horas": 40.5,
+  "id": "961",
+  "obra": "EDIFICIO DOMINGO EL PASO",
+  "ops": [
+    {
+      "h": 13.5,
+      "n": "Aythami"
+    },
+    {
+      "h": 11,
+      "n": "Riki"
+    },
+    {
+      "h": 8,
+      "n": "Joel"
+    },
+    {
+      "h": 8,
+      "n": "Junior"
+    }
+  ],
+  "origen": "dashboard",
+  "restante": "Indefinido",
+  "stock": []
+}

@@ -1,0 +1,25 @@
+{
+  "actualizada": "2026-11-13T09:27:00Z",
+  "asignadaEn": "2026-11-13T09:22:10.304Z",
+  "avisadoWa": "2026-11-13T09:22:13.632Z",
+  "aviso": "",
+  "centro": "Áridos El Riachuelo",
+  "creada": "2026-11-13T09:20:00Z",
+  "descripcion": "Revisión del grupo electrógeno de 1000 kVA.",
+  "empresa": "Áridos El Riachuelo",
+  "estado": "asignada",
+  "fechaAviso": "2026-11-13",
+  "historial": [
+    "13/11/2026 09:20 · Creada a petición de Alberto: revisión GE 1000 kVA",
+    "13/11/2026 09:22 · Asignada a Toño Guardia",
+    "13/11/2026 09:22 · Asignación: Correo enviado a TBSA · WhatsApp a Toño Guardia programado · WhatsApp a Fernando programado",
+    "13/11/2026 09:27 · Correo de asignación reenviado a José Gabriel (jgbc@) y José Antonio. El aviso a Fernando y Raquel fue un error: los de Áridos no les corresponden"
+  ],
+  "informado": true,
+  "notas": "Avisos a José Gabriel Barreto Cruz (jgbc@tomasbarretosa.com, 696987654), no a Fernando ni Raquel. Al terminar, adjuntar el parte de revisión del GE del Dashboard.",
+  "operario": "Toño Guardia",
+  "ot": 163,
+  "prioridad": "Media",
+  "solicitante": "Alberto",
+  "tipo": "MANTENIMIENTO"
+}

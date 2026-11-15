@@ -1,0 +1,23 @@
+{
+  "albs": [],
+  "cliente": "TOMAS BARRETO SA",
+  "desc": "Revisión grupo mediciones niveles y arranque en vacío",
+  "devol": [],
+  "estado": "TERMINADO",
+  "fecha": "2026-11-12",
+  "horas": 3,
+  "id": "954",
+  "obra": "SPAR TRIANA",
+  "ops": [
+    {
+      "h": 1.5,
+      "n": "Toño"
+    },
+    {
+      "h": 1.5,
+      "n": "Manuel"
+    }
+  ],
+  "origen": "dashboard",
+  "stock": []
+}

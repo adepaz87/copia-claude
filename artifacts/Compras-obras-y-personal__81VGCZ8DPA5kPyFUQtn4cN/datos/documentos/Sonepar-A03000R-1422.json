@@ -1,0 +1,25 @@
+{
+  "abono": true,
+  "empresa": "Instapalma",
+  "fecha": "2026-09-30",
+  "lineas": [
+    {
+      "a": "309005755",
+      "d": "CAJA IDROBOX-M IP55 4MOD.MATIX",
+      "dto": "45,00",
+      "f": "2026-09-30",
+      "fab": "25504",
+      "i": -22.83,
+      "m": "BTICINO",
+      "o": "MATADERO INSULAR",
+      "pn": 11.415,
+      "pt": 20.75,
+      "q": -2,
+      "r": "127329"
+    }
+  ],
+  "numero": "A03000R-1422",
+  "origen": "Gmail",
+  "proveedor": "Sonepar",
+  "tipo": "factura"
+}

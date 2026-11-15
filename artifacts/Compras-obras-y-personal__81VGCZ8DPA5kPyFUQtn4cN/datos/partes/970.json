@@ -1,0 +1,22 @@
+{
+  "albs": [
+    "Ayumar 8-1081"
+  ],
+  "cliente": "CASA LA VERADA",
+  "desc": "Entuvando",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-11-13",
+  "horas": 3,
+  "id": "970",
+  "obra": "CASA",
+  "ops": [
+    {
+      "h": 3,
+      "n": "Goyo"
+    }
+  ],
+  "origen": "dashboard",
+  "restante": "No",
+  "stock": []
+}

@@ -1,0 +1,97 @@
+{
+  "empresa": "Instapalma",
+  "fecha": "2026-11-13",
+  "lineas": [
+    {
+      "a": "309006927",
+      "d": "CLAV AEREA 16A 2PT 200-250V IP44 TOR SCHN PKE16M423",
+      "dto": "45",
+      "f": "2026-11-13",
+      "i": 5.13,
+      "o": "MATADERO INSULAR",
+      "pn": 5.13,
+      "pt": 9.33,
+      "q": 1,
+      "r": "148061"
+    },
+    {
+      "a": "309006927",
+      "d": "P17 B.SUP 16A 2P+T 250V IP44 LEGR 555154",
+      "dto": "45",
+      "f": "2026-11-13",
+      "i": 10.14,
+      "o": "MATADERO INSULAR",
+      "pn": 10.14,
+      "pt": 18.44,
+      "q": 1,
+      "r": "139188"
+    },
+    {
+      "a": "309006927",
+      "d": "BOTONERA PARADA EMERG. TTR SCHN XALK178",
+      "dto": "45",
+      "f": "2026-11-13",
+      "i": 49.04,
+      "o": "MATADERO INSULAR",
+      "pn": 49.04,
+      "pt": 89.16,
+      "q": 1,
+      "r": "132844"
+    },
+    {
+      "a": "309006927",
+      "d": "CABEZA SEL.3 POS.MANETA CORTA SCHN ZB5AD3",
+      "dto": "45",
+      "f": "2026-11-13",
+      "i": 10.59,
+      "o": "MATADERO INSULAR",
+      "pn": 10.59,
+      "pt": 19.26,
+      "q": 1,
+      "r": "20985"
+    },
+    {
+      "a": "309006927",
+      "d": "CUERPO COMPLETO NA+NA SCHN ZB5AZ103",
+      "dto": "45",
+      "f": "2026-11-13",
+      "i": 12.17,
+      "o": "MATADERO INSULAR",
+      "pn": 12.17,
+      "pt": 22.12,
+      "q": 1,
+      "r": "21029"
+    },
+    {
+      "a": "309006927",
+      "d": "MX-CONM IL BASC 1P 16A 2M BLAN LEGR AM5003M2A",
+      "dto": "45",
+      "f": "2026-11-13",
+      "i": 4.5,
+      "o": "MATADERO INSULAR",
+      "pn": 4.5,
+      "pt": 8.19,
+      "q": 1,
+      "r": "134332"
+    },
+    {
+      "a": "309006927",
+      "d": "CAJA IDROBOX-M IP55 2MOD.MATIX LEGR 25502",
+      "dto": "45",
+      "f": "2026-11-13",
+      "i": 6.5,
+      "o": "MATADERO INSULAR",
+      "pn": 6.5,
+      "pt": 11.81,
+      "q": 1,
+      "r": "93834"
+    }
+  ],
+  "msg": "1a1d547f70e96f30",
+  "numero": "309006927",
+  "obra": "MATADERO INSULAR",
+  "origen": "Gmail (escaneo)",
+  "proveedor": "Sonepar",
+  "tipo": "albaran",
+  "total": 98.07
+}

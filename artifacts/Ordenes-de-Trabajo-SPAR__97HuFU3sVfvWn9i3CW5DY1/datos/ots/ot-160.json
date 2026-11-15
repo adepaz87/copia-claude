@@ -1,0 +1,20 @@
+{
+  "actualizada": "2026-11-13T08:45:00Z",
+  "aviso": "",
+  "centro": "SPAR Triana",
+  "creada": "2026-11-13T08:40:00Z",
+  "descripcion": "Inspección previa a la OCA de BT: revisión de cuadros y protecciones, diferenciales (disparo), tierras, aislamiento, alumbrado de emergencia y señalización, y corrección de defectos antes de la visita de ABC Inspección (prevista enero 2027).",
+  "empresa": "Tomás Barreto",
+  "estado": "pendiente",
+  "fechaAviso": "2026-11-13",
+  "historial": [
+    "13/11/2026 08:45 · Creada a petición de Alberto: inspección previa a la OCA, una OT por centro (lado oeste, Plan OCA 2026-2027)"
+  ],
+  "informado": false,
+  "notas": "OCA vigente (2031).",
+  "operario": "",
+  "ot": 160,
+  "prioridad": "Media",
+  "solicitante": "Alberto",
+  "tipo": "MANTENIMIENTO"
+}

@@ -1,0 +1,25 @@
+{
+  "empresa": "Instapalma",
+  "fecha": "2026-11-12",
+  "lineas": [
+    {
+      "a": "309006896",
+      "d": "CAJA 1 PULS.EMERGENCIA NC ETIQ. SCHN XALK17814",
+      "dto": "45",
+      "f": "2026-11-12",
+      "i": 99.77,
+      "o": "MATADERO INSULAR",
+      "pn": 49.885,
+      "pt": 90.7,
+      "q": 2,
+      "r": "56376"
+    }
+  ],
+  "msg": "1a1d548428bade9a",
+  "numero": "309006896",
+  "obra": "MATADERO INSULAR",
+  "origen": "Gmail (escaneo)",
+  "proveedor": "Sonepar",
+  "tipo": "albaran",
+  "total": 99.77
+}

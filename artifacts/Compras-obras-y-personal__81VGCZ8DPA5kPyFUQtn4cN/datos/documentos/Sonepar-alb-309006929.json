@@ -1,0 +1,25 @@
+{
+  "empresa": "Instapalma",
+  "fecha": "2026-11-13",
+  "lineas": [
+    {
+      "a": "309006929",
+      "d": "REGLETA CONEX.12P 10MM ESTANDAR NATURAL TEKO 110",
+      "dto": "NETO",
+      "f": "2026-11-13",
+      "i": 19.6,
+      "o": "HOTEL MONTERREY",
+      "pn": 1.96,
+      "pt": 1.96,
+      "q": 10,
+      "r": "53806"
+    }
+  ],
+  "msg": "1a1d547f70e96f30",
+  "numero": "309006929",
+  "obra": "HOTEL MONTERREY",
+  "origen": "Gmail (escaneo)",
+  "proveedor": "Sonepar",
+  "tipo": "albaran",
+  "total": 19.6
+}

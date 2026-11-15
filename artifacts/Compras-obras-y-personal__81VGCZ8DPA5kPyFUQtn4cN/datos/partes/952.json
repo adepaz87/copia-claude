@@ -1,0 +1,23 @@
+{
+  "albs": [],
+  "cliente": "TOMÁS BARRETO SA",
+  "desc": "Revisiones de grupos central y Móvil, comprobaciones conmutación red grupo en carga. Funcionando.",
+  "devol": [],
+  "estado": "TERMINADO",
+  "fecha": "2026-11-12",
+  "horas": 5,
+  "id": "952",
+  "obra": "CENTRAL TBSA",
+  "ops": [
+    {
+      "h": 2.5,
+      "n": "Toño"
+    },
+    {
+      "h": 2.5,
+      "n": "Manuel"
+    }
+  ],
+  "origen": "dashboard",
+  "stock": []
+}

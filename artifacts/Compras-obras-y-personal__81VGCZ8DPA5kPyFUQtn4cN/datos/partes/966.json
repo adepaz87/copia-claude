@@ -1,0 +1,26 @@
+{
+  "albs": [
+    "Sonepar 309006929"
+  ],
+  "cliente": "AYUNTAMIENTO EL PASO",
+  "desc": "Colocar lamparas de habitaciónes en 3 planta. Revisar alumbrados con la jefa.",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-11-13",
+  "horas": 4,
+  "id": "966",
+  "obra": "HOTEL MONTERREY",
+  "ops": [
+    {
+      "h": 2,
+      "n": "Antonio"
+    },
+    {
+      "h": 2,
+      "n": "Iker"
+    }
+  ],
+  "origen": "dashboard",
+  "restante": "Indefinido",
+  "stock": []
+}

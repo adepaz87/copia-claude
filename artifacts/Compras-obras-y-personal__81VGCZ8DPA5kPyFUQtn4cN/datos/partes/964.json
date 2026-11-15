@@ -1,0 +1,76 @@
+{
+  "albs": [
+    "Sonepar 309006896",
+    "Sonepar 309006927"
+  ],
+  "cliente": "CABILDO INSULAR",
+  "desc": "Colocar paros de emegencia aturdidores de porcino y caprino. Colocar estabilizadores de tension en aturdidores de porcino y caprino junto a cuadro. Colocar caja con estabilizador de tension, tomas de corriente y paro de emergencia en aturdidor de conejos. Reparar averia de alumbrado de escalera a planta baja. Reparar averia automatismo en bomba de aireador de balsa residuos.",
+  "devol": [],
+  "estado": "TERMINADO",
+  "fecha": "2026-11-13",
+  "horas": 13,
+  "id": "964",
+  "obra": "MATADERO INSULAR",
+  "ops": [
+    {
+      "h": 6,
+      "n": "Antonio"
+    },
+    {
+      "h": 6,
+      "n": "Iker"
+    },
+    {
+      "h": 1,
+      "n": "Transporte"
+    }
+  ],
+  "origen": "dashboard",
+  "stock": [
+    {
+      "d": "tubo rigido blanco 20mm",
+      "q": 3,
+      "u": "m"
+    },
+    {
+      "d": "curva rigida 20mm",
+      "q": 1,
+      "u": ""
+    },
+    {
+      "d": "caja sobre pared 10x10 con tetones",
+      "q": 1,
+      "u": ""
+    },
+    {
+      "d": "duo power 6x30",
+      "q": 1,
+      "u": ""
+    },
+    {
+      "d": "cinta aislante blanca",
+      "q": 1,
+      "u": ""
+    },
+    {
+      "d": "conmutador gewiss 20576",
+      "q": 1,
+      "u": ""
+    },
+    {
+      "d": "cable flexible 1x2,5mm",
+      "q": 12,
+      "u": "m"
+    },
+    {
+      "d": "cable manguera 3x2,5 RZ1-K",
+      "q": 5,
+      "u": "m"
+    },
+    {
+      "d": "regleta empalme 10mm",
+      "q": 1,
+      "u": ""
+    }
+  ]
+}

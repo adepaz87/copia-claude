@@ -1,19 +1,19 @@
 {
   "description": "Ventas (IGIC incluido, sin propinas), pedidos completados e IGIC de cada local y día, desde el 1 de enero de 2025, sacados de Square.",
   "edit": {
-    "at": "2026-11-11T22:08:00Z",
+    "at": "2026-11-13T22:10:00Z",
     "via": "claude"
   },
   "schedule": "Se actualiza cada noche desde Square",
   "source": {
     "kind": "file",
     "name": "ventas_diarias.json",
-    "url": "/_blob/0e88805cd2064b0d468e562063b20dd4"
+    "url": "/_blob/9c20e1fe0314311ec530ba582d9cef7f"
   },
   "staleAfterHours": 48,
   "title": "Ventas diarias de Square",
   "updated": {
-    "at": "2026-11-11T22:08:00Z",
+    "at": "2026-11-13T22:10:00Z",
     "by": "Claude, desde la API de Square"
   }
 }

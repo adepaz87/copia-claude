@@ -1,25 +1,28 @@
 {
-  "actualizada": "2026-11-11T10:45:45.670Z",
-  "asignadaEn": "2026-11-11T10:45:30.900Z",
-  "avisadoWa": "2026-11-11T10:45:34.122Z",
+  "actualizada": "2026-11-13T16:30:00Z",
+  "asignadaEn": "2026-11-13T09:23:02.777Z",
+  "avisadoWa": "2026-11-13T09:23:07.114Z",
   "aviso": "INT-0001",
   "centro": "Áridos El Riachuelo · Planta de machaqueo",
   "creada": "2026-11-07T11:05:00Z",
   "descripcion": "Instalar un horómetro al motor del molino MOL-01 (Smartcrush 10/10), si es posible.",
   "empresa": "Áridos El Riachuelo",
-  "estado": "asignada",
+  "estado": "terminada",
   "fechaAviso": "2026-11-07",
   "historial": [
     "07/11/2026 · Importada del correo [INT-0001] de Áridos El Riachuelo",
     "11/11/2026 10:45 · Asignada a Aythami",
-    "11/11/2026 10:45 · Asignación: Correo enviado a TBSA · WhatsApp a Aythami programado · WhatsApp a Fernando programado",
-    "11/11/2026 10:45 · Sin operario"
+    "11/11/2026 10:45 · Sin operario",
+    "13/11/2026 09:23 · Asignada a Toño Guardia",
+    "13/11/2026 09:29 · Asignación reenviada a José Gabriel y José Antonio (correo) y a José Gabriel (WhatsApp)",
+    "13/11/2026 16:30 · Terminada: Toño escribió «OT 135 resuelto» (15:42). Correo de cierre a José Gabriel y José Antonio, y WhatsApp a José Gabriel"
   ],
-  "informado": false,
-  "notas": "Solicitud INT-0001 de José Gabriel Barreto Cruz (+34 696 987 654), 07/11 08:59. Tipo: mejora. Equipo parado: no. Prioridad Normal. Indicar la referencia INT-0001 en presupuesto, albarán y factura. Nº OT provisional: confirmar o cambiar.",
-  "operario": "",
+  "informado": true,
+  "notas": "Solicitud INT-0001 de José Gabriel Barreto Cruz (+34 696 987 654), 07/11 08:59. Tipo: mejora. Equipo parado: no. Prioridad Normal. Indicar la referencia INT-0001 en presupuesto, albarán y factura. Resuelta por Toño Guardia el 13/11/2026 («OT 135 resuelto», 15:42): instalado el horómetro en el motor del molino MOL-01. Parte 13-11-2026-PLANTA_ARIDOS_GENERADOR-TONO-MANUEL.pdf (grupo Instapalma, 15:40).",
+  "operario": "Toño Guardia",
   "ot": 135,
   "prioridad": "Media",
   "solicitante": "José Gabriel",
+  "terminadaEn": "2026-11-13T15:42:00Z",
   "tipo": "MANTENIMIENTO"
 }

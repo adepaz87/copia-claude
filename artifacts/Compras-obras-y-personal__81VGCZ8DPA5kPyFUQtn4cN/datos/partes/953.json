@@ -1,0 +1,23 @@
+{
+  "albs": [],
+  "cliente": "TOMÁS BARRETO SA",
+  "desc": "Revisión de grupo ,niveles limpieza,mediciones puesta en marcha en carga prueba conmutación, funcionando",
+  "devol": [],
+  "estado": "TERMINADO",
+  "fecha": "2026-11-12",
+  "horas": 4,
+  "id": "953",
+  "obra": "SPAR MEDEROS",
+  "ops": [
+    {
+      "h": 2,
+      "n": "Toño"
+    },
+    {
+      "h": 2,
+      "n": "Manuel"
+    }
+  ],
+  "origen": "dashboard",
+  "stock": []
+}

@@ -504,11 +504,15 @@ document.addEventListener("click",e=>{const a=e.target.closest("a.wa");if(!a)ret
 
 /* ---- Aviso de asignación: correo a TBSA + WhatsApp al operario ---- */
 const TEL_FERNANDO="+34676157877";
-function waFernando(o,cierre){return cierre?`Buenas, Fernando. La OT ${o.ot} de ${o.centro} queda resuelta (${o.operario||"Instapalma"}).${o.aviso?(empOf(o)==="Tomás Barreto"?" Aviso GIM ":" Referencia ")+o.aviso+".":""} Os informamos también por correo. Saludos, Instapalma.`:`Buenas, Fernando. OT ${o.ot} de ${o.centro} asignada a ${o.operario}.\nTrabajo: ${o.descripcion}\nPrioridad: ${o.prioridad}${o.aviso?(empOf(o)==="Tomás Barreto"?"\nAviso GIM: ":"\nReferencia: ")+o.aviso:""}\nOs informamos también por correo. Saludos, Instapalma.`}
+function esAridos(o){return empOf(o)==="Áridos El Riachuelo"}
+const TEL_JG="+34696987654";
+function contactoWa(o){return esAridos(o)?{tel:TEL_JG,nombre:"José Gabriel"}:{tel:TEL_FERNANDO,nombre:"Fernando"}}
+function waFernando(o,cierre){const n=contactoWa(o).nombre;return cierre?`Buenas, ${n}. La OT ${o.ot} de ${o.centro} queda resuelta (${o.operario||"Instapalma"}).${o.aviso?(empOf(o)==="Tomás Barreto"?" Aviso GIM ":" Referencia ")+o.aviso+".":""} Os informamos también por correo. Saludos, Instapalma.`:`Buenas, ${n}. OT ${o.ot} de ${o.centro} asignada a ${o.operario}.\nTrabajo: ${o.descripcion}\nPrioridad: ${o.prioridad}${o.aviso?(empOf(o)==="Tomás Barreto"?"\nAviso GIM: ":"\nReferencia: ")+o.aviso:""}\nOs informamos también por correo. Saludos, Instapalma.`}
 const DEST_TBSA=["jarodriguez@tomasbarretosa.com","rbarrera@tomasbarretosa.com","fconcepcion@tomasbarretosa.com"];
-const MAIL_RIACHUELO="josegabrielbarretocruz@gmail.com";
-function destOf(o){return empOf(o)==="Áridos El Riachuelo"?[...DEST_TBSA,MAIL_RIACHUELO]:DEST_TBSA}
-function destTxt(o){return "Correo a José Antonio, Raquel y Fernando"+(empOf(o)==="Áridos El Riachuelo"?" y a Áridos El Riachuelo":"")+" ("+destOf(o).join(", ")+")"}
+/* Áridos El Riachuelo: correo a José Gabriel Barreto Cruz y José Antonio, WhatsApp a José Gabriel; nunca a Fernando ni a Raquel (Alberto, 13/11/2026) */
+const MAIL_RIACHUELO="jgbc@tomasbarretosa.com";
+function destOf(o){return esAridos(o)?[MAIL_RIACHUELO,"jarodriguez@tomasbarretosa.com"]:DEST_TBSA}
+function destTxt(o){return (esAridos(o)?"Correo a José Gabriel y José Antonio":"Correo a José Antonio, Raquel y Fernando")+" ("+destOf(o).join(", ")+")"}
 function mailAsig(o){
   const gim=o.aviso?`${empOf(o)==="Tomás Barreto"?"Aviso GIM":"Referencia"} ${o.aviso}`:"sin número GIM visible";
   const hora=new Date().getHours()<14?"Buenos días":"Buenas tardes";
@@ -550,13 +554,14 @@ $("#btnCierre").onclick=()=>{if(!editing)return;const o={...editing,empresa:$("#
 $("#btnAviso").onclick=()=>{if(!editing)return;const o={...editing,empresa:$("#o_emp").value,operario:$("#o_op").value,centro:$("#o_centro").value.trim(),descripcion:$("#o_desc").value.trim(),prioridad:$("#o_prio").value,aviso:$("#o_aviso").value.trim(),notas:$("#o_notas").value.trim(),tipo:$("#o_tipo").value};if(!o.operario){toast("Primero elige un operario");return}$("#dlgOT").close();openAviso(o)};
 async function sendNotice(o,modo){
   const cierre=modo==="cierre";const res=[],m=cierre?mailCierre(o):mailAsig(o),tel=cierre?"":telOf(o.operario);let okMail=false,okWa=false;
-  if(o._mail){okMail=true}else try{await mcp.callTool("Gmail","send_message",{to:destOf(o),subject:m.subject,body:m.body,includeSignature:true},{cache:false});okMail=o._mail=true;res.push("Correo enviado a TBSA")}
+  if(o._mail){okMail=true}else try{await mcp.callTool("Gmail","send_message",{to:destOf(o),subject:m.subject,body:m.body,includeSignature:true},{cache:false});okMail=o._mail=true;res.push(esAridos(o)?"Correo enviado a José Gabriel y José Antonio":"Correo enviado a TBSA")}
   catch(e){res.push("Correo NO enviado: "+(e.message||e.code||"error"))}
   if(tel&&o._wa){okWa=true}else if(tel){try{await mcp.callTool("WA","programar_mensaje",{telefono:"+"+tel,mensaje:waText(o),fecha_hora:canaryNow(1),nombre:`${o.operario} · OT ${o.ot}`},{cache:false});okWa=o._wa=true;res.push(`WhatsApp a ${o.operario} programado`)}
   catch(e){res.push("WhatsApp NO enviado: "+(e.message||e.code||"error"))}}
   else if(!cierre)res.push(`${o.operario} sin móvil: no hay WhatsApp`);
-  if(!o._waF){try{await mcp.callTool("WA","programar_mensaje",{telefono:TEL_FERNANDO,mensaje:waFernando(o,cierre),fecha_hora:canaryNow(1),nombre:`Fernando · OT ${o.ot}${cierre?" cierre":""}`},{cache:false});o._waF=true;res.push("WhatsApp a Fernando programado")}
-  catch(e){res.push("WhatsApp a Fernando NO enviado: "+(e.message||e.code||"error"))}}
+  const cw=contactoWa(o);
+  if(!o._waF){try{await mcp.callTool("WA","programar_mensaje",{telefono:cw.tel,mensaje:waFernando(o,cierre),fecha_hora:canaryNow(1),nombre:`${cw.nombre} · OT ${o.ot}${cierre?" cierre":""}`},{cache:false});o._waF=true;res.push(`WhatsApp a ${cw.nombre} programado`)}
+  catch(e){res.push(`WhatsApp a ${cw.nombre} NO enviado: `+(e.message||e.code||"error"))}}
   await new Promise(r=>setTimeout(r,600));
   const cur=ots.find(x=>x.id===o.id);
   if(cur&&(okMail||okWa)){const d={};if(okMail)d.informado=true;if(okWa)d.avisadoWa=new Date().toISOString();await patch(cur,d,(cierre?"Cierre: ":"Asignación: ")+res.join(" · "))}

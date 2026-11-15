@@ -1,0 +1,45 @@
+{
+  "albs": [],
+  "cliente": "RAICO",
+  "desc": "Terminar cuadro Buscar circuitos Ordenar circuitos Desmontaje de líneas Desmontaje de alumbrado",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-11-13",
+  "horas": 16,
+  "id": "967",
+  "obra": "CAFÉ DON MANUEL (SC DE LA PALMA",
+  "ops": [
+    {
+      "h": 8,
+      "n": "Jorge Corujo"
+    },
+    {
+      "h": 8,
+      "n": "Juan"
+    }
+  ],
+  "origen": "dashboard",
+  "restante": "Indefinido",
+  "stock": [
+    {
+      "d": "cable 1x10 tierra",
+      "q": 2,
+      "u": "m"
+    },
+    {
+      "d": "bornas de 25mm",
+      "q": 4,
+      "u": ""
+    },
+    {
+      "d": "rollo cinta aislante",
+      "q": 1,
+      "u": ""
+    },
+    {
+      "d": "paquete bridas de 4,8x300",
+      "q": 1,
+      "u": ""
+    }
+  ]
+}

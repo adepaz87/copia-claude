@@ -1,0 +1,67 @@
+{
+  "archivo": {
+    "id": "47ddf1aaf6759ad10b37168cebbd6def",
+    "nombre": "Póliza 82734961 AXA RC.pdf",
+    "url": "/_blob/47ddf1aaf6759ad10b37168cebbd6def"
+  },
+  "categoria": "Seguros",
+  "datos": [
+    {
+      "k": "Tomador / asegurado",
+      "v": "Instapalma Obras y Servicios, S.L. (B76668300)"
+    },
+    {
+      "k": "Producto",
+      "v": "8734 - RC Pyme Construcción (colectivo 8734-0)"
+    },
+    {
+      "k": "Mediador",
+      "v": "Correduría de Seguros de Madrid S.L. · 915 560 975 · csm@csmcorreduria.es"
+    },
+    {
+      "k": "Periodo actual",
+      "v": "28/05/2026 a 28/05/2027 (00:00 h)"
+    },
+    {
+      "k": "Prima",
+      "v": "1.507,51 € + 122,86 € de tributos = 1.630,37 €, pago anual"
+    },
+    {
+      "k": "Cobro",
+      "v": "Domiciliado en Banco Santander (0049 4816 ** 24160*****)"
+    },
+    {
+      "k": "Base de prima",
+      "v": "10 operarios (TC2; el personal de administración no paga)"
+    },
+    {
+      "k": "RC explotación",
+      "v": "1.200.000 € por siniestro; locativa 150.000 €; contaminación 300.000 €; vehículos de terceros 75.000 €"
+    },
+    {
+      "k": "RC patronal (accidentes de trabajo)",
+      "v": "1.200.000 € por siniestro, 300.000 € por víctima; RC cruzada incluida"
+    },
+    {
+      "k": "RC productos / post-trabajos",
+      "v": "1.200.000 € por siniestro y año"
+    },
+    {
+      "k": "Franquicias",
+      "v": "150 € RC explotación (condición particular); 1.000 € productos; 1.500 € canalizaciones subterráneas (3.000 € en trabajos urgentes)"
+    },
+    {
+      "k": "Incluido además",
+      "v": "Subcontratistas, UTE, defensa y fianzas civiles y penales, protección jurídica ampliada"
+    }
+  ],
+  "empresa": "Instapalma",
+  "entidad": "AXA Seguros Generales",
+  "importe": 1630.37,
+  "inicio": "2026-05-28",
+  "notas": "Anual renovable, póliza en vigor desde 28/12/2020. Copia en project-files/documentacion-empresa/instapalma/seguros/. Suplemento temporal 15/01/2026: incluye obra de fotovoltaica en cubiertas de edificios del Cabildo de La Palma (exp. OBR/CNT/2025000060), con el Cabildo como asegurado adicional.",
+  "numero": "82734961",
+  "t": "2026-11-13T14:10:00Z",
+  "titulo": "Seguro RC Pyme Construcción",
+  "vence": "2027-05-28"
+}

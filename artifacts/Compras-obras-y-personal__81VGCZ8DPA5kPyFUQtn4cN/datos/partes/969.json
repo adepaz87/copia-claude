@@ -1,0 +1,20 @@
+{
+  "albs": [],
+  "cliente": "INSTAPALMA",
+  "desc": "Recoger pernos metálicos en almacén y entregarlos , recoger bases metálicas y entrégalas , rellenar zanja con escombro",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-11-13",
+  "horas": 8,
+  "id": "969",
+  "obra": "ZANJA COVALLE",
+  "ops": [
+    {
+      "h": 8,
+      "n": "Luigi"
+    }
+  ],
+  "origen": "dashboard",
+  "restante": "5",
+  "stock": []
+}

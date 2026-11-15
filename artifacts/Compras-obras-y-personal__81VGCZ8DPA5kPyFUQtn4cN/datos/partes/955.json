@@ -1,0 +1,24 @@
+{
+  "albs": [],
+  "cliente": "AYUNTAMIENTO EL PASO",
+  "desc": "Terminar 2 planta alumbrado de habitaciones y probar las mismas. Separar alumbrado emergencia 23 de alumbrado zc 22 y probar. Colocar lamparas de habitaciones en 3 planta desde CE 313 hasta CE 304 y probar.",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-11-12",
+  "horas": 16,
+  "id": "955",
+  "obra": "HOTEL MONTERREY",
+  "ops": [
+    {
+      "h": 8,
+      "n": "Antonio"
+    },
+    {
+      "h": 8,
+      "n": "Iker"
+    }
+  ],
+  "origen": "dashboard",
+  "restante": "Indefinido",
+  "stock": []
+}

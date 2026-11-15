@@ -1,6 +1,6 @@
 # Copia de seguridad de Claude
 
-Última copia: 2026-11-12. 67 artifacts.
+Última copia: 2026-11-15. 69 artifacts.
 
 Cada carpeta de `artifacts/` tiene la página (`index.html`), y según el caso los datos guardados (`datos/`, JSON por documento), el documento exportado (`documento/`, Markdown o PDF) y archivos publicados (`archivos/`).
 
@@ -15,7 +15,7 @@ Las conversaciones no se copian aquí: se exportan a mano en claude.ai → Ajust
 | [Casa tipo 2 habitaciones 3D](artifacts/Casa-tipo-2-habitaciones-3D__NSsfACmZodnzwUi72egWVV/) | página | [abrir](https://claude.ai/artifact/NSsfACmZodnzwUi72egWVV) |
 | [CEIP Los Llanos 3D](artifacts/CEIP-Los-Llanos-3D__5HGL6yhaswAfuVMPvA7giW/) | página | [abrir](https://claude.ai/artifact/5HGL6yhaswAfuVMPvA7giW) |
 | [Certificaciones Cercado Manso](artifacts/Certificaciones-Cercado-Manso__2vs2rsqUAu3GJ1nDFkNfGe/) | página, datos | [abrir](https://claude.ai/artifact/2vs2rsqUAu3GJ1nDFkNfGe) |
-| [Certificaciones Cercado Manso (2)](artifacts/Certificaciones-Cercado-Manso-2__CR48k5nmAK4akgujek3EmC/) | página | [abrir](https://claude.ai/artifact/CR48k5nmAK4akgujek3EmC) |
+| [Certificaciones Cercado Manso](artifacts/Certificaciones-Cercado-Manso__CR48k5nmAK4akgujek3EmC/) | página | [abrir](https://claude.ai/artifact/CR48k5nmAK4akgujek3EmC) |
 | [Certificaciones de obra](artifacts/Certificaciones-de-obra__CHrBkaQmfN1F1QADTVvQjq/) | página, datos | [abrir](https://claude.ai/artifact/CHrBkaQmfN1F1QADTVvQjq) |
 | [Certificaciones El Zumacal](artifacts/Certificaciones-El-Zumacal__DLwQAfA8jNtdbXgjVyKUod/) | página, datos | [abrir](https://claude.ai/artifact/DLwQAfA8jNtdbXgjVyKUod) |
 | [Certificaciones Hospital](artifacts/Certificaciones-Hospital__NwDHGTd2QzBH3dLhsZKi8i/) | página, datos | [abrir](https://claude.ai/artifact/NwDHGTd2QzBH3dLhsZKi8i) |
@@ -27,7 +27,7 @@ Las conversaciones no se copian aquí: se exportan a mano en claude.ai → Ajust
 | [Contrato subarrendamiento Cafetería Avda. El Puente (revisado)](artifacts/Contrato-subarrendamiento-Cafeteria-Avda-El-Puente-revisado__3kFAkAN6Hdy8hQ7ExkpMgK/) | página, documento | [abrir](https://claude.ai/artifact/3kFAkAN6Hdy8hQ7ExkpMgK) |
 | [Control de obra Cercado Manso](artifacts/Control-de-obra-Cercado-Manso__FEAyNVUJeobWbPJVvyhaQt/) | página, datos | [abrir](https://claude.ai/artifact/FEAyNVUJeobWbPJVvyhaQt) |
 | [Control de Obra El Zumacal](artifacts/Control-de-Obra-El-Zumacal__ADM67CG8MuG6xpMf7xBcyt/) | página, datos | [abrir](https://claude.ai/artifact/ADM67CG8MuG6xpMf7xBcyt) |
-| [Control de Obra El Zumacal (2)](artifacts/Control-de-Obra-El-Zumacal-2__HE8qDFqSWHHX8LkjuaUCzH/) | página | [abrir](https://claude.ai/artifact/HE8qDFqSWHHX8LkjuaUCzH) |
+| [Control de Obra El Zumacal](artifacts/Control-de-Obra-El-Zumacal__HE8qDFqSWHHX8LkjuaUCzH/) | página | [abrir](https://claude.ai/artifact/HE8qDFqSWHHX8LkjuaUCzH) |
 | [Control de Obras](artifacts/Control-de-Obras__JjQj7LUTHaL9LcGAVkVbYf/) | página, datos | [abrir](https://claude.ai/artifact/JjQj7LUTHaL9LcGAVkVbYf) |
 | [Costes de obra](artifacts/Costes-de-obra__GpG3J8aU1LyPDGyyoBbHHh/) | página, datos | [abrir](https://claude.ai/artifact/GpG3J8aU1LyPDGyyoBbHHh) |
 | [Cronograma Cercado Manso](artifacts/Cronograma-Cercado-Manso__R2USPxtxRDsTF7RucoQceF/) | página | [abrir](https://claude.ai/artifact/R2USPxtxRDsTF7RucoQceF) |
@@ -40,6 +40,7 @@ Las conversaciones no se copian aquí: se exportan a mano en claude.ai → Ajust
 | [Informe de la certificación nº 1 – Parque Zona Verde El Zumacal](artifacts/Informe-de-la-certificacion-no-1-Parque-Zona-Verde-El-Zumacal__CWr6xMbYF8rWkqcTgJKppc/) | página, documento | [abrir](https://claude.ai/artifact/CWr6xMbYF8rWkqcTgJKppc) |
 | [Informe de revisión: presupuesto Línea de M.T. y Centro de Transformación](artifacts/Informe-de-revision-presupuesto-Linea-de-M-T-y-Centro-de-Transformacio__DPCFgcdq4Gtsk4uV1edaY5/) | página, documento | [abrir](https://claude.ai/artifact/DPCFgcdq4Gtsk4uV1edaY5) |
 | [Informe por capítulos – Presupuesto de instalaciones y baja lineal](artifacts/Informe-por-capitulos-Presupuesto-de-instalaciones-y-baja-lineal__AtYqihhNcziGjoHLDMb3Yg/) | página, documento | [abrir](https://claude.ai/artifact/AtYqihhNcziGjoHLDMb3Yg) |
+| [Informe técnico de asesoramiento: colapso de la cubierta de la cancha de Mirca](artifacts/Informe-tecnico-de-asesoramiento-colapso-de-la-cubierta-de-la-cancha-d__7PnANxse7yTW3jmgJgrcgs/) | página, documento | [abrir](https://claude.ai/artifact/7PnANxse7yTW3jmgJgrcgs) |
 | [Informe técnico-jurídico: independización de suministros en local dividido](artifacts/Informe-tecnico-juridico-independizacion-de-suministros-en-local-divid__GN4HZ9GnUeGQbXNPbJmChG/) | página, documento | [abrir](https://claude.ai/artifact/GN4HZ9GnUeGQbXNPbJmChG) |
 | [Informes El Café de Don Manuel](artifacts/Informes-El-Cafe-de-Don-Manuel__2it6hmgWXewAa5LsciSbKt/) | página, datos | [abrir](https://claude.ai/artifact/2it6hmgWXewAa5LsciSbKt) |
 | [Informes operativos](artifacts/Informes-operativos__Kkui6SaGypaYU4CBS7Qref/) | página, archivos | [abrir](https://claude.ai/artifact/Kkui6SaGypaYU4CBS7Qref) |
@@ -72,6 +73,7 @@ Las conversaciones no se copian aquí: se exportan a mano en claude.ai → Ajust
 | [Seguimiento operativo](artifacts/Seguimiento-operativo__2CAtKaYprADDM2QsYchJZ3/) | página, datos | [abrir](https://claude.ai/artifact/2CAtKaYprADDM2QsYchJZ3) |
 | [Sistema autónomo FV de aviso de parada – Parada de guaguas Ctra. La Grama (Breña Alta)](artifacts/Sistema-autonomo-FV-de-aviso-de-parada-Parada-de-guaguas-Ctra-La-Grama__7jf4u2h3CA9gpkveNFFKyS/) | página, documento | [abrir](https://claude.ai/artifact/7jf4u2h3CA9gpkveNFFKyS) |
 | [Solicitud de anulación – Solicitud de conexión nº 0000712554](artifacts/Solicitud-de-anulacion-Solicitud-de-conexion-no-0000712554__Q9Nv2tvZxpHd5SaReupWFw/) | página, documento | [abrir](https://claude.ai/artifact/Q9Nv2tvZxpHd5SaReupWFw) |
+| [Solicitud de reestudio 0001242150 – Tendido aéreo BT (FV El Mudo 20 kW)](artifacts/Solicitud-de-reestudio-0001242150-Tendido-aereo-BT-FV-El-Mudo-20-kW__Gmr1s4V7DdwoXxGsfAYdsB/) | página, documento | [abrir](https://claude.ai/artifact/Gmr1s4V7DdwoXxGsfAYdsB) |
 | [Tarifa Cable Diexfe](artifacts/Tarifa-Cable-Diexfe__EWmxC5S8VwLsQ7s3xdCxan/) | página, datos | [abrir](https://claude.ai/artifact/EWmxC5S8VwLsQ7s3xdCxan) |
 | [Ventas El Café de Don Manuel](artifacts/Ventas-El-Cafe-de-Don-Manuel__1Qm8hqhUA8mDGNoqzdoYiD/) | página, datos | [abrir](https://claude.ai/artifact/1Qm8hqhUA8mDGNoqzdoYiD) |
 | [Órdenes de Trabajo SPAR](artifacts/Ordenes-de-Trabajo-SPAR__97HuFU3sVfvWn9i3CW5DY1/) | página, datos | [abrir](https://claude.ai/artifact/97HuFU3sVfvWn9i3CW5DY1) |

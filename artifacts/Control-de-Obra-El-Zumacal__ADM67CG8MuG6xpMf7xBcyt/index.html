@@ -285,7 +285,7 @@ body:not(.view-cert) #certView{display:none}
   <div class="wrap">
     <div class="titlerow">
       <h1>Control de Obra · Parque Zona Verde El Zumacal</h1>
-      <div class="meta">PEM <b>1.020.969,13 €</b> · PEC <b>1.300.000,00 €</b> · Plazo <b>11 meses</b> (comienzo <b>01/10/2026</b>, terminación <b>01/09/2027</b>) · Licitación <b>18/03/2026</b> · Control de calidad ≤ 1 % PEM a cargo del contratista</div>
+      <div class="meta">PEM <b>1.020.969,13 €</b> · PEC <b>1.300.000,00 €</b> · Plazo <b>165 días</b> (comienzo <b>01/10/2026</b>, terminación <b>15/03/2027</b>) · Licitación <b>18/03/2026</b> · Control de calidad ≤ 1 % PEM a cargo del contratista</div>
     </div>
     <div class="stats" id="stats"></div>
     <p class="ro" id="offNote" hidden><b>Esta vista no tiene permiso para guardar en la obra</b> (no es un problema de internet). <span id="offWhy">Lo que haga aquí se queda en este dispositivo y no llega al director de obra.</span> Para guardar: el director debe invitarle por correo desde «Compartir» con acceso de colaborador, y usted abrir el enlace con la sesión de claude.ai iniciada con ese correo. Los informes que termine aquí se enviarán solos cuando entre con ese acceso.</p>
@@ -433,7 +433,7 @@ const CAPS=[
  ["D","Acta de comprobación de replanteo firmada; abrir Libro de Órdenes en la misma fecha","PCG 1.7"],
  ["D","Plan de Seguridad y Salud del contratista aprobado y aviso previo / comunicación de apertura presentados","RD 1627/1997"],
  ["D","Plan de Gestión de Residuos del contratista aprobado (desarrolla el Estudio del Anexo 3)","RD 105/2008"],
- ["D","Programa de Trabajo con holguras, coherente con el plazo de 11 meses","PCG 4"],
+ ["D","Programa de Trabajo con holguras, coherente con el plazo de 165 días","PCG 4"],
  ["D","Plan de Control de Calidad / programa de ensayos con laboratorio acreditado; presupuesto ≤ 1 % PEM","Memoria 1.12"],
  ["D","Clasificación del contratista y seguros conforme a pliego de cláusulas","Memoria 1.8"],
  ["I","Bases de replanteo materializadas en terreno con referencias fijas; coordenada central X 229.265 / Y 3.172.412","PCG 3"],
@@ -1733,7 +1733,7 @@ function drawCaratula(doc){
   T(321.8, 192.6, L, 'CERTIFICACION ORDINARIA Nº ' + c.num, {b:false});
   T(400.7, 202.9, F, 'Mes de ' + mes + ' de ' + anyo, {align:'center'});
   T(321.8, 225.0, L, 'FECHAS DE:');
-  [['Licitación','18-mar-26',237.6],['Comienzo','01-oct-26',248.6],['Terminación','01-sept-27',259.4]].forEach(([a,v,y]) => { T(321.8, y, L, a); T(478, y, D, v, {align:'right'}); });
+  [['Licitación','18-mar-26',237.6],['Comienzo','01-oct-26',248.6],['Terminación','15-mar-27',259.4]].forEach(([a,v,y]) => { T(321.8, y, L, a); T(478, y, D, v, {align:'right'}); });
   T(79.2, 236.6, L, 'ADJUDICATARIO');
   T(92.4, 257.6, D, 'EULEN, S.A.');
   T(79.2, 281.8, L, 'D.N.I./C.I.F.');

@@ -1,0 +1,24 @@
+{
+  "albs": [],
+  "cliente": "EXTINPALMA S.L.",
+  "desc": "Preparación y acondicionamiento de los extremos del cableado del sistema de detección de incendios, realizando las operaciones necesarias para su posterior conexionado a los dispositivos. Instalación y fijación de bases para detectores de incendio, colocación de los correspondientes detectores y conexionados y adecuación de los puntos de instalación. Tendido y distribución de cableado específico de detección de incendios a través de falso techo, siguiendo los recorridos previstos para la instalación. Desmontaje y retirada de la antigua central de detección y alarma de incendios, procediendo a la instalación, colocación y fijación de la nueva central y conexionado. Inspección técnica, estudio y seguimiento de los recorridos existentes del sistema de protección contra incendios, verificando la distribución de los elementos y las canalizaciones para determinar la viabilidad del nuevo replanteo. Revisión y comprobación del trazado de la instalación, identificando las adaptaciones necesarias para adecuar los recorridos del cableado y la ubicación de los dispositivos a la nueva configuración del sistema PCI",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-11-13",
+  "horas": 16,
+  "id": "971",
+  "obra": "HIPERDINO EL PUENTE",
+  "ops": [
+    {
+      "h": 8,
+      "n": "Eloy"
+    },
+    {
+      "h": 8,
+      "n": "Rafa"
+    }
+  ],
+  "origen": "dashboard",
+  "restante": "Indefinido",
+  "stock": []
+}

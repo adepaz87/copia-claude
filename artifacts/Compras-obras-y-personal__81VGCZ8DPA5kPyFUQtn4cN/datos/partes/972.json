@@ -1,0 +1,58 @@
+{
+  "albs": [],
+  "cliente": "CONSTRUCCIONES DOMINGO",
+  "desc": "Enebrar vivienda 3 y 4 planta 3 Hacer pasamuros para alumbrados balcones entubarlos y enebrarlos Ranurar y entubar enchufes zonas comunes planta 4 Ranurar y entubar encendidos zonas comunes plantan 4 Ranurar encendidos Conectar máquinas regeneración de aire vieviendas planta 0 y planta 1",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-11-13",
+  "horas": 30,
+  "id": "972",
+  "obra": "EDIFICIO EL PASO",
+  "ops": [
+    {
+      "h": 11,
+      "n": "Aythami"
+    },
+    {
+      "h": 8,
+      "n": "Riki"
+    },
+    {
+      "h": 8,
+      "n": "Junior"
+    },
+    {
+      "h": 3,
+      "n": "Joel"
+    }
+  ],
+  "origen": "dashboard",
+  "restante": "Indefinido",
+  "stock": [
+    {
+      "d": "neutro de 2,5",
+      "q": 500,
+      "u": "m"
+    },
+    {
+      "d": "fase 2,5",
+      "q": 500,
+      "u": "m"
+    },
+    {
+      "d": "tierra 2,5",
+      "q": 400,
+      "u": "m"
+    },
+    {
+      "d": "fase 1,5",
+      "q": 400,
+      "u": "m"
+    },
+    {
+      "d": "gris 1,5",
+      "q": 400,
+      "u": "m"
+    }
+  ]
+}
