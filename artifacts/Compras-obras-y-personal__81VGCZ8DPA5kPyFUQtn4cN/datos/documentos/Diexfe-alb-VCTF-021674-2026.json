@@ -1,0 +1,25 @@
+{
+  "empresa": "Instapalma",
+  "fecha": "2026-11-17",
+  "lineas": [
+    {
+      "a": "VCTF-021674-2026",
+      "d": "BASE CORRIENTE.2P+T - 16 - 250 VCA CX.POR TORN",
+      "dto": "53,00",
+      "f": "2026-11-17",
+      "i": 6.2,
+      "o": "RESIDENCIA TERCERA E",
+      "pn": 3.1,
+      "pt": 6.6,
+      "q": 2,
+      "r": "BTI-RW4141P"
+    }
+  ],
+  "msg": "1a1e90fcf4f783a9",
+  "numero": "VCTF-021674-2026",
+  "obra": "RESIDENCIA TERCERA E",
+  "origen": "Gmail",
+  "proveedor": "Diexfe",
+  "tipo": "albaran",
+  "total": 6.2
+}

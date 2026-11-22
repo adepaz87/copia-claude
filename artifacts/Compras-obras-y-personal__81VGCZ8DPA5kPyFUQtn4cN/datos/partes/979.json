@@ -1,0 +1,20 @@
+{
+  "albs": [],
+  "cliente": "INSTAPALMA",
+  "desc": "Encalar arquetas , cojer marco de tapa con arena y cemento",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-11-16",
+  "horas": 8,
+  "id": "979",
+  "obra": "ZANJA COVALLE",
+  "ops": [
+    {
+      "h": 8,
+      "n": "Luigi"
+    }
+  ],
+  "origen": "dashboard",
+  "restante": "2",
+  "stock": []
+}

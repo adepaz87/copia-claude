@@ -1,0 +1,34 @@
+{
+  "albs": [
+    "Diexfe 021792"
+  ],
+  "cliente": "CONSTRUCCIONES DOMINGO",
+  "desc": "Colocar registros en patinillos para trasteros Entubar derivaciones por patinillos Colocar registros ict en patinillos teleco Conectar máquinas de extracción viviendas plantas 2 y 3 Entubar trasteros por patinillos",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-11-19",
+  "horas": 27,
+  "id": "1020",
+  "obra": "EDIFICIO DOMINGO EL PASO",
+  "ops": [
+    {
+      "h": 9,
+      "n": "Riki"
+    },
+    {
+      "h": 8,
+      "n": "Junior"
+    },
+    {
+      "h": 6.5,
+      "n": "Aythami"
+    },
+    {
+      "h": 3.5,
+      "n": "Joel"
+    }
+  ],
+  "origen": "dashboard",
+  "restante": "Indefinido",
+  "stock": []
+}

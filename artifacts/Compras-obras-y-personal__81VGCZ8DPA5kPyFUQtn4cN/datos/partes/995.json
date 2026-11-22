@@ -1,0 +1,32 @@
+{
+  "albs": [],
+  "cliente": "CONSTRUCCIONES DOMINGO",
+  "desc": "Ranurar y entubar portero y cerradura Entubar cuartos de zonas comunes Entubar ascensor Entubar alimentaciones z.comunes planta 0 Conectar extractores Fijar registros zonas comunes",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-11-17",
+  "horas": 37,
+  "id": "995",
+  "obra": "EDIFICIO DOMINGO EL PASO",
+  "ops": [
+    {
+      "h": 11,
+      "n": "Aythami"
+    },
+    {
+      "h": 9,
+      "n": "Riki"
+    },
+    {
+      "h": 9,
+      "n": "Joel"
+    },
+    {
+      "h": 8,
+      "n": "Junior"
+    }
+  ],
+  "origen": "dashboard",
+  "restante": "Indefinido",
+  "stock": []
+}

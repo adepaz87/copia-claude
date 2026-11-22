@@ -1,0 +1,32 @@
+{
+  "albs": [],
+  "cliente": "CONSTRUCCIONES DOMINGO",
+  "desc": "Terminar de Enebrar datos y TV planta 1 Enebrar datos y TV planta 2 Enebrar datos y TV planta 3 Colocar registros pasillos planta 2",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-11-18",
+  "horas": 33,
+  "id": "1008",
+  "obra": "EDIFICIO DOMINGO EL PASO",
+  "ops": [
+    {
+      "h": 9,
+      "n": "Riki"
+    },
+    {
+      "h": 8,
+      "n": "Aythami"
+    },
+    {
+      "h": 8,
+      "n": "Junior"
+    },
+    {
+      "h": 8,
+      "n": "Joel"
+    }
+  ],
+  "origen": "dashboard",
+  "restante": "Indefinido",
+  "stock": []
+}

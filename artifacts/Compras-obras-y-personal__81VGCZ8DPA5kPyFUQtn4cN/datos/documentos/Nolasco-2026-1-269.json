@@ -1,0 +1,23 @@
+{
+  "empresa": "Instapalma",
+  "fecha": "2026-11-16",
+  "lineas": [
+    {
+      "a": "",
+      "d": "FLEXOMETRO 8M 25 A MILWAUKEE",
+      "dto": "",
+      "f": "2026-11-16",
+      "i": 15.9,
+      "o": "GOLLO",
+      "pn": 15.9,
+      "pt": 15.9,
+      "q": 1,
+      "r": "MILW 4932498774"
+    }
+  ],
+  "msg": "1a1e39b5535d29ba",
+  "numero": "2026/01/000269",
+  "origen": "Gmail (reenviado a adm2)",
+  "proveedor": "Nolasco",
+  "tipo": "factura"
+}

@@ -1,0 +1,27 @@
+{
+  "empresa": "Kairos Supply",
+  "fecha": "2026-11-16",
+  "lineas": [
+    {
+      "a": "309007007",
+      "d": "BOBINA MX 220-240V 50/60HZ 208-277V 60HZ SCHN LV429387",
+      "dto": "NETO",
+      "f": "2026-11-16",
+      "fab": "LV429387",
+      "i": 69.29,
+      "m": "Schneider Electric",
+      "o": "CANOPALMA",
+      "pn": 69.29,
+      "pt": 69.294,
+      "q": 1,
+      "r": "81607"
+    }
+  ],
+  "msg": "1a1e9d791b57b6d0",
+  "numero": "309007007",
+  "obra": "CANOPALMA",
+  "origen": "Gmail (escaneo, reenviado a adm2)",
+  "proveedor": "Sonepar",
+  "tipo": "albaran",
+  "total": 69.29
+}

@@ -1,0 +1,23 @@
+{
+  "albs": [],
+  "cliente": "TOMÁS BARRETO SA",
+  "desc": "Revisión mantenimiento programado, reapriete limpieza en cuadros",
+  "devol": [],
+  "estado": "TERMINADO",
+  "fecha": "2026-11-16",
+  "horas": 8,
+  "id": "978",
+  "obra": "SPAR MEDEROS",
+  "ops": [
+    {
+      "h": 4,
+      "n": "Toño"
+    },
+    {
+      "h": 4,
+      "n": "Manuel"
+    }
+  ],
+  "origen": "dashboard",
+  "stock": []
+}

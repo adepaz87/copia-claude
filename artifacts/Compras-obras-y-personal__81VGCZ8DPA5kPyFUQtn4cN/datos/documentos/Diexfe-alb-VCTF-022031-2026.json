@@ -1,0 +1,61 @@
+{
+  "empresa": "Instapalma",
+  "fecha": "2026-11-20",
+  "lineas": [
+    {
+      "a": "VCTF-022031-2026",
+      "d": "CJ.ETCA.CX.IP65 IK08 354X354X131MM CIE",
+      "dto": "0,00",
+      "f": "2026-11-20",
+      "i": 30.88,
+      "o": "EDF. DOMINGO EL PASO",
+      "pn": 15.44,
+      "pt": 15.439,
+      "q": 2,
+      "r": "SOL-822"
+    },
+    {
+      "a": "VCTF-022031-2026",
+      "d": "CAJA EMP.TABIQUES HUECOS (520UD)",
+      "dto": "0,00",
+      "f": "2026-11-20",
+      "i": 167.68,
+      "o": "EDF. DOMINGO EL PASO",
+      "pn": 0.524,
+      "pt": 0.524,
+      "q": 320,
+      "r": "SOL-5625"
+    },
+    {
+      "a": "VCTF-022031-2026",
+      "d": "CAJA EMP 4 ENT.TUBO D.25 4 ENT.TUBO D.20 (EMB 260UD)",
+      "dto": "0,00",
+      "f": "2026-11-20",
+      "i": 207.4,
+      "o": "EDF. DOMINGO EL PASO",
+      "pn": 1.037,
+      "pt": 1.037,
+      "q": 200,
+      "r": "SOL-5725"
+    },
+    {
+      "a": "VCTF-022031-2026",
+      "d": "CAJA EMP.6 ENT.TUBO D.20 4 ENT.TUBO D.25",
+      "dto": "0,00",
+      "f": "2026-11-20",
+      "i": 30.08,
+      "o": "EDF. DOMINGO EL PASO",
+      "pn": 1.6711,
+      "pt": 1.671,
+      "q": 18,
+      "r": "SOL-5825"
+    }
+  ],
+  "msg": "1a1f8ab9163f9f02",
+  "numero": "VCTF-022031-2026",
+  "obra": "EDF. DOMINGO EL PASO",
+  "origen": "Gmail",
+  "proveedor": "Diexfe",
+  "tipo": "albaran",
+  "total": 436.04
+}

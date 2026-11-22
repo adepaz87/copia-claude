@@ -1,0 +1,19 @@
+{
+  "albs": [],
+  "cliente": "CABILDO",
+  "desc": "Puesta en marcha del inversor",
+  "devol": [],
+  "estado": "TERMINADO",
+  "fecha": "2026-11-20",
+  "horas": 1.5,
+  "id": "1028",
+  "obra": "FV CECOPIN",
+  "ops": [
+    {
+      "h": 1.5,
+      "n": "Jonathan Glez"
+    }
+  ],
+  "origen": "dashboard",
+  "stock": []
+}

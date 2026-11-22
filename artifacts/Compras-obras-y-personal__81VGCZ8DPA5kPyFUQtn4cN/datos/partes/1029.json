@@ -1,0 +1,20 @@
+{
+  "albs": [],
+  "cliente": "TOMÁS BARRETO",
+  "desc": "Enhebrar línea desde cuadro de CA hasta cuadro general. Enhebrar líneas desde cuadro de CA hasta inversores. Enhebrar línea de tierra. Enbridar cables por bandejas.",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-11-20",
+  "horas": 6.5,
+  "id": "1029",
+  "obra": "SPAR TRIANA",
+  "ops": [
+    {
+      "h": 6.5,
+      "n": "Jonathan Glez"
+    }
+  ],
+  "origen": "dashboard",
+  "restante": "1 día dos personas (Aprox)",
+  "stock": []
+}

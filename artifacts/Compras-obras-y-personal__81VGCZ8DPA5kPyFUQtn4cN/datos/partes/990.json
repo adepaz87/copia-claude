@@ -1,0 +1,37 @@
+{
+  "albs": [
+    "Diexfe 21274"
+  ],
+  "cliente": "TRAGSA",
+  "desc": "Entubando  lavandería Enebrando lavandería",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-11-17",
+  "horas": 16,
+  "id": "990",
+  "obra": "HOSPITAL PARTE BAJA",
+  "ops": [
+    {
+      "h": 8,
+      "n": "Jorge Corujo"
+    },
+    {
+      "h": 8,
+      "n": "Juan"
+    }
+  ],
+  "origen": "dashboard",
+  "restante": "Indefinido",
+  "stock": [
+    {
+      "d": "rollos cinta aislante",
+      "q": 2,
+      "u": ""
+    },
+    {
+      "d": "paquete bridas  de 4,8x300",
+      "q": 1,
+      "u": ""
+    }
+  ]
+}

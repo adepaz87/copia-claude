@@ -1,0 +1,25 @@
+{
+  "empresa": "Instapalma",
+  "fecha": "2026-11-19",
+  "lineas": [
+    {
+      "a": "VCTF-021901-2026",
+      "d": "PULS.1P 10A 250VCA NO ILUMINABLE 2 MOD",
+      "dto": "53,00",
+      "f": "2026-11-19",
+      "i": 11.58,
+      "o": "EDIFICIO SABINO",
+      "pn": 2.895,
+      "pt": 6.16,
+      "q": 4,
+      "r": "BTI-RW4005M2P"
+    }
+  ],
+  "msg": "1a1f351a8be74766",
+  "numero": "VCTF-021901-2026",
+  "obra": "EDIFICIO SABINO",
+  "origen": "Gmail",
+  "proveedor": "Diexfe",
+  "tipo": "albaran",
+  "total": 11.58
+}

@@ -1,0 +1,20 @@
+{
+  "albs": [],
+  "cliente": "INSTAPALMA",
+  "desc": "Rellenar y nivelar vivienda con balastro , hacer amasadoras para realizar afirmados en vivienda",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-11-19",
+  "horas": 8,
+  "id": "1014",
+  "obra": "CASA LAS MANCHAS",
+  "ops": [
+    {
+      "h": 8,
+      "n": "Luigi"
+    }
+  ],
+  "origen": "dashboard",
+  "restante": "2",
+  "stock": []
+}

@@ -1,5 +1,5 @@
 {
-  "actualizada": "2026-11-13T09:27:00Z",
+  "actualizada": "2026-11-17T15:20:00Z",
   "asignadaEn": "2026-11-13T09:22:10.304Z",
   "avisadoWa": "2026-11-13T09:22:13.632Z",
   "aviso": "",
@@ -7,19 +7,36 @@
   "creada": "2026-11-13T09:20:00Z",
   "descripcion": "Revisión del grupo electrógeno de 1000 kVA.",
   "empresa": "Áridos El Riachuelo",
-  "estado": "asignada",
+  "estado": "terminada",
   "fechaAviso": "2026-11-13",
   "historial": [
     "13/11/2026 09:20 · Creada a petición de Alberto: revisión GE 1000 kVA",
     "13/11/2026 09:22 · Asignada a Toño Guardia",
     "13/11/2026 09:22 · Asignación: Correo enviado a TBSA · WhatsApp a Toño Guardia programado · WhatsApp a Fernando programado",
-    "13/11/2026 09:27 · Correo de asignación reenviado a José Gabriel (jgbc@) y José Antonio. El aviso a Fernando y Raquel fue un error: los de Áridos no les corresponden"
+    "13/11/2026 09:27 · Correo de asignación reenviado a José Gabriel (jgbc@) y José Antonio. El aviso a Fernando y Raquel fue un error: los de Áridos no les corresponden",
+    "16/11/2026 10:46 · Toño Guardia: «OT 163 resuelto». Parte 16-11-2026-AVERIAS_PLANTA_GENERADOR-TONO-MANUEL.pdf",
+    "16/11/2026 11:14 · Terminada. Cierre: correo a José Gabriel (jgbc@) y José Antonio · WhatsApp a José Gabriel. Parte de revisión GE del Dashboard pendiente (grupo de Áridos sin dar de alta)",
+    "17/11/2026 15:20 · Parte de revisión del GE del Dashboard (17/11, id 27) guardado (Documentación) y enviado por correo a José Gabriel (jgbc@) y José Antonio, con copia a Alberto"
   ],
   "informado": true,
+  "notaCierre": "Toño Guardia: «OT 163 resuelto» (16/11 10:46). Parte de trabajo 16-11-2026-AVERIAS_PLANTA_GENERADOR-TONO-MANUEL.pdf. Parte de revisión del GE en el Dashboard pendiente: el grupo de Áridos aún no está dado de alta (solo hay grupos de SPAR).",
   "notas": "Avisos a José Gabriel Barreto Cruz (jgbc@tomasbarretosa.com, 696987654), no a Fernando ni Raquel. Al terminar, adjuntar el parte de revisión del GE del Dashboard.",
   "operario": "Toño Guardia",
   "ot": 163,
+  "parte": "16-11-2026-AVERIAS_PLANTA_GENERADOR-TONO-MANUEL.pdf (grupo Instapalma, 16/11 10:46)",
+  "parteGE": {
+    "archivo": "Parte_GE_OT163_Aridos_El_Riachuelo_2026-11-17.pdf",
+    "asset": "db0268e11e59add008c344f42cae5052",
+    "docId": "doc-parte-ge-ot163-2026-11",
+    "equipo": "INMESOL CP-1135",
+    "fecha": "2026-11-17",
+    "fuente": "Dashboard Instapalma /mantenimientos-ge (id 27)",
+    "horas": "8608,4",
+    "resultado": "OK (10 OK · 3 N/A)",
+    "url": "/_blob/db0268e11e59add008c344f42cae5052"
+  },
   "prioridad": "Media",
   "solicitante": "Alberto",
+  "terminadaEn": "2026-11-16T10:46:00Z",
   "tipo": "MANTENIMIENTO"
 }

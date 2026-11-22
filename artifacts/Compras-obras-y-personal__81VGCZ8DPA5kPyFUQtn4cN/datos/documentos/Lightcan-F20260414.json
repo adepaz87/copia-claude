@@ -1,0 +1,66 @@
+{
+  "base": 129.69,
+  "empresa": "Kairos Supply",
+  "fecha": "2026-11-20",
+  "lineas": [
+    {
+      "a": "01-26000404",
+      "d": "SLED-5000 42W 4000K 595X595 IP40 BLANCO (+ecoraee)",
+      "dto": "",
+      "f": "2026-07-14",
+      "i": 45.73,
+      "igic": 7,
+      "o": "MUESTRAS HOTEL MONTEREY",
+      "pn": 45.73,
+      "pt": 45.73,
+      "q": 1,
+      "r": "1902000153020"
+    },
+    {
+      "a": "01-26000404",
+      "d": "NEW DISC 12W CCT IP44 (+ecoraee)",
+      "dto": "",
+      "f": "2026-07-14",
+      "i": 17.44,
+      "igic": 7,
+      "o": "MUESTRAS HOTEL MONTEREY",
+      "pn": 17.44,
+      "pt": 17.44,
+      "q": 1,
+      "r": "M1902000190016"
+    },
+    {
+      "a": "01-26000404",
+      "d": "NEW DISC 18W CCT IP44 (+ecoraee)",
+      "dto": "",
+      "f": "2026-07-14",
+      "i": 18.87,
+      "igic": 7,
+      "o": "MUESTRAS HOTEL MONTEREY",
+      "pn": 18.87,
+      "pt": 18.87,
+      "q": 1,
+      "r": "M1902000190017"
+    },
+    {
+      "a": "01-26000404",
+      "d": "ANNA VARIOFLEX 3 Q596 4400 830/35/40 DALI (+ecoraee)",
+      "dto": "",
+      "f": "2026-07-14",
+      "i": 47.65,
+      "igic": 7,
+      "o": "MUESTRAS HOTEL MONTEREY",
+      "pn": 47.65,
+      "pt": 47.65,
+      "q": 1,
+      "r": "1196638251"
+    }
+  ],
+  "msg": "1a1f85b3f6bb128b",
+  "numero": "F20260414",
+  "obra": "MUESTRAS HOTEL MONTEREY",
+  "origen": "Gmail",
+  "proveedor": "Lightcan",
+  "tipo": "factura",
+  "total": 138.77
+}

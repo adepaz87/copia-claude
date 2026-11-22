@@ -1,0 +1,24 @@
+{
+  "albs": [],
+  "cliente": "COVALLE",
+  "desc": "Entubar por techo oficina alimentación futuro letrero,desde la cubierta hasta bandeja en cuarto instalaciónes Entubar desde cuarto instalaciones hasta oficinas planta alta (Rack) para Datos y fibra Enhebra planta alta (baños,pasillos,oficinas) AL,ALE y Fuerza Limpiar zonas de trabajo",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-11-18",
+  "horas": 20,
+  "id": "1007",
+  "obra": "NAVE COOPERATIVA COVALLE",
+  "ops": [
+    {
+      "h": 10,
+      "n": "Petter"
+    },
+    {
+      "h": 10,
+      "n": "Jonathan Rodríguez"
+    }
+  ],
+  "origen": "dashboard",
+  "restante": "Indefinido",
+  "stock": []
+}

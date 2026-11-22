@@ -1,0 +1,23 @@
+{
+  "albs": [],
+  "cliente": "TOMÁS BARRETO SA.",
+  "desc": "Mediciones de revisión mantenimiento preventivo de tierras. 84 Ohmios.",
+  "devol": [],
+  "estado": "TERMINADO",
+  "fecha": "2026-11-18",
+  "horas": 2,
+  "id": "998",
+  "obra": "SPAR EL PASO",
+  "ops": [
+    {
+      "h": 1,
+      "n": "Toño"
+    },
+    {
+      "h": 1,
+      "n": "Manuel"
+    }
+  ],
+  "origen": "dashboard",
+  "stock": []
+}

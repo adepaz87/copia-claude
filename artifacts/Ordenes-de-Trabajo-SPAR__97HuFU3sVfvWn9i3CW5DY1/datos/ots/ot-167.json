@@ -1,0 +1,23 @@
+{
+  "actualizada": "2026-11-19T11:13:00Z",
+  "aviso": "",
+  "centro": "SPAR El Paso",
+  "creada": "2026-11-17T13:20:00Z",
+  "descripcion": "Mantenimiento correctivo: corregir las incidencias de la revisión previa a la OCA de BT (OT 155, informe del 17/11/2026, 29 OK · 4 NO). 1) Esquemas unifilares: no se encuentran en tienda. 2) Polvo y cucarachas en el cuarto del cuadro general: limpieza y control de plagas. 3) Termografía pendiente (no había cámara). 4) Alumbrado: almacén 2 emergencias; garaje y accesos 7 emergencias y 5 downlight 200 mm 4000K; zona baños 2 emergencias; escaleras 2 emergencias. Además, resistencia de puesta a tierra sin medir.",
+  "empresa": "Tomás Barreto",
+  "estado": "pendiente",
+  "fechaAviso": "2026-11-17",
+  "historial": [
+    "17/11/2026 13:20 · Creada (regla de Alberto): mantenimiento correctivo con las incidencias de la revisión previa OCA de SPAR El Paso (OT 155)",
+    "17/11/2026 13:20 · Material ya pedido por Toño en el chat de pedidos (13:12). Pendiente de material; se asignará cuando esté en almacén",
+    "19/11/2026 11:13 · Material en almacén: Adán avisa en el chat de pedidos (11:01–11:02) de que han llegado las cajas para SPAR El Paso. Lista para asignar"
+  ],
+  "informado": false,
+  "materialEnAlmacen": "2026-11-19T11:02:00Z",
+  "notas": "PENDIENTE DE MATERIAL: se asignará cuando el material esté en almacén. Toño ya pidió material en el chat de pedidos (17/11 13:12): 5 downlight 200 mm LED 4000K, 9 emergencias de empotrar 200L y 4 emergencias s/p 200L. En el correo del informe se pidió que la tienda se encargue de los unifilares y de la limpieza y control de plagas. Origen: informe de revisión de supermercado id 3 (Dashboard), guardado en la OT 155.",
+  "operario": "",
+  "ot": 167,
+  "prioridad": "Alta",
+  "solicitante": "Alberto",
+  "tipo": "MANTENIMIENTO"
+}

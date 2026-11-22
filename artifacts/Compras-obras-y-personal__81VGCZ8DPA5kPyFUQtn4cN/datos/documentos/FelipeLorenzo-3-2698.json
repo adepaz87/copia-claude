@@ -1,0 +1,27 @@
+{
+  "base": 1698.8,
+  "empresa": "Instapalma",
+  "fecha": "2026-11-20",
+  "lineas": [
+    {
+      "a": "",
+      "d": "Puesta en marcha de la elevación del grupo de bombeo del juego de bolas de Puntagorda (partida)",
+      "dto": "",
+      "f": "2026-11-20",
+      "i": 1698.8,
+      "igic": 7,
+      "o": "ELEVACION JUEGO DE BOLAS",
+      "pn": 1698.8,
+      "pt": 1698.8,
+      "q": 1,
+      "r": ""
+    }
+  ],
+  "msg": "1a1f857753bf28ec",
+  "numero": "3/2698",
+  "obra": "ELEVACION JUEGO DE BOLAS",
+  "origen": "Gmail",
+  "proveedor": "Felipe Lorenzo",
+  "tipo": "factura",
+  "total": 1817.72
+}

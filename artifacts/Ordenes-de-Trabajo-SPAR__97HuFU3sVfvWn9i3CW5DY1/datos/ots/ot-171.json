@@ -1,0 +1,24 @@
+{
+  "actualizada": "2026-11-19T20:33:47.743Z",
+  "asignadaEn": "2026-11-19T20:33:43.162Z",
+  "avisadoWa": "2026-11-19T20:33:47.743Z",
+  "aviso": "27544",
+  "centro": "SPAR Los Sauces",
+  "creada": "2026-11-19T10:13:00Z",
+  "descripcion": "Pasar un cable de la oficina al almacén de la parte alta para la balanza que está arriba.",
+  "empresa": "Tomás Barreto",
+  "estado": "asignada",
+  "fechaAviso": "2026-11-18",
+  "historial": [
+    "19/11/2026 10:13 · Registrada desde la captura GIM de Raquel (correo «SAUCES»)",
+    "19/11/2026 20:33 · Asignada a Toño Guardia",
+    "19/11/2026 20:33 · Asignación: Correo enviado a TBSA · WhatsApp a Toño Guardia enviado · WhatsApp a Fernando enviado"
+  ],
+  "informado": true,
+  "notas": "Aviso GIM 27544 del jefe de tienda SPAR Los Sauces (18/11/2026 15:25), reenviado por Raquel el 19/11 a las 9:15 (correo «SAUCES», cc Fernando). Para aclaraciones, contactar con Moisés (informática), tel. 679 968 240.",
+  "operario": "Toño Guardia",
+  "ot": 171,
+  "prioridad": "Media",
+  "solicitante": "Raquel",
+  "tipo": "MATERIAL NUEVO"
+}

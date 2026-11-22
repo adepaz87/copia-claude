@@ -1,0 +1,69 @@
+{
+  "empresa": "Instapalma",
+  "fecha": "2026-11-16",
+  "lineas": [
+    {
+      "a": "309007006",
+      "d": "BASE AEREA 16A 3PNT 380-415V IP44 TOR SCHN PKF16M435",
+      "dto": "65,00",
+      "f": "2026-11-16",
+      "fab": "PKF16M435",
+      "i": 6.16,
+      "m": "Schneider Electric",
+      "o": "34 VIV DRAGADOS TAZACORTE",
+      "pn": 6.16,
+      "pt": 17.61,
+      "q": 1,
+      "r": "71570"
+    },
+    {
+      "a": "309007006",
+      "d": "CLAV AEREA 16A 3PNT 380-415V IP44 TOR SCHN PKE16M435",
+      "dto": "65,00",
+      "f": "2026-11-16",
+      "fab": "PKE16M435",
+      "i": 4.5,
+      "m": "Schneider Electric",
+      "o": "34 VIV DRAGADOS TAZACORTE",
+      "pn": 4.5,
+      "pt": 12.85,
+      "q": 1,
+      "r": "61204"
+    },
+    {
+      "a": "309007006",
+      "d": "CLAV AEREA 16A 3PT 380-415V IP44 TOR SCHN PKE16M434",
+      "dto": "65,00",
+      "f": "2026-11-16",
+      "fab": "PKE16M434",
+      "i": 3.75,
+      "m": "Schneider Electric",
+      "o": "34 VIV DRAGADOS TAZACORTE",
+      "pn": 3.75,
+      "pt": 10.7,
+      "q": 1,
+      "r": "112985"
+    },
+    {
+      "a": "309007006",
+      "d": "CLAV AEREA 32A 3PNT 380-415V IP44 TOR SCHN PKE32M435",
+      "dto": "65,00",
+      "f": "2026-11-16",
+      "fab": "PKE32M435",
+      "i": 13.6,
+      "m": "Schneider Electric",
+      "o": "34 VIV DRAGADOS TAZACORTE",
+      "pn": 6.8,
+      "pt": 19.43,
+      "q": 2,
+      "r": "104894"
+    }
+  ],
+  "msg": "1a1e491f44db82fb",
+  "numero": "309007006",
+  "obra": "34 VIV DRAGADOS TAZACORTE",
+  "origen": "Gmail (escaneo, reenviado a adm2)",
+  "proveedor": "Sonepar",
+  "tipo": "albaran",
+  "total": 28.01
+}

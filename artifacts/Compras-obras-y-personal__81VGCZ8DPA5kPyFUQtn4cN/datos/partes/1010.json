@@ -1,0 +1,19 @@
+{
+  "albs": [],
+  "cliente": "CHICHO 2 TUMBOS",
+  "desc": "Localizar avería, se quemó interiormente extensible ya que conectaron radial grande y máquina de trepanos en el mismo extensible y hacía saltar general",
+  "devol": [],
+  "estado": "TERMINADO",
+  "fecha": "2026-11-18",
+  "horas": 1,
+  "id": "1010",
+  "obra": "EDIFICIO SABINO",
+  "ops": [
+    {
+      "h": 1,
+      "n": "Aythami"
+    }
+  ],
+  "origen": "dashboard",
+  "stock": []
+}

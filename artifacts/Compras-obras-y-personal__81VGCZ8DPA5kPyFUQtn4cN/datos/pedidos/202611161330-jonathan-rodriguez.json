@@ -1,0 +1,17 @@
+{
+  "albaran": "Grupo JLV factura 2026013376",
+  "creado": "2026-11-16T21:35:00Z",
+  "entrega": "",
+  "estado": "entregado",
+  "f": "2026-11-16T13:30",
+  "fcierre": "2026-11-20T09:36",
+  "grupo": "Pedidos Instapalma",
+  "nota": "Sin rastro en chats de proveedor.",
+  "nota_carga": "Factura Grupo JLV 2026013376 (19/11, obra Residencia Mayores El Paso, Kairos): central incendios 1 lazo, 2 pulsadores, 2 sirenas interiores, 1 sirena exterior, 24 detectores + bases. «Material que salió hoy» (20/11).",
+  "obra": "residencia-tercera-edad-el-paso",
+  "obraRaw": "Residencia Tercera Edad El Paso",
+  "op": "Jonathan Rodriguez",
+  "origen": "whatsapp",
+  "prov": "Grupo JLV",
+  "texto": "1 central incendio\n2 pulsadores incendio\n2 sirenas interior incendio\n1 sirena exterior incendio\n24 detectores incendio"
+}

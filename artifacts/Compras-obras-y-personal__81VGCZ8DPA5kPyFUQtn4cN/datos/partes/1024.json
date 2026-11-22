@@ -1,0 +1,20 @@
+{
+  "albs": [],
+  "cliente": "TRAGSA",
+  "desc": "Realizando  cuadros",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-11-20",
+  "horas": 8,
+  "id": "1024",
+  "obra": "HOSPITAL MOD G",
+  "ops": [
+    {
+      "h": 8,
+      "n": "Juan"
+    }
+  ],
+  "origen": "dashboard",
+  "restante": "Indefinido",
+  "stock": []
+}

@@ -1,0 +1,49 @@
+{
+  "empresa": "Instapalma",
+  "fecha": "2026-11-18",
+  "lineas": [
+    {
+      "a": "VCTF-021762-2026",
+      "d": "LUMERG.URA21LED PLUS 100 LM,1H,NO PMT.",
+      "dto": "Neto",
+      "f": "2026-11-18",
+      "i": 238.22,
+      "o": "SPAR EL PASO",
+      "pn": 18.3246,
+      "pt": 18.325,
+      "q": 13,
+      "r": "LEG-661602PL"
+    },
+    {
+      "a": "VCTF-021762-2026",
+      "d": "MO.EMP.URA21LED PLUS INST.FALSO TECHO,BL",
+      "dto": "Neto",
+      "f": "2026-11-18",
+      "i": 46.24,
+      "o": "SPAR EL PASO",
+      "pn": 5.1378,
+      "pt": 5.138,
+      "q": 9,
+      "r": "LEG-661720PL"
+    },
+    {
+      "a": "VCTF-021762-2026",
+      "d": "DOWNL.LED 18W 4100K 1300LM 225X20MM BL",
+      "dto": "Neto",
+      "f": "2026-11-18",
+      "i": 35.84,
+      "o": "SPAR EL PASO",
+      "pn": 7.168,
+      "pt": 7.167,
+      "q": 5,
+      "r": "ROB-LEDPANEL18F"
+    }
+  ],
+  "msg": "1a1edc08d388f9e2",
+  "numero": "VCTF-021762-2026",
+  "obra": "SPAR EL PASO",
+  "origen": "Gmail",
+  "proveedor": "Diexfe",
+  "tipo": "albaran",
+  "total": 320.3
+}

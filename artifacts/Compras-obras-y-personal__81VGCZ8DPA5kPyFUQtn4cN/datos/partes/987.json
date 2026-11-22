@@ -1,0 +1,79 @@
+{
+  "albs": [],
+  "cliente": "TOMÁS BARRETO",
+  "desc": "Colocación perfil tira led en estanterías vino Colocación y conexionado tira led 15w/4000k ,pasar cables de alimentación parte alta estantería,colocación registro,tirar cable 3x1,5mm 1kvrz1 hasta registro promociones ,conexionar líneas y dejar con servicio,colocar difusor a perfil tira led Limpiar zonas de trabajo",
+  "devol": [],
+  "estado": "TERMINADO",
+  "fecha": "2026-11-17",
+  "horas": 14,
+  "id": "987",
+  "obra": "SPAR TRIANA (OT 150)",
+  "ops": [
+    {
+      "h": 7,
+      "n": "Petter"
+    },
+    {
+      "h": 7,
+      "n": "Jonathan Rodríguez"
+    }
+  ],
+  "origen": "dashboard",
+  "stock": [
+    {
+      "d": "Perfil tira led 2x1,5mm",
+      "q": 5,
+      "u": "m"
+    },
+    {
+      "d": "Conector BLUEled 721283 tira led",
+      "q": 5,
+      "u": ""
+    },
+    {
+      "d": "Tira led BLUEled 721221 ADVANCE COB 230v 15w 4000k ip65",
+      "q": 5,
+      "u": "m"
+    },
+    {
+      "d": "Terminal 2.5mm",
+      "q": 1,
+      "u": ""
+    },
+    {
+      "d": "Cable incendio 2x1,5mm",
+      "q": 15,
+      "u": "m"
+    },
+    {
+      "d": "Cable 3x1,5mm 1kv-Rz1",
+      "q": 8,
+      "u": "m"
+    },
+    {
+      "d": "Bornas 10mm",
+      "q": 10,
+      "u": ""
+    },
+    {
+      "d": "Bornas 16mm",
+      "q": 3,
+      "u": ""
+    },
+    {
+      "d": "Caja registro 110x150 solera",
+      "q": 1,
+      "u": ""
+    },
+    {
+      "d": "Bridas negras 142x3,6 unex",
+      "q": 20,
+      "u": ""
+    },
+    {
+      "d": "Tornillos autoroscantes 3mmx10mm",
+      "q": 15,
+      "u": ""
+    }
+  ]
+}

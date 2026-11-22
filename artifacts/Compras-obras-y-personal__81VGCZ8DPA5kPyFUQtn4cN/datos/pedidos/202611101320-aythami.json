@@ -1,15 +1,19 @@
 {
+  "albaran": "Coelca 036.188/003",
+  "contacto": "Luis Pulido",
   "creado": "2026-11-10T21:35:00Z",
   "entrega": "",
-  "estado": "resuelto",
+  "estado": "entregado",
   "f": "2026-11-10T13:20",
-  "fcierre": "2026-11-10T14:54",
+  "fcierre": "2026-11-20T08:15",
+  "fcursado": "2026-11-17T12:47",
   "grupo": "Pedidos Instapalma",
-  "nota": "Alberto 14:54: «Recoger en Ayumar Buenavista». Aythami: Ok. Con esto se termina la teleco del edificio.",
+  "nota": "Alberto 10/11 14:54: «Recoger en Ayumar Buenavista». Al final, 17/11 12:47 Alberto lo pidió a Luis Pulido (Coelca): cable de datos en bobinas de 500 a 0,358, entrega en obra, contacto Aythami.",
+  "nota_carga": "Albarán Coelca 036.188/003 del 20/11 (Edif. Domingo Martín): 2000 m cable UTP Cat6 y 1000 m cable TV. Entregado.",
   "obra": "edificio-domingo-el-paso",
   "obraRaw": "Edificio domingo el paso",
   "op": "Aythami",
   "origen": "whatsapp",
-  "prov": "Ayumar",
+  "prov": "Coelca",
   "texto": "1000 m cable TV\n1600 m cable datos"
 }

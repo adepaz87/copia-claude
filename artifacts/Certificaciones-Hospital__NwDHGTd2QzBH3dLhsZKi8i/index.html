@@ -75,6 +75,18 @@ button{cursor:pointer}
 .pill.emitida,.pill.cerrada{background:var(--ok-soft);color:var(--ok)}
 .btn.close.armed{background:var(--ok);border-color:var(--ok);color:var(--surface)}
 
+/* presupuesto */
+.viewsw{align-self:flex-start}
+.viewsw button{padding:8px 16px;font-size:14px;font-weight:500}
+.presup .fields{border-bottom:1px solid var(--line)}
+.grid input.cell.pr-in{width:96px}
+.grid td.long{font-size:12px;color:var(--muted);padding-top:0}
+.pr-tot td{font-weight:600}
+.grid textarea.concept{width:100%;min-width:220px;border:1px solid var(--line-strong);background:var(--input);border-radius:5px;padding:5px 7px;font:inherit;font-size:13px;color:inherit;resize:vertical;display:block}
+.grid textarea.concept.long{font-size:12px;color:var(--muted);margin-top:4px}
+.grid details.ltxt summary{font-size:11.5px;color:var(--muted);cursor:pointer;margin-top:3px}
+@media (max-width:760px){.grid textarea.concept{min-width:0;font-size:16px}}
+
 /* exportar */
 .export{display:flex;flex-wrap:wrap;align-items:center;gap:10px 14px;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:12px 16px}
 .export .tb-label{font-weight:600;color:var(--ink);font-size:13px}
@@ -366,16 +378,42 @@ const LOTES=[
   ["2.32", "ud", "Instalación y conexionado de Subcuadro General de Mando y Protección Módulo D, según prescripciones técnicas del PPTP. (Suministrado por Tragsa (*)).", 850, 1],
   ["2.33", "ud", "Instalación y conexionado de Subcuadro General de Mando y Protección Módulo E, según prescripciones técnicas del PPTP. (Suministrado por Tragsa (*)).", 850, 1],
   ["2.34", "ud", "Instalación y conexionado de Subcuadro General de Mando y Protección Módulo F, según prescripciones técnicas del PPTP. (Suministrado por Tragsa (*)).", 850, 1]
- ]}
+ ]},
+ {id:"FV",nombre:"Fotovoltaica",desc:"Instalación fotovoltaica",presupuesto:true,
+  caps:[{id:"1",nombre:"Cuadro general y líneas"},{id:"2",nombre:"Paneles, cuadros e inversores"},{id:"3",nombre:"Cableado y canalizaciones"}],
+  P:[
+  ["1.1", "m", "Línea de distribución eléctrica trifásica RZ1-K (AS) Cca-s1b,d1,a1 4x70+1G35 mm², 0,6/1 kV", 0, 500.0, "Línea de distribución eléctrica trifásica, formada por cables unipolares con conductores de cobre, RZ1-K (AS) Cca-s1b,d1,a1 4x70+1G35 mm², siendo su tensión asignada de 0,6/1 kV. Incluye: Replanteo y trazado de la línea. Colocación y fijación del tubo. Tendido de cables. Conexionado. Criterio de medición de proyecto: Longitud medida según documentación gráfica de Proyecto. Criterio de medición de obra: Se medirá la longitud realmente ejecutada según especificaciones de Proyecto."],
+  ["2.1", "ud", "Instalación de panel de potencia 550 W monocristalino (panel suministrado por TRAGSA)", 0, 595.0, "Instalación de panel de potencia 550 W monocristalino (panel suministrado por TRAGSA): - Potencia máxima: 550 W. - Tensión en el punto de potencia máxima (Vmax): 42,1 V - Corriente - Dimensiones: 2278x1134x35 mm - Peso: 26,9 kg - Número de células: 144 - Grosor del vidrio: 3,2 mm - Tipo de trama: aluminio anodizado - Nº diodos Bypass incorporados: 3 - Caja de protección de uniones: IP 68 - tipo de conector: MC4 - Corte transversal del cable: 4 mm2. Totalmente instalado y conexionado, incluido p/p de conectores."],
+  ["2.2", "ud", "Instalación de Inversor (inversor suministrado por TRAGSA)", 0, 7.0, "Instalación de Inversor (inversor suministrado por TRAGSA). Totalmente montado, conexionado, probado y regulado."],
+  ["2.3", "ud", "Instalación de estructura de hormigón a 18º (estructura suministrada por TRAGSA)", 0, 670.0, "Instalación de Estructura de hormigón a 18º. (estructura suministrada por TRAGSA) Totalmente replanteado y montado."],
+  ["2.4", "ud", "Instalación de Smart Power Sensor (meter) (smart power sensor suministrado por TRAGSA)", 0, 1.0, "Instalación de Smart Power Sensor (meter) (smart power sensor suministrado por TRAGSA) Totalmente montado y conexionado."],
+  ["2.5", "ud", "Instalación de Smart Dongle-WLAN-FE (Smart Dongle suministrado por TRAGSA)", 0, 1.0, "Instalación de Smart Dongle-WLAN-FE (Smart Dongle suministrado por TRAGSA). Totalmente montado y conexionado."],
+  ["2.6", "ud", "Instalación de cuadro de protección DC (cuadro suministrado por TRAGSA), compuesto por los elementos de corte y protección necesarios para 50 kWp", 0, 7.0, "Instalación de cuadro de protección DC (cuadro suministrado por TRAGSA), compuesto por los elementos de corte y protección necesarios para 50 kW, según esquema unifilar. Totalmente instalado y en servicio, incluso cableado, conexionado, accesorios de conexión, fijación y montaje."],
+  ["2.7", "ud", "Instalación de cuadro de protección AC (cuadro suministrado por TRAGSA), compuesto por los elementos de corte y protección necesarios para 50 kWp", 0, 7.0, "Instalación de cuadro de protección AC (cuadro suministrado por TRAGSA), compuesto por los elementos de corte y protección necesarios para 50 kWp, según esquema unifilar. Totalmente instalado y en servicio, incluso cableado, conexionado, accesorios de conexión, fijación y montaje."],
+  ["3.1", "m", "Circuito de continua con cable tipo PV1-F, de 0.6/1 kV de 2x(1x6) mm2 fijado a estructura metálica", 0, 1000.0, "Circuito de continua con cable tipo PV1-F, de 0.6/1 kV de 2x(1x6) mm2 fijado a estructura metálica mediante bridas. Totalmente montado y conexionado."],
+  ["3.2", "m", "Circuito de continua con cable tipo PV1-F, de 0.6/1 kV de 2x(1x10) mm2 fijado a estructura metálica", 0, 1500.0, "Circuito de continua con cable tipo PV1-F, de 0.6/1 kV de 2x(1x10) mm2 fijado a estructura metálica mediante bridas. Totalmente montado y conexionado."],
+  ["3.3", "m", "Bandeja perforada UNEX 66 PVC-M1, U48X o equivalente color gris de medidas 60x100 mm, con tapa", 0, 400.0, "Bandeja perforada UNEX 66 PVC-M1, U48X o equivalente color gris de medidas 60x100 mm, con tapa, sin separadores, instalada sobre techo o pared mediante perfil reforzado de acero galvanizado y varilla roscada de acero M6, incluso p.p. de tuercas y arandelas, derivaciones, T, y medios de elevación. Totalmente instalada."],
+  ["3.4", "m", "Tubo DIFLEX - D=25 mm", 0, 250.0, ""],
+  ["3.5", "m", "Conductor de tierra de Cu, 750 V, amarillo-verde de 6mm2, (Tierra en paneles)", 0, 1000.0, "Conductor de tierra de Cu, 750 V, amarillo-verde de 6mm2, (Tierra en paneles). Totalmente instalado y conexionado."],
+  ["3.6", "ud", "Puesta a tierra de la instalación fotovoltaica", 0, 1.0, "Puesta a tierra de la instalación fotovoltaica compuesta por: - 1 UD. Arqueta puesta tierra. - 2 UD de pica de 2 m., de acero cobreado y 14 mm, de diámetro y grapa. - 1 Caja de seccionamiento. - 10 ML Cable de Cu desnudo, de 35 mm2."],
+  ["3.7", "m", "Cable tipo FTP categoría 6 no propagador de llama (LSZH)", 0, 200.0, "Cable tipo FTP categoría 6 no propagador de llama (LSZH) según norma UNE-EN 50265 (IEC 60332.1), con conductor tipo unifilar 2x4x24 AWG SOLID WIRE con muy bajo retardo (SKEW <=20NS), aislamiento Poliolefina y cubierta de Poliolefina ignífuga libre de halógenos y reducida emisión de humos, de color GRIS. Totalmente instalado y conexionado."]
+ ]},
 ];
-for(const L of LOTES){L.P=L.P.map(([n,ud,d,p,q])=>({n,ud,d,p,q,cap:n.split(".")[0],k:"p"+n.replace(".","_")}))}
+for(const L of LOTES){L.P=L.P.map(([n,ud,d,p,q,t])=>({n,ud,d,p,q,p0:p,q0:q,d0:d,t0:t||"",t:t||"",cap:n.split(".")[0],k:"p"+n.replace(".","_")}))}
 let OBRA={...OBRA_DEF}, CAPS=[], P=[], PEM=0, CAP_PEM={}, loteId=null, PREV=null;
 const r2=x=>Math.round((x+Math.sign(x)*1e-9)*100)/100;
 const r4=x=>Math.round((x+Math.sign(x)*1e-12)*10000)/10000;
 const lotePEM=L=>r2(L.P.reduce((s,p)=>s+r2(p.p*p.q),0));
 const curLote=()=>LOTES.find(l=>l.id===loteId);
+let presup={}, presupTimer={}, loteView={};
+function applyPresup(L){
+  const pr=presup[L.id]||{};const pp=pr.precios||{},pq=pr.cant||{};
+  const pd=pr.desc||{},pt=pr.texto||{};
+  for(const p of L.P){p.p=pp[p.k]!=null?+pp[p.k]:p.p0;p.q=pq[p.k]!=null?+pq[p.k]:p.q0;p.d=pd[p.k]?pd[p.k]:p.d0;p.t=pt[p.k]!=null?pt[p.k]:(pd[p.k]?"":p.t0)}
+}
 function setLote(id){
   const L=LOTES.find(l=>l.id===id)||LOTES.find(l=>l.P.length)||LOTES[0];
+  if(L.presupuesto)applyPresup(L);
   loteId=L.id;CAPS=L.caps;P=L.P;PEM=lotePEM(L);PREV=L.previo||null;
   CAP_PEM=Object.fromEntries(CAPS.map(c=>[c.id,r2(P.filter(p=>p.cap===c.id).reduce((s,p)=>s+r2(p.p*p.q),0))]));
   try{localStorage.setItem("hosp-lote",loteId)}catch(e){}
@@ -411,7 +449,8 @@ function prevObra(c){return sorted().filter(x=>x.tipo==="obra"&&x.num<c.num).pop
 function qO(c,p){return c&&c.qty&&c.qty[p.k]!=null?+c.qty[p.k]:0}
 function anticipoImporte(c){return r2(P.reduce((s,p)=>s+r2(p.q*(+c.pct||0)/100*p.p),0))}
 function antHasta(num){return r2(sorted().filter(x=>x.tipo==="anticipo"&&x.num<=num).reduce((s,x)=>s+anticipoImporte(x),0))}
-function fiscal(base){const igic=cfg.isp?0:r2(base*(+cfg.igic||0)/100);return {igic,total:r2(base+igic)}}
+function loteIgic(){const L=curLote();if(L&&L.presupuesto){const v=(presup[L.id]||{}).igic;return v==null||v===""||isNaN(+v)?0:+v}return +cfg.igic||0}
+function fiscal(base){const igic=cfg.isp?0:r2(base*loteIgic()/100);return {igic,total:r2(base+igic)}}
 
 function calc(c){
   if(c.tipo==="anticipo"){
@@ -472,6 +511,15 @@ function render(){
   let h=`<header class="mast"><div class="mast-l">${logoSrc()?`<div class="logo-chip"><img src="${logoSrc()}" alt="Logo"></div>`:""}<div><div class="eyebrow">${esc(OBRA.titulo)}</div><h1>Certificaciones de obra</h1><p>${esc(OBRA.certifica)}${OBRA.contratista?" para "+esc(OBRA.contratista):""} · ${esc(loteTag())}${PEM?" · presupuesto "+eur(PEM)+" € sin IGIC":""}</p></div></div><div id="status" class="status ${localMode?"local":""}">${localMode?"Sin guardar (vista local)":"Guardado"}</div></header>`;
   if(localMode)h+=`<div class="banner">Esta vista no puede guardar en el servidor. Puedes probar la herramienta, pero los cambios se pierden al cerrar. Ábrela desde claude.ai con tu sesión iniciada para guardar.</div>`;
   h+=lotesHTML();
+  if(curLote().presupuesto){
+    const v=loteView[loteId]||"presupuesto";
+    h+=`<div class="seg viewsw" role="group" aria-label="Vista del lote"><button data-act="lview" data-v="presupuesto" aria-pressed="${v==="presupuesto"}">Presupuesto</button><button data-act="lview" data-v="cert" aria-pressed="${v==="cert"}">Certificaciones</button></div>`;
+    if(v==="presupuesto"||!PEM){
+      if(v!=="presupuesto")h+=`<div class="banner">Para certificar este lote, primero pon los precios en el presupuesto.</div>`;
+      h+=presupHTML();
+      h+=settingsHTML();const os=document.querySelector("details.settings")?.open;app.innerHTML=h;if(os)document.querySelector("details.settings").open=true;return;
+    }
+  }
   if(!P.length){
     h+=`<section class="empty"><h2>${esc(loteTag())}: falta el presupuesto</h2><p class="muted">Este lote aparecerá en cuanto se cargue su presupuesto aceptado (partidas con unidad, precio y medición). Las certificaciones de los otros lotes no se ven afectadas.</p></section>`;
     h+=settingsHTML();const os=document.querySelector("details.settings")?.open;app.innerHTML=h;if(os)document.querySelector("details.settings").open=true;return;
@@ -493,6 +541,8 @@ function render(){
 function lotesHTML(){
   return `<nav class="lotes" aria-label="Lotes">${LOTES.map(L=>{
     if(!L.P.length)return `<button class="lote" data-act="lote" data-id="${L.id}" aria-selected="${L.id===loteId}"><strong>${esc(L.nombre)}</strong><span>${esc(L.desc||"Presupuesto pendiente")}</span><span class="muted">Sin presupuesto cargado</span></button>`;
+    if(L.presupuesto){applyPresup(L);const pem=lotePEM(L);const s=loteStats(L);const priced=L.P.filter(p=>p.p>0).length;
+      return `<button class="lote" data-act="lote" data-id="${L.id}" aria-selected="${L.id===loteId}"><strong>${esc(L.nombre)}</strong><span>${esc(L.desc)}</span><span class="num">Presupuesto ${eur(pem)} € sin IGIC</span><span class="muted">${priced} de ${L.P.length} partidas con precio · ${s.n} certificaci${s.n===1?"ón":"ones"}</span></button>`}
     const s=loteStats(L);const pct=s.pem?s.ejec/s.pem*100:0;
     return `<button class="lote" data-act="lote" data-id="${L.id}" aria-selected="${L.id===loteId}"><strong>${esc(L.nombre)}</strong><span>${esc(L.desc)}</span><span class="num">${eur(s.ejec)} € de ${eur(s.pem)} € · ${pf(pct)} %</span><div class="bar"><i style="width:${Math.max(0,Math.min(100,pct))}%"></i></div><span class="muted">${s.n} certificaci${s.n===1?"ón":"ones"}</span></button>`}).join("")}</nav>`;
 }
@@ -531,7 +581,7 @@ function sheetHTML(c){
   return h+`</div></section>`;
 }
 function ledgerHTML(c,k){
-  const ig=cfg.isp?`<div class="lrow sub"><span>IGIC: inversión del sujeto pasivo</span><span>0,00</span></div>`:`<div class="lrow"><span>IGIC ${pf(+cfg.igic)} %</span><span>${eur(k.igic)}</span></div>`;
+  const ig=cfg.isp?`<div class="lrow sub"><span>IGIC: inversión del sujeto pasivo</span><span>0,00</span></div>`:`<div class="lrow"><span>IGIC ${pf(loteIgic())} %</span><span>${eur(k.igic)}</span></div>`;
   if(c.tipo==="anticipo") return `<h3>Resumen</h3>
     <div class="lrow"><span>Anticipo (${pf(+c.pct||0)} % de ${eur(PEM)} €)</span><span>${eur(k.base)}</span></div>${ig}
     <div class="lrow total"><span>Total nº ${c.num}</span><span>${eur(k.total)} €</span></div>
@@ -606,7 +656,7 @@ function docModel(c,k){
     if(+cfg.ret>0)resumen.push([`Retención de garantía ${pf(+cfg.ret)} %`,eu(-k.ret),""]);
     resumen.push(["Base imponible",eu(k.base),"st"]);
   }
-  resumen.push(cfg.isp?["IGIC: operación con inversión del sujeto pasivo","0,00",""]:[`IGIC ${pf(+cfg.igic)} %`,eu(k.igic),""]);
+  resumen.push(cfg.isp?["IGIC: operación con inversión del sujeto pasivo","0,00",""]:[`IGIC ${pf(loteIgic())} %`,eu(k.igic),""]);
   resumen.push([`TOTAL CERTIFICACIÓN Nº ${c.num}`,eu(k.total),"tt"]);
   let obs=[];
   if(c.tipo==="anticipo")obs.push(`A cuenta del presupuesto aceptado. Este anticipo se descontará de las certificaciones siguientes según lo pactado${OBRA.contratista?" con "+OBRA.contratista:""}.`);
@@ -653,7 +703,7 @@ function settingsHTML(){
      <p class="note">Salen en la cabecera, en el documento y en el PDF de todos los lotes.</p>
    </div>
    <div class="set-box">
-     <div class="frow"><div class="f"><label for="s-igic">IGIC %</label><input id="s-igic" class="pct-in" type="text" inputmode="decimal" value="${pf(+cfg.igic)}" data-cfg="igic"></div>
+     <div class="frow"><div class="f"><label for="s-igic">IGIC %</label><input id="s-igic" class="pct-in" type="text" inputmode="decimal" value="${pf(loteIgic())}" data-cfg="igic"></div>
      <div class="f"><label for="s-ret">Retención de garantía %</label><input id="s-ret" class="pct-in" type="text" inputmode="decimal" value="${pf(+cfg.ret)}" data-cfg="ret"></div></div>
      <label class="check"><input id="s-isp" type="checkbox" ${cfg.isp?"checked":""} data-cfg="isp"><span>Inversión del sujeto pasivo del IGIC (las certificaciones salen sin IGIC). Pendiente de confirmar con la asesoría.</span></label>
      <p class="note">Estos ajustes se aplican a todas las certificaciones, también a las ya emitidas, al volver a generar su documento.</p>
@@ -689,6 +739,7 @@ function refreshNumbers(){
 }
 
 app.addEventListener("input",e=>{
+  if(presupInput(e.target))return;
   const t=e.target,c=sel();
   if(t.dataset.in&&c){
     const v=parseNum(t.value);if(isNaN(v))return;
@@ -716,7 +767,7 @@ app.addEventListener("change",async e=>{
   }
   if(t.dataset.in){const c=sel();if(c)refreshNumbers()}
 });
-app.addEventListener("focusout",e=>{if(e.target.dataset&&e.target.dataset.obra){render();return}if(e.target.dataset&&e.target.dataset.in){const c=sel();if(!c)return;const k=calc(c);const r=k.rows.find(r=>r.p.k===e.target.dataset.k);const vals={qo:qf(r.qo),po:pf(r.qo/r.p.q*100),qt:qf(r.qt),pt:pf(r.qt/r.p.q*100)};e.target.value=vals[e.target.dataset.in]}});
+app.addEventListener("focusout",e=>{if(e.target.dataset&&(e.target.dataset.pp||e.target.dataset.pq)){const p=P.find(x=>x.k===(e.target.dataset.pp||e.target.dataset.pq));if(p)e.target.value=e.target.dataset.pp?(p.p?eur(p.p):""):qf(p.q);return}if(e.target.dataset&&e.target.dataset.obra){render();return}if(e.target.dataset&&e.target.dataset.in){const c=sel();if(!c)return;const k=calc(c);const r=k.rows.find(r=>r.p.k===e.target.dataset.k);const vals={qo:qf(r.qo),po:pf(r.qo/r.p.q*100),qt:qf(r.qt),pt:pf(r.qt/r.p.q*100)};e.target.value=vals[e.target.dataset.in]}});
 app.addEventListener("keydown",e=>{
   const t=e.target;
   if(t.classList&&t.classList.contains("pct-in")&&e.key==="Enter"){const b=t.parentElement.querySelector('[data-act="apply"]');if(b){e.preventDefault();b.click()}}
@@ -724,10 +775,17 @@ app.addEventListener("keydown",e=>{
     const all=[...document.querySelectorAll(`input[data-in="${t.dataset.in}"]`)];const i=all.indexOf(t);const n=all[i+(e.key==="ArrowUp"?-1:1)];if(n){e.preventDefault();n.focus();n.select()}
   }
 });
+function flushPresup(){for(const id in presupTimer)if(presupTimer[id])savePresupNow(id)}
+addEventListener("visibilitychange",()=>{if(document.visibilityState==="hidden")flushPresup()});addEventListener("pagehide",flushPresup);
 let delArmed=null, closeArmed=null, expScope="origen", certCols="origen";
 try{certCols=localStorage.getItem("hosp-cols")||"origen"}catch(e){}
 app.addEventListener("click",e=>{
   const b=e.target.closest("[data-act]");if(!b)return;const act=b.dataset.act;const c=sel();
+  if(act==="lview"){loteView[loteId]=b.dataset.v;selId=sorted().pop()?.id||null;render();return}
+  if(act==="pr-save"){const a=document.activeElement;if(a&&a.matches&&a.matches("input,textarea")&&a.closest(".presup"))presupInput(a);savePresupNow(loteId).then(ok=>toast(ok?"Presupuesto guardado":(localMode?"Esta vista no puede guardar en el servidor":"No se ha podido guardar")));return}
+  if(act==="pr-pdf"){presupPdf();return}
+  if(act==="pr-xlsx"){presupXlsx();return}
+  if(act==="pr-reset"){const pr=presup[loteId]=presup[loteId]||{};pr.cant={};recalcLote();savePresup();render();toast("Mediciones del proyecto restauradas");return}
   if(act==="lote"){setLote(b.dataset.id);selId=sorted().pop()?.id||null;view="medir";render();return}
   if(act==="sel"){selId=b.dataset.id;view="medir";render();return}
   if(act==="view"){view=b.dataset.v;render();return}
@@ -853,7 +911,7 @@ async function makeCsv(c){
   L.push("",[q("Obra a origen"),n(k.O)].join(";"),[q("Anterior"),n(k.A)].join(";"),[q("Esta certificación"),n(k.T)].join(";"));
   if(k.amort)L.push([q("Amortización anticipo"),n(-k.amort)].join(";"));
   if(k.ret)L.push([q("Retención"),n(-k.ret)].join(";"));
-  L.push([q("Base imponible"),n(k.base)].join(";"),[q(cfg.isp?"IGIC (ISP)":"IGIC "+pf(+cfg.igic)+" %"),n(k.igic)].join(";"),[q("Total"),n(k.total)].join(";"));
+  L.push([q("Base imponible"),n(k.base)].join(";"),[q(cfg.isp?"IGIC (ISP)":"IGIC "+pf(loteIgic())+" %"),n(k.igic)].join(";"),[q("Total"),n(k.total)].join(";"));
   await saveFile(`Certificacion_${c.num}_Hospital_Lote_${loteId}.csv`,"﻿"+L.join("\r\n"));
 }
 
@@ -1075,6 +1133,130 @@ async function makeXlsxCert(c){
   await saveWb(wb,`Certificacion_${c.num}_${fileTag()}.xlsx`);
 }
 
+/* ---------- presupuesto (lotes con presupuesto editable) ---------- */
+function presupDoc(){return presup[loteId]||{}}
+function presupHTML(){
+  const L=curLote(),pr=presupDoc(),f=fiscal(PEM);
+  let h=`<section class="sheet presup"><div class="sheet-head"><div class="fields">
+    <div><div class="eyebrow">Presupuesto · ${esc(L.nombre)}</div><h2>${esc(pr.titulo||L.desc||L.nombre)}</h2></div>
+    <div class="frow">
+      <div class="f grow"><label for="pr-titulo">Título del presupuesto</label><input id="pr-titulo" type="text" value="${esc(pr.titulo||"")}" placeholder="${esc(L.desc||L.nombre)}" data-pr="titulo"></div>
+      <div class="f"><label for="pr-fecha">Fecha</label><input id="pr-fecha" type="date" value="${esc(pr.fecha||todayISO())}" data-pr="fecha"></div>
+      <div class="f"><label for="pr-igic">IGIC %</label><input id="pr-igic" type="text" inputmode="decimal" style="width:80px" value="${esc(pr.igic==null?"0":String(pr.igic).replace(".",","))}" data-pr="igic"></div>
+      <div class="f"><label for="pr-ref">Referencia</label><input id="pr-ref" type="text" value="${esc(pr.ref||"")}" placeholder="p. ej. P-2026-031" data-pr="ref"></div>
+    </div>
+    <div class="f"><label for="pr-notas">Condiciones / observaciones (salen en el documento)</label><textarea id="pr-notas" rows="2" data-pr="notas">${esc(pr.notas||"")}</textarea></div>
+    <div class="actions"><button class="btn primary" data-act="pr-save">Guardar cambios</button><button class="btn" data-act="pr-pdf">Descargar PDF</button><button class="btn" data-act="pr-xlsx">Excel</button><button class="btn ghost" data-act="pr-reset">Restaurar mediciones del proyecto</button></div>
+  </div><div class="ledger" id="pr-ledger">${presupLedgerHTML()}</div></div>
+  <div class="toolbar"><span class="tb-label">Escribe el precio unitario de cada partida. Puedes ajustar las mediciones; las del proyecto quedan como referencia.</span></div>
+  <div class="scroll"><table class="grid" id="pr-grid"><thead><tr><th>Nº</th><th>Descripción</th><th>Ud</th><th class="n">Medición</th><th class="n">Precio €</th><th class="n">Importe €</th></tr></thead><tbody>`;
+  for(const cp of CAPS){
+    h+=`<tr class="cap"><td colspan="6"><div class="cap-wrap"><h3>Capítulo ${cp.id} · ${esc(cp.nombre)}</h3></div></td></tr>`;
+    for(const p of P.filter(p=>p.cap===cp.id)){
+      h+=`<tr class="pr" id="pr-${p.k}"><td class="id">${p.n}</td><td class="d"><span class="m-id">${p.n} · ${p.ud}</span><textarea class="concept" data-pd="${p.k}" rows="2" aria-label="Concepto ${p.n}">${esc(p.d)}</textarea><details class="ltxt"${(presupDoc().texto||{})[p.k]!=null?" open":""}><summary>Texto completo (sale en PDF y Excel)</summary><textarea class="concept long" data-ptx="${p.k}" rows="4" placeholder="Si lo dejas vacío se usa el concepto" aria-label="Texto completo ${p.n}">${esc(p.t)}</textarea></details>${p.q!==p.q0?`<span class="muted" style="display:block;font-size:11px">Proyecto: ${qf(p.q0)} ${p.ud}</span>`:""}</td><td class="ud">${p.ud}</td>
+        <td class="n edit" data-l="Medición"><input class="cell" data-pq="${p.k}" inputmode="decimal" value="${qf(p.q)}" aria-label="Medición ${p.n}"></td>
+        <td class="n edit" data-l="Precio €"><input class="cell pr-in" data-pp="${p.k}" inputmode="decimal" value="${p.p?eur(p.p):""}" placeholder="0,00" aria-label="Precio ${p.n}"></td>
+        <td class="n" data-l="Importe €" data-c="imp">${eur(r2(p.p*p.q))}</td></tr>`;
+    }
+    h+=`<tr class="subt" id="prs-${cp.id}"><td colspan="5" class="lbl">Total capítulo ${cp.id}</td><td class="n" data-l="Total €" data-c="ct">${eur(CAP_PEM[cp.id])}</td></tr>`;
+  }
+  h+=`</tbody><tfoot><tr id="prs-all"><td colspan="5" class="lbl">Total presupuesto (sin IGIC)</td><td class="n" data-l="Total €" data-c="ct">${eur(PEM)}</td></tr></tfoot></table></div></section>`;
+  return h;
+}
+function presupLedgerHTML(){
+  const f=fiscal(PEM);const sin=P.filter(p=>!(p.p>0)).length;
+  return `<h3>Resumen</h3>${CAPS.map(cp=>`<div class="lrow sub"><span>Cap. ${cp.id} · ${esc(cp.nombre)}</span><span>${eur(CAP_PEM[cp.id])}</span></div>`).join("")}
+    <div class="lrow strong"><span>Total sin IGIC</span><span>${eur(PEM)}</span></div>
+    ${cfg.isp?`<div class="lrow sub"><span>IGIC: inversión del sujeto pasivo</span><span>0,00</span></div>`:`<div class="lrow"><span>IGIC ${pf(loteIgic())} %</span><span>${eur(f.igic)}</span></div>`}
+    <div class="lrow total"><span>Total</span><span>${eur(f.total)} €</span></div>
+    ${sin?`<p class="note">Faltan ${sin} partida${sin===1?"":"s"} por poner precio.</p>`:`<p class="note">Todas las partidas tienen precio.</p>`}`;
+}
+function recalcLote(){setLote(loteId)}
+function refreshPresup(){
+  recalcLote();
+  for(const p of P){const tr=document.getElementById("pr-"+p.k);if(tr)tr.querySelector('[data-c="imp"]').textContent=eur(r2(p.p*p.q))}
+  for(const cp of CAPS){const s=document.getElementById("prs-"+cp.id);if(s)s.querySelector('[data-c="ct"]').textContent=eur(CAP_PEM[cp.id])}
+  const a=document.getElementById("prs-all");if(a)a.querySelector('[data-c="ct"]').textContent=eur(PEM);
+  const l=document.getElementById("pr-ledger");if(l)l.innerHTML=presupLedgerHTML();
+  const ln=document.querySelector(".lotes");if(ln)ln.outerHTML=lotesHTML();
+}
+function savePresup(){
+  const id=loteId;clearTimeout(presupTimer[id]);setStatus("Guardando…","busy");
+  presupTimer[id]=setTimeout(()=>{savePresupNow(id)},600);
+}
+async function savePresupNow(id){
+  id=id||loteId;clearTimeout(presupTimer[id]);presupTimer[id]=null;setStatus("Guardando…","busy");
+  try{if(db)await db.doc("presup/"+id).set(JSON.parse(JSON.stringify(presup[id]||{})));setStatus(localMode?"Sin guardar (vista local)":"Guardado",localMode?"local":"");return !localMode}
+  catch(e){setStatus("No se ha podido guardar el presupuesto.","err");return false}
+}
+function presupInput(t){
+  const pr=presup[loteId]=presup[loteId]||{};
+  if(t.dataset.pr){if(t.dataset.pr==="igic"){const v=parseNum(t.value);if(isNaN(v))return true;pr.igic=v;savePresup();refreshPresup();return true}pr[t.dataset.pr]=t.value;savePresup();if(t.dataset.pr==="titulo"){const h2=document.querySelector(".presup h2");if(h2)h2.textContent=t.value||curLote().desc}return true}
+  if(t.dataset.pd){const m={...(pr.desc||{})};const v=t.value.trim();const p=P.find(x=>x.k===t.dataset.pd);if(!v||(p&&v===p.d0))delete m[t.dataset.pd];else m[t.dataset.pd]=t.value;pr.desc=m;applyPresup(curLote());savePresup();return true}
+  if(t.dataset.ptx){const m={...(pr.texto||{})};const p=P.find(x=>x.k===t.dataset.ptx);if(p&&t.value===p.t0&&!(pr.desc||{})[t.dataset.ptx])delete m[t.dataset.ptx];else m[t.dataset.ptx]=t.value;pr.texto=m;applyPresup(curLote());savePresup();return true}
+  if(t.dataset.pp||t.dataset.pq){
+    const v=parseNum(t.value);if(isNaN(v))return true;
+    if(t.dataset.pp){pr.precios={...(pr.precios||{}),[t.dataset.pp]:r4(v)}}
+    else{pr.cant={...(pr.cant||{}),[t.dataset.pq]:r4(v)}}
+    refreshPresup();savePresup();return true;
+  }
+  return false;
+}
+function presupRows(full){
+  const rows=[];
+  for(const cp of CAPS){
+    rows.push({t:"cap",v:[`Capítulo ${cp.id} · ${cp.nombre}`]});
+    for(const p of P.filter(p=>p.cap===cp.id))rows.push({t:"item",v:[p.n,p.ud,full&&p.t?p.t:p.d,p.q,p.p,r2(p.p*p.q)]});
+    rows.push({t:"sub",span:5,v:[`Total capítulo ${cp.id}`,"","","","",CAP_PEM[cp.id]]});
+  }
+  return rows;
+}
+function presupSummary(){
+  const f=fiscal(PEM);
+  return [...CAPS.map(cp=>[`Capítulo ${cp.id} · ${cp.nombre}`,CAP_PEM[cp.id],""]),["Total presupuesto (sin IGIC)",PEM,"st"],[cfg.isp?"IGIC: inversión del sujeto pasivo":`IGIC ${pf(loteIgic())} %`,f.igic,""],["TOTAL PRESUPUESTO",f.total,"tt"]];
+}
+function presupName(){const pr=presupDoc();return `Presupuesto_${(curLote().nombre||"").replace(/\s+/g,"_")}${pr.ref?"_"+pr.ref.replace(/[^\w-]+/g,"_"):""}`}
+async function presupXlsx(){
+  if(!xlsxReady())return;const pr=presupDoc();
+  const cols=[{h:"Nº",w:7,f:"txt"},{h:"Ud",w:5,f:"txt"},{h:"Descripción",w:70,f:"wrap"},{h:"Medición",w:12,f:"qty"},{h:"Precio",w:13,f:"eur"},{h:"Importe",w:16,f:"eur"}];
+  const info=[["Fecha",fechaES(pr.fecha||todayISO())],...(pr.ref?[["Referencia",pr.ref]]:[])];
+  const wb=new ExcelJS.Workbook();
+  const ws=xlSheet(wb,{name:"Presupuesto",title:"Presupuesto",sub:pr.titulo||curLote().desc,info,cols,rows:presupRows(true),summary:presupSummary(),summaryTitle:"Resumen del presupuesto",landscape:false});
+  if(pr.notas){let r=ws.rowCount+2;ws.mergeCells(r,1,r,cols.length);const c=ws.getCell(r,1);c.value=pr.notas;c.font={size:9.5,italic:true,color:{argb:XL.muted}};c.alignment={wrapText:true}}
+  await saveWb(wb,presupName()+".xlsx");
+}
+async function presupPdf(){
+  if(!window.jspdf||!window.jspdf.jsPDF){toast("No se ha cargado el generador de PDF. Recarga la página.");return}
+  const pr=presupDoc();
+  const doc=new window.jspdf.jsPDF({orientation:"portrait",unit:"mm",format:"a4"});const W=210,H=297,M=12;
+  await pdfHead(doc,"PRESUPUESTO",`${pr.titulo||curLote().desc||curLote().nombre}${pr.ref?" · Ref. "+pr.ref:""}`,W,M);
+  const datos=[["Obra",OBRA.titulo],["Instalación",pr.titulo||curLote().desc||curLote().nombre]];
+  if(OBRA.emplazamiento)datos.push(["Emplazamiento",OBRA.emplazamiento]);
+  if(OBRA.contratista)datos.push(["Cliente",OBRA.contratista]);
+  datos.push(["Empresa",OBRA.certifica],["Fecha",fechaES(pr.fecha||todayISO())]);
+  if(pr.ref)datos.push(["Referencia",pr.ref]);
+  doc.autoTable({startY:30,margin:{left:M,right:M},theme:"grid",styles:{...PDF_BASE,fontSize:8.5,cellPadding:1.3},body:datos.map(r=>r.map(pdfTxt)),columnStyles:{0:{cellWidth:38,fontStyle:"bold",fillColor:[247,247,251]}}});
+  let y=doc.lastAutoTable.finalY+5;
+  for(const cp of CAPS){
+    const ps=P.filter(p=>p.cap===cp.id);
+    doc.autoTable({startY:y,margin:{left:M,right:M},theme:"grid",styles:{...PDF_BASE,fontSize:7.6,cellPadding:1.2},headStyles:{...PDF_HEAD,fontSize:7.6},footStyles:PDF_FOOT,rowPageBreak:"avoid",showFoot:"lastPage",
+      head:[[{content:pdfTxt(`Capítulo ${cp.id} · ${cp.nombre}`),colSpan:6,styles:{halign:"left",fillColor:[236,232,254],fontSize:9}}],["Nº","Ud","Descripción","Medición","Precio","Importe"]],
+      body:ps.map(p=>[p.n,p.ud,{content:pdfTxt(p.t||p.d)},qf(p.q),eu(p.p),eu(r2(p.p*p.q))].map(x=>typeof x==="string"?pdfTxt(x):x)),
+      foot:[[{content:`Total capítulo ${cp.id}`,colSpan:5},pdfTxt(eu(CAP_PEM[cp.id]))]],
+      columnStyles:{0:{cellWidth:9},1:{cellWidth:8},2:{cellWidth:"auto"},3:{halign:"right",cellWidth:18},4:{halign:"right",cellWidth:22},5:{halign:"right",cellWidth:26}}});
+    y=doc.lastAutoTable.finalY+4;
+  }
+  if(y>225){doc.addPage();y=16}
+  const sum=presupSummary();
+  doc.setFont("helvetica","bold");doc.setFontSize(10);doc.setTextColor(52,10,234);doc.text("RESUMEN DEL PRESUPUESTO",M,y+4);
+  doc.autoTable({startY:y+6,margin:{left:M,right:M},theme:"grid",styles:{...PDF_BASE,fontSize:9,cellPadding:1.4},body:sum.map(([a,b])=>[pdfTxt(a),pdfTxt(eu(b))]),columnStyles:{1:{halign:"right",cellWidth:45}},
+    didParseCell:d=>{const cl=sum[d.row.index][2];if(cl==="st"){d.cell.styles.fontStyle="bold";d.cell.styles.fillColor=[247,247,251]}if(cl==="tt"){d.cell.styles.fontStyle="bold";d.cell.styles.fillColor=[236,232,254];d.cell.styles.fontSize=10}}});
+  y=doc.lastAutoTable.finalY+6;
+  if(pr.notas){doc.setFont("helvetica","normal");doc.setFontSize(8.5);doc.setTextColor(85,83,110);const lines=doc.splitTextToSize(pdfTxt(pr.notas),W-2*M);if(y+lines.length*4>282){doc.addPage();y=16}doc.text(lines,M,y)}
+  pdfFoot(doc,`${OBRA.titulo} · Presupuesto ${curLote().nombre}`,W,H,M);
+  await saveFile(presupName()+".pdf",doc.output("arraybuffer"));
+}
+
 /* ---------- arranque ---------- */
 function applySnapshot(snap){
   const remote=snap.docs.map(d=>({id:d.id,...JSON.parse(JSON.stringify(d.data()))}));
@@ -1098,6 +1280,7 @@ function startLocal(){
   if(!d){startLocal();return}
   db=d;
   db.doc("config/obra").onSnapshot(s=>{if(s.exists){const v=s.data();const nc={igic:7,isp:false,ret:0,logo:"",obra:{},...JSON.parse(JSON.stringify(v))};if(JSON.stringify(nc)!==JSON.stringify(cfg)&&!cfgTimer){cfg=nc;syncObra();const ae=document.activeElement;if(loaded&&!(ae&&ae.dataset&&ae.dataset.obra))render()}}},()=>{});
+  db.collection("presup").onSnapshot(s=>{let ch=false;for(const d of s.docs){if(presupTimer[d.id])continue;const v=JSON.parse(JSON.stringify(d.data()));if(JSON.stringify(v)!==JSON.stringify(presup[d.id]||{})){presup[d.id]=v;ch=true}}if(ch&&loaded){recalcLote();const ae=document.activeElement;if(!(ae&&app.contains(ae)&&ae.matches("input,textarea")))render()}},()=>{});
   db.collection("certs").onSnapshot(applySnapshot,()=>{setStatus("Se ha perdido la conexión con el guardado. Recarga la página.","err")});
   setTimeout(()=>{if(!loaded){loaded=true;render()}},8000);
 })();

@@ -1,0 +1,23 @@
+{
+  "albs": [],
+  "cliente": "TOMÁS BARRETO SA",
+  "desc": "Revisión mantenimiento preventivo, reapriete de cuadros limpieza",
+  "devol": [],
+  "estado": "TERMINADO",
+  "fecha": "2026-11-17",
+  "horas": 12,
+  "id": "985",
+  "obra": "SPAR EL PASO",
+  "ops": [
+    {
+      "h": 6,
+      "n": "Toño"
+    },
+    {
+      "h": 6,
+      "n": "Manuel"
+    }
+  ],
+  "origen": "dashboard",
+  "stock": []
+}

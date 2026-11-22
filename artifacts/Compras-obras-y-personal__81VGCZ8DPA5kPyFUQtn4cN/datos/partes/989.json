@@ -1,0 +1,24 @@
+{
+  "albs": [],
+  "cliente": "ÁRIDOS EL RIACHUELO SAU",
+  "desc": "Revisiones comprobaciones grupos en plantas áridos mediciones ,niveles, arranque en vacío.",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-11-17",
+  "horas": 4,
+  "id": "989",
+  "obra": "MANT.GENERADORES",
+  "ops": [
+    {
+      "h": 2,
+      "n": "Toño"
+    },
+    {
+      "h": 2,
+      "n": "Manuel"
+    }
+  ],
+  "origen": "dashboard",
+  "restante": "Medio jornada",
+  "stock": []
+}

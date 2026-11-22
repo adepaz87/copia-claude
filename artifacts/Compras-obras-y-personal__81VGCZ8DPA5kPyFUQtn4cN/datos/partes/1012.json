@@ -1,0 +1,39 @@
+{
+  "albs": [],
+  "cliente": "TOMÁS BARRETO SA",
+  "desc": "Inst. Montaje de diferenciales con rearme automático de circuitos refrigeración en cuadro y desmontaje , probado y funcionando",
+  "devol": [],
+  "estado": "TERMINADO",
+  "fecha": "2026-11-19",
+  "horas": 5,
+  "id": "1012",
+  "obra": "NUEVO ALMACÉN 2",
+  "ops": [
+    {
+      "h": 2.5,
+      "n": "Toño"
+    },
+    {
+      "h": 2.5,
+      "n": "Manuel"
+    }
+  ],
+  "origen": "dashboard",
+  "stock": [
+    {
+      "d": "Diferencial Legrand 4x 80A.30mA.",
+      "q": 1,
+      "u": ""
+    },
+    {
+      "d": "diferencial 4x40A. 30mA.Legrand",
+      "q": 1,
+      "u": ""
+    },
+    {
+      "d": "Reconectador automático Legrand 230V",
+      "q": 2,
+      "u": ""
+    }
+  ]
+}

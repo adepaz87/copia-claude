@@ -1,0 +1,66 @@
+{
+  "lines": [
+    {
+      "a": null,
+      "aj": true,
+      "d": "Medición cert. nº2 sin desglose",
+      "h": null,
+      "id": "699t2l6",
+      "l": null,
+      "n": 2,
+      "q": 276.3,
+      "u": 276.3
+    },
+    {
+      "a": 5,
+      "d": "CIMENTACIÓN BÁSCULA",
+      "h": null,
+      "id": "mzsw1o2",
+      "l": 21,
+      "n": 3,
+      "q": 105,
+      "u": 1
+    },
+    {
+      "a": null,
+      "d": "CIMENTACIÓN PLANTA",
+      "h": null,
+      "id": "6d70eqw",
+      "l": 171.3,
+      "n": 3,
+      "q": 171.3,
+      "u": 1
+    },
+    {
+      "a": 5.6,
+      "d": "SOLERA DEPÓSITO",
+      "h": null,
+      "id": "6nu527q",
+      "l": 9.1,
+      "n": 3,
+      "q": 50.96,
+      "u": 1
+    },
+    {
+      "a": null,
+      "aj": true,
+      "d": "Regularización cert. nº3 por desglose",
+      "h": null,
+      "id": "4mcpt1r",
+      "l": null,
+      "n": 3,
+      "q": -276.3,
+      "u": -276.3
+    },
+    {
+      "a": 1.8,
+      "d": "CIMENTACIÓN MURO 5",
+      "h": null,
+      "id": "xhz3xzh",
+      "l": 110,
+      "n": 5,
+      "q": 198,
+      "u": 1
+    }
+  ]
+}

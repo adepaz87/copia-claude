@@ -1,0 +1,108 @@
+{
+  "albs": [
+    "Ayumar 4-1235"
+  ],
+  "cliente": "ASIER CAMIRAGUA",
+  "desc": "Enebrar fuerza y alumbrado Mecanizar Elaborar cuadro Fichar registros Rotular cuadro Medir derivación individual",
+  "devol": [
+    {
+      "d": "embellecedor doble ticino",
+      "q": 1,
+      "u": ""
+    },
+    {
+      "d": "embellecedor sencillo ticino",
+      "q": 1,
+      "u": ""
+    },
+    {
+      "d": "sucos",
+      "q": 3,
+      "u": ""
+    },
+    {
+      "d": "interruptor ancho",
+      "q": 1,
+      "u": ""
+    },
+    {
+      "d": "interruptores estrechos",
+      "q": 2,
+      "u": ""
+    }
+  ],
+  "estado": "EN CURSO",
+  "fecha": "2026-11-19",
+  "horas": 11,
+  "id": "1019",
+  "obra": "ASIER PUNTAGORDA",
+  "ops": [
+    {
+      "h": 5.5,
+      "n": "Aythami"
+    },
+    {
+      "h": 5.5,
+      "n": "Joel"
+    }
+  ],
+  "origen": "dashboard",
+  "restante": "1,5 días",
+  "stock": [
+    {
+      "d": "automáticos 2x10",
+      "q": 4,
+      "u": ""
+    },
+    {
+      "d": "automático 2x25",
+      "q": 1,
+      "u": ""
+    },
+    {
+      "d": "automáticos 2x16",
+      "q": 2,
+      "u": ""
+    },
+    {
+      "d": "diferenciales 2x40",
+      "q": 3,
+      "u": ""
+    },
+    {
+      "d": "cable 1,5mm",
+      "q": 180,
+      "u": "m"
+    },
+    {
+      "d": "cable 2,5mm",
+      "q": 100,
+      "u": "m"
+    },
+    {
+      "d": "tierra 10mm",
+      "q": 10,
+      "u": "m"
+    },
+    {
+      "d": "punteras de 6",
+      "q": 16,
+      "u": ""
+    },
+    {
+      "d": "punteras de 2,5",
+      "q": 4,
+      "u": ""
+    },
+    {
+      "d": "punteras de 1,5",
+      "q": 8,
+      "u": ""
+    },
+    {
+      "d": "cable de 6h",
+      "q": 3,
+      "u": "m"
+    }
+  ]
+}

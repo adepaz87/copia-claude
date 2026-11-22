@@ -1,0 +1,28 @@
+{
+  "albs": [],
+  "cliente": "CONSTRUCCIONES DOMINGO",
+  "desc": "Terminas de enebrar viviendas de planta 3. Colocar caja de registro en zonas comunes planta 0 y 1 Enebrar zonas comunes planta 1.",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-11-16",
+  "horas": 26,
+  "id": "982",
+  "obra": "EDIFICIO DOMINGO EL PASO",
+  "ops": [
+    {
+      "h": 8,
+      "n": "Junior"
+    },
+    {
+      "h": 9,
+      "n": "Joel"
+    },
+    {
+      "h": 9,
+      "n": "Ricky"
+    }
+  ],
+  "origen": "dashboard",
+  "restante": "Indefinido",
+  "stock": []
+}

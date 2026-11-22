@@ -129,6 +129,7 @@ details.up summary{cursor:pointer;font-weight:600}
       <h1>Órdenes de trabajo</h1>
     </div>
     <div class="actions">
+      <button id="btnRefresh" class="ghost" type="button" hidden title="Revisa ahora WhatsApp de operarios, correos GIM y cierres de OT">↻ Actualizar</button>
       <button id="btnPdf" class="ghost" type="button" hidden>Exportar PDF</button>
       <button id="btnTiendas" class="ghost" type="button">Tiendas</button>
       <button id="btnDocs" class="ghost" type="button">Documentación</button>
@@ -409,6 +410,26 @@ function openOT(o){
   $("#dlgOT").showModal();
 }
 $("#btnNew").onclick=()=>openOT(null);
+/* ---- Actualizar: lanza la revisión programada ahora ---- */
+const TRIG="trig_016thguRxLGSfrtrkz9e4nWh";
+let cmts=null;(async()=>{try{cmts=window.claude?await window.claude.use("comments"):null}catch(e){cmts=null}if(cmts)$("#btnRefresh").hidden=false})();
+$("#btnRefresh").onclick=async()=>{
+  const btn=$("#btnRefresh");if(btn.disabled)return;
+  btn.disabled=true;const old=btn.textContent;btn.textContent="Revisando…";
+  const txt="↻ Actualizar (gestor de OT, "+canaryNow(0)+" hora de Canarias): revisa ahora la entrada de OT. WhatsApp de operarios, grupo Instapalma, chat de Alberto y correos GIM; registra y cierra lo que toque.";
+  const ok=()=>{try{localStorage.setItem("gestorRefresh",String(Date.now()))}catch(e){}toast("Revisión lanzada. Las OT nuevas o cerradas aparecerán aquí solas en unos minutos.");setTimeout(()=>{btn.disabled=false;btn.textContent=old},60000)};
+  const errs=[];
+  if(cmts){try{
+    const st=await cmts.canSendToClaude();
+    if(st==="available"){await cmts.sendToClaude({anchor:await cmts.anchorFor(btn),text:txt});ok();return}
+    errs.push("comentario: "+st);
+  }catch(e){console.error("[gestor] sendToClaude",e);errs.push("comentario: "+((e&&e.code)||e))}}
+  if(mcp){try{
+    await mcp.callTool("Claude Code Remote","fire_trigger",{trigger_id:TRIG,text:txt},{cache:false});ok();return;
+  }catch(e){console.error("[gestor] fire_trigger",e);errs.push("conector: "+((e&&e.code)||"error")+(e&&e.message?" "+String(e.message).slice(0,120):""))}}
+  btn.disabled=false;btn.textContent=old;
+  toast("No se pudo lanzar la revisión ["+(errs.join(" · ")||"sin conectores en esta vista")+"]. Escribe «Revisa entrada OT» en el chat.");
+};
 $("#btnCancel").onclick=()=>$("#dlgOT").close();
 $("#formOT").addEventListener("submit",async e=>{
   e.preventDefault();
@@ -469,7 +490,7 @@ function waLink(o,label){
   return `<a class="wa" href="https://wa.me/${t}?text=${encodeURIComponent(waText(o))}" target="_blank" rel="noopener" data-wa="${esc(o.id||"")}">${esc(label)}</a>`;
 }
 let mcp=null;
-(async()=>{try{mcp=window.claude?await window.claude.use("mcp"):null}catch(e){mcp=null}if(mcp){renderList();renderWaDlg()}})();
+(async()=>{try{mcp=window.claude?await window.claude.use("mcp"):null}catch(e){mcp=null}if(mcp){$("#btnRefresh").hidden=false;renderList();renderWaDlg()}})();
 function canaryNow(addMin){
   const d=new Date(Date.now()+addMin*60000);
   const p=Object.fromEntries(new Intl.DateTimeFormat("en-GB",{timeZone:"Atlantic/Canary",year:"numeric",month:"2-digit",day:"2-digit",hour:"2-digit",minute:"2-digit",hour12:false}).formatToParts(d).map(x=>[x.type,x.value]));
@@ -478,7 +499,7 @@ function canaryNow(addMin){
 async function sendWa(btn,o){
   if(btn.disabled)return;btn.disabled=true;const old=btn.textContent;btn.textContent="Enviando…";
   try{
-    await mcp.callTool("WA","programar_mensaje",{telefono:"+"+telOf(o.operario),mensaje:waText(o),fecha_hora:canaryNow(1),nombre:`${o.operario} · OT ${o.ot}`},{cache:false});
+    await mcp.callTool("WA","programar_mensaje",{telefono:"+"+telOf(o.operario),mensaje:waText(o),fecha_hora:canaryNow(0),nombre:`${o.operario} · OT ${o.ot}`},{cache:false});
     toast(`WhatsApp programado para ${o.operario}. Comprueba que salió.`);
     if(o.id)patch(ots.find(x=>x.id===o.id)||o,{avisadoWa:new Date().toISOString()},"WhatsApp programado a "+o.operario);
     btn.textContent="Programado ✓";
@@ -556,11 +577,11 @@ async function sendNotice(o,modo){
   const cierre=modo==="cierre";const res=[],m=cierre?mailCierre(o):mailAsig(o),tel=cierre?"":telOf(o.operario);let okMail=false,okWa=false;
   if(o._mail){okMail=true}else try{await mcp.callTool("Gmail","send_message",{to:destOf(o),subject:m.subject,body:m.body,includeSignature:true},{cache:false});okMail=o._mail=true;res.push(esAridos(o)?"Correo enviado a José Gabriel y José Antonio":"Correo enviado a TBSA")}
   catch(e){res.push("Correo NO enviado: "+(e.message||e.code||"error"))}
-  if(tel&&o._wa){okWa=true}else if(tel){try{await mcp.callTool("WA","programar_mensaje",{telefono:"+"+tel,mensaje:waText(o),fecha_hora:canaryNow(1),nombre:`${o.operario} · OT ${o.ot}`},{cache:false});okWa=o._wa=true;res.push(`WhatsApp a ${o.operario} programado`)}
+  if(tel&&o._wa){okWa=true}else if(tel){try{await mcp.callTool("WA","programar_mensaje",{telefono:"+"+tel,mensaje:waText(o),fecha_hora:canaryNow(0),nombre:`${o.operario} · OT ${o.ot}`},{cache:false});okWa=o._wa=true;res.push(`WhatsApp a ${o.operario} enviado`)}
   catch(e){res.push("WhatsApp NO enviado: "+(e.message||e.code||"error"))}}
   else if(!cierre)res.push(`${o.operario} sin móvil: no hay WhatsApp`);
   const cw=contactoWa(o);
-  if(!o._waF){try{await mcp.callTool("WA","programar_mensaje",{telefono:cw.tel,mensaje:waFernando(o,cierre),fecha_hora:canaryNow(1),nombre:`${cw.nombre} · OT ${o.ot}${cierre?" cierre":""}`},{cache:false});o._waF=true;res.push(`WhatsApp a ${cw.nombre} programado`)}
+  if(!o._waF){try{await mcp.callTool("WA","programar_mensaje",{telefono:cw.tel,mensaje:waFernando(o,cierre),fecha_hora:canaryNow(0),nombre:`${cw.nombre} · OT ${o.ot}${cierre?" cierre":""}`},{cache:false});o._waF=true;res.push(`WhatsApp a ${cw.nombre} enviado`)}
   catch(e){res.push(`WhatsApp a ${cw.nombre} NO enviado: `+(e.message||e.code||"error"))}}
   await new Promise(r=>setTimeout(r,600));
   const cur=ots.find(x=>x.id===o.id);

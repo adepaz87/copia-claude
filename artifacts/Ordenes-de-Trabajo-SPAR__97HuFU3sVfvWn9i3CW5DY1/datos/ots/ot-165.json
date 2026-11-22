@@ -1,0 +1,26 @@
+{
+  "actualizada": "2026-11-19T11:13:00Z",
+  "aviso": "",
+  "centro": "SPAR Mederos",
+  "creada": "2026-11-16T22:30:00Z",
+  "descripcion": "Mantenimiento correctivo: corregir las incidencias de la revisión previa a la OCA de BT (OT 157, informe del 16/11/2026, 28 OK · 5 NO). 1) Esquemas unifilares: no están en la tienda, hay que aportarlos o actualizarlos. 2) Acceso a cuadros obstruido por mercancías y otros objetos: dejarlo libre. 3) Cucarachas en la zona del cuadro general: limpieza y aviso a control de plagas. 4) Termografía pendiente (no se hizo por falta de cámara termográfica). 5) Alumbrado: sustituir 1 downlight en sala de ventas, 1 tubo en almacén, 14 tubos en garaje y 1 emergencia sin funcionar.",
+  "empresa": "Tomás Barreto",
+  "estado": "pendiente",
+  "fechaAviso": "2026-11-16",
+  "historial": [
+    "16/11/2026 22:30 · Creada a petición de Alberto: mantenimiento correctivo con las incidencias de la revisión previa OCA de SPAR Mederos (OT 157)",
+    "16/11/2026 22:34 · WhatsApp a Toño Guardia preguntando si necesita material (si es que sí, pedido por el chat de pedidos)",
+    "16/11/2026 22:35 · Asignación anulada: el correo de asignación a TBSA llegó a salir; los WhatsApp de asignación a Toño y Fernando se cancelaron antes de enviarse",
+    "16/11/2026 22:37 · Pendiente de material: se asignará cuando el material esté en almacén. Avisado Toño por WhatsApp y correo de corrección a TBSA",
+    "17/11/2026 13:13 · Toño pide material en el chat de pedidos: 1 downlight 12 mm LED 4000K, 15 tubos LED 6000K 1200 mm y 1 emergencia s/p 200L. Alberto le pide más detalle (marca, modelo, diámetros). Sigue pendiente de material",
+    "19/11/2026 11:13 · Material en almacén: Adán avisa en el chat de pedidos (11:01–11:02) de que han llegado las cajas para SPAR Mederos. Lista para asignar"
+  ],
+  "informado": false,
+  "materialEnAlmacen": "2026-11-19T11:02:00Z",
+  "notas": "PENDIENTE DE MATERIAL: se asignará a Toño Guardia cuando el material esté en almacén (si lo necesita, pedido por el chat de pedidos). Origen: informes de revisión de supermercado MANTTOBT_SPAR_MEDEROS_13-11-2026.pdf y MANTTOBT_SPAR_MEDEROS_16-11-2026.pdf (el del 16/11 incluye todas las incidencias del 13/11).",
+  "operario": "",
+  "ot": 165,
+  "prioridad": "Alta",
+  "solicitante": "Alberto",
+  "tipo": "MANTENIMIENTO"
+}

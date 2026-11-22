@@ -1,20 +1,45 @@
 {
-  "actualizada": "2026-11-13T08:45:00Z",
+  "actualizada": "2026-11-17T13:20:00Z",
+  "asignadaEn": "2026-11-16T10:48:49.822Z",
+  "avisadoWa": "2026-11-16T10:48:54.640Z",
   "aviso": "",
   "centro": "SPAR El Paso",
   "creada": "2026-11-13T08:40:00Z",
   "descripcion": "Inspección previa a la OCA de BT: revisión de cuadros y protecciones, diferenciales (disparo), tierras, aislamiento, alumbrado de emergencia y señalización, y corrección de defectos antes de la visita de ABC Inspección (prevista enero 2027).",
   "empresa": "Tomás Barreto",
-  "estado": "pendiente",
+  "estado": "terminada",
   "fechaAviso": "2026-11-13",
   "historial": [
-    "13/11/2026 08:45 · Creada a petición de Alberto: inspección previa a la OCA, una OT por centro (lado oeste, Plan OCA 2026-2027)"
+    "13/11/2026 08:45 · Creada a petición de Alberto: inspección previa a la OCA, una OT por centro (lado oeste, Plan OCA 2026-2027)",
+    "16/11/2026 10:48 · Asignada a Toño Guardia",
+    "16/11/2026 10:48 · Asignación: Correo enviado a TBSA · WhatsApp a Toño Guardia programado · WhatsApp a Fernando programado",
+    "17/11/2026 13:16 · Terminada: revisión de supermercado n.º 3 (13:07) y parte de Toño de SPAR El Paso (13:11). Correo de cierre a TBSA y WhatsApp a Fernando",
+    "17/11/2026 13:20 · Informe de revisión previa OCA BT guardado (Documentación) y enviado por correo a José Antonio, Fernando y Raquel, con copia a Alberto. 29 OK · 4 NO (unifilares, polvo y cucarachas en cuadro general, termografía, alumbrado)"
   ],
-  "informado": false,
+  "informado": true,
+  "informeOCA": {
+    "archivo": "MANTTOBT_SPAR_EL_PASO_17-11-2026.pdf",
+    "asset": "c3daa7e3c498f09a212e61e9325f2661",
+    "docId": "doc-revision-oca-ot155-2026-11",
+    "enviado": "2026-11-17T13:20:00Z",
+    "fecha": "2026-11-17",
+    "fuente": "Dashboard Instapalma /mantenimientos-supermercado (id 3)",
+    "incidencias": [
+      "Esquemas unifilares no se encuentran en la tienda",
+      "Polvo y cucarachas en el cuarto del cuadro general",
+      "Termografía no realizada (falta cámara termográfica)",
+      "Alumbrado: almacén 2 emergencias; garaje y accesos 7 emergencias y 5 downlights 200 mm 4000K; zona de baños 2 emergencias; escaleras 2 emergencias"
+    ],
+    "resultado": "29 OK · 4 NO",
+    "url": "/_blob/c3daa7e3c498f09a212e61e9325f2661"
+  },
+  "notaCierre": "Inspección previa OCA realizada por Toño Guardia el 17/11: revisión https://bot-production-66b8.up.railway.app/mantenimiento-supermercado/3/pdf (13:07) y parte 17-11-2026-SPAR_EL_PASO-TONO-MANUEL.pdf (13:11), grupo Instapalma.",
   "notas": "OCA vencida (2024).",
-  "operario": "",
+  "operario": "Toño Guardia",
   "ot": 155,
+  "parte": "17-11-2026-SPAR_EL_PASO-TONO-MANUEL.pdf",
   "prioridad": "Alta",
   "solicitante": "Alberto",
+  "terminadaEn": "2026-11-17T13:11:00Z",
   "tipo": "MANTENIMIENTO"
 }

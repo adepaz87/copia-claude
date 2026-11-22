@@ -1,0 +1,26 @@
+{
+  "lines": [
+    {
+      "a": null,
+      "aj": false,
+      "d": "Medición cert. nº5",
+      "h": null,
+      "id": "vkj2dk1",
+      "l": null,
+      "n": 5,
+      "q": 0.4,
+      "u": 0.4
+    },
+    {
+      "a": null,
+      "aj": false,
+      "d": "Medición cert. nº7",
+      "h": null,
+      "id": "iktg69b",
+      "l": null,
+      "n": 7,
+      "q": 0.6,
+      "u": 0.6
+    }
+  ]
+}

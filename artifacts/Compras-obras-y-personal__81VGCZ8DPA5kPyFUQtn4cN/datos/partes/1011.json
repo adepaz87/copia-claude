@@ -1,0 +1,23 @@
+{
+  "albs": [],
+  "cliente": "TOMÁS BARRETO SA",
+  "desc": "Avería de diferencial, detectado en vitrina lácteos, revisado comprobado cableados,saneados. Funcionando",
+  "devol": [],
+  "estado": "TERMINADO",
+  "fecha": "2026-11-19",
+  "horas": 9,
+  "id": "1011",
+  "obra": "SPAR MEDEROS",
+  "ops": [
+    {
+      "h": 4.5,
+      "n": "Toño"
+    },
+    {
+      "h": 4.5,
+      "n": "Manuel"
+    }
+  ],
+  "origen": "dashboard",
+  "stock": []
+}

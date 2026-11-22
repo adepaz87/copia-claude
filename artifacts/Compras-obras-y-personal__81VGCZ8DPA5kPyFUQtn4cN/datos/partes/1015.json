@@ -1,0 +1,45 @@
+{
+  "albs": [],
+  "cliente": "TRAGSA",
+  "desc": "Adecuación  de entubado Habrir huecos en pladur Colocación  de cajas Enebrar  líneas  que faltaban Realizar cuadro",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-11-19",
+  "horas": 15,
+  "id": "1015",
+  "obra": "HOSPITAL MOD G",
+  "ops": [
+    {
+      "h": 7,
+      "n": "Iker"
+    },
+    {
+      "h": 8,
+      "n": "Juan"
+    }
+  ],
+  "origen": "dashboard",
+  "restante": "Indefinido",
+  "stock": [
+    {
+      "d": "cajas pladur de 1 zuko",
+      "q": 3,
+      "u": ""
+    },
+    {
+      "d": "bolsa bridas de 4,8x300",
+      "q": 1,
+      "u": ""
+    },
+    {
+      "d": "rollo cinta aislante",
+      "q": 1,
+      "u": ""
+    },
+    {
+      "d": "cable 1x1,5 rz1",
+      "q": 80,
+      "u": "m"
+    }
+  ]
+}

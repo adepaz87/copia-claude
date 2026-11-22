@@ -1,0 +1,35 @@
+{
+  "albs": [],
+  "cliente": "RAICO",
+  "desc": "Desmontaje de alumbrado Habrir huecos en techo Pasas tubos por techo Reparar entubado",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-11-16",
+  "horas": 16,
+  "id": "980",
+  "obra": "CAFÉ DON MANUEL SC DE LA PALMA",
+  "ops": [
+    {
+      "h": 8,
+      "n": "Jorge Corujo"
+    },
+    {
+      "h": 8,
+      "n": "Juan"
+    }
+  ],
+  "origen": "dashboard",
+  "restante": "Indefinido",
+  "stock": [
+    {
+      "d": "rollo cinta aislante",
+      "q": 1,
+      "u": ""
+    },
+    {
+      "d": "bolsa bridas de 4,8x300",
+      "q": 1,
+      "u": ""
+    }
+  ]
+}

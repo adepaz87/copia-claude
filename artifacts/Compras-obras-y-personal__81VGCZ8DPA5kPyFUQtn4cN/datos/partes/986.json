@@ -1,0 +1,46 @@
+{
+  "albs": [
+    "Sonepar 309007006",
+    "Coelca 185.465/018"
+  ],
+  "cliente": "DRAGADOS",
+  "desc": "Pasar cables a cuadros de obra. Conectar cuadros y colocar clavijas en cuadro general. Revisar cuadros y probar. Reparar averia en cortadora de madera. Colocar clavija en cuadro auxiliar de TC schuko.",
+  "devol": [],
+  "estado": "TERMINADO",
+  "fecha": "2026-11-17",
+  "horas": 9,
+  "id": "986",
+  "obra": "34 VIVIENDAS TAZACORTE",
+  "ops": [
+    {
+      "h": 4,
+      "n": "Antonio"
+    },
+    {
+      "h": 4,
+      "n": "Iker"
+    },
+    {
+      "h": 1,
+      "n": "Transporte"
+    }
+  ],
+  "origen": "dashboard",
+  "stock": [
+    {
+      "d": "bridas negras ratio 4,8x300",
+      "q": 20,
+      "u": ""
+    },
+    {
+      "d": "punteras de 10mm",
+      "q": 12,
+      "u": ""
+    },
+    {
+      "d": "cinta aislante blanca",
+      "q": 1,
+      "u": ""
+    }
+  ]
+}

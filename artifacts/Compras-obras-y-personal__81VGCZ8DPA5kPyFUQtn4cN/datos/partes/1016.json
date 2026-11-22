@@ -1,0 +1,20 @@
+{
+  "albs": [],
+  "cliente": "TRAGSA",
+  "desc": "Registrar  en lavanderia",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-11-19",
+  "horas": 1,
+  "id": "1016",
+  "obra": "HOSPITAL",
+  "ops": [
+    {
+      "h": 1,
+      "n": "Iker"
+    }
+  ],
+  "origen": "dashboard",
+  "restante": "Indefinido",
+  "stock": []
+}

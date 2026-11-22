@@ -1,0 +1,20 @@
+{
+  "albs": [],
+  "cliente": "CASA LA VERADA",
+  "desc": "Entubar, colocar cajas",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-11-19",
+  "horas": 6,
+  "id": "1018",
+  "obra": "CASA",
+  "ops": [
+    {
+      "h": 6,
+      "n": "Goyo"
+    }
+  ],
+  "origen": "dashboard",
+  "restante": "No",
+  "stock": []
+}

@@ -183,6 +183,7 @@ function build(){
   for(const doc of DOCS){
     if(UI.emp&&doc.empresa!==UI.emp&&doc.tipo!=='tarifa')continue;
     if(doc.tipo!=='factura'&&doc.tipo!=='albaran'&&doc.tipo!=='tarifa')continue;
+    if(doc.gg)continue;
     if(doc.tipo==='albaran'&&facturados.has(doc.proveedor+'|'+nAlb(doc.proveedor,doc.numero)))continue;
     for(const l of doc.lineas||[]){
       if(doc.tipo==='tarifa'){tarifas[doc.proveedor+'|'+l.r]={pn:l.pn,pt:l.pt,dto:l.dto,f:l.f,fam:l.fam,d:l.d};continue}
@@ -489,7 +490,7 @@ function nAlb(prov,s){
   s=String(s||'').replace(/\./g,'');
   let m=s.match(/VCTF-?0*(\d+)/i);if(m)return m[1];
   m=s.match(/^\s*\d{4}\/\d\d\/0*(\d+)\s*$/);if(m)return m[1]; // Fraper/Nolasco: 2026/01/012434
-  m=s.match(/(\d{3,})/);return m?String(+m[1]):null;
+  m=s.match(/(\d{3,})/)||s.match(/^\s*\d{1,2}-(\d{1,2})\s*$/);return m?String(+m[1]):null; // Ayumar 7-22: número corto
 }
 function provDe(txt){const t=normTxt(txt);if(/BOLSA DE AGUA|^\s*BA\b|\bBAP\b/.test(t))return 'BAP';for(const p of PROVS)if(t.includes(p.toUpperCase()))return p;return null}
 
@@ -686,7 +687,7 @@ function cotejoAlb(desde){
     const n=nAlb(prov,a);if(!prov||!n){otros.push({p,a});continue}add(prov,n,{f:p.fecha,raw:a,src:'parte',parte:p})}}
   const rows=[...K.values()].map(x=>{
     let fx=OX.fact.get(x.prov+'|'+x.n);
-    if(!fx&&x.n.length<5){for(const [k,v] of OX.fact)if(v.prov===x.prov&&k.endsWith(x.n)&&Math.abs(new Date(v.f)-new Date(x.f))<6*864e5){fx=v;x.aprox=true;break}}
+    if(!fx&&x.n&&x.n.length<5){for(const [k,v] of OX.fact)if(v.prov===x.prov&&k.endsWith(x.n)&&Math.abs(new Date(v.f)-new Date(x.f))<6*864e5){fx=v;x.aprox=true;break}}
     const cerr=Object.entries(OX.cierre).filter(([k])=>k.startsWith(x.prov+'|')&&(!x.emp||k.endsWith('|'+x.emp))).map(([,v])=>v).sort().pop()||'';
     x.fx=fx;x.estado=fx?'facturado':(cerr&&cerr>=x.f?'falta':'pendiente');x.cierre=cerr;
     if(fx&&x.i==null)x.i=fx.i;
@@ -2227,7 +2228,131 @@ function bindDocEmp(){
 }
 
 function recompute(){if(!DOCS.length)return render();build();SUG=null;render()}
-const SUBS={compras:[['resumen','Resumen'],['articulos','Artículos'],['comparar','Comparar'],['mensual','Comparativo mensual'],['informe','Informe']],obras:[['obras','Coste por obra'],['archivadas','Obras archivadas'],['sinprecio','Artículos sin precio'],['partes','Partes de trabajo'],['facturas','Relaciones valoradas'],['cotejo','Albaranes y facturas'],['aclarar','Por aclarar'],['nombres','Nombres de obra']],personal:[['horas','Horas'],['resumenmes','Resumen fin de mes'],['operarios','Operarios'],['prl','PRL']],recursos:[['vehiculos','Vehículos'],['herramienta','Herramienta'],['stock','Stock de almacén']],pedidos:[['pendientes','Pendientes'],['servidos','Servidos / gestionados'],['todos','Todos los pedidos']],facturas:[['cobrar','A cobrar']],docs:[['documentos','Documentos'],['vencimientos','Vencimientos']]};
+/* ---------- No imputadas a obra (v59, 16/11/2026) ----------
+   A) Facturas que no se cargaron como compra de obra (gasto general): colección no_imputadas.
+      Traspasar crea documentos/NI-<id> (factura de una línea, gg:true) + aclaración con la obra.
+   B) Compras cargadas que no cuentan en ninguna obra (aclaración No imputar / gasto general, horas ya en partes). */
+let NOIMP=[];
+const NI_MOT={combustible:'Combustible',vehiculos:'Vehículos / taller',comida:'Comida',suministros:'Luz / agua / teléfono',software:'Software / web',cuotas:'Cuotas y asociaciones',bancos:'Bancos y comisiones',epis:'EPIs y ropa',prevencion:'Prevención / médico',alquiler:'Alquileres',transporte:'Transporte / viajes',kairos:'Kairos → Instapalma (ya contado)',propia:'Factura propia / interna',otros:'Otros'};
+const niLink=x=>x.msg?`https://mail.google.com/mail/u/0/#all/${encodeURIComponent(x.msg)}`:x.q?`https://mail.google.com/mail/u/0/#search/${encodeURIComponent(x.q)}`:'';
+const niAmt=x=>x.base!=null?+x.base:x.total!=null?+x.total:null;
+const niEst=x=>x.estado==='traspasada'?'traspasada':x.estado==='ok'?'ok':'pend';
+function niExcluidas(){
+  const fact=new Set();for(const d of DOCS)if(d.tipo==='factura')for(const l of d.lineas||[]){const n=nAlb(d.proveedor,l.a);if(n)fact.add(d.proveedor+'|'+n)}
+  const g=new Map();
+  for(const d of DOCS){if(d.tipo!=='factura'&&d.tipo!=='albaran')continue;if(d.gg)continue;
+    if(d.tipo==='albaran'&&fact.has(d.proveedor+'|'+nAlb(d.proveedor,d.numero)))continue;
+    for(const l of d.lineas||[]){if(obraL(d,l)!=='#excl')continue;const k=aclKey(d,l),a=ACL.get(k);
+      let x=g.get(k);if(!x){x={k,prov:d.proveedor,emp:d.empresa,doc:d.numero,tipo:d.tipo,a:l.a||'',f:l.f||d.fecha,i:0,n:0,motivo:'',nota:a&&a.nota||'',porLinea:false,horas:false,ds:[]};g.set(k,x)}
+      x.i+=l.i||0;x.n++;if(x.ds.length<3)x.ds.push(l.d||'');
+      const ld=linDec(a,l);if(ld&&ld[0]==='#'){x.porLinea=true;x.motivo='Línea marcada "No imputar"'}
+      else if(a&&a.excluir&&!(a.obra&&OX.obById.has(a.obra)))x.motivo=EXCL[a.excluir]||a.excluir;
+      else if(horasEnParte(d,l)){x.horas=true;x.motivo='Horas ya apuntadas en los partes'}}}
+  return [...g.values()].sort((a,b)=>(b.f||'')<(a.f||'')?-1:1);
+}
+function vNoImp(){
+  const fe=UI.nif||'pend';const fp=UI.nip||'',fm=UI.nim||'',fq=normTxt(UI.niq||'').trim();
+  const provsA=[...new Set(NOIMP.map(x=>x.proveedor).filter(Boolean))].sort((a,b)=>a.localeCompare(b));
+  const all=[...NOIMP].filter(x=>(!fp||x.proveedor===fp)&&(!fm||x.motivo===fm)&&(!fq||normTxt([x.proveedor,x.numero,x.concepto,x.nota].join(' ')).includes(fq))).sort((a,b)=>(b.fecha||'')<(a.fecha||'')?-1:(b.fecha||'')>(a.fecha||'')?1:0);
+  const cnt=e=>all.filter(x=>niEst(x)===e);const sum=xs=>xs.reduce((s,x)=>s+(niAmt(x)||0),0);
+  const rows=fe==='todas'?all:all.filter(x=>niEst(x)===fe);
+  const obs=OBRAS.filter(o=>o.estado!=='descartada'&&!o.archivada).sort((a,b)=>(a.nombre||'').localeCompare(b.nombre||''));
+  const obOpts=`<option value="">Elegir obra…</option>`+obs.map(o=>`<option value="${esc(o.id)}">${esc(o.nombre)}</option>`).join('');
+  const kp=(v,l,xs,nn)=>`<div class="kpi kbtn${fe===v?' on':''}" role="button" tabindex="0" data-nif="${v}"><div class="l">${l}</div><div class="v">${xs.length}</div><div class="n">${nn||((sum(xs)?eur.format(sum(xs)):'')+(xs.some(x=>niAmt(x)==null)?(sum(xs)?' · ':'')+xs.filter(x=>niAmt(x)==null).length+' sin importe':''))}</div></div>`;
+  const fila=x=>{const e=niEst(x),lk=niLink(x);
+    const acc=e==='traspasada'?`<div>→ ${obraLink(x.obra)}</div><button class="ghost" data-nidesh="${esc(x.id)}">Deshacer traspaso</button>`
+      :`<div class="row" style="gap:6px;flex-wrap:nowrap"><select data-niob="${esc(x.id)}" aria-label="Obra" style="max-width:200px">${obOpts}</select><button data-nitr="${esc(x.id)}">Traspasar</button></div>`+(e==='ok'?`<div class="row" style="gap:6px;margin-top:4px"><span class="pill down">Correcta</span><button class="ghost" data-niok="${esc(x.id)}" data-v="">Volver a pendiente</button></div>`:`<button class="ghost" style="margin-top:4px" data-niok="${esc(x.id)}" data-v="ok">✓ Correcto, no va a obra</button>`);
+    return `<tr><td>${x.fecha?fdate(x.fecha):''}</td><td><b>${esc(x.proveedor)}</b><div class="mono" style="color:var(--muted)">${esc(x.numero||'')}</div></td><td>${esc(x.empresa||'')}</td><td>${esc(x.concepto||'')}${x.nota?`<div class="sub" style="margin:2px 0 0">${esc(x.nota)}</div>`:''}</td><td><span class="tag">${esc(NI_MOT[x.motivo]||x.motivo||'')}</span></td><td class="num">${x.base!=null?eur.format(x.base):x.total!=null?eur.format(x.total)+'<div class="sub" style="margin:0">total con IGIC</div>':'—'}${x.base!=null&&x.total!=null&&x.total!==x.base?`<div class="sub" style="margin:0">${eur.format(x.total)} total</div>`:''}</td><td>${lk?`<a href="${esc(lk)}" target="_blank" rel="noopener">Ver correo</a>`:''}</td><td>${acc}</td></tr>`};
+  const EXall=niExcluidas();const provsB=[...new Set(EXall.map(x=>x.prov))].sort((a,b)=>a.localeCompare(b));const fpb=UI.nipb||'';const EX=EXall.filter(x=>(!fpb||x.prov===fpb)&&(!fq||normTxt([x.prov,x.doc,x.a,x.ds.join(' '),x.nota].join(' ')).includes(fq)));const exSel=k=>`<select data-aclo="${esc(k)}" aria-label="Imputar a obra" style="max-width:220px"><option value="">Imputar a obra…</option>${obs.map(o=>`<option value="${esc(o.id)}">${esc(o.nombre)}</option>`).join('')}</select>`;
+  return `<section><h1>Facturas no imputadas a obra</h1><p class="sub">Lo que no cuenta en el coste de ninguna obra, para que lo revises. Si algo sí era de una obra, elige la obra y pulsa Traspasar: pasa a contar en esa obra (y se puede deshacer). Importes sin IGIC salvo donde se indica.</p></section>
+  <section class="panel"><div class="row"><input type="search" id="niQ" placeholder="Buscar proveedor, nº o concepto" value="${esc(UI.niq||'')}" style="flex:1 1 220px;min-width:0" aria-label="Buscar"><select id="niP" aria-label="Proveedor"><option value="">Todos los proveedores</option>${provsA.map(p=>`<option${p===fp?' selected':''}>${esc(p)}</option>`).join('')}</select><select id="niM" aria-label="Motivo"><option value="">Todos los motivos</option>${Object.entries(NI_MOT).map(([k,t])=>`<option value="${k}"${k===fm?' selected':''}>${esc(t)}</option>`).join('')}</select>${fp||fm||fq||fpb?'<button class="ghost" id="niClr">Quitar filtros</button>':''}</div></section>
+  <section class="kpis">${kp('pend','Pendientes de revisar',cnt('pend'))}${kp('ok','Revisadas: no van a obra',cnt('ok'))}${kp('traspasada','Traspasadas a obra',cnt('traspasada'))}${kp('todas','Todas',all)}</section>
+  <section class="panel"><header><h2>Facturas que no se cargaron como compra de obra</h2><span class="sub">${rows.length} facturas · combustible, taller, comida, suministros, cuotas, bancos, facturas de Kairos a Instapalma…</span></header>
+  <div class="tbl" style="max-height:70vh"><table><thead><tr><th>Fecha</th><th>Proveedor / nº</th><th>Empresa</th><th>Concepto</th><th>Motivo</th><th class="num">Importe</th><th>Correo</th><th>Revisión</th></tr></thead><tbody>${rows.map(fila).join('')||'<tr><td colspan="8" class="empty">Nada en esta lista.</td></tr>'}</tbody></table></div></section>
+  <section class="panel"><header><h2>Compras cargadas que no cuentan en ninguna obra</h2><select id="niPB" aria-label="Proveedor"><option value="">Todos los proveedores</option>${provsB.map(p=>`<option${p===fpb?' selected':''}>${esc(p)}</option>`).join('')}</select><span class="sub">${EX.length} albaranes o facturas · ${eur.format(EX.reduce((s,x)=>s+x.i,0))} · marcadas "No imputar", "Gasto general / almacén" o "No va a ninguna obra"</span></header>
+  <div class="tbl" style="max-height:60vh"><table><thead><tr><th>Fecha</th><th>Proveedor</th><th>Albarán / factura</th><th>Empresa</th><th>Artículos</th><th>Motivo</th><th class="num">Importe</th><th>Traspasar</th></tr></thead><tbody>${EX.map(x=>`<tr><td>${x.f?fdate(x.f):''}</td><td>${provTag(x.prov)}</td><td class="mono">${esc(x.a||x.doc)}${x.a?`<div style="color:var(--muted)">${x.tipo==='factura'?'fra. ':''}${esc(x.doc)}</div>`:''}</td><td>${esc(x.emp||'')}</td><td style="max-width:280px">${x.ds.map(esc).join('<br>')}${x.n>x.ds.length?`<div class="sub" style="margin:0">y ${x.n-x.ds.length} líneas más</div>`:''}</td><td>${esc(x.motivo)}${x.nota?`<div class="sub" style="margin:0">${esc(x.nota)}</div>`:''}</td><td class="num">${eur.format(x.i)}</td><td>${x.horas?'<span class="sub">Ya cuenta en la obra por los partes</span>':x.porLinea?'<span class="sub">Cámbialo con "Repartir" en la obra o en Albaranes y facturas</span>':exSel(x.k)}</td></tr>`).join('')||'<tr><td colspan="8" class="empty">No hay compras cargadas fuera de obra.</td></tr>'}</tbody></table></div></section>`;
+}
+function bindNoImp(){
+  const sel=(id,k)=>{const e=$(id);if(e)e.onchange=()=>{UI[k]=e.value;render()}};sel('#niP','nip');sel('#niM','nim');sel('#niPB','nipb');
+  const q=$('#niQ');if(q)q.oninput=()=>{UI.niq=q.value;clearTimeout(bindNoImp.t);bindNoImp.t=setTimeout(()=>{const pos=q.selectionStart;render();const n=$('#niQ');if(n){n.focus();try{n.setSelectionRange(pos,pos)}catch(e){}}},250)};
+  const c=$('#niClr');if(c)c.onclick=()=>{UI.nip=UI.nim=UI.niq=UI.nipb='';render()};
+  document.querySelectorAll('[data-nif]').forEach(k=>{const f=()=>{UI.nif=k.dataset.nif;render()};k.onclick=f;k.onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();f()}}});
+  document.querySelectorAll('[data-niok]').forEach(b=>b.onclick=()=>{const id=b.dataset.niok,v=b.dataset.v;W(()=>db.doc('no_imputadas/'+id).update({estado:v,revisado:v?new Date().toISOString():null}),v?'Marcada como correcta':'Vuelve a pendientes')});
+  document.querySelectorAll('[data-nitr]').forEach(b=>b.onclick=()=>{const id=b.dataset.nitr,x=NOIMP.find(n=>n.id===id);const s=document.querySelector(`[data-niob="${CSS.escape(id)}"]`);const ob=s&&s.value;
+    if(!x)return;if(!ob){toast('Elige primero la obra');return}const im=niAmt(x);if(im==null){toast('Esta factura no tiene importe anotado; pide a Claude que lo cargue');return}
+    const o=OX.obById.get(ob);const did='NI-'+aclId(id);const numero=x.numero||id;const f=x.fecha||hoy();
+    const doc={tipo:'factura',gg:true,ni:id,proveedor:x.proveedor,empresa:x.empresa||'Instapalma',numero,fecha:f,origen:'Traspasada desde No imputadas a obra',lineas:[{a:'',r:'SIN-REF',d:x.concepto||x.proveedor,q:1,pt:im,pn:im,dto:'',i:im,f,o:o?o.nombre:''}]};
+    const k=aclKey(doc,{a:''});const t=new Date().toISOString();
+    W(()=>Promise.all([db.doc('documentos/'+did).set(doc),db.doc('aclaraciones/'+aclId(k)).set({k,obra:ob,excluir:null,nota:'Traspasada desde No imputadas a obra',t,lin:null}),db.doc('no_imputadas/'+id).update({estado:'traspasada',obra:ob,docId:did,traspasado:t})]),'Traspasada a '+obraNom(ob))});
+  document.querySelectorAll('[data-nidesh]').forEach(b=>b.onclick=()=>{const id=b.dataset.nidesh,x=NOIMP.find(n=>n.id===id);if(!x)return;
+    if(b.dataset.sure!=='1'){b.dataset.sure='1';b.textContent='¿Seguro? Pulsa otra vez';return}
+    const d=DOCS.find(z=>z.id===x.docId);const k=d?aclKey(d,{a:''}):null;
+    W(()=>Promise.all([x.docId?db.doc('documentos/'+x.docId).delete():null,k?db.doc('aclaraciones/'+aclId(k)).delete():null,db.doc('no_imputadas/'+id).update({estado:'',obra:null,docId:null})].filter(Boolean)),'Traspaso deshecho')});
+}
+
+/* Pestaña Facturas › Emitidas: TODAS las facturas emitidas de Holded (cobradas, pendientes y rectificativas).
+   Alberto, 17/11/2026: "Tienes que cargar todas las facturas emitidas desde Holded". Colección ventas (un doc por empresa y mes), carga nocturna. */
+let VENTAS=[];
+UI.ve={emp:'',ano:'',est:'',q:'',open:new Set()};
+const VEST=[['','Todas'],['cobrada','Cobradas'],['pendiente','Pendientes'],['rectificativa','Rectificativas']];
+function ventasAll(){const o=[];VENTAS.forEach(d=>(d.facturas||[]).forEach(f=>o.push({...f,empresa:d.empresa||'Instapalma'})));return o}
+function vEmitidas(){
+  const all=ventasAll(),F=UI.ve;const emps=[...new Set([...GRUPO0,...all.map(f=>f.empresa)])];
+  const sync=VENTAS.map(d=>d.sincronizado||'').sort().pop();
+  const q=normTxt(F.q||'').trim();
+  let b=all.filter(f=>(!F.emp||f.empresa===F.emp));
+  const anos=[...new Set(b.map(f=>(f.fecha||'').slice(0,4)))].filter(Boolean).sort().reverse();
+  if(F.ano)b=b.filter(f=>(f.fecha||'').startsWith(F.ano));
+  if(q)b=b.filter(f=>normTxt([f.contacto,f.numero,f.desc,...(f.lineas||[]).map(l=>(l.n||'')+' '+(l.d||''))].join(' ')).includes(q));
+  const ls=F.est?b.filter(f=>f.estado===F.est):b;
+  ls.sort((x,y)=>(y.fecha||'')<(x.fecha||'')?-1:(y.fecha||'')>(x.fecha||'')?1:((y.numero||'')<(x.numero||'')?-1:1));
+  const S=a=>({n:a.length,base:a.reduce((s,f)=>s+(f.base||0),0),tot:a.reduce((s,f)=>s+(f.total||0),0),cob:a.reduce((s,f)=>s+(f.cobrado||0),0),pen:a.reduce((s,f)=>s+(f.pendiente||0),0)});
+  const T=S(ls);
+  const kpi=(l,v,n)=>`<div class="kpi"><div class="l">${l}</div><div class="v">${v}</div>${n?`<div class="n">${n}</div>`:''}</div>`;
+  const per=new Map();ls.forEach(f=>{const k=F.ano?(f.fecha||'').slice(0,7):(f.fecha||'').slice(0,4);const a=per.get(k)||[];a.push(f);per.set(k,a)});
+  const PER=[...per.entries()].sort((x,y)=>x[0]<y[0]?1:-1);
+  const MES=['','ene','feb','mar','abr','may','jun','jul','ago','sep','oct','nov','dic'];
+  const perL=k=>F.ano?MES[+k.slice(5,7)]+' '+k.slice(0,4):k;
+  const pill=f=>f.estado==='cobrada'?'<span class="pill down">cobrada</span>':f.estado==='pendiente'?'<span class="pill up">pendiente</span>':f.estado==='rectificativa'?'<span class="pill flat">rectificativa</span>':`<span class="pill flat">${esc(f.estado||'')}</span>`;
+  const MAX=400,vis=ls.slice(0,MAX);
+  const chip=(attr,val,cur,lab)=>`<button class="chip" ${attr}="${esc(val)}" aria-pressed="${cur===val}">${esc(lab)}</button>`;
+  return `<section><h1>Facturas emitidas</h1><p class="sub">Todas las facturas emitidas en Holded (cobradas, pendientes y rectificativas), con sus líneas. Se actualizan cada noche${sync?'; última carga '+fdate(sync):''}. Importes: base sin IGIC y total con IGIC.</p></section>
+  ${all.length?'':'<div class="note">Todavía no hay facturas emitidas cargadas desde Holded.</div>'}
+  <section class="panel"><div class="row" style="flex-wrap:wrap;gap:8px">
+    <div class="chips">${chip('data-vee','',F.emp,'Todas las empresas')}${emps.map(e=>{const n=all.filter(f=>f.empresa===e).length;return `<button class="chip" data-vee="${esc(e)}" aria-pressed="${F.emp===e}"${n?'':' title="Sin datos de Holded todavía"'}>${esc(e)} (${n})</button>`}).join('')}</div>
+    <div class="chips">${VEST.map(([v,l])=>chip('data-ves',v,F.est,l)).join('')}</div>
+    <select id="veAno" aria-label="Año"><option value="">Todos los años</option>${anos.map(a=>`<option${a===F.ano?' selected':''}>${a}</option>`).join('')}</select>
+    <input type="search" id="veQ" placeholder="Buscar cliente, nº, concepto o artículo" value="${esc(F.q||'')}" style="flex:1 1 220px;min-width:0" aria-label="Buscar">
+    <button id="veClr">Quitar filtros</button><button id="veCsv">Descargar CSV</button></div></section>
+  <section class="kpis">${kpi('Facturas',T.n.toLocaleString('es-ES'))}${kpi('Facturado (base)',eur0.format(T.base),'con IGIC '+eur0.format(T.tot))}${kpi('Cobrado',eur0.format(T.cob))}${kpi('Pendiente de cobro',eur0.format(T.pen))}</section>
+  <section class="panel"><h2>${F.ano?'Por mes · '+F.ano:'Por año'}</h2><div class="tbl" style="max-height:40vh"><table><thead><tr><th>${F.ano?'Mes':'Año'}</th><th class="num">Facturas</th><th class="num">Base</th><th class="num">Total con IGIC</th><th class="num">Cobrado</th><th class="num">Pendiente</th></tr></thead><tbody>
+  ${PER.map(([k,a])=>{const s=S(a);return `<tr${F.ano?'':` class="click" data-vey="${esc(k)}" title="Ver ${esc(k)} por meses"`}><td>${esc(perL(k))}</td><td class="num">${s.n}</td><td class="num">${eur.format(s.base)}</td><td class="num">${eur.format(s.tot)}</td><td class="num">${eur.format(s.cob)}</td><td class="num">${s.pen>0.005?'<b>'+eur.format(s.pen)+'</b>':'—'}</td></tr>`}).join('')||'<tr><td colspan="6" class="empty">Nada con estos filtros.</td></tr>'}
+  </tbody></table></div></section>
+  <section class="panel"><h2>Facturas (${ls.length.toLocaleString('es-ES')})</h2>${ls.length>MAX?`<p class="sub">Se muestran las ${MAX} más recientes; filtra por año, estado o búsqueda para ver el resto. El CSV lleva todas.</p>`:''}
+  <div class="tbl" style="max-height:75vh"><table><thead><tr><th>Fecha</th><th>Nº</th>${F.emp?'':'<th>Empresa</th>'}<th>Cliente</th><th>Concepto</th><th class="num">Base</th><th class="num">Total</th><th>Estado</th><th class="num">Pendiente</th></tr></thead><tbody>
+  ${vis.map(f=>{const o=F.open.has(f.id);const c1=(f.lineas||[])[0];const con=f.desc||(c1?(c1.n||c1.d||''):'');
+    return `<tr class="click" data-veo="${esc(f.id)}" aria-expanded="${o}"><td>${f.fecha?fdate(f.fecha):''}</td><td class="mono">${esc(f.numero||'(sin nº)')}</td>${F.emp?'':`<td>${esc(f.empresa)}</td>`}<td>${esc(f.contacto||'')}</td><td style="max-width:320px">${esc(con.slice(0,90))}${(f.lineas||[]).length>1?` <span style="color:var(--muted)">+${f.lineas.length-1}</span>`:''}</td><td class="num">${eur.format(f.base||0)}</td><td class="num">${eur.format(f.total||0)}</td><td>${pill(f)}</td><td class="num">${f.pendiente>0.005?'<b>'+eur.format(f.pendiente)+'</b>':'—'}</td></tr>`+
+    (o?`<tr><td colspan="${F.emp?8:9}" style="background:var(--bg2,transparent)"><table style="width:100%"><thead><tr><th>Artículo / concepto</th><th class="num">Cant.</th><th class="num">Precio</th><th class="num">Dto.</th><th class="num">IGIC</th><th class="num">Importe</th></tr></thead><tbody>${(f.lineas||[]).map(l=>`<tr><td>${esc(l.n||'')}${l.d?`<div style="color:var(--muted);font-size:11.5px">${esc(l.d)}</div>`:''}</td><td class="num">${l.q??''}</td><td class="num">${l.p!=null?eur.format(l.p):''}</td><td class="num">${l.dto?l.dto+' %':''}</td><td class="num">${l.iva!=null?l.iva+' %':''}</td><td class="num">${eur.format((l.q||0)*(l.p||0)*(1-(l.dto||0)/100))}</td></tr>`).join('')||'<tr><td colspan="6" class="empty">Sin líneas</td></tr>'}</tbody></table>${f.vence?`<div class="sub" style="margin-top:6px">Vence ${fdate(f.vence)} · cobrado ${eur.format(f.cobrado||0)}</div>`:''}</td></tr>`:'')}).join('')||`<tr><td colspan="${F.emp?8:9}" class="empty">${all.length?'Nada con estos filtros.':'Sin datos de Holded todavía.'}</td></tr>`}
+  </tbody></table></div></section>`;
+}
+function bindEmitidas(){
+  const F=UI.ve;
+  document.querySelectorAll('[data-vee]').forEach(b=>b.onclick=()=>{F.emp=b.dataset.vee;render()});
+  document.querySelectorAll('[data-ves]').forEach(b=>b.onclick=()=>{F.est=b.dataset.ves;render()});
+  document.querySelectorAll('[data-vey]').forEach(r=>r.onclick=()=>{F.ano=r.dataset.vey;render()});
+  document.querySelectorAll('[data-veo]').forEach(r=>r.onclick=()=>{const i=r.dataset.veo;F.open.has(i)?F.open.delete(i):F.open.add(i);render()});
+  const a=$('#veAno');if(a)a.onchange=()=>{F.ano=a.value;render()};
+  const c=$('#veClr');if(c)c.onclick=()=>{UI.ve={emp:'',ano:'',est:'',q:'',open:new Set()};render()};
+  const q=$('#veQ');if(q)q.oninput=()=>{F.q=q.value;clearTimeout(bindEmitidas.t);bindEmitidas.t=setTimeout(()=>{const pos=q.selectionStart;render();const n=$('#veQ');n.focus();n.setSelectionRange(pos,pos)},250)};
+  const v=$('#veCsv');if(v)v.onclick=()=>{const qq=normTxt(F.q||'').trim();let ls=ventasAll().filter(f=>(!F.emp||f.empresa===F.emp)&&(!F.ano||(f.fecha||'').startsWith(F.ano))&&(!F.est||f.estado===F.est));
+    if(qq)ls=ls.filter(f=>normTxt([f.contacto,f.numero,f.desc,...(f.lineas||[]).map(l=>(l.n||'')+' '+(l.d||''))].join(' ')).includes(qq));
+    ls.sort((x,y)=>(x.fecha||'')<(y.fecha||'')?-1:1);
+    const rows=[['Empresa','Fecha','Número','Cliente','Concepto','Base','IGIC','Total','Cobrado','Pendiente','Estado','Vencimiento']];
+    ls.forEach(f=>rows.push([f.empresa,f.fecha||'',f.numero||'',f.contacto||'',f.desc||((f.lineas||[])[0]||{}).n||'',f.base||0,f.igic||0,f.total||0,f.cobrado||0,f.pendiente||0,f.estado||'',f.vence||'']));
+    download(`facturas-emitidas-${hoy()}.csv`,toCSV(rows))};
+}
+
+const SUBS={compras:[['resumen','Resumen'],['articulos','Artículos'],['comparar','Comparar'],['mensual','Comparativo mensual'],['informe','Informe']],obras:[['obras','Coste por obra'],['archivadas','Obras archivadas'],['sinprecio','Artículos sin precio'],['partes','Partes de trabajo'],['facturas','Relaciones valoradas'],['cotejo','Albaranes y facturas'],['aclarar','Por aclarar'],['noimp','No imputadas a obra'],['nombres','Nombres de obra']],personal:[['horas','Horas'],['resumenmes','Resumen fin de mes'],['operarios','Operarios'],['prl','PRL']],recursos:[['vehiculos','Vehículos'],['herramienta','Herramienta'],['stock','Stock de almacén']],pedidos:[['pendientes','Pendientes'],['servidos','Servidos / gestionados'],['todos','Todos los pedidos']],facturas:[['cobrar','A cobrar'],['emitidas','Emitidas']],docs:[['documentos','Documentos'],['vencimientos','Vencimientos']]};
 function render(){
   document.querySelectorAll('nav.tabs a').forEach(a=>{if(a.dataset.a===UI.area)a.setAttribute('aria-current','page');else a.removeAttribute('aria-current')});
   $('#sub').innerHTML=SUBS[UI.area].map(([v,t])=>`<a href="#${UI.area}/${v}"${v===UI.view?' aria-current="page"':''}>${t}</a>`).join('');
@@ -2238,12 +2363,13 @@ function render(){
   if(!OX)buildOX();
   const y=window.scrollY;
   if(UI.area==='obras'){if(UI.view==='partes'&&$('#pFe')&&UI.pedit)UI.pdraft=leerParte();
-    app.innerHTML=UI.view==='partes'?vPartes():UI.view==='facturas'?vFacturas():UI.view==='cotejo'?vCotejo():UI.view==='nombres'?vNombres():UI.view==='aclarar'?vAclarar():UI.view==='pagos'?vPagos():vObras();bindObras();bindAclarar();document.querySelectorAll('[data-noimp]').forEach(b=>b.onclick=()=>{const k=b.dataset.noimp;const its=aclItems('2026-09-01').pend.filter(x=>[...x.raws].some(r=>(keyN(r)||'(vacío)')===k));const ps=PARTES.filter(p=>(p.fecha||'')>='2026-09-01'&&!p.noImputar&&!obraP(p)&&(keyN(p.obra)||'(vacío)')===k);const n=its.length+ps.length;if(!n)return;
+    app.innerHTML=UI.view==='partes'?vPartes():UI.view==='facturas'?vFacturas():UI.view==='cotejo'?vCotejo():UI.view==='nombres'?vNombres():UI.view==='aclarar'?vAclarar():UI.view==='noimp'?vNoImp():UI.view==='pagos'?vPagos():vObras();bindObras();bindAclarar();document.querySelectorAll('[data-noimp]').forEach(b=>b.onclick=()=>{const k=b.dataset.noimp;const its=aclItems('2026-09-01').pend.filter(x=>[...x.raws].some(r=>(keyN(r)||'(vacío)')===k));const ps=PARTES.filter(p=>(p.fecha||'')>='2026-09-01'&&!p.noImputar&&!obraP(p)&&(keyN(p.obra)||'(vacío)')===k);const n=its.length+ps.length;if(!n)return;
     if(k==='(vacío)'&&b.dataset.sure!=='1'){b.dataset.sure='1';b.textContent='¿Las '+n+'? Pulsa otra vez';return}
     const t=new Date().toISOString();const txt=[its.length?its.length+(its.length===1?' compra':' compras'):'',ps.length?ps.length+(ps.length===1?' parte':' partes'):''].filter(Boolean).join(' y ');
     W(()=>Promise.all([...its.map(x=>{const prev=ACL.get(x.k)||{};return db.doc('aclaraciones/'+aclId(x.k)).set({k:x.k,nota:prev.nota||'',t,obra:null,excluir:'no',lin:prev.lin||null})}),...ps.map(p=>db.doc('partes/'+p.id).update({noImputar:true,editado:hoy()}))]),'No imputar: '+txt)});
-  document.querySelectorAll('[data-nomv]').forEach(b=>b.onclick=()=>{UI.nomv=UI.nomv===b.dataset.nomv?null:b.dataset.nomv;render()});if(UI.view==='pagos')bindPagos();bindFact();if(UI.view==='partes')bindPartes();if(UI.view==='cotejo')bindCotejo();window.scrollTo(0,y);return}
+  document.querySelectorAll('[data-nomv]').forEach(b=>b.onclick=()=>{UI.nomv=UI.nomv===b.dataset.nomv?null:b.dataset.nomv;render()});if(UI.view==='pagos')bindPagos();bindFact();if(UI.view==='partes')bindPartes();if(UI.view==='cotejo')bindCotejo();if(UI.view==='noimp')bindNoImp();window.scrollTo(0,y);return}
   if(UI.area==='docs'){app.innerHTML=vDocEmp();bindDocEmp();window.scrollTo(0,y);return}
+  if(UI.area==='facturas'&&UI.view==='emitidas'){app.innerHTML=vEmitidas();bindEmitidas();window.scrollTo(0,y);return}
   if(UI.area==='facturas'){app.innerHTML=vCobrar();bindPagos();window.scrollTo(0,y);return}
   if(UI.area==='pedidos'){app.innerHTML=vPedidos();bindPedidos();window.scrollTo(0,y);return}
   if(UI.area==='recursos'){app.innerHTML=UI.view==='herramienta'?vHerr():UI.view==='stock'?vStock():vVeh();bindRec();window.scrollTo(0,y);return}
@@ -2333,8 +2459,8 @@ route();
   snap('partes',x=>{PARTES=x.filter(p=>!p.duplicado);PDUP=x.filter(p=>p.duplicado)});snap('almacen',x=>ALM=x);snap('resumenes',x=>RES=x);snap('obras',x=>OBRAS=x);snap('personal',x=>PERS=x);
   snap('facturas_obra',x=>FACT=x);snap('destinatarios',x=>{DEST=new Map(x.map(d=>[d.id,d]))});snap('recursos',x=>{REC=Object.fromEntries(x.map(d=>[d.id,d]))});snap('precios_stock',x=>PSTK=new Map(x.map(d=>[d.id,d])));
   snap('aclaraciones',x=>{ACL=new Map(x.map(d=>[d.k,d]))});snap('comprobados',x=>{COMP=new Map(x.map(d=>[d.k,d]))});
-  snap('pedidos',x=>PEDS=x);snap('pagos',x=>PAGOS=x);snap('prl',x=>PRL=x);snap('prl_avisos',x=>PRLAV=x);snap('docs_empresa',x=>DOCE=x);
-  snap('config',x=>{CFG=(x.find(d=>d.id==='general'))||{}});
+  snap('pedidos',x=>PEDS=x);snap('pagos',x=>PAGOS=x);snap('ventas',x=>VENTAS=x);snap('prl',x=>PRL=x);snap('prl_avisos',x=>PRLAV=x);snap('docs_empresa',x=>DOCE=x);
+  snap('no_imputadas',x=>NOIMP=x);snap('config',x=>{CFG=(x.find(d=>d.id==='general'))||{}});
 })();
 })();
 </script>

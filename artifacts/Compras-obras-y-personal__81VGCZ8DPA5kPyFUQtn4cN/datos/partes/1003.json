@@ -1,0 +1,24 @@
+{
+  "albs": [],
+  "cliente": "ÁRIDOS RIACHUELO SAU",
+  "desc": "Revisado instalación corto en linea tomas exterior",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-11-18",
+  "horas": 2,
+  "id": "1003",
+  "obra": "AVERÍAS TOMAS EN PLANTA",
+  "ops": [
+    {
+      "h": 1,
+      "n": "Toño"
+    },
+    {
+      "h": 1,
+      "n": "Manuel"
+    }
+  ],
+  "origen": "dashboard",
+  "restante": "Día",
+  "stock": []
+}

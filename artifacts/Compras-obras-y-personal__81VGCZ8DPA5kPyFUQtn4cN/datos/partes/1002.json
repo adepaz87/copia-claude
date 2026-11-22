@@ -1,0 +1,20 @@
+{
+  "albs": [],
+  "cliente": "INSTAPALMA",
+  "desc": "Amasar mortero para encalar lateral exterior de vivienda , subir mortero a andamios",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-11-18",
+  "horas": 8,
+  "id": "1002",
+  "obra": "CASA EL REMO",
+  "ops": [
+    {
+      "h": 8,
+      "n": "Luigi"
+    }
+  ],
+  "origen": "dashboard",
+  "restante": "5",
+  "stock": []
+}

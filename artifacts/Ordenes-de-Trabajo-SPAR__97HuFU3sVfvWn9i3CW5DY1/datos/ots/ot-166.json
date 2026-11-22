@@ -1,0 +1,28 @@
+{
+  "actualizada": "2026-11-18T09:12:00Z",
+  "asignadaEn": "2026-11-17T22:44:02.606Z",
+  "avisadoWa": "2026-11-17T22:44:06.963Z",
+  "aviso": "27318",
+  "centro": "SPAR Triana",
+  "creada": "2026-11-17T10:12:00Z",
+  "descripcion": "Revisar las luces del parking: no se encienden a la hora programada y está todo oscuro.",
+  "empresa": "Tomás Barreto",
+  "estado": "terminada",
+  "fechaAviso": "2026-11-16",
+  "historial": [
+    "17/11/2026 10:12 · Registrada desde captura GIM reenviada por Raquel (aviso 16/11 21:10, prioridad alta)",
+    "17/11/2026 22:44 · Asignada a Jonathan Rodríguez",
+    "17/11/2026 22:44 · Asignación: Correo enviado a TBSA · WhatsApp a Jonathan Rodríguez programado · WhatsApp a Fernando programado",
+    "18/11/2026 09:12 · Terminada: Jonathan «OT 166 Spar Triana Resuelta» (8:49) y parte (8:23). Correo de cierre a TBSA y WhatsApp a Fernando"
+  ],
+  "informado": true,
+  "notaCierre": "Resuelta por Jonathan Rodríguez el 18/11: parte 18-11-2026-SPAR_TRIANA_OT_166-PETTER-JONATHAN.pdf (8:23, grupo Instapalma) y WhatsApp «OT 166 Spar Triana Resuelta» (8:49).",
+  "notas": "Aviso GIM del jefe de tienda SPAR Triana (16/11/2026 21:10), reenviado por Raquel el 17/11 a las 9:38 (correo «TRIANA»). Nº de aviso leído de la captura con la cabecera recortada: comprobar.",
+  "operario": "Jonathan Rodríguez",
+  "ot": 166,
+  "parte": "18-11-2026-SPAR_TRIANA_OT_166-PETTER-JONATHAN.pdf",
+  "prioridad": "Alta",
+  "solicitante": "Raquel",
+  "terminadaEn": "2026-11-18T08:49:00Z",
+  "tipo": "MANTENIMIENTO"
+}

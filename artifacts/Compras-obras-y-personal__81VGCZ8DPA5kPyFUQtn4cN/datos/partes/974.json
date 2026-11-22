@@ -1,0 +1,23 @@
+{
+  "albs": [],
+  "cliente": "CABILDO INSULAR",
+  "desc": "Reparar averia es esterilizadores de despiece bovino, revision de porcino, inspeccion porcino. Revisar temperatura en esterilizadores de conejos. Bajar temperatuja cuba escaldado porcino. Ver tensiones e intensidades de aturdidor de porcino.",
+  "devol": [],
+  "estado": "TERMINADO",
+  "fecha": "2026-11-16",
+  "horas": 5,
+  "id": "974",
+  "obra": "MATADERO INSULAR",
+  "ops": [
+    {
+      "h": 4,
+      "n": "Antonio"
+    },
+    {
+      "h": 1,
+      "n": "Transporte"
+    }
+  ],
+  "origen": "dashboard",
+  "stock": []
+}

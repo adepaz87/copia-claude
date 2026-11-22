@@ -1,0 +1,32 @@
+{
+  "albs": [],
+  "cliente": "CONSTRUCCIONES DOMINGO",
+  "desc": "Colocar registros ict en patinillos Colocar registro zonas comunes en patinillos Entubar teleco y zonas comunes en patinillos",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-11-20",
+  "horas": 34,
+  "id": "1026",
+  "obra": "EDIFICIO DOMINGO EL PASO",
+  "ops": [
+    {
+      "h": 10,
+      "n": "Aythami"
+    },
+    {
+      "h": 8,
+      "n": "Riki"
+    },
+    {
+      "h": 8,
+      "n": "Joel"
+    },
+    {
+      "h": 8,
+      "n": "Junior"
+    }
+  ],
+  "origen": "dashboard",
+  "restante": "Indefinido",
+  "stock": []
+}

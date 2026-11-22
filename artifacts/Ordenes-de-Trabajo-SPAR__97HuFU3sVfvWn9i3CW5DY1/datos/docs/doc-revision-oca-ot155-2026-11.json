@@ -1,0 +1,16 @@
+{
+  "actualizada": "2026-11-17T13:20:00Z",
+  "archivo": "MANTTOBT_SPAR_EL_PASO_17-11-2026.pdf",
+  "asset": "c3daa7e3c498f09a212e61e9325f2661",
+  "centro": "SPAR El Paso",
+  "creada": "2026-11-17T13:20:00Z",
+  "expediente": "OT 155",
+  "fecha": "2026-11-17",
+  "notas": "Revisión preventiva BT previa a la OCA (Toño Guardia). Incidencias: esquemas unifilares no se encuentran en la tienda; polvo y cucarachas en el cuarto del cuadro general; termografía no realizada (falta cámara termográfica); alumbrado: almacén 2 emergencias; garaje y accesos 7 emergencias y 5 downlights 200 mm 4000K; zona de baños 2 emergencias; escaleras 2 emergencias.",
+  "ot": 155,
+  "proxima": "",
+  "resultado": "29 OK · 4 NO",
+  "sizeBytes": 44296,
+  "tipo": "OCA baja tensión",
+  "titulo": "Revisión previa OCA BT"
+}

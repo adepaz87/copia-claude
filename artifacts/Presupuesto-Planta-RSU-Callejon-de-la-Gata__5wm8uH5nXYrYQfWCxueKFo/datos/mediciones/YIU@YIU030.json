@@ -1,0 +1,48 @@
+{
+  "lines": [
+    {
+      "a": null,
+      "aj": false,
+      "d": "Medición cert. nº1",
+      "h": null,
+      "id": "3cjzdrq",
+      "l": null,
+      "n": 1,
+      "q": 2,
+      "u": 2
+    },
+    {
+      "a": null,
+      "aj": false,
+      "d": "Medición cert. nº2",
+      "h": null,
+      "id": "8v4k2p7",
+      "l": null,
+      "n": 2,
+      "q": 6,
+      "u": 6
+    },
+    {
+      "a": null,
+      "aj": false,
+      "d": "Medición cert. nº5",
+      "h": null,
+      "id": "d3htsf3",
+      "l": null,
+      "n": 5,
+      "q": 4,
+      "u": 4
+    },
+    {
+      "a": null,
+      "aj": false,
+      "d": "Medición cert. nº7",
+      "h": null,
+      "id": "llclqzm",
+      "l": null,
+      "n": 7,
+      "q": 3,
+      "u": 3
+    }
+  ]
+}

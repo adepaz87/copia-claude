@@ -1,0 +1,25 @@
+{
+  "desc": {
+    "p2_6": "Instalación de cuadro de protección DC, compuesto por los elementos de corte y protección necesarios para 50 kWp",
+    "p2_7": "Instalación de cuadro de protección AC, compuesto por los elementos de corte y protección necesarios para 50 kWp"
+  },
+  "precios": {
+    "p1_1": 75.5,
+    "p2_1": 25,
+    "p2_2": 485,
+    "p2_3": 30,
+    "p2_4": 100,
+    "p2_5": 100,
+    "p2_6": 2150,
+    "p2_7": 1150,
+    "p3_1": 7,
+    "p3_2": 8.5,
+    "p3_3": 40,
+    "p3_4": 8.5,
+    "p3_5": 3.5,
+    "p3_6": 500,
+    "p3_7": 3
+  },
+  "ref": "2026-FV32",
+  "titulo": "INSTALACIÓN FV NUEVO HOSPITAL DE DOLORES "
+}

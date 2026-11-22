@@ -1,0 +1,46 @@
+{
+  "lines": [
+    {
+      "a": null,
+      "aj": true,
+      "d": "Medición cert. nº2 sin desglose",
+      "h": null,
+      "id": "tsva8so",
+      "l": null,
+      "n": 2,
+      "q": 276.3,
+      "u": 276.3
+    },
+    {
+      "a": 5,
+      "d": "CIMENTACIÓN BÁSCULA",
+      "h": null,
+      "id": "ws4uln4",
+      "l": 21,
+      "n": 3,
+      "q": 105,
+      "u": 1
+    },
+    {
+      "a": null,
+      "d": "CIMENTACIÓN PLANTA",
+      "h": null,
+      "id": "6h48suh",
+      "l": 171.3,
+      "n": 3,
+      "q": 171.3,
+      "u": 1
+    },
+    {
+      "a": null,
+      "aj": true,
+      "d": "Regularización cert. nº3 por desglose",
+      "h": null,
+      "id": "2urycto",
+      "l": null,
+      "n": 3,
+      "q": -276.3,
+      "u": -276.3
+    }
+  ]
+}

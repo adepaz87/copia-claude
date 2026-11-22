@@ -1,0 +1,23 @@
+{
+  "albs": [],
+  "cliente": "TOMÁS BARRETO",
+  "desc": "Automático General Sub-Cuadro servicios auxiliares (saltado) Se revisa cuadro Servicios Auxiliares y Revisa reloj alumbrado parking. Se revisa iluminación parking Se deja funcionando alumbrado  parking",
+  "devol": [],
+  "estado": "TERMINADO",
+  "fecha": "2026-11-18",
+  "horas": 2,
+  "id": "996",
+  "obra": "SPAR TRIANA (OT 166)",
+  "ops": [
+    {
+      "h": 1,
+      "n": "Petter"
+    },
+    {
+      "h": 1,
+      "n": "Jonathan Rodríguez"
+    }
+  ],
+  "origen": "dashboard",
+  "stock": []
+}

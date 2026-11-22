@@ -1,0 +1,16 @@
+{
+  "albaran": "Diexfe VCTF-021812-2026 (18/11, Hotel Monterey: cable RZ1-K 1x95, 1x50 H07Z1-K, terminales T-95)",
+  "creado": "2026-11-16T21:35:00Z",
+  "editado": "2026-11-18T07:13:58.026Z",
+  "entrega": "",
+  "estado": "cursado",
+  "f": "2026-11-13T07:26",
+  "fcursado": "2026-11-18T07:13",
+  "grupo": "Pedidos Instapalma",
+  "nota": "Sin rastro en chats de proveedor. Hotel Monterrey tiene dos obras (Ayto. El Paso / Dragados): sin aclarar. 19/11: el albarán Diexfe VCTF-021812-2026 del 18/11 trae este material: parece entregado (no se cambia el estado porque lo tocaste tú en la página).",
+  "obra": null,
+  "obraRaw": "Hotel Monterrey",
+  "op": "Antonio Electricista",
+  "origen": "whatsapp",
+  "texto": "4 m cable 4x1x95 mm RZ1-K\n4 m cable tierra 1x50 mm H07Z1-K\n8 terminales de 95 mm"
+}

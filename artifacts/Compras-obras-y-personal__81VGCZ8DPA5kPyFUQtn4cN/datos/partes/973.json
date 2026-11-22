@@ -1,0 +1,34 @@
+{
+  "albs": [],
+  "cliente": "ÁRIDOS RIACHUELO SAU",
+  "desc": "Saneamiento cables conexiones en borbero motor generador conexionado y mediciones, pruebas de arranque en vacío y en carga. Funcionando",
+  "devol": [],
+  "estado": "TERMINADO",
+  "fecha": "2026-11-16",
+  "horas": 8,
+  "id": "973",
+  "obra": "AVERÍAS PLANTA GENERADOR",
+  "ops": [
+    {
+      "h": 4,
+      "n": "Toño"
+    },
+    {
+      "h": 4,
+      "n": "Manuel"
+    }
+  ],
+  "origen": "dashboard",
+  "stock": [
+    {
+      "d": "Manguitos cobre 150mm",
+      "q": 2,
+      "u": ""
+    },
+    {
+      "d": "termorretractil 34/7",
+      "q": 1,
+      "u": "m"
+    }
+  ]
+}

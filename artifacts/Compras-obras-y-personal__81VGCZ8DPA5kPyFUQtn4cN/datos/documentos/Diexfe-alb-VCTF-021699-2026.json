@@ -1,0 +1,49 @@
+{
+  "empresa": "Instapalma",
+  "fecha": "2026-11-17",
+  "lineas": [
+    {
+      "a": "VCTF-021699-2026",
+      "d": "DIFERENCIAL DX3 4/40/30AC",
+      "dto": "Neto",
+      "f": "2026-11-17",
+      "i": 42.74,
+      "o": "NUEVO ALMACEN 2",
+      "pn": 42.74,
+      "pt": 42.738,
+      "q": 1,
+      "r": "LEG-411661"
+    },
+    {
+      "a": "VCTF-021699-2026",
+      "d": "DIFERENCIAL DX3 4/80/30AC",
+      "dto": "Neto",
+      "f": "2026-11-17",
+      "i": 239.99,
+      "o": "NUEVO ALMACEN 2",
+      "pn": 239.99,
+      "pt": 239.987,
+      "q": 1,
+      "r": "LEG-411663"
+    },
+    {
+      "a": "VCTF-021699-2026",
+      "d": "MANDO MOTORIZADO DX3 RECONEX",
+      "dto": "Neto",
+      "f": "2026-11-17",
+      "i": 216.04,
+      "o": "NUEVO ALMACEN 2",
+      "pn": 108.02,
+      "pt": 108.02,
+      "q": 2,
+      "r": "LEG-406295"
+    }
+  ],
+  "msg": "1a1e970b6e82c775",
+  "numero": "VCTF-021699-2026",
+  "obra": "NUEVO ALMACEN 2",
+  "origen": "Gmail",
+  "proveedor": "Diexfe",
+  "tipo": "albaran",
+  "total": 498.77
+}

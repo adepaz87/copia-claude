@@ -1,0 +1,73 @@
+{
+  "empresa": "Instapalma",
+  "fecha": "2026-11-18",
+  "lineas": [
+    {
+      "a": "VCTF-021792-2026",
+      "d": "RGTRO.SO.SUP.IP33 700X500 C/PL.HIDROFUGA",
+      "dto": "Neto",
+      "f": "2026-11-18",
+      "i": 284.8,
+      "o": "EDIFICIO DOMINGO",
+      "pn": 71.2,
+      "pt": 71.201,
+      "q": 4,
+      "r": "IDE-AB7050"
+    },
+    {
+      "a": "VCTF-021792-2026",
+      "d": "RGTRO.SO.SUP.IP33 450X450 C/PL.HIDROFUGA",
+      "dto": "Neto",
+      "f": "2026-11-18",
+      "i": 197.66,
+      "o": "EDIFICIO DOMINGO",
+      "pn": 49.415,
+      "pt": 49.416,
+      "q": 4,
+      "r": "IDE-AB4545"
+    },
+    {
+      "a": "VCTF-021792-2026",
+      "d": "CAJA ESTC.310X240X125 TORN.ROSC.PLAST.GR (12UD)",
+      "dto": "0,00",
+      "f": "2026-11-18",
+      "i": 62.54,
+      "o": "EDIFICIO DOMINGO",
+      "pn": 15.635,
+      "pt": 15.634,
+      "q": 4,
+      "r": "SOL-100887"
+    },
+    {
+      "a": "VCTF-021792-2026",
+      "d": "CJ.ETCA.CX.YBOX Y886P IP55 IK08 TORN",
+      "dto": "0,00",
+      "f": "2026-11-18",
+      "i": 18.37,
+      "o": "EDIFICIO DOMINGO",
+      "pn": 3.0617,
+      "pt": 3.061,
+      "q": 6,
+      "r": "SOL-Y886P"
+    },
+    {
+      "a": "VCTF-021792-2026",
+      "d": "CAJA ESTANCA 220X170X80 14CONOS (30)",
+      "dto": "0,00",
+      "f": "2026-11-18",
+      "i": 18.58,
+      "o": "EDIFICIO DOMINGO",
+      "pn": 6.1933,
+      "pt": 6.195,
+      "q": 3,
+      "r": "SOL-686"
+    }
+  ],
+  "msg": "1a1ee347827b3ba6",
+  "numero": "VCTF-021792-2026",
+  "obra": "EDIFICIO DOMINGO",
+  "origen": "Gmail",
+  "proveedor": "Diexfe",
+  "tipo": "albaran",
+  "total": 581.95
+}

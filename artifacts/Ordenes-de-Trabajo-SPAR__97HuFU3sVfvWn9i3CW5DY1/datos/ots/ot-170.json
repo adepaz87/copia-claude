@@ -1,0 +1,28 @@
+{
+  "actualizada": "2026-11-18T16:14:00Z",
+  "asignadaEn": "2026-11-18T11:54:45.390Z",
+  "avisadoWa": "2026-11-18T11:54:48.863Z",
+  "aviso": "",
+  "centro": "Planta Riachuelo",
+  "creada": "2026-11-18T11:54:39.137Z",
+  "descripcion": "Saltan protecciones al soldad",
+  "empresa": "Áridos El Riachuelo",
+  "estado": "terminada",
+  "fechaAviso": "2026-11-18",
+  "historial": [
+    "18/11/2026 11:54 · Registrada (aviso de José Gabriel)",
+    "18/11/2026 11:54 · Asignada a Toño Guardia",
+    "18/11/2026 11:54 · Asignación: Correo enviado a José Gabriel y José Antonio · WhatsApp a Toño Guardia programado · WhatsApp a José Gabriel programado",
+    "18/11/2026 16:14 · Terminada por el parte de Toño de la planta (16:00). Correo de cierre a José Gabriel y José Antonio y WhatsApp a José Gabriel"
+  ],
+  "informado": true,
+  "notaCierre": "Parte de Toño Guardia 18-11-2026-AVERIAS_TOMAS_EN_PLANTA-TONO-MANUEL.pdf en el grupo Instapalma (16:00); es la única OT abierta de Toño en la planta.",
+  "notas": "",
+  "operario": "Toño Guardia",
+  "ot": 170,
+  "parte": "18-11-2026-AVERIAS_TOMAS_EN_PLANTA-TONO-MANUEL.pdf",
+  "prioridad": "Sin especificar",
+  "solicitante": "José Gabriel",
+  "terminadaEn": "2026-11-18T16:00:00Z",
+  "tipo": "MANTENIMIENTO"
+}

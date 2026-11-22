@@ -1,0 +1,37 @@
+{
+  "empresa": "Instapalma",
+  "fecha": "2026-11-20",
+  "lineas": [
+    {
+      "a": "036.188/003",
+      "d": "CABLE UTP CAT6 LH Dca.BOB.500M",
+      "f": "2026-11-20",
+      "fab": "ADA-0702D2",
+      "i": 770,
+      "o": "EDIF. DOMINGO MARTIN",
+      "pn": 0.385,
+      "pt": 0.385,
+      "q": 2000,
+      "r": "28545"
+    },
+    {
+      "a": "036.188/003",
+      "d": "CABLE TV BLANCO 100Mt. SMK3000",
+      "f": "2026-11-20",
+      "fab": "SMK3000",
+      "i": 373,
+      "o": "EDIF. DOMINGO MARTIN",
+      "pn": 0.373,
+      "pt": 0.373,
+      "q": 1000,
+      "r": "11351"
+    }
+  ],
+  "msg": "1a1f7cfebf2ad553",
+  "numero": "036.188/003",
+  "obra": "EDIF. DOMINGO MARTIN",
+  "origen": "Gmail",
+  "proveedor": "Coelca",
+  "tipo": "albaran",
+  "total": 1143
+}

@@ -1,0 +1,32 @@
+{
+  "albs": [],
+  "cliente": "AYTO. BREÑA BAJA",
+  "desc": "Colocar y conectar adornos navideños en farolas. Cargar adornos en Ayumar y llevarlos al almacén del ayuntamiento. Colocar guirnaldas leds en pasillo de la plaza del ayuntamiento.",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-11-18",
+  "horas": 32,
+  "id": "999",
+  "obra": "ALUMBRADO NAVIDAD",
+  "ops": [
+    {
+      "h": 8,
+      "n": "Jorge"
+    },
+    {
+      "h": 8,
+      "n": "Iker"
+    },
+    {
+      "h": 8,
+      "n": "Rafa"
+    },
+    {
+      "h": 8,
+      "n": "Eloy"
+    }
+  ],
+  "origen": "dashboard",
+  "restante": "2 semanas",
+  "stock": []
+}

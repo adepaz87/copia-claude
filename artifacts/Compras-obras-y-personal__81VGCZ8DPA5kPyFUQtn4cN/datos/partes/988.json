@@ -1,0 +1,24 @@
+{
+  "albs": [],
+  "cliente": "AYUNTAMIENTO EL PASO",
+  "desc": "Pasar cable 5x6 RZ1 por bandeja de cuadro CSS2 hasta ubicacion cuadro bombas. Cerrar registros de pasillos y tapar techo. Colocar conmutadores que faltaban en 3 planta por pladur.",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-11-17",
+  "horas": 8,
+  "id": "988",
+  "obra": "HOTEL MONTERREY",
+  "ops": [
+    {
+      "h": 4,
+      "n": "Antonio"
+    },
+    {
+      "h": 4,
+      "n": "Iker"
+    }
+  ],
+  "origen": "dashboard",
+  "restante": "Indefinido",
+  "stock": []
+}

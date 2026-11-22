@@ -1,0 +1,24 @@
+{
+  "albs": [],
+  "cliente": "AYUNTAMIENTO EL PASO",
+  "desc": "Terminar iluminacion habitaciones 3 planta. Abrir huecos con perfiles y terminar iluminacion de habitaciones en 1 planta.",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-11-16",
+  "horas": 9,
+  "id": "977",
+  "obra": "HOTEL MONTERREY",
+  "ops": [
+    {
+      "h": 2,
+      "n": "Antonio"
+    },
+    {
+      "h": 7,
+      "n": "Iker"
+    }
+  ],
+  "origen": "dashboard",
+  "restante": "Indefinido",
+  "stock": []
+}

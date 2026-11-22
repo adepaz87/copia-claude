@@ -1,0 +1,36 @@
+{
+  "lines": [
+    {
+      "a": null,
+      "aj": true,
+      "d": "Medición cert. nº5 sin desglose",
+      "h": null,
+      "id": "qwx38yh",
+      "l": null,
+      "n": 5,
+      "q": 300,
+      "u": 300
+    },
+    {
+      "a": null,
+      "d": "CERTICACIÓN 6",
+      "h": null,
+      "id": "qa3ifbw",
+      "l": null,
+      "n": 7,
+      "q": 3512.2,
+      "u": 3512.2
+    },
+    {
+      "a": null,
+      "aj": true,
+      "d": "Regularización cert. nº7 por desglose",
+      "h": null,
+      "id": "rgaqzgj",
+      "l": null,
+      "n": 7,
+      "q": -300,
+      "u": -300
+    }
+  ]
+}

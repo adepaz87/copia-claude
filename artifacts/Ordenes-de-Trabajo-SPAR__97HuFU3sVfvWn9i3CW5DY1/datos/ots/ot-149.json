@@ -1,20 +1,28 @@
 {
-  "actualizada": "2026-11-12T11:15:00Z",
+  "actualizada": "2026-11-19T15:14:00Z",
+  "asignadaEn": "2026-11-18T11:50:57.071Z",
+  "avisadoWa": "2026-11-18T11:51:01.309Z",
   "aviso": "",
   "centro": "Nuevo Almacén II (Los Llanos)",
   "creada": "2026-11-12T10:45:00Z",
   "descripcion": "Colocar 2 diferenciales rearmables a las enfriadoras de refrigeración.",
   "empresa": "Tomás Barreto",
-  "estado": "pendiente",
+  "estado": "terminada",
   "fechaAviso": "2026-11-12",
   "historial": [
-    "12/11/2026 11:15 · Registrada desde la captura GIM de Raquel (correo «NUEVO ALMACEN 2»)"
+    "12/11/2026 11:15 · Registrada desde la captura GIM de Raquel (correo «NUEVO ALMACEN 2»)",
+    "18/11/2026 11:50 · Asignada a Toño Guardia",
+    "18/11/2026 11:51 · Asignación: Correo enviado a TBSA · WhatsApp a Toño Guardia programado · WhatsApp a Fernando programado",
+    "19/11/2026 15:14 · Terminada: «OT 149 resuelto» de Toño (14:21) y parte de Nuevo Almacén 2 (14:21). Correo de cierre a TBSA y WhatsApp a Fernando"
   ],
-  "informado": false,
+  "informado": true,
+  "notaCierre": "Resuelta por Toño Guardia el 19/11 («OT 149 resuelto» por WhatsApp a las 14:21) y parte 19-11-2026-NUEVO_ALMACEN_2-TONO-MANUEL.pdf en el grupo Instapalma (14:21).",
   "notas": "Captura GIM enviada por Raquel (correo «NUEVO ALMACEN 2», 12/11 10:45, cc Fernando). Solicitud creada por Administrador GIM (TBARRETO2) el 12/11 11:43, DPTO MANTENIMIENTO, sin prioridad indicada (sin nº de aviso visible).",
-  "operario": "",
+  "operario": "Toño Guardia",
   "ot": 149,
+  "parte": "19-11-2026-NUEVO_ALMACEN_2-TONO-MANUEL.pdf",
   "prioridad": "Sin especificar",
   "solicitante": "Raquel",
+  "terminadaEn": "2026-11-19T14:21:00Z",
   "tipo": "MANTENIMIENTO"
 }

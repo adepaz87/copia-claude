@@ -1,0 +1,49 @@
+{
+  "empresa": "Instapalma",
+  "fecha": "2026-11-18",
+  "lineas": [
+    {
+      "a": "VCTF-021812-2026",
+      "d": "CABLE AFIRENAX-X RZ1-K 0,6/1KV 1X95MM2",
+      "dto": "Neto",
+      "f": "2026-11-18",
+      "i": 259.63,
+      "o": "HOTEL MONTEREY",
+      "pn": 16.2269,
+      "pt": 16.227,
+      "q": 16,
+      "r": "MIG-84011"
+    },
+    {
+      "a": "VCTF-021812-2026",
+      "d": "CABLE AFIRENAX-L 05Z1-K/07Z1-K 1X50 AV BOBINA AF50AV",
+      "dto": "Neto",
+      "f": "2026-11-18",
+      "i": 35.68,
+      "o": "HOTEL MONTEREY",
+      "pn": 8.92,
+      "pt": 8.92,
+      "q": 4,
+      "r": "MIG-84108863"
+    },
+    {
+      "a": "VCTF-021812-2026",
+      "d": "TERMINAL CU T-95/10",
+      "dto": "Neto",
+      "f": "2026-11-18",
+      "i": 19.07,
+      "o": "HOTEL MONTEREY",
+      "pn": 2.3838,
+      "pt": 2.384,
+      "q": 8,
+      "r": "SOF-010640"
+    }
+  ],
+  "msg": "1a1eeb0c5558430e",
+  "numero": "VCTF-021812-2026",
+  "obra": "HOTEL MONTEREY",
+  "origen": "Gmail",
+  "proveedor": "Diexfe",
+  "tipo": "albaran",
+  "total": 314.38
+}

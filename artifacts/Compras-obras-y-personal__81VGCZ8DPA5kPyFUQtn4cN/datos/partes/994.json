@@ -1,0 +1,31 @@
+{
+  "albs": [],
+  "cliente": "CONSTRUCCIONES DOMINGO",
+  "desc": "Abrir huecos en baños y colocar cajas de mecanismos ya que iban a azulejar los baños",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-11-17",
+  "horas": 1,
+  "id": "994",
+  "obra": "CASAS BENEDICTO",
+  "ops": [
+    {
+      "h": 1,
+      "n": "Aythami"
+    }
+  ],
+  "origen": "dashboard",
+  "restante": "Indefinido",
+  "stock": [
+    {
+      "d": "cajas circulares Pladul",
+      "q": 2,
+      "u": ""
+    },
+    {
+      "d": "cajas dobles Pladul",
+      "q": 2,
+      "u": ""
+    }
+  ]
+}

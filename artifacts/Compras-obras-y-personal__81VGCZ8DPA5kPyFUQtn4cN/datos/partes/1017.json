@@ -1,0 +1,24 @@
+{
+  "albs": [],
+  "cliente": "AYTO. BREÑA BAJA",
+  "desc": "Colocar y conectar adornos navideños plaza de las madres, guirnaldas.",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-11-19",
+  "horas": 16,
+  "id": "1017",
+  "obra": "ALUMBRADO NAVIDAD",
+  "ops": [
+    {
+      "h": 8,
+      "n": "Eloy"
+    },
+    {
+      "h": 8,
+      "n": "Rafa"
+    }
+  ],
+  "origen": "dashboard",
+  "restante": "Indefinido",
+  "stock": []
+}

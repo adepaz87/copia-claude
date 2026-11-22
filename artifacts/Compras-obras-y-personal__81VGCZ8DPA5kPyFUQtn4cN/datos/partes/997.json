@@ -1,0 +1,23 @@
+{
+  "albs": [],
+  "cliente": "TOMAS BARRETO SA",
+  "desc": "Avería de diferencial en zona alumbrados de camaras frío, mediciones comprobados, búsqueda avería ,solucionado aislado conexiones cambio de diferencial. Mediciones de tierra en bucle. 4 ohmios.",
+  "devol": [],
+  "estado": "TERMINADO",
+  "fecha": "2026-11-18",
+  "horas": 8,
+  "id": "997",
+  "obra": "SPAR MEDEROS",
+  "ops": [
+    {
+      "h": 4,
+      "n": "Toño"
+    },
+    {
+      "h": 4,
+      "n": "Manuel"
+    }
+  ],
+  "origen": "dashboard",
+  "stock": []
+}

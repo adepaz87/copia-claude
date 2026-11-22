@@ -1,5 +1,5 @@
 {
-  "actualizada": "2026-11-13T11:42:00Z",
+  "actualizada": "2026-11-16T16:20:00Z",
   "archivo": "MANTTOBT_SPAR_MEDEROS_13-11-2026.pdf",
   "asset": "2efef4193f268d31f6554f238678d3cf",
   "centro": "SPAR Mederos",
@@ -11,6 +11,7 @@
   "proxima": "",
   "resultado": "30 OK · 3 NO",
   "sizeBytes": 44145,
+  "sustituido": true,
   "tipo": "OCA baja tensión",
   "titulo": "Revisión previa OCA BT"
 }

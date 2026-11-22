@@ -1,0 +1,26 @@
+{
+  "albs": [
+    "Coelca 011.318 /018"
+  ],
+  "cliente": "CONSTRUCCIONES DOS TUMBOS",
+  "desc": "Cableado incendio 2 planta (detectores,pulsadores,sirena interior y sirena exterior) Colocación cajas mecanismo Enhebrar circuitos alumbrado ,fuerza zonas comunes según esquemas unifilares. Enhebrar alimentaciones Habitaciones en 2planta desde cuadro general planta Conexionado registros Limpiar zonas de trabajo",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-11-19",
+  "horas": 22,
+  "id": "1021",
+  "obra": "RESIDENCIA TERCERA EDAD EL PASO",
+  "ops": [
+    {
+      "h": 11,
+      "n": "Petter"
+    },
+    {
+      "h": 11,
+      "n": "Jonathan Rodríguez"
+    }
+  ],
+  "origen": "dashboard",
+  "restante": "Indefinido",
+  "stock": []
+}

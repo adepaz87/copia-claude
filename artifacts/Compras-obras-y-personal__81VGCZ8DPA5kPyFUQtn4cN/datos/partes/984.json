@@ -1,0 +1,24 @@
+{
+  "albs": [],
+  "cliente": "COVALLE",
+  "desc": "Entubar por techo planta baja para puestos de trabajo oficina planta alta(fuerza,datos) Enhebrar circuitos alumbrado,alumbrado emergencia y fuerza sala juntas (planta alta ) Colocación bandeja rejiband 200x100 y 400x100 en nave,hacer curvas con bandeja rejiband. Limpiar zonas de trabajo.",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-11-16",
+  "horas": 22,
+  "id": "984",
+  "obra": "NAVE COOPERATIVA COVALLE",
+  "ops": [
+    {
+      "h": 11,
+      "n": "Petter"
+    },
+    {
+      "h": 11,
+      "n": "Jonathan Rodríguez"
+    }
+  ],
+  "origen": "dashboard",
+  "restante": "Indefinido",
+  "stock": []
+}

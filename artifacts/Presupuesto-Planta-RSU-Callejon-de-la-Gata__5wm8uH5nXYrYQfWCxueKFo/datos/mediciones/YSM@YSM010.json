@@ -1,0 +1,44 @@
+{
+  "lines": [
+    {
+      "a": null,
+      "d": "Medición sin desglose (cert. nº2)",
+      "h": null,
+      "id": "hjvxhal",
+      "l": null,
+      "n": 2,
+      "q": 100,
+      "u": 100
+    },
+    {
+      "a": null,
+      "d": "Medición sin desglose (cert. nº5)",
+      "h": null,
+      "id": "yglh2tc",
+      "l": null,
+      "n": 5,
+      "q": 20,
+      "u": 20
+    },
+    {
+      "a": null,
+      "d": "Medición sin desglose (cert. nº7)",
+      "h": null,
+      "id": "dotxdfz",
+      "l": null,
+      "n": 7,
+      "q": 30,
+      "u": 30
+    },
+    {
+      "a": null,
+      "d": "",
+      "h": null,
+      "id": "dkgv9vb",
+      "l": null,
+      "n": 8,
+      "q": 30,
+      "u": 30
+    }
+  ]
+}

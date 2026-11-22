@@ -1,0 +1,49 @@
+{
+  "empresa": "Instapalma",
+  "fecha": "2026-11-18",
+  "lineas": [
+    {
+      "a": "2026/01/014419",
+      "d": "ROTULADOR PUNTA LARGA",
+      "dto": "10",
+      "f": "2026-11-18",
+      "i": 1.57,
+      "o": "",
+      "pn": 1.57,
+      "pt": 1.74,
+      "q": 1,
+      "r": "223152"
+    },
+    {
+      "a": "2026/01/014419",
+      "d": "ROTULADOR PUNTA LARGA",
+      "dto": "10",
+      "f": "2026-11-18",
+      "i": 1.57,
+      "o": "",
+      "pn": 1.57,
+      "pt": 1.74,
+      "q": 1,
+      "r": "223152"
+    },
+    {
+      "a": "2026/01/014419",
+      "d": "GUANTE HEFESO TALLA M (8) SUPERFOAM",
+      "dto": "10",
+      "f": "2026-11-18",
+      "i": 8.89,
+      "o": "",
+      "pn": 2.2225,
+      "pt": 2.47,
+      "q": 4,
+      "r": "212420"
+    }
+  ],
+  "msg": "1a1effccd888bc98",
+  "numero": "2026/01/014419",
+  "obra": "",
+  "origen": "Gmail (reenviado a adm2)",
+  "proveedor": "Fraper",
+  "tipo": "albaran",
+  "total": null
+}

@@ -1,0 +1,25 @@
+{
+  "empresa": "Instapalma",
+  "fecha": "2026-11-19",
+  "lineas": [
+    {
+      "a": "VCTF-021894-2026",
+      "d": "TARJETERO SIMON 270 1 MICRORRUPT.BL",
+      "dto": "48,00",
+      "f": "2026-11-19",
+      "i": 34.25,
+      "o": "HOTEL MONTERREY",
+      "pn": 17.125,
+      "pt": 32.93,
+      "q": 2,
+      "r": "SIM-20000526-090"
+    }
+  ],
+  "msg": "1a1f33281a957349",
+  "numero": "VCTF-021894-2026",
+  "obra": "HOTEL MONTERREY",
+  "origen": "Gmail",
+  "proveedor": "Diexfe",
+  "tipo": "albaran",
+  "total": 34.25
+}

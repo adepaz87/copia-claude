@@ -1,0 +1,37 @@
+{
+  "empresa": "Kairos Supply",
+  "fecha": "2026-11-20",
+  "lineas": [
+    {
+      "a": "VCTF-022059-2026",
+      "d": "APLIQUE SELEN 12W 4000K 1250LM IP65",
+      "dto": "Neto",
+      "f": "2026-11-20",
+      "i": 33.75,
+      "o": "CALDERA TABURIENTE",
+      "pn": 5.625,
+      "pt": 5.625,
+      "q": 6,
+      "r": "BYF-4667"
+    },
+    {
+      "a": "VCTF-022059-2026",
+      "d": "AFIRENAS-X RZ1-K 0,6/1KV 3G35*",
+      "dto": "Neto",
+      "f": "2026-11-20",
+      "i": 262.6,
+      "o": "CALDERA TABURIENTE",
+      "pn": 17.5067,
+      "pt": 17.507,
+      "q": 15,
+      "r": "MIG-83901"
+    }
+  ],
+  "msg": "1a1f8ea236fed55d",
+  "numero": "VCTF-022059-2026",
+  "obra": "CALDERA TABURIENTE",
+  "origen": "Gmail",
+  "proveedor": "Diexfe",
+  "tipo": "albaran",
+  "total": 296.35
+}

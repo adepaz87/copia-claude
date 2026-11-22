@@ -1,0 +1,24 @@
+{
+  "albs": [],
+  "cliente": "COVALLE",
+  "desc": "Colocación puesto trabajo en pared pladur oficina Enhebrar circuitos AL ,ALE y Fuerza oficinas planta alta Limpiar zonas de trabajo",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-11-17",
+  "horas": 8,
+  "id": "992",
+  "obra": "NAVE COOPERATIVA COVALLE",
+  "ops": [
+    {
+      "h": 4,
+      "n": "Petter"
+    },
+    {
+      "h": 4,
+      "n": "Jonathan Rodríguez"
+    }
+  ],
+  "origen": "dashboard",
+  "restante": "Indefinido",
+  "stock": []
+}

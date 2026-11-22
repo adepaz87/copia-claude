@@ -1,0 +1,28 @@
+{
+  "actualizada": "2026-11-18T16:14:00Z",
+  "asignadaEn": "2026-11-18T11:18:37.782Z",
+  "avisadoWa": "2026-11-18T11:18:42.672Z",
+  "aviso": "",
+  "centro": "SPAR Mederos",
+  "creada": "2026-11-18T08:12:00Z",
+  "descripcion": "AVERÍA en el portillón de SPAR Mederos.",
+  "empresa": "Tomás Barreto",
+  "estado": "terminada",
+  "fechaAviso": "2026-11-18",
+  "historial": [
+    "18/11/2026 08:12 · Registrada desde el correo de Fernando «AVERIA PORTILLON MEDEROS»",
+    "18/11/2026 11:18 · Asignada a Toño Guardia",
+    "18/11/2026 11:18 · Asignación: Correo enviado a TBSA · WhatsApp a Toño Guardia programado · WhatsApp a Fernando programado",
+    "18/11/2026 16:14 · Terminada: «OT 169 resuelto» de Toño (16:04) y parte de SPAR Mederos (15:56). Correo de cierre a TBSA y WhatsApp a Fernando"
+  ],
+  "informado": true,
+  "notaCierre": "Resuelta por Toño Guardia el 18/11 («OT 169 resuelto» por WhatsApp a las 16:04) y parte 18-11-2026-SPAR_MEDEROS-TONO-MANUEL.pdf en el grupo Instapalma (15:56).",
+  "notas": "Correo de Fernando «AVERIA PORTILLON MEDEROS» (18/11 7:39, cc Raquel) sin texto, solo una foto (12 MB, no se pudo abrir desde aquí; verla en Gmail) y la misma imagen por WhatsApp a las 7:40. Detalle de la avería pendiente de confirmar.",
+  "operario": "Toño Guardia",
+  "ot": 169,
+  "parte": "18-11-2026-SPAR_MEDEROS-TONO-MANUEL.pdf",
+  "prioridad": "Alta",
+  "solicitante": "Fernando",
+  "terminadaEn": "2026-11-18T16:04:00Z",
+  "tipo": "MANTENIMIENTO"
+}

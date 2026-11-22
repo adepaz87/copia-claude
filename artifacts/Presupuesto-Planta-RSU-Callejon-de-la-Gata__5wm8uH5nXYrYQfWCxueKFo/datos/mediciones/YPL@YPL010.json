@@ -1,0 +1,37 @@
+{
+  "lines": [
+    {
+      "a": null,
+      "aj": false,
+      "d": "Medición cert. nº2",
+      "h": null,
+      "id": "ys8g2fv",
+      "l": null,
+      "n": 2,
+      "q": 4,
+      "u": 4
+    },
+    {
+      "a": null,
+      "aj": false,
+      "d": "Medición cert. nº5",
+      "h": null,
+      "id": "ip122ir",
+      "l": null,
+      "n": 5,
+      "q": 8,
+      "u": 8
+    },
+    {
+      "a": null,
+      "aj": false,
+      "d": "Medición cert. nº7",
+      "h": null,
+      "id": "hurbvzu",
+      "l": null,
+      "n": 7,
+      "q": 12,
+      "u": 12
+    }
+  ]
+}

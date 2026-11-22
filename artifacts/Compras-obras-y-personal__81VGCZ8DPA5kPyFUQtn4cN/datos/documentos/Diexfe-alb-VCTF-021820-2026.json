@@ -1,0 +1,49 @@
+{
+  "empresa": "Instapalma",
+  "fecha": "2026-11-18",
+  "lineas": [
+    {
+      "a": "VCTF-021820-2026",
+      "d": "CJ.DISTR.MET.XL3S 160 EMP.7 F.X 24 MOD.",
+      "dto": "Neto",
+      "f": "2026-11-18",
+      "i": 469.46,
+      "o": "CAFE D. MANUEL",
+      "pn": 469.46,
+      "pt": 469.461,
+      "q": 1,
+      "r": "LEG-337227"
+    },
+    {
+      "a": "VCTF-021820-2026",
+      "d": "PUERTA METALICA XL3S 160 7 X 24 MODULOS",
+      "dto": "Neto",
+      "f": "2026-11-18",
+      "i": 104.86,
+      "o": "CAFE D. MANUEL",
+      "pn": 104.86,
+      "pt": 104.859,
+      "q": 1,
+      "r": "LEG-337257"
+    },
+    {
+      "a": "VCTF-021820-2026",
+      "d": "CAJA DE EMPOTRAR PT10 516X200X90 FG10220",
+      "dto": "Neto",
+      "f": "2026-11-18",
+      "i": 16.86,
+      "o": "CAFE D. MANUEL",
+      "pn": 16.86,
+      "pt": 16.857,
+      "q": 1,
+      "r": "CMC-350C10"
+    }
+  ],
+  "msg": "1a1eebe673dc2804",
+  "numero": "VCTF-021820-2026",
+  "obra": "CAFE D. MANUEL",
+  "origen": "Gmail",
+  "proveedor": "Diexfe",
+  "tipo": "albaran",
+  "total": 591.18
+}

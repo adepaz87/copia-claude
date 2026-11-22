@@ -1,0 +1,107 @@
+{
+  "lines": [
+    {
+      "a": null,
+      "aj": true,
+      "d": "Medición cert. nº3 sin desglose",
+      "h": null,
+      "id": "kc1o4n8",
+      "l": null,
+      "n": 3,
+      "q": 400,
+      "u": 400
+    },
+    {
+      "a": null,
+      "aj": true,
+      "d": "Medición cert. nº4 sin desglose",
+      "h": null,
+      "id": "4ah6q9o",
+      "l": null,
+      "n": 4,
+      "q": 150,
+      "u": 150
+    },
+    {
+      "a": null,
+      "d": "CUÑAS",
+      "h": null,
+      "id": "qu7qsvg",
+      "l": null,
+      "n": 5,
+      "q": 220,
+      "u": 220
+    },
+    {
+      "a": null,
+      "d": "MURO 1",
+      "h": null,
+      "id": "sw2dkd3",
+      "l": null,
+      "n": 5,
+      "q": 282.4,
+      "u": 282.4
+    },
+    {
+      "a": null,
+      "d": "MURO 2",
+      "h": null,
+      "id": "yb98xwf",
+      "l": null,
+      "n": 5,
+      "q": 282.4,
+      "u": 282.4
+    },
+    {
+      "a": null,
+      "d": "MURO 4",
+      "h": null,
+      "id": "atcgibq",
+      "l": null,
+      "n": 5,
+      "q": 36,
+      "u": 36
+    },
+    {
+      "a": null,
+      "aj": true,
+      "d": "Regularización cert. nº5 por desglose",
+      "h": null,
+      "id": "cw2jdl8",
+      "l": null,
+      "n": 5,
+      "q": -550,
+      "u": -550
+    },
+    {
+      "a": null,
+      "d": "MURO 3",
+      "h": null,
+      "id": "p4sxrxq",
+      "l": null,
+      "n": 6,
+      "q": 36,
+      "u": 36
+    },
+    {
+      "a": 0.35,
+      "d": "MURETES PERIMETRALES",
+      "h": 0.5,
+      "id": "k994zli",
+      "l": 110,
+      "n": 6,
+      "q": 19.25,
+      "u": 1
+    },
+    {
+      "a": null,
+      "d": "",
+      "h": null,
+      "id": "543yzu4",
+      "l": null,
+      "n": 10,
+      "q": 0,
+      "u": null
+    }
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "empresa": "Instapalma",
+  "fecha": "2026-11-18",
+  "lineas": [
+    {
+      "a": "VCTF-021797-2026",
+      "d": "TUBO LED TOLEDO AVANT T8 CCG L1200MM 13,3W 2000LM 865 50K RL",
+      "dto": "Neto",
+      "f": "2026-11-18",
+      "i": 68.6,
+      "o": "SPAR MEDEROS",
+      "pn": 4.5733,
+      "pt": 4.573,
+      "q": 15,
+      "r": "SYL-0030241"
+    },
+    {
+      "a": "VCTF-021797-2026",
+      "d": "LUMERG.URA21LED PLUS 100 LM,1H,NO PMT.",
+      "dto": "Neto",
+      "f": "2026-11-18",
+      "i": 18.32,
+      "o": "SPAR MEDEROS",
+      "pn": 18.32,
+      "pt": 18.325,
+      "q": 1,
+      "r": "LEG-661602PL"
+    },
+    {
+      "a": "VCTF-021797-2026",
+      "d": "DOWNL.LED CIRC.6W 4000K 120X22MM ARO BL",
+      "dto": "Neto",
+      "f": "2026-11-18",
+      "i": 4.55,
+      "o": "SPAR MEDEROS",
+      "pn": 4.55,
+      "pt": 4.55,
+      "q": 1,
+      "r": "ROB-LEDPANEL6FB"
+    }
+  ],
+  "msg": "1a1ee41e117cb1c0",
+  "numero": "VCTF-021797-2026",
+  "obra": "SPAR MEDEROS",
+  "origen": "Gmail",
+  "proveedor": "Diexfe",
+  "tipo": "albaran",
+  "total": 91.47
+}

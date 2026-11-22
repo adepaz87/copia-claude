@@ -1,0 +1,31 @@
+{
+  "albs": [],
+  "cliente": "TRAGSA",
+  "desc": "Habrir huecos en pladur Colocación  de cajas Adecuación  de entubado",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-11-18",
+  "horas": 4,
+  "id": "1004",
+  "obra": "HOSPITAL (MOD G)",
+  "ops": [
+    {
+      "h": 4,
+      "n": "Juan"
+    }
+  ],
+  "origen": "dashboard",
+  "restante": "Indefinido",
+  "stock": [
+    {
+      "d": "cajas de 2 zukos",
+      "q": 6,
+      "u": ""
+    },
+    {
+      "d": "cajas de 1 zuķo",
+      "q": 4,
+      "u": ""
+    }
+  ]
+}

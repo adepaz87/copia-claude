@@ -216,6 +216,27 @@ table.data td input, table.data td select { padding: 5px 7px; }
 .prop input.num { width: 70px; padding: 4px 6px; }
 .prop .why { display: block; color: var(--muted); font-size: 12px; }
 .prop .nuevo { color: var(--warn); font-size: 12px; font-weight: 600; }
+/* Desde descripción */
+.desc-grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: 16px; max-width: 1100px; }
+.desc textarea#d-texto { min-height: 160px; }
+.desc .ejemplos { display: flex; gap: 6px; flex-wrap: wrap; }
+.desc .ejemplos .chip { font-weight: 500; text-align: left; }
+.prop.edit input, .prop.edit select { padding: 4px 6px; }
+.prop.edit td.c { min-width: 220px; }
+.prop.edit input.num { width: 76px; }
+.prop.edit input.u { width: 52px; }
+.prop.edit .imp { font-weight: 600; }
+.prop.edit tr.off td { opacity: .5; }
+.prop .est { color: var(--warn); font-size: 12px; font-weight: 600; }
+@media (max-width: 640px) {
+  .prop.edit thead { display: none; }
+  .prop.edit tr { display: grid; grid-template-columns: 28px repeat(3, minmax(0, 1fr)); gap: 6px; padding: 8px 0; border-bottom: 1px solid var(--line); }
+  .prop.edit td { border: 0; padding: 0; }
+  .prop.edit td.c { grid-column: 2 / -1; min-width: 0; }
+  .prop.edit td:nth-child(3), .prop.edit td:nth-child(6) { grid-column: 1 / 3; }
+  .prop.edit td.imp { grid-column: 3 / -1; align-self: center; }
+  .prop.edit input.num, .prop.edit input.u { width: 100%; }
+}
 [hidden] { display: none !important; }
 #pdf-host { position: fixed; left: -12000px; top: 0; }
 </style>
@@ -228,6 +249,7 @@ table.data td input, table.data td select { padding: 5px 7px; }
     </div>
     <nav class="tabs" role="tablist">
       <button class="tab" role="tab" id="tab-editor" data-view="editor" aria-selected="true">Presupuesto</button>
+      <button class="tab" role="tab" id="tab-descripcion" data-view="descripcion" aria-selected="false">Desde descripción</button>
       <button class="tab" role="tab" id="tab-guardados" data-view="guardados" aria-selected="false">Guardados <span class="count" id="count-guardados"></span></button>
       <button class="tab" role="tab" id="tab-catalogo" data-view="catalogo" aria-selected="false">Catálogo <span class="count" id="count-catalogo"></span></button>
       <button class="tab" role="tab" id="tab-empresa" data-view="empresa" aria-selected="false">Empresa</button>
@@ -346,6 +368,29 @@ table.data td input, table.data td select { padding: 5px 7px; }
         <div class="preview-label"><span>Vista previa</span><span id="preview-total"></span></div>
         <div class="paper-frame" id="paper-frame"><div class="paper-scale" id="paper-scale"><div class="paper" id="paper"></div></div></div>
       </div>
+    </div>
+  </section>
+
+  <!-- DESDE DESCRIPCIÓN -->
+  <section id="view-descripcion" hidden>
+    <div class="desc-grid">
+      <div class="notice" id="d-nosample" hidden>La generación automática no está disponible en esta vista. Abre la página en claude.ai con tu cuenta y permite que use Claude.</div>
+      <div class="panel plano desc">
+        <h2>Presupuesto desde descripción <small>Escribe el trabajo con tus palabras y Claude prepara las partidas</small></h2>
+        <label class="f">Descripción del trabajo<textarea id="d-texto" placeholder="Ej.: Reforma eléctrica completa de un piso de 90 m² en Los Llanos para Juan García: 3 dormitorios, 2 baños, cocina con vitro y horno, salón. Cambiar cuadro, cableado nuevo libre de halógenos, 2 tomas de TV y una toma para aire acondicionado. Con certificado."></textarea></label>
+        <div class="ejemplos" id="d-ejemplos">
+          <button type="button" class="chip" data-ej="Cambio de cuadro eléctrico en vivienda antigua: cuadro de 24 módulos, 2 diferenciales, 6 magnetotérmicos y toma de tierra nueva. Con boletín.">Cambio de cuadro</button>
+          <button type="button" class="chip" data-ej="Instalación de punto de recarga para coche eléctrico de 7,4 kW en garaje de vivienda unifamiliar, a 20 m del cuadro, con protecciones dedicadas y legalización.">Punto de recarga VE</button>
+          <button type="button" class="chip" data-ej="Iluminación LED de local comercial de 120 m²: 20 downlights empotrados, 2 circuitos con interruptores, alumbrado de emergencia y cartel exterior.">Iluminación local</button>
+        </div>
+        <label class="f">Indicaciones de precio o criterio (opcional)<input id="d-notas" placeholder="Ej.: materiales gama media, sin obra civil, 2 operarios"></label>
+        <div class="row">
+          <button class="btn primary" type="button" id="d-go">Generar presupuesto</button>
+          <button class="btn ghost" type="button" id="d-stop" hidden>Detener</button>
+          <span class="think" id="d-think" hidden>Preparando partidas, cantidades y precios. Suele tardar menos de un minuto…</span>
+        </div>
+      </div>
+      <div class="panel plano desc" id="d-out" hidden></div>
     </div>
   </section>
 
@@ -747,11 +792,12 @@ $("#btn-pdf").addEventListener("click", async () => {
 // ---------- tabs ----------
 function showView(v) {
   $$(".tab").forEach(t => t.setAttribute("aria-selected", String(t.dataset.view === v)));
-  ["editor", "guardados", "catalogo", "empresa"].forEach(n => $("#view-" + n).hidden = n !== v);
+  ["editor", "descripcion", "guardados", "catalogo", "empresa"].forEach(n => $("#view-" + n).hidden = n !== v);
   if (v === "editor") fitPaper();
   if (v === "guardados") renderGuardados();
   if (v === "catalogo") renderCatalogo();
   if (v === "empresa") fillEmpresa();
+  if (v === "descripcion") $("#d-texto").focus({ preventScroll: true });
   lsSet("presupuesto-vista", v);
 }
 $$(".tab").forEach(t => t.addEventListener("click", () => showView(t.dataset.view)));
@@ -1038,6 +1084,179 @@ $("#plano-out").addEventListener("click", e => {
   if (!imgLimits) return;
   $("#plano-panel").hidden = false;
   fitPaper();
+})();
+
+// ---------- presupuesto desde descripción ----------
+let dProp = null, dTurns = [], dQA = [], dCtl = null;
+const dTxt = $("#d-texto"), dNotas = $("#d-notas");
+dTxt.value = lsGet("desc-texto") || ""; dNotas.value = lsGet("desc-notas") || "";
+dTxt.addEventListener("input", () => lsSet("desc-texto", dTxt.value));
+dNotas.addEventListener("input", () => lsSet("desc-notas", dNotas.value));
+$("#d-ejemplos").addEventListener("click", e => { const b = e.target.closest("[data-ej]"); if (!b) return; dTxt.value = b.dataset.ej; lsSet("desc-texto", dTxt.value); dTxt.focus(); });
+function descPrompt() {
+  const cat = catalogo.map(c => ({ id: c.id, concepto: c.concepto, tipo: c.tipo, unidad: c.unidad, precio: num(c.precio) }));
+  return `Eres un instalador electricista experto en La Palma (Canarias) que prepara presupuestos de instalaciones eléctricas conforme al REBT. A partir de la descripción libre de un trabajo, prepara el presupuesto completo.
+
+1. Desglosa el trabajo en partidas de material, mano de obra y otros (certificados, legalización, desplazamiento, gestión de residuos…). Incluye lo que un profesional incluiría aunque no se diga expresamente (protecciones, cableado, tubo, cajas, pequeño material), sin inventar trabajos que no se piden.
+2. Pon cantidades realistas. Si faltan datos (metros, número de puntos…), haz una estimación razonable y explícala en "motivo".
+3. Usa los conceptos del catálogo siempre que encajen (indica su "catalogoId" y no cambies su precio). Si algo no está en el catálogo, pon catalogoId null y un precio unitario orientativo de mercado en Canarias, sin IGIC; esos precios se marcarán como estimados.
+4. Mano de obra en horas con las tarifas del catálogo si existen (oficial / ayudante).
+5. Si la descripción menciona datos del cliente (nombre, municipio, dirección, teléfono), extráelos; si no, déjalos vacíos.
+
+Descripción del trabajo:
+"""${dTxt.value.trim()}"""
+
+Indicaciones del instalador: ${dNotas.value.trim() || "ninguna"}
+
+Catálogo (JSON):
+${JSON.stringify(cat)}
+
+Responde SOLO con JSON con esta forma:
+{"titulo":"descripción corta de la obra para el presupuesto","cliente":{"nombre":"","municipio":"","direccion":"","telefono":""},"resumen":"2-3 frases con el alcance y el criterio usado","partidas":[{"catalogoId":"id o null","concepto":"texto claro para el cliente","tipo":"mat|mo|otro","unidad":"ud|m|h|pa|...","cantidad":0,"precio":0,"motivo":"breve: de dónde sale la cantidad o el precio"}],"observaciones":"texto opcional para el apartado Observaciones del presupuesto (qué incluye y qué no)","preguntas":[{"pregunta":"pregunta concreta al instalador","opciones":["respuesta rápida 1","respuesta rápida 2"]}]}
+
+En "preguntas" pon solo lo que de verdad cambiaría el presupuesto (máximo 5, cortas, con 2-4 opciones cuando tenga sentido; "opciones" puede ser []). Mientras tanto, rellena las partidas con tu mejor suposición.`;
+}
+function normDesc(r) {
+  if (!r || !Array.isArray(r.partidas)) throw { code: "invalid_json" };
+  r.partidas = r.partidas.map(p => {
+    const c = p.catalogoId ? catalogo.find(x => x.id === p.catalogoId) : null;
+    return { tipo: TIPOS[p.tipo] ? p.tipo : (c?.tipo || "mat"), concepto: c ? c.concepto : String(p.concepto || ""), unidad: c ? c.unidad : String(p.unidad || "ud"),
+      cantidad: num(p.cantidad), precio: c ? num(c.precio) : num(p.precio), enCatalogo: !!c, motivo: String(p.motivo || ""), sel: true };
+  }).filter(p => p.concepto);
+  r.cliente = r.cliente && typeof r.cliente === "object" ? r.cliente : {};
+  r.preguntas = (Array.isArray(r.preguntas) ? r.preguntas : []).map(x => typeof x === "string" ? { pregunta: x } : x).filter(x => x && x.pregunta)
+    .map(x => ({ pregunta: String(x.pregunta), opciones: Array.isArray(x.opciones) ? x.opciones.map(String).slice(0, 4) : [], respuesta: "" }));
+  return r;
+}
+async function runDesc(turns, busyBtn) {
+  dCtl = new AbortController();
+  const label = busyBtn?.textContent;
+  $("#d-go").disabled = true; $("#d-stop").hidden = false; $("#d-think").hidden = false;
+  if (busyBtn) { busyBtn.disabled = true; busyBtn.textContent = "Actualizando…"; }
+  try {
+    const r = await sample.json(turns, { modelTier: "complex", signal: dCtl.signal, cache: false });
+    const raw = JSON.stringify(r);
+    dProp = normDesc(r);
+    dTurns = [...turns, { role: "assistant", content: raw }];
+    renderDesc();
+    toast(dProp.preguntas.length ? "Propuesta lista. Revisa las partidas y contesta las preguntas si quieres afinarla." : "Propuesta lista. Revisa y crea el presupuesto.");
+  } catch (e) {
+    const msg = { cancelled: "Generación detenida.", not_granted: "Necesitas permitir que la página use Claude para generar presupuestos.", rate_limited: "Demasiadas peticiones seguidas. Espera un momento y vuelve a intentarlo.",
+      invalid_json: "Claude no devolvió una propuesta válida. Prueba otra vez o detalla más la descripción." }[e?.code];
+    toast(msg || "No se pudo generar: " + (e?.message || e?.code || "error"));
+    if (busyBtn?.isConnected) { busyBtn.disabled = false; busyBtn.textContent = label; }
+  }
+  $("#d-go").disabled = !sample; $("#d-stop").hidden = true; $("#d-think").hidden = true;
+}
+$("#d-go").addEventListener("click", () => {
+  if (!sample) return;
+  if (dTxt.value.trim().length < 15) { toast("Describe un poco más el trabajo"); dTxt.focus(); return; }
+  dProp = null; dQA = []; $("#d-out").hidden = true;
+  runDesc([{ role: "user", content: descPrompt() }]);
+});
+$("#d-stop").addEventListener("click", () => dCtl?.abort());
+function dTotal() { return r2(dProp.partidas.filter(x => x.sel).reduce((a, x) => a + num(x.cantidad) * num(x.precio), 0)); }
+function renderDesc() {
+  const p = dProp, out = $("#d-out"), c = p.cliente;
+  const cli = [c.nombre, c.municipio, c.direccion, c.telefono].filter(Boolean).map(esc).join(" · ");
+  const est = p.partidas.filter(x => !x.enCatalogo).length;
+  out.hidden = false;
+  out.innerHTML = `
+    <h2>Propuesta <small>edita lo que quieras antes de crear el presupuesto</small></h2>
+    <div class="resumen"><b>${esc(p.titulo || "Obra")}</b>${p.resumen ? "\n" + esc(p.resumen) : ""}${cli ? `\n<span class="hint">Cliente detectado: ${cli}</span>` : ""}</div>
+    ${p.preguntas.length ? `<div class="qa">
+      <h3>Preguntas de Claude <small>${p.preguntas.length === 1 ? "1 pendiente" : p.preguntas.length + " pendientes"}</small></h3>
+      ${p.preguntas.map((x, i) => `<div class="q" data-q="${i}">
+        <div class="qt">${esc(x.pregunta)}</div>
+        ${x.opciones.length ? `<div class="opts">${x.opciones.map(o => `<button type="button" class="chip" data-opt="${esc(o)}" aria-pressed="${x.respuesta === o}">${esc(o)}</button>`).join("")}</div>` : ""}
+        <input data-ans value="${esc(x.respuesta)}" placeholder="${x.opciones.length ? "O escribe tu respuesta" : "Tu respuesta"}" aria-label="Respuesta">
+      </div>`).join("")}
+      <label class="f">¿Algo más? (opcional)<input id="d-extra" placeholder="Ej.: quita el certificado, ya lo tiene"></label>
+      <div class="row"><button class="btn primary" type="button" id="d-answer">Responder y actualizar</button><span class="hint">Lo que dejes en blanco seguirá pendiente.</span></div>
+    </div>` : `<div class="qa done"><b>Sin dudas pendientes.</b> <span class="hint">Si quieres cambiar algo, díselo:</span>
+      <div class="row" style="margin-top:6px"><input id="d-extra" placeholder="Ej.: añade 4 puntos de luz en el jardín" style="flex:1 1 220px"><button class="btn" type="button" id="d-answer">Actualizar propuesta</button></div></div>`}
+    ${dQA.length ? `<details class="hist"><summary>Respuestas dadas (${dQA.length})</summary><ul>${dQA.map(x => `<li><b>${esc(x.pregunta)}</b><br>${esc(x.respuesta)}</li>`).join("")}</ul></details>` : ""}
+    <div class="tablewrap" style="border:0"><table class="prop edit">
+      <thead><tr><th></th><th>Concepto</th><th>Tipo</th><th class="r">Cant.</th><th>Ud.</th><th class="r">Precio</th><th class="r">Importe</th></tr></thead>
+      <tbody>${p.partidas.map((x, i) => `<tr data-i="${i}" class="${x.sel ? "" : "off"}">
+        <td class="s"><input type="checkbox" data-p="sel" ${x.sel ? "checked" : ""} aria-label="Incluir"></td>
+        <td class="c"><input data-p="concepto" value="${esc(x.concepto)}" aria-label="Concepto"><span class="why">${x.enCatalogo ? "" : `<span class="est">Precio estimado · </span>`}${esc(x.motivo)}</span></td>
+        <td><select data-p="tipo" aria-label="Tipo">${Object.entries(TIPOS).map(([k, v]) => `<option value="${k}" ${x.tipo === k ? "selected" : ""}>${v}</option>`).join("")}</select></td>
+        <td class="r"><input class="num" data-p="cantidad" value="${esc(fmtNum(x.cantidad))}" inputmode="decimal" aria-label="Cantidad"></td>
+        <td><input class="u" data-p="unidad" value="${esc(x.unidad)}" list="unidades" aria-label="Unidad"></td>
+        <td class="r"><input class="num" data-p="precio" value="${esc(String(x.precio).replace(".", ","))}" inputmode="decimal" aria-label="Precio"></td>
+        <td class="r imp">${fmtEur(r2(num(x.cantidad) * num(x.precio)))}</td>
+      </tr>`).join("")}</tbody>
+    </table></div>
+    <div class="row"><button class="btn small" type="button" id="d-addrow">+ Añadir partida</button>${est ? `<span class="hint">${est === 1 ? "1 precio estimado" : est + " precios estimados"} (no están en tu catálogo): revísalos.</span>` : ""}</div>
+    <div class="row">
+      <button class="btn primary" type="button" id="d-crear">Crear presupuesto nuevo</button>
+      <button class="btn" type="button" id="d-anadir">Añadir al presupuesto abierto</button>
+      <span class="hint">Base sin IGIC: <b id="d-total">${fmtEur(dTotal())}</b> · con IGIC ${fmtPct(num(empresa.igic))}: <b id="d-total-igic">${fmtEur(r2(dTotal() * (1 + num(empresa.igic) / 100)))}</b></span>
+    </div>`;
+}
+function dRefreshTotals() {
+  $("#d-total").textContent = fmtEur(dTotal());
+  $("#d-total-igic").textContent = fmtEur(r2(dTotal() * (1 + num(empresa.igic) / 100)));
+}
+$("#d-out").addEventListener("keydown", e => { if (e.key === "Enter" && e.target.matches("[data-ans], #d-extra")) { e.preventDefault(); $("#d-answer")?.click(); } });
+$("#d-out").addEventListener("input", e => {
+  const qd = e.target.closest(".q[data-q]");
+  if (qd && e.target.matches("[data-ans]")) { dProp.preguntas[+qd.dataset.q].respuesta = e.target.value; $$(".chip", qd).forEach(c => c.setAttribute("aria-pressed", String(c.dataset.opt === e.target.value))); return; }
+  const tr = e.target.closest("tr[data-i]"); if (!tr) return;
+  const x = dProp.partidas[+tr.dataset.i], f = e.target.dataset.p; if (!f) return;
+  if (f === "sel") { x.sel = e.target.checked; tr.classList.toggle("off", !x.sel); }
+  else if (f === "cantidad" || f === "precio") x[f] = num(e.target.value);
+  else x[f] = e.target.value;
+  $(".imp", tr).textContent = fmtEur(r2(num(x.cantidad) * num(x.precio)));
+  dRefreshTotals();
+});
+$("#d-out").addEventListener("click", e => {
+  const opt = e.target.closest("[data-opt]");
+  if (opt) { const qd = opt.closest(".q[data-q]"); const x = dProp.preguntas[+qd.dataset.q]; x.respuesta = opt.dataset.opt; $("[data-ans]", qd).value = x.respuesta; $$(".chip", qd).forEach(c => c.setAttribute("aria-pressed", String(c === opt))); return; }
+  const id = e.target.id;
+  if (id === "d-answer") {
+    const answered = dProp.preguntas.filter(x => x.respuesta.trim());
+    const extra = ($("#d-extra")?.value || "").trim();
+    if (!answered.length && !extra) { toast("Contesta al menos una pregunta o escribe un cambio"); return; }
+    dQA.push(...answered.map(x => ({ pregunta: x.pregunta, respuesta: x.respuesta.trim() })));
+    if (extra) dQA.push({ pregunta: "Indicación adicional", respuesta: extra });
+    const pend = dProp.preguntas.filter(x => !x.respuesta.trim()).map(x => x.pregunta);
+    const actuales = dProp.partidas.map(x => ({ concepto: x.concepto, tipo: x.tipo, unidad: x.unidad, cantidad: x.cantidad, precio: x.precio, incluida: x.sel }));
+    const msg = `Respuestas del instalador:
+${answered.map(x => `- ${x.pregunta}\n  → ${x.respuesta.trim()}`).join("\n")}${extra ? `\n- Indicación adicional: ${extra}` : ""}
+${pend.length ? `\nSin contestar todavía: ${pend.join(" | ")}` : ""}
+
+El instalador puede haber editado las partidas. Estado actual (respeta sus cambios de concepto, cantidad y precio salvo que la respuesta obligue a cambiarlos; omite las que tengan incluida=false):
+${JSON.stringify(actuales)}
+
+Actualiza la propuesta. Devuelve SOLO el JSON completo con la misma forma (todas las partidas). En "preguntas" pon solo lo que siga pendiente o dudas nuevas; si no hay, [].`;
+    runDesc([...dTurns, { role: "user", content: msg }], e.target);
+    return;
+  }
+  if (id === "d-addrow") { dProp.partidas.push({ tipo: "mat", concepto: "", unidad: "ud", cantidad: 1, precio: 0, enCatalogo: true, motivo: "", sel: true }); renderDesc(); $$("#d-out tr[data-i]").pop()?.querySelector("[data-p=concepto]")?.focus(); return; }
+  if (id !== "d-crear" && id !== "d-anadir") return;
+  const sel = dProp.partidas.filter(x => x.sel && x.concepto.trim());
+  if (!sel.length) { toast("Marca al menos una partida"); return; }
+  const nuevo = id === "d-crear" || q.ejemplo;
+  if (nuevo) {
+    if (dirty && !q.ejemplo && e.target.dataset.armed !== "1") { e.target.dataset.armed = "1"; e.target.textContent = "Hay cambios sin guardar en el abierto. Pulsa otra vez"; setTimeout(() => { if (e.target.isConnected) { e.target.dataset.armed = ""; e.target.textContent = "Crear presupuesto nuevo"; } }, 3500); return; }
+    q = blankQuote(); q.lineas = [];
+    const c = dProp.cliente;
+    ["nombre", "municipio", "direccion", "telefono"].forEach(k => { if (c[k]) q.cliente[k] = String(c[k]); });
+    if (dProp.titulo) q.obra.titulo = dProp.titulo;
+    if (dProp.observaciones) q.notas = String(dProp.observaciones);
+  } else {
+    q.lineas = q.lineas.filter(l => l.concepto || num(l.precio));
+    if (!q.obra.titulo && dProp.titulo) q.obra.titulo = dProp.titulo;
+  }
+  sel.forEach(x => q.lineas.push(newLine(x.tipo, { concepto: x.concepto.trim(), unidad: x.unidad, cantidad: x.cantidad, precio: x.precio })));
+  markDirty(); fillEditor(); renderStatus(); showView("editor"); window.scrollTo(0, 0);
+  toast(nuevo ? `Presupuesto creado con ${sel.length} partidas. Revísalo y guárdalo.` : `${sel.length} partidas añadidas`);
+});
+(async () => {
+  const s = await cap("sample");
+  if (!s) { $("#d-nosample").hidden = false; $("#d-go").disabled = true; }
 })();
 
 // ---------- boot ----------

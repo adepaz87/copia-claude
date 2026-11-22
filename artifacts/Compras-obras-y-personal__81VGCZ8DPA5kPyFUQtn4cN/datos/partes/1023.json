@@ -1,0 +1,20 @@
+{
+  "albs": [],
+  "cliente": "INSTAPALMA",
+  "desc": "Encalar lateral exterior de vivienda",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-11-20",
+  "horas": 8,
+  "id": "1023",
+  "obra": "CASA EL REMO",
+  "ops": [
+    {
+      "h": 8,
+      "n": "Luigi"
+    }
+  ],
+  "origen": "dashboard",
+  "restante": "5",
+  "stock": []
+}

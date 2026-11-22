@@ -1,13 +1,18 @@
 {
+  "albaran": "Diexfe VCTF-021820-2026",
+  "contacto": "Marco Diexfe",
   "creado": "2026-11-03T20:50:00Z",
   "entrega": "",
-  "estado": "pendiente",
+  "estado": "entregado",
   "f": "2026-10-20T16:16",
+  "fcierre": "2026-11-18T13:00",
+  "fcursado": "2026-11-18T12:34",
   "grupo": "Pedidos Instapalma",
-  "nota": "Sigue pendiente según la lista de Alberto del 03/11.",
+  "nota": "Sigue pendiente según la lista de Alberto del 03/11. 18/11 12:08 Alberto pidió a Marco un cuadro con esas dimensiones máximas: Marco ofrece cuadro 7 filas × 24 el. (168 el.) y caja PT-10 (la PT-12 no existe). Alberto 12:34 «Mándalo» → almacén. Servido en albarán Diexfe VCTF-021820-2026 del 18/11 (cuadro XL3S 160 7×24 + puerta + caja PT10).",
   "obra": "cafe-don-manuel-el-paso",
   "obraRaw": "Café Don Manuel",
   "op": "Juan García",
   "origen": "whatsapp",
+  "prov": "Diexfe",
   "texto": "Cuadro de empotrar de 1,30x70\n1 caja de empotrar PT 12"
 }

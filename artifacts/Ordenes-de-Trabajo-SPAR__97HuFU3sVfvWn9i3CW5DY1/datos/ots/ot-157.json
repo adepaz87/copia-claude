@@ -1,5 +1,5 @@
 {
-  "actualizada": "2026-11-13T11:13:00Z",
+  "actualizada": "2026-11-16T16:14:00Z",
   "asignadaEn": "2026-11-13T08:39:21.966Z",
   "avisadoWa": "2026-11-13T08:39:26.741Z",
   "aviso": "",
@@ -14,24 +14,45 @@
     "13/11/2026 08:39 · Asignada a Toño Guardia",
     "13/11/2026 08:39 · Asignación: Correo enviado a TBSA · WhatsApp a Toño Guardia programado · WhatsApp a Fernando programado",
     "13/11/2026 11:13 · Terminada: parte de Toño de SPAR Mederos (10:49) y revisión de mantenimiento de supermercado (10:52). Correo de cierre a TBSA y WhatsApp a Fernando",
-    "13/11/2026 11:42 · Informe de revisión previa OCA BT guardado (Documentación) y enviado por correo a José Antonio, Fernando y Raquel, con copia a Alberto. 30 OK · 3 NO (unifilares, acceso a cuadros, termografía)"
+    "13/11/2026 11:42 · Informe de revisión previa OCA BT guardado (Documentación) y enviado por correo a José Antonio, Fernando y Raquel, con copia a Alberto. 30 OK · 3 NO (unifilares, acceso a cuadros, termografía)",
+    "16/11/2026 15:40 · Toño vuelve a Mederos: nueva revisión https://bot-production-66b8.up.railway.app/mantenimiento-supermercado/2/pdf (15:34), parte 16-11-2026-SPAR_MEDEROS-TONO-MANUEL.pdf (15:38) y «OT 157 resuelto» (15:40). La OT ya estaba cerrada desde el 13/11, así que no se repiten los avisos de cierre",
+    "16/11/2026 16:20 · Nuevo informe de revisión previa OCA BT (16/11) guardado (Documentación) y enviado por correo a José Antonio, Fernando y Raquel, con copia a Alberto. 28 OK · 5 NO (unifilares, acceso a cuadros, cucarachas en cuadro general, termografía, alumbrado)"
   ],
   "informado": true,
   "informeOCA": {
-    "archivo": "MANTTOBT_SPAR_MEDEROS_13-11-2026.pdf",
-    "asset": "2efef4193f268d31f6554f238678d3cf",
-    "docId": "doc-revision-oca-ot157-2026-11",
-    "enviado": "2026-11-13T11:42:00Z",
-    "fecha": "2026-11-13",
-    "fuente": "Dashboard Instapalma /mantenimientos-supermercado (id 1)",
+    "archivo": "MANTTOBT_SPAR_MEDEROS_16-11-2026.pdf",
+    "asset": "a5d7b0b8aea31ad5c0995e70e9e3d002",
+    "docId": "doc-revision-oca-ot157-2026-11-16",
+    "enviado": "2026-11-16T16:20:00Z",
+    "fecha": "2026-11-16",
+    "fuente": "Dashboard Instapalma /mantenimientos-supermercado (id 2)",
     "incidencias": [
-      "Esquemas unifilares no disponibles",
-      "Acceso a cuadros obstruido por materiales y mercancías",
-      "Termografía no realizada (sin cámara termográfica)"
+      "Esquemas unifilares no se encuentran en la tienda",
+      "Acceso a cuadros obstruido por mercancías y otros objetos",
+      "Cucarachas en la zona del cuadro general",
+      "Termografía no realizada (sin cámara termográfica)",
+      "Alumbrado: sala de ventas 1 downlight, almacén 1 tubo, garaje 14 tubos y 1 emergencia sin funcionar"
     ],
-    "resultado": "30 OK · 3 NO",
-    "url": "/_blob/2efef4193f268d31f6554f238678d3cf"
+    "resultado": "28 OK · 5 NO",
+    "url": "/_blob/a5d7b0b8aea31ad5c0995e70e9e3d002"
   },
+  "informesOCAanteriores": [
+    {
+      "archivo": "MANTTOBT_SPAR_MEDEROS_13-11-2026.pdf",
+      "asset": "2efef4193f268d31f6554f238678d3cf",
+      "docId": "doc-revision-oca-ot157-2026-11",
+      "enviado": "2026-11-13T11:42:00Z",
+      "fecha": "2026-11-13",
+      "fuente": "Dashboard Instapalma /mantenimientos-supermercado (id 1)",
+      "incidencias": [
+        "Esquemas unifilares no disponibles",
+        "Acceso a cuadros obstruido por materiales y mercancías",
+        "Termografía no realizada (sin cámara termográfica)"
+      ],
+      "resultado": "30 OK · 3 NO",
+      "url": "/_blob/2efef4193f268d31f6554f238678d3cf"
+    }
+  ],
   "notas": "OCA vencida (2025). Inspección previa realizada por Toño Guardia el 13/11/2026. Parte 13-11-2026-SPAR_MEDEROS-TONO-MANUEL.pdf (10:49) y revisión https://bot-production-66b8.up.railway.app/mantenimiento-supermercado/1/pdf (10:52), grupo Instapalma.",
   "operario": "Toño Guardia",
   "ot": 157,

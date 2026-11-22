@@ -1,0 +1,25 @@
+{
+  "empresa": "Kairos Supply",
+  "fecha": "2026-11-15",
+  "lineas": [
+    {
+      "a": "309006776",
+      "d": "CVS400F TM400D 4P3R",
+      "dto": "",
+      "f": "2026-11-06",
+      "fab": "LV540309",
+      "i": 1190.8,
+      "m": "Schneider Electric",
+      "o": "CANOPALMA",
+      "pn": 1190.8,
+      "pt": 1190.799235,
+      "q": 1,
+      "r": "104698"
+    }
+  ],
+  "msg": "1a1e3befc5e75085",
+  "numero": "F03000R-14728",
+  "origen": "Gmail (reenviado a adm2)",
+  "proveedor": "Sonepar",
+  "tipo": "factura"
+}

@@ -1,0 +1,25 @@
+{
+  "empresa": "Instapalma",
+  "fecha": "2026-11-20",
+  "lineas": [
+    {
+      "a": "VCTF-022033-2026",
+      "d": "CBL.FLEXTREME 450/750V 5G6 H07RN-F NG.",
+      "dto": "Neto",
+      "f": "2026-11-20",
+      "i": 124.16,
+      "o": "ARIDOS RIACHUELO",
+      "pn": 6.208,
+      "pt": 6.208,
+      "q": 20,
+      "r": "PRY-20031907"
+    }
+  ],
+  "msg": "1a1f8b5811dbd770",
+  "numero": "VCTF-022033-2026",
+  "obra": "ARIDOS RIACHUELO",
+  "origen": "Gmail",
+  "proveedor": "Diexfe",
+  "tipo": "albaran",
+  "total": 124.16
+}

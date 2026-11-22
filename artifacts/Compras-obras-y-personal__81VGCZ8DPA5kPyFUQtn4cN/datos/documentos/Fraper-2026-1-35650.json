@@ -1,0 +1,27 @@
+{
+  "base": 45.41,
+  "empresa": "Instapalma",
+  "fecha": "2026-11-18",
+  "lineas": [
+    {
+      "a": "",
+      "d": "SPRAY MARCADOR OBRAS 500ML FUCSIA 2815",
+      "dto": "10",
+      "f": "2026-11-18",
+      "i": 45.41,
+      "igic": 3,
+      "o": "",
+      "pn": 7.5683,
+      "pt": 8.41,
+      "q": 6,
+      "r": "168892"
+    }
+  ],
+  "msg": "1a1edb1a9436b202",
+  "nota": "Factura de contado (efectivo), sin albarán ni obra",
+  "numero": "2026/01/035650",
+  "origen": "Gmail (reenviado a adm2)",
+  "proveedor": "Fraper",
+  "tipo": "factura",
+  "total": 46.77
+}

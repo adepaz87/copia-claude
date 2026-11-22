@@ -1,0 +1,25 @@
+{
+  "empresa": "Instapalma",
+  "fecha": "2026-10-19",
+  "lineas": [
+    {
+      "a": "",
+      "d": "BATERÍA EDIX 95 AH720A+I 302X172X223 JAPON (95720-1)",
+      "dto": "",
+      "f": "2026-10-19",
+      "i": 98.2,
+      "igic": 7,
+      "o": "SPAR EL PASO",
+      "pn": 98.2,
+      "pt": 98.2,
+      "q": 1,
+      "r": "EN100JI"
+    }
+  ],
+  "msg": "1a1e5d656a25ccf7",
+  "numero": "2600635",
+  "obra": "SPAR EL PASO",
+  "origen": "Gmail (reenviado a adm2: FACTURA SPAR EL PASO)",
+  "proveedor": "Javier Pérez González (baterías)",
+  "tipo": "factura"
+}

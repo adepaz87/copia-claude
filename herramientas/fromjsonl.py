@@ -26,5 +26,10 @@ for line in open(tr):
         texts=[cc] if isinstance(cc,str) else [x.get("text","") for x in (cc or []) if isinstance(x,dict)]
         for t in texts:
             handle(t)
-            for p in re.findall(r'(/root/\.claude/projects/\S+?/tool-results/mcp-Claude_Docs-export-\d+\.txt)',t):
-                if os.path.exists(p): handle(open(p).read())
+            for p in re.findall(r'(/root/\.claude/projects/\S+?/tool-results/mcp-Claude_Docs-export-[\w-]+\.txt)',t):
+                if os.path.exists(p):
+                    raw=open(p).read()
+                    if raw.lstrip().startswith("["):
+                        try: raw="".join(x.get("text","") for x in json.loads(raw) if isinstance(x,dict))
+                        except Exception: pass
+                    handle(raw)

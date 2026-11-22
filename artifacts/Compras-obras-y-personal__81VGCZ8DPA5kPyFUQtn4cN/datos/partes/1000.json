@@ -1,0 +1,19 @@
+{
+  "albs": [],
+  "cliente": "INSTAPALMA",
+  "desc": "Lijar mesas para barnizarlas , lijar y pintar puertas , cambiar focos de luz ,cepillar puertas",
+  "devol": [],
+  "estado": "TERMINADO",
+  "fecha": "2026-11-17",
+  "horas": 8,
+  "id": "1000",
+  "obra": "CAFETERÍA KAIROS S,C",
+  "ops": [
+    {
+      "h": 8,
+      "n": "Luigi"
+    }
+  ],
+  "origen": "dashboard",
+  "stock": []
+}

@@ -1,0 +1,39 @@
+{
+  "actualizado": "2026-11-17T00:10:00.000Z",
+  "base": 4575,
+  "cliente": {
+    "cp": "38700",
+    "direccion": "Avda. Marítima, 3",
+    "email": "",
+    "municipio": "Santa Cruz de La Palma",
+    "nif": "P3800002B",
+    "nombre": "Cabildo Insular de La Palma",
+    "telefono": ""
+  },
+  "condiciones": "Incluye señalización de los trabajos, vehículo, operarios y encargado durante toda la ejecución.\nCualquier trabajo no incluido en este presupuesto se valorará aparte.\nForma de pago: a la presentación de la factura una vez finalizado el servicio.",
+  "creado": "2026-11-16T23:55:00.000Z",
+  "descuento": 0,
+  "ejemplo": false,
+  "estado": "borrador",
+  "fecha": "2026-11-16",
+  "igic": 7,
+  "lineas": [
+    {
+      "cantidad": 1,
+      "concepto": "Servicio de limpieza manual de especies exóticas y residuos, desbroce, soplado y cepillado de restos en ambos márgenes de la LP-307 entre Llanito y Vaquera. Incluye señalización, vehículo, operarios y encargado.",
+      "dto": 0,
+      "lid": "cab00001",
+      "precio": 4575,
+      "tipo": "otro",
+      "unidad": "pa"
+    }
+  ],
+  "notas": "Precio a tanto alzado por el servicio completo descrito.",
+  "numero": "478",
+  "obra": {
+    "direccion": "Ctra. LP-307, tramo Llanito – Vaquera",
+    "titulo": "Limpieza manual y desbroce de márgenes Ctra. LP-307 (tramo Llanito – Vaquera)"
+  },
+  "total": 4895.25,
+  "validezDias": 30
+}

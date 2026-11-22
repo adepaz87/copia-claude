@@ -1,0 +1,73 @@
+{
+  "empresa": "Instapalma",
+  "fecha": "2026-11-18",
+  "lineas": [
+    {
+      "a": "VCTF-021781-2026",
+      "d": "CABLE AFIRENAX-L 05Z1-K/07Z1-K 1,5MM2 NG",
+      "dto": "Neto",
+      "f": "2026-11-18",
+      "i": 45.4,
+      "o": "EDF SABINO",
+      "pn": 0.227,
+      "pt": 0.227,
+      "q": 200,
+      "r": "MIG-84100092"
+    },
+    {
+      "a": "VCTF-021781-2026",
+      "d": "CABLE AFIRENAX-L 05Z1-K/07Z1-K 1,5MM2 AZ",
+      "dto": "Neto",
+      "f": "2026-11-18",
+      "i": 45.4,
+      "o": "EDF SABINO",
+      "pn": 0.227,
+      "pt": 0.227,
+      "q": 200,
+      "r": "MIG-84100082"
+    },
+    {
+      "a": "VCTF-021781-2026",
+      "d": "CABLE AFIRENAX-L 05Z1-K/07Z1-K 2,5MM2 AZ",
+      "dto": "Neto",
+      "f": "2026-11-18",
+      "i": 527.8,
+      "o": "EDF SABINO",
+      "pn": 0.377,
+      "pt": 0.377,
+      "q": 1400,
+      "r": "MIG-84101082"
+    },
+    {
+      "a": "VCTF-021781-2026",
+      "d": "CABLE AFIRENAX-L 05Z1-K/07Z1-K 2,5MM2A/V",
+      "dto": "Neto",
+      "f": "2026-11-18",
+      "i": 527.8,
+      "o": "EDF SABINO",
+      "pn": 0.377,
+      "pt": 0.377,
+      "q": 1400,
+      "r": "MIG-84101086"
+    },
+    {
+      "a": "VCTF-021781-2026",
+      "d": "CABLE AFIRENAX-L 05Z1-K/07Z1-K 2,5MM2 NG",
+      "dto": "Neto",
+      "f": "2026-11-18",
+      "i": 301.6,
+      "o": "EDF SABINO",
+      "pn": 0.377,
+      "pt": 0.377,
+      "q": 800,
+      "r": "MIG-84101092"
+    }
+  ],
+  "msg": "1a1ee29ade4a892f",
+  "numero": "VCTF-021781-2026",
+  "obra": "EDF SABINO",
+  "origen": "Gmail",
+  "proveedor": "Diexfe",
+  "tipo": "albaran",
+  "total": 1448
+}

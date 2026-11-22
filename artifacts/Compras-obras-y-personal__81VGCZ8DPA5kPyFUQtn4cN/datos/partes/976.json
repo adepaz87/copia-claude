@@ -1,0 +1,23 @@
+{
+  "albs": [],
+  "cliente": "DRAGADOS",
+  "desc": "Desmontar cable de cuadro de luz de obra para poder aplacar escalera y pasarlo por otro sitio. Conectar y probar. Cambiar registro de la parte alta para colocar falso techo.",
+  "devol": [],
+  "estado": "TERMINADO",
+  "fecha": "2026-11-16",
+  "horas": 2,
+  "id": "976",
+  "obra": "TEATRO MONTERREY",
+  "ops": [
+    {
+      "h": 1,
+      "n": "Antonio"
+    },
+    {
+      "h": 1,
+      "n": "Iker"
+    }
+  ],
+  "origen": "dashboard",
+  "stock": []
+}

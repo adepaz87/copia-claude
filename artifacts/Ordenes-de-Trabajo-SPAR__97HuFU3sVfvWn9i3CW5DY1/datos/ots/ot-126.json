@@ -1,19 +1,23 @@
 {
-  "actualizada": "2026-11-03T16:34:00.764Z",
+  "actualizada": "2026-11-19T12:14:00Z",
   "aviso": "",
   "centro": "SPAR Santo Domingo (Garafía)",
   "creada": "2026-11-03T16:34:00.764Z",
   "descripcion": "UPS averiada; la TPV/caja se apagó dos veces sin corte eléctrico. En visita, Alberto confirmó\nque la UPS está muerta; requiere sustitución. Raquel solicita presupuesto. Prioridad sin\nespecificar",
-  "estado": "pendiente",
+  "estado": "terminada",
   "fechaAviso": "2026-11-03",
   "historial": [
-    "3/11/2026 16:34 · Registrada (aviso de )"
+    "3/11/2026 16:34 · Registrada (aviso de )",
+    "18/11/2026 15:14 · Reclamación de Fernando por correo (14:17): pide respuesta o que se lo digamos al cliente. Prioridad subida a Alta",
+    "19/11/2026 12:14 · Anulada a petición de TBSA (correo de Raquel, 12:03): el cliente no espera más. Cerrada sin trabajo"
   ],
   "informado": false,
-  "notas": "",
+  "notaCierre": "ANULADA: Raquel avisa por correo (19/11 12:03) de que Carmen Denia llamó y no espera más; piden anular. No se hizo el trabajo.",
+  "notas": "18/11 14:17: Fernando reclama por correo «UPS ASOCIADO SANTO DOMINGO GARAFIA» (cc Goretti y Raquel): «no sé cuánto tiempo llevamos reclamando este tema; si no lo puedes hacer, dilo para comentárselo al cliente».",
   "operario": "",
   "ot": 126,
-  "prioridad": "Sin especificar",
+  "prioridad": "Alta",
   "solicitante": "",
+  "terminadaEn": "2026-11-19T12:03:00Z",
   "tipo": "MANTENIMIENTO"
 }

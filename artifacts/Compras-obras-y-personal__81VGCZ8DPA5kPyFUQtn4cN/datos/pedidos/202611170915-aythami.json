@@ -1,0 +1,15 @@
+{
+  "albaran": "Diexfe VCTF-021781-2026",
+  "contacto": "Marco Diexfe",
+  "entrega": "",
+  "estado": "cursado",
+  "f": "2026-11-17T09:15",
+  "fcursado": "2026-11-17T09:25",
+  "nota": "A Marco solo se le pasó el 17/11 09:25 downlights, pulsadores y registro. Cable: 18/11 07:21 Alberto pidió precio a Marco y a Luis Pulido; Marco corrigió 14000→1400 m y a las 08:11 «OK, directo a obra». 18/11 12:48 Aythami: llegó el pedido pero mandaron cruzamientos en vez de los pulsadores anchos y estrechos luminosos; Marco 13:09 «Lo soluciono». Cable servido en albarán Diexfe VCTF-021781-2026 del 18/11 (1,5 mm² 200+200 m, 2,5 mm² 1400+1400+800 m); faltan los pulsadores correctos. 19/11: albarán Diexfe VCTF-021901-2026 (Edificio Sabino) trae 4 pulsadores 1P 10A NO iluminables 2 mód.: no cuadra del todo con los 12 luminosos pedidos, revisar.",
+  "obra": null,
+  "obraRaw": "Edificio Sabino",
+  "op": "Aythami",
+  "origen": "whatsapp",
+  "prov": "Diexfe",
+  "texto": "2 downlight\n6 pulsadores estrechos luminosos Classia\n6 pulsadores anchos Classic\n200 m fase 1,5\n200 m neutro 1,5\n14000 m neutro 2,5 (así lo escribe; ¿1400?)\n1400 m tierra 2,5\n800 m fase 2,5\n1 registro 15x20 sin tetones"
+}

@@ -1,0 +1,61 @@
+{
+  "empresa": "Instapalma",
+  "fecha": "2026-11-18",
+  "lineas": [
+    {
+      "a": "VCTF-021822-2026",
+      "d": "CABLE AFIRENAX-X RZ1-K 0,6/1KV 1X35MM2",
+      "dto": "Neto",
+      "f": "2026-11-18",
+      "i": 723.2,
+      "o": "FV SPAR TRIANA",
+      "pn": 5.65,
+      "pt": 5.65,
+      "q": 128,
+      "r": "MIG-84008"
+    },
+    {
+      "a": "VCTF-021822-2026",
+      "d": "CABLE AFIRENAX-X RZ1-K 0,6/1KV 1X16MM2",
+      "dto": "Neto",
+      "f": "2026-11-18",
+      "i": 81.6,
+      "o": "FV SPAR TRIANA",
+      "pn": 2.55,
+      "pt": 2.55,
+      "q": 32,
+      "r": "MIG-84006"
+    },
+    {
+      "a": "VCTF-021822-2026",
+      "d": "CABLE AFIRENAX-X RZ1-K 0,6/1KV 1X95MM2",
+      "dto": "Neto",
+      "f": "2026-11-18",
+      "i": 531.6,
+      "o": "FV SPAR TRIANA",
+      "pn": 13.29,
+      "pt": 13.29,
+      "q": 40,
+      "r": "MIG-84011"
+    },
+    {
+      "a": "VCTF-021822-2026",
+      "d": "CABLE AFIRENAX-X RZ1-K 0,6/1KV 1X50MM2",
+      "dto": "Neto",
+      "f": "2026-11-18",
+      "i": 78,
+      "o": "FV SPAR TRIANA",
+      "pn": 7.8,
+      "pt": 7.8,
+      "q": 10,
+      "r": "MIG-84009"
+    }
+  ],
+  "msg": "1a1eec3f4416e00e",
+  "numero": "VCTF-021822-2026",
+  "obra": "FV SPAR TRIANA",
+  "origen": "Gmail",
+  "proveedor": "Diexfe",
+  "tipo": "albaran",
+  "total": 1414.4
+}

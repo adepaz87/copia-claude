@@ -1,0 +1,24 @@
+{
+  "albs": [],
+  "cliente": "DRAGADOS",
+  "desc": "Reparar averia dn cuadro luz de obra. Ver obra para hacer acopio de material y colocar cuadros de luz de obra.",
+  "devol": [],
+  "estado": "EN CURSO",
+  "fecha": "2026-11-16",
+  "horas": 2,
+  "id": "975",
+  "obra": "34 VIVIENDAS TAZACORTE",
+  "ops": [
+    {
+      "h": 1,
+      "n": "Antonio"
+    },
+    {
+      "h": 1,
+      "n": "Transporte"
+    }
+  ],
+  "origen": "dashboard",
+  "restante": "1 dia",
+  "stock": []
+}

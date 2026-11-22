@@ -1,0 +1,19 @@
+{
+  "albs": [],
+  "cliente": "CHICHO 2 TUMBOS",
+  "desc": "Localizar avería, conectaron una radial grande y máquina de trépanos en el mismo extensible y lo quemaron internamente y hacía saltar general",
+  "devol": [],
+  "estado": "TERMINADO",
+  "fecha": "2026-11-18",
+  "horas": 9,
+  "id": "1009",
+  "obra": "EDIFICIO DOMINGO",
+  "ops": [
+    {
+      "h": 9,
+      "n": "Aythami"
+    }
+  ],
+  "origen": "dashboard",
+  "stock": []
+}
